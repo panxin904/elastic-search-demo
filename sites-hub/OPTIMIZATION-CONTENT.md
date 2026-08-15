@@ -979,3 +979,54 @@ dups -1 是意外收获：「## 关于本知识图谱」原本在多个站重复
 - audit-content.py 仍无法检测 Vue prop 数组漏逗号（§8.14 bug）。可加一个简单 grep 检查。
 
 效果：C2 任务从启动到收官共 8 节。下一阶段切换其他 C 任务（C4 Pagefind / C5 RSS / C6 评论 等）或部署验证。
+
+### 8.19 audit 加 Vue prop 数组语法校验（2026-08-15 第十二次）
+
+承接 §8.14 教训：第一次批量注入 WhyThisGraph 时漏写 Vue prop 数组元素间逗号，audit 不报（只统计出现次数），Vue 实际渲染时把多个字符串静默拼接为 1 个长串。
+
+**新增检查**：`check_vue_prop_arrays(text)` 函数
+
+```python
+def check_vue_prop_arrays(text: str) -> list[str]:
+    # 匹配 :prop-name="[ ... ]" 多行
+    pattern = re.compile(r':([\w-]+)\s*=\s*"\[(.*?)\]"', re.DOTALL)
+    # 对每个 prop body 的字符串行 / 对象行：
+    #   除最后一行外，末尾必须有逗号
+```
+
+**接入点**：
+- `site_stats` 加 `vue_prop_issues` 字段
+- 文件 loop 调用 `check_vue_prop_arrays(text)`，issues append 到 `issues_vue_props` 列表
+- 报告 `§〇 Summary` 加一行「Vue prop 数组缺逗号」
+- 报告「子站统计」表加 `VueBug` 列
+- 报告末尾加 `§九、Vue prop 数组语法错误`（仅在 issues > 0 时显示）
+- stdout print 加 `vue_bug: N`
+
+**验证**：
+
+| 测试 | 结果 |
+|------|------|
+| 5 单元测试（string / object / 多行 / 全正确） | ✅ 全通过 |
+| 28 站真实数据扫描 | ✅ vue_bug=0 |
+| 反向测试（注入 bug 到 chaos-html） | ✅ 抓到 2 处，§九 列出 |
+| 恢复反向测试数据 | ✅ vue_bug 回到 0 |
+
+**检测规则细节**：
+- 匹配 `:prop-name="[ ... ]"`（含 `:pain-points` / `:goals` / `:related-sites` 等所有 Vue prop 数组）
+- `re.DOTALL` 支持多行
+- 只检测字符串 / 对象字面量行（`"` 开头或 `{` 开头）
+- **最后一行不要求逗号**（Python / JS / Vue 都允许）
+
+**修复建议模板**：
+
+```python
+# 错误（audit 报 vue_bug）
+pp = '\n      '.join(f'"{p}"' for p in cfg['pain_points'])
+# 输出："a" "b" "c"
+
+# 正确
+pp = ',\n      '.join(f'"{p}"' for p in cfg['pain_points'])
+# 输出："a", "b", "c"
+```
+
+效果：audit 现在能检测 §8.14 类型的 bug，C2 推进过程中的隐蔽错误不再逃过审计。下次类似批量注入（28 站 WhyThisGraph 或其它 Vue 组件）时，CI fail-on-vue_bug 可保证不漏。
