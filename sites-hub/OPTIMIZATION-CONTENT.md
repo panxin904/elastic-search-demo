@@ -589,3 +589,22 @@ python3 sites-hub/scripts/audit-content.py
 - C2 跨站关联可在组件内加"相关站点"推荐位
 
 **未做**：未跑 `npm run docs:build` 验证（每个子站依赖 200+ MB，依赖用户 push 后 GitHub Actions 跑）
+
+### 8.11 拼写检查 baseline（2026-08-15 第四次）
+
+新增 `sites-hub/scripts/spell-check.sh` + `.codespell-ignore`（codespell 包装）：
+- 扫描 38 个目标（28 子站 docs + shared-assets + 关键脚本 + 顶层 MD）
+- 跳过 node_modules / .vitepress / dist / release / public / 二进制
+- 项目白名单 118 行分 5 类：[A] 评估指标 / [B] 工具服务 / [C] 数据结构 / [D] 文档业务 / [E] codespell 误拆
+- 后续：CI 接入 `--fail-on-error`，新增错别字自动 fail
+
+**修真错 18 处**：
+
+| 文件 | 处数 | 修改 |
+|------|----:|------|
+| ai/06-mcp/core.md | 11 | `ontext` → `context` |
+| design-pattern/01-gof-creational/builder.md | 3 | `froms` → `forms` |
+| linux/11-shell/debug.md | 3 | `USEER` → `USER` |
+| architecture/03-ha-theory/base.md | 1 | `vailable` → `available` |
+
+效果：拼写 baseline 0 错别字 ✅
