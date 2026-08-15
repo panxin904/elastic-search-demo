@@ -796,3 +796,48 @@ pp = ',\n      '.join(f'"{p}"' for p in cfg['pain_points'])
 thin -2 是因为删除了被 audit 标为「thin」（内容少）的原 section，是个意外改善。
 
 效果：C2 跨站关联规模化推进到 16/28 站。剩余 12 站（11 自定义 hero + 1 双 FM 异常）待 §8.16/§8.17。
+
+### 8.16 :related-sites 规模化第三波（2026-08-15 第九次）
+
+承接 §8.15：处理剩余 11 个「自定义 hero」站。这些站 FM 后已有内容（kg-badge / KnowledgeGraph / 关于本站 / 为什么需要），WhyThisGraph 与之有功能重叠。
+
+**注入策略**：先全部注入，**不删除原 section**。原因：
+
+- 11 站工作量已大，逐站分析删除/精简会拖慢节奏
+- 功能重叠虽然视觉上冗余，但不破坏功能（WhyThisGraph 是独立组件，原 section 是 markdown）
+- 后续 §8.18 单独做清理（基于 audit + 视觉反馈判断哪些 section 可删）
+
+**注入点分类**：
+
+| 注入点 | 站数 | 站 |
+|------|----:|----|
+| FM 后立即（功能重叠预留） | 8 | devops / filesystem / network / security / video / mysql / springcloud / observability |
+| `## 完整知识图谱` H2 前 | 2 | es / java-web-manual（保留 KnowledgeGraph，WhyThisGraph 作元信息） |
+| `<div id="all-tools">` 后 | 1 | tools |
+
+**每站内容配置**：4-6 痛点 / 5-6 目标 / 5 关联站（共 ~140-170 行/站）。
+
+**audit 数字**：
+
+| 指标 | §8.15 | §8.16 |
+|------|------:|------:|
+| xsite | 84 | **134**（+50）|
+| 已用 :related-sites 站 | 16 | **27**（+11）|
+| 总词数 | 1,157,757 | **1,159,712**（+1,955）|
+| 死链 / 缺 FM | 0 / 0 | 0 / 0 |
+
+**已知遗留问题**（§8.18 处理）：
+
+8 个功能重叠站现在同时存在：
+- WhyThisGraph（结构化痛点目标）
+- 原 section「## 关于本站 / 关于本知识图谱 / 🎯 为什么需要」（自由文本描述）
+
+视觉上有冗余，需要清理。判断标准：
+- 内容是否完全包含在 WhyThisGraph 的 pain-points / goals？→ 删原 section
+- 内容是否补充了 WhyThisGraph 没有的信息（如「6 大类 / 29 节点」统计）？→ 保留并精简
+
+**剩余 1 站**：
+
+- design-pattern-html — 双 FM 异常（line 1-3 + line 5-47 两个 frontmatter 块），§8.17 先修 FM 再注入。
+
+效果：C2 跨站关联规模化进度 27/28 站 = **96.4%** 完成。
