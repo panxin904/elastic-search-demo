@@ -841,3 +841,73 @@ thin -2 是因为删除了被 audit 标为「thin」（内容少）的原 sectio
 - design-pattern-html — 双 FM 异常（line 1-3 + line 5-47 两个 frontmatter 块），§8.17 先修 FM 再注入。
 
 效果：C2 跨站关联规模化进度 27/28 站 = **96.4%** 完成。
+
+### 8.17 design-pattern-html 双 FM 修复 + C2 全覆盖（2026-08-15 第十次）
+
+承接 §8.16：最后一站 design-pattern-html 有双 frontmatter 异常。
+
+**问题诊断**：
+
+```
+1: ---
+2: title: 设计模式 / GoF 23 式 / 反模式
+3: ---
+4:
+5: ---
+6: layout: home
+7:
+8: hero:
+   ...
+47: ---
+```
+
+两个 `---` 块（line 1-3 + line 5-47），VitePress 行为未定义。handoff 提到「frontmatter 覆盖率 100%」是因为 audit 不检测重复 FM 块。
+
+**修复**：合并为单一 FM，`title` 字段移到顶部。
+
+**修复后结构**：
+
+```
+1: ---
+2: title: 设计模式 / GoF 23 式 / 反模式
+3: layout: home
+4:
+5: hero:
+   ...
+45: ---
+46:
+47: <ClientOnly>
+48:   <WhyThisGraph ... />
+```
+
+**注入 WhyThisGraph**：5 pain / 5 goals / 5 related-sites（java-language / java / architecture / kafka / system-design）。
+
+**C2 全覆盖数据**：
+
+| 指标 | §8.10 起步 | §8.17 完成 | 总改善 |
+|------|------:|------:|------:|
+| 已用 :related-sites 站 | 5 | **28** | +23 |
+| 覆盖率 | 17.9% | **100%** | +82.1pp |
+| xsite 跨站引用 | 4 | **139** | +34.8x |
+| 关联术语（glossary） | 0 | **125** | new |
+| glossary 覆盖站 | 0 | **27** | new |
+
+**C2 完整闭环总结**：
+
+§8.10 起，5 站（ai / architecture / bigdata / cloud-native / java-language）用上 WhyThisGraph 的 `:related-sites` prop。
+
+四波规模化（§8.14 / §8.15 / §8.16 / §8.17）：
+
+| 节 | 站数 | 策略 |
+|----|----:|------|
+| §8.14 | 5 | 干净站直接注入 |
+| §8.15 | 6 | 功能重叠站合并原 section |
+| §8.16 | 11 | 自定义 hero 站先注入不删 section |
+| §8.17 | 1 | 双 FM 异常修复 + 注入 |
+
+**遗留事项**（§8.18 计划）：
+
+- 8 个功能重叠站（devops / filesystem / network / security / video / mysql / springcloud / observability）的原 section 与 WhyThisGraph 双渲染，需清理
+- audit-content.py 加 Vue prop 数组语法校验（避免 §8.14 漏逗号 bug 重现）
+
+效果：C2「跨站关联」任务从 §8.10 启动到 §8.17 完成，**完整闭环**。下一阶段切换到其他 C 任务（C4 Pagefind / C5 RSS / C6 评论 等）或 §8.18 清理。
