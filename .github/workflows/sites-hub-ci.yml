@@ -1,0 +1,104 @@
+name: sites-hub CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'sites-hub/**'
+      - '.github/workflows/sites-hub-ci.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'sites-hub/**'
+      - '.github/workflows/sites-hub-ci.yml'
+
+jobs:
+  check:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install nginx (for nginx -t)
+        run: sudo apt-get update && sudo apt-get install -y nginx-light
+
+      - name: Check SITES consistency (28 sites, 28 cards, 28 locations)
+        run: bash sites-hub/scripts/check-sites.sh
+
+      - name: Re-render nginx.conf from sites.sh
+        run: bash sites-hub/scripts/render-nginx-conf.sh
+
+      - name: nginx -t on rendered config
+        run: |
+          sudo nginx -c $PWD/sites-hub/conf/nginx.conf \
+                    -p $PWD/sites-hub/ -t
+
+      - name: Smoke-test Python helpers
+        run: |
+          python3 sites-hub/scripts/inject-stats.py --dry-run 2>&1 || true
+          # fall back: just verify they parse
+          python3 -m py_compile sites-hub/scripts/inject-stats.py
+          python3 -m py_compile sites-hub/scripts/make-og-cover.py
+
+      - name: Verify PWA assets present
+        run: |
+          test -f sites-hub/www/manifest.webmanifest
+          test -f sites-hub/www/favicon-192.png
+          test -f sites-hub/www/favicon-512.png
+          test -f sites-hub/www/og-cover.png
+          echo "PWA assets OK"
+
+      - name: Verify expected gzip / security / metrics locations
+        run: |
+          grep -q 'gzip_types'                  sites-hub/conf/nginx.conf
+          grep -q 'stub_status'                 sites-hub/conf/nginx.conf
+          grep -q 'limit_req_zone.*zone=auth'   sites-hub/conf/nginx.conf
+          grep -q 'location = /healthz'         sites-hub/conf/nginx.conf
+          grep -q 'location = /metrics'         sites-hub/conf/nginx.conf
+          grep -q 'location = /csp-report'      sites-hub/conf/nginx.conf
+          grep -q 'Content-Security-Policy'     sites-hub/conf/nginx.conf
+          echo "config guards OK"
+
+  lighthouse:
+    runs-on: ubuntu-22.04
+    needs: check
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Serve www/ on :8081
+        run: |
+          sudo mkdir -p /var/www/sites-hub
+          sudo cp -R sites-hub/www /var/www/sites-hub/www
+          # Use nginx to serve static (auth_basic off for CI)
+          cat > /tmp/ci-server.conf <<'NGX'
+          server {
+            listen 8081;
+            root /var/www/sites-hub/www;
+            index index.html;
+          }
+          NGX
+          sudo mv /tmp/ci-server.conf /etc/nginx/sites-enabled/ci
+          sudo nginx -s reload 2>/dev/null || sudo nginx
+
+      - name: Lighthouse audit
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          url: http://localhost:8081/
+          budgetPath: ./sites-hub/lighthouse-budget.json
+          uploadArtifacts: true
+
+  release:
+    needs: [check, lighthouse]
+    runs-on: ubuntu-22.04
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build static release (MOCK_BUILD for CI)
+        run: MOCK_BUILD=1 bash sites-hub/build-release.sh
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sites-hub-static
+          path: release/sites-hub-static.tar.gz

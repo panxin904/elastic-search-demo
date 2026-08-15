@@ -1,0 +1,127 @@
+---
+layout: home
+title: System Design 知识图谱
+hero:
+  name: System Design 知识图谱
+  text: 从理论到经典设计题
+  tagline: CAP / Paxos / Raft · 一致性哈希 · 分布式事务 · 短链 / 秒杀 / Feed
+  actions:
+    - theme: brand
+      text: 📖 理论基础
+      link: /01-theory/overview
+    - theme: alt
+      text: 🏛️ 分布式协调
+      link: /03-coordination/raft
+    - theme: alt
+      text: 🎯 经典设计题
+      link: /10-cases/short-url
+features:
+  - icon: 📖
+    title: 理论基础
+    details: CAP / PACELC / FLP / 一致性模型 / 共识问题
+    link: /01-theory/overview
+    linkText: 看理论 →
+  - icon: 💾
+    title: 分布式存储
+    details: 分片策略 / 一致性哈希 / 副本 / Quorum NWR
+    link: /02-storage/consistent-hash
+    linkText: 看存储 →
+  - icon: 🤝
+    title: 分布式协调
+    details: Paxos / Raft / ZAB / 分布式锁 / Leader 选举
+    link: /03-coordination/raft
+    linkText: 看协调 →
+  - icon: 🔄
+    title: 分布式事务
+    details: 2PC / 3PC / TCC / Saga / 本地消息表
+    link: /04-transaction/saga
+    linkText: 看事务 →
+  - icon: 🧩
+    title: 微服务模式
+    details: 服务发现 / 配置中心 / API 网关 / 熔断 / 限流 / 追踪
+    link: /05-patterns/service-discovery
+    linkText: 看模式 →
+  - icon: ⚡
+    title: 缓存体系
+    details: 多级缓存 / 缓存模式 / 一致性 / 雪崩穿透击穿
+    link: /06-cache/three-problems
+    linkText: 看缓存 →
+  - icon: 📨
+    title: 消息可靠性
+    details: 不丢 / 幂等 / 顺序 / 堆积处理
+    link: /07-messaging/not-lost
+    linkText: 看 MQ →
+  - icon: 🏢
+    title: 高可用设计
+    details: 主备 / 集群 / 多活 / 容灾演练
+    link: /08-availability/multi-idc
+    linkText: 看 HA →
+  - icon: 🆔
+    title: 分布式 ID
+    details: Snowflake / Leaf / UUID 对比
+    link: /09-id/snowflake
+    linkText: 看 ID →
+  - icon: 🎯
+    title: 经典设计题
+    details: 短链 / Feed / 秒杀 / 抢红包 / 排行 / LBS / 推送
+    link: /10-cases/short-url
+    linkText: 看案例 →
+---
+
+## 🎯 为什么做这个图谱？
+
+```
+系统设计是后端工程师的**分水岭**：
+  ❌ 会写 CRUD 却讲不清 CAP
+  ❌ 调过 Redis 却说不出 cache-aside 的失效边界
+  ❌ 用过 Kafka 但说不清"不丢消息"需要哪几道防线
+  ❌ 设计过系统但写不出"短链"的短码生成选型
+  ❌ 读过 Raft 论文但没自己推导过选举超时
+
+本图谱聚焦**理论 + 经典设计题**两条主线：
+  ✅ 一致性模型谱 + CAP + Paxos/Raft：分布式理论的根
+  ✅ 短链 / Feed / 秒杀 / 抢红包 / LBS：系统设计面试与实战
+  ✅ 每章都给出：问题 → 经典方案 → 工程取舍 → 代码骨架
+```
+
+## 📖 学习路径（推荐顺序）
+
+```
+📖 理论  →  CAP / PACELC / FLP / 一致性级别谱
+         ↓
+💾 存储  →  分片 / 一致性哈希 / Quorum
+         ↓
+🤝 协调  →  Raft 选举与日志复制 / 分布式锁
+         ↓
+🔄 事务  →  2PC / TCC / Saga 适用场景
+         ↓
+🧩 模式  →  服务发现 / 网关 / 熔断 / 限流
+         ↓
+⚡ 缓存  →  三大问题 + 多级缓存 + 一致性
+         ↓
+📨 消息  →  不丢 / 幂等 / 顺序 / 堆积
+         ↓
+🎯 案例  →  短链 / Feed / 秒杀 / 抢红包
+```
+
+## 💡 与「企业级架构」站的关系
+
+```
+🔄 互补关系，不重叠：
+  enterprise architecture 站  →  高并发 / 微服务 / DDD / 企业案例（偏工程师视角）
+  system design 站          →  分布式理论 / 经典设计题（偏架构师视角）
+
+📌 推荐路径：
+  看 kafka 的"消息可靠性" → 跳到这里看"不丢/幂等/顺序"
+  看 redis 的"集群"      → 跳到这里看"一致性哈希 + Quorum"
+  看 mysql 的"主从复制"   → 跳到这里看"Paxos/Raft + 2PC"
+```
+
+## 🎯 适用读者
+
+| 角色 | 推荐章节 |
+|---|---|
+| 后端工程师 | 理论基础 + 缓存 + 消息可靠性 + 案例 |
+| 架构师 | CAP / Raft / Saga / 微服务模式 / 多活 |
+| 面试候选人 | CAP + 一致性哈希 + 短链 + 秒杀 + 抢红包 |
+| SRE | 高可用设计 + 多活 / 单元化 + 容灾演练 |

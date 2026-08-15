@@ -1,0 +1,51 @@
+/* ============== Knowledge Graph ============== */
+.kg-container { position: relative; margin: 24px 0; padding: 16px;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  border-radius: 12px; border: 1px solid #e2e8f0; }
+.kg-container { background: var(--vp-c-bg-soft); }
+.kg-toolbar { display: flex; gap: 12px; align-items: center;
+  padding: 12px 16px; margin-top: 8px; flex-wrap: wrap; }
+.kg-toolbar__btn { padding: 6px 14px; border: 1px solid #e2e8f0;
+  border-radius: 6px; background: white; color: #334155;
+  font-size: 13px; cursor: pointer; transition: all 0.2s; }
+.kg-toolbar__btn:hover { border-color: #0f766e; color: #0f766e; }
+.kg-toolbar__legend { display: flex; gap: 12px; flex-wrap: wrap;
+  margin-left: auto; font-size: 12px; color: #64748b; }
+.kg-toolbar__legend > span { display: flex; align-items: center; gap: 4px; }
+.kg-legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+[data-theme="dark"] .kg-container { background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); border-color: #334155; }
+[data-theme="dark"] .kg-toolbar__btn { background: #1e293b; color: #cbd5e1; border-color: #334155; }
+
+/* ============== Mind Map ============== */
+.mindmap-container { position: relative; margin: 24px 0; padding: 16px;
+  background: var(--vp-c-bg-soft); border-radius: 12px; border: 1px solid var(--vp-c-border); }
+.mm-toolbar { display: flex; gap: 12px; padding: 12px 16px; margin-top: 8px; }
+.mm-toolbar__btn { padding: 6px 14px; border: 1px solid var(--vp-c-border);
+  border-radius: 6px; background: var(--vp-c-bg); color: var(--vp-c-text-2);
+  font-size: 13px; cursor: pointer; transition: all 0.2s; }
+.mm-toolbar__btn:hover { border-color: #0f766e; color: #0f766e; }
+
+/* ============== Badges ============== */
+.kg-badge { display: inline-block; padding: 2px 8px; border-radius: 4px;
+  font-size: 12px; font-weight: 600; margin-right: 6px; vertical-align: middle; }
+.kg-badge-basics { background: #dcfce7; color: #166534; }
+.kg-badge-disk-fs { background: #d1fae5; color: #065f46; }
+.kg-badge-distributed { background: #ccfbf1; color: #115e59; }
+.kg-badge-object { background: #cffafe; color: #155e75; }
+.kg-badge-network { background: #dbeafe; color: #1e40af; }
+.kg-badge-cloud-native { background: #e0e7ff; color: #3730a3; }
+.kg-badge-container { background: #fef3c7; color: #92400e; }
+.kg-badge-tools { background: #fde68a; color: #78350f; }
+.kg-badge-perf { background: #fed7aa; color: #9a3412; }
+.kg-badge-security { background: #fecaca; color: #991b1b; }
+.kg-badge-backup { background: #fbcfe8; color: #831843; }
+.kg-badge-cases { background: #e9d5ff; color: #6b21a8; }
+.kg-badge-interview { background: #fae8ff; color: #86198f; }
+
+/* ============== Stats ============== */
+.kg-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px; margin: 24px 0; }
+.kg-stat { padding: 16px; background: var(--vp-c-bg-soft);
+  border-radius: 8px; border: 1px solid var(--vp-c-border); text-align: center; }
+.kg-stat-num { font-size: 28px; font-weight: 700; color: #0f766e; line-height: 1.2; }
+.kg-stat-label { font-size: 12px; color: var(--vp-c-text-3); margin-top: 4px; }

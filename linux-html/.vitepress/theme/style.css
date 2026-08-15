@@ -1,0 +1,145 @@
+/* ============================================================
+ * Linux Knowledge Atlas theme styles
+ * ============================================================ */
+
+:root {
+  --fe-ink: #1f2937;
+  --fe-accent: #06b6d4;
+  --fe-soft: #e0f2fe;
+}
+
+.kg-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.kg-badge-foundation { background: #fef3c7; color: #d97706; }
+.kg-badge-filesystem { background: #dbeafe; color: #2563eb; }
+.kg-badge-text       { background: #cffafe; color: #06b6d4; }
+.kg-badge-process    { background: #ede9fe; color: #8b5cf6; }
+.kg-badge-user       { background: #fed7aa; color: #ea580c; }
+.kg-badge-package    { background: #fce7f3; color: #ec4899; }
+.kg-badge-network    { background: #cffafe; color: #0891b2; }
+.kg-badge-firewall   { background: #e0e7ff; color: #4f46e5; }
+.kg-badge-storage    { background: #d1fae5; color: #10b981; }
+.kg-badge-perf       { background: #fef9c3; color: #eab308; }
+.kg-badge-shell      { background: #dcfce7; color: #16a34a; }
+.kg-badge-systemd    { background: #fecdd3; color: #be123c; }
+.kg-badge-security   { background: #ddd6fe; color: #7c3aed; }
+.kg-badge-kernel     { background: #e2e8f0; color: #475569; }
+
+/* 通用容器 */
+.kg-container,
+.mindmap-container {
+  margin: 20px 0;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--vp-c-bg);
+}
+
+/* 工具栏 */
+.kg-toolbar,
+.mm-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--vp-c-bg-soft);
+  border-bottom: 1px solid var(--vp-c-divider);
+  flex-wrap: wrap;
+}
+.kg-toolbar__btn,
+.mm-toolbar__btn {
+  padding: 5px 12px;
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--vp-c-text-1);
+}
+.kg-toolbar__btn:hover { background: var(--fe-accent); color: white; border-color: var(--fe-accent); }
+.kg-toolbar__legend {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--vp-c-text-2);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.kg-legend-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+/* 命令块 */
+.cmd-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 14px 0;
+}
+@media (max-width: 720px) {
+  .cmd-grid { grid-template-columns: 1fr; }
+}
+.cmd-box {
+  background: #0f172a;
+  color: #e2e8f0;
+  border-radius: 8px;
+  padding: 14px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+.cmd-box .prompt { color: #06b6d4; }
+.cmd-box .comment { color: #64748b; }
+.cmd-box .ok { color: #4ade80; }
+.cmd-box .err { color: #ef4444; }
+.cmd-box .warn { color: #fbbf24; }
+.cmd-box .var { color: #f472b6; }
+
+/* 单行命令 */
+.cmd-line {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  margin: 6px 0;
+}
+.cmd-line::before { content: '$ '; color: #06b6d4; margin-right: 6px; }
+
+/* 选项表 */
+.cmd-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 12px 0;
+}
+.cmd-table th, .cmd-table td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+.cmd-table th {
+  background: var(--vp-c-bg-soft);
+  font-weight: 600;
+}
+.cmd-table code {
+  background: var(--vp-c-bg-soft);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+}

@@ -1,0 +1,207 @@
+- generic [ref=f14e3]:
+  - link "Skip to content" [ref=f14e4] [cursor=pointer]:
+    - /url: "#VPContent"
+  - banner:
+    - generic:
+      - generic:
+        - generic:
+          - link "ES Knowledge Atlas" [ref=f14e6] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f14e8]:
+            - button "Search" [ref=f14e11] [cursor=pointer]:
+              - generic [ref=f14e15]:
+                - generic [ref=f14e16]: ⌘
+                - generic [ref=f14e17]: K
+            - navigation "Main Navigation" [ref=f14e18]:
+              - link "首页" [ref=f14e20] [cursor=pointer]:
+                - /url: /
+              - link "存储层" [ref=f14e22] [cursor=pointer]:
+                - /url: /01-storage/overview
+              - link "查询层" [ref=f14e24] [cursor=pointer]:
+                - /url: /02-query/overview
+              - link "分析层" [ref=f14e26] [cursor=pointer]:
+                - /url: /03-analysis/overview
+              - link "运维层" [ref=f14e28] [cursor=pointer]:
+                - /url: /04-ops/overview
+              - link "7 vs 8" [ref=f14e30] [cursor=pointer]:
+                - /url: /99-compare/diff
+            - button "extra navigation" [ref=f14e33] [cursor=pointer]
+  - button "本页目录" [ref=f14e38] [cursor=pointer]
+  - complementary [ref=f14e40]:
+    - navigation "Sidebar Navigation" [ref=f14e42]:
+      - generic [ref=f14e45]:
+        - button [ref=f14e46]:
+          - heading "存储层 Storage" [level=2] [ref=f14e48]
+        - generic [ref=f14e49]:
+          - link [ref=f14e53] [cursor=pointer]:
+            - /url: /01-storage/overview
+            - paragraph [ref=f14e54]: 总览
+          - link [ref=f14e58] [cursor=pointer]:
+            - /url: /01-storage/cluster
+            - paragraph [ref=f14e59]: 集群 Cluster
+          - link [ref=f14e63] [cursor=pointer]:
+            - /url: /01-storage/node
+            - paragraph [ref=f14e64]: 节点 Node
+          - link [ref=f14e68] [cursor=pointer]:
+            - /url: /01-storage/index
+            - paragraph [ref=f14e69]: 索引 Index
+          - link [ref=f14e73] [cursor=pointer]:
+            - /url: /01-storage/document
+            - paragraph [ref=f14e74]: 文档 Document
+          - link [ref=f14e78] [cursor=pointer]:
+            - /url: /01-storage/shard
+            - paragraph [ref=f14e79]: 分片 Shard
+          - link [ref=f14e83] [cursor=pointer]:
+            - /url: /01-storage/replica
+            - paragraph [ref=f14e84]: 副本 Replica
+          - link [ref=f14e88] [cursor=pointer]:
+            - /url: /01-storage/segment
+            - paragraph [ref=f14e89]: 段 Segment
+          - link [ref=f14e93] [cursor=pointer]:
+            - /url: /01-storage/mapping
+            - paragraph [ref=f14e94]: 映射 Mapping
+          - link [ref=f14e98] [cursor=pointer]:
+            - /url: /01-storage/field-types
+            - paragraph [ref=f14e99]: 字段类型
+          - link [ref=f14e103] [cursor=pointer]:
+            - /url: /01-storage/source
+            - paragraph [ref=f14e104]: _source 元数据
+          - link [ref=f14e108] [cursor=pointer]:
+            - /url: /01-storage/translog
+            - paragraph [ref=f14e109]: Translog
+          - link [ref=f14e113] [cursor=pointer]:
+            - /url: /01-storage/refresh
+            - paragraph [ref=f14e114]: Refresh 机制
+  - generic [ref=f14e119]:
+    - main [ref=f14e120]:
+      - generic [ref=f14e122]:
+        - paragraph [ref=f14e123]:
+          - generic [ref=f14e124]: 存储层
+        - heading [level=1] [ref=f14e125]:
+          - text: 集群 Cluster
+          - link "Permalink to \"集群 Cluster\"" [ref=f14e126] [cursor=pointer]:
+            - /url: "#集群-cluster"
+            - text: "#"
+        - heading [level=2] [ref=f14e127]:
+          - text: 📌 一句话定义
+          - link "Permalink to \"📌 一句话定义\"" [ref=f14e128] [cursor=pointer]:
+            - /url: "#📌-一句话定义"
+            - text: "#"
+        - paragraph [ref=f14e129]:
+          - text: ES 集群是由
+          - strong [ref=f14e130]: 一个或多个节点
+          - text: 组成的、能对外提供统一搜索服务的分布式系统。
+        - heading [level=2] [ref=f14e131]:
+          - text: 🎯 为什么需要集群？
+          - link "Permalink to \"🎯 为什么需要集群？\"" [ref=f14e132] [cursor=pointer]:
+            - /url: "#🎯-为什么需要集群"
+            - text: "#"
+        - list [ref=f14e133]:
+          - listitem [ref=f14e134]:
+            - strong [ref=f14e135]: 水平扩展
+            - text: ：突破单机容量与吞吐上限
+          - listitem [ref=f14e136]:
+            - strong [ref=f14e137]: 高可用
+            - text: ：节点故障时副本接管
+          - listitem [ref=f14e138]:
+            - strong [ref=f14e139]: 并行处理
+            - text: ：查询与索引在多节点并行执行
+        - heading [level=2] [ref=f14e140]:
+          - text: 🔧 集群状态
+          - link "Permalink to \"🔧 集群状态\"" [ref=f14e141] [cursor=pointer]:
+            - /url: "#🔧-集群状态"
+            - text: "#"
+        - generic [ref=f14e142]:
+          - button "Copy Code" [ref=f14e143] [cursor=pointer]
+          - generic [ref=f14e144]: bash
+          - code [ref=f14e146]:
+            - generic [ref=f14e147]: GET /_cluster/health
+        - paragraph [ref=f14e148]: 返回：
+        - generic [ref=f14e149]:
+          - button "Copy Code" [ref=f14e150] [cursor=pointer]
+          - generic [ref=f14e151]: json
+          - code [ref=f14e153]:
+            - generic [ref=f14e154]: "{"
+            - generic [ref=f14e155]: "\"cluster_name\": \"es-demo\","
+            - generic [ref=f14e156]: "\"status\": \"green\", // green / yellow / red"
+            - generic [ref=f14e157]: "\"number_of_nodes\": 3,"
+            - generic [ref=f14e158]: "\"active_primary_shards\": 5,"
+            - generic [ref=f14e159]: "\"active_shards\": 10"
+            - generic [ref=f14e160]: "}"
+        - table [ref=f14e161]:
+          - rowgroup [ref=f14e162]:
+            - row [ref=f14e163]:
+              - columnheader "状态" [ref=f14e164]
+              - columnheader "含义" [ref=f14e165]
+          - rowgroup [ref=f14e166]:
+            - row [ref=f14e167]:
+              - cell "🟢 green" [ref=f14e168]
+              - cell "所有分片（含副本）正常分配" [ref=f14e169]
+            - row [ref=f14e170]:
+              - cell "🟡 yellow" [ref=f14e171]
+              - cell [ref=f14e172]:
+                - text: 主分片正常，
+                - strong [ref=f14e173]: 副本缺失
+                - text: （常见于单节点）
+            - row [ref=f14e174]:
+              - cell "🔴 red" [ref=f14e175]
+              - cell [ref=f14e176]:
+                - text: 至少一个主分片未分配，
+                - strong [ref=f14e177]: 有数据丢失风险
+        - heading [level=2] [ref=f14e178]:
+          - text: 🔗 节点角色
+          - link "Permalink to \"🔗 节点角色\"" [ref=f14e179] [cursor=pointer]:
+            - /url: "#🔗-节点角色"
+            - text: "#"
+        - table [ref=f14e180]:
+          - rowgroup [ref=f14e181]:
+            - row [ref=f14e182]:
+              - columnheader "角色" [ref=f14e183]
+              - columnheader "职责" [ref=f14e184]
+          - rowgroup [ref=f14e185]:
+            - row [ref=f14e186]:
+              - cell [ref=f14e187]:
+                - code [ref=f14e188]: master
+              - cell "集群状态管理、节点加入/离开" [ref=f14e189]
+            - row [ref=f14e190]:
+              - cell [ref=f14e191]:
+                - code [ref=f14e192]: data
+              - cell "存储数据、执行 CRUD/搜索" [ref=f14e193]
+            - row [ref=f14e194]:
+              - cell [ref=f14e195]:
+                - code [ref=f14e196]: ingest
+              - cell "预处理管道（ingest pipeline）" [ref=f14e197]
+            - row [ref=f14e198]:
+              - cell [ref=f14e199]:
+                - code [ref=f14e200]: coordinating
+              - cell "请求路由与结果聚合（每个节点默认都有）" [ref=f14e201]
+        - heading [level=2] [ref=f14e202]:
+          - text: 🗺️ 在图谱中的位置
+          - link "Permalink to \"🗺️ 在图谱中的位置\"" [ref=f14e203] [cursor=pointer]:
+            - /url: "#🗺️-在图谱中的位置"
+            - text: "#"
+        - heading [level=2] [ref=f14e208]:
+          - text: 📚 延伸阅读
+          - link "Permalink to \"📚 延伸阅读\"" [ref=f14e209] [cursor=pointer]:
+            - /url: "#📚-延伸阅读"
+            - text: "#"
+        - list [ref=f14e210]:
+          - listitem [ref=f14e211]:
+            - link "节点 Node" [ref=f14e212] [cursor=pointer]:
+              - /url: /01-storage/node
+          - listitem [ref=f14e213]:
+            - link "集群健康" [ref=f14e214] [cursor=pointer]:
+              - /url: /04-ops/cluster-health
+          - listitem [ref=f14e215]:
+            - link "分片分配" [ref=f14e216] [cursor=pointer]:
+              - /url: /04-ops/shard-allocation
+    - contentinfo [ref=f14e217]:
+      - navigation "Pager" [ref=f14e218]:
+        - link "上一篇 总览" [ref=f14e221] [cursor=pointer]:
+          - /url: /01-storage/overview
+          - generic [ref=f14e222]: 上一篇
+          - generic [ref=f14e223]: 总览
+        - link "下一篇 节点 Node" [ref=f14e225] [cursor=pointer]:
+          - /url: /01-storage/node
+          - generic [ref=f14e226]: 下一篇
+          - generic [ref=f14e227]: 节点 Node

@@ -1,0 +1,17 @@
+{
+  "name": "postgresql-html",
+  "version": "1.0.0",
+  "description": "PostgreSQL 知识图谱 - 现代关系型数据库 · JSONB · PostGIS · pgvector",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.4",
+    "vue": "^3.4.0",
+    "echarts": "^5.5.0"
+  }
+}

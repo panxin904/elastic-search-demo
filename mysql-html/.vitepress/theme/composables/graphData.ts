@@ -1,0 +1,616 @@
+// MySQL 知识图谱数据 - 50 节点 + 80+ 边
+export interface GraphNode {
+  id: string
+  name: string
+  category: string
+  value: number
+  link: string
+}
+
+export interface GraphLink {
+  source: string
+  target: string
+}
+
+export interface GraphData {
+  nodes: GraphNode[]
+  links: GraphLink[]
+}
+
+export const graphData: GraphData = {
+  "nodes": [
+    {
+      "id": "foundation-arch",
+      "name": "体系结构",
+      "category": "foundation",
+      "value": 8,
+      "link": "/01-foundation/architecture"
+    },
+    {
+      "id": "foundation-engine",
+      "name": "InnoDB 引擎",
+      "category": "foundation",
+      "value": 10,
+      "link": "/01-foundation/storage-engine"
+    },
+    {
+      "id": "foundation-myisam",
+      "name": "MyISAM 引擎",
+      "category": "foundation",
+      "value": 5,
+      "link": "/01-foundation/storage-engine"
+    },
+    {
+      "id": "foundation-memory",
+      "name": "MEMORY 引擎",
+      "category": "foundation",
+      "value": 4,
+      "link": "/01-foundation/storage-engine"
+    },
+    {
+      "id": "foundation-types",
+      "name": "数据类型",
+      "category": "foundation",
+      "value": 7,
+      "link": "/01-foundation/data-types"
+    },
+    {
+      "id": "foundation-charset",
+      "name": "字符集 utf8mb4",
+      "category": "foundation",
+      "value": 6,
+      "link": "/01-foundation/charset"
+    },
+    {
+      "id": "idx-btree",
+      "name": "B+Tree 索引",
+      "category": "index",
+      "value": 10,
+      "link": "/02-index/btree"
+    },
+    {
+      "id": "idx-hash",
+      "name": "Hash 索引",
+      "category": "index",
+      "value": 5,
+      "link": "/02-index/btree"
+    },
+    {
+      "id": "idx-clustered",
+      "name": "聚簇索引",
+      "category": "index",
+      "value": 9,
+      "link": "/02-index/clustered"
+    },
+    {
+      "id": "idx-secondary",
+      "name": "二级索引",
+      "category": "index",
+      "value": 8,
+      "link": "/02-index/clustered"
+    },
+    {
+      "id": "idx-covering",
+      "name": "覆盖索引",
+      "category": "index",
+      "value": 8,
+      "link": "/02-index/covering"
+    },
+    {
+      "id": "idx-prefix",
+      "name": "最左前缀",
+      "category": "index",
+      "value": 9,
+      "link": "/02-index/covering"
+    },
+    {
+      "id": "idx-icp",
+      "name": "索引下推 ICP",
+      "category": "index",
+      "value": 6,
+      "link": "/02-index/icp"
+    },
+    {
+      "id": "idx-mrr",
+      "name": "MRR 优化",
+      "category": "index",
+      "value": 5,
+      "link": "/02-index/icp"
+    },
+    {
+      "id": "sql-select",
+      "name": "SELECT 查询",
+      "category": "sql",
+      "value": 9,
+      "link": "/03-sql/crud"
+    },
+    {
+      "id": "sql-insert",
+      "name": "INSERT 写入",
+      "category": "sql",
+      "value": 8,
+      "link": "/03-sql/crud"
+    },
+    {
+      "id": "sql-join",
+      "name": "JOIN 连接",
+      "category": "sql",
+      "value": 9,
+      "link": "/03-sql/join"
+    },
+    {
+      "id": "sql-subquery",
+      "name": "子查询",
+      "category": "sql",
+      "value": 7,
+      "link": "/03-sql/join"
+    },
+    {
+      "id": "sql-window",
+      "name": "窗口函数",
+      "category": "sql",
+      "value": 7,
+      "link": "/03-sql/window-functions"
+    },
+    {
+      "id": "sql-cte",
+      "name": "CTE",
+      "category": "sql",
+      "value": 6,
+      "link": "/03-sql/functions"
+    },
+    {
+      "id": "sql-agg",
+      "name": "聚合函数",
+      "category": "sql",
+      "value": 8,
+      "link": "/03-sql/functions"
+    },
+    {
+      "id": "tx-acid",
+      "name": "ACID",
+      "category": "transaction",
+      "value": 8,
+      "link": "/04-transaction/isolation"
+    },
+    {
+      "id": "tx-isolation",
+      "name": "隔离级别",
+      "category": "transaction",
+      "value": 9,
+      "link": "/04-transaction/isolation"
+    },
+    {
+      "id": "tx-locks",
+      "name": "InnoDB 锁",
+      "category": "transaction",
+      "value": 9,
+      "link": "/04-transaction/locks"
+    },
+    {
+      "id": "tx-deadlock",
+      "name": "死锁",
+      "category": "transaction",
+      "value": 8,
+      "link": "/04-transaction/deadlock"
+    },
+    {
+      "id": "tx-mvcc",
+      "name": "MVCC",
+      "category": "transaction",
+      "value": 8,
+      "link": "/04-transaction/mvcc"
+    },
+    {
+      "id": "tx-redolog",
+      "name": "Redo Log",
+      "category": "transaction",
+      "value": 7,
+      "link": "/04-transaction/mvcc"
+    },
+    {
+      "id": "tx-undolog",
+      "name": "Undo Log",
+      "category": "transaction",
+      "value": 7,
+      "link": "/04-transaction/mvcc"
+    },
+    {
+      "id": "perf-explain",
+      "name": "EXPLAIN",
+      "category": "optimization",
+      "value": 10,
+      "link": "/05-optimization/explain"
+    },
+    {
+      "id": "perf-slow",
+      "name": "慢查询",
+      "category": "optimization",
+      "value": 9,
+      "link": "/05-optimization/slow-query"
+    },
+    {
+      "id": "perf-index",
+      "name": "索引优化",
+      "category": "optimization",
+      "value": 9,
+      "link": "/05-optimization/index-tuning"
+    },
+    {
+      "id": "perf-rewrite",
+      "name": "SQL 改写",
+      "category": "optimization",
+      "value": 8,
+      "link": "/05-optimization/sql-rewrite"
+    },
+    {
+      "id": "perf-bp",
+      "name": "Buffer Pool",
+      "category": "optimization",
+      "value": 8,
+      "link": "/05-optimization/explain"
+    },
+    {
+      "id": "repl-binlog",
+      "name": "binlog",
+      "category": "replication",
+      "value": 9,
+      "link": "/06-replication/binlog"
+    },
+    {
+      "id": "repl-relay",
+      "name": "relay log",
+      "category": "replication",
+      "value": 7,
+      "link": "/06-replication/replication"
+    },
+    {
+      "id": "repl-format",
+      "name": "binlog format",
+      "category": "replication",
+      "value": 7,
+      "link": "/06-replication/binlog"
+    },
+    {
+      "id": "repl-sync",
+      "name": "主从同步",
+      "category": "replication",
+      "value": 9,
+      "link": "/06-replication/replication"
+    },
+    {
+      "id": "repl-lag",
+      "name": "主从延迟",
+      "category": "replication",
+      "value": 8,
+      "link": "/06-replication/lag"
+    },
+    {
+      "id": "repl-rw",
+      "name": "读写分离",
+      "category": "replication",
+      "value": 8,
+      "link": "/06-replication/read-write-split"
+    },
+    {
+      "id": "repl-gtid",
+      "name": "GTID",
+      "category": "replication",
+      "value": 7,
+      "link": "/06-replication/binlog"
+    },
+    {
+      "id": "ha-mha",
+      "name": "MHA",
+      "category": "ha",
+      "value": 7,
+      "link": "/07-ha/mha"
+    },
+    {
+      "id": "ha-mgr",
+      "name": "MGR",
+      "category": "ha",
+      "value": 8,
+      "link": "/07-ha/mgr"
+    },
+    {
+      "id": "ha-proxysql",
+      "name": "ProxySQL",
+      "category": "ha",
+      "value": 7,
+      "link": "/07-ha/proxysql"
+    },
+    {
+      "id": "bk-dump",
+      "name": "mysqldump",
+      "category": "backup",
+      "value": 7,
+      "link": "/08-backup/mysqldump"
+    },
+    {
+      "id": "bk-xtrabackup",
+      "name": "xtrabackup",
+      "category": "backup",
+      "value": 8,
+      "link": "/08-backup/xtrabackup"
+    },
+    {
+      "id": "bk-binlog",
+      "name": "binlog 恢复",
+      "category": "backup",
+      "value": 7,
+      "link": "/08-backup/binlog-recovery"
+    },
+    {
+      "id": "mon-slowlog",
+      "name": "慢查询日志",
+      "category": "monitoring",
+      "value": 8,
+      "link": "/09-monitoring/slow-log"
+    },
+    {
+      "id": "mon-perfschema",
+      "name": "performance_schema",
+      "category": "monitoring",
+      "value": 8,
+      "link": "/09-monitoring/performance-schema"
+    },
+    {
+      "id": "mon-prometheus",
+      "name": "Prometheus",
+      "category": "monitoring",
+      "value": 7,
+      "link": "/09-monitoring/prometheus"
+    },
+    {
+      "id": "shard-strategy",
+      "name": "分库分表策略",
+      "category": "sharding",
+      "value": 8,
+      "link": "/10-sharding/strategy"
+    },
+    {
+      "id": "shard-shardingsphere",
+      "name": "ShardingSphere",
+      "category": "sharding",
+      "value": 8,
+      "link": "/10-sharding/shardingsphere"
+    },
+    {
+      "id": "shard-mycat",
+      "name": "MyCat",
+      "category": "sharding",
+      "value": 6,
+      "link": "/10-sharding/mycat"
+    },
+    {
+      "id": "shard-key",
+      "name": "一致性 Hash",
+      "category": "sharding",
+      "value": 6,
+      "link": "/10-sharding/sharding-key"
+    }
+  ],
+  "links": [
+    {
+      "source": "foundation-arch",
+      "target": "foundation-engine"
+    },
+    {
+      "source": "foundation-engine",
+      "target": "idx-clustered"
+    },
+    {
+      "source": "foundation-engine",
+      "target": "tx-locks"
+    },
+    {
+      "source": "foundation-engine",
+      "target": "tx-mvcc"
+    },
+    {
+      "source": "foundation-engine",
+      "target": "tx-redolog"
+    },
+    {
+      "source": "foundation-engine",
+      "target": "tx-undolog"
+    },
+    {
+      "source": "foundation-types",
+      "target": "idx-prefix"
+    },
+    {
+      "source": "foundation-charset",
+      "target": "foundation-types"
+    },
+    {
+      "source": "idx-btree",
+      "target": "idx-clustered"
+    },
+    {
+      "source": "idx-btree",
+      "target": "idx-secondary"
+    },
+    {
+      "source": "idx-btree",
+      "target": "idx-covering"
+    },
+    {
+      "source": "idx-btree",
+      "target": "idx-prefix"
+    },
+    {
+      "source": "idx-btree",
+      "target": "idx-icp"
+    },
+    {
+      "source": "idx-clustered",
+      "target": "idx-secondary"
+    },
+    {
+      "source": "idx-covering",
+      "target": "perf-index"
+    },
+    {
+      "source": "idx-icp",
+      "target": "perf-explain"
+    },
+    {
+      "source": "idx-mrr",
+      "target": "perf-explain"
+    },
+    {
+      "source": "sql-select",
+      "target": "sql-join"
+    },
+    {
+      "source": "sql-select",
+      "target": "perf-explain"
+    },
+    {
+      "source": "sql-join",
+      "target": "sql-subquery"
+    },
+    {
+      "source": "sql-subquery",
+      "target": "sql-cte"
+    },
+    {
+      "source": "sql-window",
+      "target": "sql-agg"
+    },
+    {
+      "source": "sql-cte",
+      "target": "sql-window"
+    },
+    {
+      "source": "sql-insert",
+      "target": "perf-slow"
+    },
+    {
+      "source": "tx-acid",
+      "target": "tx-isolation"
+    },
+    {
+      "source": "tx-isolation",
+      "target": "tx-locks"
+    },
+    {
+      "source": "tx-isolation",
+      "target": "tx-mvcc"
+    },
+    {
+      "source": "tx-locks",
+      "target": "tx-deadlock"
+    },
+    {
+      "source": "tx-mvcc",
+      "target": "tx-redolog"
+    },
+    {
+      "source": "tx-mvcc",
+      "target": "tx-undolog"
+    },
+    {
+      "source": "perf-explain",
+      "target": "perf-slow"
+    },
+    {
+      "source": "perf-explain",
+      "target": "perf-rewrite"
+    },
+    {
+      "source": "perf-slow",
+      "target": "perf-index"
+    },
+    {
+      "source": "perf-rewrite",
+      "target": "sql-rewrite"
+    },
+    {
+      "source": "perf-bp",
+      "target": "mon-prometheus"
+    },
+    {
+      "source": "repl-binlog",
+      "target": "repl-format"
+    },
+    {
+      "source": "repl-binlog",
+      "target": "repl-sync"
+    },
+    {
+      "source": "repl-binlog",
+      "target": "repl-gtid"
+    },
+    {
+      "source": "repl-relay",
+      "target": "repl-sync"
+    },
+    {
+      "source": "repl-sync",
+      "target": "repl-lag"
+    },
+    {
+      "source": "repl-lag",
+      "target": "repl-rw"
+    },
+    {
+      "source": "repl-rw",
+      "target": "ha-proxysql"
+    },
+    {
+      "source": "ha-mha",
+      "target": "ha-mgr"
+    },
+    {
+      "source": "ha-mgr",
+      "target": "ha-proxysql"
+    },
+    {
+      "source": "ha-mgr",
+      "target": "bk-xtrabackup"
+    },
+    {
+      "source": "bk-dump",
+      "target": "bk-binlog"
+    },
+    {
+      "source": "bk-xtrabackup",
+      "target": "bk-binlog"
+    },
+    {
+      "source": "bk-xtrabackup",
+      "target": "repl-binlog"
+    },
+    {
+      "source": "mon-slowlog",
+      "target": "perf-slow"
+    },
+    {
+      "source": "mon-perfschema",
+      "target": "perf-explain"
+    },
+    {
+      "source": "mon-prometheus",
+      "target": "mon-perfschema"
+    },
+    {
+      "source": "shard-strategy",
+      "target": "shard-shardingsphere"
+    },
+    {
+      "source": "shard-strategy",
+      "target": "shard-mycat"
+    },
+    {
+      "source": "shard-strategy",
+      "target": "shard-key"
+    },
+    {
+      "source": "shard-shardingsphere",
+      "target": "ha-proxysql"
+    }
+  ]
+}

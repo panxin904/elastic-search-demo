@@ -1,0 +1,309 @@
+- generic [ref=f1e3]:
+  - link "Skip to content" [ref=f1e4] [cursor=pointer]:
+    - /url: "#VPContent"
+  - banner:
+    - generic:
+      - generic:
+        - generic:
+          - link "ES Knowledge Atlas" [ref=f1e6] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f1e8]:
+            - button "Search" [ref=f1e11] [cursor=pointer]:
+              - generic [ref=f1e15]:
+                - generic [ref=f1e16]: ⌘
+                - generic [ref=f1e17]: K
+            - navigation "Main Navigation" [ref=f1e18]:
+              - link "首页" [ref=f1e20] [cursor=pointer]:
+                - /url: /
+              - link "存储层" [ref=f1e22] [cursor=pointer]:
+                - /url: /01-storage/overview
+              - link "查询层" [ref=f1e24] [cursor=pointer]:
+                - /url: /02-query/overview
+              - link "分析层" [ref=f1e26] [cursor=pointer]:
+                - /url: /03-analysis/overview
+              - link "运维层" [ref=f1e28] [cursor=pointer]:
+                - /url: /04-ops/overview
+              - link "调试" [ref=f1e30] [cursor=pointer]:
+                - /url: /05-tools/curl-client
+              - link "DSL" [ref=f1e32] [cursor=pointer]:
+                - /url: /05-tools/dsl
+              - link "Java" [ref=f1e34] [cursor=pointer]:
+                - /url: /05-tools/java
+              - link "仪表板" [ref=f1e36] [cursor=pointer]:
+                - /url: /05-tools/dashboard
+              - link "7 vs 8" [ref=f1e38] [cursor=pointer]:
+                - /url: /99-compare/diff
+            - button "extra navigation" [ref=f1e41] [cursor=pointer]
+  - button "本页目录" [ref=f1e46] [cursor=pointer]
+  - complementary [ref=f1e48]:
+    - navigation "Sidebar Navigation" [ref=f1e50]:
+      - generic [ref=f1e53]:
+        - button [ref=f1e54]:
+          - heading "🛠️ 工具 Tools" [level=2] [ref=f1e56]
+        - generic [ref=f1e57]:
+          - link [ref=f1e61] [cursor=pointer]:
+            - /url: /05-tools/curl-client
+            - paragraph [ref=f1e62]: 🚀 请求调试器
+          - link [ref=f1e66] [cursor=pointer]:
+            - /url: /05-tools/dsl
+            - paragraph [ref=f1e67]: 📚 Query DSL 速查
+          - link [ref=f1e71] [cursor=pointer]:
+            - /url: /05-tools/java
+            - paragraph [ref=f1e72]: ☕ Java SDK 速查
+          - link [ref=f1e76] [cursor=pointer]:
+            - /url: /05-tools/dashboard
+            - paragraph [ref=f1e77]: 📊 集群监控仪表板
+  - generic [ref=f1e82]:
+    - main [ref=f1e83]:
+      - generic [ref=f1e85]:
+        - paragraph [ref=f1e86]:
+          - generic [ref=f1e87]: Java
+        - heading [level=1] [ref=f1e88]:
+          - text: Java SDK 速查
+          - link "Permalink to \"Java SDK 速查\"" [ref=f1e89] [cursor=pointer]:
+            - /url: "#java-sdk-速查"
+            - text: "#"
+        - blockquote [ref=f1e90]:
+          - paragraph [ref=f1e91]:
+            - text: 19 个官方 Java Client (co.elastic.clients) 代码片段，按
+            - strong [ref=f1e92]: 6 大类
+            - text: 整理，与本项目
+            - link [ref=f1e93] [cursor=pointer]:
+              - /url: https://github.com/your-repo/blob/main/src/main/java/com/example/esdemo/service/ElasticsearchService.java
+              - code [ref=f1e94]: ElasticsearchService.java
+            - text: 风格一致。
+        - heading [level=2] [ref=f1e95]:
+          - text: ☕ 分类索引
+          - link "Permalink to \"☕ 分类索引\"" [ref=f1e96] [cursor=pointer]:
+            - /url: "#☕-分类索引"
+            - text: "#"
+        - table [ref=f1e97]:
+          - rowgroup [ref=f1e98]:
+            - row [ref=f1e99]:
+              - columnheader "分类" [ref=f1e100]
+              - columnheader "数量" [ref=f1e101]
+              - columnheader "包含" [ref=f1e102]
+          - rowgroup [ref=f1e103]:
+            - row [ref=f1e104]:
+              - cell [ref=f1e105]:
+                - text: 🔌
+                - strong [ref=f1e106]: 客户端初始化
+              - cell "2" [ref=f1e107]
+              - cell "ElasticsearchClient 创建 / Basic Auth" [ref=f1e108]
+            - row [ref=f1e109]:
+              - cell [ref=f1e110]:
+                - text: 📝
+                - strong [ref=f1e111]: CRUD 操作
+              - cell "5" [ref=f1e112]
+              - cell "创建索引 / 索引文档 / 获取 / 删除 / 更新" [ref=f1e113]
+            - row [ref=f1e114]:
+              - cell [ref=f1e115]:
+                - text: 🔍
+                - strong [ref=f1e116]: 搜索查询
+              - cell "4" [ref=f1e117]
+              - cell "Match / Bool / Highlight / Search After" [ref=f1e118]
+            - row [ref=f1e119]:
+              - cell [ref=f1e120]:
+                - text: 📊
+                - strong [ref=f1e121]: 聚合分析
+              - cell "2" [ref=f1e122]
+              - cell "Terms + Metrics / Date Histogram" [ref=f1e123]
+            - row [ref=f1e124]:
+              - cell [ref=f1e125]:
+                - text: 📦
+                - strong [ref=f1e126]: 批量操作
+              - cell "2" [ref=f1e127]
+              - cell "Bulk / Reindex" [ref=f1e128]
+            - row [ref=f1e129]:
+              - cell [ref=f1e130]:
+                - text: ⚙️
+                - strong [ref=f1e131]: 高级特性
+              - cell "4" [ref=f1e132]
+              - cell "索引模板 / Painless / Refresh / 集群健康" [ref=f1e133]
+        - generic [ref=f1e134]:
+          - generic [ref=f1e135]:
+            - text: ☕ 按
+            - strong [ref=f1e136]: 6 大类
+            - text: 整理共
+            - strong [ref=f1e137]: "54"
+            - text: 个官方 Java Client 代码片段。 点击分类切换显示该类所有代码，「📋 复制」可直接粘贴到 IDE。
+          - group [ref=f1e138]:
+            - generic "📦 Maven 依赖（必读）" [ref=f1e139] [cursor=pointer]
+            - generic [ref=f1e140]: <!-- pom.xml (本项目 7.17.10 配套版本) --> <dependency> <groupId>co.elastic.clients</groupId> <artifactId>elasticsearch-java</artifactId> <version>7.17.10</version> </dependency> <dependency> <groupId>com.fasterxml.jackson.core</groupId> <artifactId>jackson-databind</artifactId> <version>2.16.1</version> </dependency> <dependency> <groupId>org.glassfish</groupId> <artifactId>jakarta.json</artifactId> <version>2.0.1</version> </dependency> <dependency> <groupId>org.slf4j</groupId> <artifactId>slf4j-api</artifactId> <version>2.0.12</version> </dependency>
+            - button "📋 复制" [ref=f1e142] [cursor=pointer]
+          - generic [ref=f1e143]:
+            - button "🔌 客户端初始化 (2)" [ref=f1e144] [cursor=pointer]
+            - button "⚙️ 高级配置 (5)" [ref=f1e145] [cursor=pointer]
+            - button "📝 CRUD 操作 (5)" [ref=f1e146] [cursor=pointer]
+            - button "🔍 搜索查询 (4)" [ref=f1e147] [cursor=pointer]
+            - button "🔎 搜索进阶 (7)" [ref=f1e148] [cursor=pointer]
+            - button "📊 聚合分析 (2)" [ref=f1e149] [cursor=pointer]
+            - button "📦 批量操作 (4)" [ref=f1e150] [cursor=pointer]
+            - button "🔄 Ingest Pipeline (3)" [ref=f1e151] [cursor=pointer]
+            - button "🗂️ 索引管理 (7)" [ref=f1e152] [cursor=pointer]
+            - button "💾 Snapshot 管理 (4)" [ref=f1e153] [cursor=pointer]
+            - button "🔀 别名管理 (4)" [ref=f1e154] [cursor=pointer]
+            - button "🛠️ 高级特性 (7)" [ref=f1e155] [cursor=pointer]
+          - generic [ref=f1e156]: 🔌 客户端初始化
+          - generic [ref=f1e157]:
+            - generic [ref=f1e158]:
+              - strong [ref=f1e159]: 创建 ElasticsearchClient
+              - generic [ref=f1e160]:
+                - generic [ref=f1e161]: 7.x
+                - generic [ref=f1e162]: 初始化
+            - generic [ref=f1e163]: 通过 RestClient.builder 创建 ElasticsearchClient。生产环境建议配置连接池与超时。
+            - generic [ref=f1e164]: import co.elastic.clients.elasticsearch.ElasticsearchClient; import co.elastic.clients.json.jackson.JacksonJsonpMapper; import co.elastic.clients.transport.ElasticsearchTransport; import co.elastic.clients.transport.rest_client.RestClientTransport; import org.apache.http.HttpHost; import org.elasticsearch.client.RestClient; RestClient restClient = RestClient.builder( new HttpHost("localhost", 9200, "http") ).build(); ElasticsearchTransport transport = new RestClientTransport( restClient, new JacksonJsonpMapper() ); ElasticsearchClient client = new ElasticsearchClient(transport); // 使用后关闭 // transport.close(); // restClient.close();
+            - generic [ref=f1e165]:
+              - button "📋 复制" [ref=f1e166] [cursor=pointer]
+              - link "📖 官方文档" [ref=f1e167] [cursor=pointer]:
+                - /url: https://www.elastic.co/guide/en/elasticsearch/client/java-api-client/current/installation.html
+          - generic [ref=f1e168]:
+            - generic [ref=f1e169]:
+              - strong [ref=f1e170]: 启用 Basic Auth
+              - generic [ref=f1e171]:
+                - generic [ref=f1e172]: 认证
+                - generic [ref=f1e173]: xpack
+            - generic [ref=f1e174]: 当 ES 启用了 xpack.security 时，需要在 RestClient 中配置凭据。
+            - generic [ref=f1e175]: import org.apache.http.auth.AuthScope; import org.apache.http.auth.UsernamePasswordCredentials; import org.apache.http.impl.client.BasicCredentialsProvider; BasicCredentialsProvider creds = new BasicCredentialsProvider(); creds.setCredentials( AuthScope.ANY, new UsernamePasswordCredentials("elastic", "changeme") ); RestClient restClient = RestClient.builder( new HttpHost("localhost", 9200, "https") ).setHttpClientConfigCallback(http -> http .setSSLContext(sslContext) .setDefaultCredentialsProvider(creds) ).build();
+            - button "📋 复制" [ref=f1e177] [cursor=pointer]
+          - generic [ref=f1e178]:
+            - text: 🔗 本项目源码：
+            - link "ElasticsearchService.java" [ref=f1e179] [cursor=pointer]:
+              - /url: https://github.com/your-repo/blob/main/src/main/java/com/example/esdemo/service/ElasticsearchService.java
+            - text: ·
+            - link "ElasticsearchServiceTest.java" [ref=f1e180] [cursor=pointer]:
+              - /url: https://github.com/your-repo/blob/main/src/test/java/com/example/esdemo/service/ElasticsearchServiceTest.java
+            - text: ·
+            - link "Java Client 文档" [ref=f1e181] [cursor=pointer]:
+              - /url: https://www.elastic.co/guide/en/elasticsearch/client/java-api-client/current/introduction.html
+        - heading [level=2] [ref=f1e182]:
+          - text: 📦 Maven 依赖说明
+          - link "Permalink to \"📦 Maven 依赖说明\"" [ref=f1e183] [cursor=pointer]:
+            - /url: "#📦-maven-依赖说明"
+            - text: "#"
+        - paragraph [ref=f1e184]:
+          - text: 上方默认配置对应本项目 ES
+          - strong [ref=f1e185]: 7.17.10
+          - text: 版本。升级 ES 版本时同步更新：
+        - table [ref=f1e186]:
+          - rowgroup [ref=f1e187]:
+            - row [ref=f1e188]:
+              - columnheader "ES 版本" [ref=f1e189]
+              - columnheader "elasticsearch-java 版本" [ref=f1e190]
+          - rowgroup [ref=f1e191]:
+            - row [ref=f1e192]:
+              - cell "7.17.x" [ref=f1e193]
+              - cell "7.17.10" [ref=f1e194]
+            - row [ref=f1e195]:
+              - cell "8.x" [ref=f1e196]
+              - cell "8.x.x" [ref=f1e197]
+        - blockquote [ref=f1e198]:
+          - paragraph [ref=f1e199]: ⚠️ 版本必须严格对应，否则编译失败。
+        - heading [level=2] [ref=f1e200]:
+          - text: 🎯 学习路径
+          - link "Permalink to \"🎯 学习路径\"" [ref=f1e201] [cursor=pointer]:
+            - /url: "#🎯-学习路径"
+            - text: "#"
+        - list [ref=f1e202]:
+          - listitem [ref=f1e203]:
+            - strong [ref=f1e204]: 入门
+            - text: ：先看
+            - strong [ref=f1e205]: 🔌 客户端初始化
+            - text: → 学会创建 client
+          - listitem [ref=f1e206]:
+            - strong [ref=f1e207]: CRUD
+            - text: ：
+            - strong [ref=f1e208]: 📝 CRUD 操作
+            - text: → 配合
+            - link "本项目源码" [ref=f1e209] [cursor=pointer]:
+              - /url: https://github.com/your-repo/blob/main/src/main/java/com/example/esdemo/service/ElasticsearchService.java
+            - text: 对照阅读
+          - listitem [ref=f1e210]:
+            - strong [ref=f1e211]: 搜索
+            - text: ：
+            - strong [ref=f1e212]: 🔍 搜索查询
+            - text: → 学习 build pattern（lambda builder）
+          - listitem [ref=f1e213]:
+            - strong [ref=f1e214]: 聚合
+            - text: ：
+            - strong [ref=f1e215]: 📊 聚合分析
+            - text: → 实战业务报表
+          - listitem [ref=f1e216]:
+            - strong [ref=f1e217]: 生产化
+            - text: ：
+            - strong [ref=f1e218]: 📦 批量操作 + ⚙️ 高级
+            - text: → 处理大数据量、模板化、安全等
+        - heading [level=2] [ref=f1e219]:
+          - text: 🛠️ Builder Pattern 用法提示
+          - link "Permalink to \"🛠️ Builder Pattern 用法提示\"" [ref=f1e220] [cursor=pointer]:
+            - /url: "#🛠️-builder-pattern-用法提示"
+            - text: "#"
+        - generic [ref=f1e221]:
+          - button "Copy Code" [ref=f1e222] [cursor=pointer]
+          - generic [ref=f1e223]: java
+          - code [ref=f1e225]:
+            - generic [ref=f1e226]: // ES Java Client 几乎所有 API 都用 lambda builder 风格
+            - generic [ref=f1e227]: SearchRequest.of(s -> s
+            - generic [ref=f1e228]: .index("products")
+            - generic [ref=f1e229]: .query(q -> q.match(m -> m.field("name").query("机械键盘")))
+            - generic [ref=f1e230]: .from(0)
+            - generic [ref=f1e231]: .size(20)
+            - generic [ref=f1e232]: );
+        - list [ref=f1e233]:
+          - listitem [ref=f1e234]:
+            - code [ref=f1e235]: s -> s
+            - text: 内可链式调用所有配置项
+          - listitem [ref=f1e236]: 自动补全方便（IDE 会列出所有可用方法）
+          - listitem [ref=f1e237]:
+            - text: 配置文件 (json) 可通过
+            - code [ref=f1e238]: withJson(InputStream)
+            - text: 加载
+        - heading [level=2] [ref=f1e239]:
+          - text: 🔗 关联工具
+          - link "Permalink to \"🔗 关联工具\"" [ref=f1e240] [cursor=pointer]:
+            - /url: "#🔗-关联工具"
+            - text: "#"
+        - list [ref=f1e241]:
+          - listitem [ref=f1e242]:
+            - strong [ref=f1e243]:
+              - link "🚀 调试器" [ref=f1e244] [cursor=pointer]:
+                - /url: /05-tools/curl-client
+            - text: — 看到 DSL 后实际验证再写 Java
+          - listitem [ref=f1e245]:
+            - strong [ref=f1e246]:
+              - link "📚 DSL 速查" [ref=f1e247] [cursor=pointer]:
+                - /url: /05-tools/dsl
+            - text: — Java API 与 DSL 一一对应
+          - listitem [ref=f1e248]:
+            - strong [ref=f1e249]:
+              - link "📊 集群仪表板" [ref=f1e250] [cursor=pointer]:
+                - /url: /05-tools/dashboard
+            - text: — 用 health 接口验证集群可用
+        - heading [level=2] [ref=f1e251]:
+          - text: 🔗 关联文档
+          - link "Permalink to \"🔗 关联文档\"" [ref=f1e252] [cursor=pointer]:
+            - /url: "#🔗-关联文档"
+            - text: "#"
+        - list [ref=f1e253]:
+          - listitem [ref=f1e254]:
+            - link "本项目 ElasticsearchService.java" [ref=f1e255] [cursor=pointer]:
+              - /url: https://github.com/your-repo/blob/main/src/main/java/com/example/esdemo/service/ElasticsearchService.java
+          - listitem [ref=f1e256]:
+            - link "Java Client 官方文档" [ref=f1e257] [cursor=pointer]:
+              - /url: https://www.elastic.co/guide/en/elasticsearch/client/java-api-client/current/introduction.html
+          - listitem [ref=f1e258]:
+            - link "Match Query" [ref=f1e259] [cursor=pointer]:
+              - /url: /02-query/match
+          - listitem [ref=f1e260]:
+            - link "聚合 Aggregation" [ref=f1e261] [cursor=pointer]:
+              - /url: /02-query/aggregation
+    - contentinfo [ref=f1e262]:
+      - navigation "Pager" [ref=f1e263]:
+        - link "上一篇 📚 Query DSL 速查" [ref=f1e266] [cursor=pointer]:
+          - /url: /05-tools/dsl
+          - generic [ref=f1e267]: 上一篇
+          - generic [ref=f1e268]: 📚 Query DSL 速查
+        - link "下一篇 📊 集群监控仪表板" [ref=f1e270] [cursor=pointer]:
+          - /url: /05-tools/dashboard
+          - generic [ref=f1e271]: 下一篇
+          - generic [ref=f1e272]: 📊 集群监控仪表板

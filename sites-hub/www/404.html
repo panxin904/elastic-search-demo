@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#1a1a2e">
+<title>404 · 页面不存在 · Scholar's Atlas</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+:root {
+  --bg: #f6f1e8; --bg-elev: #fbf7ee; --ink: #1a1a2e; --ink-soft: #44475a;
+  --ink-muted: #6e7080; --line: rgba(26,26,46,.12); --accent: #c4623d;
+  --secondary: #2d4a5b;
+}
+[data-theme="dark"] {
+  --bg: #0e1018; --bg-elev: #1c2030; --ink: #ece6d6; --ink-soft: #b8b3a3;
+  --ink-muted: #7e7a6c; --line: rgba(236,230,214,.10); --accent: #e08258;
+  --secondary: #6fb1cc;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "DM Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg); color: var(--ink); min-height: 100vh;
+  display: grid; place-items: center;
+  background-image: radial-gradient(circle at 1px 1px, rgba(26,26,46,.05) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+.container { max-width: 720px; padding: clamp(20px, 4vw, 56px); text-align: center; }
+.eyebrow {
+  font-family: "JetBrains Mono", monospace; font-size: 11px;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--accent);
+  margin-bottom: 18px;
+}
+h1 {
+  font-family: "Fraunces", serif; font-weight: 300; font-style: italic;
+  font-size: clamp(72px, 14vw, 160px); line-height: .9;
+  background: linear-gradient(120deg, var(--accent), var(--secondary));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  margin-bottom: 16px;
+}
+.lede { font-size: clamp(16px, 1.6vw, 19px); color: var(--ink-soft); margin-bottom: 32px; line-height: 1.6; }
+.path {
+  display: inline-block; padding: 4px 12px; border-radius: 99px;
+  background: var(--bg-elev); border: 1px solid var(--line);
+  font-family: "JetBrains Mono", monospace; font-size: 13px;
+  color: var(--ink-muted); margin-bottom: 32px;
+}
+.actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn {
+  padding: 12px 24px; border-radius: 10px; font-size: 14px;
+  text-decoration: none; transition: transform 160ms;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-primary { background: var(--ink); color: var(--bg); }
+.btn-secondary { background: var(--bg-elev); color: var(--ink); border: 1px solid var(--line); }
+.btn:hover { transform: translateY(-2px); }
+.sites { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); }
+.sites-title {
+  font-family: "Fraunces", serif; font-style: italic; font-size: 14px;
+  color: var(--ink-muted); margin-bottom: 16px;
+}
+.site-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px;
+}
+.site-grid a {
+  padding: 8px 12px; border-radius: 8px; background: var(--bg-elev);
+  border: 1px solid var(--line); font-size: 13px; color: var(--ink);
+  text-decoration: none; transition: all 160ms;
+}
+.site-grid a:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+</head>
+<body>
+<main class="container">
+  <div class="eyebrow">404 · not found</div>
+  <h1>迷路了吗？</h1>
+  <p class="lede">
+    访问的路径不存在或已迁移。可能是子站 URL 拼写错误，或者站点刚被下线。
+  </p>
+  <code class="path" id="path">/</code>
+  <div class="actions">
+    <a class="btn btn-primary" href="/">🏠 返回门户首页</a>
+    <a class="btn btn-secondary" href="javascript:history.back()">← 返回上一页</a>
+  </div>
+
+  <section class="sites">
+    <div class="sites-title">or pick a site</div>
+    <nav class="site-grid" aria-label="全部子站">
+      <a href="/es/">elasticsearch</a>
+      <a href="/mysql/">mysql</a>
+      <a href="/redis/">redis</a>
+      <a href="/cloud/">spring cloud</a>
+      <a href="/python/">python</a>
+      <a href="/kafka/">kafka</a>
+      <a href="/java/">java web</a>
+      <a href="/tools/">tools</a>
+      <a href="/frontend/">frontend</a>
+      <a href="/linux/">linux</a>
+      <a href="/cloud-native/">cloud-native</a>
+      <a href="/ai/">ai</a>
+      <a href="/bigdata/">bigdata</a>
+      <a href="/network/">network</a>
+      <a href="/video/">video</a>
+      <a href="/filesystem/">filesystem</a>
+      <a href="/java-language/">java 语言</a>
+      <a href="/architecture/">architecture</a>
+      <a href="/system-design/">system design</a>
+      <a href="/postgresql/">postgresql</a>
+      <a href="/observability/">observability</a>
+      <a href="/security/">security</a>
+      <a href="/devops/">devops</a>
+      <a href="/rust/">rust</a>
+      <a href="/go/">go</a>
+      <a href="/clickhouse/">clickhouse</a>
+      <a href="/design-pattern/">design pattern</a>
+      <a href="/chaos/">chaos</a>
+    </nav>
+  </section>
+</main>
+<script>
+document.getElementById('path').textContent = location.pathname;
+const saved = localStorage.getItem('sa-theme');
+if (saved === 'dark' || (!saved && matchMedia('(prefers-color-scheme: dark)').matches)) {
+  document.documentElement.setAttribute('data-theme', 'dark');
+  document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0e1018');
+}
+</script>
+</body>
+</html>

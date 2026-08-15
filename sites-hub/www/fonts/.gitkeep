@@ -1,0 +1,4 @@
+# 自托管字体目录
+#
+# 生成方式：bash ../scripts/subset-fonts.sh（需要网络 + fonttools）
+# 当前为空：先用 Google Fonts CDN（已配置），自托管字体生成后切换

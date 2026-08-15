@@ -1,0 +1,237 @@
+- generic [ref=f17e3]:
+  - link "Skip to content" [ref=f17e4] [cursor=pointer]:
+    - /url: "#VPContent"
+  - banner:
+    - generic:
+      - generic:
+        - generic:
+          - link "ES Knowledge Atlas" [ref=f17e6] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f17e8]:
+            - button "Search" [ref=f17e11] [cursor=pointer]:
+              - generic [ref=f17e15]:
+                - generic [ref=f17e16]: ⌘
+                - generic [ref=f17e17]: K
+            - navigation "Main Navigation" [ref=f17e18]:
+              - link "首页" [ref=f17e20] [cursor=pointer]:
+                - /url: /
+              - link "存储层" [ref=f17e22] [cursor=pointer]:
+                - /url: /01-storage/overview
+              - link "查询层" [ref=f17e24] [cursor=pointer]:
+                - /url: /02-query/overview
+              - link "分析层" [ref=f17e26] [cursor=pointer]:
+                - /url: /03-analysis/overview
+              - link "运维层" [ref=f17e28] [cursor=pointer]:
+                - /url: /04-ops/overview
+              - link "7 vs 8" [ref=f17e30] [cursor=pointer]:
+                - /url: /99-compare/diff
+            - button "extra navigation" [ref=f17e33] [cursor=pointer]
+  - button "本页目录" [ref=f17e38] [cursor=pointer]
+  - complementary [ref=f17e40]:
+    - navigation "Sidebar Navigation" [ref=f17e42]:
+      - generic [ref=f17e45]:
+        - button [ref=f17e46]:
+          - heading "运维层 Ops" [level=2] [ref=f17e48]
+        - generic [ref=f17e49]:
+          - link [ref=f17e53] [cursor=pointer]:
+            - /url: /04-ops/overview
+            - paragraph [ref=f17e54]: 总览
+          - link [ref=f17e58] [cursor=pointer]:
+            - /url: /04-ops/installation
+            - paragraph [ref=f17e59]: 安装部署
+          - link [ref=f17e63] [cursor=pointer]:
+            - /url: /04-ops/jvm-tuning
+            - paragraph [ref=f17e64]: JVM 调优
+          - link [ref=f17e68] [cursor=pointer]:
+            - /url: /04-ops/shard-allocation
+            - paragraph [ref=f17e69]: 分片分配
+          - link [ref=f17e73] [cursor=pointer]:
+            - /url: /04-ops/cluster-health
+            - paragraph [ref=f17e74]: 集群健康
+          - link [ref=f17e78] [cursor=pointer]:
+            - /url: /04-ops/snapshot
+            - paragraph [ref=f17e79]: Snapshot 备份
+          - link [ref=f17e83] [cursor=pointer]:
+            - /url: /04-ops/ilm
+            - paragraph [ref=f17e84]: ILM 生命周期
+          - link [ref=f17e88] [cursor=pointer]:
+            - /url: /04-ops/curator
+            - paragraph [ref=f17e89]: Curator 工具
+          - link [ref=f17e93] [cursor=pointer]:
+            - /url: /04-ops/monitoring
+            - paragraph [ref=f17e94]: 监控 Cerebro
+          - link [ref=f17e98] [cursor=pointer]:
+            - /url: /04-ops/slow-log
+            - paragraph [ref=f17e99]: 慢日志
+          - link [ref=f17e103] [cursor=pointer]:
+            - /url: /04-ops/restart
+            - paragraph [ref=f17e104]: 集群重启
+          - link [ref=f17e108] [cursor=pointer]:
+            - /url: /04-ops/cat-api
+            - paragraph [ref=f17e109]: _cat API
+          - link [ref=f17e113] [cursor=pointer]:
+            - /url: /04-ops/index-template
+            - paragraph [ref=f17e114]: 索引模板
+          - link [ref=f17e118] [cursor=pointer]:
+            - /url: /04-ops/alias
+            - paragraph [ref=f17e119]: 别名 Alias
+  - generic [ref=f17e124]:
+    - main [ref=f17e125]:
+      - generic [ref=f17e127]:
+        - paragraph [ref=f17e128]:
+          - generic [ref=f17e129]: 运维层
+        - heading [level=1] [ref=f17e130]:
+          - text: 安装部署 Installation
+          - link "Permalink to \"安装部署 Installation\"" [ref=f17e131] [cursor=pointer]:
+            - /url: "#安装部署-installation"
+            - text: "#"
+        - heading [level=2] [ref=f17e132]:
+          - text: 📌 三种主要部署方式
+          - link "Permalink to \"📌 三种主要部署方式\"" [ref=f17e133] [cursor=pointer]:
+            - /url: "#📌-三种主要部署方式"
+            - text: "#"
+        - table [ref=f17e134]:
+          - rowgroup [ref=f17e135]:
+            - row [ref=f17e136]:
+              - columnheader "方式" [ref=f17e137]
+              - columnheader "适用" [ref=f17e138]
+              - columnheader "难度" [ref=f17e139]
+          - rowgroup [ref=f17e140]:
+            - row [ref=f17e141]:
+              - cell [ref=f17e142]:
+                - strong [ref=f17e143]: Tar 包
+              - cell "生产环境、定制化" [ref=f17e144]
+              - cell "⭐⭐⭐" [ref=f17e145]
+            - row [ref=f17e146]:
+              - cell [ref=f17e147]:
+                - strong [ref=f17e148]: Docker
+              - cell "快速试用、容器化" [ref=f17e149]
+              - cell "⭐⭐" [ref=f17e150]
+            - row [ref=f17e151]:
+              - cell [ref=f17e152]:
+                - strong [ref=f17e153]: RPM/DEB
+              - cell "传统服务器" [ref=f17e154]
+              - cell "⭐⭐" [ref=f17e155]
+        - heading [level=2] [ref=f17e156]:
+          - text: 🔧 Tar 包单机部署
+          - link "Permalink to \"🔧 Tar 包单机部署\"" [ref=f17e157] [cursor=pointer]:
+            - /url: "#🔧-tar-包单机部署"
+            - text: "#"
+        - generic [ref=f17e158]:
+          - button "Copy Code" [ref=f17e159] [cursor=pointer]
+          - generic [ref=f17e160]: bash
+          - code [ref=f17e162]:
+            - generic [ref=f17e163]: "# 下载"
+            - generic [ref=f17e164]: wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.17.10-linux-x86_64.tar.gz
+            - generic [ref=f17e165]: "# 解压"
+            - generic [ref=f17e166]: tar -xzf elasticsearch-7.17.10-linux-x86_64.tar.gz
+            - generic [ref=f17e167]: cd elasticsearch-7.17.10
+            - generic [ref=f17e168]: "# 禁用安全特性（开发环境）"
+            - generic [ref=f17e169]: "echo \"xpack.security.enabled: false\" >> config/elasticsearch.yml"
+            - generic [ref=f17e170]: "# 启动（不能用 root）"
+            - generic [ref=f17e171]: useradd esuser
+            - generic [ref=f17e172]: chown -R esuser:esuser /opt/elasticsearch-7.17.10
+            - generic [ref=f17e173]: su esuser -c "./bin/elasticsearch -d"
+        - blockquote [ref=f17e174]:
+          - paragraph [ref=f17e175]:
+            - text: ⚠️ ES
+            - strong [ref=f17e176]: 不能用 root 启动
+            - text: （出于安全考虑）
+        - heading [level=2] [ref=f17e177]:
+          - text: 🔧 Docker 单机
+          - link "Permalink to \"🔧 Docker 单机\"" [ref=f17e178] [cursor=pointer]:
+            - /url: "#🔧-docker-单机"
+            - text: "#"
+        - generic [ref=f17e179]:
+          - button "Copy Code" [ref=f17e180] [cursor=pointer]
+          - generic [ref=f17e181]: bash
+          - code [ref=f17e183]:
+            - generic [ref=f17e184]: docker run -d --name es \
+            - generic [ref=f17e185]: "-p 9200:9200 -p 9300:9300 \\"
+            - generic [ref=f17e186]: "-e \"discovery.type=single-node\" \\"
+            - generic [ref=f17e187]: "-e \"ES_JAVA_OPTS=-Xms512m -Xmx512m\" \\"
+            - generic [ref=f17e188]: "-v /data/es:/usr/share/elasticsearch/data \\"
+            - generic [ref=f17e189]: elasticsearch:7.17.10
+        - heading [level=2] [ref=f17e190]:
+          - text: 🔧 Docker Compose 集群 (3 节点)
+          - link "Permalink to \"🔧 Docker Compose 集群 (3 节点)\"" [ref=f17e191] [cursor=pointer]:
+            - /url: "#🔧-docker-compose-集群-3-节点"
+            - text: "#"
+        - generic [ref=f17e192]:
+          - button "Copy Code" [ref=f17e193] [cursor=pointer]
+          - generic [ref=f17e194]: yaml
+          - code [ref=f17e196]:
+            - generic [ref=f17e197]: "version: '3'"
+            - generic [ref=f17e198]: "services:"
+            - generic [ref=f17e199]: "es01:"
+            - generic [ref=f17e200]: "image: elasticsearch:7.17.10"
+            - generic [ref=f17e201]: "environment:"
+            - generic [ref=f17e202]: "- cluster.name=es-cluster"
+            - generic [ref=f17e203]: "- node.name=es01"
+            - generic [ref=f17e204]: "- discovery.seed_hosts=es02,es03"
+            - generic [ref=f17e205]: "- cluster.initial_master_nodes=es01,es02,es03"
+            - generic [ref=f17e206]: "- \"ES_JAVA_OPTS=-Xms1g -Xmx1g\""
+            - generic [ref=f17e207]: "ulimits:"
+            - generic [ref=f17e208]: "memlock: { soft: -1, hard: -1 }"
+            - generic [ref=f17e209]: "volumes: [ ./data/es01:/usr/share/elasticsearch/data ]"
+            - generic [ref=f17e210]: "ports: [ \"9200:9200\" ]"
+            - generic [ref=f17e211]: "es02: { ... }"
+            - generic [ref=f17e212]: "es03: { ... }"
+        - heading [level=2] [ref=f17e213]:
+          - text: 🔗 对应项目 Testcontainers
+          - link "Permalink to \"🔗 对应项目 Testcontainers\"" [ref=f17e214] [cursor=pointer]:
+            - /url: "#🔗-对应项目-testcontainers"
+            - text: "#"
+        - paragraph [ref=f17e215]: 本项目使用 Testcontainers 启动 ES 容器跑集成测试：
+        - generic [ref=f17e216]:
+          - button "Copy Code" [ref=f17e217] [cursor=pointer]
+          - generic [ref=f17e218]: java
+          - code [ref=f17e220]:
+            - generic [ref=f17e221]: "@Testcontainers"
+            - generic [ref=f17e222]: "class ElasticsearchServiceTest {"
+            - generic [ref=f17e223]: "@Container"
+            - generic [ref=f17e224]: static ElasticsearchContainer container =
+            - generic [ref=f17e225]: new ElasticsearchContainer("docker.elastic.co/elasticsearch/elasticsearch:7.17.10");
+            - generic [ref=f17e226]: "}"
+        - heading [level=2] [ref=f17e227]:
+          - text: ⚙️ 核心配置 (elasticsearch.yml)
+          - link "Permalink to \"⚙️ 核心配置 (elasticsearch.yml)\"" [ref=f17e228] [cursor=pointer]:
+            - /url: "#⚙️-核心配置-elasticsearch-yml"
+            - text: "#"
+        - generic [ref=f17e229]:
+          - button "Copy Code" [ref=f17e230] [cursor=pointer]
+          - generic [ref=f17e231]: yaml
+          - code [ref=f17e233]:
+            - generic [ref=f17e234]: "cluster.name: es-prod"
+            - generic [ref=f17e235]: "node.name: ${HOSTNAME}"
+            - generic [ref=f17e236]: "network.host: 0.0.0.0"
+            - generic [ref=f17e237]: "http.port: 9200"
+            - generic [ref=f17e238]: "discovery.seed_hosts: [\"es01\", \"es02\", \"es03\"]"
+            - generic [ref=f17e239]: "cluster.initial_master_nodes: [\"es01\", \"es02\", \"es03\"]"
+        - heading [level=2] [ref=f17e240]:
+          - text: 🗺️ 在图谱中的位置
+          - link "Permalink to \"🗺️ 在图谱中的位置\"" [ref=f17e241] [cursor=pointer]:
+            - /url: "#🗺️-在图谱中的位置"
+            - text: "#"
+        - heading [level=2] [ref=f17e246]:
+          - text: 📚 延伸阅读
+          - link "Permalink to \"📚 延伸阅读\"" [ref=f17e247] [cursor=pointer]:
+            - /url: "#📚-延伸阅读"
+            - text: "#"
+        - list [ref=f17e248]:
+          - listitem [ref=f17e249]:
+            - link "JVM 调优" [ref=f17e250] [cursor=pointer]:
+              - /url: /04-ops/jvm-tuning
+          - listitem [ref=f17e251]:
+            - link "集群重启" [ref=f17e252] [cursor=pointer]:
+              - /url: /04-ops/restart
+    - contentinfo [ref=f17e253]:
+      - navigation "Pager" [ref=f17e254]:
+        - link "上一篇 总览" [ref=f17e257] [cursor=pointer]:
+          - /url: /04-ops/overview
+          - generic [ref=f17e258]: 上一篇
+          - generic [ref=f17e259]: 总览
+        - link "下一篇 JVM 调优" [ref=f17e261] [cursor=pointer]:
+          - /url: /04-ops/jvm-tuning
+          - generic [ref=f17e262]: 下一篇
+          - generic [ref=f17e263]: JVM 调优

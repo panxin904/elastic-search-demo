@@ -1,0 +1,1 @@
+{"name":"bigdata-html","version":"1.0.0","description":"大数据 / 数据仓库 / 数据湖仓 知识图谱","private":true,"type":"module","scripts":{"docs:dev":"vitepress dev","docs:build":"vitepress build","docs:preview":"vitepress preview"},"devDependencies":{"vitepress":"^1.6.4","vue":"^3.4.0","echarts":"^5.5.0"}}

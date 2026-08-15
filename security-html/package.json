@@ -1,0 +1,23 @@
+{
+  "name": "security-html",
+  "version": "1.0.0",
+  "description": "Web 安全知识图谱 - OWASP Top 10 2025 · OAuth 2.0 / OIDC · JWT · 密码学 · TLS · 容器安全 · 零信任",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview",
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "vitepress": "1.6.4",
+    "vue": "3.4.0"
+  },
+  "dependencies": {
+    "echarts": "^5.5.0",
+    "vue-echarts": "^7.0.3"
+  }
+}

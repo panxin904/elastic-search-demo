@@ -1,0 +1,200 @@
+import { defineConfig } from 'vitepress'
+
+export default defineConfig({
+  base: '/kafka/',
+  title: 'Kafka 知识图谱',
+  description: 'Kafka 系统化学习 - 知识图谱、思维导图、底层原理、企业实战',
+  lang: 'zh-CN',
+  lastUpdated: true,
+  srcDir: 'docs',
+  head: [
+    ['link', { rel: 'apple-touch-icon', href: '/apple-touch-icon.png', sizes: '180x180' }],
+    ['link', { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
+    ['link', { rel: 'icon', href: '/favicon.ico', type: 'image/x-icon' }],
+    ['meta', { name: 'theme-color', content: '#231F20' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:locale', content: 'zh_CN' }]  ],
+  themeConfig: {
+    siteTitle: 'Kafka 知识图谱',
+    nav: [
+
+      { text: '🏠 门户', link: 'https://java-px.bot.cd/', target: '_blank' },
+{ text: '首页', link: '/' },
+      { text: '知识图谱', link: '/graph' },
+      { text: '思维导图', link: '/mindmap' },
+      { text: '命令速查', link: '/cheatsheet' },
+      { text: '学习路径', link: '/path' },
+      {
+        text: '更多站点',
+        items: [
+        { text: 'AI 工具 / 大模型', link: 'https://java-px.bot.cd/ai/' },
+        { text: '企业级架构', link: 'https://java-px.bot.cd/architecture/' },
+        { text: '大数据', link: 'https://java-px.bot.cd/bigdata/' },
+        { text: '云原生 / Docker / K8s', link: 'https://java-px.bot.cd/cloud-native/' },
+        { text: 'ElasticSearch', link: 'https://java-px.bot.cd/es/' },
+        { text: '前端 & Node', link: 'https://java-px.bot.cd/frontend/' },
+        { text: 'Java 语言', link: 'https://java-px.bot.cd/java-language/' },
+        { text: 'Java Web 开发', link: 'https://java-px.bot.cd/java/' },
+        { text: 'Linux 服务器', link: 'https://java-px.bot.cd/linux/' },
+        { text: 'MySQL', link: 'https://java-px.bot.cd/mysql/' },
+        { text: 'Python', link: 'https://java-px.bot.cd/python/' },
+        { text: 'Redis', link: 'https://java-px.bot.cd/redis/' },
+        { text: '微服务 / Spring Cloud', link: 'https://java-px.bot.cd/cloud/' },
+        { text: '计算机网络', link: 'https://java-px.bot.cd/network/' },
+        { text: '文件系统与存储', link: 'https://java-px.bot.cd/filesystem/' },
+        { text: '在线工具', link: 'https://java-px.bot.cd/tools/' },
+        { text: '视频处理', link: 'https://java-px.bot.cd/video/' }
+      ]
+      }
+    ],
+    sidebar: {
+      '/': [
+        {
+          text: '🎯 开始',
+          items: [
+            { text: '📖 学习路径', link: '/path' }
+          ]
+        },
+        {
+          text: '🚀 Kafka 入门',
+          items: [
+            { text: '❓ Kafka 是什么', link: '/01-basics/intro' },
+            { text: '📥 安装部署', link: '/01-basics/install' },
+            { text: '🧩 核心概念', link: '/01-basics/concepts' },
+            { text: '📂 Topic & Partition', link: '/01-basics/topic-partition' },
+            { text: '💬 消息模型', link: '/01-basics/message-model' }
+          ]
+        },
+        {
+          text: '🏗️ 架构原理',
+          items: [
+            { text: '🎯 整体架构', link: '/02-architecture/overview' },
+            { text: '🎮 Controller 控制器', link: '/02-architecture/controller' },
+            { text: '🗂️ 分区副本机制', link: '/02-architecture/replica' },
+            { text: '👑 Leader 选举', link: '/02-architecture/leader-election' },
+            { text: '📜 日志存储', link: '/02-architecture/log-storage' },
+            { text: '🚀 零拷贝原理', link: '/02-architecture/zero-copy' },
+            { text: '⚙️ 控制器演进', link: '/02-architecture/controller-evolution' }
+          ]
+        },
+        {
+          text: '🛠️ 命令行工具',
+          items: [
+            { text: '📋 常用命令总览', link: '/03-cli/overview' },
+            { text: '📂 Topic 管理', link: '/03-cli/topic' },
+            { text: '✉️ 生产消费调试', link: '/03-cli/produce-consume' },
+            { text: '👥 消费者组', link: '/03-cli/consumer-group' }
+          ]
+        },
+        {
+          text: '✍️ 生产者 Producer',
+          items: [
+            { text: '🎯 生产者原理', link: '/04-producer/principle' },
+            { text: '📤 消息发送流程', link: '/04-producer/send-flow' },
+            { text: '🔁 幂等性', link: '/04-producer/idempotent' },
+            { text: '🔐 事务', link: '/04-producer/transaction' },
+            { text: '📊 顺序保证', link: '/04-producer/order' },
+            { text: '⚡ 性能调优', link: '/04-producer/tuning' }
+          ]
+        },
+        {
+          text: '📥 消费者 Consumer',
+          items: [
+            { text: '🎯 消费者原理', link: '/05-consumer/principle' },
+            { text: '👥 消费者组', link: '/05-consumer/group' },
+            { text: '📍 偏移量提交', link: '/05-consumer/offset' },
+            { text: '🔄 再平衡', link: '/05-consumer/rebalance' },
+            { text: '✋ 手动提交', link: '/05-consumer/manual-commit' },
+            { text: '🧵 多线程消费', link: '/05-consumer/multi-thread' }
+          ]
+        },
+        {
+          text: '☕ Java SDK',
+          items: [
+            { text: '✍️ Producer API', link: '/06-jdk/producer-api' },
+            { text: '📥 Consumer API', link: '/06-jdk/consumer-api' },
+            { text: '🔧 AdminClient', link: '/06-jdk/admin-client' },
+            { text: '🔄 序列化与反序列化', link: '/06-jdk/serialization' },
+            { text: '🎯 自定义分区器', link: '/06-jdk/partitioner' },
+            { text: '🚨 异常处理', link: '/06-jdk/exception' }
+          ]
+        },
+        {
+          text: '🌱 Spring 集成',
+          items: [
+            { text: '🚀 Spring for Apache Kafka', link: '/07-spring/intro' },
+            { text: '📤 KafkaTemplate', link: '/07-spring/kafka-template' },
+            { text: '🎧 @KafkaListener', link: '/07-spring/listener' },
+            { text: '🔐 Spring 事务', link: '/07-spring/transaction' },
+            { text: '⚙️ Spring Boot 集成', link: '/07-spring/spring-boot' }
+          ]
+        },
+        {
+          text: '💼 企业实战',
+          items: [
+            { text: '🔁 消息幂等性', link: '/08-enterprise/idempotent' },
+            { text: '📊 顺序消费', link: '/08-enterprise/order-consume' },
+            { text: '⏰ 延迟消息', link: '/08-enterprise/delay' },
+            { text: '☠️ 死信队列', link: '/08-enterprise/dead-letter' },
+            { text: '📦 消息积压', link: '/08-enterprise/backlog' },
+            { text: '🔌 Kafka Connect', link: '/08-enterprise/connect' },
+            { text: '🌊 Kafka Streams', link: '/08-enterprise/streams' },
+            { text: '📊 监控告警', link: '/08-enterprise/monitoring' },
+            { text: '🌍 多环境隔离', link: '/08-enterprise/multi-env' },
+            { text: '🏭 集群部署', link: '/08-enterprise/cluster' }
+          ]
+        },
+        {
+          text: '🛠️ 运维调优',
+          items: [
+            { text: '📐 集群规划', link: '/09-ops/capacity' },
+            { text: '⚡ 性能压测', link: '/09-ops/benchmark' },
+            { text: '💾 JVM 调优', link: '/09-ops/jvm' },
+            { text: '🗑️ 日志清理', link: '/09-ops/log-cleanup' },
+            { text: '📈 监控指标', link: '/09-ops/metrics' },
+            { text: '🚑 故障恢复', link: '/09-ops/disaster-recovery' }
+          ]
+        },
+        {
+          text: '🎯 面试手撕',
+          items: [
+            { text: '📝 高频面试题（上）', link: '/10-interview/basic' },
+            { text: '📝 高频面试题（下）', link: '/10-interview/advanced' },
+            { text: '🔁 副本同步机制', link: '/10-interview/replica-sync' },
+            { text: '🚨 消息丢失解决方案', link: '/10-interview/message-loss' },
+            { text: '🆚 Kafka vs RocketMQ', link: '/10-interview/kafka-vs-rocketmq' },
+            { text: '👑 Leader 选举机制', link: '/10-interview/election' },
+            { text: '🎯 Exactly Once 实现', link: '/10-interview/exactly-once' },
+            { text: '🚀 Kafka 为什么快', link: '/10-interview/why-fast' }
+          ]
+        }
+      ],
+      '/graph': [
+        { text: '🎯 知识图谱', items: [{ text: '🌐 Kafka 全局知识图谱', link: '/graph' }] }
+      ],
+      '/mindmap': [
+        { text: '🎯 思维导图', items: [{ text: '🧭 Kafka 思维导图', link: '/mindmap' }] }
+      ],
+      '/cheatsheet': [
+        { text: '🎯 命令速查', items: [{ text: '📋 Kafka 命令速查', link: '/cheatsheet' }] }
+      ],
+      '/path': [
+        { text: '🎯 学习路径', items: [{ text: '📖 Kafka 学习路径', link: '/path' }] }
+      ]
+    },
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com' }
+    ],
+    footer: {
+      message: 'Kafka 知识图谱 - 系统化学习消息中间件 · 🏠 <a href="https://java-px.bot.cd/" target="_blank">门户首页</a>',
+      copyright: 'MIT License'
+    },
+    outline: {
+      level: [2, 3],
+      label: '页面大纲'
+    },
+    docFooter: { prev: '上一篇', next: '下一篇' },
+
+    search: { provider: 'local' },
+  }
+})

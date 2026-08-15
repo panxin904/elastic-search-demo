@@ -1,0 +1,26 @@
+---
+title: 命令速查
+---
+
+# 📋 Kafka 命令速查
+
+> 30+ 高频 Kafka 命令，支持分类过滤和关键词搜索。
+
+<ClientOnly>
+  <CommandCheatsheet />
+</ClientOnly>
+
+## 🧰 常用场景快速索引
+
+| 场景 | 命令 |
+|------|------|
+| 创建 Topic | `kafka-topics.sh --create --topic <name> --partitions 3 --replication-factor 2` |
+| 查看 Topic | `kafka-topics.sh --describe --topic <name>` |
+| 命令行生产 | `kafka-console-producer.sh --broker-list <host:port> --topic <name>` |
+| 命令行消费 | `kafka-console-consumer.sh --bootstrap-server <host:port> --topic <name> --from-beginning` |
+| 查看消费者组 | `kafka-consumer-groups.sh --list` |
+| 查看消费进度 | `kafka-consumer-groups.sh --describe --group <name>` |
+| 重置 Offset | `kafka-consumer-groups.sh --reset-offsets --to-earliest --topic <name> --execute` |
+| 分区扩容 | `kafka-reassign-partitions.sh --reassignment-json-file <file> --execute` |
+| 修改 Broker 配置 | `kafka-configs.sh --alter --add-config <key>=<value>` |
+| 查看 ACL | `kafka-acls.sh --list` |

@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1a1a2e">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="Scholar's Atlas · 28 个学习站点门户">
+<meta property="og:description" content="面向后端 / 前端 / AI / SRE 的系统化技术知识门户，28 个 VitePress 子站统一部署。">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="application-name" content="Scholar’s Atlas">
+<meta name="apple-mobile-web-app-title" content="Scholar’s Atlas">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<title>学习网站导航 · Scholar's Atlas</title>
+
+<!-- T4: SEO meta (description 由 inject-stats.py 同步) -->
+<meta name="description" content="Scholar's Atlas：28 个 VitePress 子站统一部署，1429+ 内容页，覆盖后端 / 前端 / AI / SRE。">
+<link rel="canonical" href="https://java-px.bot.cd/">
+<meta name="theme-color" content="#1a1a2e" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1018" media="(prefers-color-scheme: dark)">
+<meta property="og:url" content="https://java-px.bot.cd/">
+<meta property="og:site_name" content="Scholar's Atlas">
+<meta property="og:image" content="https://java-px.bot.cd/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Scholar's Atlas · 28 个学习站点门户">
+<meta name="twitter:description" content="面向后端 / 前端 / AI / SRE 的系统化技术知识门户，28 个 VitePress 子站统一部署。">
+<meta name="twitter:image" content="https://java-px.bot.cd/og-cover.png">
+
+<!-- T7: 自托管 Google Fonts (Latin subset, 中文走系统字体 fallback) -->
+<link rel="preload" href="/fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fraunces-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/jetbrains-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face { font-family: "Fraunces"; src: url("/fonts/fraunces-300.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Fraunces"; src: url("/fonts/fraunces-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Fraunces"; src: url("/fonts/fraunces-500.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Fraunces"; src: url("/fonts/fraunces-600.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+  @font-face { font-family: "DM Sans"; src: url("/fonts/dm-sans-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: "DM Sans"; src: url("/fonts/dm-sans-500.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: "DM Sans"; src: url("/fonts/dm-sans-700.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: "JetBrains Mono"; src: url("/fonts/jetbrains-mono-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: "JetBrains Mono"; src: url("/fonts/jetbrains-mono-500.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: "JetBrains Mono"; src: url("/fonts/jetbrains-mono-700.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+</style>
+<style>
+/* ============== Design tokens ============== */
+:root{
+  /* light theme — cream paper + ink */
+  --bg: #f6f1e8;
+  --bg-soft: #ede5d3;
+  --bg-elev: #fbf7ee;
+  --ink: #1a1a2e;
+  --ink-soft: #44475a;
+  --ink-muted: #6e7080;
+  --line: rgba(26,26,46,.12);
+  --line-strong: rgba(26,26,46,.24);
+  --accent: #c4623d;          /* rust */
+  --accent-soft: #e6c4b3;
+  --secondary: #2d4a5b;       /* ink-blue */
+  --secondary-soft: #b8d0db;
+  --tertiary: #7c9885;        /* sage */
+  --tertiary-soft: #d3e0d6;
+  --grid: rgba(26,26,46,.05);
+  --shadow-sm: 0 1px 2px rgba(26,26,46,.06), 0 2px 8px rgba(26,26,46,.04);
+  --shadow-md: 0 2px 4px rgba(26,26,46,.08), 0 12px 28px rgba(26,26,46,.08);
+  --shadow-lg: 0 8px 16px rgba(26,26,46,.10), 0 24px 48px rgba(26,26,46,.10);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --t-fast: 160ms cubic-bezier(.4,.0,.2,1);
+  --t-base: 280ms cubic-bezier(.4,.0,.2,1);
+  --t-slow: 480ms cubic-bezier(.22,.61,.36,1);
+}
+[data-theme="dark"]{
+  --bg: #0e1018;
+  --bg-soft: #161924;
+  --bg-elev: #1c2030;
+  --ink: #ece6d6;
+  --ink-soft: #b8b3a3;
+  --ink-muted: #7e7a6c;
+  --line: rgba(236,230,214,.10);
+  --line-strong: rgba(236,230,214,.24);
+  --accent: #e08258;
+  --accent-soft: #5a342a;
+  --secondary: #6fb1cc;
+  --secondary-soft: #2a4a5b;
+  --tertiary: #9bb89e;
+  --tertiary-soft: #2a3a30;
+  --grid: rgba(236,230,214,.04);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.5), 0 2px 8px rgba(0,0,0,.3);
+  --shadow-md: 0 2px 4px rgba(0,0,0,.5), 0 12px 28px rgba(0,0,0,.4);
+  --shadow-lg: 0 8px 16px rgba(0,0,0,.6), 0 24px 48px rgba(0,0,0,.5);
+}
+
+/* ============== Reset & base ============== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;scroll-behavior:smooth}
+body{
+  font-family:"DM Sans","PingFang SC","Microsoft YaHei",sans-serif;
+  font-feature-settings:"ss01","cv01";
+  background:var(--bg);
+  color:var(--ink);
+  min-height:100vh;
+  line-height:1.55;
+  background-image:
+    radial-gradient(circle at 1px 1px,var(--grid) 1px,transparent 0);
+  background-size:24px 24px;
+  transition:background var(--t-base),color var(--t-base);
+}
+::selection{background:var(--accent);color:var(--bg)}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+input{font:inherit;color:inherit}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+.container{max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+
+/* ============== Top bar ============== */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  background:color-mix(in oklab,var(--bg) 86%,transparent);
+  backdrop-filter:saturate(160%) blur(12px);
+  -webkit-backdrop-filter:saturate(160%) blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.topbar-inner{
+  display:flex;align-items:center;gap:16px;
+  height:64px;padding:0 clamp(20px,4vw,56px);
+  max-width:1320px;margin:0 auto;
+}
+.brand{
+  display:flex;align-items:center;gap:10px;
+  font-family:"Fraunces",serif;font-weight:600;
+  font-size:18px;letter-spacing:-.01em;
+  white-space:nowrap;
+}
+.brand-mark{
+  width:32px;height:32px;border-radius:8px;
+  background:linear-gradient(135deg,var(--accent),var(--secondary));
+  display:grid;place-items:center;color:#fff;
+  font-family:"Fraunces",serif;font-style:italic;font-weight:600;
+  box-shadow:var(--shadow-sm);
+}
+.brand-sub{
+  font-family:"JetBrains Mono",monospace;
+  font-size:11px;color:var(--ink-muted);
+  letter-spacing:.06em;text-transform:uppercase;
+  border-left:1px solid var(--line);padding-left:10px;margin-left:2px;
+}
+.search{
+  flex:1;max-width:480px;margin:0 auto;
+  position:relative;
+}
+.search-input{
+  width:100%;height:42px;
+  border:1px solid var(--line-strong);
+  border-radius:99px;
+  background:var(--bg-elev);
+  padding:0 44px 0 44px;
+  font-size:14px;
+  transition:border-color var(--t-fast),background var(--t-fast),box-shadow var(--t-fast);
+}
+.search-input::placeholder{color:var(--ink-muted)}
+.search-input:focus{outline:0;border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in oklab,var(--accent) 18%,transparent)}
+.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--ink-muted)}
+.search-kbd{
+  position:absolute;right:10px;top:50%;transform:translateY(-50%);
+  display:flex;gap:4px;
+  font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-muted);
+  pointer-events:none;
+}
+.search-kbd kbd{
+  background:var(--bg-soft);
+  border:1px solid var(--line);
+  padding:2px 6px;border-radius:4px;
+  font-family:inherit;
+}
+.icon-btn{
+  width:42px;height:42px;border-radius:10px;
+  border:1px solid var(--line-strong);
+  background:var(--bg-elev);
+  display:grid;place-items:center;
+  transition:all var(--t-fast);
+  color:var(--ink-soft);
+}
+.icon-btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
+.icon-btn svg{width:18px;height:18px}
+
+/* ============== Hero ============== */
+.hero{
+  padding:clamp(56px,10vw,120px) 0 clamp(32px,6vw,64px);
+  position:relative;
+  overflow:hidden;
+}
+.hero-eyebrow{
+  font-family:"JetBrains Mono",monospace;
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:18px;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.hero-eyebrow::before{
+  content:"";width:24px;height:1px;background:var(--accent);
+}
+.hero h1{
+  font-family:"Fraunces",serif;
+  font-weight:300;font-style:italic;
+  font-size:clamp(48px,8vw,104px);
+  line-height:.95;letter-spacing:-.03em;
+  margin-bottom:24px;
+  color:var(--ink);
+}
+.hero h1 em{
+  font-style:normal;font-weight:600;
+  background:linear-gradient(120deg,var(--accent) 0%,var(--secondary) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-lede{
+  font-size:clamp(16px,1.6vw,19px);
+  color:var(--ink-soft);
+  max-width:680px;line-height:1.7;
+  margin-bottom:36px;
+}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:24px;max-width:760px;
+  padding:24px 0 0;
+  border-top:1px solid var(--line);
+}
+.stat{display:flex;flex-direction:column;gap:4px}
+.stat-num{
+  font-family:"Fraunces",serif;
+  font-size:clamp(28px,4vw,40px);
+  font-weight:500;letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums;
+}
+.stat-label{
+  font-family:"JetBrains Mono",monospace;
+  font-size:11px;letter-spacing:.06em;
+  color:var(--ink-muted);text-transform:uppercase;
+}
+
+/* ============== Filter chips ============== */
+.filterbar{
+  position:sticky;top:64px;z-index:50;
+  background:color-mix(in oklab,var(--bg) 92%,transparent);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+  padding:14px 0;
+  margin-bottom:32px;
+}
+.filterbar-inner{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.filter-label{
+  font-family:"JetBrains Mono",monospace;
+  font-size:11px;color:var(--ink-muted);
+  letter-spacing:.06em;text-transform:uppercase;
+  margin-right:8px;
+}
+.chip{
+  padding:6px 14px;border-radius:99px;
+  border:1px solid var(--line-strong);
+  background:var(--bg-elev);
+  font-size:13px;color:var(--ink-soft);
+  transition:all var(--t-fast);
+  white-space:nowrap;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip.active{
+  background:var(--ink);color:var(--bg);
+  border-color:var(--ink);
+}
+.chip-count{
+  margin-left:6px;font-family:"JetBrains Mono",monospace;
+  font-size:10px;opacity:.6;
+}
+
+/* ============== Cards grid ============== */
+.section{margin-bottom:48px}
+.section-head{
+  display:flex;align-items:baseline;gap:16px;
+  margin-bottom:24px;
+  padding-bottom:12px;border-bottom:1px solid var(--line);
+}
+.section-title{
+  font-family:"Fraunces",serif;
+  font-size:24px;font-weight:500;font-style:italic;
+  letter-spacing:-.01em;
+}
+.section-count{
+  font-family:"JetBrains Mono",monospace;
+  font-size:11px;color:var(--ink-muted);
+  letter-spacing:.08em;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
+  gap:18px;
+}
+.card{
+  position:relative;
+  background:var(--bg-elev);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:22px 22px 18px;
+  display:flex;flex-direction:column;
+  text-decoration:none;
+  overflow:hidden;
+  transition:transform var(--t-base),box-shadow var(--t-base),border-color var(--t-base);
+  isolation:isolate;
+  opacity:0;transform:translateY(8px);
+  animation:rise var(--t-slow) forwards;
+}
+@keyframes rise{to{opacity:1;transform:none}}
+.card::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,color-mix(in oklab,var(--c) 12%,transparent),transparent 60%);
+  opacity:.5;z-index:-1;
+  transition:opacity var(--t-base);
+}
+.card::after{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:var(--c,var(--accent));
+  border-radius:var(--radius) 0 0 var(--radius);
+  transition:width var(--t-base);
+}
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-md);
+  border-color:var(--c,var(--accent));
+}
+.card:hover::after{width:5px}
+.card:hover::before{opacity:1}
+.card-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px}
+.card-icon{
+  width:48px;height:48px;border-radius:12px;
+  display:grid;place-items:center;
+  background:color-mix(in oklab,var(--c) 18%,var(--bg-elev));
+  color:var(--c,var(--accent));
+  font-size:24px;line-height:1;
+  border:1px solid color-mix(in oklab,var(--c) 24%,transparent);
+  flex-shrink:0;
+  transition:transform var(--t-base);
+}
+.card:hover .card-icon{transform:scale(1.08) rotate(-3deg)}
+.card-meta{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.card-title{
+  font-family:"Fraunces",serif;
+  font-size:18px;font-weight:500;
+  color:var(--ink);letter-spacing:-.01em;
+  line-height:1.25;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.card-tag{
+  font-family:"JetBrains Mono",monospace;
+  font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-muted);
+}
+.card-desc{
+  font-size:13px;color:var(--ink-soft);
+  line-height:1.55;
+  margin-bottom:16px;
+  flex:1;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.card-foot{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:8px;
+  padding-top:12px;border-top:1px dashed var(--line);
+}
+.card-path{
+  font-family:"JetBrains Mono",monospace;
+  font-size:11px;
+  color:var(--c,var(--accent));
+  background:color-mix(in oklab,var(--c) 12%,transparent);
+  padding:3px 8px;border-radius:6px;
+  font-weight:500;
+}
+.card-arrow{
+  width:28px;height:28px;border-radius:8px;
+  display:grid;place-items:center;
+  background:transparent;border:1px solid var(--line);
+  color:var(--ink-muted);
+  transition:all var(--t-fast);
+}
+.card:hover .card-arrow{
+  background:var(--c,var(--accent));
+  border-color:var(--c,var(--accent));
+  color:#fff;
+  transform:translateX(2px);
+}
+.card-arrow svg{width:14px;height:14px}
+.card[hidden]{display:none}
+.empty-state{
+  grid-column:1/-1;text-align:center;
+  padding:48px 24px;color:var(--ink-muted);
+  font-family:"Fraunces",serif;font-style:italic;
+  font-size:18px;
+  border:1px dashed var(--line-strong);border-radius:var(--radius);
+}
+.empty-state[hidden]{display:none}
+
+/* ============== Updates ============== */
+.updates{
+  padding:64px 0 32px;border-top:1px solid var(--line);
+  background:color-mix(in oklab,var(--bg-soft) 40%,var(--bg));
+}
+.section-head{margin-bottom:32px;display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.section-title{
+  font-family:"Fraunces",serif;font-weight:500;
+  font-size:clamp(24px,3vw,36px);letter-spacing:-.01em;
+  color:var(--ink);
+}
+.section-sub{
+  font-family:"JetBrains Mono",monospace;font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-muted);
+}
+.updates-grid{
+  display:grid;gap:16px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+}
+.update-item{
+  display:flex;gap:16px;padding:20px;
+  background:var(--bg-elev);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  text-decoration:none;color:inherit;
+  transition:all var(--t-fast);
+  position:relative;overflow:hidden;
+}
+.update-item::before{
+  content:"";position:absolute;top:0;left:0;width:3px;height:100%;
+  background:var(--accent);transform:scaleY(0);transform-origin:top;
+  transition:transform var(--t-fast);
+}
+.update-item:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.update-item:hover::before{transform:scaleY(1)}
+.update-date{
+  font-family:"JetBrains Mono",monospace;
+  font-size:11px;letter-spacing:.06em;
+  color:var(--ink-muted);white-space:nowrap;
+  padding-top:2px;
+}
+.update-icon{font-size:24px;line-height:1;flex-shrink:0;padding-top:2px}
+.update-body{flex:1;min-width:0}
+.update-title{
+  font-family:"Fraunces",serif;font-weight:600;
+  font-size:16px;color:var(--ink);margin-bottom:6px;
+}
+.update-desc{
+  font-size:13px;color:var(--ink-soft);line-height:1.6;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+/* ============== About ============== */
+.about{
+  padding:64px 0;border-top:1px solid var(--line);
+  background:var(--bg);
+}
+.about .section-title{margin-bottom:32px}
+.about-grid{
+  display:grid;gap:24px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+}
+.about-block{
+  padding:24px;border:1px solid var(--line);
+  border-radius:var(--radius);background:var(--bg-elev);
+}
+.about-block h3{
+  font-family:"Fraunces",serif;font-weight:600;
+  font-size:18px;color:var(--ink);margin-bottom:12px;
+}
+.about-block p,.about-block ul{
+  font-size:14px;color:var(--ink-soft);line-height:1.7;
+}
+.about-block ul{padding-left:18px}
+.about-block li{margin-bottom:6px}
+.about-block code{
+  font-family:"JetBrains Mono",monospace;font-size:12px;
+  background:var(--bg-soft);padding:2px 6px;border-radius:4px;
+  color:var(--ink);
+}
+.about-block b{color:var(--ink);font-weight:600}
+.footer-copy a{color:var(--ink-soft);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.footer-copy a:hover{color:var(--accent);text-decoration-color:var(--accent)}
+
+/* ============== Footer ============== */
+.footer{
+  margin-top:64px;padding:32px 0 48px;
+  border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;
+  font-size:13px;color:var(--ink-muted);
+}
+.footer-keys{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.footer-keys kbd{
+  font-family:"JetBrains Mono",monospace;font-size:11px;
+  background:var(--bg-elev);border:1px solid var(--line);
+  padding:2px 6px;border-radius:4px;
+  color:var(--ink-soft);
+}
+.footer-keys span{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.04em}
+.footer-copy{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.04em}
+
+/* ============== Mobile menu ============== */
+.menu-btn{display:none}
+@media (max-width:760px){
+  .topbar-inner{gap:8px}
+  .brand-sub{display:none}
+  .search-kbd{display:none}
+  .search{order:99;flex-basis:100%;max-width:none;margin:8px 0 0}
+  .topbar{flex-wrap:wrap;height:auto}
+  .topbar-inner{height:auto;padding-top:10px;padding-bottom:10px;flex-wrap:wrap}
+  .icon-btn.theme{order:2}
+  .hero{padding-top:48px}
+  .filterbar{position:static}
+  .grid{grid-template-columns:1fr}
+}
+
+/* ============== Reduced motion ============== */
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .card{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/" aria-label="Scholar's Atlas">
+      <span class="brand-mark">A</span>
+      <span>Scholar's Atlas</span>
+      <span class="brand-sub" data-stat="sites" data-format="brand">学习网站 · <span data-stat="sites-num">28</span> 站</span>
+    </a>
+
+    <div class="search">
+      <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" class="search-input" type="search" placeholder="搜索站点 · Search sites…" aria-label="搜索站点">
+      <span class="search-kbd"><kbd>/</kbd></span>
+    </div>
+
+    <button class="icon-btn theme" id="themeBtn" aria-label="切换主题" aria-pressed="false" title="切换主题 ⌘+J">
+      <svg id="iconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- Hero -->
+  <section class="hero">
+    <span class="hero-eyebrow">学习导航 · v2026.08</span>
+    <h1>一个<br><em>学者地图册。</em></h1>
+    <p class="hero-lede">
+      收录 <span data-stat="sites-num">28</span> 个垂直领域的工程知识图谱——从 Elasticsearch 的倒排索引到 Go 的 goroutine，从 Kafka 的 ISR 到 ClickHouse 的 MergeTree，从 GPU 的 CUDA 矩阵到混沌工程的 Chaos Mesh 与韧性模式。
+      每站都配有可交互的知识图谱、思维导图、命令速查与 50–80 个深度内容页。
+    </p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num" data-count="28">0</span><span class="stat-label">站点 · Sites</span></div>
+      <div class="stat"><span class="stat-num" data-count="1429">0</span><span class="stat-label">内容页 · Pages</span></div>
+      <div class="stat"><span class="stat-num" data-count="1154">0</span><span class="stat-label">知识节点 · Nodes</span></div>
+      <div class="stat"><span class="stat-num" data-count="120">0</span><span class="stat-label">交互组件 · Widgets</span></div>
+    </div>
+  </section>
+
+  <!-- Filter chips -->
+  <nav class="filterbar" aria-label="类别筛选">
+    <div class="filterbar-inner">
+      <span class="filter-label">分类</span>
+      <button class="chip active" data-cat="all">全部<span class="chip-count" id="cnt-all">28</span></button>
+      <button class="chip" data-cat="data">数据 · 存储<span class="chip-count" id="cnt-data">6</span></button>
+      <button class="chip" data-cat="backend">后端 · 架构<span class="chip-count" id="cnt-backend">9</span></button>
+      <button class="chip" data-cat="frontend">前端 · 工具<span class="chip-count" id="cnt-frontend">3</span></button>
+      <button class="chip" data-cat="infra">基础设施<span class="chip-count" id="cnt-infra">4</span></button>
+      <button class="chip" data-cat="ai">AI · 视频<span class="chip-count" id="cnt-ai">2</span></button>
+      <button class="chip" data-cat="ops">运维 · 可观测<span class="chip-count" id="cnt-ops">2</span></button>
+      <button class="chip" data-cat="security">安全 · 加密<span class="chip-count" id="cnt-security">1</span></button>
+      <button class="chip" data-cat="arch">企业架构<span class="chip-count" id="cnt-arch">1</span></button>
+    </div>
+  </nav>
+
+  <!-- All sites grid -->
+  <section class="section">
+    <div class="section-head">
+      <h2 class="section-title">全部站点</h2>
+      <span class="section-count" id="visibleCount" data-stat="sites" data-format="items"><span data-stat="sites-num">28</span> 项</span>
+    </div>
+
+    <div class="grid" id="grid">
+      <a class="card" data-cat="data" data-keywords="elastic search 倒排索引 分词 搜索 全文检索" style="--c:#00758F;animation-delay:0ms" href="/es/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">🔍</span>
+          <div class="card-meta"><div class="card-title">Elasticsearch 知识图谱</div><div class="card-tag">Search · 64 pages</div></div>
+        </div>
+        <p class="card-desc">ES 系统化学习，41 节点知识图谱 + 60+ 内容页 + 交互 SQL Playground。</p>
+        <div class="card-foot"><span class="card-path">/es/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="data" data-keywords="mysql sql 索引 事务 锁 主从 mybatis" style="--c:#6DB33F;animation-delay:40ms" href="/mysql/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">🗄️</span>
+          <div class="card-meta"><div class="card-title">MySQL 知识图谱</div><div class="card-tag">RDBMS · 68 pages</div></div>
+        </div>
+        <p class="card-desc">MySQL 系统化学习，50 节点 + 11 主题 + 24 主题页 + MyBatis 系列。</p>
+        <div class="card-foot"><span class="card-path">/mysql/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="data" data-keywords="redis 缓存 nosql 集群 分布式锁 数据结构" style="--c:#DC382D;animation-delay:80ms" href="/redis/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">🚀</span>
+          <div class="card-meta"><div class="card-title">Redis 知识图谱</div><div class="card-tag">Cache · 60 pages</div></div>
+        </div>
+        <p class="card-desc">Redis 系统化学习，60+ 节点 + 8 主题 + 60+ 内容页 + 5 个交互组件。</p>
+        <div class="card-foot"><span class="card-path">/redis/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="data" data-keywords="kafka mq 消息队列 isr 分区 消费者 偏移量" style="--c:#231F20;animation-delay:120ms" href="/kafka/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">📨</span>
+          <div class="card-meta"><div class="card-title">Kafka 知识图谱</div><div class="card-tag">MQ · 74 pages</div></div>
+        </div>
+        <p class="card-desc">Kafka 系统化学习，62 节点 + 10 主题 + 63 内容页 + 6 交互组件。</p>
+        <div class="card-foot"><span class="card-path">/kafka/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="backend" data-keywords="spring cloud alibaba 微服务 nacos gateway seata" style="--c:#9333ea;animation-delay:160ms" href="/cloud/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">☁️</span>
+          <div class="card-meta"><div class="card-title">Spring Cloud Alibaba</div><div class="card-tag">Microservice · 36 pages</div></div>
+        </div>
+        <p class="card-desc">Spring Cloud 系统化学习，20 节点 + 6 主题 + 24 内容页 + Nacos/Gateway/Seata。</p>
+        <div class="card-foot"><span class="card-path">/cloud/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="backend" data-keywords="java web 开发 手册 流程 模式 mybatis spring" style="--c:#b07219;animation-delay:200ms" href="/java/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">☕</span>
+          <div class="card-meta"><div class="card-title">Java Web 开发手册</div><div class="card-tag">Java · 54 pages</div></div>
+        </div>
+        <p class="card-desc">Java Web 全流程开发手册，50+ 节点涵盖开发流程、设计模式、实战技巧、技术栈、MyBatis、微服务等。</p>
+        <div class="card-foot"><span class="card-path">/java/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="backend" data-keywords="java 语言 集合 jvm 并发 gc spring" style="--c:#dc2626;animation-delay:240ms" href="/java-language/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">☕</span>
+          <div class="card-meta"><div class="card-title">Java 语言全栈</div><div class="card-tag">JVM · 56 pages</div></div>
+        </div>
+        <p class="card-desc">Java 基础 · 集合 · 并发 · JVM · GC · Spring · Spring Cloud · 设计模式。</p>
+        <div class="card-foot"><span class="card-path">/java-language/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="backend" data-keywords="python 爬虫 数据分析 异步 fastapi django" style="--c:#3776AB;animation-delay:280ms" href="/python/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">🐍</span>
+          <div class="card-meta"><div class="card-title">Python 知识图谱</div><div class="card-tag">Python · 61 pages</div></div>
+        </div>
+        <p class="card-desc">Python 系统化学习，60 节点 + 9 主题 + 60 内容页 + 7 交互组件。</p>
+        <div class="card-foot"><span class="card-path">/python/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="frontend" data-keywords="前端 node js ts react vue vite webpack" style="--c:#06b6d4;animation-delay:320ms" href="/frontend/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">⚛️</span>
+          <div class="card-meta"><div class="card-title">前端 + Node 全栈</div><div class="card-tag">Frontend · 66 pages</div></div>
+        </div>
+        <p class="card-desc">现代前端知识图谱：JS/TS · React/Vue/Angular · Vite/Webpack · Node · 80+ 节点。</p>
+        <div class="card-foot"><span class="card-path">/frontend/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="frontend" data-keywords="工具 tools json 时间戳 url base64 uuid cron" style="--c:#4f46e5;animation-delay:360ms" href="/tools/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">🛠️</span>
+          <div class="card-meta"><div class="card-title">在线常用工具</div><div class="card-tag">Utilities · 14 pages</div></div>
+        </div>
+        <p class="card-desc">12 个本地工具：JSON 格式化 / 转换、时间戳 / 时区、URL 编解码、UUID、Base64、Diff、Cron 等。</p>
+        <div class="card-foot"><span class="card-path">/tools/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="frontend" data-keywords="linux 服务器 命令 文件 文本 进程 systemd ssh 防火墙" style="--c:#f97316;animation-delay:400ms" href="/linux/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">🐧</span>
+          <div class="card-meta"><div class="card-title">Linux 服务器</div><div class="card-tag">Linux · 72 pages</div></div>
+        </div>
+        <p class="card-desc">Linux 服务器与高频命令：文件系统 · 文本三剑客 · 进程 · systemd · 防火墙 · SSH · 性能。</p>
+        <div class="card-foot"><span class="card-path">/linux/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="infra" data-keywords="云原生 docker kubernetes k8s helm service mesh gitops" style="--c:#06b6d4;animation-delay:440ms" href="/cloud-native/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">☁️</span>
+          <div class="card-meta"><div class="card-title">云原生 / Docker / K8s</div><div class="card-tag">Cloud-native · 56 pages</div></div>
+        </div>
+        <p class="card-desc">Docker 容器 · Kubernetes 编排 · Helm · 可观测 · Service Mesh · GitOps。</p>
+        <div class="card-foot"><span class="card-path">/cloud-native/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="infra" data-keywords="大数据 数仓 数据湖 hdfs spark flink hive clickhouse doris iceberg" style="--c:#eab308;animation-delay:480ms" href="/bigdata/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">📊</span>
+          <div class="card-meta"><div class="card-title">大数据 / 数仓 / 数据湖</div><div class="card-tag">BigData · 52 pages</div></div>
+        </div>
+        <p class="card-desc">HDFS · Spark · Flink · Kafka · Hive · ClickHouse · Doris · 数据湖（Iceberg / Hudi / Delta）。</p>
+        <div class="card-foot"><span class="card-path">/bigdata/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="infra" data-keywords="网络 计算机网络 tcp ip http https dns cdn vpc 5g wifi" style="--c:#0ea5e9;animation-delay:520ms" href="/network/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">🌐</span>
+          <div class="card-meta"><div class="card-title">计算机网络全栈</div><div class="card-tag">Network · 67 pages</div></div>
+        </div>
+        <p class="card-desc">OSI / TCP/IP · HTTP / HTTPS · DNS / CDN · 网络安全 · 无线 / 5G · 云网络 VPC / Mesh。</p>
+        <div class="card-foot"><span class="card-path">/network/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="ai" data-keywords="ai 人工智能 大模型 agent rag mcp llm" style="--c:#8b5cf6;animation-delay:560ms" href="/ai/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">🤖</span>
+          <div class="card-meta"><div class="card-title">AI 工程全栈</div><div class="card-tag">AI · 58 pages</div></div>
+        </div>
+        <p class="card-desc">AI 工具 · 大模型 · SDK · Agent 框架 · RAG · MCP · 微调 · 部署。</p>
+        <div class="card-foot"><span class="card-path">/ai/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="ai" data-keywords="视频处理 编解码 h264 h265 av1 ffmpeg 流媒体 rtmp hls 数字人 超分" style="--c:#a855f7;animation-delay:600ms" href="/video/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">🎬</span>
+          <div class="card-meta"><div class="card-title">视频处理全栈</div><div class="card-tag">Video · 68 pages</div></div>
+        </div>
+        <p class="card-desc">视频原理 · 编解码 H.264/H.265/AV1 · FFmpeg · 流媒体协议 · AI 视频算法 (超分/插帧/数字人) · GPU 加速。</p>
+        <div class="card-foot"><span class="card-path">/video/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="infra" data-keywords="文件系统 分布式存储 对象存储 块存储 hdfs ceph juicefs oss s3 容器存储 k8s存储 备份 容灾" style="--c:#0f766e;animation-delay:620ms" href="/filesystem/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">🗄️</span>
+          <div class="card-meta"><div class="card-title">文件系统与存储</div><div class="card-tag">Filesystem · 76 pages</div></div>
+        </div>
+        <p class="card-desc">文件系统基础 · 本地盘 / 分布式 FS · 对象存储 S3 协议 · 网络协议 NFS/SMB · 云原生 K8s 存储 CSI/PV/PVC · 容器 FS OverlayFS · 性能调优 · 安全权限 · 备份容灾 · 企业案例（Netflix/字节/CERN/Snowflake/Meta）· 面试题与对比。</p>
+        <div class="card-foot"><span class="card-path">/filesystem/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="arch" data-keywords="企业级架构 高可用 高并发 分布式 微服务 ddd 限流 熔断 saga 2pc 秒杀 系统设计" style="--c:#7c3aed;animation-delay:640ms" href="/architecture/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">🏛️</span>
+          <div class="card-meta"><div class="card-title">企业级架构</div><div class="card-tag">Architecture · 51 pages</div></div>
+        </div>
+        <p class="card-desc">并发理论 JMM · 线程池 · CAP / BASE · 限流熔断 · 分布式事务 2PC/TCC/Saga · 缓存三大问题 · DDD · Service Mesh · 秒杀 / 短链 / 异地多活 企业案例。</p>
+        <div class="card-foot"><span class="card-path">/architecture/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="backend" data-keywords="系统设计 distributed system cap 一致性哈希 paxos raft 共识算法 分布式事务 短链 feed timeline id生成 rate limit" style="--c:#0891b2;animation-delay:660ms" href="/system-design/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">🧠</span>
+          <div class="card-meta"><div class="card-title">系统设计 / 分布式系统</div><div class="card-tag">System Design · 60 pages</div></div>
+        </div>
+        <p class="card-desc">面试级系统设计图谱：CAP/PACELC/FLP · 一致性哈希 · Paxos/Raft/ZAB · 2PC/3PC/TCC/Saga · ID 生成 · Rate Limiter · 经典案例（短链 / Feed / Timeline / 限流）。</p>
+        <div class="card-foot"><span class="card-path">/system-design/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="data" data-keywords="postgresql pg jsonb postgis pgvector 向量 关系型 扩展 索引" style="--c:#336791;animation-delay:700ms" href="/postgresql/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">🐘</span>
+          <div class="card-meta"><div class="card-title">PostgreSQL 知识图谱</div><div class="card-tag">RDBMS · 50 pages</div></div>
+        </div>
+        <p class="card-desc">PG 系统化学习：JSONB + GIN · MVCC 多版本 · CTE/窗口函数 · PostGIS 空间 · pgvector 向量 · 流复制 + Patroni · pg_trgm/TimescaleDB/Citus 扩展生态。</p>
+        <div class="card-foot"><span class="card-path">/postgresql/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="ops" data-keywords="observability 可观测性 prometheus grafana opentelemetry loki tempo jaeger 链路追踪 sli slo sre" style="--c:#14b8a6;animation-delay:760ms" href="/observability/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">📡</span>
+          <div class="card-meta"><div class="card-title">Observability 知识图谱</div><div class="card-tag">SRE · 50 pages</div></div>
+        </div>
+        <p class="card-desc">现代可观测性深度图谱：Metrics · Logs · Traces · Profiling · OpenTelemetry 统一采集 · Prometheus + PromQL · Grafana · Loki · 全链路追踪 · SRE 三件套。</p>
+        <div class="card-foot"><span class="card-path">/observability/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="security" data-keywords="security 安全 owasp top 10 oauth2 oidc jwt tls mTLS 密码学 零信任 容器安全" style="--c:#7c3aed;animation-delay:790ms" href="/security/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">🛡️</span>
+          <div class="card-meta"><div class="card-title">Security 知识图谱</div><div class="card-tag">安全 · 36 pages</div></div>
+        </div>
+        <p class="card-desc">Web 安全深度图谱：OWASP Top 10 2025 逐条拆解 · OAuth 2.0 / OIDC / JWT 认证 · 对称/非对称/哈希密码学 · TLS 1.3 + mTLS · Trivy + Falco 容器安全 · 零信任 / SPIFFE。</p>
+        <div class="card-foot"><span class="card-path">/security/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="ops" data-keywords="devops ci cd jenkins github actions gitlab ci tekton argocd flux terraform pulumi ansible gitops 蓝绿 金丝雀 灰度 发布策略 dora" style="--c:#06b6d4;animation-delay:830ms" href="/devops/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">⚙️</span>
+          <div class="card-meta"><div class="card-title">DevOps 知识图谱</div><div class="card-tag">CI/CD · 29 pages</div></div>
+        </div>
+        <p class="card-desc">软件交付链深度图谱：CI/CD Pipeline（GitHub Actions / GitLab / Jenkins / Tekton）· IaC（Terraform / Pulumi / Ansible）· GitOps（ArgoCD / Flux）· 蓝绿 / 金丝雀 / Feature Flag 发布策略 · DORA Metrics · 6 大类 29 节点。</p>
+        <div class="card-foot"><span class="card-path">/devops/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="backend" data-keywords="rust 系统编程 内存安全 所有权 借用 生命周期 零成本抽象 tokio async wasm 嵌入式 高性能 跨语言 ffi discord cloudflare figma tikv" style="--c:#ce422b;animation-delay:870ms" href="/rust/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">🦀</span>
+          <div class="card-meta"><div class="card-title">Rust 系统编程</div><div class="card-tag">Ownership · 35 pages</div></div>
+        </div>
+        <p class="card-desc">Rust 系统编程与高性能服务深度图谱：所有权 / 借用 / 生命周期 · 枚举 / 模式匹配 / Trait · Cargo / crates.io / 标准库 · 线程 / async-await / Tokio / Channel · unsafe / FFI / 嵌入式 / WebAssembly / 性能优化 · 宏 / 迭代器 / 智能指针 / 错误处理 · 6 大类 35 节点。</p>
+        <div class="card-foot"><span class="card-path">/rust/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="backend" data-keywords="go golang 云原生 kubernetes docker prometheus etcd 微服务 grpc kratos gin goroutine channel context csp 并发 pipeline" style="--c:#00ADD8;animation-delay:900ms" href="/go/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">🐹</span>
+          <div class="card-meta"><div class="card-title">Go 语言生态</div><div class="card-tag">Concurrency · 36 pages</div></div>
+        </div>
+        <p class="card-desc">Go 知识图谱与云原生深度图谱：语法 / 类型 / 函数 / 错误处理 / 包模块 · goroutine / channel / sync / context / CSP 并发模式 · Go 工具链 / 标准库 / testing / benchmark · Docker / Kubernetes / Prometheus / etcd 源码导读 · Gin / gRPC / Kratos 微服务 · runtime GMP / GC / pprof / cgo · 6 大类 35 节点。</p>
+        <div class="card-foot"><span class="card-path">/go/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="data" data-keywords="clickhouse olap 列式数据库 实时数仓 物化视图 mergetree kafka引擎 bitmap uv 留存 漏斗 字节 ub 字节 京东 yandex uber cloudflare doris starrocks tidb 对比选型" style="--c:#FFCC01;animation-delay:920ms" href="/clickhouse/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">🟡</span>
+          <div class="card-meta"><div class="card-title">ClickHouse OLAP</div><div class="card-tag">Columnar OLAP · 36 pages</div></div>
+        </div>
+        <p class="card-desc">Yandex 开源的列式 OLAP 数据库深度图谱：MergeTree / 主键索引 / 数据分区 / 向量化执行 · 实时数仓 · 物化视图 · Kafka 引擎 · Grafana / Prometheus / ch-go 生态 · vs Doris / StarRocks / TiDB / Snowflake · 12 个大厂实战案例 · 6 大类 35 节点。</p>
+        <div class="card-foot"><span class="card-path">/clickhouse/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="backend" data-keywords="设计模式 gof 23 单例 工厂 抽象工厂 建造者 原型 适配器 桥接 组合 装饰器 外观 享元 代理 责任链 命令 迭代器 中介者 备忘录 观察者 状态 策略 模板方法 访问者 解释器 依赖注入 仓储 规格 cqrs 事件溯源 saga 边车 熔断 舱壁 绞杀者 outbox 上帝对象 贫血模型 大泥球 回调地狱 循环依赖 魔数 提前优化" style="--c:#7c3aed;animation-delay:940ms" href="/design-pattern/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">🟣</span>
+          <div class="card-meta"><div class="card-title">设计模式</div><div class="card-tag">Design Pattern · 49 pages</div></div>
+        </div>
+        <p class="card-desc">GoF 23 模式 + 现代架构模式 + 反模式自查表深度图谱：5 创建型 + 7 结构型 + 11 行为型 · 依赖注入 / 仓储 / 规格 / Null Object · CQRS / Event Sourcing / Saga / Sidecar / Circuit Breaker / Bulkhead / Strangler Fig / Outbox · 7 大反模式（God Object / 贫血模型 / 大泥球 / 回调地狱 / 循环依赖 / 魔数 / 提前优化）· Java + Go + TypeScript 多语言对照 · 6 大类 36 节点。</p>
+        <div class="card-foot"><span class="card-path">/design-pattern/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <a class="card" data-cat="backend" data-keywords="混沌工程 chaos engineering chaos mesh litmus gremlin chaosblade 韧性模式 熔断器 限流 降级 舱壁 bulkhead 重试 retry 多活 灾备 游戏日 game day 故障注入 可观测性 sre" style="--c:#e11d48;animation-delay:960ms" href="/chaos/">
+        <div class="card-head">
+          <span class="card-icon" aria-hidden="true">🔥</span>
+          <div class="card-meta"><div class="card-title">混沌工程</div><div class="card-tag">Chaos Engineering · 32 pages</div></div>
+        </div>
+        <p class="card-desc">Netflix Chaos Monkey / Principles of Chaos 四大原则 · 稳态假设与爆炸半径 · Chaos Mesh CRD（PodChaos / NetworkChaos / StressChaos / IOChaos / TimeChaos / DNSChaos / KernelChaos / JVMChaos / 云资源故障）· Litmus Probe 体系（httpProbe / promProbe / sqlProbe / k8sProbe）· Gremlin / ChaosBlade / Steadybit 选型 · 韧性模式（熔断 / 限流 / 舱壁 / 重试 / 多活 / 灾备）· 游戏日（Game Day）实战 · SLO 反馈环 · 7 大类 32 节点。</p>
+        <div class="card-foot"><span class="card-path">/chaos/</span><span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+
+      <div class="empty-state" id="empty" hidden>— 没有匹配的站点。换一个关键词试试。</div>
+    </div>
+  </section>
+
+  <section class="updates" id="updates">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">🆕 最近更新</h2>
+        <div class="section-sub">最近 14 天发布 / 重构的站点</div>
+      </div>
+      <div class="updates-grid">
+        <a class="update-item" href="/clickhouse/" data-cat="data">
+          <div class="update-date">2026-08-09</div>
+          <div class="update-icon">🟡</div>
+          <div class="update-body">
+            <div class="update-title">第 26 个站点：ClickHouse OLAP</div>
+            <div class="update-desc">Yandex 开源的高性能列式 OLAP 数据库深度图谱，6 大类 35 节点——MergeTree 引擎族 / 主键索引 / 向量化执行 / 物化视图 · 实时数仓 · Kafka 引擎 / Grafana / Prometheus / ch-go 生态 · vs Doris / StarRocks / TiDB 对比选型 · 12 个大厂实战案例（首版 6 篇手写 overview + 1 篇 case-study + 28 篇脚本生成 stub → 全部 ≥3KB substantial，0 留 stub）。</div>
+          </div>
+        </a>
+        <a class="update-item" href="/design-pattern/" data-cat="backend">
+          <div class="update-date">2026-08-10</div>
+          <div class="update-icon">🟣</div>
+          <div class="update-body">
+            <div class="update-title">第 27 个站点：设计模式</div>
+            <div class="update-desc">GoF 23 模式 + 现代架构模式 + 反模式自查表深度图谱，6 大类 36 节点——5 创建型（Singleton/Factory/Builder/Prototype）+ 7 结构型（Adapter/Bridge/Composite/Decorator/Facade/Flyweight/Proxy）+ 11 行为型（Chain/Command/Iterator/Mediator/Memento/Observer/State/Strategy/Template/Visitor/Interpreter）· 依赖注入/Repository/Specification/Null Object · CQRS/Event Sourcing/Saga/Sidecar/Circuit Breaker/Bulkhead/Strangler Fig/Outbox · 7 大反模式（God Object/贫血模型/大泥球/回调地狱/循环依赖/魔数/提前优化）· Java+Go+TypeScript 多语言对照（6 篇手写 overview + 42 篇脚本生成 stub → 全部 ≥3KB substantial，0 留 stub）。</div>
+          </div>
+        </a>
+        <a class="update-item" href="/chaos/" data-cat="backend">
+          <div class="update-date">2026-08-12</div>
+          <div class="update-icon">🔥</div>
+          <div class="update-body">
+            <div class="update-title">第 28 个站点：混沌工程</div>
+            <div class="update-desc">Netflix Chaos Monkey / Principles of Chaos 四大原则深度图谱，7 大类 32 节点——基础篇（稳态假设 / 爆炸半径 / 故障画像 / 实验方法论）· Chaos Mesh（CNCF 毕业 / PodChaos / NetworkChaos / StressChaos / IOChaos / Workflow）· Litmus（CNCF Incubating / ChaosExperiment CRD / 5 种 Probe）· 工具对比（Mesh vs Litmus vs Gremlin vs ChaosBlade）· 韧性模式（重试退避 / 熔断器 / 限流降级 / 舱壁 / 多活灾备）· 游戏日（角色分工 / 注入流程 / 复盘改进）· 混沌可观测性（稳态度量 / SLO 反馈环）（7 篇手写 overview 10-14KB + 24 篇脚本生成 stub → 全部 ≥2.3KB）。</div>
+          </div>
+        </a>
+        <a class="update-item" href="/filesystem/" data-cat="infra">
+          <div class="update-date">2026-08-08</div>
+          <div class="update-icon">🗄️</div>
+          <div class="update-body">
+            <div class="update-title">文件系统与存储上线</div>
+            <div class="update-desc">94 篇内容，覆盖本地盘 FS / 分布式 / 对象存储 / 云原生 K8s 存储 / 备份容灾 / 企业案例（Netflix/CERN/Snowflake）。</div>
+          </div>
+        </a>
+        <a class="update-item" href="/architecture/" data-cat="arch">
+          <div class="update-date">2026-08-08</div>
+          <div class="update-icon">🏛️</div>
+          <div class="update-body">
+            <div class="update-title">企业级架构上线</div>
+            <div class="update-desc">（与 filesystem 同期）：并发 / HA / 微服务 / 分布式事务 / DDD / Service Mesh / 企业案例，14 大类 51 篇。</div>
+          </div>
+        </a>
+        <a class="update-item" href="/system-design/" data-cat="backend">
+          <div class="update-date">2026-08-08</div>
+          <div class="update-icon">🧠</div>
+          <div class="update-body">
+            <div class="update-title">系统设计 / 分布式系统上线</div>
+            <div class="update-desc">第 19 个站点：面向资深工程师的面试级图谱，10 大类 60+ 篇——CAP/PACELC/FLP · Paxos/Raft · 2PC/TCC/Saga · 短链/Feed/Timeline 案例（首版 4 篇内容 + 完整 sidebar 路线）。</div>
+          </div>
+        </a>
+        <a class="update-item" href="/postgresql/" data-cat="data">
+          <div class="update-date">2026-08-09</div>
+          <div class="update-icon">🐘</div>
+          <div class="update-body">
+            <div class="update-title">PostgreSQL 知识图谱上线</div>
+            <div class="update-desc">第 20 个站点：现代关系型数据库深度图谱，11 大类 60+ 节点——JSONB · PostGIS · pgvector · MVCC · CTE · 流复制 + Patroni · 5 大扩展生态。</div>
+          </div>
+        </a>
+        <a class="update-item" href="/observability/" data-cat="ops">
+          <div class="update-date">2026-08-09</div>
+          <div class="update-icon">📡</div>
+          <div class="update-body">
+            <div class="update-title">Observability 知识图谱上线</div>
+            <div class="update-desc">第 21 个站点：现代可观测性深度图谱，11 大类 47 节点——Metrics/Logs/Traces/Profiling 四支柱 · OpenTelemetry · Prometheus + PromQL · Grafana · Loki · 全链路追踪 · SRE 三件套（首版 11 篇 substantial + 38 篇 stub）。</div>
+          </div>
+        </a>
+        <a class="update-item" href="/security/" data-cat="security">
+          <div class="update-date">2026-08-10</div>
+          <div class="update-icon">🛡️</div>
+          <div class="update-body">
+            <div class="update-title">Security 知识图谱上线</div>
+            <div class="update-desc">第 22 个站点：Web 安全深度图谱，6 大类 34 节点——OWASP Top 10 2025 逐条拆解 · OAuth 2.0 / OIDC / JWT 认证 · 对称/非对称/哈希密码学 · TLS 1.3 + mTLS · Trivy + Falco 容器安全 · 零信任 / SPIFFE（首版 7 篇 substantial + 29 篇 stub）。</div>
+          </div>
+        </a>
+        <a class="update-item" href="/devops/" data-cat="ops">
+          <div class="update-date">2026-08-10</div>
+          <div class="update-icon">⚙️</div>
+          <div class="update-body">
+            <div class="update-title">DevOps 知识图谱上线</div>
+            <div class="update-desc">第 23 个站点：软件交付链深度图谱，6 大类 29 节点——CI/CD Pipeline（GitHub Actions / GitLab / Jenkins / Tekton）· IaC（Terraform / Pulumi / Ansible）· GitOps（ArgoCD / Flux）· 蓝绿 / 金丝雀 / Feature Flag 发布策略 · DORA Metrics（首版 6 篇 substantial + 23 篇 stub）。</div>
+          </div>
+        </a>
+        <a class="update-item" href="/rust/" data-cat="backend">
+          <div class="update-date">2026-08-10</div>
+          <div class="update-icon">🦀</div>
+          <div class="update-body">
+            <div class="update-title">Rust 系统编程上线</div>
+            <div class="update-desc">第 24 个站点：Rust 系统编程与高性能服务深度图谱，6 大类 35 节点——所有权 / 借用 / 生命周期 · 枚举 / 模式匹配 / Trait / 泛型 · Cargo / crates.io / 标准库 · 线程 / async-await / Tokio / Channel · unsafe / FFI / 嵌入式 / WebAssembly / 性能优化 · 宏 / 迭代器 / 智能指针 / 错误处理（首版 6 篇 substantial + 28 篇 stub）。</div>
+          </div>
+        </a>
+        <a class="update-item" href="/go/" data-cat="backend">
+          <div class="update-date">2026-08-10</div>
+          <div class="update-icon">🐹</div>
+          <div class="update-body">
+            <div class="update-title">Go 语言生态上线</div>
+            <div class="update-desc">第 25 个站点：Go 知识图谱与云原生深度图谱，6 大类 35 节点——语法 / 类型 / 函数 / 错误处理 / 包模块 · goroutine / channel / sync / context / CSP 并发模式 · Go 工具链 / 标准库 / testing / benchmark · Docker / Kubernetes / Prometheus / etcd 源码导读 · Gin / gRPC / Kratos 微服务 · runtime GMP / GC / pprof / cgo（首版 7 篇手写 + 28 篇脚本生成 stub → 全部 ≥3KB substantial，0 留 stub）。</div>
+          </div>
+        </a>
+        <a class="update-item" href="/es/" data-cat="data">
+          <div class="update-date">2026-08-08</div>
+          <div class="update-icon">📚</div>
+          <div class="update-body">
+            <div class="update-title">全站统一门户导航</div>
+            <div class="update-desc">17 个站点顶部 nav 全部加上 🏠 门户（回到 https://java-px.bot.cd/）；footer 追加门户首页链接；首页统一为 VPHero + features 布局。</div>
+          </div>
+        </a>
+        <a class="update-item" href="/redis/" data-cat="data">
+          <div class="update-date">2026-08-07</div>
+          <div class="update-icon">🔧</div>
+          <div class="update-body">
+            <div class="update-title">部署脚本修复</div>
+            <div class="update-desc">修复 deploy-fs.sh 中 SITE_LIST 数组展开导致 overlay 静默失败 + SITE_LIST 漏 www 导致门户首页不更新的两个 bug。</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-keys">
+      <span>快捷键</span>
+      <kbd aria-keyshortcuts="Slash">/</kbd><span>搜索</span>
+      <kbd aria-keyshortcuts="KeyJ">J</kbd><span>主题</span>
+      <kbd aria-keyshortcuts="Escape">Esc</kbd><span>关闭</span>
+    </div>
+    <div class="footer-copy">© 2026 Scholar's Atlas · <span data-stat="sites-num">28</span> sites · <span data-stat="pages-num">1429+</span> pages · <a href="#about" class="footer-about">关于</a> · <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></div>
+  </footer>
+
+  <section class="about" id="about">
+    <div class="container">
+      <h2 class="section-title">关于 Scholar's Atlas</h2>
+      <div class="about-grid">
+        <div class="about-block">
+          <h3>📚 这是什么</h3>
+          <p>Scholar's Atlas 是一个面向后端工程师、前端工程师、AI 工程师、SRE 的<b>系统性技术知识门户</b>，包含 <span data-stat="sites-num">26</span> 个 VitePress 子站点，统一部署在 <code>https://java-px.bot.cd</code>。</p>
+        </div>
+        <div class="about-block">
+          <h3>🎯 适合谁</h3>
+          <ul>
+            <li>求职准备（C++/Java/Go/Python 后端、面试高频八股）</li>
+            <li>在职充电（系统化补齐短板，对标高级 / 架构师）</li>
+            <li>团队培训（新成员 onboarding、技术分享素材）</li>
+          </ul>
+        </div>
+        <div class="about-block">
+          <h3>🔧 怎么搭的</h3>
+          <ul>
+            <li><b>静态站生成</b>：VitePress 1.6 + Markdown</li>
+            <li><b>服务器</b>：Ubuntu 22.04 + nginx 1.18（HTTP/2 + Let's Encrypt）</li>
+            <li><b>部署</b>：本地 <code>build-release.sh</code> → <code>deploy-fs.sh</code> 原子发布（<code>/var/www/sites-hub/releases/&lt;ts&gt;</code> → <code>current</code> symlink）</li>
+            <li><b>认证</b>：Basic Auth（htpasswd -b -i）</li>
+          </ul>
+        </div>
+        <div class="about-block">
+          <h3>📐 内容规范</h3>
+          <ul>
+            <li>每个主题分 4 个入口：首页（VPHero 概览）+ <b>知识图谱</b>（graph.html）+ <b>思维导图</b>（mindmap.html）+ <b>命令速查</b>（cheatsheet.html）+ <b>学习路径</b>（path.html）</li>
+            <li>章节按数字前缀排序（<code>01-xxx/</code>、<code>02-xxx/</code> ...），方便查阅时定位</li>
+            <li>所有站点头部导航第一个都是 <b>🏠 门户</b>（回到本页面）</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const root = document.documentElement;
+  const grid = $('#grid');
+  const cards = $$('.card', grid);
+  const empty = $('#empty');
+  const visibleCount = $('#visibleCount');
+  const search = $('#q');
+  const themeBtn = $('#themeBtn');
+  const iconMoon = $('#iconMoon');
+  const chips = $$('.chip');
+
+  // ---- Theme ----
+  const setTheme = (t) => {
+    root.setAttribute('data-theme', t);
+    localStorage.setItem('sa-theme', t);
+    iconMoon.innerHTML = t === 'dark'
+      ? '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>'
+      : '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>';
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', t === 'dark' ? '#0e1018' : '#1a1a2e');
+    // T8: 同步 aria-pressed 给屏幕阅读器
+    themeBtn.setAttribute('aria-pressed', t === 'dark' ? 'true' : 'false');
+    themeBtn.setAttribute('aria-label', t === 'dark' ? '切换到浅色主题' : '切换到深色主题');
+  };
+  setTheme(localStorage.getItem('sa-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+  themeBtn.addEventListener('click', () => setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+  // ---- Filter ----
+  let activeCat = 'all';
+  let query = '';
+
+  const applyFilter = () => {
+    let visible = 0;
+    for (const c of cards) {
+      const cat = c.dataset.cat;
+      const text = (c.textContent + ' ' + (c.dataset.keywords || '')).toLowerCase();
+      const matchCat = activeCat === 'all' || cat === activeCat;
+      const matchQuery = !query || text.includes(query);
+      const show = matchCat && matchQuery;
+      c.hidden = !show;
+      if (show) visible++;
+    }
+    empty.hidden = visible > 0;
+    visibleCount.textContent = `${visible} 项`;
+  };
+
+  // Category chips
+  for (const chip of chips) {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      activeCat = chip.dataset.cat;
+      applyFilter();
+    });
+  }
+
+  // Search
+  search.addEventListener('input', () => {
+    query = search.value.trim().toLowerCase();
+    applyFilter();
+  });
+
+  // ---- Keyboard ----
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/' && document.activeElement !== search) {
+      e.preventDefault();
+      search.focus();
+      search.select();
+    } else if ((e.key === 'j' || e.key === 'J') && !e.metaKey && !e.ctrlKey && document.activeElement === document.body) {
+      themeBtn.click();
+    } else if (e.key === 'Escape') {
+      if (document.activeElement === search) {
+        search.value = '';
+        query = '';
+        search.blur();
+        applyFilter();
+      }
+    }
+  });
+
+  // ---- T5: fetch /data.json for runtime stats refresh ----
+  // HTML is pre-populated at build time by scripts/inject-stats.py.
+  // This fetch re-aligns the numbers if the build was stale or to pick up
+  // server-side updates without a full redeploy.
+  const applyStats = (data) => {
+    if (!data || typeof data !== 'object') return;
+    const map = {
+      'sites-num':   { value: data.sites,   suffix: '' },
+      'pages-num':   { value: data.pages,   suffix: '+' },
+      'nodes-num':   { value: data.nodes,   suffix: '' },
+      'widgets-num': { value: data.widgets, suffix: '' },
+    };
+    for (const [key, spec] of Object.entries(map)) {
+      if (typeof spec.value !== 'number') continue;
+      $$(`[data-stat="${key}"]`).forEach(el => {
+        el.textContent = spec.value + spec.suffix;
+      });
+    }
+    // Also update stat-num data-count so the count-up animation shows the new value
+    const statTargets = [data.sites, data.pages, data.nodes, data.widgets];
+    $$('.stat-num').forEach((el, i) => {
+      if (statTargets[i] != null) el.dataset.count = String(statTargets[i]);
+    });
+  };
+
+  fetch('/data.json', { cache: 'no-cache' })
+    .then(r => r.ok ? r.json() : null)
+    .then(applyStats)
+    .catch(() => { /* offline or 404: keep HTML defaults */ });
+
+  // ---- Stats counter animation ----
+  // T9: 检测 prefers-reduced-motion, 直接显示最终值, 不做 count-up 动画
+  const counters = $$('.stat-num');
+  const prefersReducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) {
+    // 直接设最终值, 不观察
+    counters.forEach(el => {
+      const target = +el.dataset.count;
+      el.textContent = target + (target >= 100 ? '+' : '');
+    });
+  } else {
+    const observer = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          const el = e.target;
+          const target = +el.dataset.count;
+          const dur = 900;
+          const start = performance.now();
+          const step = (now) => {
+            const t = Math.min(1, (now - start) / dur);
+            const eased = 1 - Math.pow(1 - t, 3);
+            el.textContent = Math.round(target * eased) + (target >= 100 ? '+' : '');
+            if (t < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+          observer.unobserve(el);
+        }
+      }
+    }, { threshold: 0.4 });
+    counters.forEach(c => observer.observe(c));
+  }
+
+  // ---- Chip counts per category ----
+  const counts = cards.reduce((acc, c) => { acc[c.dataset.cat] = (acc[c.dataset.cat] || 0) + 1; return acc; }, {});
+  $$('[id^="cnt-"]').forEach(el => {
+    const cat = el.id.replace('cnt-', '');
+    if (cat === 'all') el.textContent = cards.length;
+    else el.textContent = counts[cat] || 0;
+  });
+})();
+</script>
+</body>
+</html>

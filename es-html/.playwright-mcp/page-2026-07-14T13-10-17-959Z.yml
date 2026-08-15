@@ -1,0 +1,179 @@
+- generic [ref=e3]:
+  - link "Skip to content" [ref=e4] [cursor=pointer]:
+    - /url: "#VPContent"
+  - banner:
+    - generic:
+      - generic:
+        - generic:
+          - link "ES Knowledge Atlas" [ref=e6] [cursor=pointer]:
+            - /url: /
+          - generic [ref=e8]:
+            - button "Search" [ref=e11] [cursor=pointer]:
+              - generic [ref=e15]:
+                - generic [ref=e16]: ⌘
+                - generic [ref=e17]: K
+            - navigation "Main Navigation" [ref=e18]:
+              - link "首页" [ref=e20] [cursor=pointer]:
+                - /url: /
+              - link "存储层" [ref=e22] [cursor=pointer]:
+                - /url: /01-storage/overview
+              - link "查询层" [ref=e24] [cursor=pointer]:
+                - /url: /02-query/overview
+              - link "分析层" [ref=e26] [cursor=pointer]:
+                - /url: /03-analysis/overview
+              - link "运维层" [ref=e28] [cursor=pointer]:
+                - /url: /04-ops/overview
+              - link "工具" [ref=e30] [cursor=pointer]:
+                - /url: /05-tools/curl-client
+              - link "仪表板" [ref=e32] [cursor=pointer]:
+                - /url: /05-tools/dashboard
+              - link "7 vs 8" [ref=e34] [cursor=pointer]:
+                - /url: /99-compare/diff
+            - button "extra navigation" [ref=e37] [cursor=pointer]
+  - button "本页目录" [ref=e42] [cursor=pointer]
+  - complementary [ref=e44]:
+    - navigation "Sidebar Navigation" [ref=e46]:
+      - generic [ref=e49]:
+        - button [ref=e50]:
+          - heading "工具 Tools" [level=2] [ref=e52]
+        - generic [ref=e53]:
+          - link [ref=e57] [cursor=pointer]:
+            - /url: /05-tools/curl-client
+            - paragraph [ref=e58]: ES 在线调试
+          - link [ref=e62] [cursor=pointer]:
+            - /url: /05-tools/dashboard
+            - paragraph [ref=e63]: 集群监控仪表板
+  - generic [ref=e68]:
+    - main [ref=e69]:
+      - generic [ref=e71]:
+        - paragraph [ref=e72]:
+          - generic [ref=e73]: 监控
+        - heading [level=1] [ref=e74]:
+          - text: ES 集群实时监控仪表板
+          - link "Permalink to \"ES 集群实时监控仪表板\"" [ref=e75] [cursor=pointer]:
+            - /url: "#es-集群实时监控仪表板"
+            - text: "#"
+        - blockquote [ref=e76]:
+          - paragraph [ref=e77]: 从 4 个维度（集群健康 / 节点指标 / 索引概览 / 分片分布）实时可视化 ES 集群状态。
+        - heading [level=2] [ref=e78]:
+          - text: 🎯 仪表板用法
+          - link "Permalink to \"🎯 仪表板用法\"" [ref=e79] [cursor=pointer]:
+            - /url: "#🎯-仪表板用法"
+            - text: "#"
+        - list [ref=e80]:
+          - listitem [ref=e81]:
+            - text: 配置
+            - strong [ref=e82]: endpoint
+            - text: （自动持久化到 localStorage）
+          - listitem [ref=e83]:
+            - text: 首次进入页面
+            - strong [ref=e84]: 自动拉取
+            - text: 数据
+          - listitem [ref=e85]:
+            - text: 点击右上角
+            - strong [ref=e86]: ↻ 刷新
+            - text: 手动更新
+          - listitem [ref=e87]:
+            - text: 勾选
+            - strong [ref=e88]: 「自动刷新」
+            - text: 进入轮询模式（5s / 15s / 30s / 1min 可选）
+          - listitem [ref=e89]: 4 个 sub-tab 切换查看不同维度
+          - listitem [ref=e90]:
+            - text: 表格
+            - strong [ref=e91]: 点击列头
+            - text: 可排序
+        - generic [ref=e92]:
+          - generic [ref=e93]:
+            - generic [ref=e94]:
+              - generic [ref=e95]: 📍
+              - generic [ref=e96]: http://localhost:9200
+            - generic [ref=e97]:
+              - generic [ref=e98] [cursor=pointer]:
+                - checkbox "自动刷新" [ref=e99]
+                - generic [ref=e100]: 自动刷新
+              - button "↻ 刷新" [ref=e101] [cursor=pointer]
+              - generic [ref=e102]: 上次更新：21:10:17
+          - generic [ref=e103]:
+            - strong [ref=e104]: 请求失败：
+            - text: 无法访问 ES：Failed to fetch
+            - generic [ref=e105]: 💡 请检查 endpoint 配置、CORS 设置（详见页面下方说明）
+          - generic [ref=e106]:
+            - button "🏥 集群健康" [ref=e107] [cursor=pointer]
+            - button "📈 节点指标" [ref=e108] [cursor=pointer]
+            - button "📂 索引概览" [ref=e109] [cursor=pointer]
+            - button "🧩 分片分布" [ref=e110] [cursor=pointer]
+        - heading [level=2] [ref=e112]:
+          - text: 📡 使用的数据接口
+          - link "Permalink to \"📡 使用的数据接口\"" [ref=e113] [cursor=pointer]:
+            - /url: "#📡-使用的数据接口"
+            - text: "#"
+        - table [ref=e114]:
+          - rowgroup [ref=e115]:
+            - row [ref=e116]:
+              - columnheader "Sub-tab" [ref=e117]
+              - columnheader "接口" [ref=e118]
+              - columnheader "用途" [ref=e119]
+          - rowgroup [ref=e120]:
+            - row [ref=e121]:
+              - cell "🏥 集群健康" [ref=e122]
+              - cell [ref=e123]:
+                - code [ref=e124]: GET /_cluster/health
+              - cell "green/yellow/red 状态 + 分片统计" [ref=e125]
+            - row [ref=e126]:
+              - cell "📈 节点指标" [ref=e127]
+              - cell [ref=e128]:
+                - code [ref=e129]: GET /_nodes/stats
+                - text: +
+                - code [ref=e130]: /_cat/master
+              - cell "JVM Heap/CPU/Load/Disk" [ref=e131]
+            - row [ref=e132]:
+              - cell "📂 索引概览" [ref=e133]
+              - cell [ref=e134]:
+                - code [ref=e135]: GET /_cat/indices
+              - cell "所有索引的大小/文档/分片" [ref=e136]
+            - row [ref=e137]:
+              - cell "🧩 分片分布" [ref=e138]
+              - cell [ref=e139]:
+                - code [ref=e140]: GET /_cat/shards
+              - cell "分片在节点的分布" [ref=e141]
+        - heading [level=2] [ref=e142]:
+          - text: ⚠️ CORS 配置
+          - link "Permalink to \"⚠️ CORS 配置\"" [ref=e143] [cursor=pointer]:
+            - /url: "#⚠️-cors-配置"
+            - text: "#"
+        - paragraph [ref=e144]: 仪表板通过浏览器 fetch 调用 ES，需要 ES 开启 CORS：
+        - generic [ref=e145]:
+          - button "Copy Code" [ref=e146] [cursor=pointer]
+          - generic [ref=e147]: yaml
+          - code [ref=e149]:
+            - generic [ref=e150]: "# elasticsearch.yml"
+            - generic [ref=e151]: "http.cors.enabled: true"
+            - generic [ref=e152]: "http.cors.allow-origin: \"*\""
+            - generic [ref=e153]: "http.cors.allow-methods: \"OPTIONS, HEAD, GET, POST, PUT, DELETE\""
+            - generic [ref=e154]: "http.cors.allow-headers: \"Authorization, Content-Type\""
+        - heading [level=2] [ref=e155]:
+          - text: 🎨 颜色规则
+          - link "Permalink to \"🎨 颜色规则\"" [ref=e156] [cursor=pointer]:
+            - /url: "#🎨-颜色规则"
+            - text: "#"
+        - table [ref=e157]:
+          - rowgroup [ref=e158]:
+            - row [ref=e159]:
+              - columnheader "指标" [ref=e160]
+              - columnheader "阈值" [ref=e161]
+          - rowgroup [ref=e162]:
+            - row [ref=e163]:
+              - cell "🟢 OK" [ref=e164]
+              - cell "< 70%" [ref=e165]
+            - row [ref=e166]:
+              - cell "🟡 警告" [ref=e167]
+              - cell "70-85%" [ref=e168]
+            - row [ref=e169]:
+              - cell "🔴 危险" [ref=e170]
+              - cell "≥ 85%" [ref=e171]
+    - contentinfo [ref=e172]:
+      - navigation "Pager" [ref=e173]:
+        - link "上一篇 ES 在线调试" [ref=e176] [cursor=pointer]:
+          - /url: /05-tools/curl-client
+          - generic [ref=e177]: 上一篇
+          - generic [ref=e178]: ES 在线调试

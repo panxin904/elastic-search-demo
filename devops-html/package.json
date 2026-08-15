@@ -1,0 +1,23 @@
+{
+  "name": "devops-html",
+  "version": "1.0.0",
+  "description": "DevOps / CI-CD 知识图谱 - Pipeline as Code · IaC · GitOps · 渐进式发布 · DORA Metrics · 6 大类 · 29 节点",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview",
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "vitepress": "1.6.4",
+    "vue": "3.4.0"
+  },
+  "dependencies": {
+    "echarts": "^5.5.0",
+    "vue-echarts": "^7.0.3"
+  }
+}

@@ -1,0 +1,345 @@
+- generic [ref=f1e3]:
+  - link "Skip to content" [ref=f1e4] [cursor=pointer]:
+    - /url: "#VPContent"
+  - banner:
+    - generic:
+      - generic:
+        - generic:
+          - link "ES Knowledge Atlas" [ref=f1e6] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f1e8]:
+            - button "Search" [ref=f1e11] [cursor=pointer]:
+              - generic [ref=f1e15]:
+                - generic [ref=f1e16]: ⌘
+                - generic [ref=f1e17]: K
+            - navigation "Main Navigation" [ref=f1e18]:
+              - link "首页" [ref=f1e20] [cursor=pointer]:
+                - /url: /
+              - link "存储层" [ref=f1e22] [cursor=pointer]:
+                - /url: /01-storage/overview
+              - link "查询层" [ref=f1e24] [cursor=pointer]:
+                - /url: /02-query/overview
+              - link "分析层" [ref=f1e26] [cursor=pointer]:
+                - /url: /03-analysis/overview
+              - link "运维层" [ref=f1e28] [cursor=pointer]:
+                - /url: /04-ops/overview
+              - link "工具" [ref=f1e30] [cursor=pointer]:
+                - /url: /05-tools/curl-client
+              - link "仪表板" [ref=f1e32] [cursor=pointer]:
+                - /url: /05-tools/dashboard
+              - link "7 vs 8" [ref=f1e34] [cursor=pointer]:
+                - /url: /99-compare/diff
+            - button "extra navigation" [ref=f1e37] [cursor=pointer]
+  - button "本页目录" [ref=f1e42] [cursor=pointer]
+  - complementary [ref=f1e44]:
+    - navigation "Sidebar Navigation" [ref=f1e46]:
+      - generic [ref=f1e49]:
+        - button [ref=f1e50]:
+          - heading "工具 Tools" [level=2] [ref=f1e52]
+        - generic [ref=f1e53]:
+          - link [ref=f1e57] [cursor=pointer]:
+            - /url: /05-tools/curl-client
+            - paragraph [ref=f1e58]: ES 在线调试
+          - link [ref=f1e62] [cursor=pointer]:
+            - /url: /05-tools/dashboard
+            - paragraph [ref=f1e63]: 集群监控仪表板
+  - generic [ref=f1e68]:
+    - main [ref=f1e69]:
+      - generic [ref=f1e71]:
+        - paragraph [ref=f1e72]:
+          - generic [ref=f1e73]: 工具
+        - heading [level=1] [ref=f1e74]:
+          - text: ES 在线调试工具箱
+          - link "Permalink to \"ES 在线调试工具箱\"" [ref=f1e75] [cursor=pointer]:
+            - /url: "#es-在线调试工具箱"
+            - text: "#"
+        - blockquote [ref=f1e76]:
+          - paragraph [ref=f1e77]: 4 个标签页，覆盖「在线调试 + Query DSL 速查 + Java SDK 速查 + curl 命令生成」。
+        - heading [level=2] [ref=f1e78]:
+          - text: 🎯 4 大标签页
+          - link "Permalink to \"🎯 4 大标签页\"" [ref=f1e79] [cursor=pointer]:
+            - /url: "#🎯-4-大标签页"
+            - text: "#"
+        - table [ref=f1e80]:
+          - rowgroup [ref=f1e81]:
+            - row [ref=f1e82]:
+              - columnheader "Tab" [ref=f1e83]
+              - columnheader "用途" [ref=f1e84]
+          - rowgroup [ref=f1e85]:
+            - row [ref=f1e86]:
+              - cell [ref=f1e87]:
+                - text: 🚀
+                - strong [ref=f1e88]: 调试器
+              - cell "在线构造并发送 ES 请求，查看响应" [ref=f1e89]
+            - row [ref=f1e90]:
+              - cell [ref=f1e91]:
+                - text: 📚
+                - strong [ref=f1e92]: Query DSL 速查
+              - cell "21 个常用 Query DSL 模板，分类整理" [ref=f1e93]
+            - row [ref=f1e94]:
+              - cell [ref=f1e95]:
+                - text: ☕
+                - strong [ref=f1e96]: Java SDK 速查
+              - cell "20+ 个官方 Java Client 代码片段" [ref=f1e97]
+            - row [ref=f1e98]:
+              - cell [ref=f1e99]:
+                - text: 🖥️
+                - strong [ref=f1e100]: 等效 curl
+              - cell "把请求转成 curl 命令复制到终端" [ref=f1e101]
+        - generic [ref=f1e103]:
+          - generic [ref=f1e104]:
+            - generic [ref=f1e105]: 服务端地址
+            - textbox "http://localhost:9200" [ref=f1e106]
+            - generic [ref=f1e107]: 支持 localStorage 持久化
+          - generic [ref=f1e108]:
+            - generic [ref=f1e109]: 认证
+            - textbox "username" [ref=f1e110]
+            - textbox "password" [ref=f1e111]
+            - generic [ref=f1e112]: ES 7.x 需启用 xpack.security
+          - generic [ref=f1e113]:
+            - button "🚀 调试器" [ref=f1e114] [cursor=pointer]
+            - button "📚 Query DSL 速查" [ref=f1e115] [cursor=pointer]
+            - button "☕ Java SDK 速查" [ref=f1e116] [cursor=pointer]
+            - button "🖥️ 等效 curl" [ref=f1e117] [cursor=pointer]
+          - generic [ref=f1e118]:
+            - generic [ref=f1e119]:
+              - combobox [ref=f1e120]:
+                - option "GET" [selected]
+                - option "POST"
+                - option "PUT"
+                - option "DELETE"
+                - option "HEAD"
+              - textbox "/products/_search" [ref=f1e121]: /_cluster/health
+              - button "发送请求" [ref=f1e122] [cursor=pointer]
+            - generic [ref=f1e123]:
+              - button "Body" [ref=f1e124] [cursor=pointer]
+              - button "Headers" [ref=f1e125] [cursor=pointer]
+            - generic [ref=f1e126]:
+              - 'textbox "{\"query\":{\"match_all\":{}}}" [ref=f1e127]'
+              - generic [ref=f1e128]:
+                - button "✨ 格式化 JSON" [ref=f1e129] [cursor=pointer]
+                - button "清空" [ref=f1e130] [cursor=pointer]
+            - generic [ref=f1e131]:
+              - text: 💡 没有可执行 ES 服务？试试
+              - button "健康检查" [ref=f1e132] [cursor=pointer]
+              - text: 或去
+              - link "Query DSL 速查" [ref=f1e133] [cursor=pointer]:
+                - /url: "#dsl"
+              - text: 找模板
+        - heading [level=2] [ref=f1e134]:
+          - text: 🚀 调试器 Tab 使用
+          - link "Permalink to \"🚀 调试器 Tab 使用\"" [ref=f1e135] [cursor=pointer]:
+            - /url: "#🚀-调试器-tab-使用"
+            - text: "#"
+        - list [ref=f1e136]:
+          - listitem [ref=f1e137]:
+            - text: 配置
+            - strong [ref=f1e138]: endpoint
+            - text: （自动持久化）
+          - listitem [ref=f1e139]: 选择 HTTP 方法 + 输入路径
+          - listitem [ref=f1e140]:
+            - text: Body 编辑器：输入 JSON → 点击
+            - strong [ref=f1e141]: ✨ 格式化 JSON
+            - text: 一键缩进
+          - listitem [ref=f1e142]:
+            - text: 点击
+            - strong [ref=f1e143]: 发送请求
+            - text: → 查看状态码、耗时、响应
+        - heading [level=2] [ref=f1e144]:
+          - text: 📚 Query DSL 速查 Tab 使用
+          - link "Permalink to \"📚 Query DSL 速查 Tab 使用\"" [ref=f1e145] [cursor=pointer]:
+            - /url: "#📚-query-dsl-速查-tab-使用"
+            - text: "#"
+        - paragraph [ref=f1e146]:
+          - text: 按
+          - strong [ref=f1e147]: 7 大类
+          - text: 整理：
+        - table [ref=f1e148]:
+          - rowgroup [ref=f1e149]:
+            - row [ref=f1e150]:
+              - columnheader "分类" [ref=f1e151]
+              - columnheader "数量" [ref=f1e152]
+              - columnheader "包含" [ref=f1e153]
+          - rowgroup [ref=f1e154]:
+            - row [ref=f1e155]:
+              - cell "🍃 叶子查询" [ref=f1e156]
+              - cell "4" [ref=f1e157]
+              - cell "term, terms, exists, ids" [ref=f1e158]
+            - row [ref=f1e159]:
+              - cell "🎯 复合查询" [ref=f1e160]
+              - cell "2" [ref=f1e161]
+              - cell "bool, constant_score" [ref=f1e162]
+            - row [ref=f1e163]:
+              - cell "📏 范围查询" [ref=f1e164]
+              - cell "2" [ref=f1e165]
+              - cell "range, 日期范围" [ref=f1e166]
+            - row [ref=f1e167]:
+              - cell "🔎 全文检索" [ref=f1e168]
+              - cell "4" [ref=f1e169]
+              - cell "match, match_phrase, multi_match, query_string" [ref=f1e170]
+            - row [ref=f1e171]:
+              - cell "🔗 嵌套与连接" [ref=f1e172]
+              - cell "2" [ref=f1e173]
+              - cell "nested, has_child" [ref=f1e174]
+            - row [ref=f1e175]:
+              - cell "📊 聚合分析" [ref=f1e176]
+              - cell "4" [ref=f1e177]
+              - cell "terms, metrics, sub-agg, date_histogram" [ref=f1e178]
+            - row [ref=f1e179]:
+              - cell "🛠️ 排错与高级" [ref=f1e180]
+              - cell "3" [ref=f1e181]
+              - cell "profile, explain, function_score" [ref=f1e182]
+        - paragraph [ref=f1e183]: 每个模板：
+        - list [ref=f1e184]:
+          - listitem [ref=f1e185]:
+            - strong [ref=f1e186]: 说明场景
+            - text: ：何时使用 / 最佳实践
+          - listitem [ref=f1e187]:
+            - strong [ref=f1e188]: 完整 DSL
+            - text: ：可直接复制的 JSON
+          - listitem [ref=f1e189]:
+            - text: 🔬
+            - strong [ref=f1e190]: 试一下
+            - text: ：一键切换到调试器并预填所有字段
+        - heading [level=2] [ref=f1e191]:
+          - text: ☕ Java SDK 速查 Tab 使用
+          - link "Permalink to \"☕ Java SDK 速查 Tab 使用\"" [ref=f1e192] [cursor=pointer]:
+            - /url: "#☕-java-sdk-速查-tab-使用"
+            - text: "#"
+        - paragraph [ref=f1e193]:
+          - text: 按
+          - strong [ref=f1e194]: 6 大类
+          - text: 整理：
+        - table [ref=f1e195]:
+          - rowgroup [ref=f1e196]:
+            - row [ref=f1e197]:
+              - columnheader "分类" [ref=f1e198]
+              - columnheader "数量" [ref=f1e199]
+              - columnheader "包含" [ref=f1e200]
+          - rowgroup [ref=f1e201]:
+            - row [ref=f1e202]:
+              - cell "🔌 客户端初始化" [ref=f1e203]
+              - cell "2" [ref=f1e204]
+              - cell "client 创建, Basic Auth" [ref=f1e205]
+            - row [ref=f1e206]:
+              - cell "📝 CRUD 操作" [ref=f1e207]
+              - cell "5" [ref=f1e208]
+              - cell "创建索引, 索引/获取/删除/更新文档" [ref=f1e209]
+            - row [ref=f1e210]:
+              - cell "🔍 搜索查询" [ref=f1e211]
+              - cell "4" [ref=f1e212]
+              - cell "match, bool, highlight, search_after" [ref=f1e213]
+            - row [ref=f1e214]:
+              - cell "📊 聚合分析" [ref=f1e215]
+              - cell "2" [ref=f1e216]
+              - cell "terms+metrics, date_histogram" [ref=f1e217]
+            - row [ref=f1e218]:
+              - cell "📦 批量操作" [ref=f1e219]
+              - cell "2" [ref=f1e220]
+              - cell "bulk, reindex" [ref=f1e221]
+            - row [ref=f1e222]:
+              - cell "⚙️ 高级特性" [ref=f1e223]
+              - cell "4" [ref=f1e224]
+              - cell "索引模板, painless, refresh, 集群健康" [ref=f1e225]
+        - paragraph [ref=f1e226]:
+          - strong [ref=f1e227]: 默认包含本项目 7.17.10 配套的 Maven 依赖
+          - text: （可一键复制到 pom.xml）。所有代码片段与本项目
+          - link [ref=f1e228] [cursor=pointer]:
+            - /url: https://github.com/your-repo/blob/main/src/main/java/com/example/esdemo/service/ElasticsearchService.java
+            - code [ref=f1e229]: ElasticsearchService.java
+          - text: 一致，方便比对实际项目代码与模板。
+        - heading [level=2] [ref=f1e230]:
+          - text: 🖥️ 等效 curl Tab
+          - link "Permalink to \"🖥️ 等效 curl Tab\"" [ref=f1e231] [cursor=pointer]:
+            - /url: "#🖥️-等效-curl-tab"
+            - text: "#"
+        - paragraph [ref=f1e232]:
+          - text: 调试器内容
+          - strong [ref=f1e233]: 实时同步
+          - text: 到 curl 命令，复制即可在终端运行（绕开浏览器 CORS 限制）。
+        - heading [level=2] [ref=f1e234]:
+          - text: ⚠️ CORS 配置
+          - link "Permalink to \"⚠️ CORS 配置\"" [ref=f1e235] [cursor=pointer]:
+            - /url: "#⚠️-cors-配置"
+            - text: "#"
+        - paragraph [ref=f1e236]:
+          - text: 工具箱通过浏览器直接调用 ES。默认情况下 ES
+          - strong [ref=f1e237]: 不开启 CORS
+          - text: ，需要在服务端配置：
+        - generic [ref=f1e238]:
+          - button "Copy Code" [ref=f1e239] [cursor=pointer]
+          - generic [ref=f1e240]: yaml
+          - code [ref=f1e242]:
+            - generic [ref=f1e243]: "# elasticsearch.yml"
+            - generic [ref=f1e244]: "http.cors.enabled: true"
+            - generic [ref=f1e245]: "http.cors.allow-origin: \"*\""
+            - generic [ref=f1e246]: "http.cors.allow-methods: \"OPTIONS, HEAD, GET, POST, PUT, DELETE\""
+            - generic [ref=f1e247]: "http.cors.allow-headers: \"Authorization, Content-Type, X-Requested-With\""
+            - generic [ref=f1e248]: "http.cors.allow-credentials: true"
+        - paragraph [ref=f1e249]:
+          - text: 修改后
+          - strong [ref=f1e250]: 重启 ES 节点
+          - text: 生效。
+        - blockquote [ref=f1e251]:
+          - paragraph [ref=f1e252]:
+            - text: 💡
+            - strong [ref=f1e253]: 不想改 ES 配置？
+            - text: 直接用工具箱的「等效 curl」标签，把命令复制到本地终端运行。
+        - heading [level=2] [ref=f1e254]:
+          - text: 🔐 启用安全认证
+          - link "Permalink to \"🔐 启用安全认证\"" [ref=f1e255] [cursor=pointer]:
+            - /url: "#🔐-启用安全认证"
+            - text: "#"
+        - paragraph [ref=f1e256]: ES 7.x 默认禁用安全，如已开启：
+        - generic [ref=f1e257]:
+          - button "Copy Code" [ref=f1e258] [cursor=pointer]
+          - generic [ref=f1e259]: yaml
+          - code [ref=f1e261]:
+            - generic [ref=f1e262]: "# elasticsearch.yml"
+            - generic [ref=f1e263]: "xpack.security.enabled: true"
+        - generic [ref=f1e264]:
+          - button "Copy Code" [ref=f1e265] [cursor=pointer]
+          - generic [ref=f1e266]: bash
+          - code [ref=f1e268]:
+            - generic [ref=f1e269]: "./bin/elasticsearch-setup-passwords interactive # 初始化密码"
+        - paragraph [ref=f1e270]:
+          - text: 在工具箱顶部输入用户名密码（默认
+          - code [ref=f1e271]: elastic
+          - text: ）。
+        - heading [level=2] [ref=f1e272]:
+          - text: 📚 关联文档
+          - link "Permalink to \"📚 关联文档\"" [ref=f1e273] [cursor=pointer]:
+            - /url: "#📚-关联文档"
+            - text: "#"
+        - list [ref=f1e274]:
+          - listitem [ref=f1e275]:
+            - link "📊 集群监控仪表板" [ref=f1e276] [cursor=pointer]:
+              - /url: /05-tools/dashboard
+            - text: — 实时查看集群健康/节点/索引/分片
+          - listitem [ref=f1e277]:
+            - link "安装部署" [ref=f1e278] [cursor=pointer]:
+              - /url: /04-ops/installation
+          - listitem [ref=f1e279]:
+            - link "集群健康" [ref=f1e280] [cursor=pointer]:
+              - /url: /04-ops/cluster-health
+          - listitem [ref=f1e281]:
+            - link "Query DSL" [ref=f1e282] [cursor=pointer]:
+              - /url: /02-query/query-dsl
+          - listitem [ref=f1e283]:
+            - link "聚合 Aggregation" [ref=f1e284] [cursor=pointer]:
+              - /url: /02-query/aggregation
+          - listitem [ref=f1e285]:
+            - link "Match Query" [ref=f1e286] [cursor=pointer]:
+              - /url: /02-query/match
+          - listitem [ref=f1e287]:
+            - link "Bool Query" [ref=f1e288] [cursor=pointer]:
+              - /url: /02-query/bool
+          - listitem [ref=f1e289]:
+            - link "Java Client 官方文档" [ref=f1e290] [cursor=pointer]:
+              - /url: https://www.elastic.co/guide/en/elasticsearch/client/java-api-client/current/introduction.html
+    - contentinfo [ref=f1e291]:
+      - navigation "Pager" [ref=f1e292]:
+        - link "下一篇 集群监控仪表板" [ref=f1e296] [cursor=pointer]:
+          - /url: /05-tools/dashboard
+          - generic [ref=f1e297]: 下一篇
+          - generic [ref=f1e298]: 集群监控仪表板

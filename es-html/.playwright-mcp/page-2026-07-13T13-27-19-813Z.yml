@@ -1,0 +1,428 @@
+- generic [ref=f18e3]:
+  - link "Skip to content" [ref=f18e4] [cursor=pointer]:
+    - /url: "#VPContent"
+  - banner:
+    - generic:
+      - generic:
+        - generic:
+          - link "ES Knowledge Atlas" [ref=f18e6] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f18e8]:
+            - button "Search" [ref=f18e11] [cursor=pointer]:
+              - generic [ref=f18e15]:
+                - generic [ref=f18e16]: ⌘
+                - generic [ref=f18e17]: K
+            - navigation "Main Navigation" [ref=f18e18]:
+              - link "首页" [ref=f18e20] [cursor=pointer]:
+                - /url: /
+              - link "存储层" [ref=f18e22] [cursor=pointer]:
+                - /url: /01-storage/overview
+              - link "查询层" [ref=f18e24] [cursor=pointer]:
+                - /url: /02-query/overview
+              - link "分析层" [ref=f18e26] [cursor=pointer]:
+                - /url: /03-analysis/overview
+              - link "运维层" [ref=f18e28] [cursor=pointer]:
+                - /url: /04-ops/overview
+              - link "7 vs 8" [ref=f18e30] [cursor=pointer]:
+                - /url: /99-compare/diff
+            - button "extra navigation" [ref=f18e33] [cursor=pointer]
+  - button "本页目录" [ref=f18e38] [cursor=pointer]
+  - complementary [ref=f18e40]:
+    - navigation "Sidebar Navigation" [ref=f18e42]:
+      - generic [ref=f18e45]:
+        - button [ref=f18e46]:
+          - heading "版本对比" [level=2] [ref=f18e48]
+        - link [ref=f18e53] [cursor=pointer]:
+          - /url: /99-compare/diff
+          - paragraph [ref=f18e54]: 7 vs 8 差异
+  - generic [ref=f18e59]:
+    - main [ref=f18e60]:
+      - generic [ref=f18e62]:
+        - heading [level=1] [ref=f18e63]:
+          - text: Elasticsearch 7.x 与 8.x 主要差异
+          - link "Permalink to \"Elasticsearch 7.x 与 8.x 主要差异\"" [ref=f18e64] [cursor=pointer]:
+            - /url: "#elasticsearch-7-x-与-8-x-主要差异"
+            - text: "#"
+        - paragraph [ref=f18e65]:
+          - text: 本页聚焦从 7.x 升级到 8.x 时
+          - strong [ref=f18e66]: 最关键的差异点
+          - text: ，供升级决策参考。
+        - blockquote [ref=f18e67]:
+          - paragraph [ref=f18e68]:
+            - text: 💡 本站主要讲 ES 7.17（搭配
+            - link "elastic-search-demo" [ref=f18e69] [cursor=pointer]:
+              - /url: https://github.com/your-repo
+            - text: 项目使用 7.17.10）。如需了解 8.x 新特性请参考
+            - link "官方升级指南" [ref=f18e70] [cursor=pointer]:
+              - /url: https://www.elastic.co/guide/en/elasticsearch/reference/current/migrating-8.0.html
+            - text: 。
+        - heading [level=2] [ref=f18e71]:
+          - text: 📊 总览对比
+          - link "Permalink to \"📊 总览对比\"" [ref=f18e72] [cursor=pointer]:
+            - /url: "#📊-总览对比"
+            - text: "#"
+        - table [ref=f18e73]:
+          - rowgroup [ref=f18e74]:
+            - row [ref=f18e75]:
+              - columnheader "维度" [ref=f18e76]
+              - columnheader "ES 7.x" [ref=f18e77]
+              - columnheader "ES 8.x" [ref=f18e78]
+          - rowgroup [ref=f18e79]:
+            - row [ref=f18e80]:
+              - cell "默认安全" [ref=f18e81]
+              - cell "需手动启用" [ref=f18e82]
+              - cell [ref=f18e83]:
+                - strong [ref=f18e84]: 默认开启
+                - text: HTTPS + 认证
+            - row [ref=f18e85]:
+              - cell "JDK 要求" [ref=f18e86]
+              - cell "JDK 8/11/17" [ref=f18e87]
+              - cell [ref=f18e88]:
+                - strong [ref=f18e89]: JDK 17+
+            - row [ref=f18e90]:
+              - cell "Java Client" [ref=f18e91]
+              - cell [ref=f18e92]:
+                - code [ref=f18e93]: co.elastic.clients:elasticsearch-java
+              - cell "同上，但 API 更严格" [ref=f18e94]
+            - row [ref=f18e95]:
+              - cell "REST Client" [ref=f18e96]
+              - cell [ref=f18e97]:
+                - code [ref=f18e98]: RestHighLevelClient
+                - text: （已废弃）
+              - cell [ref=f18e99]:
+                - strong [ref=f18e100]: 强制使用 Java API Client
+            - row [ref=f18e101]:
+              - cell "索引创建" [ref=f18e102]
+              - cell "自动 + 手动" [ref=f18e103]
+              - cell [ref=f18e104]:
+                - strong [ref=f18e105]: 默认不再自动创建
+                - text: （需手动）
+            - row [ref=f18e106]:
+              - cell "默认 mapping" [ref=f18e107]
+              - cell [ref=f18e108]:
+                - code [ref=f18e109]: "include_type_name: true"
+              - cell [ref=f18e110]:
+                - code [ref=f18e111]: "false"
+                - text: （
+                - strong [ref=f18e112]: 彻底移除 mapping type
+                - text: ）
+            - row [ref=f18e113]:
+              - cell "节点角色" [ref=f18e114]
+              - cell "node.master/data/ingest" [ref=f18e115]
+              - cell [ref=f18e116]:
+                - text: 同 7.x，但
+                - strong [ref=f18e117]: 默认配置更严格
+            - row [ref=f18e118]:
+              - cell "ILM" [ref=f18e119]
+              - cell "支持" [ref=f18e120]
+              - cell [ref=f18e121]:
+                - text: 同 7.x，
+                - strong [ref=f18e122]: 更细粒度
+            - row [ref=f18e123]:
+              - cell "Search" [ref=f18e124]
+              - cell "7.x 全部支持" [ref=f18e125]
+              - cell [ref=f18e126]:
+                - text: 新增
+                - strong [ref=f18e127]: knn search
+                - text: (8.0+)
+            - row [ref=f18e128]:
+              - cell "TSDB" [ref=f18e129]
+              - cell "无" [ref=f18e130]
+              - cell "8.0+ 内置" [ref=f18e131]
+            - row [ref=f18e132]:
+              - cell "Transform" [ref=f18e133]
+              - cell "基础" [ref=f18e134]
+              - cell "增强 + GA" [ref=f18e135]
+        - heading [level=2] [ref=f18e136]:
+          - text: 🔐 1. 安全：默认开启
+          - link "Permalink to \"🔐 1. 安全：默认开启\"" [ref=f18e137] [cursor=pointer]:
+            - /url: "#🔐-1-安全-默认开启"
+            - text: "#"
+        - paragraph [ref=f18e138]: ES 7.x：
+        - generic [ref=f18e139]:
+          - button "Copy Code" [ref=f18e140] [cursor=pointer]
+          - generic [ref=f18e141]: yaml
+          - code [ref=f18e143]:
+            - generic [ref=f18e144]: "# 需手动开启"
+            - generic [ref=f18e145]: "xpack.security.enabled: true"
+        - paragraph [ref=f18e146]: ES 8.x：
+        - list [ref=f18e147]:
+          - listitem [ref=f18e148]:
+            - strong [ref=f18e149]: 默认开启
+            - text: ，无认证则
+            - strong [ref=f18e150]: 不能启动
+          - listitem [ref=f18e151]: 自动生成 HTTP CA + TLS
+          - listitem [ref=f18e152]:
+            - text: 内置
+            - code [ref=f18e153]: elastic
+            - text: 超级用户
+        - generic [ref=f18e154]:
+          - button "Copy Code" [ref=f18e155] [cursor=pointer]
+          - generic [ref=f18e156]: bash
+          - code [ref=f18e158]:
+            - generic [ref=f18e159]: "# 8.x 启动后查看初始密码"
+            - generic [ref=f18e160]: ./bin/elasticsearch-reset-password -u elastic
+        - blockquote [ref=f18e161]:
+          - paragraph [ref=f18e162]:
+            - text: ⚠️ 从 7.x 升级到 8.x 时，安全配置将
+            - strong [ref=f18e163]: 自动开启
+            - text: ！需要提前准备证书。
+        - heading [level=2] [ref=f18e164]:
+          - text: 📦 2. Java Client 迁移
+          - link "Permalink to \"📦 2. Java Client 迁移\"" [ref=f18e165] [cursor=pointer]:
+            - /url: "#📦-2-java-client-迁移"
+            - text: "#"
+        - heading [level=3] [ref=f18e166]:
+          - text: 7.x（推荐 - 与本项目一致）
+          - link "Permalink to \"7.x（推荐 - 与本项目一致）\"" [ref=f18e167] [cursor=pointer]:
+            - /url: "#_7-x-推荐-与本项目一致"
+            - text: "#"
+        - generic [ref=f18e168]:
+          - button "Copy Code" [ref=f18e169] [cursor=pointer]
+          - generic [ref=f18e170]: xml
+          - code [ref=f18e172]:
+            - generic [ref=f18e173]: <dependency>
+            - generic [ref=f18e174]: <groupId>co.elastic.clients</groupId>
+            - generic [ref=f18e175]: <artifactId>elasticsearch-java</artifactId>
+            - generic [ref=f18e176]: <version>7.17.10</version>
+            - generic [ref=f18e177]: </dependency>
+        - heading [level=3] [ref=f18e178]:
+          - text: 8.x
+          - link "Permalink to \"8.x\"" [ref=f18e179] [cursor=pointer]:
+            - /url: "#_8-x"
+            - text: "#"
+        - generic [ref=f18e180]:
+          - button "Copy Code" [ref=f18e181] [cursor=pointer]
+          - generic [ref=f18e182]: xml
+          - code [ref=f18e184]:
+            - generic [ref=f18e185]: <dependency>
+            - generic [ref=f18e186]: <groupId>co.elastic.clients</groupId>
+            - generic [ref=f18e187]: <artifactId>elasticsearch-java</artifactId>
+            - generic [ref=f18e188]: <version>8.x.x</version>
+            - generic [ref=f18e189]: </dependency>
+        - paragraph [ref=f18e190]: API 主要变化：
+        - list [ref=f18e191]:
+          - listitem [ref=f18e192]:
+            - text: 部分包名从
+            - code [ref=f18e193]: co.elastic.clients.elasticsearch._types
+            - text: 微调
+          - listitem [ref=f18e194]:
+            - code [ref=f18e195]: RestClient
+            - text: 底层 HTTP 客户端从
+            - code [ref=f18e196]: apache httpclient
+            - text: 改为
+            - code [ref=f18e197]: elasticsearch-java
+            - text: 内置
+        - heading [level=2] [ref=f18e198]:
+          - text: 🚫 3. Mapping Type 彻底移除
+          - link "Permalink to \"🚫 3. Mapping Type 彻底移除\"" [ref=f18e199] [cursor=pointer]:
+            - /url: "#🚫-3-mapping-type-彻底移除"
+            - text: "#"
+        - paragraph [ref=f18e200]:
+          - text: ES 7.x：保留
+          - code [ref=f18e201]: _doc
+          - text: type（兼容旧 API） ES 8.x：
+          - strong [ref=f18e202]: 完全移除 type 概念
+        - generic [ref=f18e203]:
+          - button "Copy Code" [ref=f18e204] [cursor=pointer]
+          - generic [ref=f18e205]: http
+          - code [ref=f18e207]:
+            - generic [ref=f18e208]: "# 7.x 仍可写"
+            - generic [ref=f18e209]: PUT /products/_doc/p001
+            - generic [ref=f18e210]: "# 8.x 同样，但旧 API 已废弃"
+            - generic [ref=f18e211]: PUT /products/_doc/p001
+        - heading [level=2] [ref=f18e212]:
+          - text: 🔍 4. KNN Search (8.0+)
+          - link "Permalink to \"🔍 4. KNN Search (8.0+)\"" [ref=f18e213] [cursor=pointer]:
+            - /url: "#🔍-4-knn-search-8-0"
+            - text: "#"
+        - paragraph [ref=f18e214]:
+          - text: ES 8.0 内置
+          - strong [ref=f18e215]: k-近邻搜索
+          - text: ，适合向量检索场景。
+        - generic [ref=f18e216]:
+          - button "Copy Code" [ref=f18e217] [cursor=pointer]
+          - generic [ref=f18e218]: http
+          - code [ref=f18e220]:
+            - generic [ref=f18e221]: PUT /products
+            - generic [ref=f18e222]: "{"
+            - generic [ref=f18e223]: "\"mappings\": {"
+            - generic [ref=f18e224]: "\"properties\": {"
+            - generic [ref=f18e225]: "\"embedding\": {"
+            - generic [ref=f18e226]: "\"type\": \"dense_vector\","
+            - generic [ref=f18e227]: "\"dims\": 768"
+            - generic [ref=f18e228]: "}"
+            - generic [ref=f18e229]: "}"
+            - generic [ref=f18e230]: "}"
+            - generic [ref=f18e231]: "}"
+            - generic [ref=f18e232]: POST /products/_search
+            - generic [ref=f18e233]: "{"
+            - generic [ref=f18e234]: "\"knn\": {"
+            - generic [ref=f18e235]: "\"field\": \"embedding\","
+            - generic [ref=f18e236]: "\"query_vector\": [0.1, 0.2, ...],"
+            - generic [ref=f18e237]: "\"k\": 10,"
+            - generic [ref=f18e238]: "\"num_candidates\": 100"
+            - generic [ref=f18e239]: "}"
+            - generic [ref=f18e240]: "}"
+        - heading [level=2] [ref=f18e241]:
+          - text: 📈 5. TSDB (8.0+)
+          - link "Permalink to \"📈 5. TSDB (8.0+)\"" [ref=f18e242] [cursor=pointer]:
+            - /url: "#📈-5-tsdb-8-0"
+            - text: "#"
+        - paragraph [ref=f18e243]:
+          - text: 时间序列数据库模式，
+          - strong [ref=f18e244]: 指标场景
+          - text: 性能大幅提升。
+        - generic [ref=f18e245]:
+          - button "Copy Code" [ref=f18e246] [cursor=pointer]
+          - generic [ref=f18e247]: http
+          - code [ref=f18e249]:
+            - generic [ref=f18e250]: PUT /metrics
+            - generic [ref=f18e251]: "{"
+            - generic [ref=f18e252]: "\"settings\": { \"index.mode\": \"time_series\" },"
+            - generic [ref=f18e253]: "\"mappings\": {"
+            - generic [ref=f18e254]: "\"properties\": {"
+            - generic [ref=f18e255]: "\"@timestamp\": { \"type\": \"date\" },"
+            - generic [ref=f18e256]: "\"metric\": { \"type\": \"long\", \"time_series_metric\": \"gauge\" }"
+            - generic [ref=f18e257]: "}"
+            - generic [ref=f18e258]: "}"
+            - generic [ref=f18e259]: "}"
+        - heading [level=2] [ref=f18e260]:
+          - text: 🆕 6. 其他新特性
+          - link "Permalink to \"🆕 6. 其他新特性\"" [ref=f18e261] [cursor=pointer]:
+            - /url: "#🆕-6-其他新特性"
+            - text: "#"
+        - table [ref=f18e262]:
+          - rowgroup [ref=f18e263]:
+            - row [ref=f18e264]:
+              - columnheader "特性" [ref=f18e265]
+              - columnheader "引入版本" [ref=f18e266]
+              - columnheader "说明" [ref=f18e267]
+          - rowgroup [ref=f18e268]:
+            - row [ref=f18e269]:
+              - cell [ref=f18e270]:
+                - strong [ref=f18e271]: Composable Index Template
+              - cell "7.8" [ref=f18e272]
+              - cell "7.x 已支持，8.x 完善" [ref=f18e273]
+            - row [ref=f18e274]:
+              - cell [ref=f18e275]:
+                - strong [ref=f18e276]: PIT (Point In Time)
+              - cell "7.10" [ref=f18e277]
+              - cell "8.x 配合 search_after 推荐" [ref=f18e278]
+            - row [ref=f18e279]:
+              - cell [ref=f18e280]:
+                - strong [ref=f18e281]: Runtime fields
+              - cell "7.11" [ref=f18e282]
+              - cell "8.x 性能更优" [ref=f18e283]
+            - row [ref=f18e284]:
+              - cell [ref=f18e285]:
+                - strong [ref=f18e286]: Vector search (knn)
+              - cell "8.0" [ref=f18e287]
+              - cell "新增" [ref=f18e288]
+            - row [ref=f18e289]:
+              - cell [ref=f18e290]:
+                - strong [ref=f18e291]: TSDB
+              - cell "8.0" [ref=f18e292]
+              - cell "新增" [ref=f18e293]
+            - row [ref=f18e294]:
+              - cell [ref=f18e295]:
+                - strong [ref=f18e296]: Text structure API
+              - cell "7.13" [ref=f18e297]
+              - cell "7.x 已有" [ref=f18e298]
+            - row [ref=f18e299]:
+              - cell [ref=f18e300]:
+                - strong [ref=f18e301]: Geo-line
+              - cell "7.13" [ref=f18e302]
+              - cell "8.x GA" [ref=f18e303]
+        - heading [level=2] [ref=f18e304]:
+          - text: 📋 升级决策
+          - link "Permalink to \"📋 升级决策\"" [ref=f18e305] [cursor=pointer]:
+            - /url: "#📋-升级决策"
+            - text: "#"
+        - table [ref=f18e306]:
+          - rowgroup [ref=f18e307]:
+            - row [ref=f18e308]:
+              - columnheader "场景" [ref=f18e309]
+              - columnheader "建议" [ref=f18e310]
+          - rowgroup [ref=f18e311]:
+            - row [ref=f18e312]:
+              - cell "新项目" [ref=f18e313]
+              - cell [ref=f18e314]:
+                - text: 直接上
+                - strong [ref=f18e315]: 8.x
+                - text: （最新稳定）
+            - row [ref=f18e316]:
+              - cell "在用 7.x 7.17+" [ref=f18e317]
+              - cell "评估升级 8.x（兼容性较好）" [ref=f18e318]
+            - row [ref=f18e319]:
+              - cell "仍在 7.x 7.0-7.16" [ref=f18e320]
+              - cell [ref=f18e321]:
+                - text: 升级到
+                - strong [ref=f18e322]: "7.17"
+                - text: 再考虑 8.x
+            - row [ref=f18e323]:
+              - cell "在用 6.x 或更早" [ref=f18e324]
+              - cell "需先升级到 7.x" [ref=f18e325]
+        - heading [level=2] [ref=f18e326]:
+          - text: ⚠️ 升级注意事项
+          - link "Permalink to \"⚠️ 升级注意事项\"" [ref=f18e327] [cursor=pointer]:
+            - /url: "#⚠️-升级注意事项"
+            - text: "#"
+        - list [ref=f18e328]:
+          - listitem [ref=f18e329]:
+            - strong [ref=f18e330]: JDK 17+
+            - text: （8.x 强制）
+          - listitem [ref=f18e331]:
+            - strong [ref=f18e332]: TLS 证书
+            - text: 准备（8.x 默认 HTTPS）
+          - listitem [ref=f18e333]:
+            - strong [ref=f18e334]: API Client
+            - text: 重新编译（包名变化）
+          - listitem [ref=f18e335]:
+            - strong [ref=f18e336]: REST API
+            - text: 检查废弃 API（
+            - code [ref=f18e337]: _type
+            - text: ","
+            - code [ref=f18e338]: _doc/_create
+            - text: 等）
+          - listitem [ref=f18e339]:
+            - strong [ref=f18e340]: 索引兼容性
+            - text: ：8.x 可读 7.x 索引，
+            - strong [ref=f18e341]: 写需要先升级
+            - text: （reindex）
+          - listitem [ref=f18e342]:
+            - strong [ref=f18e343]: 测试
+            - text: 先在 staging 环境跑全套回归
+        - heading [level=2] [ref=f18e344]:
+          - text: 🔗 关联项目
+          - link "Permalink to \"🔗 关联项目\"" [ref=f18e345] [cursor=pointer]:
+            - /url: "#🔗-关联项目"
+            - text: "#"
+        - paragraph [ref=f18e346]:
+          - text: 本站点配套
+          - link "elastic-search-demo" [ref=f18e347] [cursor=pointer]:
+            - /url: https://github.com/your-repo
+          - text: Java 项目使用 ES 7.17.10。该项目如未来升级 8.x，主要变更点：
+        - list [ref=f18e348]:
+          - listitem [ref=f18e349]:
+            - code [ref=f18e350]: pom.xml
+            - text: 中
+            - code [ref=f18e351]: elasticsearch.version
+            - text: 改为 8.x
+          - listitem [ref=f18e352]: Java Client API 升级到 8.x 版本
+          - listitem [ref=f18e353]: 添加 TLS 证书配置 + 用户认证
+          - listitem [ref=f18e354]:
+            - text: 移除
+            - code [ref=f18e355]: _type
+            - text: 相关代码（如有）
+        - heading [level=2] [ref=f18e356]:
+          - text: 🗺️ 在图谱中的位置
+          - link "Permalink to \"🗺️ 在图谱中的位置\"" [ref=f18e357] [cursor=pointer]:
+            - /url: "#🗺️-在图谱中的位置"
+            - text: "#"
+        - generic [ref=f18e362]:
+          - generic [ref=f18e363] [cursor=pointer]: 存储层
+          - generic [ref=f18e364] [cursor=pointer]: 查询层
+          - generic [ref=f18e365] [cursor=pointer]: 分析层
+          - generic [ref=f18e366] [cursor=pointer]: 运维层
+    - contentinfo

@@ -1,0 +1,189 @@
+- generic [ref=f4e3]:
+  - link "Skip to content" [ref=f4e4] [cursor=pointer]:
+    - /url: "#VPContent"
+  - banner:
+    - generic:
+      - generic:
+        - generic:
+          - link "ES Knowledge Atlas" [ref=f4e6] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f4e8]:
+            - button "Search" [ref=f4e11] [cursor=pointer]:
+              - generic [ref=f4e15]:
+                - generic [ref=f4e16]: ⌘
+                - generic [ref=f4e17]: K
+            - navigation "Main Navigation" [ref=f4e18]:
+              - link "首页" [ref=f4e20] [cursor=pointer]:
+                - /url: /
+              - link "存储层" [ref=f4e22] [cursor=pointer]:
+                - /url: /01-storage/overview
+              - link "查询层" [ref=f4e24] [cursor=pointer]:
+                - /url: /02-query/overview
+              - link "分析层" [ref=f4e26] [cursor=pointer]:
+                - /url: /03-analysis/overview
+              - link "运维层" [ref=f4e28] [cursor=pointer]:
+                - /url: /04-ops/overview
+              - link "调试" [ref=f4e30] [cursor=pointer]:
+                - /url: /05-tools/curl-client
+              - link "DSL" [ref=f4e32] [cursor=pointer]:
+                - /url: /05-tools/dsl
+              - link "Java" [ref=f4e34] [cursor=pointer]:
+                - /url: /05-tools/java
+              - link "仪表板" [ref=f4e36] [cursor=pointer]:
+                - /url: /05-tools/dashboard
+              - link "7 vs 8" [ref=f4e38] [cursor=pointer]:
+                - /url: /99-compare/diff
+            - button "extra navigation" [ref=f4e41] [cursor=pointer]
+  - button "本页目录" [ref=f4e46] [cursor=pointer]
+  - complementary [ref=f4e48]:
+    - navigation "Sidebar Navigation" [ref=f4e50]:
+      - generic [ref=f4e53]:
+        - button [ref=f4e54]:
+          - heading "🛠️ 工具 Tools" [level=2] [ref=f4e56]
+        - generic [ref=f4e57]:
+          - link [ref=f4e61] [cursor=pointer]:
+            - /url: /05-tools/curl-client
+            - paragraph [ref=f4e62]: 🚀 请求调试器
+          - link [ref=f4e66] [cursor=pointer]:
+            - /url: /05-tools/dsl
+            - paragraph [ref=f4e67]: 📚 Query DSL 速查
+          - link [ref=f4e71] [cursor=pointer]:
+            - /url: /05-tools/java
+            - paragraph [ref=f4e72]: ☕ Java SDK 速查
+          - link [ref=f4e76] [cursor=pointer]:
+            - /url: /05-tools/dashboard
+            - paragraph [ref=f4e77]: 📊 集群监控仪表板
+  - generic [ref=f4e82]:
+    - main [ref=f4e83]:
+      - generic [ref=f4e85]:
+        - paragraph [ref=f4e86]:
+          - generic [ref=f4e87]: 监控
+        - heading [level=1] [ref=f4e88]:
+          - text: ES 集群实时监控仪表板
+          - link "Permalink to \"ES 集群实时监控仪表板\"" [ref=f4e89] [cursor=pointer]:
+            - /url: "#es-集群实时监控仪表板"
+            - text: "#"
+        - blockquote [ref=f4e90]:
+          - paragraph [ref=f4e91]: 从 4 个维度（集群健康 / 节点指标 / 索引概览 / 分片分布）实时可视化 ES 集群状态。
+        - heading [level=2] [ref=f4e92]:
+          - text: 🎯 仪表板用法
+          - link "Permalink to \"🎯 仪表板用法\"" [ref=f4e93] [cursor=pointer]:
+            - /url: "#🎯-仪表板用法"
+            - text: "#"
+        - list [ref=f4e94]:
+          - listitem [ref=f4e95]:
+            - text: 配置
+            - strong [ref=f4e96]: endpoint
+            - text: （自动持久化到 localStorage）
+          - listitem [ref=f4e97]:
+            - text: 首次进入页面
+            - strong [ref=f4e98]: 自动拉取
+            - text: 数据
+          - listitem [ref=f4e99]:
+            - text: 点击右上角
+            - strong [ref=f4e100]: ↻ 刷新
+            - text: 手动更新
+          - listitem [ref=f4e101]:
+            - text: 勾选
+            - strong [ref=f4e102]: 「自动刷新」
+            - text: 进入轮询模式（5s / 15s / 30s / 1min 可选）
+          - listitem [ref=f4e103]: 4 个 sub-tab 切换查看不同维度
+          - listitem [ref=f4e104]:
+            - text: 表格
+            - strong [ref=f4e105]: 点击列头
+            - text: 可排序
+        - generic [ref=f4e106]:
+          - generic [ref=f4e107]:
+            - generic [ref=f4e108]:
+              - generic [ref=f4e109]: 📍
+              - generic [ref=f4e110]: http://localhost:9200
+            - generic [ref=f4e111]:
+              - generic [ref=f4e112] [cursor=pointer]:
+                - checkbox "自动刷新" [ref=f4e113]
+                - generic [ref=f4e114]: 自动刷新
+              - button "↻ 刷新" [ref=f4e115] [cursor=pointer]
+              - generic [ref=f4e116]: 上次更新：21:23:04
+          - generic [ref=f4e117]:
+            - strong [ref=f4e118]: 请求失败：
+            - text: 无法访问 ES：Failed to fetch
+            - generic [ref=f4e119]: 💡 请检查 endpoint 配置、CORS 设置（详见页面下方说明）
+          - generic [ref=f4e120]:
+            - button "🏥 集群健康" [ref=f4e121] [cursor=pointer]
+            - button "📈 节点指标" [ref=f4e122] [cursor=pointer]
+            - button "📂 索引概览" [ref=f4e123] [cursor=pointer]
+            - button "🧩 分片分布" [ref=f4e124] [cursor=pointer]
+        - heading [level=2] [ref=f4e126]:
+          - text: 📡 使用的数据接口
+          - link "Permalink to \"📡 使用的数据接口\"" [ref=f4e127] [cursor=pointer]:
+            - /url: "#📡-使用的数据接口"
+            - text: "#"
+        - table [ref=f4e128]:
+          - rowgroup [ref=f4e129]:
+            - row [ref=f4e130]:
+              - columnheader "Sub-tab" [ref=f4e131]
+              - columnheader "接口" [ref=f4e132]
+              - columnheader "用途" [ref=f4e133]
+          - rowgroup [ref=f4e134]:
+            - row [ref=f4e135]:
+              - cell "🏥 集群健康" [ref=f4e136]
+              - cell [ref=f4e137]:
+                - code [ref=f4e138]: GET /_cluster/health
+              - cell "green/yellow/red 状态 + 分片统计" [ref=f4e139]
+            - row [ref=f4e140]:
+              - cell "📈 节点指标" [ref=f4e141]
+              - cell [ref=f4e142]:
+                - code [ref=f4e143]: GET /_nodes/stats
+                - text: +
+                - code [ref=f4e144]: /_cat/master
+              - cell "JVM Heap/CPU/Load/Disk" [ref=f4e145]
+            - row [ref=f4e146]:
+              - cell "📂 索引概览" [ref=f4e147]
+              - cell [ref=f4e148]:
+                - code [ref=f4e149]: GET /_cat/indices
+              - cell "所有索引的大小/文档/分片" [ref=f4e150]
+            - row [ref=f4e151]:
+              - cell "🧩 分片分布" [ref=f4e152]
+              - cell [ref=f4e153]:
+                - code [ref=f4e154]: GET /_cat/shards
+              - cell "分片在节点的分布" [ref=f4e155]
+        - heading [level=2] [ref=f4e156]:
+          - text: ⚠️ CORS 配置
+          - link "Permalink to \"⚠️ CORS 配置\"" [ref=f4e157] [cursor=pointer]:
+            - /url: "#⚠️-cors-配置"
+            - text: "#"
+        - paragraph [ref=f4e158]: 仪表板通过浏览器 fetch 调用 ES，需要 ES 开启 CORS：
+        - generic [ref=f4e159]:
+          - button "Copy Code" [ref=f4e160] [cursor=pointer]
+          - generic [ref=f4e161]: yaml
+          - code [ref=f4e163]:
+            - generic [ref=f4e164]: "# elasticsearch.yml"
+            - generic [ref=f4e165]: "http.cors.enabled: true"
+            - generic [ref=f4e166]: "http.cors.allow-origin: \"*\""
+            - generic [ref=f4e167]: "http.cors.allow-methods: \"OPTIONS, HEAD, GET, POST, PUT, DELETE\""
+            - generic [ref=f4e168]: "http.cors.allow-headers: \"Authorization, Content-Type\""
+        - heading [level=2] [ref=f4e169]:
+          - text: 🎨 颜色规则
+          - link "Permalink to \"🎨 颜色规则\"" [ref=f4e170] [cursor=pointer]:
+            - /url: "#🎨-颜色规则"
+            - text: "#"
+        - table [ref=f4e171]:
+          - rowgroup [ref=f4e172]:
+            - row [ref=f4e173]:
+              - columnheader "指标" [ref=f4e174]
+              - columnheader "阈值" [ref=f4e175]
+          - rowgroup [ref=f4e176]:
+            - row [ref=f4e177]:
+              - cell "🟢 OK" [ref=f4e178]
+              - cell "< 70%" [ref=f4e179]
+            - row [ref=f4e180]:
+              - cell "🟡 警告" [ref=f4e181]
+              - cell "70-85%" [ref=f4e182]
+            - row [ref=f4e183]:
+              - cell "🔴 危险" [ref=f4e184]
+              - cell "≥ 85%" [ref=f4e185]
+    - contentinfo [ref=f4e186]:
+      - navigation "Pager" [ref=f4e187]:
+        - link "上一篇 ☕ Java SDK 速查" [ref=f4e190] [cursor=pointer]:
+          - /url: /05-tools/java
+          - generic [ref=f4e191]: 上一篇
+          - generic [ref=f4e192]: ☕ Java SDK 速查

@@ -1,0 +1,313 @@
+- generic [ref=f2e3]:
+  - link "Skip to content" [ref=f2e4] [cursor=pointer]:
+    - /url: "#VPContent"
+  - banner:
+    - generic:
+      - generic:
+        - generic:
+          - link "ES Knowledge Atlas" [ref=f2e6] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f2e8]:
+            - button "Search" [ref=f2e11] [cursor=pointer]:
+              - generic [ref=f2e15]:
+                - generic [ref=f2e16]: ⌘
+                - generic [ref=f2e17]: K
+            - navigation "Main Navigation" [ref=f2e18]:
+              - link "首页" [ref=f2e20] [cursor=pointer]:
+                - /url: /
+              - link "存储层" [ref=f2e22] [cursor=pointer]:
+                - /url: /01-storage/overview
+              - link "查询层" [ref=f2e24] [cursor=pointer]:
+                - /url: /02-query/overview
+              - link "分析层" [ref=f2e26] [cursor=pointer]:
+                - /url: /03-analysis/overview
+              - link "运维层" [ref=f2e28] [cursor=pointer]:
+                - /url: /04-ops/overview
+              - link "调试" [ref=f2e30] [cursor=pointer]:
+                - /url: /05-tools/curl-client
+              - link "DSL" [ref=f2e32] [cursor=pointer]:
+                - /url: /05-tools/dsl
+              - link "Java" [ref=f2e34] [cursor=pointer]:
+                - /url: /05-tools/java
+              - link "仪表板" [ref=f2e36] [cursor=pointer]:
+                - /url: /05-tools/dashboard
+              - link "7 vs 8" [ref=f2e38] [cursor=pointer]:
+                - /url: /99-compare/diff
+            - button "extra navigation" [ref=f2e41] [cursor=pointer]
+  - button "本页目录" [ref=f2e46] [cursor=pointer]
+  - complementary [ref=f2e48]:
+    - navigation "Sidebar Navigation" [ref=f2e50]:
+      - generic [ref=f2e53]:
+        - button [ref=f2e54]:
+          - heading "🛠️ 工具 Tools" [level=2] [ref=f2e56]
+        - generic [ref=f2e57]:
+          - link [ref=f2e61] [cursor=pointer]:
+            - /url: /05-tools/curl-client
+            - paragraph [ref=f2e62]: 🚀 请求调试器
+          - link [ref=f2e66] [cursor=pointer]:
+            - /url: /05-tools/dsl
+            - paragraph [ref=f2e67]: 📚 Query DSL 速查
+          - link [ref=f2e71] [cursor=pointer]:
+            - /url: /05-tools/java
+            - paragraph [ref=f2e72]: ☕ Java SDK 速查
+          - link [ref=f2e76] [cursor=pointer]:
+            - /url: /05-tools/dashboard
+            - paragraph [ref=f2e77]: 📊 集群监控仪表板
+  - generic [ref=f2e82]:
+    - main [ref=f2e83]:
+      - generic [ref=f2e85]:
+        - paragraph [ref=f2e86]:
+          - generic [ref=f2e87]: DSL
+        - heading [level=1] [ref=f2e88]:
+          - text: Query DSL 速查
+          - link "Permalink to \"Query DSL 速查\"" [ref=f2e89] [cursor=pointer]:
+            - /url: "#query-dsl-速查"
+            - text: "#"
+        - blockquote [ref=f2e90]:
+          - paragraph [ref=f2e91]:
+            - text: 21 个常用 ES 7 Query DSL 模板，按
+            - strong [ref=f2e92]: 7 大类
+            - text: 整理，可直接复制或一键转到
+            - link "调试器" [ref=f2e93] [cursor=pointer]:
+              - /url: /05-tools/curl-client
+            - text: 预填。
+        - heading [level=2] [ref=f2e94]:
+          - text: 📚 分类索引
+          - link "Permalink to \"📚 分类索引\"" [ref=f2e95] [cursor=pointer]:
+            - /url: "#📚-分类索引"
+            - text: "#"
+        - table [ref=f2e96]:
+          - rowgroup [ref=f2e97]:
+            - row [ref=f2e98]:
+              - columnheader "分类" [ref=f2e99]
+              - columnheader "数量" [ref=f2e100]
+              - columnheader "包含" [ref=f2e101]
+          - rowgroup [ref=f2e102]:
+            - row [ref=f2e103]:
+              - cell [ref=f2e104]:
+                - text: 🍃
+                - strong [ref=f2e105]: 叶子查询
+              - cell "4" [ref=f2e106]
+              - cell "Term / Terms / Exists / IDs" [ref=f2e107]
+            - row [ref=f2e108]:
+              - cell [ref=f2e109]:
+                - text: 🎯
+                - strong [ref=f2e110]: 复合查询
+              - cell "2" [ref=f2e111]
+              - cell "Bool / Constant Score" [ref=f2e112]
+            - row [ref=f2e113]:
+              - cell [ref=f2e114]:
+                - text: 📏
+                - strong [ref=f2e115]: 范围查询
+              - cell "2" [ref=f2e116]
+              - cell "Range / Date Range" [ref=f2e117]
+            - row [ref=f2e118]:
+              - cell [ref=f2e119]:
+                - text: 🔎
+                - strong [ref=f2e120]: 全文检索
+              - cell "4" [ref=f2e121]
+              - cell "Match / Match Phrase / Multi Match / Query String" [ref=f2e122]
+            - row [ref=f2e123]:
+              - cell [ref=f2e124]:
+                - text: 🔗
+                - strong [ref=f2e125]: 嵌套与连接
+              - cell "2" [ref=f2e126]
+              - cell "Nested / Has Child" [ref=f2e127]
+            - row [ref=f2e128]:
+              - cell [ref=f2e129]:
+                - text: 📊
+                - strong [ref=f2e130]: 聚合分析
+              - cell "4" [ref=f2e131]
+              - cell "Terms / Metrics / Sub-Agg / Date Histogram" [ref=f2e132]
+            - row [ref=f2e133]:
+              - cell [ref=f2e134]:
+                - text: 🛠️
+                - strong [ref=f2e135]: 排错与高级
+              - cell "3" [ref=f2e136]
+              - cell "Profile / Explain / Function Score" [ref=f2e137]
+        - generic [ref=f2e138]:
+          - generic [ref=f2e139]:
+            - text: 📚 按
+            - strong [ref=f2e140]: 7 大类
+            - text: 整理共
+            - strong [ref=f2e141]: "21"
+            - text: 个 Query DSL 模板。 点击分类切换显示该类所有模板，「🔬 试一下」可一键跳到
+            - link "调试器" [ref=f2e142] [cursor=pointer]:
+              - /url: /05-tools/curl-client
+            - text: 预填。
+          - generic [ref=f2e143]:
+            - button "🍃 叶子查询 (Leaf) (4)" [ref=f2e144] [cursor=pointer]
+            - button "🎯 复合查询 (Compound) (2)" [ref=f2e145] [cursor=pointer]
+            - button "📏 范围查询 (2)" [ref=f2e146] [cursor=pointer]
+            - button "🔎 全文检索 (4)" [ref=f2e147] [cursor=pointer]
+            - button "🔗 嵌套与连接 (2)" [ref=f2e148] [cursor=pointer]
+            - button "📊 聚合分析 (4)" [ref=f2e149] [cursor=pointer]
+            - button "🛠️ 排错与高级 (3)" [ref=f2e150] [cursor=pointer]
+          - generic [ref=f2e151]: 🍃 叶子查询 (Leaf)
+          - generic [ref=f2e152]:
+            - generic [ref=f2e153]:
+              - strong [ref=f2e154]: Term Query - 精确匹配
+              - generic [ref=f2e155]:
+                - generic [ref=f2e156]: 精确
+                - generic [ref=f2e157]: keyword
+                - generic [ref=f2e158]: 数值
+            - generic [ref=f2e159]: 不做分词的精确匹配，作用于 keyword / 数值 / 日期。term 查询不会经过分析器，所以输入的字符串必须是 term 本身。
+            - group [ref=f2e160]:
+              - generic "查看 DSL" [ref=f2e161] [cursor=pointer]
+            - generic [ref=f2e162]:
+              - button "🔬 试一下" [ref=f2e163] [cursor=pointer]
+              - button "📋 复制" [ref=f2e164] [cursor=pointer]
+          - generic [ref=f2e165]:
+            - generic [ref=f2e166]:
+              - strong [ref=f2e167]: Terms Query - 多值精确匹配
+              - generic [ref=f2e168]:
+                - generic [ref=f2e169]: IN
+                - generic [ref=f2e170]: 多值
+            - generic [ref=f2e171]: 等价于 SQL 的 IN 操作，匹配任一 value 即命中。
+            - group [ref=f2e172]:
+              - generic "查看 DSL" [ref=f2e173] [cursor=pointer]
+            - generic [ref=f2e174]:
+              - button "🔬 试一下" [ref=f2e175] [cursor=pointer]
+              - button "📋 复制" [ref=f2e176] [cursor=pointer]
+          - generic [ref=f2e177]:
+            - generic [ref=f2e178]:
+              - strong [ref=f2e179]: Exists Query - 字段存在性
+              - generic [ref=f2e180]:
+                - generic [ref=f2e181]: 字段
+                - generic [ref=f2e182]: 存在
+            - generic [ref=f2e183]: 匹配字段值非 null 的文档。常用于清洗脏数据。
+            - group [ref=f2e184]:
+              - generic "查看 DSL" [ref=f2e185] [cursor=pointer]
+            - generic [ref=f2e186]:
+              - button "🔬 试一下" [ref=f2e187] [cursor=pointer]
+              - button "📋 复制" [ref=f2e188] [cursor=pointer]
+          - generic [ref=f2e189]:
+            - generic [ref=f2e190]:
+              - strong [ref=f2e191]: IDs Query - 按 ID 查询
+              - generic [ref=f2e192]:
+                - generic [ref=f2e193]: _id
+                - generic [ref=f2e194]: 批量
+            - generic [ref=f2e195]: 通过 _id 直接获取文档，比用 term 查询 _id 更高效。
+            - group [ref=f2e196]:
+              - generic "查看 DSL" [ref=f2e197] [cursor=pointer]
+            - generic [ref=f2e198]:
+              - button "🔬 试一下" [ref=f2e199] [cursor=pointer]
+              - button "📋 复制" [ref=f2e200] [cursor=pointer]
+        - heading [level=2] [ref=f2e201]:
+          - text: 🎯 使用建议
+          - link "Permalink to \"🎯 使用建议\"" [ref=f2e202] [cursor=pointer]:
+            - /url: "#🎯-使用建议"
+            - text: "#"
+        - heading [level=3] [ref=f2e203]:
+          - text: 何时使用哪种查询？
+          - link "Permalink to \"何时使用哪种查询？\"" [ref=f2e204] [cursor=pointer]:
+            - /url: "#何时使用哪种查询"
+            - text: "#"
+        - table [ref=f2e205]:
+          - rowgroup [ref=f2e206]:
+            - row [ref=f2e207]:
+              - columnheader "场景" [ref=f2e208]
+              - columnheader "推荐" [ref=f2e209]
+          - rowgroup [ref=f2e210]:
+            - row [ref=f2e211]:
+              - cell "全文搜索" [ref=f2e212]
+              - cell "🍃 Match / Match Phrase" [ref=f2e213]
+            - row [ref=f2e214]:
+              - cell "精确匹配（keyword、数值、状态）" [ref=f2e215]
+              - cell "🍃 Term / Terms" [ref=f2e216]
+            - row [ref=f2e217]:
+              - cell "复合条件" [ref=f2e218]
+              - cell "🎯 Bool（must + filter + should）" [ref=f2e219]
+            - row [ref=f2e220]:
+              - cell "数值/日期筛选" [ref=f2e221]
+              - cell "📏 Range" [ref=f2e222]
+            - row [ref=f2e223]:
+              - cell "嵌套数组内筛选" [ref=f2e224]
+              - cell "🔗 Nested" [ref=f2e225]
+            - row [ref=f2e226]:
+              - cell "父查子" [ref=f2e227]
+              - cell "🔗 Has Child" [ref=f2e228]
+            - row [ref=f2e229]:
+              - cell "分类计数、平均值" [ref=f2e230]
+              - cell "📊 Aggregations" [ref=f2e231]
+            - row [ref=f2e232]:
+              - cell "性能剖析" [ref=f2e233]
+              - cell "🛠️ Profile" [ref=f2e234]
+        - heading [level=3] [ref=f2e235]:
+          - text: 性能最佳实践
+          - link "Permalink to \"性能最佳实践\"" [ref=f2e236] [cursor=pointer]:
+            - /url: "#性能最佳实践"
+            - text: "#"
+        - list [ref=f2e237]:
+          - listitem [ref=f2e238]:
+            - strong [ref=f2e239]: filter 上下文优于 query
+            - text: ：filter 不参与评分且可缓存
+          - listitem [ref=f2e240]:
+            - strong [ref=f2e241]: 避免高基数字段的 prefix/wildcard
+            - text: ：会展开为大量 term，拖慢搜索
+          - listitem [ref=f2e242]:
+            - strong [ref=f2e243]: bool/should 单独使用
+            - text: ：默认
+            - code [ref=f2e244]: "minimum_should_match: 1"
+            - text: ，有 must/filter 时默认 0
+          - listitem [ref=f2e245]:
+            - strong [ref=f2e246]: nested 慢
+            - text: ：每条 nested doc 独立索引，按需使用
+        - heading [level=2] [ref=f2e247]:
+          - text: 🔗 关联工具
+          - link "Permalink to \"🔗 关联工具\"" [ref=f2e248] [cursor=pointer]:
+            - /url: "#🔗-关联工具"
+            - text: "#"
+        - list [ref=f2e249]:
+          - listitem [ref=f2e250]:
+            - strong [ref=f2e251]:
+              - link "🚀 调试器" [ref=f2e252] [cursor=pointer]:
+                - /url: /05-tools/curl-client
+            - text: — 一键预填 DSL 并实际发送
+          - listitem [ref=f2e253]:
+            - strong [ref=f2e254]:
+              - link "☕ Java SDK 速查" [ref=f2e255] [cursor=pointer]:
+                - /url: /05-tools/java
+            - text: — 对应的 Java API 调用
+          - listitem [ref=f2e256]:
+            - strong [ref=f2e257]:
+              - link "📊 集群仪表板" [ref=f2e258] [cursor=pointer]:
+                - /url: /05-tools/dashboard
+            - text: — 实时观察慢查询对集群的影响
+        - heading [level=2] [ref=f2e259]:
+          - text: 🔗 关联文档
+          - link "Permalink to \"🔗 关联文档\"" [ref=f2e260] [cursor=pointer]:
+            - /url: "#🔗-关联文档"
+            - text: "#"
+        - list [ref=f2e261]:
+          - listitem [ref=f2e262]:
+            - link "Query DSL 总览" [ref=f2e263] [cursor=pointer]:
+              - /url: /02-query/query-dsl
+          - listitem [ref=f2e264]:
+            - link "Match Query" [ref=f2e265] [cursor=pointer]:
+              - /url: /02-query/match
+          - listitem [ref=f2e266]:
+            - link "Term Query" [ref=f2e267] [cursor=pointer]:
+              - /url: /02-query/term
+          - listitem [ref=f2e268]:
+            - link "Bool Query" [ref=f2e269] [cursor=pointer]:
+              - /url: /02-query/bool
+          - listitem [ref=f2e270]:
+            - link "Range Query" [ref=f2e271] [cursor=pointer]:
+              - /url: /02-query/range
+          - listitem [ref=f2e272]:
+            - link "聚合 Aggregation" [ref=f2e273] [cursor=pointer]:
+              - /url: /02-query/aggregation
+          - listitem [ref=f2e274]:
+            - link "Query Profile" [ref=f2e275] [cursor=pointer]:
+              - /url: /02-query/profile
+    - contentinfo [ref=f2e276]:
+      - navigation "Pager" [ref=f2e277]:
+        - link "上一篇 🚀 请求调试器" [ref=f2e280] [cursor=pointer]:
+          - /url: /05-tools/curl-client
+          - generic [ref=f2e281]: 上一篇
+          - generic [ref=f2e282]: 🚀 请求调试器
+        - link "下一篇 ☕ Java SDK 速查" [ref=f2e284] [cursor=pointer]:
+          - /url: /05-tools/java
+          - generic [ref=f2e285]: 下一篇
+          - generic [ref=f2e286]: ☕ Java SDK 速查

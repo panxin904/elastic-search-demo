@@ -1,0 +1,331 @@
+- generic [ref=f2e3]:
+  - link "Skip to content" [ref=f2e4] [cursor=pointer]:
+    - /url: "#VPContent"
+  - banner:
+    - generic:
+      - generic:
+        - generic:
+          - link "ES Knowledge Atlas" [ref=f2e6] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f2e8]:
+            - button "Search" [ref=f2e11] [cursor=pointer]:
+              - generic [ref=f2e15]:
+                - generic [ref=f2e16]: ⌘
+                - generic [ref=f2e17]: K
+            - navigation "Main Navigation" [ref=f2e18]:
+              - link "首页" [ref=f2e20] [cursor=pointer]:
+                - /url: /
+              - link "存储层" [ref=f2e22] [cursor=pointer]:
+                - /url: /01-storage/overview
+              - link "查询层" [ref=f2e24] [cursor=pointer]:
+                - /url: /02-query/overview
+              - link "分析层" [ref=f2e26] [cursor=pointer]:
+                - /url: /03-analysis/overview
+              - link "运维层" [ref=f2e28] [cursor=pointer]:
+                - /url: /04-ops/overview
+              - link "调试" [ref=f2e30] [cursor=pointer]:
+                - /url: /05-tools/curl-client
+              - link "DSL" [ref=f2e32] [cursor=pointer]:
+                - /url: /05-tools/dsl
+              - link "Java" [ref=f2e34] [cursor=pointer]:
+                - /url: /05-tools/java
+              - link "仪表板" [ref=f2e36] [cursor=pointer]:
+                - /url: /05-tools/dashboard
+              - link "部署" [ref=f2e38] [cursor=pointer]:
+                - /url: /05-tools/deploy
+              - link "7 vs 8" [ref=f2e40] [cursor=pointer]:
+                - /url: /99-compare/diff
+            - button "extra navigation" [ref=f2e43] [cursor=pointer]
+  - button "本页目录" [ref=f2e48] [cursor=pointer]
+  - complementary [ref=f2e50]:
+    - navigation "Sidebar Navigation" [ref=f2e52]:
+      - generic [ref=f2e55]:
+        - button [ref=f2e56]:
+          - heading "🛠️ 工具 Tools" [level=2] [ref=f2e58]
+        - generic [ref=f2e59]:
+          - link [ref=f2e63] [cursor=pointer]:
+            - /url: /05-tools/curl-client
+            - paragraph [ref=f2e64]: 🚀 请求调试器
+          - link [ref=f2e68] [cursor=pointer]:
+            - /url: /05-tools/dsl
+            - paragraph [ref=f2e69]: 📚 Query DSL 速查
+          - link [ref=f2e73] [cursor=pointer]:
+            - /url: /05-tools/java
+            - paragraph [ref=f2e74]: ☕ Java SDK 速查
+          - link [ref=f2e78] [cursor=pointer]:
+            - /url: /05-tools/dashboard
+            - paragraph [ref=f2e79]: 📊 集群监控仪表板
+          - link [ref=f2e83] [cursor=pointer]:
+            - /url: /05-tools/deploy
+            - paragraph [ref=f2e84]: ⚙️ 部署与生产配置
+  - generic [ref=f2e89]:
+    - main [ref=f2e90]:
+      - generic [ref=f2e92]:
+        - paragraph [ref=f2e93]:
+          - generic [ref=f2e94]: 部署
+        - heading [level=1] [ref=f2e95]:
+          - text: ES 部署与生产配置参考
+          - link "Permalink to \"ES 部署与生产配置参考\"" [ref=f2e96] [cursor=pointer]:
+            - /url: "#es-部署与生产配置参考"
+            - text: "#"
+        - blockquote [ref=f2e97]:
+          - paragraph [ref=f2e98]:
+            - text: 26 个生产环境必备的 ES 7 部署与配置模板，按
+            - strong [ref=f2e99]: 6 大主题
+            - text: 整理。 每个模板含场景说明、完整 yaml/命令、关键说明，可直接复制到生产环境使用。
+        - heading [level=2] [ref=f2e100]:
+          - text: 🎯 6 大主题
+          - link "Permalink to \"🎯 6 大主题\"" [ref=f2e101] [cursor=pointer]:
+            - /url: "#🎯-6-大主题"
+            - text: "#"
+        - table [ref=f2e102]:
+          - rowgroup [ref=f2e103]:
+            - row [ref=f2e104]:
+              - columnheader "主题" [ref=f2e105]
+              - columnheader "数量" [ref=f2e106]
+              - columnheader "内容" [ref=f2e107]
+          - rowgroup [ref=f2e108]:
+            - row [ref=f2e109]:
+              - cell [ref=f2e110]:
+                - text: 🛠️
+                - strong [ref=f2e111]: 安装方式
+              - cell "4" [ref=f2e112]
+              - cell "Tar 包 / Docker 单机 / Docker Compose 集群 / RPM" [ref=f2e113]
+            - row [ref=f2e114]:
+              - cell [ref=f2e115]:
+                - text: 🏗️
+                - strong [ref=f2e116]: 集群配置
+              - cell "3" [ref=f2e117]
+              - cell "基础集群 / 分片分配 / 恢复与慢日志" [ref=f2e118]
+            - row [ref=f2e119]:
+              - cell [ref=f2e120]:
+                - text: 🧩
+                - strong [ref=f2e121]: 节点角色
+              - cell "4" [ref=f2e122]
+              - cell "Master / Data / Coordinating / Hot-Warm-Cold" [ref=f2e123]
+            - row [ref=f2e124]:
+              - cell [ref=f2e125]:
+                - text: 💾
+                - strong [ref=f2e126]: 内存与 GC
+              - cell "4" [ref=f2e127]
+              - cell "Heap 计算 / G1GC / memory_lock / 熔断器" [ref=f2e128]
+            - row [ref=f2e129]:
+              - cell [ref=f2e130]:
+                - text: 🔐
+                - strong [ref=f2e131]: 安全与 TLS
+              - cell "3" [ref=f2e132]
+              - cell "启用 xpack.security / 用户角色 / 网络安全" [ref=f2e133]
+            - row [ref=f2e134]:
+              - cell [ref=f2e135]:
+                - text: 📊
+                - strong [ref=f2e136]: 监控配置
+              - cell "3" [ref=f2e137]
+              - cell "xpack.monitoring / Cerebro / 告警阈值" [ref=f2e138]
+        - generic [ref=f2e139]:
+          - generic [ref=f2e140]:
+            - text: ⚙️ 按
+            - strong [ref=f2e141]: 6 大主题
+            - text: 组织 ES 7 部署与生产调优配置参考。 每个主题含场景说明、推荐配置、完整 yaml/命令。「📋 复制」直接拷贝到生产环境使用。
+          - generic [ref=f2e142]:
+            - button "🛠️ 安装方式 (4)" [ref=f2e143] [cursor=pointer]
+            - button "🏗️ 集群配置 (3)" [ref=f2e144] [cursor=pointer]
+            - button "🧩 节点角色 (4)" [ref=f2e145] [cursor=pointer]
+            - button "💾 内存与 GC (4)" [ref=f2e146] [cursor=pointer]
+            - button "🔐 安全与 TLS (3)" [ref=f2e147] [cursor=pointer]
+            - button "📊 监控配置 (3)" [ref=f2e148] [cursor=pointer]
+          - generic [ref=f2e149]: 🛠️ 安装方式
+          - generic [ref=f2e150]:
+            - generic [ref=f2e151]:
+              - strong [ref=f2e152]: Tar 包单机部署（生产推荐）
+              - generic [ref=f2e153]:
+                - generic [ref=f2e154]: Tar
+                - generic [ref=f2e155]: Linux
+            - generic [ref=f2e156]: 从官网下载 7.17.10 tar 包，适合生产裸机/虚拟机部署。
+            - group [ref=f2e157]:
+              - generic "完整部署命令" [ref=f2e158] [cursor=pointer]
+              - generic [ref=f2e159]: "# 1. 下载（7.17.10 与本项目配套版本） wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.17.10-linux-x86_64.tar.gz wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.17.10-linux-x86_64.tar.gz.sha512 shasum -a 512 -c elasticsearch-7.17.10-linux-x86_64.tar.gz.sha512 # 2. 解压 tar -xzf elasticsearch-7.17.10-linux-x86_64.tar.gz cd elasticsearch-7.17.10 # 3. 创建专用用户（不能用 root 启动） useradd -m -s /bin/bash esuser chown -R esuser:esuser /opt/elasticsearch-7.17.10 # 4. 修改系统限制 cat >> /etc/security/limits.conf <<EOF esuser - nofile 65536 esuser - nproc 4096 esuser - memlock unlimited EOF # 5. 禁用 swap（必须） swapoff -a # 永久：/etc/fstab 中注释掉 swap 行 # 6. 调整 vm.max_map_count sysctl -w vm.max_map_count=262144 echo 'vm.max_map_count=262144' >> /etc/sysctl.conf # 7. 编辑配置（详见\"集群配置\"主题） vi config/elasticsearch.yml # 8. 启动（后台模式） su esuser -c \"./bin/elasticsearch -d -p pid\" # 9. 验证 curl http://localhost:9200/_cluster/health?pretty"
+              - button "📋 复制" [ref=f2e161] [cursor=pointer]
+            - generic [ref=f2e162]:
+              - generic [ref=f2e163]: 📌 关键说明
+              - list [ref=f2e164]:
+                - listitem [ref=f2e165]: "**不能用 root 启动**：ES 启动时会主动检查 UID，root 启动会报错并退出"
+                - listitem [ref=f2e166]: "**vm.max_map_count ≥ 262144**：ES 用 mmap 大量文件，不足会导致 out of memory errors"
+                - listitem [ref=f2e167]: "**关闭 swap**：JVM 在内存压力下可能换出堆，导致 GC 抖动甚至节点失联"
+                - listitem [ref=f2e168]: "**kernel 参数**：THP (transparent_hugepage) 建议关闭，避免与 G1GC 冲突：`echo never > /sys/kernel/mm/transparent_hugepage/enabled`"
+          - generic [ref=f2e169]:
+            - generic [ref=f2e170]:
+              - strong [ref=f2e171]: Docker 单机部署（开发测试）
+              - generic [ref=f2e172]:
+                - generic [ref=f2e173]: Docker
+                - generic [ref=f2e174]: 单机
+            - generic [ref=f2e175]: Docker 单容器部署，适合本地开发或 CI 测试。生产不推荐。
+            - group [ref=f2e176]:
+              - generic "docker run 命令" [ref=f2e177] [cursor=pointer]
+              - generic [ref=f2e178]: "# 单节点 + 启用安全 + 内存锁定 docker run -d --name es \\ -p 9200:9200 -p 9300:9300 \\ -e \"discovery.type=single-node\" \\ -e \"ES_JAVA_OPTS=-Xms2g -Xmx2g\" \\ -e \"bootstrap.memory_lock=true\" \\ -e \"xpack.security.enabled=true\" \\ -e \"ELASTIC_PASSWORD=changeme\" \\ -v es_data:/usr/share/elasticsearch/data \\ --ulimit memlock=-1:-1 \\ docker.elastic.co/elasticsearch/elasticsearch:7.17.10 # 验证（生产模式需要 https + 密码） curl -k -u elastic:changeme https://localhost:9200/_cluster/health?pretty"
+              - button "📋 复制" [ref=f2e180] [cursor=pointer]
+            - generic [ref=f2e181]:
+              - generic [ref=f2e182]: 📌 关键说明
+              - list [ref=f2e183]:
+                - listitem [ref=f2e184]: "**版本一致性**：必须使用 7.17.10 镜像，与 Java Client 版本一致"
+                - listitem [ref=f2e185]: "**生产慎用**：Docker 在 Linux 上有 ulimit/内存限制，难以配置节点角色"
+                - listitem [ref=f2e186]: "**开发推荐**：docker-compose 一键起 ES + Kibana + Cerebro 全套"
+                - listitem [ref=f2e187]: "**Mac/Windows 性能差**：docker desktop 的虚拟化层带来 30%+ 性能损耗"
+          - generic [ref=f2e188]:
+            - generic [ref=f2e189]:
+              - strong [ref=f2e190]: Docker Compose 3 节点集群（推荐开发）
+              - generic [ref=f2e191]:
+                - generic [ref=f2e192]: Docker Compose
+                - generic [ref=f2e193]: 集群
+            - generic [ref=f2e194]: 本地用 Docker Compose 启动 3 节点 ES 集群，适合学习集群行为、调优测试。
+            - group [ref=f2e195]:
+              - generic "docker-compose.yml" [ref=f2e196] [cursor=pointer]
+              - generic [ref=f2e197]: "# docker-compose.yml version: '3.8' services: es01: image: docker.elastic.co/elasticsearch/elasticsearch:7.17.10 environment: - node.name=es01 - cluster.name=es-dev-cluster - discovery.seed_hosts=es02,es03 - cluster.initial_master_nodes=es01,es02,es03 - \"ES_JAVA_OPTS=-Xms1g -Xmx1g\" - bootstrap.memory_lock=true - xpack.security.enabled=true - ELASTIC_PASSWORD=changeme ulimits: memlock: { soft: -1, hard: -1 } volumes: ['./data/es01:/usr/share/elasticsearch/data'] ports: ['9200:9200'] networks: ['esnet'] es02: image: docker.elastic.co/elasticsearch/elasticsearch:7.17.10 environment: - node.name=es02 - cluster.name=es-dev-cluster - discovery.seed_hosts=es01,es03 - cluster.initial_master_nodes=es01,es02,es03 - \"ES_JAVA_OPTS=-Xms1g -Xmx1g\" ulimits: memlock: { soft: -1, hard: -1 } volumes: ['./data/es02:/usr/share/elasticsearch/data'] networks: ['esnet'] es03: image: docker.elastic.co/elasticsearch/elasticsearch:7.17.10 environment: - node.name=es03 - cluster.name=es-dev-cluster - discovery.seed_hosts=es01,es02 - cluster.initial_master_nodes=es01,es02,es03 - \"ES_JAVA_OPTS=-Xms1g -Xmx1g\" ulimits: memlock: { soft: -1, hard: -1 } volumes: ['./data/es03:/usr/share/elasticsearch/data'] networks: ['esnet'] networks: esnet: driver: bridge # 启动 docker-compose up -d # 查看状态 docker-compose ps # 查看节点 curl -k -u elastic:changeme https://localhost:9200/_cat/nodes?v"
+              - button "📋 复制" [ref=f2e199] [cursor=pointer]
+            - generic [ref=f2e200]:
+              - generic [ref=f2e201]: 📌 关键说明
+              - list [ref=f2e202]:
+                - listitem [ref=f2e203]: "**奇数节点**：3 / 5 / 7 节点（避免脑裂，master 需要 majority）"
+                - listitem [ref=f2e204]: "**内存配置**：生产环境每个节点堆内存至少 8G，推荐 16-32G"
+                - listitem [ref=f2e205]: "**data 目录**：挂载到宿主机，避免容器删除时数据丢失"
+                - listitem [ref=f2e206]: "**network mode**：单机可以省略，跨机部署需要 overlay"
+          - generic [ref=f2e207]:
+            - generic [ref=f2e208]:
+              - strong [ref=f2e209]: RPM 包安装（CentOS/RHEL）
+              - generic [ref=f2e210]:
+                - generic [ref=f2e211]: RPM
+                - generic [ref=f2e212]: Systemd
+            - generic [ref=f2e213]: CentOS/RHEL 用 RPM 包安装，自动注册 systemd 服务。
+            - group [ref=f2e214]:
+              - generic "RPM 安装步骤" [ref=f2e215] [cursor=pointer]
+              - generic [ref=f2e216]: "# 1. 导入 GPG key rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch # 2. 添加 yum repo cat > /etc/yum.repos.d/elasticsearch.repo <<EOF [elasticsearch-7.x] name=Elasticsearch repository for 7.x packages baseurl=https://artifacts.elastic.co/packages/7.x/yum gpgcheck=1 gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch enabled=1 autorefresh=1 type=rpm-md EOF # 3. 安装 yum install -y elasticsearch-7.17.10 # 4. 配置 vim /etc/elasticsearch/elasticsearch.yml vim /etc/elasticsearch/jvm.options # 5. 启动（systemd） systemctl daemon-reload systemctl enable elasticsearch.service systemctl start elasticsearch.service systemctl status elasticsearch.service # 6. 查看日志 journalctl -u elasticsearch -f # 7. 验证 curl http://localhost:9200/_cluster/health?pretty"
+              - button "📋 复制" [ref=f2e218] [cursor=pointer]
+            - generic [ref=f2e219]:
+              - generic [ref=f2e220]: 📌 关键说明
+              - list [ref=f2e221]:
+                - listitem [ref=f2e222]: "**安装位置**：/usr/share/elasticsearch（程序）、/etc/elasticsearch（配置）、/var/lib/elasticsearch（数据）"
+                - listitem [ref=f2e223]: "**systemd 集成**：service 文件位于 /usr/lib/systemd/system/elasticsearch.service"
+                - listitem [ref=f2e224]: "**权限问题**：RPM 安装的文件属于 root:elasticsearch，需要保证数据目录权限正确"
+                - listitem [ref=f2e225]: "**升级**：直接 yum update，旧数据可复用（仅 minor 版本）"
+        - heading [level=2] [ref=f2e226]:
+          - text: 📚 学习路径
+          - link "Permalink to \"📚 学习路径\"" [ref=f2e227] [cursor=pointer]:
+            - /url: "#📚-学习路径"
+            - text: "#"
+        - heading [level=3] [ref=f2e228]:
+          - text: 🌱 新人（按顺序阅读）
+          - link "Permalink to \"🌱 新人（按顺序阅读）\"" [ref=f2e229] [cursor=pointer]:
+            - /url: "#🌱-新人-按顺序阅读"
+            - text: "#"
+        - list [ref=f2e230]:
+          - listitem [ref=f2e231]: 🛠️ Tar 包部署 → 跑通第一个集群
+          - listitem [ref=f2e232]: 🏗️ 集群配置 → 理解 elasticsearch.yml
+          - listitem [ref=f2e233]: 💾 Heap 大小 → 调优第一刀
+          - listitem [ref=f2e234]: 📊 Cerebro → 可视化监控
+        - heading [level=3] [ref=f2e235]:
+          - text: 🚀 进阶（生产就绪）
+          - link "Permalink to \"🚀 进阶（生产就绪）\"" [ref=f2e236] [cursor=pointer]:
+            - /url: "#🚀-进阶-生产就绪"
+            - text: "#"
+        - list [ref=f2e237]:
+          - listitem [ref=f2e238]: 🧩 节点角色 → 拆分 master/data/coordinating
+          - listitem [ref=f2e239]: 🔐 xpack.security → 启用认证 + TLS
+          - listitem [ref=f2e240]: 💾 G1GC + memory_lock → 关键性能配置
+          - listitem [ref=f2e241]: 📊 监控告警阈值 → 接入 Prometheus / CloudWatch
+        - heading [level=3] [ref=f2e242]:
+          - text: 🏆 高阶（大规模集群）
+          - link "Permalink to \"🏆 高阶（大规模集群）\"" [ref=f2e243] [cursor=pointer]:
+            - /url: "#🏆-高阶-大规模集群"
+            - text: "#"
+        - list [ref=f2e244]:
+          - listitem [ref=f2e245]: 🧩 Hot-Warm-Cold 架构 → 降低存储成本
+          - listitem [ref=f2e246]: 🏗️ 分片分配 + Awareness → 抗 AZ 故障
+          - listitem [ref=f2e247]: 🔐 字段级权限 → 多租户隔离
+          - listitem [ref=f2e248]: 📊 独立监控集群 → 大规模可观测性
+        - heading [level=2] [ref=f2e249]:
+          - text: ⚠️ 部署前检查清单
+          - link "Permalink to \"⚠️ 部署前检查清单\"" [ref=f2e250] [cursor=pointer]:
+            - /url: "#⚠️-部署前检查清单"
+            - text: "#"
+        - paragraph [ref=f2e251]: 部署 ES 集群到生产前，请确认：
+        - list [ref=f2e252]:
+          - listitem [ref=f2e253]:
+            - text: "[ ]"
+            - strong [ref=f2e254]: OS
+            - text: ：Linux x86_64，内核 ≥ 3.10
+          - listitem [ref=f2e255]:
+            - text: "[ ]"
+            - strong [ref=f2e256]: 内存
+            - text: ：每节点 ≥ 16G（生产 ≥ 32G）
+          - listitem [ref=f2e257]:
+            - text: "[ ]"
+            - strong [ref=f2e258]: 磁盘
+            - text: ：SSD 推荐，RAID 或多盘 JBOD，单独挂载点
+          - listitem [ref=f2e259]:
+            - text: "[ ]"
+            - strong [ref=f2e260]: 网络
+            - text: ：千兆网卡，节点间低延迟（< 10ms）
+          - listitem [ref=f2e261]:
+            - text: "[ ]"
+            - strong [ref=f2e262]: JDK 17
+            - text: （ES 7.x 推荐 11，7.17+ 支持 17）
+          - listitem [ref=f2e263]:
+            - text: "[ ]"
+            - strong [ref=f2e264]: vm.max_map_count ≥ 262144
+          - listitem [ref=f2e265]:
+            - text: "[ ]"
+            - strong [ref=f2e266]: 关闭 swap
+          - listitem [ref=f2e267]:
+            - text: "[ ]"
+            - strong [ref=f2e268]: 关闭 THP (transparent_hugepage)
+          - listitem [ref=f2e269]:
+            - text: "[ ]"
+            - strong [ref=f2e270]: ulimit nofile ≥ 65536
+          - listitem [ref=f2e271]:
+            - text: "[ ]"
+            - strong [ref=f2e272]: 3 / 5 / 7 节点奇数
+            - text: （master 需要 majority）
+          - listitem [ref=f2e273]:
+            - text: "[ ]"
+            - strong [ref=f2e274]: DNS 解析
+            - text: ：节点间用主机名而非 IP
+          - listitem [ref=f2e275]:
+            - text: "[ ]"
+            - strong [ref=f2e276]: 时间同步
+            - text: ：NTP 服务，所有节点时间一致
+          - listitem [ref=f2e277]:
+            - text: "[ ]"
+            - strong [ref=f2e278]: 安全
+            - text: ：9200 / 9300 端口只允许内网访问
+        - heading [level=2] [ref=f2e279]:
+          - text: 🔗 关联文档
+          - link "Permalink to \"🔗 关联文档\"" [ref=f2e280] [cursor=pointer]:
+            - /url: "#🔗-关联文档"
+            - text: "#"
+        - list [ref=f2e281]:
+          - listitem [ref=f2e282]:
+            - link "安装部署" [ref=f2e283] [cursor=pointer]:
+              - /url: /04-ops/installation
+          - listitem [ref=f2e284]:
+            - link "JVM 调优" [ref=f2e285] [cursor=pointer]:
+              - /url: /04-ops/jvm-tuning
+          - listitem [ref=f2e286]:
+            - link "分片分配" [ref=f2e287] [cursor=pointer]:
+              - /url: /04-ops/shard-allocation
+          - listitem [ref=f2e288]:
+            - link "集群健康" [ref=f2e289] [cursor=pointer]:
+              - /url: /04-ops/cluster-health
+          - listitem [ref=f2e290]:
+            - link "集群重启" [ref=f2e291] [cursor=pointer]:
+              - /url: /04-ops/restart
+          - listitem [ref=f2e292]:
+            - link "监控 Cerebro" [ref=f2e293] [cursor=pointer]:
+              - /url: /04-ops/monitoring
+          - listitem [ref=f2e294]:
+            - link "Java Client 官方文档" [ref=f2e295] [cursor=pointer]:
+              - /url: https://www.elastic.co/guide/en/elasticsearch/client/java-api-client/current/installation.html
+    - contentinfo [ref=f2e296]:
+      - navigation "Pager" [ref=f2e297]:
+        - link "上一篇 📊 集群监控仪表板" [ref=f2e300] [cursor=pointer]:
+          - /url: /05-tools/dashboard
+          - generic [ref=f2e301]: 上一篇
+          - generic [ref=f2e302]: 📊 集群监控仪表板

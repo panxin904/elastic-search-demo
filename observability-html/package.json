@@ -1,0 +1,23 @@
+{
+  "name": "observability-html",
+  "version": "1.0.0",
+  "description": "可观测性知识图谱 - Metrics · Logs · Traces · Profiling · OpenTelemetry · Prometheus · Grafana · SRE 三件套",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview",
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "vitepress": "1.6.4",
+    "vue": "3.4.0"
+  },
+  "dependencies": {
+    "echarts": "^5.5.0",
+    "vue-echarts": "^7.0.3"
+  }
+}

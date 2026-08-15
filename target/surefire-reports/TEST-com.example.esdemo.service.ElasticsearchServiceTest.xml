@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.esdemo.service.ElasticsearchServiceTest" time="5.913" tests="3" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="socksProxyHost" value="127.0.0.1"/>
+    <property name="http.proxyHost" value="127.0.0.1"/>
+    <property name="java.specification.version" value="17"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/a1111/work_space/elastic-search-demo/target/test-classes:/Users/a1111/work_space/elastic-search-demo/target/classes:/Users/a1111/.m2/repository/co/elastic/clients/elasticsearch-java/7.17.10/elasticsearch-java-7.17.10.jar:/Users/a1111/.m2/repository/org/elasticsearch/client/elasticsearch-rest-client/7.17.10/elasticsearch-rest-client-7.17.10.jar:/Users/a1111/.m2/repository/org/apache/httpcomponents/httpclient/4.5.10/httpclient-4.5.10.jar:/Users/a1111/.m2/repository/org/apache/httpcomponents/httpcore/4.4.12/httpcore-4.4.12.jar:/Users/a1111/.m2/repository/org/apache/httpcomponents/httpasyncclient/4.1.4/httpasyncclient-4.1.4.jar:/Users/a1111/.m2/repository/org/apache/httpcomponents/httpcore-nio/4.4.12/httpcore-nio-4.4.12.jar:/Users/a1111/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/a1111/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar:/Users/a1111/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/Users/a1111/.m2/repository/jakarta/json/jakarta.json-api/2.0.1/jakarta.json-api-2.0.1.jar:/Users/a1111/.m2/repository/org/eclipse/parsson/parsson/1.0.0/parsson-1.0.0.jar:/Users/a1111/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.16.1/jackson-databind-2.16.1.jar:/Users/a1111/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.16.1/jackson-annotations-2.16.1.jar:/Users/a1111/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.16.1/jackson-core-2.16.1.jar:/Users/a1111/.m2/repository/org/glassfish/jakarta.json/2.0.1/jakarta.json-2.0.1.jar:/Users/a1111/.m2/repository/org/slf4j/slf4j-api/2.0.12/slf4j-api-2.0.12.jar:/Users/a1111/.m2/repository/ch/qos/logback/logback-classic/1.5.3/logback-classic-1.5.3.jar:/Users/a1111/.m2/repository/ch/qos/logback/logback-core/1.5.3/logback-core-1.5.3.jar:/Users/a1111/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.2/junit-jupiter-api-5.10.2.jar:/Users/a1111/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/a1111/.m2/repository/org/junit/platform/junit-platform-commons/1.10.2/junit-platform-commons-1.10.2.jar:/Users/a1111/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/a1111/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.2/junit-jupiter-engine-5.10.2.jar:/Users/a1111/.m2/repository/org/junit/platform/junit-platform-engine/1.10.2/junit-platform-engine-1.10.2.jar:/Users/a1111/.m2/repository/org/testcontainers/testcontainers/1.19.8/testcontainers-1.19.8.jar:/Users/a1111/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/a1111/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/a1111/.m2/repository/org/apache/commons/commons-compress/1.24.0/commons-compress-1.24.0.jar:/Users/a1111/.m2/repository/org/rnorth/duct-tape/duct-tape/1.0.8/duct-tape-1.0.8.jar:/Users/a1111/.m2/repository/org/jetbrains/annotations/17.0.0/annotations-17.0.0.jar:/Users/a1111/.m2/repository/com/github/docker-java/docker-java-api/3.3.6/docker-java-api-3.3.6.jar:/Users/a1111/.m2/repository/com/github/docker-java/docker-java-transport-zerodep/3.3.6/docker-java-transport-zerodep-3.3.6.jar:/Users/a1111/.m2/repository/com/github/docker-java/docker-java-transport/3.3.6/docker-java-transport-3.3.6.jar:/Users/a1111/.m2/repository/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar:/Users/a1111/.m2/repository/org/testcontainers/elasticsearch/1.19.8/elasticsearch-1.19.8.jar:/Users/a1111/.m2/repository/org/testcontainers/junit-jupiter/1.19.8/junit-jupiter-1.19.8.jar:"/>
+    <property name="https.proxyPort" value="7897"/>
+    <property name="java.vm.vendor" value="Homebrew"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://github.com/Homebrew/homebrew-core/issues"/>
+    <property name="user.timezone" value="Asia/Shanghai"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk@17/17.0.19/libexec/openjdk.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/a1111/work_space/elastic-search-demo/target/surefire/surefirebooter-20260623214426293_3.jar /Users/a1111/work_space/elastic-search-demo/target/surefire 2026-06-23T21-44-26_263-jvmRun1 surefire-20260623214426293_1tmp surefire_0-20260623214426293_2tmp"/>
+    <property name="http.nonProxyHosts" value="127.0.0.1|192.168.0.0/16|*.192.168.0.0/16|10.0.0.0/8|*.10.0.0.0/8|172.16.0.0/12|*.172.16.0.0/12|localhost|*.localhost|local|*.local|crashlytics.com|*.crashlytics.com|&lt;local&gt;|*.&lt;local&gt;"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/Users/a1111/work_space/elastic-search-demo/target/test-classes:/Users/a1111/work_space/elastic-search-demo/target/classes:/Users/a1111/.m2/repository/co/elastic/clients/elasticsearch-java/7.17.10/elasticsearch-java-7.17.10.jar:/Users/a1111/.m2/repository/org/elasticsearch/client/elasticsearch-rest-client/7.17.10/elasticsearch-rest-client-7.17.10.jar:/Users/a1111/.m2/repository/org/apache/httpcomponents/httpclient/4.5.10/httpclient-4.5.10.jar:/Users/a1111/.m2/repository/org/apache/httpcomponents/httpcore/4.4.12/httpcore-4.4.12.jar:/Users/a1111/.m2/repository/org/apache/httpcomponents/httpasyncclient/4.1.4/httpasyncclient-4.1.4.jar:/Users/a1111/.m2/repository/org/apache/httpcomponents/httpcore-nio/4.4.12/httpcore-nio-4.4.12.jar:/Users/a1111/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/a1111/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar:/Users/a1111/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/Users/a1111/.m2/repository/jakarta/json/jakarta.json-api/2.0.1/jakarta.json-api-2.0.1.jar:/Users/a1111/.m2/repository/org/eclipse/parsson/parsson/1.0.0/parsson-1.0.0.jar:/Users/a1111/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.16.1/jackson-databind-2.16.1.jar:/Users/a1111/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.16.1/jackson-annotations-2.16.1.jar:/Users/a1111/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.16.1/jackson-core-2.16.1.jar:/Users/a1111/.m2/repository/org/glassfish/jakarta.json/2.0.1/jakarta.json-2.0.1.jar:/Users/a1111/.m2/repository/org/slf4j/slf4j-api/2.0.12/slf4j-api-2.0.12.jar:/Users/a1111/.m2/repository/ch/qos/logback/logback-classic/1.5.3/logback-classic-1.5.3.jar:/Users/a1111/.m2/repository/ch/qos/logback/logback-core/1.5.3/logback-core-1.5.3.jar:/Users/a1111/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.2/junit-jupiter-api-5.10.2.jar:/Users/a1111/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/a1111/.m2/repository/org/junit/platform/junit-platform-commons/1.10.2/junit-platform-commons-1.10.2.jar:/Users/a1111/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/a1111/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.2/junit-jupiter-engine-5.10.2.jar:/Users/a1111/.m2/repository/org/junit/platform/junit-platform-engine/1.10.2/junit-platform-engine-1.10.2.jar:/Users/a1111/.m2/repository/org/testcontainers/testcontainers/1.19.8/testcontainers-1.19.8.jar:/Users/a1111/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/a1111/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/a1111/.m2/repository/org/apache/commons/commons-compress/1.24.0/commons-compress-1.24.0.jar:/Users/a1111/.m2/repository/org/rnorth/duct-tape/duct-tape/1.0.8/duct-tape-1.0.8.jar:/Users/a1111/.m2/repository/org/jetbrains/annotations/17.0.0/annotations-17.0.0.jar:/Users/a1111/.m2/repository/com/github/docker-java/docker-java-api/3.3.6/docker-java-api-3.3.6.jar:/Users/a1111/.m2/repository/com/github/docker-java/docker-java-transport-zerodep/3.3.6/docker-java-transport-zerodep-3.3.6.jar:/Users/a1111/.m2/repository/com/github/docker-java/docker-java-transport/3.3.6/docker-java-transport-3.3.6.jar:/Users/a1111/.m2/repository/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar:/Users/a1111/.m2/repository/org/testcontainers/elasticsearch/1.19.8/elasticsearch-1.19.8.jar:/Users/a1111/.m2/repository/org/testcontainers/junit-jupiter/1.19.8/junit-jupiter-1.19.8.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/a1111"/>
+    <property name="user.language" value="zh"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2026-04-21"/>
+    <property name="java.home" value="/opt/homebrew/Cellar/openjdk@17/17.0.19/libexec/openjdk.jdk/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="https.proxyHost" value="127.0.0.1"/>
+    <property name="basedir" value="/Users/a1111/work_space/elastic-search-demo"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="/Users/a1111/work_space/elastic-search-demo/target/surefire/surefirebooter-20260623214426293_3.jar"/>
+    <property name="user.script" value="Hans"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="127.0.0.1|192.168.0.0/16|*.192.168.0.0/16|10.0.0.0/8|*.10.0.0.0/8|172.16.0.0/12|*.172.16.0.0/12|localhost|*.localhost|local|*.local|crashlytics.com|*.crashlytics.com|&lt;local&gt;|*.&lt;local&gt;"/>
+    <property name="java.runtime.version" value="17.0.19+0"/>
+    <property name="user.name" value="a1111"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="26.5.1"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Homebrew"/>
+    <property name="localRepository" value="/Users/a1111/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/Homebrew/homebrew-core/issues"/>
+    <property name="java.io.tmpdir" value="/var/folders/q2/r90rbks57vv_qzz4tkdpml3h0000gn/T/"/>
+    <property name="java.version" value="17.0.19"/>
+    <property name="user.dir" value="/Users/a1111/work_space/elastic-search-demo"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="socksProxyPort" value="7897"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/a1111/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Homebrew"/>
+    <property name="java.vm.version" value="17.0.19+0"/>
+    <property name="java.specification.maintenance.version" value="1"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="127.0.0.1|192.168.0.0/16|*.192.168.0.0/16|10.0.0.0/8|*.10.0.0.0/8|172.16.0.0/12|*.172.16.0.0/12|localhost|*.localhost|local|*.local|crashlytics.com|*.crashlytics.com|&lt;local&gt;|*.&lt;local&gt;"/>
+    <property name="java.class.version" value="61.0"/>
+    <property name="http.proxyPort" value="7897"/>
+  </properties>
+  <testcase name="testSearchProducts" classname="com.example.esdemo.service.ElasticsearchServiceTest" time="0.714">
+    <system-out><![CDATA[2026-06-23 21:44:26 [main] INFO  o.testcontainers.images.PullPolicy - Image pull policy will be performed by: DefaultPullPolicy()
+2026-06-23 21:44:26 [main] INFO  o.t.utility.ImageNameSubstitutor - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2026-06-23 21:44:26 [main] INFO  o.t.d.DockerClientProviderStrategy - Found Docker environment with Environment variables, system properties and defaults. Resolved dockerHost=unix:///Users/a1111/.colima/default/docker.sock
+2026-06-23 21:44:26 [main] INFO  o.testcontainers.DockerClientFactory - Docker host IP address is localhost
+2026-06-23 21:44:26 [main] INFO  o.testcontainers.DockerClientFactory - Connected to docker: 
+  Server Version: 29.5.2
+  API Version: 1.54
+  Operating System: Ubuntu 24.04.4 LTS
+  Total Memory: 1958 MB
+2026-06-23 21:44:26 [main] WARN  o.t.utility.ResourceReaper - 
+********************************************************************************
+Ryuk has been disabled. This can cause unexpected behavior in your environment.
+********************************************************************************
+2026-06-23 21:44:26 [main] INFO  o.testcontainers.DockerClientFactory - Checking the system...
+2026-06-23 21:44:26 [main] INFO  o.testcontainers.DockerClientFactory - ✔︎ Docker server version should be at least 1.6.0
+2026-06-23 21:44:26 [main] INFO  t.d.e.c.17.10 - Creating container for image: docker.elastic.co/elasticsearch/elasticsearch:7.17.10
+2026-06-23 21:44:26 [main] INFO  t.d.e.c.17.10 - Container docker.elastic.co/elasticsearch/elasticsearch:7.17.10 is starting: 6c8ebd295bf42c2d1bd30c34cc1ef0de7670d5ba345c8004d586a9d30e6bbe81
+2026-06-23 21:44:31 [main] INFO  t.d.e.c.17.10 - Container docker.elastic.co/elasticsearch/elasticsearch:7.17.10 started in PT4.526337S
+2026-06-23 21:44:31 [main] INFO  c.e.e.service.ElasticsearchService - Index 'products' does not exist, skipping deletion.
+2026-06-23 21:44:31 [main] INFO  c.e.e.service.ElasticsearchService - Created index 'products'. Acknowledged: true
+2026-06-23 21:44:31 [main] INFO  c.e.e.service.ElasticsearchService - Indexed product with ID: 101. Result: Created
+2026-06-23 21:44:31 [main] INFO  c.e.e.service.ElasticsearchService - Indexed product with ID: 102. Result: Created
+2026-06-23 21:44:31 [main] INFO  c.e.e.service.ElasticsearchService - Indexed product with ID: 103. Result: Created
+2026-06-23 21:44:32 [main] INFO  c.e.e.service.ElasticsearchService - Found 2 products matching name: 'Laptop'
+2026-06-23 21:44:32 [main] INFO  c.e.e.service.ElasticsearchService - Found 1 products matching name: 'Headphones'
+]]></system-out>
+    <system-err><![CDATA[6月 23, 2026 9:44:31 下午 org.elasticsearch.client.RestClient logResponse
+警告: request [HEAD http://localhost:32776/products] returned 1 warnings: [299 Elasticsearch-7.17.10-fecd68e3150eda0c307ab9a9d7557f5d5fd71349 "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html to enable security."]
+6月 23, 2026 9:44:31 下午 org.elasticsearch.client.RestClient logResponse
+警告: request [HEAD http://localhost:32776/products] returned 1 warnings: [299 Elasticsearch-7.17.10-fecd68e3150eda0c307ab9a9d7557f5d5fd71349 "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html to enable security."]
+6月 23, 2026 9:44:31 下午 org.elasticsearch.client.RestClient logResponse
+警告: request [PUT http://localhost:32776/products] returned 1 warnings: [299 Elasticsearch-7.17.10-fecd68e3150eda0c307ab9a9d7557f5d5fd71349 "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html to enable security."]
+6月 23, 2026 9:44:31 下午 org.elasticsearch.client.RestClient logResponse
+警告: request [PUT http://localhost:32776/products/_doc/101] returned 1 warnings: [299 Elasticsearch-7.17.10-fecd68e3150eda0c307ab9a9d7557f5d5fd71349 "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html to enable security."]
+6月 23, 2026 9:44:31 下午 org.elasticsearch.client.RestClient logResponse
+警告: request [PUT http://localhost:32776/products/_doc/102] returned 1 warnings: [299 Elasticsearch-7.17.10-fecd68e3150eda0c307ab9a9d7557f5d5fd71349 "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html to enable security."]
+6月 23, 2026 9:44:31 下午 org.elasticsearch.client.RestClient logResponse
+警告: request [PUT http://localhost:32776/products/_doc/103] returned 1 warnings: [299 Elasticsearch-7.17.10-fecd68e3150eda0c307ab9a9d7557f5d5fd71349 "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html to enable security."]
+6月 23, 2026 9:44:31 下午 org.elasticsearch.client.RestClient logResponse
+警告: request [POST http://localhost:32776/products/_refresh] returned 1 warnings: [299 Elasticsearch-7.17.10-fecd68e3150eda0c307ab9a9d7557f5d5fd71349 "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html to enable security."]
+6月 23, 2026 9:44:32 下午 org.elasticsearch.client.RestClient logResponse
+警告: request [POST http://localhost:32776/products/_search?typed_keys=true] returned 1 warnings: [299 Elasticsearch-7.17.10-fecd68e3150eda0c307ab9a9d7557f5d5fd71349 "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html to enable security."]
+6月 23, 2026 9:44:32 下午 org.elasticsearch.client.RestClient logResponse
+警告: request [POST http://localhost:32776/products/_search?typed_keys=true] returned 1 warnings: [299 Elasticsearch-7.17.10-fecd68e3150eda0c307ab9a9d7557f5d5fd71349 "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html to enable security."]
+]]></system-err>
+  </testcase>
+  <testcase name="testIndexAndGetProduct" classname="com.example.esdemo.service.ElasticsearchServiceTest" time="0.116">
+    <system-out><![CDATA[2026-06-23 21:44:32 [main] INFO  c.e.e.service.ElasticsearchService - Deleted index 'products'. Acknowledged: true
+2026-06-23 21:44:32 [main] INFO  c.e.e.service.ElasticsearchService - Created index 'products'. Acknowledged: true
+2026-06-23 21:44:32 [main] INFO  c.e.e.service.ElasticsearchService - Indexed product with ID: 1. Result: Created
+]]></system-out>
+    <system-err><![CDATA[6月 23, 2026 9:44:32 下午 org.elasticsearch.client.RestClient logResponse
+警告: request [HEAD http://localhost:32776/products] returned 1 warnings: [299 Elasticsearch-7.17.10-fecd68e3150eda0c307ab9a9d7557f5d5fd71349 "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html to enable security."]
+6月 23, 2026 9:44:32 下午 org.elasticsearch.client.RestClient logResponse
+警告: request [DELETE http://localhost:32776/products] returned 1 warnings: [299 Elasticsearch-7.17.10-fecd68e3150eda0c307ab9a9d7557f5d5fd71349 "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html to enable security."]
+6月 23, 2026 9:44:32 下午 org.elasticsearch.client.RestClient logResponse
+警告: request [HEAD http://localhost:32776/products] returned 1 warnings: [299 Elasticsearch-7.17.10-fecd68e3150eda0c307ab9a9d7557f5d5fd71349 "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html to enable security."]
+6月 23, 2026 9:44:32 下午 org.elasticsearch.client.RestClient logResponse
+警告: request [PUT http://localhost:32776/products] returned 1 warnings: [299 Elasticsearch-7.17.10-fecd68e3150eda0c307ab9a9d7557f5d5fd71349 "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html to enable security."]
+6月 23, 2026 9:44:32 下午 org.elasticsearch.client.RestClient logResponse
+警告: request [PUT http://localhost:32776/products/_doc/1] returned 1 warnings: [299 Elasticsearch-7.17.10-fecd68e3150eda0c307ab9a9d7557f5d5fd71349 "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html to enable security."]
+6月 23, 2026 9:44:32 下午 org.elasticsearch.client.RestClient logResponse
+警告: request [GET http://localhost:32776/products/_doc/1] returned 1 warnings: [299 Elasticsearch-7.17.10-fecd68e3150eda0c307ab9a9d7557f5d5fd71349 "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html to enable security."]
+]]></system-err>
+  </testcase>
+  <testcase name="testDeleteProduct" classname="com.example.esdemo.service.ElasticsearchServiceTest" time="0.09">
+    <system-out><![CDATA[2026-06-23 21:44:32 [main] INFO  c.e.e.service.ElasticsearchService - Deleted index 'products'. Acknowledged: true
+2026-06-23 21:44:32 [main] INFO  c.e.e.service.ElasticsearchService - Created index 'products'. Acknowledged: true
+2026-06-23 21:44:32 [main] INFO  c.e.e.service.ElasticsearchService - Indexed product with ID: 2. Result: Created
+2026-06-23 21:44:32 [main] INFO  c.e.e.service.ElasticsearchService - Deleted product with ID: 2. Result: Deleted
+]]></system-out>
+    <system-err><![CDATA[6月 23, 2026 9:44:32 下午 org.elasticsearch.client.RestClient logResponse
+警告: request [HEAD http://localhost:32776/products] returned 1 warnings: [299 Elasticsearch-7.17.10-fecd68e3150eda0c307ab9a9d7557f5d5fd71349 "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html to enable security."]
+6月 23, 2026 9:44:32 下午 org.elasticsearch.client.RestClient logResponse
+警告: request [DELETE http://localhost:32776/products] returned 1 warnings: [299 Elasticsearch-7.17.10-fecd68e3150eda0c307ab9a9d7557f5d5fd71349 "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html to enable security."]
+6月 23, 2026 9:44:32 下午 org.elasticsearch.client.RestClient logResponse
+警告: request [HEAD http://localhost:32776/products] returned 1 warnings: [299 Elasticsearch-7.17.10-fecd68e3150eda0c307ab9a9d7557f5d5fd71349 "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html to enable security."]
+6月 23, 2026 9:44:32 下午 org.elasticsearch.client.RestClient logResponse
+警告: request [PUT http://localhost:32776/products] returned 1 warnings: [299 Elasticsearch-7.17.10-fecd68e3150eda0c307ab9a9d7557f5d5fd71349 "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html to enable security."]
+6月 23, 2026 9:44:32 下午 org.elasticsearch.client.RestClient logResponse
+警告: request [PUT http://localhost:32776/products/_doc/2] returned 1 warnings: [299 Elasticsearch-7.17.10-fecd68e3150eda0c307ab9a9d7557f5d5fd71349 "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html to enable security."]
+6月 23, 2026 9:44:32 下午 org.elasticsearch.client.RestClient logResponse
+警告: request [GET http://localhost:32776/products/_doc/2] returned 1 warnings: [299 Elasticsearch-7.17.10-fecd68e3150eda0c307ab9a9d7557f5d5fd71349 "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html to enable security."]
+6月 23, 2026 9:44:32 下午 org.elasticsearch.client.RestClient logResponse
+警告: request [DELETE http://localhost:32776/products/_doc/2] returned 1 warnings: [299 Elasticsearch-7.17.10-fecd68e3150eda0c307ab9a9d7557f5d5fd71349 "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html to enable security."]
+6月 23, 2026 9:44:32 下午 org.elasticsearch.client.RestClient logResponse
+警告: request [GET http://localhost:32776/products/_doc/2] returned 1 warnings: [299 Elasticsearch-7.17.10-fecd68e3150eda0c307ab9a9d7557f5d5fd71349 "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html to enable security."]
+]]></system-err>
+  </testcase>
+</testsuite>

@@ -1,0 +1,274 @@
+- generic [ref=e3]:
+  - link "Skip to content" [ref=e4] [cursor=pointer]:
+    - /url: "#VPContent"
+  - banner:
+    - generic:
+      - generic:
+        - generic:
+          - link "ES Knowledge Atlas" [ref=e6] [cursor=pointer]:
+            - /url: /
+          - generic [ref=e8]:
+            - button "Search" [ref=e11] [cursor=pointer]:
+              - generic [ref=e15]:
+                - generic [ref=e16]: ⌘
+                - generic [ref=e17]: K
+            - navigation "Main Navigation" [ref=e18]:
+              - link "首页" [ref=e20] [cursor=pointer]:
+                - /url: /
+              - link "存储层" [ref=e22] [cursor=pointer]:
+                - /url: /01-storage/overview
+              - link "查询层" [ref=e24] [cursor=pointer]:
+                - /url: /02-query/overview
+              - link "分析层" [ref=e26] [cursor=pointer]:
+                - /url: /03-analysis/overview
+              - link "运维层" [ref=e28] [cursor=pointer]:
+                - /url: /04-ops/overview
+              - link "调试" [ref=e30] [cursor=pointer]:
+                - /url: /05-tools/curl-client
+              - link "DSL" [ref=e32] [cursor=pointer]:
+                - /url: /05-tools/dsl
+              - link "Java" [ref=e34] [cursor=pointer]:
+                - /url: /05-tools/java
+              - link "仪表板" [ref=e36] [cursor=pointer]:
+                - /url: /05-tools/dashboard
+              - link "7 vs 8" [ref=e38] [cursor=pointer]:
+                - /url: /99-compare/diff
+            - button "extra navigation" [ref=e41] [cursor=pointer]
+  - generic [ref=e44]:
+    - generic [ref=e47]:
+      - heading "ES Knowledge Atlas 用知识图谱方式系统化学习 Elasticsearch" [level=1] [ref=e48]:
+        - generic [ref=e49]: ES Knowledge Atlas
+        - generic [ref=e50]: 用知识图谱方式系统化学习 Elasticsearch
+      - paragraph [ref=e51]: 按 ES 架构四层组织 · 51 个核心节点 · 可交互式图谱导航
+      - generic [ref=e52]:
+        - link "开始学习" [ref=e54] [cursor=pointer]:
+          - /url: /01-storage/overview
+        - link "查看完整图谱" [ref=e56] [cursor=pointer]:
+          - /url: "#complete-graph"
+        - link "7 vs 8" [ref=e58] [cursor=pointer]:
+          - /url: /99-compare/diff
+    - generic [ref=e61]:
+      - link [ref=e63] [cursor=pointer]:
+        - /url: /01-storage/overview
+        - article [ref=e64]:
+          - heading "🗄️ 存储层" [level=2] [ref=e65]
+          - paragraph [ref=e66]: 集群、节点、索引、文档、分片、副本、段、Mapping、字段类型、_source、Translog、Refresh 等 12 个核心概念
+          - paragraph [ref=e68]: 查看存储层 →
+      - link [ref=e71] [cursor=pointer]:
+        - /url: /02-query/overview
+        - article [ref=e72]:
+          - heading "🔍 查询层" [level=2] [ref=e73]
+          - paragraph [ref=e74]: Query DSL、Match、Term、Bool、Range、Boost、分页、排序、高亮、聚合、Script、Search After 等 16 个查询机制
+          - paragraph [ref=e76]: 查看查询层 →
+      - link [ref=e79] [cursor=pointer]:
+        - /url: /03-analysis/overview
+        - article [ref=e80]:
+          - heading "🧪 分析层" [level=2] [ref=e81]
+          - paragraph [ref=e82]: Analyzer、Tokenizer、Token Filter、Char Filter、IK、pinyin、倒排索引、BM25、Explain 等 11 个文本分析机制
+          - paragraph [ref=e84]: 查看分析层 →
+      - link [ref=e87] [cursor=pointer]:
+        - /url: /04-ops/overview
+        - article [ref=e88]:
+          - heading "⚙️ 运维层" [level=2] [ref=e89]
+          - paragraph [ref=e90]: 安装、JVM 调优、分片分配、集群健康、Snapshot、ILM、Curator、Cerebro、慢日志、索引模板、别名 等 12 个运维主题
+          - paragraph [ref=e92]: 查看运维层 →
+    - generic [ref=e96]:
+      - heading [level=2] [ref=e97]:
+        - text: 🗺️ 完整知识图谱
+        - 'link "Permalink to \"🗺️ 完整知识图谱 {#complete-graph}\"" [ref=e98] [cursor=pointer]':
+          - /url: "#complete-graph"
+          - text: "#"
+      - blockquote [ref=e99]:
+        - paragraph [ref=e100]:
+          - text: 💡 鼠标拖拽节点、滚轮缩放、
+          - strong [ref=e101]: 点击节点跳转到对应文档
+          - text: 。点击顶部图例可切换层级显隐。
+      - generic [ref=e106]:
+        - generic [ref=e107] [cursor=pointer]: 存储层
+        - generic [ref=e108] [cursor=pointer]: 查询层
+        - generic [ref=e109] [cursor=pointer]: 分析层
+        - generic [ref=e110] [cursor=pointer]: 运维层
+      - heading [level=2] [ref=e111]:
+        - text: 📊 站点统计
+        - link "Permalink to \"📊 站点统计\"" [ref=e112] [cursor=pointer]:
+          - /url: "#📊-站点统计"
+          - text: "#"
+      - generic [ref=e113]:
+        - generic [ref=e114]:
+          - generic [ref=e115]: "51"
+          - generic [ref=e116]: 核心概念节点
+        - generic [ref=e117]:
+          - generic [ref=e118]: "65"
+          - generic [ref=e119]: 关系边
+        - generic [ref=e120]:
+          - generic [ref=e121]: "4"
+          - generic [ref=e122]: 架构层次
+        - generic [ref=e123]:
+          - generic [ref=e124]: 50+
+          - generic [ref=e125]: 深度文档
+      - heading [level=2] [ref=e126]:
+        - text: 🎯 学习路径建议
+        - link "Permalink to \"🎯 学习路径建议\"" [ref=e127] [cursor=pointer]:
+          - /url: "#🎯-学习路径建议"
+          - text: "#"
+      - heading [level=3] [ref=e128]:
+        - text: 🌱 入门路径 (1-2 天)
+        - link "Permalink to \"🌱 入门路径 (1-2 天)\"" [ref=e129] [cursor=pointer]:
+          - /url: "#🌱-入门路径-1-2-天"
+          - text: "#"
+      - list [ref=e130]:
+        - listitem [ref=e131]:
+          - link "集群 Cluster" [ref=e132] [cursor=pointer]:
+            - /url: /01-storage/cluster
+          - text: →
+          - link "节点 Node" [ref=e133] [cursor=pointer]:
+            - /url: /01-storage/node
+          - text: →
+          - link "索引 Index" [ref=e134] [cursor=pointer]:
+            - /url: /01-storage/index
+        - listitem [ref=e135]:
+          - link "文档 Document" [ref=e136] [cursor=pointer]:
+            - /url: /01-storage/document
+          - text: →
+          - link "映射 Mapping" [ref=e137] [cursor=pointer]:
+            - /url: /01-storage/mapping
+        - listitem [ref=e138]:
+          - link "Match Query" [ref=e139] [cursor=pointer]:
+            - /url: /02-query/match
+          - text: →
+          - link "Term Query" [ref=e140] [cursor=pointer]:
+            - /url: /02-query/term
+          - text: →
+          - link "Bool Query" [ref=e141] [cursor=pointer]:
+            - /url: /02-query/bool
+        - listitem [ref=e142]:
+          - link "安装部署" [ref=e143] [cursor=pointer]:
+            - /url: /04-ops/installation
+          - text: →
+          - link "集群健康" [ref=e144] [cursor=pointer]:
+            - /url: /04-ops/cluster-health
+      - heading [level=3] [ref=e145]:
+        - text: 🚀 进阶路径 (3-5 天)
+        - link "Permalink to \"🚀 进阶路径 (3-5 天)\"" [ref=e146] [cursor=pointer]:
+          - /url: "#🚀-进阶路径-3-5-天"
+          - text: "#"
+      - list [ref=e147]:
+        - listitem [ref=e148]:
+          - text: 存储层：
+          - link "分片 Shard" [ref=e149] [cursor=pointer]:
+            - /url: /01-storage/shard
+          - text: →
+          - link "副本 Replica" [ref=e150] [cursor=pointer]:
+            - /url: /01-storage/replica
+          - text: →
+          - link "段 Segment" [ref=e151] [cursor=pointer]:
+            - /url: /01-storage/segment
+          - text: →
+          - link "Refresh" [ref=e152] [cursor=pointer]:
+            - /url: /01-storage/refresh
+          - text: →
+          - link "Translog" [ref=e153] [cursor=pointer]:
+            - /url: /01-storage/translog
+        - listitem [ref=e154]:
+          - text: 查询层：
+          - link "聚合 Aggregation" [ref=e155] [cursor=pointer]:
+            - /url: /02-query/aggregation
+          - text: →
+          - link "分页" [ref=e156] [cursor=pointer]:
+            - /url: /02-query/pagination
+          - text: →
+          - link "Sort" [ref=e157] [cursor=pointer]:
+            - /url: /02-query/sort
+          - text: →
+          - link "Highlight" [ref=e158] [cursor=pointer]:
+            - /url: /02-query/highlight
+          - text: →
+          - link "Query Profile" [ref=e159] [cursor=pointer]:
+            - /url: /02-query/profile
+        - listitem [ref=e160]:
+          - text: 分析层：
+          - link "Analyzer" [ref=e161] [cursor=pointer]:
+            - /url: /03-analysis/analyzer
+          - text: →
+          - link "IK 分词器" [ref=e162] [cursor=pointer]:
+            - /url: /03-analysis/ik-analyzer
+          - text: →
+          - link "倒排索引" [ref=e163] [cursor=pointer]:
+            - /url: /03-analysis/inverted-index
+          - text: →
+          - link "BM25" [ref=e164] [cursor=pointer]:
+            - /url: /03-analysis/bm25
+      - heading [level=3] [ref=e165]:
+        - text: 🏆 高级路径 (1-2 周)
+        - link "Permalink to \"🏆 高级路径 (1-2 周)\"" [ref=e166] [cursor=pointer]:
+          - /url: "#🏆-高级路径-1-2-周"
+          - text: "#"
+      - list [ref=e167]:
+        - listitem [ref=e168]:
+          - link "JVM 调优" [ref=e169] [cursor=pointer]:
+            - /url: /04-ops/jvm-tuning
+          - text: +
+          - link "分片分配" [ref=e170] [cursor=pointer]:
+            - /url: /04-ops/shard-allocation
+        - listitem [ref=e171]:
+          - link "ILM 生命周期" [ref=e172] [cursor=pointer]:
+            - /url: /04-ops/ilm
+          - text: +
+          - link "Snapshot 备份" [ref=e173] [cursor=pointer]:
+            - /url: /04-ops/snapshot
+        - listitem [ref=e174]:
+          - link "索引模板" [ref=e175] [cursor=pointer]:
+            - /url: /04-ops/index-template
+          - text: +
+          - link "别名 Alias" [ref=e176] [cursor=pointer]:
+            - /url: /04-ops/alias
+        - listitem [ref=e177]:
+          - link "自定义分词" [ref=e178] [cursor=pointer]:
+            - /url: /03-analysis/custom-analyzer
+          - text: + 同义词
+        - listitem [ref=e179]:
+          - link "Script Query" [ref=e180] [cursor=pointer]:
+            - /url: /02-query/script
+          - text: +
+          - link "Search After" [ref=e181] [cursor=pointer]:
+            - /url: /02-query/search-after
+      - heading [level=2] [ref=e182]:
+        - text: 🔗 关联项目
+        - link "Permalink to \"🔗 关联项目\"" [ref=e183] [cursor=pointer]:
+          - /url: "#🔗-关联项目"
+          - text: "#"
+      - paragraph [ref=e184]:
+        - text: 本站点配套
+        - link "elastic-search-demo" [ref=e185] [cursor=pointer]:
+          - /url: https://github.com/your-repo
+        - text: Java 项目，所有代码示例均与本项目
+        - link [ref=e186] [cursor=pointer]:
+          - /url: https://github.com/your-repo/blob/main/src/main/java/com/example/esdemo/service/ElasticsearchService.java
+          - code [ref=e187]: ElasticsearchService.java
+        - text: 中的 Java API 对应。
+      - heading [level=2] [ref=e188]:
+        - text: 📖 推荐资源
+        - link "Permalink to \"📖 推荐资源\"" [ref=e189] [cursor=pointer]:
+          - /url: "#📖-推荐资源"
+          - text: "#"
+      - list [ref=e190]:
+        - listitem [ref=e191]:
+          - text: 📘
+          - link "Elasticsearch 7.17 官方文档" [ref=e192] [cursor=pointer]:
+            - /url: https://www.elastic.co/guide/en/elasticsearch/reference/7.17/index.html
+        - listitem [ref=e193]:
+          - text: 🎓
+          - link "Elastic 官方培训" [ref=e194] [cursor=pointer]:
+            - /url: https://www.elastic.co/training/
+        - listitem [ref=e195]:
+          - text: 📚
+          - link "Elasticsearch 权威指南" [ref=e196] [cursor=pointer]:
+            - /url: https://www.elastic.co/guide/en/elasticsearch/guide/current/index.html
+        - listitem [ref=e197]:
+          - text: 🔬
+          - link "Lucene 官方文档" [ref=e198] [cursor=pointer]:
+            - /url: https://lucene.apache.org/core/
+  - contentinfo [ref=e199]:
+    - generic [ref=e200]:
+      - paragraph [ref=e201]: 基于 VitePress 构建 · 数据来源 Elasticsearch 7.17 官方文档
+      - paragraph [ref=e202]: ES Knowledge Atlas

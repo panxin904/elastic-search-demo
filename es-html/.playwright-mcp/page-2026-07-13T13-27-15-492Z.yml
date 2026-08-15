@@ -1,0 +1,255 @@
+- generic [ref=f16e3]:
+  - link "Skip to content" [ref=f16e4] [cursor=pointer]:
+    - /url: "#VPContent"
+  - banner:
+    - generic:
+      - generic:
+        - generic:
+          - link "ES Knowledge Atlas" [ref=f16e6] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f16e8]:
+            - button "Search" [ref=f16e11] [cursor=pointer]:
+              - generic [ref=f16e15]:
+                - generic [ref=f16e16]: ⌘
+                - generic [ref=f16e17]: K
+            - navigation "Main Navigation" [ref=f16e18]:
+              - link "首页" [ref=f16e20] [cursor=pointer]:
+                - /url: /
+              - link "存储层" [ref=f16e22] [cursor=pointer]:
+                - /url: /01-storage/overview
+              - link "查询层" [ref=f16e24] [cursor=pointer]:
+                - /url: /02-query/overview
+              - link "分析层" [ref=f16e26] [cursor=pointer]:
+                - /url: /03-analysis/overview
+              - link "运维层" [ref=f16e28] [cursor=pointer]:
+                - /url: /04-ops/overview
+              - link "7 vs 8" [ref=f16e30] [cursor=pointer]:
+                - /url: /99-compare/diff
+            - button "extra navigation" [ref=f16e33] [cursor=pointer]
+  - button "本页目录" [ref=f16e38] [cursor=pointer]
+  - complementary [ref=f16e40]:
+    - navigation "Sidebar Navigation" [ref=f16e42]:
+      - generic [ref=f16e45]:
+        - button [ref=f16e46]:
+          - heading "分析层 Analysis" [level=2] [ref=f16e48]
+        - generic [ref=f16e49]:
+          - link [ref=f16e53] [cursor=pointer]:
+            - /url: /03-analysis/overview
+            - paragraph [ref=f16e54]: 总览
+          - link [ref=f16e58] [cursor=pointer]:
+            - /url: /03-analysis/analyzer
+            - paragraph [ref=f16e59]: Analyzer 分析器
+          - link [ref=f16e63] [cursor=pointer]:
+            - /url: /03-analysis/tokenizer
+            - paragraph [ref=f16e64]: Tokenizer 分词器
+          - link [ref=f16e68] [cursor=pointer]:
+            - /url: /03-analysis/token-filter
+            - paragraph [ref=f16e69]: Token Filter
+          - link [ref=f16e73] [cursor=pointer]:
+            - /url: /03-analysis/char-filter
+            - paragraph [ref=f16e74]: Char Filter
+          - link [ref=f16e78] [cursor=pointer]:
+            - /url: /03-analysis/builtin-analyzers
+            - paragraph [ref=f16e79]: 内置分词器
+          - link [ref=f16e83] [cursor=pointer]:
+            - /url: /03-analysis/ik-analyzer
+            - paragraph [ref=f16e84]: IK 分词器
+          - link [ref=f16e88] [cursor=pointer]:
+            - /url: /03-analysis/pinyin-analyzer
+            - paragraph [ref=f16e89]: pinyin 分词器
+          - link [ref=f16e93] [cursor=pointer]:
+            - /url: /03-analysis/custom-analyzer
+            - paragraph [ref=f16e94]: 自定义分词
+          - link [ref=f16e98] [cursor=pointer]:
+            - /url: /03-analysis/inverted-index
+            - paragraph [ref=f16e99]: 倒排索引
+          - link [ref=f16e103] [cursor=pointer]:
+            - /url: /03-analysis/bm25
+            - paragraph [ref=f16e104]: BM25 相关度
+          - link [ref=f16e108] [cursor=pointer]:
+            - /url: /03-analysis/explain
+            - paragraph [ref=f16e109]: Explain API
+  - generic [ref=f16e114]:
+    - main [ref=f16e115]:
+      - generic [ref=f16e117]:
+        - paragraph [ref=f16e118]:
+          - generic [ref=f16e119]: 分析层
+        - heading [level=1] [ref=f16e120]:
+          - text: IK 分词器
+          - link "Permalink to \"IK 分词器\"" [ref=f16e121] [cursor=pointer]:
+            - /url: "#ik-分词器"
+            - text: "#"
+        - heading [level=2] [ref=f16e122]:
+          - text: 📌 一句话定义
+          - link "Permalink to \"📌 一句话定义\"" [ref=f16e123] [cursor=pointer]:
+            - /url: "#📌-一句话定义"
+            - text: "#"
+        - paragraph [ref=f16e124]:
+          - text: IK 是
+          - strong [ref=f16e125]: 国内最常用的中文分词器
+          - text: ，由 Elasticsearch-Medcl 维护，支持细粒度和智能两种模式。
+        - heading [level=2] [ref=f16e126]:
+          - text: 🔧 安装
+          - link "Permalink to \"🔧 安装\"" [ref=f16e127] [cursor=pointer]:
+            - /url: "#🔧-安装"
+            - text: "#"
+        - generic [ref=f16e128]:
+          - button "Copy Code" [ref=f16e129] [cursor=pointer]
+          - generic [ref=f16e130]: bash
+          - code [ref=f16e132]:
+            - generic [ref=f16e133]: ./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.17.10/elasticsearch-analysis-ik-7.17.10.zip
+        - blockquote [ref=f16e134]:
+          - paragraph [ref=f16e135]:
+            - text: ⚠️ 插件版本必须
+            - strong [ref=f16e136]: 与 ES 主版本严格一致
+            - text: （如 7.17.x 对应 IK 7.17.x）
+        - heading [level=2] [ref=f16e137]:
+          - text: 📚 两种分词模式
+          - link "Permalink to \"📚 两种分词模式\"" [ref=f16e138] [cursor=pointer]:
+            - /url: "#📚-两种分词模式"
+            - text: "#"
+        - table [ref=f16e139]:
+          - rowgroup [ref=f16e140]:
+            - row [ref=f16e141]:
+              - columnheader "模式" [ref=f16e142]
+              - columnheader "行为" [ref=f16e143]
+              - columnheader "典型用途" [ref=f16e144]
+          - rowgroup [ref=f16e145]:
+            - row [ref=f16e146]:
+              - cell [ref=f16e147]:
+                - code [ref=f16e148]: ik_max_word
+              - cell "细粒度（拆得最细）" [ref=f16e149]
+              - cell [ref=f16e150]:
+                - strong [ref=f16e151]: 索引时
+                - text: （最大化召回）
+            - row [ref=f16e152]:
+              - cell [ref=f16e153]:
+                - code [ref=f16e154]: ik_smart
+              - cell "智能（最少词数）" [ref=f16e155]
+              - cell [ref=f16e156]:
+                - strong [ref=f16e157]: 查询时
+                - text: （提高精度）
+        - heading [level=3] [ref=f16e158]:
+          - text: 示例：输入
+          - code [ref=f16e159]: 中华人民共和国国歌
+          - 'link "Permalink to \"示例：输入 `中华人民共和国国歌`\"" [ref=f16e160] [cursor=pointer]':
+            - /url: "#示例-输入-中华人民共和国国歌"
+            - text: "#"
+        - table [ref=f16e161]:
+          - rowgroup [ref=f16e162]:
+            - row [ref=f16e163]:
+              - columnheader "模式" [ref=f16e164]
+              - columnheader "输出" [ref=f16e165]
+          - rowgroup [ref=f16e166]:
+            - row [ref=f16e167]:
+              - cell [ref=f16e168]:
+                - code [ref=f16e169]: ik_max_word
+              - cell [ref=f16e170]:
+                - code [ref=f16e171]: "[\"中华人民共和国\", \"中华人民\", \"中华\", \"华人\", \"人民共和国\", \"人民\", \"共和国\", \"国歌\"]"
+            - row [ref=f16e172]:
+              - cell [ref=f16e173]:
+                - code [ref=f16e174]: ik_smart
+              - cell [ref=f16e175]:
+                - code [ref=f16e176]: "[\"中华人民共和国\", \"国歌\"]"
+        - heading [level=2] [ref=f16e177]:
+          - text: 🔧 在 Mapping 中使用
+          - link "Permalink to \"🔧 在 Mapping 中使用\"" [ref=f16e178] [cursor=pointer]:
+            - /url: "#🔧-在-mapping-中使用"
+            - text: "#"
+        - generic [ref=f16e179]:
+          - button "Copy Code" [ref=f16e180] [cursor=pointer]
+          - generic [ref=f16e181]: http
+          - code [ref=f16e183]:
+            - generic [ref=f16e184]: PUT /products
+            - generic [ref=f16e185]: "{"
+            - generic [ref=f16e186]: "\"mappings\": {"
+            - generic [ref=f16e187]: "\"properties\": {"
+            - generic [ref=f16e188]: "\"name\": {"
+            - generic [ref=f16e189]: "\"type\": \"text\","
+            - generic [ref=f16e190]: "\"analyzer\": \"ik_max_word\","
+            - generic [ref=f16e191]: "\"search_analyzer\": \"ik_smart\""
+            - generic [ref=f16e192]: "}"
+            - generic [ref=f16e193]: "}"
+            - generic [ref=f16e194]: "}"
+            - generic [ref=f16e195]: "}"
+        - heading [level=2] [ref=f16e196]:
+          - text: 🔧 扩展词典
+          - link "Permalink to \"🔧 扩展词典\"" [ref=f16e197] [cursor=pointer]:
+            - /url: "#🔧-扩展词典"
+            - text: "#"
+        - paragraph [ref=f16e198]:
+          - strong [ref=f16e199]: IK 配置目录
+          - text: ":"
+          - code [ref=f16e200]: config/analysis-ik/
+        - table [ref=f16e201]:
+          - rowgroup [ref=f16e202]:
+            - row [ref=f16e203]:
+              - columnheader "文件" [ref=f16e204]
+              - columnheader "作用" [ref=f16e205]
+          - rowgroup [ref=f16e206]:
+            - row [ref=f16e207]:
+              - cell [ref=f16e208]:
+                - code [ref=f16e209]: IKAnalyzer.cfg.xml
+              - cell "主配置（启用/禁用扩展词典）" [ref=f16e210]
+            - row [ref=f16e211]:
+              - cell [ref=f16e212]:
+                - code [ref=f16e213]: extra_stopword.dic
+              - cell "自定义停用词" [ref=f16e214]
+            - row [ref=f16e215]:
+              - cell [ref=f16e216]:
+                - code [ref=f16e217]: custom_dict.dic
+              - cell "自定义词库（如新增网络用语）" [ref=f16e218]
+        - paragraph [ref=f16e219]: 示例配置：
+        - generic [ref=f16e220]:
+          - button "Copy Code" [ref=f16e221] [cursor=pointer]
+          - generic [ref=f16e222]: xml
+          - code [ref=f16e224]:
+            - generic [ref=f16e225]: <!-- IKAnalyzer.cfg.xml -->
+            - generic [ref=f16e226]: <entry key="ext_dict">custom_dict.dic</entry>
+            - generic [ref=f16e227]: <entry key="ext_stopwords">extra_stopword.dic</entry>
+        - paragraph [ref=f16e228]:
+          - code [ref=f16e229]: custom_dict.dic
+          - text: 内容（每行一词）：
+        - generic [ref=f16e230]:
+          - button "Copy Code" [ref=f16e231] [cursor=pointer]
+          - code [ref=f16e233]:
+            - generic [ref=f16e234]: 机械键盘
+            - generic [ref=f16e235]: 红轴
+            - generic [ref=f16e236]: 茶轴
+            - generic [ref=f16e237]: 青轴
+            - generic [ref=f16e238]: 罗永浩
+        - blockquote [ref=f16e239]:
+          - paragraph [ref=f16e240]:
+            - text: ⚠️ 修改词典后需要
+            - strong [ref=f16e241]: 重启
+            - text: 节点（IK 不支持热加载）
+        - heading [level=2] [ref=f16e242]:
+          - text: 🗺️ 在图谱中的位置
+          - link "Permalink to \"🗺️ 在图谱中的位置\"" [ref=f16e243] [cursor=pointer]:
+            - /url: "#🗺️-在图谱中的位置"
+            - text: "#"
+        - heading [level=2] [ref=f16e248]:
+          - text: 📚 延伸阅读
+          - link "Permalink to \"📚 延伸阅读\"" [ref=f16e249] [cursor=pointer]:
+            - /url: "#📚-延伸阅读"
+            - text: "#"
+        - list [ref=f16e250]:
+          - listitem [ref=f16e251]:
+            - link "Analyzer 分析器" [ref=f16e252] [cursor=pointer]:
+              - /url: /03-analysis/analyzer
+          - listitem [ref=f16e253]:
+            - link "pinyin 分词器" [ref=f16e254] [cursor=pointer]:
+              - /url: /03-analysis/pinyin-analyzer
+          - listitem [ref=f16e255]:
+            - link "内置分词器" [ref=f16e256] [cursor=pointer]:
+              - /url: /03-analysis/builtin-analyzers
+    - contentinfo [ref=f16e257]:
+      - navigation "Pager" [ref=f16e258]:
+        - link "上一篇 内置分词器" [ref=f16e261] [cursor=pointer]:
+          - /url: /03-analysis/builtin-analyzers
+          - generic [ref=f16e262]: 上一篇
+          - generic [ref=f16e263]: 内置分词器
+        - link "下一篇 pinyin 分词器" [ref=f16e265] [cursor=pointer]:
+          - /url: /03-analysis/pinyin-analyzer
+          - generic [ref=f16e266]: 下一篇
+          - generic [ref=f16e267]: pinyin 分词器

@@ -1,0 +1,32 @@
+/* Architecture Atlas theme */
+:root { --arc-ink: #1f2937; --arc-accent: #7c3aed; --arc-soft: #ede9fe; }
+.kg-badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 13px; font-weight: 500; margin-right: 8px; vertical-align: middle; }
+.kg-badge-concurrency { background: #f1f5f9; color: #475569; }
+.kg-badge-threadpool { background: #cffafe; color: #0891b2; }
+.kg-badge-ha { background: #ede9fe; color: #7c3aed; }
+.kg-badge-ratelimit { background: #fce7f3; color: #db2777; }
+.kg-badge-circuit { background: #fed7aa; color: #ea580c; }
+.kg-badge-microservice { background: #dbeafe; color: #2563eb; }
+.kg-badge-disttx { background: #d1fae5; color: #16a34a; }
+.kg-badge-mq { background: #fef3c7; color: #f59e0b; }
+.kg-badge-cache { background: #fce7f3; color: #ec4899; }
+.kg-badge-shard { background: #e0f2fe; color: #0ea5e9; }
+.kg-badge-ddd { background: #ffedd5; color: #f97316; }
+.kg-badge-patterns { background: #ccfbf1; color: #14b8a6; }
+.kg-badge-observability { background: #ede9fe; color: #9333ea; }
+.kg-badge-cases { background: #fee2e2; color: #dc2626; }
+.kg-container, .mindmap-container { margin: 20px 0; border: 1px solid var(--vp-c-divider); border-radius: 8px; overflow: hidden; background: var(--vp-c-bg); }
+.kg-toolbar, .mm-toolbar { display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: var(--vp-c-bg-soft); border-bottom: 1px solid var(--vp-c-divider); flex-wrap: wrap; }
+.kg-toolbar__btn, .mm-toolbar__btn { padding: 5px 12px; background: var(--vp-c-bg); border: 1px solid var(--vp-c-divider); border-radius: 4px; cursor: pointer; font-size: 12px; color: var(--vp-c-text-1); }
+.kg-toolbar__btn:hover { background: var(--arc-accent); color: white; border-color: var(--arc-accent); }
+.kg-toolbar__legend { margin-left: auto; font-size: 12px; color: var(--vp-c-text-2); display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.kg-legend-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; }
+.cmd-block { background: #0f172a; color: #e2e8f0; border-radius: 8px; padding: 14px 16px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; line-height: 1.6; white-space: pre-wrap; overflow-x: auto; margin: 12px 0; }
+.cmd-block .prompt { color: #06b6d4; margin-right: 6px; }
+.cmd-block .comment { color: #64748b; }
+.cmd-line { background: #1e293b; color: #e2e8f0; padding: 8px 14px; border-radius: 6px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; margin: 6px 0; }
+.cmd-line::before { content: '$ '; color: #06b6d4; margin-right: 6px; }
+.kg-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 12px 0; }
+.kg-table th, .kg-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--vp-c-divider); }
+.kg-table th { background: var(--vp-c-bg-soft); font-weight: 600; }
+.kg-table code { background: var(--vp-c-bg-soft); padding: 2px 6px; border-radius: 4px; font-size: 12px; }

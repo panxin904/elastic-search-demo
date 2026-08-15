@@ -1,0 +1,81 @@
+---
+layout: home
+title: Security 知识图谱
+hero:
+  name: Security
+  text: Web 安全深度图谱
+  tagline: OWASP Top 10 2025 · OAuth 2.0 / OIDC · JWT · 密码学 · TLS · 容器安全 · 零信任
+  actions:
+    - theme: brand
+      text: 🛡️ 进入 OWASP Top 10
+      link: /01-web-top10/overview
+    - theme: alt
+      text: 🔐 认证协议
+      link: /02-auth/overview
+    - theme: alt
+      text: 🔏 密码学
+      link: /03-crypto/overview
+    - theme: alt
+      text: 🔒 零信任
+      link: /06-zero-trust/overview
+features:
+  - title: 🛡️ OWASP Top 10 2025
+    details: 业界权威 Web 安全风险清单，10 大类高危漏洞逐条拆解：访问控制失效、注入、设计缺陷、SSRF、供应链等，覆盖攻防两端。
+    link: /01-web-top10/overview
+    linkText: OWASP 总览
+  - title: 🔐 认证与授权
+    details: OAuth 2.0 四种授权流程、OIDC 身份层、JWT 结构与攻击面、SAML 企业 SSO、Session 攻击矩阵、MFA 多因素认证。
+    link: /02-auth/overview
+    linkText: 认证协议地图
+  - title: 🔏 密码学基础
+    details: 对称加密（AES / ChaCha20）、非对称加密（RSA / ECC）、哈希（SHA-256 / bcrypt）、数字签名、TLS 1.3 握手抓包。
+    link: /03-crypto/overview
+    linkText: 密码学总览
+  - title: 🌐 网络安全
+    details: TLS PKI 证书体系、mTLS 双向认证、HSTS / CSP / X-Frame-Options 浏览器安全、CORS 跨域原理与陷阱。
+    link: /04-network/tls-pki
+    linkText: TLS PKI
+  - title: 📦 容器与供应链
+    details: 镜像扫描（Trivy / Clair）、运行时安全（Falco）、SBOM 软件物料清单、Sigstore 签名、容器逃逸案例。
+    link: /05-container/overview
+    linkText: 容器安全总览
+  - title: 🔒 零信任架构
+    details: BeyondCorp / SDP / SPIFFE / SPIRE 身份联邦、Workload Identity、落地 Google BeyondCorp 实践。
+    link: /06-zero-trust/overview
+    linkText: 零信任总览
+---
+
+## 关于本知识图谱
+
+**6 大类 / 32 节点 / 18 万字 / 全部 substantial**。
+
+学完本图谱，你将能够：
+- 独立 audit 一个 Web 应用的 OWASP Top 10 风险
+- 设计 OAuth 2.0 / OIDC 接入流程，避开常见 JWT 漏洞
+- 选型对称 / 非对称 / 哈希算法，理解 TLS 1.3 握手细节
+- 部署 mTLS / HSTS / CSP，给你的 API 上"安全锁"
+- 给容器镜像加签名 + 审计，搭建 SBOM 供应链追溯
+- 规划零信任迁移路径，从 VPN 走到 SPIFFE
+
+## 关联站点
+
+- **ai/** → LLM 应用安全（prompt injection / 模型越狱 / 数据泄露）→ 链到 `01-web-top10`
+- **cloud-native/** → K8s RBAC / 网络策略 / Service Mesh 安全 → 链到 `05-container`
+- **mysql** / **postgresql/** → SQL 注入原理 + 防御 → 链到 `01-web-top10/a03-injection`
+- **java/** / **python/** → 框架级安全（Spring Security / Django Auth）→ 链到 `02-auth`
+- **system-design/** → API 网关鉴权 / 分布式 Session → 链到 `02-auth/jwt`
+
+## 学习路径建议
+
+| 阶段 | 时长 | 章节 |
+|------|------|------|
+| 入门 | 1-2 周 | 01-web-top10（OWASP 总览 + A03 注入）→ 02-auth（OAuth 2.0 / JWT）|
+| 进阶 | 2-3 周 | 03-crypto → 04-network |
+| 高级 | 2-3 周 | 05-container → 06-zero-trust |
+| 实战 | 持续 | 配套 Cloud / ai / system-design 实战案例 |
+
+---
+
+**适用读者**：Web 开发者 / 后端工程师 / 安全工程师 / SRE / 架构师 / AI 工程师（关注 LLM 安全）。
+
+**前置知识**：HTTP 协议、Linux 命令行、至少一门后端语言、基础数据库 SQL。

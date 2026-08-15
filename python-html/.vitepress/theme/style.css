@@ -1,0 +1,481 @@
+/* ============================================================
+ * Python 知识图谱主题样式
+ * ============================================================ */
+
+:root {
+  --py-blue: #3776AB;            /* Python 经典蓝 */
+  --py-yellow: #FFD43B;          /* Python 经典黄 */
+  --py-dark: #1A1A1A;
+  --py-gray: #4A4A4A;
+}
+
+/* 分类标签颜色 - 9 大类 */
+.kg-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.kg-badge-basics     { background: #dbeafe; color: #1e40af; }
+.kg-badge-principles { background: #fef3c7; color: #92400e; }
+.kg-badge-libraries  { background: #dcfce7; color: #166534; }
+.kg-badge-concurrency{ background: #fce7f3; color: #9d174d; }
+.kg-badge-scraping   { background: #cffafe; color: #155e75; }
+.kg-badge-ai-ml      { background: #ede9fe; color: #5b21b6; }
+.kg-badge-data       { background: #fed7aa; color: #9a3412; }
+.kg-badge-algorithms { background: #fde68a; color: #854d0e; }
+.kg-badge-enterprise { background: #fee2e2; color: #991b1b; }
+
+/* 通用容器 */
+.kg-container,
+.mindmap-container,
+.cmd-container,
+.topo-container,
+.api-container,
+.sort-container,
+.ch-container,
+.alg-container {
+  margin: 20px 0;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--vp-c-bg);
+}
+
+/* 工具栏 */
+.kg-toolbar,
+.mm-toolbar,
+.cmd-toolbar,
+.topo-toolbar,
+.api-toolbar,
+.sort-toolbar,
+.alg-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--vp-c-bg-soft);
+  border-bottom: 1px solid var(--vp-c-divider);
+  flex-wrap: wrap;
+}
+.kg-toolbar__btn,
+.mm-toolbar__btn,
+.cmd-toolbar__btn,
+.topo-toolbar__btn,
+.api-toolbar__btn,
+.sort-toolbar__btn,
+.alg-toolbar__btn {
+  padding: 5px 12px;
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--vp-c-text-1);
+}
+.kg-toolbar__btn:hover { background: var(--py-blue); color: white; border-color: var(--py-blue); }
+.kg-toolbar__legend {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--vp-c-text-2);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.kg-legend-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+/* Playground (Python REPL) */
+.cmd-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--vp-c-divider);
+}
+.cmd-input-panel,
+.cmd-output-panel {
+  background: var(--vp-c-bg);
+  padding: 14px;
+}
+.cmd-input-area {
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  background: #1a1a1a;
+  color: #FFD43B;
+  font-family: 'SF Mono', Menlo, 'Consolas', monospace;
+  font-size: 13px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  resize: vertical;
+}
+.cmd-output-area {
+  padding: 10px;
+  background: #1a1a1a;
+  color: #e6e6e6;
+  font-family: 'SF Mono', Menlo, monospace;
+  font-size: 12px;
+  border-radius: 4px;
+  min-height: 100px;
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+.cmd-result-line { padding: 1px 0; }
+.cmd-result-line--ok { color: #4ade80; }
+.cmd-result-line--err { color: #ef4444; }
+.cmd-result-line--info { color: #94a3b8; }
+.cmd-result-line--keyword { color: #ff79c6; }
+.cmd-result-line--string { color: #f1fa8c; }
+.cmd-result-line--number { color: #bd93f9; }
+.cmd-suggestion {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: var(--vp-c-bg-soft);
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--vp-c-text-2);
+}
+
+/* 爬虫流程图 */
+.topo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  padding: 16px;
+}
+.topo-stage {
+  padding: 12px;
+  background: var(--vp-c-bg-soft);
+  border: 2px solid var(--vp-c-divider);
+  border-radius: 8px;
+  font-size: 13px;
+  text-align: center;
+}
+.topo-stage--active { border-color: var(--py-blue); background: #dbeafe; }
+.topo-stage--success { border-color: #4ade80; background: #f0fdf4; }
+.topo-stage--error { border-color: #ef4444; background: #fee2e2; }
+.topo-stage__icon { font-size: 24px; margin-bottom: 6px; }
+.topo-stage__name { font-weight: 600; margin-bottom: 4px; }
+.topo-stage__desc { font-size: 11px; color: var(--vp-c-text-2); }
+
+/* API 调用示例 */
+.api-call {
+  margin: 12px 0;
+  padding: 12px;
+  background: var(--vp-c-bg-soft);
+  border-left: 3px solid var(--py-blue);
+  border-radius: 4px;
+}
+.api-call__name {
+  font-weight: 600;
+  color: var(--py-blue);
+  margin-bottom: 4px;
+}
+.api-call__sig {
+  font-family: monospace;
+  font-size: 13px;
+  color: var(--vp-c-text-2);
+  background: #1a1a1a;
+  color: #FFD43B;
+  padding: 6px 10px;
+  border-radius: 4px;
+  margin: 4px 0;
+}
+.api-call__desc { font-size: 12px; color: var(--vp-c-text-2); }
+
+/* 排序算法可视化 */
+.sort-array {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  padding: 16px;
+  background: #1a1a1a;
+  min-height: 200px;
+}
+.sort-bar {
+  flex: 1;
+  background: var(--py-blue);
+  border-radius: 2px 2px 0 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  padding-bottom: 4px;
+  transition: all 0.3s;
+  min-width: 24px;
+}
+.sort-bar--active { background: #FFD43B; }
+.sort-bar--sorted { background: #4ade80; }
+.sort-bar--compare { background: #ff79c6; }
+.sort-bar--swap { background: #ef4444; }
+.sort-info {
+  padding: 12px 16px;
+  background: var(--vp-c-bg-soft);
+  border-top: 1px solid var(--vp-c-divider);
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sort-info__status { color: var(--py-blue); font-weight: 600; }
+.sort-info__stats { color: var(--vp-c-text-2); }
+
+/* 速查表 */
+.ch-container { padding: 16px; }
+.ch-search {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.ch-input {
+  flex: 1;
+  padding: 8px 14px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  background: var(--vp-c-bg);
+  color: var(--vp-c-text-1);
+  font-size: 14px;
+}
+.ch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 12px;
+}
+.ch-card {
+  padding: 12px 16px;
+  background: var(--vp-c-bg-soft);
+  border-left: 3px solid var(--py-blue);
+  border-radius: 4px;
+}
+.ch-card__cat {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--py-blue);
+  margin-bottom: 4px;
+}
+.ch-card__title { font-weight: 600; margin-bottom: 4px; }
+.ch-card__syntax {
+  padding: 6px 8px;
+  background: #1a1a1a;
+  color: #FFD43B;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 12px;
+  margin: 6px 0;
+  white-space: pre-wrap;
+}
+.ch-card__desc { font-size: 12px; color: var(--vp-c-text-2); line-height: 1.5; }
+.ch-empty {
+  padding: 40px;
+  text-align: center;
+  color: var(--vp-c-text-2);
+  background: var(--vp-c-bg-soft);
+  border-radius: 8px;
+}
+
+/* 算法复杂度表 */
+.alg-container { padding: 16px; }
+.alg-controls {
+  padding: 12px;
+  background: var(--vp-c-bg-soft);
+  border-bottom: 1px solid var(--vp-c-divider);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.alg-canvas {
+  padding: 16px;
+  min-height: 200px;
+  background: #1a1a1a;
+  font-family: monospace;
+  font-size: 13px;
+  color: #FFD43B;
+  white-space: pre;
+  overflow-x: auto;
+}
+.alg-info {
+  padding: 12px 16px;
+  background: var(--vp-c-bg-soft);
+  border-top: 1px solid var(--vp-c-divider);
+  font-size: 13px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+.alg-info__item { padding: 8px; background: var(--vp-c-bg); border-radius: 4px; }
+.alg-info__label { font-size: 11px; color: var(--vp-c-text-2); margin-bottom: 2px; }
+.alg-info__value { font-weight: 600; color: var(--py-blue); }
+
+/* 特性网格 */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+.feature-card {
+  padding: 16px;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+.feature-card:hover {
+  border-color: var(--py-blue);
+  box-shadow: 0 4px 12px rgba(55, 118, 171, 0.1);
+  transform: translateY(-2px);
+}
+.feature-card__icon { font-size: 28px; margin-bottom: 8px; }
+.feature-card__title { font-size: 16px; font-weight: 600; margin-bottom: 6px; color: var(--vp-c-text-1); }
+.feature-card__desc { font-size: 13px; color: var(--vp-c-text-2); line-height: 1.6; }
+.feature-card__link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--py-blue);
+  font-weight: 500;
+}
+
+/* 步骤列表 */
+.step-list { counter-reset: step; list-style: none; padding: 0; }
+.step-list li {
+  position: relative;
+  padding: 10px 14px 10px 50px;
+  margin: 8px 0;
+  background: var(--vp-c-bg-soft);
+  border-radius: 6px;
+  counter-increment: step;
+}
+.step-list li::before {
+  content: counter(step);
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 26px;
+  background: var(--py-blue);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* 警告/提示框 */
+.tip-box {
+  padding: 14px 18px;
+  border-left: 4px solid var(--py-blue);
+  background: #dbeafe;
+  border-radius: 4px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.warn-box {
+  padding: 14px 18px;
+  border-left: 4px solid #f59e0b;
+  background: #fffbeb;
+  border-radius: 4px;
+  margin: 16px 0;
+}
+.info-box {
+  padding: 14px 18px;
+  border-left: 4px solid var(--py-yellow);
+  background: #fef9c3;
+  border-radius: 4px;
+  margin: 16px 0;
+}
+.danger-box {
+  padding: 14px 18px;
+  border-left: 4px solid #ef4444;
+  background: #fee2e2;
+  border-radius: 4px;
+  margin: 16px 0;
+}
+
+/* 时间线 */
+.timeline { position: relative; padding-left: 30px; margin: 20px 0; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--py-blue);
+}
+.timeline__item { position: relative; padding: 8px 0 16px 20px; }
+.timeline__item::before {
+  content: '';
+  position: absolute;
+  left: -25px;
+  top: 14px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--py-yellow);
+  border: 2px solid white;
+  box-shadow: 0 0 0 2px var(--py-blue);
+}
+.timeline__year { font-weight: 600; color: var(--py-blue); margin-bottom: 4px; }
+.timeline__title { font-weight: 600; margin-bottom: 4px; }
+.timeline__desc { font-size: 13px; color: var(--vp-c-text-2); }
+
+/* 对比表 */
+.cmp-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 14px;
+}
+.cmp-table th {
+  background: var(--py-blue);
+  color: white;
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 500;
+}
+.cmp-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+.cmp-table tr:hover td { background: var(--vp-c-bg-soft); }
+
+/* 复杂度对比 */
+.complexity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.complexity-card {
+  padding: 12px;
+  background: var(--vp-c-bg-soft);
+  border-radius: 6px;
+  border-left: 3px solid var(--py-blue);
+}
+.complexity-card__name { font-weight: 600; margin-bottom: 4px; }
+.complexity-card__time {
+  font-family: monospace;
+  font-size: 13px;
+  color: var(--py-blue);
+  background: #dbeafe;
+  padding: 2px 6px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-top: 4px;
+}

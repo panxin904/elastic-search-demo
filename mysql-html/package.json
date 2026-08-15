@@ -1,0 +1,19 @@
+{
+  "name": "mysql-html",
+  "version": "1.0.0",
+  "description": "MySQL 系统化学习 - 知识图谱、思维导图、SQL 实战、性能调优",
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.4",
+    "vue": "^3.4.0",
+    "echarts": "^5.5.0"
+  },
+  "dependencies": {
+    "marked": "^14.0.0"
+  }
+}

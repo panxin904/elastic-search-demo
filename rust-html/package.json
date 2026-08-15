@@ -1,0 +1,19 @@
+{
+  "name": "rust-html",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "docs:build": "vitepress build"
+  },
+  "devDependencies": {
+    "vitepress": "1.6.4",
+    "vue": "3.4.0"
+  },
+  "dependencies": {
+    "echarts": "^5.5.0",
+    "vue-echarts": "^7.0.3"
+  }
+}

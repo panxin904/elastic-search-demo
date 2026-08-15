@@ -1,0 +1,39 @@
+- generic [ref=e3]:
+  - link "Skip to content" [ref=e4] [cursor=pointer]:
+    - /url: "#VPContent"
+  - banner:
+    - generic:
+      - generic:
+        - generic:
+          - link "ES Knowledge Atlas" [ref=e6] [cursor=pointer]:
+            - /url: /
+          - generic [ref=e8]:
+            - button "Search" [ref=e11] [cursor=pointer]:
+              - generic [ref=e15]:
+                - generic [ref=e16]: ⌘
+                - generic [ref=e17]: K
+            - navigation "Main Navigation" [ref=e18]:
+              - link "首页" [ref=e20] [cursor=pointer]:
+                - /url: /
+              - link "存储层" [ref=e22] [cursor=pointer]:
+                - /url: /01-storage/overview
+              - link "查询层" [ref=e24] [cursor=pointer]:
+                - /url: /02-query/overview
+              - link "分析层" [ref=e26] [cursor=pointer]:
+                - /url: /03-analysis/overview
+              - link "运维层" [ref=e28] [cursor=pointer]:
+                - /url: /04-ops/overview
+              - link "7 vs 8" [ref=e30] [cursor=pointer]:
+                - /url: /99-compare/diff
+            - button "extra navigation" [ref=e33] [cursor=pointer]
+  - generic [ref=e36]:
+    - paragraph [ref=e37]: "404"
+    - heading "PAGE NOT FOUND" [level=1] [ref=e38]
+    - blockquote [ref=e40]: But if you don't change your direction, and if you keep looking, you may end up where you are heading.
+    - link "go to home" [ref=e42] [cursor=pointer]:
+      - /url: /
+      - text: Take me home
+  - contentinfo [ref=e43]:
+    - generic [ref=e44]:
+      - paragraph [ref=e45]: 基于 VitePress 构建 · 数据来源 Elasticsearch 7.17 官方文档
+      - paragraph [ref=e46]: ES Knowledge Atlas
