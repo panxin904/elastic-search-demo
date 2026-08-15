@@ -1,8 +1,5 @@
 ---
 title: 设计模式 / GoF 23 式 / 反模式
----
-
----
 layout: home
 
 hero:
@@ -46,3 +43,30 @@ features:
     link: /06-anti-patterns/overview
     linkText: 反模式总览
 ---
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="[
+      "GoF 23 式记不全，面试问到「装饰器 vs 代理」讲不清？",
+      "创建型 / 结构型 / 行为型 分类背后的设计原则（开闭 / 里氏 / 依赖倒置）？",
+      "现代模式（DI / Repository / Specification）跟 GoF 的关系？",
+      "架构模式（CQRS / Event Sourcing / Saga / Sidecar）落地难？",
+      "反模式（God Object / 贫血模型 / 大泥球）怎么识别 + 改造？"
+    ]"
+    :goals="[
+      "GoF 23 式（创建型 5 + 结构型 7 + 行为型 11）三语言（Java / Go / TS）实现",
+      "现代模式（DI / Repository / Specification / Null Object）",
+      "架构模式（CQRS / Event Sourcing / Saga / Sidecar / Circuit Breaker）",
+      "反模式自查（God Object / Anemic Model / Big Ball of Mud / Callback Hell）",
+      "6 大主题（GoF 创建型 / GoF 结构型 / GoF 行为型 / 现代模式 / 架构模式 / 反模式）"
+    ]"
+    :related-sites="[
+      { site: "java-language", path: "/05-spring/ioc", label: "Spring IoC/AOP" },
+      { site: "java", path: "/01-springboot/quickstart", label: "Spring Boot 实战" },
+      { site: "architecture", path: "/05-patterns/circuit-breaker", label: "熔断 / 舱壁模式" },
+      { site: "kafka", path: "/01-basics/architecture", label: "Event Sourcing 架构" },
+      { site: "system-design", path: "/01-theory/cap-theorem", label: "系统设计基础" }
+    ]"
+    title="🎯 为什么写这个图谱？"
+  />
+</ClientOnly>
