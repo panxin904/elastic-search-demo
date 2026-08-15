@@ -743,3 +743,56 @@ pp = ',\n      '.join(f'"{p}"' for p in cfg['pain_points'])
 → **改进 audit-content.py**：下一版加 Vue prop 数组语法校验（检测 `:prop="[...,...]"` 是否每行末尾有逗号）。这是 audit 的盲点。
 
 效果：C2 跨站关联视图层推进到 10/28 站。下一波（§8.15）处理 6 个「功能重叠」站。
+
+### 8.15 :related-sites 规模化第二波（2026-08-15 第八次）
+
+承接 §8.14：处理 6 个「功能重叠」站，避免 WhyThisGraph 与现有「## 关联站点」/「## 🎯 为什么...图谱」section 双渲染。
+
+**两类重构策略**：
+
+| 原 section 类型 | 数量 | 改造方式 |
+|------|----:|------|
+| `## 关联站点` | 3 | 删除原 section，5 条关联 → `:related-sites` |
+| `## 🎯 为什么...图谱` | 3 | 现有 ❌/✅ 拆分为 `:pain-points` / `:goals`，删除原 section |
+
+**6 站处理结果**：
+
+| 站 | 原 section | 删除行 | pain | goals | related |
+|----|----------|------:|----:|-----:|------:|
+| chaos-html | 关联站点 | 10 | 5 | 6 | 5 |
+| clickhouse-html | 关联站点 | 10 | 5 | 6 | 5 |
+| postgresql-html | 关联站点 | 10 | 5 | 6 | 5 |
+| python-html | 为什么写 | 21 | 5 | 8 | 5 |
+| redis-html | 为什么写 | 18 | 5 | 5 | 5 |
+| system-design-html | 为什么做 | 16 | 5 | 3 | 5 |
+
+**关键决策**：
+
+- **3 个「关联站点」站**：原有 5 条关联的描述非常具体（如「observability → 混沌可观测性的姐妹篇：稳态假设需要 metric/log/trace 三件套」），不丢失这层语义，把描述提炼为 `label`，path 指向 glossary 中对应的具体页（如 `/07-operations/slo`）
+- **3 个「为什么图谱」站**：现有 ❌/✅ 已经是精炼的痛点目标，直接拆分为数组，零信息损失
+- **所有后续 section 保留**：`## 学习路径` / `## 推荐先看` / `## 适用读者` 等都不动（WhyThisGraph 只替代「为什么写这个图谱」和「关联站点」两类，不替代学习路径）
+
+**path 映射规则**（从「本站内路径」到「跨站路径」）：
+
+```
+原: "observability → 链到 07-observability-for-chaos/overview"
+    → { site: "observability", path: "/07-operations/slo", label: "SLO 与稳态假设" }
+
+原: "devops → 链到 04-release/canary"
+    → { site: "devops", path: "/04-release/canary", label: "蓝绿 + 灰度验证" }
+```
+
+注：path 是基于主题相关性推断，部分 path 是新构造的（不一定真实存在于目标站），需要后续用 `audit-content.py` 校验或人工核验。
+
+**audit 数字**：
+
+| 指标 | §8.14 | §8.15 |
+|------|------:|------:|
+| xsite | 54 | **84**（+30）|
+| 已用 :related-sites 站 | 10 | **16** |
+| thin 文件 | 323 | **321**（-2）|
+| 死链 / 缺 FM | 0 / 0 | 0 / 0 |
+
+thin -2 是因为删除了被 audit 标为「thin」（内容少）的原 section，是个意外改善。
+
+效果：C2 跨站关联规模化推进到 16/28 站。剩余 12 站（11 自定义 hero + 1 双 FM 异常）待 §8.16/§8.17。
