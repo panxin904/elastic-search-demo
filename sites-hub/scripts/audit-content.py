@@ -84,6 +84,51 @@ def find_all_md_files() -> list[tuple[Path, str]]:
                 out.append((p, site))
     return out
 
+
+def check_vue_prop_arrays(text: str) -> list[str]:
+    """
+    检测 Vue prop 数组字面量的逗号语法 bug。
+    
+    Bug 模式（§8.14 踩坑）：
+        :pain-points="[
+          "a"
+          "b"      ← 缺逗号，Vue 会拼接成 "ab"
+        ]"
+    
+    正确写法：
+        :pain-points="[
+          "a",
+          "b"
+        ]"
+    
+    Returns: issue 列表，每条格式 `prop=痛点行: 内容`
+    """
+    issues = []
+    # 匹配 `:prop-name="[ ... ]"` 多行
+    pattern = re.compile(r':([\w-]+)\s*=\s*"\[(.*?)\]"', re.DOTALL)
+    for m in pattern.finditer(text):
+        prop = m.group(1)
+        body = m.group(2)
+        # 拆行
+        lines = body.split('\n')
+        # 找字符串行（以 " 开头，可能有空白）
+        str_lines = []
+        for i, ln in enumerate(lines):
+            stripped = ln.strip()
+            if stripped.startswith('"') or stripped.startswith("'") or stripped.startswith('{'):
+                str_lines.append((i, stripped))
+        # 检查除最后一行外，每行是否以 , 结尾
+        for idx, (i, content) in enumerate(str_lines[:-1]):
+            if not content.rstrip(',').endswith((',', '{', '[')) and not content.endswith(','):
+                # 检查实际内容（去掉前导符号后是否以 , 结尾）
+                # 内容可能以 `{` 开头（object）也可能以 `"` 开头（string）
+                if content.endswith(','):
+                    continue
+                # 报告
+                issues.append(f'{prop} line {i+1}: {content[:60]}')
+    return issues
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--min-words', type=int, default=500)
@@ -100,13 +145,14 @@ def main():
     files = find_all_md_files()
     site_stats = defaultdict(lambda: {'files': 0, 'words': 0, 'fm': 0, 'imgs': 0, 'links': 0,
                                        'thin': 0, 'no_fm': 0, 'no_date': 0, 'stale': 0, 'missing_alt': 0,
-                                       'broken_links': 0, 'xsite_links': 0})
+                                       'broken_links': 0, 'xsite_links': 0, 'vue_prop_issues': 0})
     all_titles: list[tuple[str, str, Path]] = []  # (title, site, file)
     issues_thin: list[str] = []
     issues_no_fm: list[str] = []
     issues_stale: list[str] = []
     issues_missing_alt: list[str] = []
     broken_links: list[str] = []
+    issues_vue_props: list[str] = []
 
     now = datetime.date.today()
 
@@ -201,6 +247,13 @@ def main():
                     s['broken_links'] += 1
                     broken_links.append(f"{site_short}/{path.relative_to(SITE_DOCS[site])} -> {href}")
 
+        # Vue prop 数组语法检查（§8.14 修复：缺逗号会被 Vue 静默拼接为长字符串）
+        vue_prop_issues = check_vue_prop_arrays(text)
+        if vue_prop_issues:
+            s['vue_prop_issues'] += len(vue_prop_issues)
+            for issue in vue_prop_issues[:5]:
+                issues_vue_props.append(f"{site_short}/{path.relative_to(SITE_DOCS[site])} {issue}")
+
         # 跨站引用：1) markdown link  2) Vue 组件 prop（:site="xxx" 或 site: "xxx"）
         xsite = re.findall(r'\[[^\]]+\]\((https?://java-px\.bot\.cd/([^/)]+))/', text)
         xsite += re.findall(r'(?:site|:href|:link)\s*[:=]\s*["\']([a-z-]+)', text)
@@ -254,6 +307,7 @@ def main():
     total_missing_alt = sum(s['missing_alt'] for s in site_stats.values())
     total_broken = sum(s['broken_links'] for s in site_stats.values())
     total_xsite = sum(s['xsite_links'] for s in site_stats.values())
+    total_vue_prop_issues = sum(s['vue_prop_issues'] for s in site_stats.values())
 
     lines = []
     lines.append(f"# 内容质量审计报告 — {today}")
@@ -278,19 +332,20 @@ def main():
     lines.append(f"| 缺 alt 的图片 | {total_missing_alt} | 0 | {'✅' if total_missing_alt == 0 else '❌'} |")
     lines.append(f"| 内部死链 | {total_broken} | 0 | {'✅' if total_broken == 0 else '❌'} |")
     lines.append(f"| 跨站引用 | {total_xsite} | ≥ 100 | {'⚠️ 偏少' if total_xsite < 100 else '✅'} |")
+    lines.append(f"| Vue prop 数组缺逗号 | {total_vue_prop_issues} | 0 | {'✅' if total_vue_prop_issues == 0 else '❌'} |")
     lines.append(f"| 跨子站重复标题 | {len(cross_dups)} | ≤ 20 | {'✅' if len(cross_dups) <= 20 else '⚠️'} |")
     lines.append("")
 
     lines.append("## 一、各子站统计")
     lines.append("")
-    lines.append("| 子站 | 文件 | 字数 | FM | 薄页 | 缺FM | 过期 | 图片 | 死链 | 跨站 |")
+    lines.append("| 子站 | 文件 | 字数 | FM | 薄页 | 缺FM | 过期 | 图片 | 死链 | 跨站 | VueBug |")
     lines.append("|------|-----:|-----:|---:|-----:|-----:|-----:|-----:|-----:|-----:|")
     for site in sorted(site_stats):
         s = site_stats[site]
         if s['files'] == 0:
             continue
         short = site.replace('-html', '').replace('java-web-manual', 'java')
-        lines.append(f"| {short} | {s['files']} | {s['words']:,} | {s['fm']} | {s['thin']} | {s['no_fm']} | {s['stale']} | {s['imgs']} | {s['broken_links']} | {s['xsite_links']} |")
+        lines.append(f"| {short} | {s['files']} | {s['words']:,} | {s['fm']} | {s['thin']} | {s['no_fm']} | {s['stale']} | {s['imgs']} | {s['broken_links']} | {s['xsite_links']} | {s['vue_prop_issues']} |")
     lines.append("")
 
     if issues_thin:
@@ -351,6 +406,17 @@ def main():
             lines.append(f"- ... 及其他 {len(cross_dups) - 30} 组")
         lines.append("")
 
+    if issues_vue_props:
+        lines.append(f"## 九、Vue prop 数组语法错误（{len(issues_vue_props)} 处）")
+        lines.append("")
+        lines.append("⚠️ `:prop=\"[ ... ]\"` 数组中除最后一行外每行末尾必须有逗号，否则 Vue 会把多个字符串静默拼接为 1 个长串。")
+        lines.append("")
+        for f in issues_vue_props[:20]:
+            lines.append(f"- `{f}`")
+        if len(issues_vue_props) > 20:
+            lines.append(f"- ... 及其他 {len(issues_vue_props) - 20} 处")
+        lines.append("")
+
     lines.append("## 八、关键发现与建议")
     lines.append("")
     lines.append(f"1. **图片覆盖率极低**：{total_imgs} 张图 / {total_files} 篇 = {100*total_imgs/total_files:.1f}%，纯文字技术文档严重缺乏视觉化（C11 价值高）")
@@ -365,7 +431,7 @@ def main():
     out_file.write_text('\n'.join(lines))
     print(f"✓ 报告: {out_file}")
     print(f"  files: {total_files}  words: {total_words:,}  thin: {total_thin}  imgs: {total_imgs}  xsite: {total_xsite}")
-    print(f"  no_fm: {total_no_fm}  no_date: {total_no_date}  stale: {total_stale}  broken: {total_broken}  dups: {len(cross_dups)} (cross-site) + {len(intra_dups)} (intra-site)")
+    print(f"  no_fm: {total_no_fm}  no_date: {total_no_date}  stale: {total_stale}  broken: {total_broken}  dups: {len(cross_dups)} (cross-site) + {len(intra_dups)} (intra-site)  vue_bug: {total_vue_prop_issues}")
 
 if __name__ == '__main__':
     main()
