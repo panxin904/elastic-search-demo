@@ -158,19 +158,19 @@ Functional Options 是 Rob Pike（Go 之父）推荐的 Go 模式，被 grpc-go�
 ```typescript
 class QueryBuilder {
     private selects: string[] = [];
-    private froms: string[] = [];
+    private forms: string[] = [];
     private wheres: string[] = [];
     private orders: string[] = [];
     private limitCount?: number;
 
     select(...cols: string[]) { this.selects.push(...cols); return this; }
-    from(table: string) { this.froms.push(table); return this; }
+    from(table: string) { this.forms.push(table); return this; }
     where(cond: string) { this.wheres.push(cond); return this; }
     orderBy(col: string, dir: 'ASC' | 'DESC' = 'ASC') { this.orders.push(`${col} ${dir}`); return this; }
     limit(n: number) { this.limitCount = n; return this; }
 
     toSQL(): string {
-        let sql = `SELECT ${this.selects.join(', ')} FROM ${this.froms.join(', ')}`;
+        let sql = `SELECT ${this.selects.join(', ')} FROM ${this.forms.join(', ')}`;
         if (this.wheres.length) sql += ` WHERE ${this.wheres.join(' AND ')}`;
         if (this.orders.length) sql += ` ORDER BY ${this.orders.join(', ')}`;
         if (this.limitCount) sql += ` LIMIT ${this.limitCount}`;

@@ -1,0 +1,128 @@
+# .codespell-ignore
+# 项目级拼写白名单：codespell 不报的词
+# 添加新词前先确认：
+#   1) 是真实专有名词 / 缩写 / API 名（不是错别字）
+#   2) git blame 看是否有人刻意保留
+#
+# 分类：
+#   [A] 评估指标 / 算法缩写
+#   [B] 专有工具 / 服务名
+#   [C] 数据结构 / 算法
+#   [D] 业务 / 文档常用缩写
+#   [E] codespell 误拆（"AND" 被拆成 "ND" 等）— 谨慎添加
+
+# === [A] 评估指标 / 算法缩写 ===
+rouge
+rouge-l
+rouge-n
+mor
+mor-compact
+
+# === [B] 专有工具 / 服务名 ===
+aks
+aks-engine
+brin
+brin-index
+notin
+kubernetes
+kubernet
+kustomize
+istio
+envoy
+kiali
+jaeger
+prometheus
+thanos
+cortex
+loki
+grafana
+argo
+argocd
+tekton
+drone
+jenkins
+gitlab
+paeth
+hpa
+vpa
+hpc
+arp
+dhcp
+ntp
+snmp
+smtp
+imap
+pop3
+ldap
+kerberos
+active-directory
+fpr
+fprs
+tpr
+tprs
+fnr
+fnrs
+exat
+pxat
+anull
+eNULL
+inout
+copyin
+copying
+postgress
+didi
+lama
+
+# === [C] 数据结构 / 算法 ===
+bplustree
+hyperloglog
+hll
+bloom-filter
+cuckoo-filter
+morsel
+morsels
+
+# === [D] 文档 / 业务常用 ===
+coo
+coupling
+coupled
+mvc
+mvi
+mvp
+mvvm
+dto
+dao
+vo
+parm
+parms
+iif
+fo
+esponse
+uer
+res
+ue
+fromm
+fo
+te
+pars
+dows
+
+# === [E] codespell 误拆（确认是合法词，不是被错拆的结果） ===
+nd
+ND
+ubernetes
+ubernet
+uptodate
+browseable
+ERRO
+ans
+ser
+
+# === 第五轮 ===
+fof
+ois
+
+# === 第六轮（剩余误报）===
+flate
+siz
+OT

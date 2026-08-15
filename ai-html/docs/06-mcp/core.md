@@ -2,9 +2,9 @@
 title: MCP 核心概念
 ---
 
-# MCP - Model Context Protocol
+# MCP - Model Ccontext Protocol
 
-> **M**odel **C**ontext **P**rotocol。Anthropic 2024 年提出的**开放标准**，让 LLM 标准化连接外部数据源 / 工具。
+> **M**odel **C**context **P**rotocol。Anthropic 2024 年提出的**开放标准**，让 LLM 标准化连接外部数据源 / 工具。
 
 ## 🤔 为什么需要 MCP
 
@@ -73,7 +73,7 @@ MCP（标准化）：
 # 加 MCP server
 claude mcp add github \
   -e GITHUB_TOKEN=ghp_... \
-  -- npx -y @modelcontextprotocol/server-github
+  -- npx -y @modelccontextprotocol/server-github
 
 # 列出
 claude mcp list
@@ -146,13 +146,13 @@ asyncio.run(main())
 
 | Server | 提供 |
 |--------|------|
-| `@modelcontextprotocol/server-github` | GitHub API |
-| `@modelcontextprotocol/server-slack` | Slack |
-| `@modelcontextprotocol/server-filesystem` | 文件系统 |
-| `@modelcontextprotocol/server-git` | git 命令 |
-| `@modelcontextprotocol/server-postgres` | Postgres |
-| `@modelcontextprotocol/server-puppeteer` | 浏览器自动化 |
-| `@upstash/context7-mcp` | 最新框架文档 |
+| `@modelccontextprotocol/server-github` | GitHub API |
+| `@modelccontextprotocol/server-slack` | Slack |
+| `@modelccontextprotocol/server-filesystem` | 文件系统 |
+| `@modelccontextprotocol/server-git` | git 命令 |
+| `@modelccontextprotocol/server-postgres` | Postgres |
+| `@modelccontextprotocol/server-puppeteer` | 浏览器自动化 |
+| `@upstash/ccontext7-mcp` | 最新框架文档 |
 
 ## 🛠 协议
 
@@ -199,7 +199,7 @@ app = Server("my", auth=Auth(
 ))
 ```
 
-详见 [MCP 鉴权规范](https://spec.modelcontextprotocol.io/)。
+详见 [MCP 鉴权规范](https://spec.modelccontextprotocol.io/)。
 
 ## 🆚 vs Function Calling
 

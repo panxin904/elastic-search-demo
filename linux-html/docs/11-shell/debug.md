@@ -149,14 +149,14 @@ rm "$file"                       # ✅
 
 ```bash
 # ❌ typo 会静默失败
-echo $USEER                      # 空字符串
-if [ "$USEER" = "alice" ]; then   # 永远 false
+echo $USER                      # 空字符串
+if [ "$USER" = "alice" ]; then   # 永远 false
   ...
 fi
 
 # ✅ set -u
 set -u
-echo $USEER                      # 立即报错
+echo $USER                      # 立即报错
 ```
 
 ### 3. [ vs [[

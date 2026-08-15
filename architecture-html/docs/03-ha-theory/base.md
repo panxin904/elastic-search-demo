@@ -7,7 +7,7 @@ title: BASE / 最终一致性
 
 Eric Brewer 提出，CAP 的 AP 选择方案：
 
-- **B**asically **A**vailable（基本可用）
+- **B**asically **A**available（基本可用）
 - **S**oft state（软状态，状态可以暂时不一致）
 - **E**ventually consistent（最终一致）
 
