@@ -568,3 +568,24 @@ python3 sites-hub/scripts/audit-content.py
 
 **当前 HEAD**：ec2627b on main
 **入库文件**：1995（首次 1966 + 二次 29）
+
+### 8.10 5 站重复段落抽 Vue 组件（2026-08-15 第三次）
+
+| 项 | 内容 |
+|----|------|
+| 新组件 | `WhyThisGraph.vue`（双栏：痛点红 / 目标绿） |
+| 规范位置 | `shared-assets/vitepress-template/theme/components/` |
+| 实际分发 | 5 站各 `.vitepress/theme/components/` 复制一份（C1 完成前） |
+| 注册方式 | `.vitepress/theme/index.ts` `app.component('WhyThisGraph', ...)` |
+| 数据传入 | index.md 用 `:pain-points` `:goals` props（数组字面量） |
+| 5 站 | ai / architecture / bigdata / cloud-native / java-language |
+
+**为什么暂不符号链接 / npm 包**：28 子站当前是独立 VitePress 项目，跨站共享组件需要 C1 模板统一后才有意义。当前复制方式让 5 站先看到效果，C1 推进时再升级为符号链接。
+
+**效果**：
+- 跨子站重复标题：245 → **244**（"为什么写这个图谱？"组消失）
+- 5 站样式统一（响应式：< 768px 单栏）
+- 后续一处改样式 5 站同时生效
+- C2 跨站关联可在组件内加"相关站点"推荐位
+
+**未做**：未跑 `npm run docs:build` 验证（每个子站依赖 200+ MB，依赖用户 push 后 GitHub Actions 跑）
