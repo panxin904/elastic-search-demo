@@ -1,3 +1,7 @@
+---
+title: ext4 经典之选
+---
+
 # ext4 经典之选
 
 <span class="kg-badge kg-badge-disk-fs">本地盘</span>

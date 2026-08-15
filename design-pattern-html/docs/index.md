@@ -1,4 +1,8 @@
 ---
+title: 设计模式 / GoF 23 式 / 反模式
+---
+
+---
 layout: home
 
 hero:

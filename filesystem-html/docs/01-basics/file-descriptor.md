@@ -1,3 +1,7 @@
+---
+title: 文件描述符与 open
+---
+
 # 文件描述符与 open
 
 <span class="kg-badge kg-badge-basics">基础</span>

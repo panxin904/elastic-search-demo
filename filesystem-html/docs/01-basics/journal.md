@@ -1,3 +1,7 @@
+---
+title: 日志与一致性
+---
+
 # 日志与一致性
 
 <span class="kg-badge kg-badge-basics">基础</span>

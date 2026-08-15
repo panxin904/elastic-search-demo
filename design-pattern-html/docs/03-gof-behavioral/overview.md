@@ -1,3 +1,7 @@
+---
+title: 行为型模式总览
+---
+
 # 行为型模式总览
 
 > GoF 23 模式中专门解决「对象间职责分配与通信」问题的 11 个模式。行为型模式既关注类之间的算法/职责流转（Template Method / Strategy / State），也关注对象间的消息传递（Observer / Mediator / Command）和状态管理（Memento）。

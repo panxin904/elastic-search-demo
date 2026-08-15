@@ -8,11 +8,11 @@
 | 指标 | 数值 | 健康阈值 | 状态 |
 |------|------|----------|------|
 | 总文件数 | 1430 | — | — |
-| 总字数（中英混合） | 1,156,146 | — | — |
-| frontmatter 覆盖率 | 97.2% | ≥ 95% | ✅ |
+| 总字数（中英混合） | 1,156,342 | — | — |
+| frontmatter 覆盖率 | 100.0% | ≥ 95% | ✅ |
 | 薄页（< 500 字） | 324 (22.7%) | ≤ 5% | ❌ |
-| 缺 frontmatter | 40 | 0 | ❌ |
-| frontmatter 缺 date | 1390 | 0 | ❌ |
+| 缺 frontmatter | 0 | 0 | ✅ |
+| frontmatter 缺 date | 1417 | 0 | ❌ |
 | 过期内容（> 365 天） | 0 | ≤ 10% | ✅ |
 | 图片总数 | 9 | — | ⚠️ 偏少 |
 | 缺 alt 的图片 | 7 | 0 | ❌ |
@@ -31,10 +31,10 @@
 | clickhouse | 36 | 33,010 | 36 | 1 | 0 | 0 | 0 | 0 | 0 |
 | cloud | 1 | 609 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
 | cloud-native | 55 | 37,091 | 55 | 4 | 0 | 0 | 0 | 0 | 0 |
-| design-pattern | 49 | 55,323 | 42 | 0 | 7 | 0 | 0 | 0 | 0 |
+| design-pattern | 49 | 55,400 | 49 | 0 | 0 | 0 | 0 | 0 | 0 |
 | devops | 30 | 17,709 | 30 | 7 | 0 | 0 | 0 | 0 | 0 |
 | es | 63 | 19,136 | 63 | 59 | 0 | 0 | 0 | 0 | 0 |
-| filesystem | 94 | 71,972 | 61 | 15 | 33 | 0 | 0 | 0 | 4 |
+| filesystem | 94 | 72,091 | 81 | 15 | 0 | 0 | 0 | 0 | 4 |
 | frontend | 65 | 29,161 | 65 | 51 | 0 | 0 | 8 | 0 | 0 |
 | go | 36 | 41,445 | 36 | 1 | 0 | 0 | 0 | 0 | 0 |
 | java | 53 | 16,761 | 53 | 47 | 0 | 0 | 0 | 0 | 0 |
@@ -106,40 +106,6 @@
 - `devops/01-pipeline/github-actions.md (419字)`
 - `devops/02-iac/terraform.md (449字)`
 - ... 及其他 274 篇
-
-## 三、缺 frontmatter 清单（40 篇）
-
-- `design-pattern/index.md`
-- `design-pattern/02-gof-structural/overview.md`
-- `design-pattern/04-modern-patterns/overview.md`
-- `design-pattern/06-anti-patterns/overview.md`
-- `design-pattern/03-gof-behavioral/overview.md`
-- `design-pattern/01-gof-creational/overview.md`
-- `design-pattern/05-architectural-patterns/overview.md`
-- `filesystem/path.md`
-- `filesystem/cheatsheet.md`
-- `filesystem/mindmap.md`
-- `filesystem/graph.md`
-- `filesystem/06-cloud-native/README.md`
-- `filesystem/04-object/README.md`
-- `filesystem/10-security/README.md`
-- `filesystem/01-basics/vfs.md`
-- `filesystem/01-basics/mount.md`
-- `filesystem/01-basics/path-resolution.md`
-- `filesystem/01-basics/page-cache.md`
-- `filesystem/01-basics/README.md`
-- `filesystem/01-basics/journal.md`
-- `filesystem/01-basics/inode-dentry.md`
-- `filesystem/01-basics/file-descriptor.md`
-- `filesystem/03-distributed/cephfs.md`
-- `filesystem/03-distributed/hdfs.md`
-- `filesystem/03-distributed/README.md`
-- `filesystem/05-network/README.md`
-- `filesystem/11-backup/README.md`
-- `filesystem/08-tools/README.md`
-- `filesystem/07-container/README.md`
-- `filesystem/02-disk-fs/zfs.md`
-- ... 及其他 10 篇
 
 ## 五、缺 alt 图片清单（7 张）
 
@@ -297,6 +263,6 @@
 1. **图片覆盖率极低**：9 张图 / 1430 篇 = 0.6%，纯文字技术文档严重缺乏视觉化（C11 价值高）
 2. **跨站引用近零**：仅 4 处，28 站 1429+ 页形成内容孤岛（C2 价值高）
 3. **薄页比例 22.7%**：324 篇字数 < 500，可能为 placeholder 或拆分过度（C3 持续 review）
-4. **frontmatter 覆盖率 97.2%**：40 篇缺 FM，1390 篇 FM 缺 date（C1 模板可根治）
+4. **frontmatter 覆盖率 100.0%**：0 篇缺 FM，1417 篇 FM 缺 date（C1 模板可根治）
 5. **过期内容 0 篇**（> 365 天）：需要月度 review 流程（C10）
 6. **内部死链 0 处**：可能是 VitePress cleanUrls 导致文件名不一致，建议用 check-links.py depth=3 交叉验证

@@ -1,3 +1,7 @@
+---
+title: XFS 高性能日志
+---
+
 # XFS 高性能日志
 
 <span class="kg-badge kg-badge-disk-fs">本地盘</span>

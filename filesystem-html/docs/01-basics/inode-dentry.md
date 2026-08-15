@@ -1,3 +1,7 @@
+---
+title: inode 与 dentry
+---
+
 # inode 与 dentry
 
 <span class="kg-badge kg-badge-basics">基础</span>

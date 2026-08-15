@@ -1,3 +1,7 @@
+---
+title: HDFS 大数据基石
+---
+
 # HDFS 大数据基石
 
 <span class="kg-badge kg-badge-distributed">分布式</span>

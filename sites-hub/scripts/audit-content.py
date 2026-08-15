@@ -124,8 +124,13 @@ def main():
         # frontmatter
         fm, body = parse_frontmatter(text)
         has_fm = bool(fm)
-        s['fm' if has_fm else 'no_fm'] += 1
-        if not has_fm:
+        if has_fm:
+            s['fm'] += 1
+        elif path.name == 'README.md':
+            # VitePress 默认目录页：README.md 不加 FM 是惯例
+            pass
+        else:
+            s['no_fm'] += 1
             issues_no_fm.append(f"{site_short}/{path.relative_to(SITE_DOCS[site])}")
 
         # date 检查

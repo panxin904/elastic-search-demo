@@ -1,3 +1,7 @@
+---
+title: Page Cache 页缓存
+---
+
 # Page Cache 页缓存
 
 <span class="kg-badge kg-badge-basics">基础</span>

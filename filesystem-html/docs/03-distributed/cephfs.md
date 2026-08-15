@@ -1,3 +1,7 @@
+---
+title: CephFS 统一存储
+---
+
 # CephFS 统一存储
 
 <span class="kg-badge kg-badge-distributed">分布式</span>

@@ -1,3 +1,7 @@
+---
+title: 目录与路径解析
+---
+
 # 目录与路径解析
 
 <span class="kg-badge kg-badge-basics">基础</span>
