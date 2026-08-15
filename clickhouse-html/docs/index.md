@@ -43,15 +43,34 @@ features:
     linkText: 选型决策
 ---
 
-## 关联站点
 
-ClickHouse 不是孤立的数据栈 — 它需要与流处理、可观测性、OLTP 数据库协同：
-
-- **kafka/** → Kafka 引擎直接消费：流批一体 / Exactly-Once / 反压 / 分区策略 → 链到 `05-ecosystem/kafka-engine`
-- **observability/** → ClickHouse 作为可观测性存储：Grafana Mimir / VictoriaMetrics / Loki 替代 → 链到 `04-olap-scenarios/observability`
-- **mysql/** → MySQL → ClickHouse 实时数仓：Binlog / CDC / MaterializedMySQL 引擎 → 链到 `06-compare/mysql`
-- **postgresql/** → PG → ClickHouse HTAP 架构：逻辑复制 / FDW / 物化视图同步 → 链到 `06-compare/postgresql`
-- **architecture/** → 实时数仓架构：Lambda / Kappa / 湖仓一体 → 链到 `04-olap-scenarios/lambda-kappa`
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="[
+      "列存 vs 行存：为什么 OLAP 要用列存？",
+      "MergeTree 引擎家族（Replacing / Summing / Aggregating）怎么选？",
+      "实时数仓（Lambda / Kappa / 湖仓一体）架构怎么选？",
+      "集群扩容、副本、数据分片怎么平衡成本与可用性？",
+      "SQL 优化：ORDER BY / PARTITION BY / INDEX / SAMPLE 怎么用？"
+    ]"
+    :goals="[
+      "列存原理 + MergeTree 引擎对比",
+      "表引擎（Log / MergeTree / Distributed / MaterializedView）",
+      "数仓场景（Lambda / Kappa / 湖仓一体）",
+      "生态集成（Kafka 引擎 / MySQL CDC / PG FDW）",
+      "可观测性存储（Grafana Mimir / VictoriaMetrics / Loki 替代）",
+      "性能调优 + 运维实战"
+    ]"
+    :related-sites="[
+      { site: "kafka", path: "/05-ecosystem/kafka-engine", label: "Kafka 引擎消费" },
+      { site: "observability", path: "/04-olap-scenarios/observability", label: "可观测性存储" },
+      { site: "mysql", path: "/06-compare/mysql", label: "MySQL → ClickHouse 实时数仓" },
+      { site: "postgresql", path: "/06-compare/postgresql", label: "PG → ClickHouse HTAP" },
+      { site: "architecture", path: "/04-olap-scenarios/lambda-kappa", label: "实时数仓架构" }
+    ]"
+    title="🎯 为什么写这个图谱？"
+  />
+</ClientOnly>
 
 ## 学习路径建议
 

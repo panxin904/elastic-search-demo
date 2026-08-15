@@ -78,15 +78,34 @@ features:
     linkText: 看 pgvector →
 ---
 
-## 关联站点
 
-PostgreSQL 在企业架构中常与 OLTP、OLAP、缓存、可观测性深度协同：
-
-- **mysql/** → MySQL vs PostgreSQL 全方位对比（事务 / 复制 / 扩展性 / 生态）→ 链到 `11-compare/mysql-vs-postgresql`
-- **clickhouse/** → HTAP 架构：PG 处理 OLTP、ClickHouse 处理 OLAP，Binlog/CDC 同步 → 链到 `06-compare/clickhouse`
-- **redis/** → PG + Redis 缓存层：缓存击穿 / 雪崩 / 一致性保障 → 链到 `09-connection/cache-pattern`
-- **observability/** → PG 慢查询 / 锁等待 / checkpoint 监控 / pg_stat_statements → 链到 `07-operations/monitoring`
-- **architecture/** → 分布式数据库架构：读写分离 / 分库分表 / 分布式事务 → 链到 `04-transaction/overview`
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="[
+      "MVCC 原理：为什么 PG 的读不阻塞写？",
+      "事务隔离级别（RC / RR / Serializable）选哪个？",
+      "索引类型（B-tree / Hash / GIN / BRIN / GiST）怎么选？",
+      "主从复制延迟、逻辑复制、FDW 怎么用？",
+      "慢查询、锁等待、checkpoint 怎么监控？"
+    ]"
+    :goals="[
+      "SQL 基础（DDL / DML / 查询 / 聚合 / CTE / Window）",
+      "事务与并发控制（MVCC / 隔离级别 / 锁）",
+      "索引体系（B-tree / Hash / GIN / BRIN / GiST）",
+      "复制与高可用（流复制 / 逻辑复制 / Patroni / PgBouncer）",
+      "性能调优（EXPLAIN / pg_stat_statements / 参数调优）",
+      "扩展生态（PostGIS / pgvector / TimescaleDB）"
+    ]"
+    :related-sites="[
+      { site: "mysql", path: "/11-compare/mysql-vs-postgresql", label: "MySQL vs PostgreSQL" },
+      { site: "clickhouse", path: "/06-compare/clickhouse", label: "PG → ClickHouse HTAP" },
+      { site: "redis", path: "/09-connection/cache-pattern", label: "PG + Redis 缓存层" },
+      { site: "observability", path: "/07-operations/monitor", label: "PG 慢查询监控" },
+      { site: "architecture", path: "/04-transaction/overview", label: "分布式事务" }
+    ]"
+    title="🎯 为什么写这个图谱？"
+  />
+</ClientOnly>
 
 ## 学习路径建议
 

@@ -68,21 +68,31 @@ features:
     linkText: 看案例 →
 ---
 
-## 🎯 为什么做这个图谱？
 
-```
-系统设计是后端工程师的**分水岭**：
-  ❌ 会写 CRUD 却讲不清 CAP
-  ❌ 调过 Redis 却说不出 cache-aside 的失效边界
-  ❌ 用过 Kafka 但说不清"不丢消息"需要哪几道防线
-  ❌ 设计过系统但写不出"短链"的短码生成选型
-  ❌ 读过 Raft 论文但没自己推导过选举超时
-
-本图谱聚焦**理论 + 经典设计题**两条主线：
-  ✅ 一致性模型谱 + CAP + Paxos/Raft：分布式理论的根
-  ✅ 短链 / Feed / 秒杀 / 抢红包 / LBS：系统设计面试与实战
-  ✅ 每章都给出：问题 → 经典方案 → 工程取舍 → 代码骨架
-```
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="[
+      "会写 CRUD 却讲不清 CAP",
+      "调过 Redis 却说不出 cache-aside 的失效边界",
+      "用过 Kafka 但说不清「不丢消息」需要哪几道防线",
+      "设计过系统但写不出「短链」的短码生成选型",
+      "读过 Raft 论文但没自己推导过选举超时"
+    ]"
+    :goals="[
+      "一致性模型谱 + CAP + PACELC + FLP：分布式理论的根",
+      "短链 / Feed / 秒杀 / 抢红包 / LBS：系统设计面试与实战",
+      "每章给出：问题 → 经典方案 → 工程取舍 → 代码骨架"
+    ]"
+    :related-sites="[
+      { site: "architecture", path: "/01-distributed/cap", label: "CAP 定理" },
+      { site: "java-language", path: "/04-jvm/overview", label: "JVM 原理" },
+      { site: "java", path: "/04-tech/jvm", label: "Java Web JVM" },
+      { site: "kafka", path: "/01-basics/architecture", label: "Kafka 架构" },
+      { site: "redis", path: "/01-basics/intro", label: "Redis 基础" }
+    ]"
+    title="🎯 为什么写这个图谱？"
+  />
+</ClientOnly>
 
 ## 📖 学习路径（推荐顺序）
 

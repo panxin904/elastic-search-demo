@@ -47,15 +47,34 @@ features:
     link: /07-observability-for-chaos/overview
 ---
 
-## 关联站点
 
-混沌工程不是孤岛 — 它需要与可观测性、系统架构、CI/CD、数据库韧性深度协同：
-
-- **observability/** → 混沌可观测性的姐妹篇：稳态假设需要 metric/log/trace 三件套验证 → 链到 `07-observability-for-chaos/overview`
-- **system-design/** → 混沌思维下的系统设计：副本数 / 隔离域 / 优雅降级的工程权衡 → 链到 `01-theory/cap-theorem`
-- **postgresql/** → 数据库故障演练：主从切换延迟 / 脑裂恢复 / 慢查询风暴 → 链到 `09-connection/failover`
-- **devops/** → 流水线注入故障 / 蓝绿切换中的混沌验证 / Argo Rollouts 渐进式发布 → 链到 `04-release/canary`
-- **architecture/** → 韧性架构全景：熔断 / 限流 / 舱壁 / 重试 / 多活 → 链到 `05-patterns/circuit-breaker`
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="[
+      "Netflix Chaos Monkey 起源：混沌工程到底解决什么问题？",
+      "稳态假设（steady state）怎么定义才不会被实验打破？",
+      "爆炸半径（blast radius）如何控制才安全？",
+      "Chaos Mesh / Litmus / Gremlin / ChaosBlade 工具怎么选？",
+      "故障画像、实验报告、复盘怎么写才有用？"
+    ]"
+    :goals="[
+      "混沌工程基础（稳态 / 爆炸半径 / 实验方法论）",
+      "Chaos Mesh 全场景实操（PodChaos / NetworkChaos / StressChaos / IOChaos）",
+      "Litmus ChaosExperiment CRD + Probe / Check + 50+ 内置实验",
+      "韧性模式（重试 / 超时 / 舱壁 / 熔断 / 限流 / 降级 / 多活 / 灾备）",
+      "游戏日演练设计（指挥官 / 注入者 / 观察员 / 记录员角色分工）",
+      "混沌可观测性闭环（metric/log/trace 联动 + SLO 反馈）"
+    ]"
+    :related-sites="[
+      { site: "observability", path: "/07-operations/slo", label: "SLO 与稳态假设" },
+      { site: "system-design", path: "/01-theory/cap-theorem", label: "副本与隔离域" },
+      { site: "postgresql", path: "/09-connection/failover", label: "主从切换演练" },
+      { site: "devops", path: "/04-release/canary", label: "蓝绿 + 灰度验证" },
+      { site: "architecture", path: "/05-patterns/circuit-breaker", label: "熔断 / 限流 / 舱壁" }
+    ]"
+    title="🎯 为什么写这个图谱？"
+  />
+</ClientOnly>
 
 ## 学习路径建议
 

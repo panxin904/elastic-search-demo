@@ -62,23 +62,33 @@ features:
     linkText: 挑战面试 →
 ---
 
-## 🎯 为什么写这个知识图谱？
 
-```
-Redis 是后端工程师的必备技能，但绝大多数人：
-  ❌ 只会简单 SET/GET，不懂底层数据结构
-  ❌ 不了解 RDB / AOF 的差异
-  ❌ 集群模式分不清主从 / 哨兵 / Cluster
-  ❌ 用过 Jedis 但不知道 Lettuce 是怎么 NIO 异步的
-  ❌ 做过分布式锁但不清楚"看门狗"原理
-
-本图谱的目标：
-  ✅ 系统化讲解 Redis 底层原理
-  ✅ 覆盖 5 大基础类型 + Stream
-  ✅ Java SDK 全场景（Jedis / Lettuce / Redisson）
-  ✅ 企业实战（分布式锁、限流、消息队列）
-  ✅ 面试手撕题 + 性能调优
-```
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="[
+      "只会简单 SET / GET，不懂底层数据结构（SDS / Dict / SkipList）",
+      "不了解 RDB / AOF 的差异与混合持久化",
+      "集群模式分不清主从 / 哨兵 / Cluster / Gossip",
+      "用过 Jedis 但不知道 Lettuce 是怎么 NIO 异步的",
+      "做过分布式锁但不清楚「看门狗」续期原理"
+    ]"
+    :goals="[
+      "系统化讲解 Redis 底层原理",
+      "覆盖 5 大基础类型（String / Hash / List / Set / ZSet） + Stream",
+      "Java SDK 全场景（Jedis / Lettuce / Redisson / Spring Data Redis）",
+      "企业实战（分布式锁 / 限流 / Session / 消息队列 / 排行榜）",
+      "面试手撕题 + 性能调优"
+    ]"
+    :related-sites="[
+      { site: "java", path: "/03-practice/jedis", label: "Jedis / Lettuce" },
+      { site: "architecture", path: "/04-cache/redis", label: "架构中的 Redis" },
+      { site: "system-design", path: "/01-theory/cap-theorem", label: "CAP 与一致性" },
+      { site: "observability", path: "/05-sre/redis-monitor", label: "Redis 监控" },
+      { site: "mysql", path: "/09-connection/cache-pattern", label: "MySQL + Redis 缓存" }
+    ]"
+    title="🎯 为什么写这个图谱？"
+  />
+</ClientOnly>
 
 ## 🎯 学习路径
 

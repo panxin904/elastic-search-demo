@@ -67,26 +67,36 @@ features:
     linkText: 实战 →
 ---
 
-## 🎯 为什么写这个知识图谱？
 
-```
-Python 是最流行的编程语言之一，但绝大多数人：
-  ❌ 只懂基础语法，不了解底层原理
-  ❌ 用过 requests / pandas 但不知道内部实现
-  ❌ 写 GIL 多线程却不知道为什么慢
-  ❌ 爬虫写完就封 IP，不知道反爬怎么破
-  ❌ LLM 应用只会调 API，不知道 prompt 怎么写
-
-本图谱的目标：
-  ✅ 系统化讲解 Python 底层原理（解释器、字节码、对象模型、GIL、GC）
-  ✅ 覆盖常用库：requests、BeautifulSoup、pandas、SQLAlchemy、pytest
-  ✅ 深入并发编程：threading、asyncio、multiprocessing
-  ✅ 爬虫实战：requests、Scrapy、Playwright、反爬
-  ✅ AI/ML 应用：scikit-learn、PyTorch、Hugging Face、LLM 开发
-  ✅ 数据处理：pandas、NumPy、Matplotlib
-  ✅ 算法与数据结构实战
-  ✅ 企业级项目：FastAPI、Docker、性能优化
-```
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="[
+      "只懂基础语法，不了解底层原理（解释器 / 字节码 / 对象模型）",
+      "用过 requests / pandas 但不知道内部实现",
+      "写 GIL 多线程却不知道为什么慢",
+      "爬虫写完就封 IP，不知道反爬怎么破",
+      "LLM 应用只会调 API，不知道 prompt 怎么写"
+    ]"
+    :goals="[
+      "Python 底层原理（解释器 / 字节码 / 对象模型 / GIL / GC）",
+      "常用库（requests / BeautifulSoup / pandas / SQLAlchemy / pytest）",
+      "并发编程（threading / asyncio / multiprocessing）",
+      "爬虫实战（requests / Scrapy / Playwright / 反爬）",
+      "AI/ML 应用（scikit-learn / PyTorch / Hugging Face / LLM 开发）",
+      "数据处理（pandas / NumPy / Matplotlib）",
+      "算法与数据结构实战",
+      "企业级项目（FastAPI / Docker / 性能优化）"
+    ]"
+    :related-sites="[
+      { site: "ai", path: "/03-sdks/claude-sdk", label: "LLM SDK" },
+      { site: "go", path: "/01-basics/golang-intro", label: "Go 对比" },
+      { site: "java-language", path: "/04-jvm/overview", label: "JVM 对比" },
+      { site: "devops", path: "/01-pipeline/overview", label: "CI/CD 流水线" },
+      { site: "architecture", path: "/01-distributed/cap", label: "系统架构" }
+    ]"
+    title="🎯 为什么写这个图谱？"
+  />
+</ClientOnly>
 
 ## 🎯 学习路径
 
