@@ -45,6 +45,35 @@ features:
     linkText: 零信任总览
 ---
 
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="[
+      "OWASP Top 10 风险记不全，audit 一个 Web 应用无从下手？",
+      "认证 vs 授权、RBAC vs ABAC 模型区别？",
+      "密码学（对称 / 非对称 / 哈希 / 数字签名）讲不清？",
+      "TLS / HTTPS / 证书体系不熟？",
+      "XSS / CSRF / SQL 注入 / SSRF 等 Web 攻击原理？"
+    ]"
+    :goals="[
+      "安全基础（认证 / 授权 / 密码学 / TLS / 攻击面）",
+      "Web 安全（OWASP Top 10 / XSS / CSRF / SSRF / SQL 注入）",
+      "Linux / 系统安全（权限 / capabilities / SELinux）",
+      "网络安全（TLS / WAF / 防火墙 / IDS / IPS）",
+      "应用安全（API 安全 / JWT / OAuth2 / OIDC）",
+      "云原生安全（容器安全 / K8s RBAC / Sigstore / SBOM）"
+    ]"
+    :related-sites="[
+      { site: "network", path: "/01-fundamentals/tcp-ip", label: "TCP/IP 协议" },
+      { site: "linux", path: "/13-net/iptables", label: "Linux 防火墙" },
+      { site: "cloud-native", path: "/08-security/overview", label: "云原生安全" },
+      { site: "devops", path: "/06-best-practices/secure-pipeline", label: "安全流水线" },
+      { site: "frontend", path: "/04-react/hooks", label: "前端安全" }
+    ]"
+    title="🎯 为什么写这个图谱？"
+  />
+</ClientOnly>
+
+
 ## 关于本知识图谱
 
 **6 大类 / 32 节点 / 18 万字 / 全部 substantial**。

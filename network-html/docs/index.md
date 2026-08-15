@@ -61,6 +61,35 @@ features:
     linkText: 无线篇
 ---
 
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="[
+      "TCP/IP 协议栈（IP / TCP / UDP / HTTP）讲不清？",
+      "三次握手 / 四次挥手 / TIME_WAIT 太多怎么排查？",
+      "HTTPS / TLS 1.3 / HTTP/2 / HTTP/3 关系？",
+      "DNS 解析过程、CDN 调度、负载均衡策略？",
+      "网络排查工具（tcpdump / wireshark / ss / netstat）不会用？"
+    ]"
+    :goals="[
+      "理论体系（OSI 7 层 / TCP/IP 4 层 / 协议族）",
+      "HTTP 全家桶（HTTP/1.1 / HTTP/2 / HTTP/3 / HTTPS）",
+      "TCP 深度（握手 / 挥手 / 重传 / 拥塞控制）",
+      "DNS / CDN / 负载均衡",
+      "网络安全（TLS / WAF / ACL）",
+      "排查工具（tcpdump / wireshark / ss / iperf）"
+    ]"
+    :related-sites="[
+      { site: "linux", path: "/13-net/iptables", label: "iptables 防火墙" },
+      { site: "security", path: "/02-network/tls", label: "TLS 协议" },
+      { site: "system-design", path: "/01-theory/cap-theorem", label: "CAP 定理" },
+      { site: "devops", path: "/01-pipeline/overview", label: "CI/CD 流水线" },
+      { site: "observability", path: "/05-sre/network-debug", label: "网络排查" }
+    ]"
+    title="🎯 为什么写这个图谱？"
+  />
+</ClientOnly>
+
+
 ## 关于本站
 
 **计算机网络** 知识库面向后端工程师、SRE、网络工程师、面试候选人，提供**理论 + 实战**的完整知识体系。

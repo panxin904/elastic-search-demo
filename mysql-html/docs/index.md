@@ -68,6 +68,34 @@ features:
     linkText: 分库分表方案
 ---
 
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="[
+      "知识点碎片化，不知道先后顺序（11 大主题怎么学？）",
+      "InnoDB 引擎原理（MVCC / Buffer Pool / Redo Log）讲不清？",
+      "索引（B+Tree / Hash / 全文）怎么建才高效？",
+      "SQL 优化（EXPLAIN / 慢查询 / 索引失效）？",
+      "主从复制 / 读写分离 / 分库分表 / 分布式事务怎么落地？"
+    ]"
+    :goals="[
+      "体系结构 + 存储引擎 + 数据类型 + 字符集",
+      "索引 + SQL + 事务锁（日常开发 90% 场景）",
+      "性能优化 + 复制 + 高可用 + 备份 + 监控",
+      "分库分表 + 工具速查",
+      "SQL Playground + 思维导图 + 知识图谱"
+    ]"
+    :related-sites="[
+      { site: "postgresql", path: "/01-basics/intro", label: "PostgreSQL 对比" },
+      { site: "clickhouse", path: "/01-storage/index-design", label: "ClickHouse 索引" },
+      { site: "redis", path: "/01-basics/intro", label: "Redis 缓存" },
+      { site: "architecture", path: "/09-cases/sharding", label: "分库分表实战" },
+      { site: "observability", path: "/07-operations/monitor", label: "MySQL 监控" }
+    ]"
+    title="🎯 为什么写这个图谱？"
+  />
+</ClientOnly>
+
+
 <span class="kg-badge kg-badge-foundation">MySQL</span>
 
 # MySQL 知识图谱

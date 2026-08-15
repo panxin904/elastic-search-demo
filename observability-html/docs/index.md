@@ -69,6 +69,35 @@ features:
     linkText: 成本优化
 ---
 
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="[
+      "单体时代（CPU/内存/磁盘）vs 微服务时代（调用链/性能瓶颈）监控差异？",
+      "Metrics / Logs / Traces 三件套怎么选型（Prometheus / Loki / Jaeger）？",
+      "OpenTelemetry（OTel） Collector / SDK / Exporter 怎么部署？",
+      "SLO / SLI / Error Budget 怎么设计与度量？",
+      "告警风暴怎么治理？告警分级 + 抑制 + 路由？"
+    ]"
+    :goals="[
+      "可观测性基础（Metrics / Logs / Traces 三件套）",
+      "Metrics 体系（Prometheus / VictoriaMetrics / Grafana Mimir）",
+      "Logs 体系（Loki / ELK / ClickHouse）",
+      "Traces 体系（Jaeger / Tempo / OpenTelemetry）",
+      "SLO / SLI / Error Budget 工程实践",
+      "告警治理 + AIOps"
+    ]"
+    :related-sites="[
+      { site: "devops", path: "/05-cicd-observability/sre", label: "SRE 实践" },
+      { site: "cloud-native", path: "/05-observability/prometheus", label: "Prometheus" },
+      { site: "kafka", path: "/01-basics/architecture", label: "Kafka 架构" },
+      { site: "es", path: "/01-storage/overview", label: "ES 日志存储" },
+      { site: "clickhouse", path: "/01-storage/index-design", label: "ClickHouse 日志" }
+    ]"
+    title="🎯 为什么写这个图谱？"
+  />
+</ClientOnly>
+
+
 # Observability · 现代可观测性深度图谱
 
 > **本站点定位**：补完「开发 → 上线 → 运维」链路中**运行期**这一环。

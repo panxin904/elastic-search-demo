@@ -27,6 +27,34 @@ features:
 
 <div id="all-tools"></div>
 
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="[
+      "日常 JSON 格式化 / 压缩 / 校验每次都开在线工具？",
+      "时间戳 / 时区 / ISO 8601 转换容易出错？",
+      "URL 编解码 / Base64 / UUID / JWT 解码手算不来？",
+      "正则表达式每次都要查语法？",
+      "在线工具有数据泄露风险？"
+    ]"
+    :goals="[
+      "JSON 系列（格式化 / 转 YAML / 转 CSV / Diff）",
+      "时间系列（Unix 时间戳 / 时区 / ISO 8601 / Cron）",
+      "编码系列（Base64 / URL / JWT / Unicode）",
+      "生成系列（UUID / 哈希 / 随机数 / 密码）",
+      "正则 / 字符编码 / 相对路径 等"
+    ]"
+    :related-sites="[
+      { site: "frontend", path: "/01-basics/json", label: "前端 JSON" },
+      { site: "linux", path: "/11-shell/cron", label: "cron 任务" },
+      { site: "cloud-native", path: "/04-helm/values", label: "Helm values.yaml" },
+      { site: "system-design", path: "/09-id/snowflake", label: "UUID / Snowflake" },
+      { site: "python", path: "/01-basics/intro", label: "Python 基础" }
+    ]"
+    title="🎯 为什么写这个图谱？"
+  />
+</ClientOnly>
+
+
 ## JSON 系列
 
 <div class="tool-grid">

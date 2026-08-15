@@ -61,6 +61,35 @@ features:
     linkText: 性能篇
 ---
 
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="[
+      "像素 / 色彩 / 帧率 / 容器格式基础概念混？",
+      "帧内 / 帧间 / DCT / 熵编码 原理讲不清？",
+      "H.264 / H.265 / AV1 / VP9 选哪个？",
+      "RTMP / HLS / DASH 流媒体协议区别？",
+      "FFmpeg 命令太多记不住？"
+    ]"
+    :goals="[
+      "视频基础（像素 / 色彩 / 帧率 / 容器）",
+      "编解码原理（帧内 / 帧间 / DCT / 熵编码）",
+      "主流编码（H.264 / H.265 / AV1 / VP9）",
+      "流媒体协议（RTMP / HLS / DASH / WebRTC）",
+      "工具实战（FFmpeg / OpenCV / MediaInfo）",
+      "AI 视频（超分 / 插帧 / 数字人 / Sora）"
+    ]"
+    :related-sites="[
+      { site: "ai", path: "/10-deploy/ollama", label: "AI 推理部署" },
+      { site: "frontend", path: "/01-foundation/html", label: "Web 前端" },
+      { site: "cloud-native", path: "/06-storage/overview", label: "云原生存储" },
+      { site: "go", path: "/02-concurrency/goroutine", label: "Go 高性能" },
+      { site: "observability", path: "/05-sre/overview", label: "流媒体监控" }
+    ]"
+    title="🎯 为什么写这个图谱？"
+  />
+</ClientOnly>
+
+
 ## 关于本站
 
 **视频处理** 知识库面向后端工程师、直播开发、音视频工程师、算法工程师、面试候选人，提供**原理 + 实战**的完整知识体系。

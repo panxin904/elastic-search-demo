@@ -86,6 +86,35 @@ features:
     linkText: 面试
 ---
 
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="[
+      "从单块磁盘的 inode 到跨数据中心的对象存储，怎么系统学？",
+      "POSIX 权限 / ACL / Capabilities 到底有什么区别？",
+      "本地 FS（ext4 / xfs / btrfs / zfs）怎么选？",
+      "网络 FS（NFS / SMB / CIFS）vs 分布式 FS（Ceph / MinIO / HDFS）",
+      "K8s CSI 抽象、PV / PVC / StorageClass 怎么设计？"
+    ]"
+    :goals="[
+      "存储全栈（单机 FS / 网络 FS / 分布式 FS / 对象存储）",
+      "POSIX 权限模型 + ACL + 高级特性",
+      "本地 FS 实战（ext4 / xfs / btrfs / zfs）",
+      "网络 FS（NFS / SMB / CIFS / pNFS）",
+      "分布式存储（Ceph / MinIO / HDFS / JuiceFS）",
+      "云原生存储（CSI / Rook / Longhorn）"
+    ]"
+    :related-sites="[
+      { site: "linux", path: "/11-shell/debug", label: "Linux 实战" },
+      { site: "bigdata", path: "/02-hdfs/architecture", label: "HDFS 架构" },
+      { site: "cloud-native", path: "/06-storage/overview", label: "CSI 抽象" },
+      { site: "devops", path: "/01-pipeline/overview", label: "CI/CD 流水线" },
+      { site: "architecture", path: "/01-distributed/cap", label: "分布式理论" }
+    ]"
+    title="🎯 为什么写这个图谱？"
+  />
+</ClientOnly>
+
+
 ## 关于本知识库
 
 存储是计算机系统的基石 — 从单块磁盘的 inode 到跨数据中心的对象存储，从 POSIX 权限到 K8s CSI 抽象，本知识库用 13 大类、76 个核心节点、70+ 篇深度内容，系统化拆解"文件"这个看似简单实则深邃的概念。
