@@ -535,3 +535,36 @@ python3 sites-hub/scripts/audit-content.py
 **下一步建议**：
 - 把 audit-content.py 加入 `.github/workflows/sites-hub-ci.yml`，PR 时跑（fail 阈值 = 新增死链 > 0）
 - 把这次修复做成一个 commit，message：`fix(content): resolve 14 broken internal links`
+
+### 8.8 frontmatter 修复记录（2026-08-15 第二次）
+
+| 站点 | 修复数 | 处理 |
+|------|-------:|------|
+| filesystem-html | 20 | `title: XXX`（基于 H1 提取） |
+| design-pattern-html | 7 | `title: XXX`（含 1 个 index.md + 6 个 overview.md） |
+| **合计** | **27** | — |
+
+**13 个 README.md 不修**（filesystem 的所有章节首页）：
+- 全站 13 个 README.md 全部缺 FM（其中 13 个都是 filesystem 的）
+- VitePress 默认识别为目录页，不需 FM
+- 项目惯例就是不加
+
+**audit-content.py 同步**：README.md 排除缺 FM 统计。
+
+**基线对比**：
+
+| 指标 | 上次 | 现在 | 总变化（vs 最初 baseline） |
+|------|-----:|-----:|-----:|
+| 内部死链 | 0 ✅ | **0** | 11 → 0 |
+| 缺 frontmatter | 40 ❌ | **0** ✅ | 40 → 0 |
+| frontmatter 覆盖率 | 97.2% | **100.0%** | +2.8pp |
+
+### 8.9 git 仓库建立（2026-08-15）
+
+- `git init -b main`（无远程仓库）
+- `.gitignore` 配置（排除 node_modules / dist / Codex 元数据）
+- 首次 commit `90a83dd`：28 子站 + 所有文档 + 全部 nginx P0-P4 + 内容 P3 工具
+- 第二次 commit `ec2627b`：27 文件 FM 修复 + audit README 排除
+
+**当前 HEAD**：ec2627b on main
+**入库文件**：1995（首次 1966 + 二次 29）
