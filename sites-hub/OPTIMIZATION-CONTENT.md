@@ -1030,3 +1030,54 @@ pp = ',\n      '.join(f'"{p}"' for p in cfg['pain_points'])
 ```
 
 效果：audit 现在能检测 §8.14 类型的 bug，C2 推进过程中的隐蔽错误不再逃过审计。下次类似批量注入（28 站 WhyThisGraph 或其它 Vue 组件）时，CI fail-on-vue_bug 可保证不漏。
+
+### 8.20 glossary 6 站零覆盖补完（2026-08-15 第十三次）
+
+承接 §8.13：上轮 glossary 扩到 125 词 / 27 站覆盖，但有 6 站仍为 0 覆盖：
+`rust / design-pattern / network / python / security / springcloud`
+
+**新增 36 条术语**（glossary 总计 125 → **161**）：
+
+| 站 | 新增 | 代表词条 |
+|----|----:|------|
+| rust-html | 7 | 生命周期 / async-await / Tokio / Cargo / WebAssembly / 内存安全 / FFI |
+| design-pattern-html | 7 | 单例 / 工厂模式 / 观察者模式 / 策略模式 / 代理模式 / CQRS / Saga |
+| network-html | 10 | TCP/IP / HTTP/3 / TLS 1.3 / CDN / 负载均衡 / VPC / Wireshark + ... |
+| python-html | 6 | GIL / Pandas / NumPy / pytest / PyTorch / 爬虫 |
+| security-html | 12 | OAuth 2.0 / mTLS / OWASP Top 10 / 零信任 / SBOM / SPIFFE + ... |
+| springcloud-html | 3 | Spring Cloud Gateway / Alibaba / Spring Security |
+
+**36 条术语每条关联 2-3 个其它站**，产生 87 条新跨站关联（272 总关联，+87）。
+
+**6 站最新覆盖**：
+
+```
+rust:           0  →  10
+design-pattern: 0  →   7
+network:        0  →  15
+python:         0  →  10
+security:       0  →  18  (最高)
+springcloud:    0  →   6
+```
+
+**全 28 站覆盖排序**（前 10）：
+
+```
+22 cloud-native   16 architecture   12 java-language
+18 security       15 devops         12 cloud
+                  15 network        12 frontend
+                                  12 tools
+14 bigdata        11 system-design
+```
+
+**已知低覆盖**（非阻塞，可后续补）：
+- `redis: 1` / `chaos: 2` —— 这两站 glossary 反向几乎没人引用，是因为它们的术语（如 Redis 本身、Chaos Mesh）很少与其它站重叠。
+
+**path 来源**：每条 term 的 path 都基于对应站点的 `features:` 列表推导（真实存在），例如：
+- rust `/01-basics/overview` ← rust-html features 第 1 项
+- security `/06-zero-trust/overview` ← security-html features 第 6 项
+- springcloud `/03-gateway/basic` ← springcloud-html features 第 3 项
+
+**audit 验证**：vue_bug=0 / xsite=139 / no_fm=0 / broken=0（glossary 数据层不影响 .md 计数）。
+
+效果：glossary 数据层从「27 站覆盖」升级到「29 站覆盖」+ 6 站不再为零。下次基于 glossary 自动推荐 :related-sites 时，6 站可获得更精准推荐（不再完全靠人工编排）。
