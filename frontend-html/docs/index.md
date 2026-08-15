@@ -17,6 +17,33 @@ hero:
       link: /mindmap
 ---
 
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="[
+      "HTML / CSS 基础不扎实，遇到复杂布局就懵？",
+      "React / Vue / Angular / Svelte 选哪个？",
+      "浏览器渲染原理、Event Loop 讲不清？",
+      "TypeScript 类型系统、泛型、条件类型卡壳？",
+      "Node 后端怎么写、怎么部署、怎么调优？"
+    ]"
+    :goals="[
+      "HTML / CSS / 浏览器渲染 / Event Loop 全链路打通",
+      "JS 核心 + TypeScript 类型系统深入",
+      "React Hooks + Vue 3 组合式 API + 选型矩阵",
+      "构建工具链（Vite / Webpack / Turbopack）",
+      "Node 后端（Express / Koa / NestJS / Fastify）"
+    ]"
+    :related-sites="[
+      { site: "tools", path: "/json", label: "JSON 工具" },
+      { site: "network", path: "/01-fundamentals/tcp-ip", label: "TCP/IP 协议" },
+      { site: "system-design", path: "/01-theory/cap-theorem", label: "CAP 定理" },
+      { site: "ai", path: "/06-mcp/core", label: "MCP 协议" },
+      { site: "go", path: "/04-cloud-native/overview", label: "Go 云原生" }
+    ]"
+    title="🎯 为什么写这个图谱？"
+  />
+</ClientOnly>
+
 features:
   - icon: 🌐
     title: 基础层

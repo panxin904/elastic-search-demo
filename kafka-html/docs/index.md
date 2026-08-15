@@ -20,6 +20,33 @@ hero:
       link: /cheatsheet
 ---
 
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="[
+      "分区副本机制、Leader 选举讲不清？",
+      "Exactly-Once 语义怎么实现？",
+      "消费者组位移提交策略选哪个？",
+      "Kafka 性能调优参数（broker / producer / consumer）？",
+      "Kafka + Flink / Spark 流处理集成怎么做？"
+    ]"
+    :goals="[
+      "核心概念（Topic / Partition / Offset / Broker）",
+      "架构原理（Controller / 副本机制 / 零拷贝）",
+      "命令行工具（kafka-topics / kafka-console-*）",
+      "生产消费实战（Java / Go / Python 客户端）",
+      "企业级应用（监控 / 调优 / 安全 / 多集群）"
+    ]"
+    :related-sites="[
+      { site: "bigdata", path: "/03-streaming/kafka", label: "大数据 Kafka" },
+      { site: "observability", path: "/05-sre/overview", label: "SRE 实践" },
+      { site: "architecture", path: "/01-distributed/cap", label: "分布式理论" },
+      { site: "clickhouse", path: "/05-ecosystem/kafka-engine", label: "Kafka → ClickHouse" },
+      { site: "system-design", path: "/01-theory/cap-theorem", label: "系统设计基础" }
+    ]"
+    title="🎯 为什么写这个图谱？"
+  />
+</ClientOnly>
+
 features:
   - icon: 🚀
     title: Kafka 入门
