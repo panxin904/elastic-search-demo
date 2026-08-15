@@ -1,0 +1,103 @@
+/* ==========================================================================
+   Scholar's Atlas — 通用 VitePress 主题样式（C1 模板）
+
+   各子站只需在 theme/style.css 顶部覆盖以下变量即可定制品牌色：
+     --brand-hue / --brand-1 / --brand-2 / --brand-3
+   其他间距、字号、阴影、行距已统一。
+
+   使用方式（在子站 .vitepress/theme/index.ts）：
+     import '../../../../shared-assets/vitepress-template/theme/style.css'
+   ========================================================================== */
+
+:root {
+  /* 间距 / 排版 */
+  --at-line-height: 1.7;
+  --at-letter-spacing: 0.02em;
+  --at-radius-sm: 6px;
+  --at-radius-md: 8px;
+  --at-radius-lg: 12px;
+  --at-shadow-sm: 0 2px 6px rgba(0, 0, 0, .06);
+  --at-shadow-md: 0 4px 12px rgba(0, 0, 0, .08);
+
+  /* 默认品牌色（紫色） — 各子站覆盖 */
+  --at-brand: #8b5cf6;
+
+  /* VitePress 内置变量覆盖 */
+  --vp-c-brand-1: var(--at-brand);
+  --vp-c-brand-2: var(--at-brand);
+  --vp-c-brand-3: var(--at-brand);
+}
+
+/* 内容区排版（统一所有站） */
+.vp-doc {
+  line-height: var(--at-line-height);
+  letter-spacing: var(--at-letter-spacing);
+}
+
+/* 代码块圆角 + 阴影 */
+.vp-doc div[class*="language-"] {
+  border-radius: var(--at-radius-md);
+  box-shadow: var(--at-shadow-sm);
+}
+
+/* 内联代码 */
+.vp-doc code {
+  font-size: 0.92em;
+}
+
+/* 表格 */
+.vp-doc table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.vp-doc th {
+  background: var(--vp-c-bg-soft);
+}
+
+/* 卡片网格（homepage features 增强） */
+.at-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+.at-feature-card {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: var(--at-radius-md);
+  padding: 1.25rem;
+  background: var(--vp-c-bg);
+  transition: box-shadow .2s, transform .2s;
+}
+.at-feature-card:hover {
+  box-shadow: var(--at-shadow-md);
+  transform: translateY(-2px);
+}
+.at-feature-icon {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+/* 站点底部 footer 强化 */
+.at-footer {
+  border-top: 1px solid var(--vp-c-divider);
+  padding: 1.5rem 0;
+  font-size: 0.875rem;
+  color: var(--vp-c-text-2);
+  text-align: center;
+}
+
+/* 站点顶部 "返回门户" 提示 */
+.at-portal-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: var(--at-radius-sm);
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-2);
+  font-size: 0.875rem;
+}
+.at-portal-link:hover {
+  background: var(--at-brand);
+  color: white;
+}
