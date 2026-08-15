@@ -1320,5 +1320,689 @@
         "label": "可观测性 SRE"
       }
     ]
+  },
+  "生命周期": {
+    "sites": [
+      {
+        "site": "rust",
+        "path": "/01-basics/ownership",
+        "label": "Rust 生命周期"
+      },
+      {
+        "site": "java-language",
+        "path": "/04-jvm/overview",
+        "label": "JVM 对象生命周期"
+      },
+      {
+        "site": "system-design",
+        "path": "/01-theory/cap-theorem",
+        "label": "系统资源生命周期"
+      }
+    ]
+  },
+  "async/await": {
+    "sites": [
+      {
+        "site": "rust",
+        "path": "/04-concurrency/overview",
+        "label": "Rust async 运行时"
+      },
+      {
+        "site": "go",
+        "path": "/02-concurrency/goroutine",
+        "label": "goroutine 调度"
+      },
+      {
+        "site": "java-language",
+        "path": "/04-jvm/concurrent",
+        "label": "Java 并发"
+      }
+    ]
+  },
+  "Tokio": {
+    "sites": [
+      {
+        "site": "rust",
+        "path": "/04-concurrency/overview",
+        "label": "Tokio 异步运行时"
+      },
+      {
+        "site": "go",
+        "path": "/02-concurrency/goroutine",
+        "label": "goroutine 对比"
+      },
+      {
+        "site": "observability",
+        "path": "/02-logs/filebeat",
+        "label": "异步日志采集"
+      }
+    ]
+  },
+  "Cargo": {
+    "sites": [
+      {
+        "site": "rust",
+        "path": "/03-ecosystem/overview",
+        "label": "Cargo 工作流"
+      },
+      {
+        "site": "devops",
+        "path": "/01-pipeline/overview",
+        "label": "CI/CD 流水线"
+      },
+      {
+        "site": "cloud-native",
+        "path": "/04-helm/values",
+        "label": "包管理与制品库"
+      }
+    ]
+  },
+  "WebAssembly": {
+    "sites": [
+      {
+        "site": "rust",
+        "path": "/05-systems/overview",
+        "label": "Rust → WASM"
+      },
+      {
+        "site": "frontend",
+        "path": "/01-foundation/html",
+        "label": "浏览器 WASM 支持"
+      },
+      {
+        "site": "system-design",
+        "path": "/01-theory/cap-theorem",
+        "label": "边缘计算架构"
+      }
+    ]
+  },
+  "内存安全": {
+    "sites": [
+      {
+        "site": "rust",
+        "path": "/01-basics/overview",
+        "label": "Rust 内存安全"
+      },
+      {
+        "site": "security",
+        "path": "/01-web-top10/overview",
+        "label": "OWASP 内存安全"
+      },
+      {
+        "site": "linux",
+        "path": "/14-kernel/overview",
+        "label": "Linux 内核内存"
+      }
+    ]
+  },
+  "FFI": {
+    "sites": [
+      {
+        "site": "rust",
+        "path": "/05-systems/overview",
+        "label": "Rust FFI"
+      },
+      {
+        "site": "linux",
+        "path": "/14-kernel/overview",
+        "label": "Linux 系统调用"
+      },
+      {
+        "site": "cloud-native",
+        "path": "/01-docker/overview",
+        "label": "容器跨语言调用"
+      }
+    ]
+  },
+  "单例": {
+    "sites": [
+      {
+        "site": "design-pattern",
+        "path": "/01-gof-creational/overview",
+        "label": "Singleton 单例"
+      },
+      {
+        "site": "java-language",
+        "path": "/05-spring/ioc",
+        "label": "Spring Bean 单例"
+      },
+      {
+        "site": "java",
+        "path": "/01-springboot/quickstart",
+        "label": "Spring Boot 单例 Bean"
+      }
+    ]
+  },
+  "工厂模式": {
+    "sites": [
+      {
+        "site": "design-pattern",
+        "path": "/01-gof-creational/overview",
+        "label": "Factory 工厂"
+      },
+      {
+        "site": "java-language",
+        "path": "/05-spring/ioc",
+        "label": "Spring BeanFactory"
+      },
+      {
+        "site": "go",
+        "path": "/01-basics/golang-intro",
+        "label": "Go 简单工厂"
+      }
+    ]
+  },
+  "观察者模式": {
+    "sites": [
+      {
+        "site": "design-pattern",
+        "path": "/03-gof-behavioral/overview",
+        "label": "Observer 观察者"
+      },
+      {
+        "site": "kafka",
+        "path": "/01-basics/architecture",
+        "label": "消息订阅模式"
+      },
+      {
+        "site": "frontend",
+        "path": "/04-react/hooks",
+        "label": "React Hooks 订阅"
+      }
+    ]
+  },
+  "策略模式": {
+    "sites": [
+      {
+        "site": "design-pattern",
+        "path": "/03-gof-behavioral/overview",
+        "label": "Strategy 策略"
+      },
+      {
+        "site": "java-language",
+        "path": "/05-spring/ioc",
+        "label": "Spring 策略注入"
+      },
+      {
+        "site": "architecture",
+        "path": "/05-patterns/circuit-breaker",
+        "label": "熔断策略"
+      }
+    ]
+  },
+  "代理模式": {
+    "sites": [
+      {
+        "site": "design-pattern",
+        "path": "/02-gof-structural/overview",
+        "label": "Proxy 代理"
+      },
+      {
+        "site": "architecture",
+        "path": "/05-patterns/circuit-breaker",
+        "label": "RPC 代理"
+      },
+      {
+        "site": "frontend",
+        "path": "/02-language/typescript",
+        "label": "TS Proxy"
+      }
+    ]
+  },
+  "CQRS": {
+    "sites": [
+      {
+        "site": "design-pattern",
+        "path": "/05-architectural-patterns/overview",
+        "label": "CQRS 架构"
+      },
+      {
+        "site": "architecture",
+        "path": "/01-distributed/cap",
+        "label": "读写分离架构"
+      },
+      {
+        "site": "kafka",
+        "path": "/01-basics/architecture",
+        "label": "事件驱动 CQRS"
+      }
+    ]
+  },
+  "Saga": {
+    "sites": [
+      {
+        "site": "design-pattern",
+        "path": "/05-architectural-patterns/overview",
+        "label": "Saga 分布式事务"
+      },
+      {
+        "site": "architecture",
+        "path": "/04-transaction/overview",
+        "label": "分布式事务选型"
+      },
+      {
+        "site": "springcloud",
+        "path": "/06-practice/comprehensive",
+        "label": "Seata Saga 模式"
+      }
+    ]
+  },
+  "TCP/IP": {
+    "sites": [
+      {
+        "site": "network",
+        "path": "/01-basics/osi",
+        "label": "TCP/IP 四层模型"
+      },
+      {
+        "site": "system-design",
+        "path": "/01-theory/cap-theorem",
+        "label": "网络分区"
+      },
+      {
+        "site": "linux",
+        "path": "/13-net/iptables",
+        "label": "Linux TCP/IP 栈"
+      }
+    ]
+  },
+  "HTTP/3": {
+    "sites": [
+      {
+        "site": "network",
+        "path": "/06-application/http",
+        "label": "HTTP/3 + QUIC"
+      },
+      {
+        "site": "frontend",
+        "path": "/01-foundation/html",
+        "label": "浏览器 HTTP/3"
+      },
+      {
+        "site": "cloud-native",
+        "path": "/02-k8s-arch/control-plane",
+        "label": "Service Mesh HTTP/3"
+      }
+    ]
+  },
+  "TLS 1.3": {
+    "sites": [
+      {
+        "site": "network",
+        "path": "/07-security/encryption",
+        "label": "TLS 1.3 握手"
+      },
+      {
+        "site": "security",
+        "path": "/04-network/tls-pki",
+        "label": "TLS 协议族"
+      },
+      {
+        "site": "cloud-native",
+        "path": "/08-security/overview",
+        "label": "mTLS 服务网格"
+      }
+    ]
+  },
+  "CDN": {
+    "sites": [
+      {
+        "site": "network",
+        "path": "/09-cloud-network/vpc",
+        "label": "CDN 调度"
+      },
+      {
+        "site": "cloud-native",
+        "path": "/02-k8s-arch/control-plane",
+        "label": "Ingress + CDN"
+      },
+      {
+        "site": "frontend",
+        "path": "/01-foundation/html",
+        "label": "静态资源 CDN"
+      }
+    ]
+  },
+  "负载均衡": {
+    "sites": [
+      {
+        "site": "network",
+        "path": "/04-network/ip-address",
+        "label": "L4 负载均衡"
+      },
+      {
+        "site": "springcloud",
+        "path": "/04-loadbalancer/basic",
+        "label": "Spring Cloud LB"
+      },
+      {
+        "site": "architecture",
+        "path": "/01-distributed/cap",
+        "label": "分布式负载均衡"
+      }
+    ]
+  },
+  "VPC": {
+    "sites": [
+      {
+        "site": "network",
+        "path": "/09-cloud-network/vpc",
+        "label": "VPC 网络隔离"
+      },
+      {
+        "site": "cloud-native",
+        "path": "/02-k8s-arch/control-plane",
+        "label": "K8s Network Policy"
+      },
+      {
+        "site": "security",
+        "path": "/06-zero-trust/overview",
+        "label": "零信任网络"
+      }
+    ]
+  },
+  "Wireshark": {
+    "sites": [
+      {
+        "site": "network",
+        "path": "/10-tools/wireshark",
+        "label": "Wireshark 抓包"
+      },
+      {
+        "site": "security",
+        "path": "/04-network/tls-pki",
+        "label": "TLS 抓包分析"
+      },
+      {
+        "site": "linux",
+        "path": "/13-net/iptables",
+        "label": "Linux tcpdump 对比"
+      }
+    ]
+  },
+  "GIL": {
+    "sites": [
+      {
+        "site": "python",
+        "path": "/02-principles/interpreter",
+        "label": "GIL 全局解释器锁"
+      },
+      {
+        "site": "java-language",
+        "path": "/04-jvm/overview",
+        "label": "JVM 线程模型"
+      },
+      {
+        "site": "go",
+        "path": "/02-concurrency/goroutine",
+        "label": "goroutine 对比"
+      }
+    ]
+  },
+  "Pandas": {
+    "sites": [
+      {
+        "site": "python",
+        "path": "/07-data/pandas",
+        "label": "Pandas 数据处理"
+      },
+      {
+        "site": "bigdata",
+        "path": "/06-warehouse/overview",
+        "label": "数仓 Pandas"
+      },
+      {
+        "site": "ai",
+        "path": "/06-mcp/core",
+        "label": "AI 数据预处理"
+      }
+    ]
+  },
+  "NumPy": {
+    "sites": [
+      {
+        "site": "python",
+        "path": "/07-data/pandas",
+        "label": "NumPy 数组"
+      },
+      {
+        "site": "bigdata",
+        "path": "/06-warehouse/overview",
+        "label": "数仓 NumPy"
+      },
+      {
+        "site": "ai",
+        "path": "/01-models/claude",
+        "label": "AI 数值计算"
+      }
+    ]
+  },
+  "pytest": {
+    "sites": [
+      {
+        "site": "python",
+        "path": "/03-libraries/stdlib",
+        "label": "pytest 测试框架"
+      },
+      {
+        "site": "devops",
+        "path": "/01-pipeline/overview",
+        "label": "CI 测试集成"
+      },
+      {
+        "site": "java-language",
+        "path": "/05-spring/ioc",
+        "label": "Java JUnit 对比"
+      }
+    ]
+  },
+  "PyTorch": {
+    "sites": [
+      {
+        "site": "python",
+        "path": "/06-ai-ml/overview",
+        "label": "PyTorch 深度学习"
+      },
+      {
+        "site": "ai",
+        "path": "/01-models/claude",
+        "label": "大模型训练"
+      },
+      {
+        "site": "bigdata",
+        "path": "/06-warehouse/overview",
+        "label": "数据 → 模型"
+      }
+    ]
+  },
+  "爬虫": {
+    "sites": [
+      {
+        "site": "python",
+        "path": "/05-scraping/basics",
+        "label": "Python 爬虫"
+      },
+      {
+        "site": "frontend",
+        "path": "/01-foundation/html",
+        "label": "HTML 解析"
+      },
+      {
+        "site": "security",
+        "path": "/01-web-top10/overview",
+        "label": "反爬与安全"
+      }
+    ]
+  },
+  "OAuth 2.0": {
+    "sites": [
+      {
+        "site": "security",
+        "path": "/02-auth/overview",
+        "label": "OAuth 2.0 流程"
+      },
+      {
+        "site": "springcloud",
+        "path": "/05-security/oauth2",
+        "label": "Spring Security OAuth2"
+      },
+      {
+        "site": "frontend",
+        "path": "/02-language/typescript",
+        "label": "前端 JWT 集成"
+      }
+    ]
+  },
+  "mTLS": {
+    "sites": [
+      {
+        "site": "security",
+        "path": "/04-network/tls-pki",
+        "label": "mTLS 双向认证"
+      },
+      {
+        "site": "network",
+        "path": "/07-security/encryption",
+        "label": "TLS 协议族"
+      },
+      {
+        "site": "cloud-native",
+        "path": "/08-security/overview",
+        "label": "Istio mTLS"
+      }
+    ]
+  },
+  "OWASP Top 10": {
+    "sites": [
+      {
+        "site": "security",
+        "path": "/01-web-top10/overview",
+        "label": "OWASP Top 10 2025"
+      },
+      {
+        "site": "frontend",
+        "path": "/04-react/hooks",
+        "label": "前端安全"
+      },
+      {
+        "site": "devops",
+        "path": "/06-best-practices/secure-pipeline",
+        "label": "安全流水线"
+      }
+    ]
+  },
+  "零信任": {
+    "sites": [
+      {
+        "site": "security",
+        "path": "/06-zero-trust/overview",
+        "label": "零信任架构"
+      },
+      {
+        "site": "cloud-native",
+        "path": "/08-security/overview",
+        "label": "SPIFFE 零信任"
+      },
+      {
+        "site": "network",
+        "path": "/09-cloud-network/vpc",
+        "label": "VPC + 零信任"
+      }
+    ]
+  },
+  "SBOM": {
+    "sites": [
+      {
+        "site": "security",
+        "path": "/05-container/overview",
+        "label": "SBOM 供应链"
+      },
+      {
+        "site": "devops",
+        "path": "/06-best-practices/secure-pipeline",
+        "label": "SBOM CI/CD"
+      },
+      {
+        "site": "cloud-native",
+        "path": "/01-docker/overview",
+        "label": "容器 SBOM"
+      }
+    ]
+  },
+  "SPIFFE": {
+    "sites": [
+      {
+        "site": "security",
+        "path": "/06-zero-trust/overview",
+        "label": "SPIFFE 身份"
+      },
+      {
+        "site": "cloud-native",
+        "path": "/08-security/overview",
+        "label": "SPIFFE + Istio"
+      },
+      {
+        "site": "kafka",
+        "path": "/01-basics/architecture",
+        "label": "Kafka mTLS 身份"
+      }
+    ]
+  },
+  "Spring Cloud Gateway": {
+    "sites": [
+      {
+        "site": "springcloud",
+        "path": "/03-gateway/basic",
+        "label": "Spring Cloud Gateway"
+      },
+      {
+        "site": "network",
+        "path": "/04-network/ip-address",
+        "label": "网关路由"
+      },
+      {
+        "site": "cloud-native",
+        "path": "/02-k8s-arch/control-plane",
+        "label": "Ingress 对比"
+      }
+    ]
+  },
+  "Spring Cloud Alibaba": {
+    "sites": [
+      {
+        "site": "springcloud",
+        "path": "/01-springboot/quickstart",
+        "label": "Spring Cloud Alibaba 全家桶"
+      },
+      {
+        "site": "java",
+        "path": "/01-springboot/quickstart",
+        "label": "Spring Boot 基础"
+      },
+      {
+        "site": "cloud-native",
+        "path": "/02-k8s-arch/overview",
+        "label": "K8s 部署"
+      }
+    ]
+  },
+  "Spring Security": {
+    "sites": [
+      {
+        "site": "springcloud",
+        "path": "/05-security/oauth2",
+        "label": "Spring Security OAuth2"
+      },
+      {
+        "site": "security",
+        "path": "/02-auth/overview",
+        "label": "认证授权"
+      },
+      {
+        "site": "java-language",
+        "path": "/05-spring/ioc",
+        "label": "Spring Security Filter"
+      }
+    ]
   }
 }
