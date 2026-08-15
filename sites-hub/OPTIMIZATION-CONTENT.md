@@ -636,3 +636,55 @@ audit-content.py 升级：
 | java-language | 4 | architecture / system-design / cloud / kafka |
 
 效果：内容孤岛开始打通，用户从任一站点首页可一键跳到 4-5 个相关站点的具体内容页。
+
+### 8.13 glossary 4 站补完（2026-08-15 第六次）
+
+承接 §8.12：上次上线时 cloud / java / tools / devops 4 站 glossary 覆盖为 0，本次补完。
+
+**新增 33 条术语**（glossary 总计 92 → 125）：
+
+| 域 | 新增 | 示例 |
+|----|----:|------|
+| cloud | 12 | Spring Cloud / Nacos / Sentinel / Seata / OpenFeign / Gateway / Ribbon / Spring Boot / 微服务 / 配置中心 / 服务发现 / 熔断降级 |
+| tools | 12 | JSON / YAML / Base64 / UUID / Unix 时间戳 / URL / 时区 / ISO 8601 / JSON 差异 / 相对路径 / 正则 / 字符编码 |
+| devops | 11 | CI/CD / Jenkins / GitLab CI / Ansible / Terraform / ArgoCD / Helm Chart / 蓝绿部署 / 灰度发布 / SRE / 持续交付 |
+| java | 5 | Java 8 新特性 / Java 17 LTS / Java 21 LTS / Stream API / Lambda 表达式 |
+
+跳过 2 条（`Redis` / `HTTP` 已存在）。
+
+**27 站全覆盖**（按关联数排序）：
+
+```
+ 12  cloud        6  filesystem    4  frontend     3  es
+ 12  tools        6  linux         4  go           3  kafka
+ 11  architecture 6  security      4  java-lang    3  rust
+ 11  bigdata      6  ai            4  postgresql   2  chaos
+ 11  devops       5  java          4  python       1  redis
+ 10  mysql        5  network
+ 10  cloud-native 5  observability
+  8  system-design 5  video
+```
+
+**最低覆盖站**：
+- `redis: 1`（只有 Redis 一词命中）
+- `chaos: 2` / `kafka: 3` / `rust: 3` / `es: 3` / `clickhouse: 3`
+
+→ 下一轮（C2 规模化）做 23 站批量应用 `:related-sites` 时，优先给 redis / chaos / kafka 各补 5+ 关联词条。
+
+**audit 数字**（`python3 sites-hub/scripts/audit-content.py`）：
+
+| 指标 | §8.12 | §8.13 |
+|------|------:|------:|
+| 术语总数 | 92 | **125** |
+| 覆盖站数 | 23 | **27** |
+| 跨站引用（xsite） | 29 | 29* |
+| 死链 | 0 | 0 |
+| 缺 frontmatter | 0 | 0 |
+
+*注：xsite 不变是预期——本节只动 glossary 数据源，未改任何 index.md。23 站批量应用 `:related-sites` 后才会继续涨。
+
+**维护成本**：
+- 单次维护：grep 是否已有同义术语 + JSON 校验 + audit 跑 1 次（约 0.3s） + 1 个 commit
+- 后续 CI 接入后：自动校验 JSON schema + 引用站点路径合法性（`/site/<path>` 存在性）
+
+效果：C2 跨站关联数据层完整闭环。下一步：23 站批量应用 `:related-sites`（§8.14 计划）。
