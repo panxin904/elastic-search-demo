@@ -688,3 +688,58 @@ audit-content.py 升级：
 - 后续 CI 接入后：自动校验 JSON schema + 引用站点路径合法性（`/site/<path>` 存在性）
 
 效果：C2 跨站关联数据层完整闭环。下一步：23 站批量应用 `:related-sites`（§8.14 计划）。
+
+### 8.14 :related-sites 规模化第一波（2026-08-15 第七次）
+
+承接 §8.13：glossary 已 27 站全覆盖，本节开始把 `:related-sites` 从 5 站扩到 23 站。
+
+**23 站分类**（按 frontmatter 闭合后的内容形态）：
+
+| 分类 | 数量 | 站 | 策略 |
+|------|----:|----|------|
+| ✅ 干净可注入 | 5 | frontend / go / kafka / linux / rust | 直接在 FM 后插入 |
+| ❌ 功能重叠 | 6 | chaos / clickhouse / postgresql / python / redis / system-design | 重构现有 section（§8.15） |
+| ⚠️ 自定义 hero | 11 | devops / es / filesystem / java-web-manual / mysql / network / observability / security / springcloud / tools / video | 选其它注入点（§8.16） |
+| ? 双 FM 异常 | 1 | design-pattern-html | 先修 frontmatter（§8.17） |
+
+**本节完成：5 站注入**。
+
+**每个站注入内容**：4-5 条 pain-points / 5-6 条 goals / 4-5 条 related-sites（共 ~140-160 行/站）。
+
+**5 站推荐组合**：
+
+| 站 | pain | goals | 关联到 |
+|----|----:|----:|--------|
+| frontend | 5 | 5 | tools / network / system-design / ai / go |
+| go | 5 | 5 | cloud-native / java-language / architecture / devops / system-design |
+| kafka | 5 | 5 | bigdata / observability / architecture / clickhouse / system-design |
+| linux | 5 | 6 | filesystem / network / devops / security / observability |
+| rust | 5 | 5 | go / linux / security / architecture / system-design |
+
+**audit 数字**：
+
+| 指标 | §8.13 | §8.14 |
+|------|------:|------:|
+| 跨站引用 xsite | 29 | **54**（+25）|
+| 总词数 | 1,156,538 | **1,157,424**（+886）|
+| 死链 | 0 | 0 |
+| 缺 frontmatter | 0 | 0 |
+| 已用 :related-sites 站 | 5 | **10** |
+
+**意外发现的坑**：
+
+第一次注入时漏写 Vue 数组元素间的逗号（如 `"..." "..."`），audit 不报（只统计出现次数），但 Vue 会把它当成 5 个字符串拼接为 1 个长串，组件实际渲染会坏。修复：
+
+```python
+# 错误写法（无逗号）：
+pp = '\n      '.join(f'"{p}"' for p in cfg['pain_points'])
+# 输出："a" "b" "c"
+
+# 正确写法（加逗号）：
+pp = ',\n      '.join(f'"{p}"' for p in cfg['pain_points'])
+# 输出："a", "b", "c"
+```
+
+→ **改进 audit-content.py**：下一版加 Vue prop 数组语法校验（检测 `:prop="[...,...]"` 是否每行末尾有逗号）。这是 audit 的盲点。
+
+效果：C2 跨站关联视图层推进到 10/28 站。下一波（§8.15）处理 6 个「功能重叠」站。
