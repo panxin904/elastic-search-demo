@@ -608,3 +608,31 @@ python3 sites-hub/scripts/audit-content.py
 | architecture/03-ha-theory/base.md | 1 | `vailable` → `available` |
 
 效果：拼写 baseline 0 错别字 ✅
+
+### 8.12 跨站关联上线（2026-08-15 第五次）
+
+新增 `shared-assets/glossary/keywords.json`（92 条术语）：
+- 每条关联 2-5 个相关站点的具体内容页
+- 覆盖 27 子站（cloud / java / tools / devops 等 4 站暂缺，后续补）
+- 维护指南：术语按主题域分组（DB / 大数据 / 云原生 / 安全 / AI 等）
+
+升级 `WhyThisGraph.vue` 加 `:related-sites` prop：
+- 紫色卡片网格 + hover 上浮 + 链接到 https://java-px.bot.cd/<site>/<path>
+- 响应式 220px 网格
+- 5 站各加 4-5 个相关站点（22 条新跨站入口）
+
+audit-content.py 升级：
+- 检测范围扩展到 Vue 组件 prop
+- 跨站引用计数：4 → **29**（+7 倍）
+
+**5 站推荐组合**：
+
+| 站 | 推荐数 | 关联到 |
+|----|------:|--------|
+| ai | 4 | architecture / bigdata / cloud-native / observability |
+| architecture | 5 | system-design / cloud / bigdata / kafka |
+| bigdata | 5 | kafka / mysql / clickhouse / filesystem / architecture |
+| cloud-native | 4 | architecture / bigdata / observability / chaos |
+| java-language | 4 | architecture / system-design / cloud / kafka |
+
+效果：内容孤岛开始打通，用户从任一站点首页可一键跳到 4-5 个相关站点的具体内容页。
