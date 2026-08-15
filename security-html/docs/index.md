@@ -74,18 +74,6 @@ features:
 </ClientOnly>
 
 
-## 关于本知识图谱
-
-**6 大类 / 32 节点 / 18 万字 / 全部 substantial**。
-
-学完本图谱，你将能够：
-- 独立 audit 一个 Web 应用的 OWASP Top 10 风险
-- 设计 OAuth 2.0 / OIDC 接入流程，避开常见 JWT 漏洞
-- 选型对称 / 非对称 / 哈希算法，理解 TLS 1.3 握手细节
-- 部署 mTLS / HSTS / CSP，给你的 API 上"安全锁"
-- 给容器镜像加签名 + 审计，搭建 SBOM 供应链追溯
-- 规划零信任迁移路径，从 VPN 走到 SPIFFE
-
 ## 关联站点
 
 - **ai/** → LLM 应用安全（prompt injection / 模型越狱 / 数据泄露）→ 链到 `01-web-top10`

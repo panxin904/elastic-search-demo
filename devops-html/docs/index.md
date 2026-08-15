@@ -75,18 +75,6 @@ features:
 </ClientOnly>
 
 
-## 关于本知识图谱
-
-**6 大类 / 29 节点 / 覆盖 CI/CD 全链路工程视角**。
-
-学完本图谱，你将能够：
-- 选型 CI/CD 工具，理解 Pipeline as Code 的范式与陷阱
-- 用 Terraform / Pulumi / Ansible 搭建可复用 IaC 框架
-- 落地 ArgoCD / Flux，理解 GitOps 的"声明式真相源"
-- 设计蓝绿 / 灰度 / 金丝雀 发布策略与回滚机制
-- 度量研发效能，掌握 DORA 4 个核心指标
-- 规划安全流水线（OIDC / Sigstore / SBOM）
-
 ## 关联站点
 
 - **observability/** → SLO / 告警如何挂在流水线产物上 → 链到 `05-cicd-observability/`
