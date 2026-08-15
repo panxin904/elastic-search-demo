@@ -1,0 +1,498 @@
+{
+  "_doc": "Scholar's Atlas 跨站关联词典。每个术语关联 2-4 个相关站点的具体内容。维护指南：1) 新增术语前先 grep 是否已有  2) URL 路径用站点 ID（不带 -html）  3) 一次编辑控制在 50 条以内。",
+  "_schema_version": 1,
+  "JVM": {
+    "sites": [
+      {"site": "java-language", "path": "/04-jvm/overview", "label": "JVM 原理"},
+      {"site": "system-design", "path": "/jvm-tuning", "label": "JVM 调优"},
+      {"site": "java",          "path": "/04-tech/jvm", "label": "Java Web 视角的 JVM"}
+    ]
+  },
+  "GC": {
+    "sites": [
+      {"site": "java-language", "path": "/04-jvm/gc-overview", "label": "GC 算法"},
+      {"site": "go",            "path": "/garbage-collection", "label": "Go GC"}
+    ]
+  },
+  "Spring": {
+    "sites": [
+      {"site": "java-language", "path": "/05-spring/ioc",     "label": "Spring IoC/AOP"},
+      {"site": "cloud",          "path": "/01-springboot/quickstart", "label": "Spring Boot 微服务"}
+    ]
+  },
+  "事务": {
+    "sites": [
+      {"site": "mysql",          "path": "/02-acid",  "label": "MySQL 事务"},
+      {"site": "postgresql",     "path": "/transaction", "label": "PG 事务隔离"}
+    ]
+  },
+  "索引": {
+    "sites": [
+      {"site": "es",             "path": "/01-storage/index", "label": "ES 倒排索引"},
+      {"site": "clickhouse",     "path": "/01-storage/index-design", "label": "ClickHouse 索引"},
+      {"site": "mysql",          "path": "/03-index", "label": "MySQL B+Tree 索引"}
+    ]
+  },
+  "Docker": {
+    "sites": [
+      {"site": "cloud-native",   "path": "/01-docker/overview", "label": "Docker 全栈"},
+      {"site": "devops",         "path": "/containerization", "label": "DevOps 容器化"}
+    ]
+  },
+  "K8s": {
+    "sites": [
+      {"site": "cloud-native",   "path": "/02-k8s-arch/control-plane", "label": "K8s 架构"},
+      {"site": "chaos",          "path": "/04-platform-compare/open-vs-commercial", "label": "K8s 混沌测试"}
+    ]
+  },
+  "Helm": {
+    "sites": [
+      {"site": "cloud-native",   "path": "/04-helm/overview", "label": "Helm Chart"}
+    ]
+  },
+  "Prometheus": {
+    "sites": [
+      {"site": "cloud-native",   "path": "/05-observability/prometheus", "label": "云原生监控"},
+      {"site": "observability",  "path": "/01-prometheus/overview", "label": "可观测性体系"}
+    ]
+  },
+  "Kafka": {
+    "sites": [
+      {"site": "kafka",          "path": "/01-basics/architecture", "label": "Kafka 架构"},
+      {"site": "bigdata",        "path": "/03-streaming/kafka", "label": "大数据流处理"}
+    ]
+  },
+  "Flink": {
+    "sites": [
+      {"site": "bigdata",        "path": "/04-streaming/flink", "label": "Flink 大数据"},
+      {"site": "kafka",          "path": "/04-stream/flink", "label": "Kafka + Flink"}
+    ]
+  },
+  "Spark": {
+    "sites": [
+      {"site": "bigdata",        "path": "/05-spark/rdd", "label": "Spark RDD"}
+    ]
+  },
+  "HDFS": {
+    "sites": [
+      {"site": "bigdata",        "path": "/02-hdfs/architecture", "label": "HDFS 架构"},
+      {"site": "filesystem",     "path": "/03-distributed/hdfs", "label": "文件系统视角"}
+    ]
+  },
+  "Cassandra": {
+    "sites": [
+      {"site": "bigdata",        "path": "/06-nosql/cassandra", "label": "Cassandra 大数据"}
+    ]
+  },
+  "ClickHouse": {
+    "sites": [
+      {"site": "clickhouse",     "path": "/01-basics/overview", "label": "ClickHouse 基础"},
+      {"site": "bigdata",        "path": "/12-olap-engine/clickhouse", "label": "OLAP 引擎对比"}
+    ]
+  },
+  "Redis": {
+    "sites": [
+      {"site": "redis",          "path": "/01-basics/data-types", "label": "Redis 数据结构"},
+      {"site": "architecture",   "path": "/04-cache/redis", "label": "架构中的 Redis"}
+    ]
+  },
+  "ES": {
+    "sites": [
+      {"site": "es",             "path": "/01-storage/overview", "label": "Elasticsearch 存储"},
+      {"site": "observability",  "path": "/02-logs/es", "label": "日志存储"}
+    ]
+  },
+  "Elasticsearch": {
+    "sites": [
+      {"site": "es",             "path": "/01-storage/overview", "label": "ES 存储"}
+    ]
+  },
+  "MySQL": {
+    "sites": [
+      {"site": "mysql",          "path": "/01-foundation/architecture", "label": "MySQL 架构"}
+    ]
+  },
+  "PostgreSQL": {
+    "sites": [
+      {"site": "postgresql",     "path": "/01-basics/overview", "label": "PG 基础"}
+    ]
+  },
+  "Postgres": {
+    "sites": [
+      {"site": "postgresql",     "path": "/01-basics/overview", "label": "PG 基础"}
+    ]
+  },
+  "Python": {
+    "sites": [
+      {"site": "python",         "path": "/01-basics/syntax", "label": "Python 语法"}
+    ]
+  },
+  "Go": {
+    "sites": [
+      {"site": "go",             "path": "/01-basics/golang-intro", "label": "Go 入门"}
+    ]
+  },
+  "Rust": {
+    "sites": [
+      {"site": "rust",           "path": "/01-basics/ownership", "label": "Rust 所有权"}
+    ]
+  },
+  "TypeScript": {
+    "sites": [
+      {"site": "frontend",       "path": "/02-typescript/types", "label": "TS 类型系统"}
+    ]
+  },
+  "Vue": {
+    "sites": [
+      {"site": "frontend",       "path": "/03-vue/components", "label": "Vue 组件"}
+    ]
+  },
+  "React": {
+    "sites": [
+      {"site": "frontend",       "path": "/04-react/hooks", "label": "React Hooks"}
+    ]
+  },
+  "CAP": {
+    "sites": [
+      {"site": "architecture",   "path": "/01-distributed/cap", "label": "CAP 定理"},
+      {"site": "system-design",  "path": "/cap-theorem", "label": "系统设计中的 CAP"}
+    ]
+  },
+  "BASE": {
+    "sites": [
+      {"site": "architecture",   "path": "/01-distributed/base", "label": "BASE 理论"}
+    ]
+  },
+  "DDD": {
+    "sites": [
+      {"site": "architecture",   "path": "/05-ddd/overview", "label": "DDD 领域驱动"},
+      {"site": "system-design",  "path": "/ddd", "label": "DDD 系统设计"}
+    ]
+  },
+  "限流": {
+    "sites": [
+      {"site": "architecture",   "path": "/03-ha-theory/rate-limit", "label": "限流算法"},
+      {"site": "cloud",          "path": "/04-sentinel/rate-limit", "label": "Sentinel 限流"}
+    ]
+  },
+  "熔断": {
+    "sites": [
+      {"site": "architecture",   "path": "/03-ha-theory/circuit-breaker", "label": "熔断器模式"},
+      {"site": "cloud",          "path": "/04-sentinel/circuit-breaker", "label": "Sentinel 熔断"}
+    ]
+  },
+  "短链": {
+    "sites": [
+      {"site": "architecture",   "path": "/06-cases/short-url", "label": "短链架构"},
+      {"site": "system-design",  "path": "/short-url", "label": "短链系统设计"}
+    ]
+  },
+  "秒杀": {
+    "sites": [
+      {"site": "architecture",   "path": "/06-cases/seckill", "label": "秒杀架构"},
+      {"site": "system-design",  "path": "/seckill", "label": "秒杀系统设计"}
+    ]
+  },
+  "ID 生成": {
+    "sites": [
+      {"site": "architecture",   "path": "/07-cases/snowflake", "label": "Snowflake ID"},
+      {"site": "system-design",  "path": "/09-id/snowflake", "label": "ID 系统设计"}
+    ]
+  },
+  "Snowflake": {
+    "sites": [
+      {"site": "system-design",  "path": "/09-id/snowflake", "label": "Snowflake ID"}
+    ]
+  },
+  "OAuth": {
+    "sites": [
+      {"site": "security",       "path": "/02-auth/oauth2", "label": "OAuth 2.0"}
+    ]
+  },
+  "JWT": {
+    "sites": [
+      {"site": "security",       "path": "/02-auth/jwt", "label": "JWT 认证"}
+    ]
+  },
+  "加密": {
+    "sites": [
+      {"site": "security",       "path": "/03-crypto/symmetric", "label": "对称加密"}
+    ]
+  },
+  "XSS": {
+    "sites": [
+      {"site": "security",       "path": "/01-web-top10/a03-xss", "label": "XSS 攻防"}
+    ]
+  },
+  "SQL 注入": {
+    "sites": [
+      {"site": "security",       "path": "/01-web-top10/a03-injection", "label": "SQL 注入"}
+    ]
+  },
+  "OWASP": {
+    "sites": [
+      {"site": "security",       "path": "/01-web-top10/overview", "label": "OWASP Top 10"}
+    ]
+  },
+  "OpenTelemetry": {
+    "sites": [
+      {"site": "observability",  "path": "/03-otel/overview", "label": "OTel 概览"}
+    ]
+  },
+  "Grafana": {
+    "sites": [
+      {"site": "observability",  "path": "/02-grafana/dashboards", "label": "Grafana 仪表板"}
+    ]
+  },
+  "Istio": {
+    "sites": [
+      {"site": "cloud-native",   "path": "/07-servicemesh/istio", "label": "Istio Service Mesh"}
+    ]
+  },
+  "GitOps": {
+    "sites": [
+      {"site": "cloud-native",   "path": "/08-gitops/argocd", "label": "ArgoCD GitOps"}
+    ]
+  },
+  "混沌": {
+    "sites": [
+      {"site": "chaos",          "path": "/01-concepts/overview", "label": "混沌工程基础"}
+    ]
+  },
+  "文件系统": {
+    "sites": [
+      {"site": "filesystem",     "path": "/01-basics/overview", "label": "文件系统基础"}
+    ]
+  },
+  "Ceph": {
+    "sites": [
+      {"site": "filesystem",     "path": "/03-distributed/cephfs", "label": "CephFS"}
+    ]
+  },
+  "ZFS": {
+    "sites": [
+      {"site": "filesystem",     "path": "/02-disk-fs/zfs", "label": "ZFS 详解"}
+    ]
+  },
+  "快照": {
+    "sites": [
+      {"site": "filesystem",     "path": "/11-backup/snapshot", "label": "快照备份"}
+    ]
+  },
+  "备份": {
+    "sites": [
+      {"site": "filesystem",     "path": "/11-backup/3-2-1", "label": "3-2-1 备份策略"}
+    ]
+  },
+  "FFmpeg": {
+    "sites": [
+      {"site": "video",          "path": "/01-basics/ffmpeg", "label": "FFmpeg 命令"}
+    ]
+  },
+  "H264": {
+    "sites": [
+      {"site": "video",          "path": "/03-codecs/h264", "label": "H264 编解码"}
+    ]
+  },
+  "H265": {
+    "sites": [
+      {"site": "video",          "path": "/03-codecs/h265", "label": "H265/HEVC"}
+    ]
+  },
+  "AV1": {
+    "sites": [
+      {"site": "video",          "path": "/03-codecs/av1", "label": "AV1 编解码"}
+    ]
+  },
+  "Live": {
+    "sites": [
+      {"site": "video",          "path": "/10-application/streaming", "label": "视频直播"}
+    ]
+  },
+  "流处理": {
+    "sites": [
+      {"site": "kafka",          "path": "/03-stream/overview", "label": "Kafka 流处理"},
+      {"site": "bigdata",        "path": "/04-streaming/overview", "label": "大数据流处理"}
+    ]
+  },
+  "CDC": {
+    "sites": [
+      {"site": "bigdata",        "path": "/04-streaming/cdc", "label": "CDC 数据同步"}
+    ]
+  },
+  "数据仓库": {
+    "sites": [
+      {"site": "bigdata",        "path": "/06-warehouse/overview", "label": "数仓架构"}
+    ]
+  },
+  "数据湖": {
+    "sites": [
+      {"site": "bigdata",        "path": "/10-data-lake/overview", "label": "数据湖三剑客"}
+    ]
+  },
+  "OLAP": {
+    "sites": [
+      {"site": "bigdata",        "path": "/12-olap-engine/overview", "label": "OLAP 引擎对比"},
+      {"site": "clickhouse",     "path": "/01-basics/overview", "label": "ClickHouse OLAP"}
+    ]
+  },
+  "微服务": {
+    "sites": [
+      {"site": "cloud",          "path": "/01-overview/microservices", "label": "Spring Cloud 微服务"},
+      {"site": "architecture",   "path": "/04-micro/overview", "label": "微服务架构"}
+    ]
+  },
+  "DDL": {
+    "sites": [
+      {"site": "mysql",          "path": "/04-ddl/table", "label": "MySQL DDL"}
+    ]
+  },
+  "DML": {
+    "sites": [
+      {"site": "mysql",          "path": "/05-dml/index", "label": "MySQL DML"}
+    ]
+  },
+  "MVCC": {
+    "sites": [
+      {"site": "mysql",          "path": "/02-isolation/mvcc", "label": "MySQL MVCC"},
+      {"site": "postgresql",     "path": "/02-advanced/mvcc", "label": "PG MVCC"}
+    ]
+  },
+  "主从": {
+    "sites": [
+      {"site": "mysql",          "path": "/06-replication/master-slave", "label": "MySQL 主从复制"}
+    ]
+  },
+  "binlog": {
+    "sites": [
+      {"site": "mysql",          "path": "/07-binlog/format", "label": "binlog 格式"}
+    ]
+  },
+  "分库分表": {
+    "sites": [
+      {"site": "mysql",          "path": "/08-sharding/overview", "label": "分库分表策略"},
+      {"site": "architecture",   "path": "/09-cases/sharding", "label": "分库分表实战"}
+    ]
+  },
+  "TLS": {
+    "sites": [
+      {"site": "network",        "path": "/07-security/tls", "label": "TLS 握手"}
+    ]
+  },
+  "DNS": {
+    "sites": [
+      {"site": "network",        "path": "/03-app/dns", "label": "DNS 协议"}
+    ]
+  },
+  "HTTP": {
+    "sites": [
+      {"site": "network",        "path": "/04-app/http", "label": "HTTP 协议"}
+    ]
+  },
+  "TCP": {
+    "sites": [
+      {"site": "network",        "path": "/02-transport/tcp", "label": "TCP 详解"}
+    ]
+  },
+  "UDP": {
+    "sites": [
+      {"site": "network",        "path": "/02-transport/udp", "label": "UDP 协议"}
+    ]
+  },
+  "iptables": {
+    "sites": [
+      {"site": "linux",          "path": "/13-net/iptables", "label": "iptables 防火墙"}
+    ]
+  },
+  "systemd": {
+    "sites": [
+      {"site": "linux",          "path": "/06-service/systemd", "label": "systemd 服务管理"}
+    ]
+  },
+  "kernel": {
+    "sites": [
+      {"site": "linux",          "path": "/14-kernel/overview", "label": "Linux 内核"}
+    ]
+  },
+  "shell": {
+    "sites": [
+      {"site": "linux",          "path": "/11-shell/bash", "label": "Bash 脚本"}
+    ]
+  },
+  "cron": {
+    "sites": [
+      {"site": "linux",          "path": "/11-shell/cron", "label": "cron 任务"},
+      {"site": "tools",          "path": "/cron", "label": "cron 表达式生成"}
+    ]
+  },
+  "JWT": {
+    "sites": [
+      {"site": "security",       "path": "/02-auth/jwt", "label": "JWT 认证"}
+    ]
+  },
+  "asyncio": {
+    "sites": [
+      {"site": "python",         "path": "/04-concurrency/asyncio", "label": "asyncio 异步"}
+    ]
+  },
+  "FastAPI": {
+    "sites": [
+      {"site": "python",         "path": "/09-enterprise/fastapi", "label": "FastAPI Web"}
+    ]
+  },
+  "装饰器": {
+    "sites": [
+      {"site": "python",         "path": "/01-basics/decorator", "label": "Python 装饰器"}
+    ]
+  },
+  "所有权": {
+    "sites": [
+      {"site": "rust",           "path": "/01-basics/ownership", "label": "Rust 所有权"}
+    ]
+  },
+  "async": {
+    "sites": [
+      {"site": "rust",           "path": "/03-async/tokio", "label": "Rust tokio"}
+    ]
+  },
+  "goroutine": {
+    "sites": [
+      {"site": "go",             "path": "/02-concurrency/goroutine", "label": "Goroutine 调度"}
+    ]
+  },
+  "channel": {
+    "sites": [
+      {"site": "go",             "path": "/02-concurrency/channel", "label": "Go Channel"}
+    ]
+  },
+  "RAG": {
+    "sites": [
+      {"site": "ai",             "path": "/05-rag/patterns", "label": "RAG 模式"}
+    ]
+  },
+  "MCP": {
+    "sites": [
+      {"site": "ai",             "path": "/06-mcp/core", "label": "MCP 协议"}
+    ]
+  },
+  "Agent": {
+    "sites": [
+      {"site": "ai",             "path": "/04-agents/langgraph", "label": "Agent 框架"}
+    ]
+  },
+  "Prompt": {
+    "sites": [
+      {"site": "ai",             "path": "/07-prompt/engineering", "label": "Prompt 工程"}
+    ]
+  },
+  "LangChain": {
+    "sites": [
+      {"site": "ai",             "path": "/03-sdks/langchain", "label": "LangChain SDK"}
+    ]
+  },
+  "Embedding": {
+    "sites": [
+      {"site": "ai",             "path": "/05-rag/embedding", "label": "嵌入模型"}
+    ]
+  }
+}

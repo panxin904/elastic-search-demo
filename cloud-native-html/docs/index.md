@@ -112,6 +112,12 @@ features:
       "安全（RBAC / NetworkPolicy / Falco）",
       "排错套路 + CKA / CKS 考试"
     ]"
+    :related-sites="[
+      { site: "architecture", path: "/04-micro/overview", label: "云原生架构" },
+      { site: "bigdata", path: "/06-warehouse/overview", label: "云上数仓" },
+      { site: "observability", path: "/01-prometheus/overview", label: "云原生监控" },
+      { site: "chaos", path: "/01-concepts/overview", label: "云原生韧性" }
+    ]"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>

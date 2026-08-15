@@ -201,8 +201,11 @@ def main():
                     s['broken_links'] += 1
                     broken_links.append(f"{site_short}/{path.relative_to(SITE_DOCS[site])} -> {href}")
 
-        # 跨站引用（指向 java-px.bot.cd/）
+        # 跨站引用：1) markdown link  2) Vue 组件 prop（:site="xxx" 或 site: "xxx"）
         xsite = re.findall(r'\[[^\]]+\]\((https?://java-px\.bot\.cd/([^/)]+))/', text)
+        xsite += re.findall(r'(?:site|:href|:link)\s*[:=]\s*["\']([a-z-]+)', text)
+        # 过滤已知非站点的字符串
+        xsite = [x for x in xsite if x not in ('github', 'mailto', 'tel', 'http', 'https', '_self', '_blank')]
         if xsite:
             s['xsite_links'] += len(xsite)
 

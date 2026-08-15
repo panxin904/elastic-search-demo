@@ -112,6 +112,13 @@ features:
       "ELT 流水线 Airflow / dbt",
       "真实业务案例：用户画像 / 推荐 / 风控 / 日志"
     ]"
+    :related-sites="[
+      { site: "kafka", path: "/03-stream/overview", label: "流处理引擎" },
+      { site: "mysql", path: "/01-foundation/architecture", label: "OLTP 数据库" },
+      { site: "clickhouse", path: "/01-basics/overview", label: "ClickHouse 列存" },
+      { site: "filesystem", path: "/03-distributed/hdfs", label: "HDFS 分布式存储" },
+      { site: "architecture", path: "/01-distributed/cap", label: "分布式理论" }
+    ]"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>

@@ -109,6 +109,12 @@ features:
       "设计模式 + 测试 + 工具",
       "面试高频题 + 手写代码"
     ]"
+    :related-sites="[
+      { site: "architecture", path: "/02-thread-pool/executor", label: "并发架构" },
+      { site: "system-design", path: "/09-id/snowflake", label: "ID 生成实战" },
+      { site: "cloud", path: "/01-springboot/quickstart", label: "Spring Boot 微服务" },
+      { site: "kafka", path: "/02-sdks/java", label: "Java 客户端 SDK" }
+    ]"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>

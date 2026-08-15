@@ -108,6 +108,13 @@ features:
       "DDD：微服务拆分的理论",
       "短链 / 秒杀 / 异地多活：真实案例分析"
     ]"
+    :related-sites="[
+      { site: "system-design", path: "/cap-theorem", label: "系统设计的 CAP" },
+      { site: "cloud", path: "/01-overview/microservices", label: "Spring Cloud 落地" },
+      { site: "bigdata", path: "/06-warehouse/overview", label: "大数据架构" },
+      { site: "kafka", path: "/01-basics/architecture", label: "消息架构" },
+      { site: "system-design", path: "/short-url", label: "短链架构案例" }
+    ]"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>

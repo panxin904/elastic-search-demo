@@ -111,6 +111,12 @@ features:
       "微调 / 部署 / 评测",
       "工程化（API Key / 成本 / 容器化）"
     ]"
+    :related-sites="[
+      { site: "architecture", path: "/01-distributed/cap", label: "分布式 CAP" },
+      { site: "bigdata", path: "/06-warehouse/overview", label: "数仓架构" },
+      { site: "cloud-native", path: "/05-observability/prometheus", label: "AI 部署监控" },
+      { site: "observability", path: "/03-otel/overview", label: "AI 可观测性" }
+    ]"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
