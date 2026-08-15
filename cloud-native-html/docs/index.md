@@ -94,26 +94,27 @@ features:
 
 ---
 
-## 🎯 为什么写这个图谱？
-
-```
-现代后端 / DevOps / SRE 的工作栈：
-  ❌ 写了 Dockerfile 不知道 -it / -d / -p 的区别
-  ❌ kubectl apply 后 Pod 一直 Pending / CrashLoopBackOff
-  ❌ Deployment / StatefulSet / DaemonSet 不知道该用哪个
-  ❌ 写 Helm Chart 不会 values.yaml
-  ❌ Service Mesh / GitOps 只听过没用过
-
-本图谱的目标：
-  ✅ 系统化讲清 Docker 镜像 / 容器 / 网络 / 卷
-  ✅ 深入 k8s 控制面 / 工作负载 / Service / 网络 / 存储
-  ✅ Helm 包管理 + Kustomize
-  ✅ 可观测（Prometheus / Grafana / Loki）
-  ✅ Service Mesh（Istio）+ GitOps（ArgoCD）
-  ✅ 安全（RBAC / NetworkPolicy / Falco）
-  ✅ 排错套路 + CKA / CKS 考试
-```
-
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="[
+      "写了 Dockerfile 不知道 -it / -d / -p 的区别",
+      "kubectl apply 后 Pod 一直 Pending / CrashLoopBackOff",
+      "Deployment / StatefulSet / DaemonSet 不知道该用哪个",
+      "写 Helm Chart 不会 values.yaml",
+      "Service Mesh / GitOps 只听过没用过"
+    ]"
+    :goals="[
+      "系统化讲清 Docker 镜像 / 容器 / 网络 / 卷",
+      "深入 k8s 控制面 / 工作负载 / Service / 网络 / 存储",
+      "Helm 包管理 + Kustomize",
+      "可观测（Prometheus / Grafana / Loki）",
+      "Service Mesh（Istio）+ GitOps（ArgoCD）",
+      "安全（RBAC / NetworkPolicy / Falco）",
+      "排错套路 + CKA / CKS 考试"
+    ]"
+    title="🎯 为什么写这个图谱？"
+  />
+</ClientOnly>
 ## 🎯 学习路径
 
 ```

@@ -92,28 +92,29 @@ features:
     linkText: 看面试 →
 ---
 
-## 🎯 为什么写这个图谱？
-
-```
-大数据栈是迷宫：
-  ❌ Hadoop / Spark / Flink / Hive / Kafka 各自独立文档
-  ❌ 数据仓库 vs 数据湖 vs Lakehouse 怎么选
-  ❌ 离线数仓 vs 实时数仓 怎么统一
-  ❌ ClickHouse / Doris / StarRocks 怎么选
-  ❌ 模型设计 Inmon vs Kimball vs Data Vault 怎么选
-
-本图谱聚焦原理 + 选型 + 实战：
-  ✅ 4V特征 / Hadoop生态 / 分布式存储原理
-  ✅ Spark / Flink / Hive 核心原理与调优
-  ✅ Kafka 流处理 / CDC / 数据血缘
-  ✅ 数据建模 Inmon / Kimball / Data Vault
-  ✅ 现代数仓架构 Snowflake / Redshift / BigQuery
-  ✅ 数据湖三剑客 Delta / Iceberg / Hudi
-  ✅ OLAP 引擎 ClickHouse / Doris / StarRocks
-  ✅ ELT 流水线 Airflow / dbt
-  ✅ 真实业务案例：用户画像 / 推荐 / 风控 / 日志
-```
-
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="[
+      "Hadoop / Spark / Flink / Hive / Kafka 各自独立文档",
+      "数据仓库 vs 数据湖 vs Lakehouse 怎么选",
+      "离线数仓 vs 实时数仓 怎么统一",
+      "ClickHouse / Doris / StarRocks 怎么选",
+      "模型设计 Inmon vs Kimball vs Data Vault 怎么选"
+    ]"
+    :goals="[
+      "4V特征 / Hadoop生态 / 分布式存储原理",
+      "Spark / Flink / Hive 核心原理与调优",
+      "Kafka 流处理 / CDC / 数据血缘",
+      "数据建模 Inmon / Kimball / Data Vault",
+      "现代数仓架构 Snowflake / Redshift / BigQuery",
+      "数据湖三剑客 Delta / Iceberg / Hudi",
+      "OLAP 引擎 ClickHouse / Doris / StarRocks",
+      "ELT 流水线 Airflow / dbt",
+      "真实业务案例：用户画像 / 推荐 / 风控 / 日志"
+    ]"
+    title="🎯 为什么写这个图谱？"
+  />
+</ClientOnly>
 ## 🎯 学习路径
 
 ```

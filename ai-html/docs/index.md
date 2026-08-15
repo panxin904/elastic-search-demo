@@ -94,25 +94,26 @@ features:
 
 ---
 
-## 🎯 为什么写这个图谱？
-
-```
-AI 工程是个大杂烩：
-  ❌ Claude / GPT / Gemini / DeepSeek 到底选哪个？
-  ❌ Claude Code / Codex / Cursor / Copilot / Aider 怎么用？
-  ❌ Claude SDK / OpenAI SDK / LangChain / LangGraph 关系？
-  ❌ Agent / RAG / MCP / Function Calling 是什么关系？
-  ❌ LoRA / QLoRA / GGUF 怎么微调 / 量化？
-
-本图谱的目标：
-  ✅ 主流大模型横向对比 + 选型
-  ✅ AI 编程工具安装 + 命令速查
-  ✅ SDK / Agent 框架生态
-  ✅ RAG / MCP / Tool use 原理
-  ✅ 微调 / 部署 / 评测
-  ✅ 工程化（API Key / 成本 / 容器化）
-```
-
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="[
+      "Claude / GPT / Gemini / DeepSeek 到底选哪个？",
+      "Claude Code / Codex / Cursor / Copilot / Aider 怎么用？",
+      "Claude SDK / OpenAI SDK / LangChain / LangGraph 关系？",
+      "Agent / RAG / MCP / Function Calling 是什么关系？",
+      "LoRA / QLoRA / GGUF 怎么微调 / 量化？"
+    ]"
+    :goals="[
+      "主流大模型横向对比 + 选型",
+      "AI 编程工具安装 + 命令速查",
+      "SDK / Agent 框架生态",
+      "RAG / MCP / Tool use 原理",
+      "微调 / 部署 / 评测",
+      "工程化（API Key / 成本 / 容器化）"
+    ]"
+    title="🎯 为什么写这个图谱？"
+  />
+</ClientOnly>
 ## 🎯 学习路径
 
 ```

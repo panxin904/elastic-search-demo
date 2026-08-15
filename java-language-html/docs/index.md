@@ -92,25 +92,26 @@ features:
     linkText: 看面试 →
 ---
 
-## 🎯 为什么写这个图谱？
-
-```
-Java 是后端第一大语言，但大多数人：
-  ❌ 会用 HashMap 但不理解红黑树和 Hash 冲突
-  ❌ 写了 Spring 但不理解 IoC 容器如何工作
-  ❌ 遇到 GC 停顿只会调 Xmx
-  ❌ 用了线程池但不理解核心参数
-  ❌ 面试问 JVM 只知道"堆栈方法区"
-
-本图谱的目标：
-  ✅ 系统化讲清 Java 基础 → 集合 → 并发 → JVM → GC
-  ✅ Spring IoC/AOP/事务/自动配置原理
-  ✅ 微服务：Nacos/Gateway/Sentinel/Seata
-  ✅ 性能调优：Arthas/jstack/jmap/jstat
-  ✅ 设计模式 + 测试 + 工具
-  ✅ 面试高频题 + 手写代码
-```
-
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="[
+      "会用 HashMap 但不理解红黑树和 Hash 冲突",
+      "写了 Spring 但不理解 IoC 容器如何工作",
+      "遇到 GC 停顿只会调 Xmx",
+      "用了线程池但不理解核心参数",
+      "面试问 JVM 只知道「堆栈方法区」"
+    ]"
+    :goals="[
+      "系统化讲清 Java 基础 → 集合 → 并发 → JVM → GC",
+      "Spring IoC/AOP/事务/自动配置原理",
+      "微服务：Nacos/Gateway/Sentinel/Seata",
+      "性能调优：Arthas/jstack/jmap/jstat",
+      "设计模式 + 测试 + 工具",
+      "面试高频题 + 手写代码"
+    ]"
+    title="🎯 为什么写这个图谱？"
+  />
+</ClientOnly>
 ## 🎯 学习路径
 
 ```
