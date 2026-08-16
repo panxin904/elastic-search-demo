@@ -68,16 +68,17 @@ features:
 ---
 
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "只懂基础语法，不了解底层原理（解释器 / 字节码 / 对象模型）",
       "用过 requests / pandas 但不知道内部实现",
       "写 GIL 多线程却不知道为什么慢",
       "爬虫写完就封 IP，不知道反爬怎么破",
       "LLM 应用只会调 API，不知道 prompt 怎么写"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "Python 底层原理（解释器 / 字节码 / 对象模型 / GIL / GC）",
       "常用库（requests / BeautifulSoup / pandas / SQLAlchemy / pytest）",
       "并发编程（threading / asyncio / multiprocessing）",
@@ -86,14 +87,21 @@ features:
       "数据处理（pandas / NumPy / Matplotlib）",
       "算法与数据结构实战",
       "企业级项目（FastAPI / Docker / 性能优化）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "ai", path: "/03-sdks/claude-sdk", label: "LLM SDK" },
       { site: "go", path: "/01-basics/golang-intro", label: "Go 对比" },
       { site: "java-language", path: "/04-jvm/overview", label: "JVM 对比" },
       { site: "devops", path: "/01-pipeline/overview", label: "CI/CD 流水线" },
       { site: "architecture", path: "/01-distributed/cap", label: "系统架构" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>

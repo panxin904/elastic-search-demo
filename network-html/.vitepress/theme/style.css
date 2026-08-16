@@ -1,4 +1,4 @@
-@import '../../../../shared-assets/vitepress-template/theme/style.css';
+@import '@shared/vitepress-template/theme/style.css';
 
 /* Network Atlas theme */
 :root { --nt-ink: #1f2937; --nt-accent: #0ea5e9; --nt-soft: #f0f9ff; }

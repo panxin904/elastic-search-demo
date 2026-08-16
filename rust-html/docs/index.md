@@ -42,29 +42,37 @@ features:
     linkText: 案例研究
 ---
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "所有权 / 借用 / 生命周期推导卡壳？",
       "异步编程（async-await / Tokio）复杂？",
       "Trait / 泛型 / 高级类型（新类型 / PhantomData）难理解？",
       "宏系统（声明宏 / 过程宏）门槛高？",
       "生态相对小、生产案例少？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "基础与所有权（Ownership / Borrowing / Lifetime）",
       "类型系统与 Trait（枚举 / 泛型 / 高级类型）",
       "生态与工具链（Cargo / crates.io / rustfmt / clippy）",
       "并发与异步（async-await / Tokio / Channel）",
       "系统编程（unsafe / FFI / 嵌入式 / WebAssembly）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "go", path: "/01-basics/golang-intro", label: "Go 对比" },
       { site: "linux", path: "/14-kernel/overview", label: "Linux 内核" },
       { site: "security", path: "/01-basics/permissions", label: "内存安全" },
       { site: "architecture", path: "/01-distributed/cap", label: "分布式架构" },
       { site: "system-design", path: "/01-theory/cap-theorem", label: "系统设计基础" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>

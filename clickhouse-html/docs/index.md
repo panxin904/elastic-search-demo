@@ -44,30 +44,38 @@ features:
 ---
 
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "列存 vs 行存：为什么 OLAP 要用列存？",
       "MergeTree 引擎家族（Replacing / Summing / Aggregating）怎么选？",
       "实时数仓（Lambda / Kappa / 湖仓一体）架构怎么选？",
       "集群扩容、副本、数据分片怎么平衡成本与可用性？",
       "SQL 优化：ORDER BY / PARTITION BY / INDEX / SAMPLE 怎么用？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "列存原理 + MergeTree 引擎对比",
       "表引擎（Log / MergeTree / Distributed / MaterializedView）",
       "数仓场景（Lambda / Kappa / 湖仓一体）",
       "生态集成（Kafka 引擎 / MySQL CDC / PG FDW）",
       "可观测性存储（Grafana Mimir / VictoriaMetrics / Loki 替代）",
       "性能调优 + 运维实战"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "kafka", path: "/05-ecosystem/kafka-engine", label: "Kafka 引擎消费" },
       { site: "observability", path: "/04-olap-scenarios/observability", label: "可观测性存储" },
       { site: "mysql", path: "/06-compare/mysql", label: "MySQL → ClickHouse 实时数仓" },
       { site: "postgresql", path: "/06-compare/postgresql", label: "PG → ClickHouse HTAP" },
       { site: "architecture", path: "/04-olap-scenarios/lambda-kappa", label: "实时数仓架构" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>

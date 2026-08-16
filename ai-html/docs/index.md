@@ -94,29 +94,37 @@ features:
 
 ---
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "Claude / GPT / Gemini / DeepSeek 到底选哪个？",
       "Claude Code / Codex / Cursor / Copilot / Aider 怎么用？",
       "Claude SDK / OpenAI SDK / LangChain / LangGraph 关系？",
       "Agent / RAG / MCP / Function Calling 是什么关系？",
       "LoRA / QLoRA / GGUF 怎么微调 / 量化？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "主流大模型横向对比 + 选型",
       "AI 编程工具安装 + 命令速查",
       "SDK / Agent 框架生态",
       "RAG / MCP / Tool use 原理",
       "微调 / 部署 / 评测",
       "工程化（API Key / 成本 / 容器化）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "architecture", path: "/01-distributed/cap", label: "分布式 CAP" },
       { site: "bigdata", path: "/06-warehouse/overview", label: "数仓架构" },
       { site: "cloud-native", path: "/05-observability/prometheus", label: "AI 部署监控" },
       { site: "observability", path: "/03-otel/overview", label: "AI 可观测性" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>

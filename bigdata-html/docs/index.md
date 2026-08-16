@@ -92,16 +92,17 @@ features:
     linkText: 看面试 →
 ---
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "Hadoop / Spark / Flink / Hive / Kafka 各自独立文档",
       "数据仓库 vs 数据湖 vs Lakehouse 怎么选",
       "离线数仓 vs 实时数仓 怎么统一",
       "ClickHouse / Doris / StarRocks 怎么选",
       "模型设计 Inmon vs Kimball vs Data Vault 怎么选"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "4V特征 / Hadoop生态 / 分布式存储原理",
       "Spark / Flink / Hive 核心原理与调优",
       "Kafka 流处理 / CDC / 数据血缘",
@@ -111,14 +112,21 @@ features:
       "OLAP 引擎 ClickHouse / Doris / StarRocks",
       "ELT 流水线 Airflow / dbt",
       "真实业务案例：用户画像 / 推荐 / 风控 / 日志"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "kafka", path: "/03-stream/overview", label: "流处理引擎" },
       { site: "mysql", path: "/01-foundation/architecture", label: "OLTP 数据库" },
       { site: "clickhouse", path: "/01-basics/overview", label: "ClickHouse 列存" },
       { site: "filesystem", path: "/03-distributed/hdfs", label: "HDFS 分布式存储" },
       { site: "architecture", path: "/01-distributed/cap", label: "分布式理论" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>

@@ -6,7 +6,7 @@ import ScrapyFlow from './components/ScrapyFlow.vue'
 import SortVisualizer from './components/SortVisualizer.vue'
 import ApiReference from './components/ApiReference.vue'
 import Cheatsheet from './components/Cheatsheet.vue'
-import { setupReadingProgress } from '../../../../shared-assets/vitepress-template/theme/composables/readingProgress'
+import { setupReadingProgress } from '@shared/vitepress-template/theme/composables/readingProgress'
 import './style.css'
 
 export default {

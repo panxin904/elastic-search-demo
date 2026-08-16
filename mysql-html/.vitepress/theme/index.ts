@@ -5,7 +5,7 @@ import SqlPlayground from './components/SqlPlayground.vue'
 import LockDemo from './components/LockDemo.vue'
 import SqlCheatsheet from './components/SqlCheatsheet.vue'
 import PerfCalculator from './components/PerfCalculator.vue'
-import { setupReadingProgress } from '../../../../shared-assets/vitepress-template/theme/composables/readingProgress'
+import { setupReadingProgress } from '@shared/vitepress-template/theme/composables/readingProgress'
 import './style.css'
 
 export default {

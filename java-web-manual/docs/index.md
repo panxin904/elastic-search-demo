@@ -36,30 +36,38 @@ features:
 ---
 
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "Java 知识图谱太广（基础 / JVM / 并发 / 框架 / 中间件）怎么系统学？",
       "JVM 内存模型（堆 / 栈 / Metaspace / 直接内存）？",
       "并发编程（synchronized / Lock / JUC / 线程池）？",
       "Spring / Spring Boot / MyBatis 源码怎么读？",
       "分布式场景（RPC / 消息 / 缓存 / 数据库）实战？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "Java 基础（语法 / 集合 / 泛型 / 反射 / 注解）",
       "JVM 原理（内存模型 / GC / 类加载 / 字节码）",
       "并发编程（JUC / 线程池 / CompletableFuture）",
       "Spring 全家桶（IoC / AOP / Transaction / Boot）",
       "中间件实战（MySQL / Redis / Kafka / ES）",
       "分布式（RPC / 消息 / 缓存 / 配置中心）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "java-language", path: "/04-jvm/overview", label: "JVM 原理" },
       { site: "system-design", path: "/01-theory/cap-theorem", label: "CAP 定理" },
       { site: "kafka", path: "/01-basics/architecture", label: "Kafka 架构" },
       { site: "mysql", path: "/01-basics/intro", label: "MySQL 基础" },
       { site: "redis", path: "/01-basics/intro", label: "Redis 基础" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>

@@ -1,10 +1,22 @@
 import { defineConfig } from 'vitepress'
 import { withMermaid } from 'vitepress-plugin-mermaid'
+import { fileURLToPath, URL } from 'node:url'
+
+// P0: VitePress 默认 fs.allow 限制 cwd 外 import。用 vite alias 让 ../../../../shared-assets 可解析。
+const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.url))
+
 
 // https://vitepress.dev/reference/site-config
 export default withMermaid(defineConfig({
   mermaid: {
     theme: 'default'
+  },
+  vite: {
+    resolve: {
+      alias: [
+        { find: '@shared', replacement: SHARED_ASSETS },
+      ],
+    },
   },
   base: '/es/',
   title: 'ES Knowledge Atlas',

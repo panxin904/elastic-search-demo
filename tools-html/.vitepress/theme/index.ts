@@ -1,6 +1,6 @@
 import { h } from 'vue'
 import DefaultTheme from 'vitepress/theme'
-import { setupReadingProgress } from '../../../../shared-assets/vitepress-template/theme/composables/readingProgress'
+import { setupReadingProgress } from '@shared/vitepress-template/theme/composables/readingProgress'
 import './style.css'
 
 // Vue 组件都需要客户端运行 — VitePress 默认 SSR 会失败，

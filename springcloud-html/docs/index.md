@@ -53,30 +53,38 @@ features:
     linkText: 综合实战
 ---
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "微服务架构选型：Spring Cloud Alibaba vs Spring Cloud Netflix vs Istio？",
       "Gateway / Nacos / Sentinel / Seata 组件怎么用？",
       "服务注册发现、配置中心、负载均衡、熔断限流怎么串联？",
       "分布式事务（Seata AT / TCC / SAGA）模式怎么选？",
       "Spring Boot 3 + Spring Cloud 2023 新特性？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "微服务架构核心组件（Gateway / Nacos / Sentinel / Seata）",
       "请求链路可视化（从网关到数据库全链路）",
       "服务治理（注册发现 / 配置中心 / 负载均衡 / 熔断限流）",
       "分布式事务（Seata AT / TCC / SAGA 模式选型）",
       "Spring Boot 3 + Spring Cloud 2023 新特性",
       "6 大主题（入门 / 进阶 / 实战 / 监控 / 安全 / 部署）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "java", path: "/01-springboot/quickstart", label: "Spring Boot 入门" },
       { site: "cloud-native", path: "/02-k8s-arch/control-plane", label: "K8s 架构" },
       { site: "observability", path: "/03-otel/overview", label: "OpenTelemetry" },
       { site: "architecture", path: "/01-distributed/cap", label: "分布式理论" },
       { site: "kafka", path: "/01-basics/architecture", label: "消息架构" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>

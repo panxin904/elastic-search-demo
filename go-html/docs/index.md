@@ -43,29 +43,37 @@ features:
     linkText: 进阶专题
 ---
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "goroutine 调度原理、栈扩容讲不清？",
       "channel vs sync.Mutex 不知道选哪个？",
       "Go 错误处理（error / panic / recover）哲学？",
       "微服务架构、gRPC、Service Mesh 怎么落地？",
       "K8s operator / controller-runtime 不会写？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "Go 基础语法 + 类型系统 + 函数闭包",
       "并发模型（CSP / goroutine / channel / context）",
       "错误处理 + 包管理 + 工具链",
       "云原生生态（Docker / K8s / Prometheus / etcd）",
       "微服务实战（gRPC / 服务发现 / 链路追踪）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "cloud-native", path: "/01-docker/overview", label: "Docker 全栈" },
       { site: "java-language", path: "/04-jvm/overview", label: "JVM 对比" },
       { site: "architecture", path: "/01-distributed/cap", label: "分布式 CAP" },
       { site: "devops", path: "/01-pipeline/overview", label: "CI/CD 流水线" },
       { site: "system-design", path: "/01-theory/cap-theorem", label: "系统设计基础" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>

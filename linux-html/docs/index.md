@@ -20,30 +20,38 @@ hero:
       link: /cheatsheet
 ---
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "常用命令（ls / find / grep / awk）记不牢？",
       "Shell 脚本（bash / zsh）写不出来？",
       "systemd / 服务管理一团乱？",
       "iptables / nftables 防火墙不会配？",
       "内核参数调优（sysctl / cgroup）无从下手？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "入门基础（发行版 / Shell / 文件系统树）",
       "文件与目录（ls / cp / mv / find / 权限）",
       "文本三剑客（grep / sed / awk）",
       "Shell 脚本（bash 语法 / 流程控制 / 函数）",
       "服务管理（systemd / supervisor）",
       "网络配置（iptables / ip / ss / netstat）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "filesystem", path: "/01-storage/ext4", label: "ext4 文件系统" },
       { site: "network", path: "/01-fundamentals/tcp-ip", label: "TCP/IP 协议" },
       { site: "devops", path: "/01-pipeline/overview", label: "CI/CD 流水线" },
       { site: "security", path: "/01-basics/permissions", label: "Linux 权限" },
       { site: "observability", path: "/02-logs/filebeat", label: "日志采集" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>

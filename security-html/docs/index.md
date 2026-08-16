@@ -45,30 +45,38 @@ features:
     linkText: 零信任总览
 ---
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "OWASP Top 10 风险记不全，audit 一个 Web 应用无从下手？",
       "认证 vs 授权、RBAC vs ABAC 模型区别？",
       "密码学（对称 / 非对称 / 哈希 / 数字签名）讲不清？",
       "TLS / HTTPS / 证书体系不熟？",
       "XSS / CSRF / SQL 注入 / SSRF 等 Web 攻击原理？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "安全基础（认证 / 授权 / 密码学 / TLS / 攻击面）",
       "Web 安全（OWASP Top 10 / XSS / CSRF / SSRF / SQL 注入）",
       "Linux / 系统安全（权限 / capabilities / SELinux）",
       "网络安全（TLS / WAF / 防火墙 / IDS / IPS）",
       "应用安全（API 安全 / JWT / OAuth2 / OIDC）",
       "云原生安全（容器安全 / K8s RBAC / Sigstore / SBOM）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "network", path: "/01-fundamentals/tcp-ip", label: "TCP/IP 协议" },
       { site: "linux", path: "/13-net/iptables", label: "Linux 防火墙" },
       { site: "cloud-native", path: "/08-security/overview", label: "云原生安全" },
       { site: "devops", path: "/06-best-practices/secure-pipeline", label: "安全流水线" },
       { site: "frontend", path: "/04-react/hooks", label: "前端安全" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>

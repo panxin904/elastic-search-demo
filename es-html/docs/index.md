@@ -38,31 +38,38 @@ features:
 
 <ClientOnly>
   <WhyThisGraph
-    :pain-points="[
-      "倒排索引原理（分词 / 词典 / Posting List）讲不清？",
-      "ES 集群架构（Master / Data / Coordinating 节点）怎么设计？",
-      "Mapping / Analyzer / 分词器怎么配置才高效？",
-      "查询性能调优（Query DSL / Profile / 慢查询）？",
-      "ES vs ClickHouse vs Solr 选哪个？"
-    ]"
-    :goals="[
-      "ES 基础（倒排索引 / 集群架构 / 分片副本）",
-      "Mapping + Analyzer + 分词器",
-      "Query DSL 深度（Match / Term / Bool / Aggregation）",
-      "集群运维（Master 选举 / 脑裂 / 快照恢复）",
-      "性能调优（Profile / 慢查询 / JVM / 磁盘）",
-      "生态集成（Logstash / Beats / Kibana / Filebeat）"
-    ]"
-    :related-sites="[
-      { site: "clickhouse", path: "/01-storage/index-design", label: "CH 索引对比" },
-      { site: "mysql", path: "/03-index", label: "MySQL 索引" },
-      { site: "observability", path: "/02-logs/es", label: "ES 日志存储" },
-      { site: "bigdata", path: "/06-warehouse/overview", label: "数仓架构" },
-      { site: "devops", path: "/05-cicd-observability/sre", label: "SRE 实践" }
-    ]"
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
+
+<script setup>
+// WhyThisGraph 数据从 frontmatter 读不到（YAML 数组太复杂），放这里
+const painPoints = [
+  "倒排索引原理（分词 / 词典 / Posting List）讲不清？",
+  "ES 集群架构（Master / Data / Coordinating 节点）怎么设计？",
+  "Mapping / Analyzer / 分词器怎么配置才高效？",
+  "查询性能调优（Query DSL / Profile / 慢查询）？",
+  "ES vs ClickHouse vs Solr 选哪个？"
+]
+const goals = [
+  "ES 基础（倒排索引 / 集群架构 / 分片副本）",
+  "Mapping + Analyzer + 分词器",
+  "Query DSL 深度（Match / Term / Bool / Aggregation）",
+  "集群运维（Master 选举 / 脑裂 / 快照恢复）",
+  "性能调优（Profile / 慢查询 / JVM / 磁盘）",
+  "生态集成（Logstash / Beats / Kibana / Filebeat）"
+]
+const relatedSites = [
+  { site: "clickhouse", path: "/01-storage/index-design", label: "CH 索引对比" },
+  { site: "mysql", path: "/03-index", label: "MySQL 索引" },
+  { site: "observability", path: "/02-logs/es", label: "ES 日志存储" },
+  { site: "bigdata", path: "/06-warehouse/overview", label: "数仓架构" },
+  { site: "devops", path: "/05-cicd-observability/sre", label: "SRE 实践" }
+]
+</script>
 
 ## 🗺️ 完整知识图谱 {#complete-graph}
 

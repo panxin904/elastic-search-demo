@@ -45,31 +45,39 @@ features:
     linkText: 最佳实践
 ---
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "CI/CD 工具太多（Jenkins / GitLab CI / GitHub Actions / Argo），怎么选？",
       "Pipeline as Code 怎么写才不会变成 YAML 屎山？",
       "Terraform / Pulumi / Ansible 三大 IaC 工具怎么选？",
       "ArgoCD / Flux GitOps 的「声明式真相源」怎么落地？",
       "蓝绿 / 灰度 / 金丝雀 发布策略与回滚机制怎么设计？",
       "DORA 4 个核心指标（部署频率 / 变更前置时间 / 变更失败率 / 恢复时间）怎么度量？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "CI/CD 全链路（Pipeline as Code / Artifact / 制品库 / 部署）",
       "IaC 框架（Terraform / Pulumi / Ansible）",
       "GitOps 落地（ArgoCD / Flux / 渐进式交付）",
       "发布策略（蓝绿 / 灰度 / 金丝雀 / Argo Rollouts）",
       "研发效能度量（DORA 4 指标 / 平台工程）",
       "安全流水线（OIDC / Sigstore / SBOM）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "observability", path: "/05-sre/overview", label: "SRE 实践" },
       { site: "cloud-native", path: "/03-gitops/argocd", label: "ArgoCD 落地" },
       { site: "security", path: "/06-best-practices/secure-pipeline", label: "安全流水线" },
       { site: "architecture", path: "/01-pipeline/overview", label: "软件交付架构" },
       { site: "chaos", path: "/04-release/canary", label: "蓝绿 + 混沌验证" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>

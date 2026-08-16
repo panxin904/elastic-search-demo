@@ -1,6 +1,6 @@
 import DefaultTheme from 'vitepress/theme'
 import WhyThisGraph from './components/WhyThisGraph.vue'
-import { setupReadingProgress } from '../../../../shared-assets/vitepress-template/theme/composables/readingProgress'
+import { setupReadingProgress } from '@shared/vitepress-template/theme/composables/readingProgress'
 import './style.css'
 
 export default {

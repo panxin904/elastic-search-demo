@@ -48,30 +48,38 @@ features:
 ---
 
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "Netflix Chaos Monkey 起源：混沌工程到底解决什么问题？",
       "稳态假设（steady state）怎么定义才不会被实验打破？",
       "爆炸半径（blast radius）如何控制才安全？",
       "Chaos Mesh / Litmus / Gremlin / ChaosBlade 工具怎么选？",
       "故障画像、实验报告、复盘怎么写才有用？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "混沌工程基础（稳态 / 爆炸半径 / 实验方法论）",
       "Chaos Mesh 全场景实操（PodChaos / NetworkChaos / StressChaos / IOChaos）",
       "Litmus ChaosExperiment CRD + Probe / Check + 50+ 内置实验",
       "韧性模式（重试 / 超时 / 舱壁 / 熔断 / 限流 / 降级 / 多活 / 灾备）",
       "游戏日演练设计（指挥官 / 注入者 / 观察员 / 记录员角色分工）",
       "混沌可观测性闭环（metric/log/trace 联动 + SLO 反馈）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "observability", path: "/07-operations/slo", label: "SLO 与稳态假设" },
       { site: "system-design", path: "/01-theory/cap-theorem", label: "副本与隔离域" },
       { site: "postgresql", path: "/09-connection/failover", label: "主从切换演练" },
       { site: "devops", path: "/04-release/canary", label: "蓝绿 + 灰度验证" },
       { site: "architecture", path: "/05-patterns/circuit-breaker", label: "熔断 / 限流 / 舱壁" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>

@@ -6,7 +6,7 @@ import DataStructureViz from './components/DataStructureViz.vue'
 import ClusterTopology from './components/ClusterTopology.vue'
 import DistributedLock from './components/DistributedLock.vue'
 import CommandCheatsheet from './components/CommandCheatsheet.vue'
-import { setupReadingProgress } from '../../../../shared-assets/vitepress-template/theme/composables/readingProgress'
+import { setupReadingProgress } from '@shared/vitepress-template/theme/composables/readingProgress'
 import './style.css'
 
 export default {

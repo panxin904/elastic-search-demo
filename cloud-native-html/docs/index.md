@@ -94,16 +94,17 @@ features:
 
 ---
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "写了 Dockerfile 不知道 -it / -d / -p 的区别",
       "kubectl apply 后 Pod 一直 Pending / CrashLoopBackOff",
       "Deployment / StatefulSet / DaemonSet 不知道该用哪个",
       "写 Helm Chart 不会 values.yaml",
       "Service Mesh / GitOps 只听过没用过"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "系统化讲清 Docker 镜像 / 容器 / 网络 / 卷",
       "深入 k8s 控制面 / 工作负载 / Service / 网络 / 存储",
       "Helm 包管理 + Kustomize",
@@ -111,13 +112,20 @@ features:
       "Service Mesh（Istio）+ GitOps（ArgoCD）",
       "安全（RBAC / NetworkPolicy / Falco）",
       "排错套路 + CKA / CKS 考试"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "architecture", path: "/04-micro/overview", label: "云原生架构" },
       { site: "bigdata", path: "/06-warehouse/overview", label: "云上数仓" },
       { site: "observability", path: "/01-prometheus/overview", label: "云原生监控" },
       { site: "chaos", path: "/01-concepts/overview", label: "云原生韧性" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>

@@ -1,4 +1,4 @@
-@import '../../../../shared-assets/vitepress-template/theme/style.css';
+@import '@shared/vitepress-template/theme/style.css';
 
 /* Architecture Atlas theme */
 :root { --arc-ink: #1f2937; --arc-accent: #7c3aed; --arc-soft: #ede9fe; }

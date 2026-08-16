@@ -1,5 +1,8 @@
 import { defineConfig } from 'vitepress'
 import { withMermaid } from 'vitepress-plugin-mermaid'
+import { fileURLToPath, URL } from 'node:url'
+
+const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.url))
 
 export default withMermaid(defineConfig({
   mermaid: {
@@ -101,6 +104,11 @@ export default withMermaid(defineConfig({
     search: { provider: 'local' },
   },
   vite: {
+    resolve: {
+      alias: [
+        { find: '@shared', replacement: SHARED_ASSETS },
+      ],
+    },
     server: {
       fs: {
         strict: false

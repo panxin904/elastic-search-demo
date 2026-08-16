@@ -1,4 +1,4 @@
-@import '../../../../shared-assets/vitepress-template/theme/style.css';
+@import '@shared/vitepress-template/theme/style.css';
 
 /* Big Data Atlas theme */
 :root { --bd-ink: #1f2937; --bd-accent: #0891b2; --bd-soft: #ecfeff; }

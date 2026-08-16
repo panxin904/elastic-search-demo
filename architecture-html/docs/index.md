@@ -91,30 +91,38 @@ features:
     linkText: 看案例 →
 ---
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "会写 CRUD 却讲不清 CAP 定理",
       "知道消息队列但说不清幂等性设计",
       "调过限流却不懂令牌桶 vs 滑动窗口的区别",
       "用了 Seata 却不知道 AT 模式的 undo_log 怎么工作",
       "部署过微服务但没读过 DDD"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "JMM / happens-before / CAS：并发编程的根",
       "CAP / BASE / Raft：分布式系统的根",
       "限流 / 熔断 / 降级：高可用三大法宝",
       "2PC / TCC / Saga：分布式事务选型",
       "DDD：微服务拆分的理论",
       "短链 / 秒杀 / 异地多活：真实案例分析"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "system-design", path: "/cap-theorem", label: "系统设计的 CAP" },
       { site: "cloud", path: "/01-overview/microservices", label: "Spring Cloud 落地" },
       { site: "bigdata", path: "/06-warehouse/overview", label: "大数据架构" },
       { site: "kafka", path: "/01-basics/architecture", label: "消息架构" },
       { site: "system-design", path: "/short-url", label: "短链架构案例" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>

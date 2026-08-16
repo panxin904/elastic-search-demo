@@ -1,8 +1,19 @@
 import { defineConfig } from 'vitepress'
 import { withMermaid } from 'vitepress-plugin-mermaid'
+import { fileURLToPath, URL } from 'node:url'
+
+// P0: VitePress/rollup 默认 fs.allow 限制 cwd 外 import。用 vite alias 解决相对路径。
+const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.url))
 
 export default withMermaid(defineConfig({
-  mermaid: {
+  vite: {
+    resolve: {
+      alias: [
+        { find: '@shared', replacement: SHARED_ASSETS },
+      ],
+    },
+  },
+    mermaid: {
     theme: 'default'
   },
   base: '/observability/',

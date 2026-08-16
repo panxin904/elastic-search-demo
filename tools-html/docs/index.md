@@ -27,29 +27,37 @@ features:
 
 <div id="all-tools"></div>
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "日常 JSON 格式化 / 压缩 / 校验每次都开在线工具？",
       "时间戳 / 时区 / ISO 8601 转换容易出错？",
       "URL 编解码 / Base64 / UUID / JWT 解码手算不来？",
       "正则表达式每次都要查语法？",
       "在线工具有数据泄露风险？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "JSON 系列（格式化 / 转 YAML / 转 CSV / Diff）",
       "时间系列（Unix 时间戳 / 时区 / ISO 8601 / Cron）",
       "编码系列（Base64 / URL / JWT / Unicode）",
       "生成系列（UUID / 哈希 / 随机数 / 密码）",
       "正则 / 字符编码 / 相对路径 等"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "frontend", path: "/01-basics/json", label: "前端 JSON" },
       { site: "linux", path: "/11-shell/cron", label: "cron 任务" },
       { site: "cloud-native", path: "/04-helm/values", label: "Helm values.yaml" },
       { site: "system-design", path: "/09-id/snowflake", label: "UUID / Snowflake" },
       { site: "python", path: "/01-basics/intro", label: "Python 基础" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>

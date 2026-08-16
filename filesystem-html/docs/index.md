@@ -86,30 +86,38 @@ features:
     linkText: 面试
 ---
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "从单块磁盘的 inode 到跨数据中心的对象存储，怎么系统学？",
       "POSIX 权限 / ACL / Capabilities 到底有什么区别？",
       "本地 FS（ext4 / xfs / btrfs / zfs）怎么选？",
       "网络 FS（NFS / SMB / CIFS）vs 分布式 FS（Ceph / MinIO / HDFS）",
       "K8s CSI 抽象、PV / PVC / StorageClass 怎么设计？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "存储全栈（单机 FS / 网络 FS / 分布式 FS / 对象存储）",
       "POSIX 权限模型 + ACL + 高级特性",
       "本地 FS 实战（ext4 / xfs / btrfs / zfs）",
       "网络 FS（NFS / SMB / CIFS / pNFS）",
       "分布式存储（Ceph / MinIO / HDFS / JuiceFS）",
       "云原生存储（CSI / Rook / Longhorn）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "linux", path: "/11-shell/debug", label: "Linux 实战" },
       { site: "bigdata", path: "/02-hdfs/architecture", label: "HDFS 架构" },
       { site: "cloud-native", path: "/06-storage/overview", label: "CSI 抽象" },
       { site: "devops", path: "/01-pipeline/overview", label: "CI/CD 流水线" },
       { site: "architecture", path: "/01-distributed/cap", label: "分布式理论" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>

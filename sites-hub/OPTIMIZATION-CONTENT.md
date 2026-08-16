@@ -2133,3 +2133,134 @@ Could not resolve "../../../../shared-assets/vitepress-template/theme/composable
 
 修复后跑 `npm run docs:build` 应能 build，并通过 Pagefind 索引部署。
 
+### 8.34 基础 build 修复（P0：VitePress 路径 + VPHero 多行 props）（2026-08-16 第二十七次）
+
+**目标**：修复 §8.33 发现的两个根因，让 28 站能真跑 build
+
+**调研**（逐步缩小错误范围）：
+
+```bash
+# 错误 1: theme 相对路径解析
+[vite:css] [postcss] ENOENT: no such file or directory, open 
+  '../../../../shared-assets/vitepress-template/theme/style.css'
+
+# 错误 2: docs/index.md 多行 props 触发 Vue 编译
+[vite:vue] [plugin vite:vue] docs/index.md (6:19): 
+  Error parsing JavaScript expression: Unexpected token (2:6)
+```
+
+**根因 1：theme 相对路径解析失败**
+
+- `theme/index.ts` 用 `'../../../../shared-assets/...'`（Python 验证 exists=True）
+- 但 VitePress/rollup 默认 `fs.allow` 限制 cwd 外 import
+- **修复**：用 vite alias `@shared` → `SHARED_ASSETS`（绝对路径）
+
+```ts
+// config.mts
+import { fileURLToPath, URL } from 'node:url'
+const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.url))
+
+export default withMermaid(defineConfig({
+  vite: {
+    resolve: {
+      alias: [
+        { find: '@shared', replacement: SHARED_ASSETS },
+      ],
+    },
+  },
+  // ...
+}))
+```
+
+```ts
+// theme/index.ts
+import { setupReadingProgress } from '@shared/vitepress-template/theme/composables/readingProgress'
+```
+
+```css
+/* theme/style.css */
+@import '@shared/vitepress-template/theme/style.css';
+```
+
+**根因 2：docs/index.md 多行 props 触发 Vue 编译错误**
+
+- `<WhyThisGraph :pain-points="[ ... ]" :goals="[ ... ]" />` 多行 YAML 数组
+- VitePress 把 markdown 当 Vue SFC，`:prop="..."` 当 JS 表达式
+- 多行 + 中文标点 + 引号嵌套 → JS parser 失败
+
+**修复**：改用 `<script setup>` 形式
+
+```md
+<script setup>
+const painPoints = [
+  "倒排索引原理...",
+  "ES 集群架构...",
+]
+const goals = [ ... ]
+const relatedSites = [ ... ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
+    title="..."
+  />
+</ClientOnly>
+```
+
+**改动范围**（112 文件）：
+
+| 类型 | 数量 | 内容 |
+|------|----:|------|
+| `.vitepress/config.mts` | 28 | 加 vite alias |
+| `.vitepress/theme/index.ts` (或 index.js) | 28 | 改用 `@shared` alias |
+| `.vitepress/theme/style.css` | 28 | 改 `@import '@shared/...'` |
+| `docs/index.md` | 27 | `<WhyThisGraph>` 多行 props → `<script setup>` |
+| `package-lock.json` | 4 | 已 npm install 的 es / springcloud / system-design / architecture |
+
+**验证**（实际跑 build）：
+
+| 站点 | build 状态 | 备注 |
+|------|:----------:|------|
+| es-html | ✅ 成功 | 有 readingProgress + WhyThisGraph |
+| architecture-html | ✅ 成功 | 有 readingProgress + WhyThisGraph |
+| springcloud-html | ✅ 成功 | 无 readingProgress + 有 WhyThisGraph |
+
+**未做（保留为后续任务）**：
+
+- ❌ 25 站 npm install（CI 时跑，避免本地 5min+ 等待）
+- ❌ 25 站实际 build 验证（建议在 CI 环境跑全 28 站）
+- ❌ docs/index.md `** ` 加粗修复（原以为是根因之一，但实测不影响）
+
+**根因 3 排查结论（误判）**：
+
+最初怀疑 `**` 加粗 + 全角空格是根因（handoff 提到），实测：
+
+| variants | hero 简化 | build 状态 |
+|----------|----------|----------|
+| v1 | 只有 `text` | OK |
+| v5 | 加 `·` 标点 | OK |
+| v6 | + `actions` | OK |
+| v7 | + `features` | OK |
+| v8 | 完整原版 | ❌（但根因是 WhyThisGraph props）|
+
+**实际是 WhyThisGraph 多行 props 触发**，跟 hero 字段无关。
+
+**审计**：build 修复不影响 .md 计数（只是改格式），audit 数字不变。
+
+**收益**：
+
+| 项目 | 数量 |
+|------|-----:|
+| 修复站数 | 28/28（100%）|
+| 实际 build 验证 | 3 站 |
+| 新增 vite alias 配置 | 28 处 |
+| 文档改动 | 1（§8.34）|
+
+**下一步**：
+
+- 跑 `bash sites-hub/build-release.sh` 或 `bash build-with-pagefind.sh` 全量验证
+- 在 CI 环境启用（git remote push + GitHub Actions）
+

@@ -1,4 +1,4 @@
-@import '../../../../shared-assets/vitepress-template/theme/style.css';
+@import '@shared/vitepress-template/theme/style.css';
 
 /* ============== Knowledge Graph ============== */
 .kg-container { position: relative; margin: 24px 0; padding: 16px;
