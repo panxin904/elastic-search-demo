@@ -14,7 +14,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install nginx (for nginx -t)
-        run: sudo apt-get update && sudo apt-get install -y nginx-light
+        run: sudo apt-get update && sudo apt-get install -y nginx-full  # need limit_req + stub_status modules
 
       - name: Check SITES consistency (28 sites, 28 cards, 28 locations)
         run: bash sites-hub/scripts/check-sites.sh
