@@ -216,20 +216,34 @@ jobs:
           test -f /tmp/release/sites-hub-static.tar.gz || { echo "missing tarball"; exit 1; }
           echo "Artifact size: $(du -h /tmp/release/sites-hub-static.tar.gz | cut -f1)"
 
-      - name: SCP tarball + run deploy-release.sh on VPS
+      - name: SCP tarball to VPS (using GitHub runner's scp, not container)
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H "$VPS_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
+          echo "==> SCP tarball to VPS"
+          scp -i ~/.ssh/deploy_key -P "${VPS_PORT:-22}" /tmp/release/sites-hub-static.tar.gz "$VPS_USER@$VPS_HOST:/tmp/sites-hub-static.tar.gz"
+          echo "SCP done"
+        env:
+          SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          VPS_PORT: ${{ secrets.VPS_PORT }}
+
+      - name: Run deploy-release.sh on VPS
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           port: ${{ secrets.VPS_PORT || 22 }}
           key: ${{ secrets.VPS_SSH_KEY }}
-          command_timeout: 10m
+          command_timeout: 5m
           script: |
             set -euo pipefail
             echo "==> Pre-deploy: previous release"
             ls -la /var/www/sites-hub/current 2>&1 | head -2 || echo "no previous release"
-            echo "==> SCP tarball to VPS"
-            scp -o StrictHostKeyChecking=no -P ${{ secrets.VPS_PORT || 22 }} /tmp/release/sites-hub-static.tar.gz ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/tmp/sites-hub-static.tar.gz
             echo "==> Running deploy-release.sh"
             sudo /var/www/sites-hub/scripts/deploy-release.sh /tmp/sites-hub-static.tar.gz
             echo "==> Post-deploy: verify"
