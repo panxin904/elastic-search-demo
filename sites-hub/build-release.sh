@@ -40,6 +40,16 @@ bash "$SCRIPT_DIR/scripts/check-sites.sh"
 
 rm -rf "$STAGE_DIR"
 mkdir -p "$STAGE_DIR"
+# C9: 自动从 git log 生成 Updates 列表（在 cp stage 之前，确保 stage 副本带最新内容）
+if [[ -f "$SCRIPT_DIR/scripts/build-updates-from-git.py" ]]; then
+  echo "==> Generating Updates list from git log..."
+  python3 "$SCRIPT_DIR/scripts/build-updates-from-git.py" || {
+    echo "WARN: build-updates-from-git failed; index.html keeps previous Updates" >&2
+  }
+else
+  echo "WARN: scripts/build-updates-from-git.py not found; skipping updates auto-gen" >&2
+fi
+
 cp -R "$SCRIPT_DIR/www" "$STAGE_DIR/www"
 # T7: 自托管字体 (Latin subset woff2)
 if [[ -d "$SCRIPT_DIR/www/fonts" ]]; then

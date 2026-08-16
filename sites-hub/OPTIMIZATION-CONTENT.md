@@ -1952,3 +1952,92 @@ python3 sites-hub/scripts/build-updates-from-git.py --limit 12
 | 新文件 | 1 (build-updates-from-git.py) |
 | 修改文件 | 1 (www/index.html) |
 
+### 8.32 build-release.sh 集成 Updates 自动生成（2026-08-16 第二十五次）
+
+**目标**：让 `build-updates-from-git.py` 在 build 流程里自动跑，避免手动调用
+
+**集成点分析**：
+
+build-release.sh 关键阶段：
+
+1. check-sites.sh sanity check
+2. `rm -rf STAGE_DIR && cp -R www → STAGE_DIR/www`  ← **插入点**
+3. 构建循环（28 站）
+4. 生成 data.json / ld.json / sitemap.xml
+5. tar 打包
+6. inject-stats.py（patch stage 副本）
+
+**为什么选 cp -R 之前**：
+
+- ✓ 源 www/index.html 已更新 → stage 副本自然带最新
+- ✓ MOCK_BUILD=1 也能跑（不依赖 npm/node）
+- ✓ build 失败时不影响其他步骤（包在 `||` 里 warn）
+- ✗ 若选 stage 副本上跑，inject-stats 之后还要再跑一次（顺序错乱）
+
+**集成代码**：
+
+```bash
+# C9: 自动从 git log 生成 Updates 列表（在 cp stage 之前）
+if [[ -f "$SCRIPT_DIR/scripts/build-updates-from-git.py" ]]; then
+  echo "==> Generating Updates list from git log..."
+  python3 "$SCRIPT_DIR/scripts/build-updates-from-git.py" || {
+    echo "WARN: build-updates-from-git failed; index.html keeps previous Updates" >&2
+  }
+else
+  echo "WARN: scripts/build-updates-from-git.py not found; skipping updates auto-gen" >&2
+fi
+
+cp -R "$SCRIPT_DIR/www" "$STAGE_DIR/www"
+```
+
+**错误处理策略**：
+
+- 脚本失败 → WARN 不 exit（保持 build pipeline 鲁棒）
+- 脚本缺失 → WARN + skip（兼容旧版本 deploy）
+- 与 inject-stats.py 同模式（已存在的处理范式）
+
+**验证**：
+
+```bash
+# bash 语法检查
+bash -n sites-hub/build-release.sh
+# → OK
+
+# 当前 www/index.html 已含 updates-list 容器 + 12 条 update-item
+sed -n '866,870p' sites-hub/www/index.html
+# <div id="updates-list">
+#   <a class="update-item" href="/" data-cat="arch">...
+```
+
+**完整 build 流程**（updates 自动生成）：
+
+```
+bash build-release.sh
+├─ check-sites.sh
+├─ build-updates-from-git.py    ← C9 新增
+├─ cp -R www → stage/www
+├─ 构建循环（28 站 × npm ci + docs:build）
+├─ 生成 data.json / ld.json / sitemap.xml / robots.txt
+├─ tar 打包
+└─ inject-stats.py
+```
+
+**commit message 约定提醒**：
+
+写 commit 时按 Conventional Commits 规范：
+
+- `feat(cXX): ...` / `feat(es): ...` / `fix: ...` / `refactor: ...` → 显示
+- `docs: ...` / `chore: ...` / `style: ...` / `test: ...` / `build: ...` / `ci: ...` → 隐藏
+
+**审计**：脚本 + shell 改动不影响 .md 计数，audit 数字不变。
+
+**收益**：
+
+| 项目 | 数量 |
+|------|-----:|
+| 自动跑 updates 生成 | 每次 build |
+| 手动维护成本 | 0 |
+| 失败处理 | WARN（不阻塞 build）|
+| 新文件 | 0 |
+| 修改文件 | 1 (build-release.sh) |
+
