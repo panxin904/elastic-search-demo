@@ -137,7 +137,7 @@ jobs:
       - name: Lighthouse audit
         uses: treosh/lighthouse-ci-action@v10
         with:
-          url: http://localhost:8081/
+          urls: ["http://localhost:8081/"]
           budgetPath: ./sites-hub/lighthouse-budget.json
           uploadArtifacts: true
 
