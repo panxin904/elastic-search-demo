@@ -105,13 +105,12 @@ jobs:
           done
 
       - name: Upload dist artifacts
-        if: always()
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: dist-${{ github.sha }}
-          path: |
-            */.vitepress/dist/**
-          if-no-files-found: warn
+          path: */.vitepress/dist
+          if-no-files-found: error
 
   lighthouse:
     runs-on: ubuntu-22.04
