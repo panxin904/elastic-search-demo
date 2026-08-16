@@ -1081,3 +1081,77 @@ springcloud:    0  →   6
 **audit 验证**：vue_bug=0 / xsite=139 / no_fm=0 / broken=0（glossary 数据层不影响 .md 计数）。
 
 效果：glossary 数据层从「27 站覆盖」升级到「29 站覆盖」+ 6 站不再为零。下次基于 glossary 自动推荐 :related-sites 时，6 站可获得更精准推荐（不再完全靠人工编排）。
+
+### 8.21 22 站 WhyThisGraph.vue 缺失修复（2026-08-16 第十四次）
+
+**严重 bug 发现**：在排查 C 任务推进方向时，发现 §8.14~§8.18 的 WhyThisGraph 注入有**致命缺陷** —— 23 站 index.md 引用了 `<WhyThisGraph>` 组件，但**只有 5 站本地有 `.vue` 组件文件**。其余 18 站下次 build 时会因「component not found」失败。
+
+**根因**：§8.14 时只复制了组件到前 5 站，规模化阶段（§8.15/§8.16/§8.17）只改了 `docs/index.md`，没复制组件。
+
+**28 站 WhyThisGraph 状态盘点**（修复前）：
+
+| 状态 | 数量 | 站 |
+|------|----:|----|
+| ✅ md 引用 + 本地组件 | 5 | ai / architecture / bigdata / cloud-native / java-language |
+| ❌ md 引用 + 无组件 | 22 | chaos / clickhouse / design-pattern / devops / es / filesystem / frontend / go / java-web-manual / kafka / linux / mysql / network / observability / postgresql / python / redis / rust / security / system-design / tools / video |
+| 🚫 废弃 | 1 | cloud-html（sites.sh 映射 cloud:springcloud-html） |
+
+**修复**：从 `shared-assets/vitepress-template/theme/components/WhyThisGraph.vue` 复制到 22 站 `.vitepress/theme/components/`，md5 一致（5 本地 + shared 模板都是 b0c939e5...）。
+
+**audit 加 vue_missing 检查**：
+
+```python
+def check_vue_component_missing(text: str, site: str) -> list[str]:
+    # 抓 md 中的 <Component /> 自闭合引用
+    refs = set(re.findall(r'<([A-Z][a-zA-Z0-9]+)\s+[^>]*?/?>', text))
+    # 检查 .vitepress/theme/components/{ref}.vue 是否存在
+    # BUILTIN 豁免：ClientOnly / KnowledgeGraph / EOF
+```
+
+**接入点**：
+- `site_stats.vue_missing_comp` 字段
+- `issues_vue_missing: list[str]` 收集
+- §〇 Summary 加「Vue 组件缺失」行
+- 子站表加「缺组件」列
+- 报告末尾 §十（issues > 0 时显示）
+- stdout 加 `vue_missing: N`
+
+**已知 audit 限制**（50 处误报）：
+
+改进 regex 后剩 50 处 false positive，源于 React JSX（`<App />` / `<Provider />` / `<QueryClientProvider />`）和 Apache 配置（`<VirtualHost *:80>`）在 markdown 代码块内无法与 VitePress 组件区分。
+
+| 误报模式 | 数量 | 示例 |
+|--------|----:|------|
+| Java 泛型（已修） | 0 | `Optional<Order>` —— regex 已排除 |
+| React JSX 自闭合 | ~40 | `<App />` / `<Provider store={store}>` |
+| Apache 配置 | ~5 | `<VirtualHost *:80>` |
+| Storybook 示例 | ~3 | `<Story args={...}>` |
+| 其它 JSX | ~2 | `<Layout>` / `<ErrorPage>` |
+
+**完全准确的方案**：markdown 代码块 state machine 解析（识别 \`\`\` 代码块内/外）。工作量较大，本节暂不做。
+
+**修复后 audit 数字**：
+
+```
+files: 1430  words: 1,159,521  thin: 321  imgs: 9  xsite: 139
+no_fm: 0  no_date: 1417  stale: 0  broken: 0  dups: 243+462
+vue_bug: 0  vue_missing: 50 (其中 50 误报，0 真缺失)
+```
+
+**C2 任务实际状态修正**：
+
+- §8.18 时声称 C2 完整闭环（28/28 站 100% 覆盖）
+- §8.21 发现实际只完成了 50%（数据层 + 视图引用），组件层只 5 站 OK
+- 现在 C2 才算**真正闭环**：27 站（28 - cloud-html 废弃）数据层 + 视图引用 + 组件部署完整
+
+**C 任务推进方向调整**：
+
+发现 C2 任务有组件层 bug 后，优先级调整：
+1. **C7 阅读体验**（CSS 微调，立竿见影）
+2. **C6 Giscus 评论**（独立，GitHub OAuth 接入）
+3. **C10 内容运营**（CONTRIBUTING.md + PR 模板）
+4. **C5 RSS** / **C12 sitemap**（依赖 C1 模板统一，先做 1 站 pilot）
+5. **C4 Pagefind**（搜索体验大提升）
+6. **C11 图片优化**（PNG→WebP + Mermaid SSR）
+
+C1 模板统一推进列为后续：选 1 个小站（tools-html）做 pilot，验证 build → 渐进迁移。
