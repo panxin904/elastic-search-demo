@@ -76,6 +76,8 @@ jobs:
   build-all:
     runs-on: ubuntu-22.04
     needs: check
+    # workflow_dispatch + skip_build=true → 跳过 28 站重建，复用上次 artifact
+    if: !(github.event_name == 'workflow_dispatch' && inputs.skip_build == 'true')
     timeout-minutes: 10
     strategy:
       fail-fast: false
@@ -146,10 +148,8 @@ jobs:
   release:
     needs: [check, build-all]
     runs-on: ubuntu-22.04
-    # push 自动；workflow_dispatch 默认跳过（skip_build=true 才跑）
-    if: |
-      (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
-      (github.event_name == 'workflow_dispatch' && inputs.skip_build == 'true')
+    # push 自动；workflow_dispatch 也跑（build-all 的 if 已决定要不要重建）
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
@@ -195,7 +195,7 @@ jobs:
   deploy:
     needs: [release]
     runs-on: ubuntu-22.04
-    # push 自动；workflow_dispatch 默认跳过（除非显式触发 deploy）
+    # push 自动；workflow_dispatch 也跑（release 已决定要不要重新构建）
     if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     # 启用 GitHub Environment 做 deployment gate 时把下面 environment 块打开：
     # environment:
