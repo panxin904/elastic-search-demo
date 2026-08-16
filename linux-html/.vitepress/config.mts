@@ -1,6 +1,10 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
-export default defineConfig({
+export default withMermaid(defineConfig({
+  mermaid: {
+    theme: 'default'
+  },
   base: '/linux/',
   title: 'Linux 服务器 知识图谱',
   description: '系统化学习 Linux 服务器与常用命令 - 知识图谱、思维导图、命令速查',
@@ -203,4 +207,4 @@ export default defineConfig({
 
     search: { provider: 'local' },
   }
-})
+}))

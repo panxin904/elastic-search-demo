@@ -1,6 +1,10 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
-export default defineConfig({
+export default withMermaid(defineConfig({
+  mermaid: {
+    theme: 'default'
+  },
   base: '/security/',
   title: 'Security 知识图谱',
   description: 'Web 安全深度图谱 - OWASP Top 10 2025 · OAuth 2.0 / OIDC · JWT · 密码学 · TLS · 容器安全 · 零信任 · 6 大类 · 32 节点',
@@ -119,4 +123,4 @@ export default defineConfig({
     },
     search: { provider: 'local' }
   }
-})
+}))

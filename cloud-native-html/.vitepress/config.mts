@@ -1,6 +1,10 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
-export default defineConfig({
+export default withMermaid(defineConfig({
+  mermaid: {
+    theme: 'default'
+  },
   base: '/cloud-native/',
   title: '云原生 / Docker / K8s 知识图谱',
   description: '系统化学习云原生 / Docker / Kubernetes - 14 大类 · 80+ 节点 · 60+ 内容页',
@@ -187,4 +191,4 @@ export default defineConfig({
 
     search: { provider: 'local' },
   }
-})
+}))

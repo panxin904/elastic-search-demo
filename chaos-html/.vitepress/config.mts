@@ -1,6 +1,10 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
-export default defineConfig({
+export default withMermaid(defineConfig({
+  mermaid: {
+    theme: 'default'
+  },
   lang: 'zh-CN',
   title: '混沌工程知识图谱',
   description: 'Chaos Engineering：原则、工具（Chaos Mesh / Litmus / Gremlin / ChaosBlade）、韧性模式与游戏日',
@@ -146,4 +150,4 @@ export default defineConfig({
 
     editLink: { text: '在 GitHub 上编辑此页' },
   },
-})
+}))

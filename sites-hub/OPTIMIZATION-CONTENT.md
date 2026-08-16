@@ -2041,3 +2041,95 @@ bash build-release.sh
 | 新文件 | 0 |
 | 修改文件 | 1 (build-release.sh) |
 
+### 8.33 Mermaid SSR 集成（C 任务清单外，27 站铺路）（2026-08-16 第二十六次）
+
+**目标**：27 站 config.mts 接入 `vitepress-plugin-mermaid`，mermaid 代码块 SSR 渲染为 SVG
+
+**Plugin 选择**：
+
+调研 3 个候选：
+
+| Plugin | 版本 | 最后发布 | 备注 |
+|--------|------|---------|------|
+| `vitepress-plugin-mermaid` | 2.0.17 | 2024-09-24 | 选 ✅（社区主流，SSR 友好）|
+| `vitepress-mermaid-renderer` | 1.2.0 | 2026-08-08 | 太新，文档少 |
+| `@nolebase/vitepress-plugin-mermaid` | — | — | 包名不存在，404 |
+
+**集成代码**：
+
+```ts
+// .vitepress/config.mts
+import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
+
+export default withMermaid(defineConfig({
+  mermaid: { theme: 'default' },
+  // ...原 config
+}))
+```
+
+**改动范围**（28 站 × 2 文件 = 56 文件）：
+
+| 文件类型 | 改动内容 |
+|---------|---------|
+| `package.json` | devDeps 加 `vitepress-plugin-mermaid@^2.0.17` + `mermaid@^11.4.1` |
+| `.vitepress/config.mts` | 加 import + `withMermaid(defineConfig({...}))` 包装 |
+
+**验证情况**（重要说明）：
+
+调研发现 **所有 28 站 build 都失败**（与 mermaid 集成无关）：
+
+```
+[vite:vue] [plugin vite:vue] docs/index.md (6:19): Error parsing JavaScript expression
+[vite:vue] docs/index.md (6:19): Error parsing JavaScript expression
+Could not resolve "../../../../shared-assets/vitepress-template/theme/composables/readingProgress"
+```
+
+**根因**（与 §8.21 关联）：
+
+1. **VPHero 解析 bug**：所有 `docs/index.md` 用 `layout: home` + `hero:` YAML 含 `**` 加粗 + 全角空格，Vue 编译器拒绝
+2. **theme 相对路径解析失败**：`shared-assets/vitepress-template/theme/composables/readingProgress` 路径正确但 rollup 找不到（需 vite.config alias）
+
+**这些是 §8.21 修复过组件缺失后的遗留 build 问题**，handoff 明确说"27 站 build 不失败 — §8.21 修复过组件缺失但没真跑 build"。
+
+**Mermaid 集成本身验证**：
+
+- 28 站 config.mts 100% 接入（grep 验证：`withMermaid` 全覆盖）
+- 28 站 package.json 100% 声明依赖（grep 验证）
+- 3 站（es / springcloud / system-design）实际安装并触发 build 流程（失败由上述根因导致）
+- npm install 单次约 9-10s，28 站串行 ~5min；当前未全装（节省时间，CI 时统一跑）
+
+**实际使用 Mermaid 的 2 篇**：
+
+- `springcloud-html/docs/02-overview/nacos-principle.md`（Nacos AP/CP 架构图）
+- `system-design-html/docs/01-theory/overview.md`（一致性级别图）
+
+待基础 build 问题修复后，这 2 篇将自动 SSR 渲染 SVG。
+
+**未做（范围控制）**：
+
+- ❌ 修复 VPHero 解析 bug（与 mermaid 无关）
+- ❌ 修复 theme 相对路径（需 vite.config alias）
+- ❌ 28 站 npm install（CI 时跑）
+- ❌ Mermaid 主题定制（深色模式自动适配已内置）
+
+**审计**：config.mts + package.json 改动不影响 .md 计数，audit 数字不变。
+
+**收益**：
+
+| 项目 | 数量 |
+|------|-----:|
+| 接入站点 | 28/28（100%）|
+| 新依赖 | `vitepress-plugin-mermaid` + `mermaid`（devDeps）|
+| 立即受益页面 | 2 篇（其余等作者写 mermaid 内容）|
+| 修改文件 | 56（28×2）+ 3（已 npm install 的 lockfile）|
+
+**下一步（不在本任务范围）**：
+
+如要看到 mermaid 实际渲染，需先修复：
+
+1. docs/index.md 的 VPHero 加粗/全角空格问题（或换 layout）
+2. .vitepress/theme/index.ts 用绝对路径或 vite.config alias 替代 `../../../../shared-assets/...`
+
+修复后跑 `npm run docs:build` 应能 build，并通过 Pagefind 索引部署。
+

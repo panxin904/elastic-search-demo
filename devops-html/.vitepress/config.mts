@@ -1,6 +1,10 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
-export default defineConfig({
+export default withMermaid(defineConfig({
+  mermaid: {
+    theme: 'default'
+  },
   base: '/devops/',
   title: 'DevOps 知识图谱',
   description: '软件交付链深度图谱 - CI/CD Pipeline · IaC · GitOps · 蓝绿 / 灰度 / 金丝雀 · DORA Metrics · 6 大类 · 29 节点',
@@ -115,4 +119,4 @@ export default defineConfig({
     },
     search: { provider: 'local' }
   }
-})
+}))

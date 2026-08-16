@@ -1,5 +1,9 @@
 import { defineConfig } from 'vitepress'
-export default defineConfig({
+import { withMermaid } from 'vitepress-plugin-mermaid'
+export default withMermaid(defineConfig({
+  mermaid: {
+    theme: 'default'
+  },
   base: '/bigdata/',
   title: '大数据 / 数据仓库 / 数据湖仓 知识图谱',
   description: '系统化学习大数据 / 数仓 / 数据湖仓 - 14 大类 · 50+ 节点 · 50+ 内容页',
@@ -65,4 +69,4 @@ export default defineConfig({
 
     search: { provider: 'local' },
   }
-})
+}))

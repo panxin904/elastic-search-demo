@@ -1,5 +1,9 @@
 import { defineConfig } from 'vitepress'
-export default defineConfig({
+import { withMermaid } from 'vitepress-plugin-mermaid'
+export default withMermaid(defineConfig({
+  mermaid: {
+    theme: 'default'
+  },
   base: '/architecture/',
   title: '企业级架构 知识图谱',
   description: '系统化学习高可用 / 高并发 / 微服务 / DDD - 14 大类 · 50+ 节点 · 50+ 内容页',
@@ -64,4 +68,4 @@ export default defineConfig({
 
     search: { provider: 'local' },
   }
-})
+}))

@@ -1,6 +1,10 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
-export default defineConfig({
+export default withMermaid(defineConfig({
+  mermaid: {
+    theme: 'default'
+  },
   base: '/filesystem/',
   title: '文件系统 / 文件服务 / 存储全栈 知识图谱',
   description: '系统化学习文件系统 - 本地盘 FS / 分布式 FS / 对象存储 / 网络协议 / 云原生存储 / 容器 FS / 性能调优 / 安全 / 备份 - 13 大类 · 76 节点 · 70+ 内容页',
@@ -220,4 +224,4 @@ export default defineConfig({
       copyright: '文件全栈 · Filesystem Atlas'
     }
   }
-})
+}))

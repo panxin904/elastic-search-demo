@@ -1,6 +1,10 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
-export default defineConfig({
+export default withMermaid(defineConfig({
+  mermaid: {
+    theme: 'default'
+  },
   base: '/design-pattern/',
   title: '设计模式知识图谱',
   description: 'GoF 23 模式 + 现代架构模式 + 反模式自查表 - 创建型 / 结构型 / 行为型 · 依赖注入 · CQRS · Event Sourcing · Saga · 6 大类 · 36 节点 · Java + Go + TypeScript 多语言实现',
@@ -139,4 +143,4 @@ export default defineConfig({
 
     search: { provider: 'local' },
   }
-})
+}))

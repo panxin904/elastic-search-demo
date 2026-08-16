@@ -1,6 +1,10 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
-export default defineConfig({
+export default withMermaid(defineConfig({
+  mermaid: {
+    theme: 'default'
+  },
   base: '/video/',
   title: '视频处理 / 编解码 / AI 视频算法 知识图谱',
   description: '系统化学习视频处理 - 编解码原理 / FFmpeg / 流媒体 / AI 视频算法 - 12 大类 · 50+ 节点 · 60+ 内容页',
@@ -194,4 +198,4 @@ export default defineConfig({
 
     search: { provider: 'local' },
   }
-})
+}))

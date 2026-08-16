@@ -1,6 +1,10 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
-export default defineConfig({
+export default withMermaid(defineConfig({
+  mermaid: {
+    theme: 'default'
+  },
   base: '/frontend/',
   title: '前端 & Node 全栈 知识图谱',
   description: '系统化学习前端 & Node 全栈 - 框架 / 构建 / 状态 / Node 后端 / 性能',
@@ -201,4 +205,4 @@ export default defineConfig({
 
     search: { provider: 'local' },
   }
-})
+}))

@@ -1,6 +1,10 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
-export default defineConfig({
+export default withMermaid(defineConfig({
+  mermaid: {
+    theme: 'default'
+  },
   base: '/ai/',
   title: 'AI 工具 / 大模型 / Agent 知识图谱',
   description: '系统化学习 AI 工具、主流大模型、SDK 与 Agent 框架 - 14 大类 · 80+ 节点 · 60+ 内容页',
@@ -175,4 +179,4 @@ export default defineConfig({
 
     search: { provider: 'local' },
   }
-})
+}))

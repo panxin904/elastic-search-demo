@@ -1,6 +1,10 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
-export default defineConfig({
+export default withMermaid(defineConfig({
+  mermaid: {
+    theme: 'default'
+  },
   base: '/redis/',
   title: 'Redis 知识图谱',
   description: 'Redis 系统化学习 - 知识图谱、思维导图、底层原理、企业实战',
@@ -198,4 +202,4 @@ export default defineConfig({
 
     search: { provider: 'local' },
   }
-})
+}))

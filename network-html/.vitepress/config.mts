@@ -1,6 +1,10 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
-export default defineConfig({
+export default withMermaid(defineConfig({
+  mermaid: {
+    theme: 'default'
+  },
   base: '/network/',
   title: '计算机网络 / TCP/IP / HTTP 知识图谱',
   description: '系统化学习计算机网络 - OSI / TCP / UDP / HTTP / DNS / 安全 - 12 大类 · 50+ 节点 · 60+ 内容页',
@@ -193,4 +197,4 @@ export default defineConfig({
 
     search: { provider: 'local' },
   }
-})
+}))

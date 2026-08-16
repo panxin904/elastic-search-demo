@@ -1,6 +1,10 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
-export default defineConfig({
+export default withMermaid(defineConfig({
+  mermaid: {
+    theme: 'default'
+  },
   base: '/mysql/',
   title: 'MySQL 知识图谱',
   srcDir: 'docs',
@@ -235,4 +239,4 @@ export default defineConfig({
 
     search: { provider: 'local' },
   }
-})
+}))

@@ -1,6 +1,10 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
-export default defineConfig({
+export default withMermaid(defineConfig({
+  mermaid: {
+    theme: 'default'
+  },
   base: '/observability/',
   title: 'Observability 知识图谱',
   description: '现代可观测性深度图谱 - Metrics · Logs · Traces · Profiling · OpenTelemetry · Prometheus · Grafana · SRE 三件套 · 11 大类 · 47 节点',
@@ -152,4 +156,4 @@ export default defineConfig({
     },
     search: { provider: 'local' }
   }
-})
+}))

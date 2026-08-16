@@ -1,6 +1,10 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
-export default defineConfig({
+export default withMermaid(defineConfig({
+  mermaid: {
+    theme: 'default'
+  },
   base: '/tools/',
   title: '在线常用工具',
   description: 'JSON 格式化 / 时间戳转换 / URL 编解码 / UUID 生成 等日常在线工具',
@@ -103,4 +107,4 @@ export default defineConfig({
       }
     }
   }
-})
+}))

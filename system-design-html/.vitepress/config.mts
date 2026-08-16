@@ -1,5 +1,9 @@
 import { defineConfig } from 'vitepress'
-export default defineConfig({
+import { withMermaid } from 'vitepress-plugin-mermaid'
+export default withMermaid(defineConfig({
+  mermaid: {
+    theme: 'default'
+  },
   base: '/system-design/',
   title: 'System Design 知识图谱',
   description: '系统化学习分布式系统理论与经典系统设计题 - 10 大类 · 60+ 节点 · 60+ 内容页',
@@ -127,4 +131,4 @@ export default defineConfig({
 
     search: { provider: 'local' },
   }
-})
+}))

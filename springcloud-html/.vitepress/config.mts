@@ -1,6 +1,10 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
-export default defineConfig({
+export default withMermaid(defineConfig({
+  mermaid: {
+    theme: 'default'
+  },
   base: '/cloud/',
   title: 'Spring Cloud Alibaba 知识图谱',
   description: 'Spring Boot + Spring Cloud Alibaba 系统化学习 - 用知识图谱串联微服务组件',
@@ -171,4 +175,4 @@ export default defineConfig({
 
     search: { provider: 'local' },
   }
-})
+}))

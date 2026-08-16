@@ -1,6 +1,10 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
-export default defineConfig({
+export default withMermaid(defineConfig({
+  mermaid: {
+    theme: 'default'
+  },
   base: '/go/',
   title: 'Go 知识图谱',
   description: '云原生 + 后端微服务深度图谱 - 基础语法 / CSP 并发模型 / goroutine / channel / context · Go 工具链 / 标准库 / 测试 · Docker / Kubernetes / Prometheus / etcd 源码导读 · Gin / gRPC / Kratos 微服务 · runtime GMP / GC / pprof · 6 大类 · 35 节点',
@@ -123,4 +127,4 @@ export default defineConfig({
     },
     search: { provider: 'local' }
   }
-})
+}))

@@ -1,5 +1,9 @@
 import { defineConfig } from 'vitepress'
-export default defineConfig({
+import { withMermaid } from 'vitepress-plugin-mermaid'
+export default withMermaid(defineConfig({
+  mermaid: {
+    theme: 'default'
+  },
   base: '/postgresql/',
   title: 'PostgreSQL 知识图谱',
   description: '现代关系型数据库深度图谱 - JSONB · PostGIS · pgvector · MVCC · CTE · 11 大类 · 60+ 节点',
@@ -132,4 +136,4 @@ export default defineConfig({
 
     search: { provider: 'local' },
   }
-})
+}))

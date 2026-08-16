@@ -1,7 +1,11 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
 // https://vitepress.dev/reference/site-config
-export default defineConfig({
+export default withMermaid(defineConfig({
+  mermaid: {
+    theme: 'default'
+  },
   base: '/es/',
   title: 'ES Knowledge Atlas',
   description: 'Elasticsearch 7 系统化学习 - 用知识图谱串联概念与使用方式',
@@ -182,4 +186,4 @@ export default defineConfig({
       copyright: 'ES Knowledge Atlas'
     }
   }
-})
+}))

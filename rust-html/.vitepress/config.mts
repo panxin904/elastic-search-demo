@@ -1,6 +1,10 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
-export default defineConfig({
+export default withMermaid(defineConfig({
+  mermaid: {
+    theme: 'default'
+  },
   base: '/rust/',
   title: 'Rust 知识图谱',
   description: '系统编程与高性能服务深度图谱 - 所有权 / 借用 / 生命周期 · 类型系统 / Trait · Cargo / crates.io · async-await / Tokio · unsafe / FFI / WASM · 6 大类 · 35 节点',
@@ -121,4 +125,4 @@ export default defineConfig({
     },
     search: { provider: 'local' }
   }
-})
+}))

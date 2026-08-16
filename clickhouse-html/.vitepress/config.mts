@@ -1,6 +1,10 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
-export default defineConfig({
+export default withMermaid(defineConfig({
+  mermaid: {
+    theme: 'default'
+  },
   base: '/clickhouse/',
   title: 'ClickHouse 知识图谱',
   description: 'OLAP 列式数据库深度图谱 - MergeTree / 主键索引 / 数据分区 / 向量化执行 / 实时数仓 · Kafka 引擎 / Grafana / Prometheus · vs Doris / StarRocks / TiDB / Snowflake · 6 大类 · 35 节点',
@@ -129,4 +133,4 @@ export default defineConfig({
 
     search: { provider: 'local' },
   }
-})
+}))

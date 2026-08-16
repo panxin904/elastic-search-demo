@@ -1,6 +1,10 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
-export default defineConfig({
+export default withMermaid(defineConfig({
+  mermaid: {
+    theme: 'default'
+  },
   base: '/java/',
   title: 'Java Web Dev Manual',
   description: 'Java Web 开发手册 - 开发流程 · 实现思路 · 重点关注 · 技术栈',
@@ -150,4 +154,4 @@ export default defineConfig({
       copyright: 'Java Web Dev Manual'
     }
   }
-})
+}))
