@@ -4,7 +4,12 @@ import WhyThisGraph from './components/WhyThisGraph.vue'
 import MindMap from './components/MindMap.vue'
 import './style.css'
 
+import { setupReadingProgress } from '../../../../shared-assets/vitepress-template/theme/composables/readingProgress'
+
 export default {
+  setup() {
+    setupReadingProgress()
+  },
   extends: DefaultTheme,
   enhanceApp({ app }) {
     app.component('KnowledgeGraph', KnowledgeGraph)
