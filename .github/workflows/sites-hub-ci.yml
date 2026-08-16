@@ -67,7 +67,39 @@ jobs:
   build-all:
     runs-on: ubuntu-22.04
     needs: check
-    timeout-minutes: 30
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        site:
+        - es
+        - mysql
+        - redis
+        - cloud
+        - python
+        - kafka
+        - java
+        - tools
+        - frontend
+        - linux
+        - cloud-native
+        - ai
+        - bigdata
+        - network
+        - video
+        - filesystem
+        - java-language
+        - architecture
+        - system-design
+        - postgresql
+        - observability
+        - security
+        - devops
+        - rust
+        - go
+        - clickhouse
+        - design-pattern
+        - chaos
     steps:
       - uses: actions/checkout@v4
 
@@ -76,46 +108,24 @@ jobs:
           node-version: 20
           cache: npm
 
-      - name: Build 28 sites + Pagefind
-        run: bash sites-hub/scripts/build-with-pagefind.sh
-
-      - name: Verify Pagefind output
+      - name: Build ${{ matrix.site }} + Pagefind
         run: |
           source sites-hub/scripts/sites.sh
-          for s in "${SITES[@]}"; do
-            proj=$(site_to_project "$s")
-            if [[ ! -f "$proj/.vitepress/dist/pagefind/pagefind.js" ]]; then
-              echo "FAIL: $s ($proj) missing pagefind"
-              exit 1
-            fi
-          done
+          proj=$(site_to_project "${{ matrix.site }}")
+          cd "$proj"
+          echo "Building $proj..."
+          npm ci --no-audit --no-fund
+          npm run docs:build
+          npx pagefind --site .vitepress/dist
+          tar czf /tmp/dist-${{ matrix.site }}.tar.gz .vitepress/dist
+          echo "Built $proj → /tmp/dist-${{ matrix.site }}.tar.gz"
 
-      - name: Verify dist html count
-        run: |
-          source sites-hub/scripts/sites.sh
-          for s in "${SITES[@]}"; do
-            proj=$(site_to_project "$s")
-            count=$(find "$proj/.vitepress/dist" -name "*.html" 2>/dev/null | wc -l)
-            echo "$s: $count"
-            if [[ "$count" -lt 1 ]]; then exit 1; fi
-          done
-
-      - name: Tar all 28 site dists
-        run: |
-          source sites-hub/scripts/sites.sh
-          paths=""
-          for s in "${SITES[@]}"; do
-            proj=$(site_to_project "$s")
-            paths="$paths $proj/.vitepress/dist"
-          done
-          tar czf /tmp/sites-dists.tar.gz $paths
-          echo "Created /tmp/sites-dists.tar.gz ($(stat -c%s /tmp/sites-dists.tar.gz) bytes)"
-
-      - name: Upload dists artifact
+      - name: Upload site dist artifact
         uses: actions/upload-artifact@v4
         with:
-          name: sites-dists
-          path: /tmp/sites-dists.tar.gz
+          name: dist-${{ matrix.site }}
+          path: /tmp/dist-${{ matrix.site }}.tar.gz
+          if-no-files-found: error
 
   release:
     needs: [check, build-all]
@@ -128,17 +138,19 @@ jobs:
         with:
           node-version: 20
 
-      - name: Download dists artifact
+      - name: Download all site dist artifacts
         uses: actions/download-artifact@v4
         with:
-          name: sites-dists
-          path: /tmp
+          pattern: dist-*
+          path: /tmp/dists
 
-      - name: Extract dists to project roots
+      - name: Extract 28 site dists
         run: |
-          cd /home/runner/work/elastic-search-demo/elastic-search-demo
-          tar xzf /tmp/sites-dists.tar.gz
-          # 确认 28 站 dist 都在
+          cd ${{ github.workspace }}
+          for f in /tmp/dists/dist-*/*.tar.gz; do
+            echo "Extracting $f..."
+            tar xzf "$f"
+          done
           source sites-hub/scripts/sites.sh
           for s in "${SITES[@]}"; do
             proj=$(site_to_project "$s")
