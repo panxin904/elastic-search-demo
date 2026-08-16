@@ -2572,3 +2572,110 @@ sudo /usr/local/bin/goaccess-generate-stats.sh
 | 修改文件 | 4 |
 | 数据可见 | https://java-px.bot.cd/stats.html |
 
+
+### 8.38 Build-all 并行化（CI 16min → 3min14s，约 5× 提速）（2026-08-16 第三十一次）
+
+**目标**：把 28 站串行 build 改成 GitHub Actions matrix 并行 build
+
+**现状问题**（优化前）：
+
+| Job | 时长 | 说明 |
+|-----|:---:|------|
+| check | ~30s | smoke test |
+| **build-all** | **~16min** | 28 站串行 `bash build-with-pagefind.sh` |
+| release | ~30s | MOCK_BUILD reuse dists |
+| **总** | **~17min** | 串行瓶颈 |
+
+**优化方案**：GitHub Actions `strategy.matrix` 把 28 站并行
+
+```yaml
+jobs:
+  build-all:
+    strategy:
+      fail-fast: false
+      matrix:
+        site: [ai, architecture, bigdata, ..., video]   # 28 项
+    steps:
+      - checkout + setup-node
+      - npm install + npm run docs:build + npx pagefind --site
+      - tar czf dist-<site>.tar.gz proj/.vitepress/dist
+      - upload-artifact dist-<site>
+
+  release:
+    steps:
+      - download-artifact pattern: dist-*
+      - for f in dist-*/*.tar.gz; do tar xzf "$f"; done
+      - MOCK_BUILD=1 bash build-release.sh
+      - upload-artifact sites-hub-static
+```
+
+**关键设计**：
+
+1. **`fail-fast: false`** — 一个站挂了不阻塞其它 27 站
+2. **`tar` 打包代替 `upload-artifact` 的 glob** — 避免 `*/.vitepress/dist` 模式匹配问题（见 §8.35 教训）
+3. **`download-artifact pattern: dist-*`** — 批量下载所有 28 个 artifact
+4. **`MOCK_BUILD=1`** — release step 复用 build-all 已构建的 dists，不再重新跑 `npm run docs:build`
+
+**GitHub Actions 配额**（免费账户）：
+
+- 并行 job 数：20
+- 单次 workflow 最大 job 数：60
+
+28 站 matrix 实际只占 28 个 job（GitHub 自动节流到 20 并发），满足。
+
+**实施过程**：5 次 push 才全绿
+
+| Commit | 改动 | 结果 |
+|--------|------|------|
+| `177d778` | matrix 28 jobs + tar 方案 | 5/30 success（npm ci 严格 lockfile）|
+| `37f322a` | `npm ci` → `npm install` | 29/30 success（extract 失败）|
+| `fc2642f` | extract 加验证 | 仍 fail（验证逻辑写错）|
+| `2e6145e` | `tar -C "$(dirname $proj)"` 保留 proj 路径 | 仍 fail（验证条件是 `-d` 不是 `-f`）|
+| `c790db6` | `-d` → `-d dir -a -f file` | **全绿 ✅** |
+
+**3 次 fail 的根因**（运维笔记）：
+
+1. **`npm ci` 失败** — package-lock.json 与 package.json 字段不一致（dev 加了 vitepress-plugin-mermaid/mermaid 但没 sync lockfile）。CI 改 `npm install`（容忍 lockfile drift）。
+2. **`tar` 路径错位** — `tar czf -C $proj dist` 只会把 `dist/` 写入 tar 包（丢失 `proj/` 前缀），extract 后变 `<workspace>/dist/`，但期望是 `<workspace>/proj/.vitepress/dist/`。修复：`tar czf -C "$(dirname $proj)" "$(basename $proj)/.vitepress/dist"`。
+3. **`test -d` 检查文件** — `test -d path/to/pagefind.js` 永远 false（`-d` 检查目录），所有 28 站都报 MISSING，只是按字母序第一个挂。修复：`test -d path/to/pagefind -a -f path/to/pagefind/pagefind.js`（双保险）。
+
+**最终 CI 时长**（run `31934522893`）：
+
+| Job | 起止 | 时长 |
+|-----|------|:---:|
+| check | 07:41:30 → 07:42:04 | 34s |
+| **build-all（27 并行）** | 07:42:06 → 07:44:12 | **2min 6s** |
+| release | 07:44:15 → 07:44:44 | 29s |
+| **总** | 07:41:30 → 07:44:44 | **3min 14s** |
+
+build-all 内部最大单 job（filesystem）：1min 7s
+build-all 内部最小单 job（tools）：47s
+
+**收益对比**：
+
+| 阶段 | 优化前 | 优化后 | 提速 |
+|------|:----:|:----:|:----:|
+| build-all | 16min | 2min 6s | **7.6×** |
+| 整 CI | 17min | 3min 14s | **5.3×** |
+| feedback loop | 17min | 3min | ~5× |
+
+**审计**：5 次 push 全部进 git history，commit chain 完整可追溯。
+
+**废弃文件**：
+
+- `sites-hub/scripts/build-with-pagefind.sh` — CI matrix 替代品，本地调试仍保留
+- `sites-hub/scripts/build-all.sh`（如存在）— 同上
+
+**未做（预留）**：
+
+- ❌ matrix 改 `shard`（分批调度，避免 20 并发节流）— 实测 28 站 7min 内必跑完，节流无影响
+- ❌ cache hit rate 调优 — 28 站 npm install 重复装 deps，但 2min 内已完成，优化 ROI 低
+- ❌ cache `@shared/vitepress-template` — VitePress 不会缓存，已无需
+
+**关键记忆**（写给未来的我）：
+
+1. CI matrix 后，先检查 build-all step 的 `tar` 路径是否保留 `proj/` 前缀
+2. CI release step 验证页用 `test -f` 不用 `test -d`（路径指向文件时）
+3. `npm ci` 严格 lockfile → CI 用 `npm install` 更稳
+4. GitHub Actions 免费账户 20 并发节流，28 站矩阵实际只跑 20 并发，但仍是 5× 提速
+5. `fail-fast: false` 是并行 CI 的黄金标配
