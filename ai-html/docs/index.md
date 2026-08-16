@@ -144,3 +144,10 @@ features:
 4. 平台 / 部署  →  vLLM / Ollama / 成本 / 监控
 5. 求职 / 跳槽  →  高频面试题 + 项目案例
 ```
+
+<!-- ====== C6 Giscus 评论（PILOT） ======
+     部署前请编辑 components/GiscusComment.vue 填入真实 giscus ID。
+     验证评论后删除此块，或保留作为永久启用。 -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>

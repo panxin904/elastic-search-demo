@@ -8,7 +8,7 @@
 | 指标 | 数值 | 健康阈值 | 状态 |
 |------|------|----------|------|
 | 总文件数 | 1430 | — | — |
-| 总字数（中英混合） | 1,159,521 | — | — |
+| 总字数（中英混合） | 1,159,561 | — | — |
 | frontmatter 覆盖率 | 100.0% | ≥ 95% | ✅ |
 | 薄页（< 500 字） | 321 (22.4%) | ≤ 5% | ❌ |
 | 缺 frontmatter | 0 | 0 | ✅ |
@@ -26,7 +26,7 @@
 
 | 子站 | 文件 | 字数 | FM | 薄页 | 缺FM | 过期 | 图片 | 死链 | 跨站 | VueBug | 缺组件 |
 |------|-----:|-----:|---:|-----:|-----:|-----:|-----:|-----:|-----:|
-| ai | 57 | 33,139 | 57 | 18 | 0 | 0 | 0 | 0 | 4 | 0 | 0 |
+| ai | 57 | 33,179 | 57 | 18 | 0 | 0 | 0 | 0 | 4 | 0 | 0 |
 | architecture | 51 | 34,046 | 51 | 7 | 0 | 0 | 0 | 0 | 5 | 0 | 0 |
 | bigdata | 51 | 35,602 | 51 | 9 | 0 | 0 | 0 | 0 | 5 | 0 | 0 |
 | chaos | 32 | 27,578 | 32 | 6 | 0 | 0 | 0 | 0 | 5 | 0 | 0 |
@@ -264,22 +264,22 @@
 - `design-pattern/repository.md <Order> (本地无 design-pattern-html/.vitepress/theme/components/Order.vue)`
 - `filesystem/webdav.md <VirtualHost> (本地无 filesystem-html/.vitepress/theme/components/VirtualHost.vue)`
 - `filesystem/webdav.md <Directory> (本地无 filesystem-html/.vitepress/theme/components/Directory.vue)`
-- `frontend/redux.md <App> (本地无 frontend-html/.vitepress/theme/components/App.vue)`
 - `frontend/redux.md <Provider> (本地无 frontend-html/.vitepress/theme/components/Provider.vue)`
-- `frontend/data-fetching.md <UserList> (本地无 frontend-html/.vitepress/theme/components/UserList.vue)`
+- `frontend/redux.md <App> (本地无 frontend-html/.vitepress/theme/components/App.vue)`
 - `frontend/data-fetching.md <QueryClientProvider> (本地无 frontend-html/.vitepress/theme/components/QueryClientProvider.vue)`
+- `frontend/data-fetching.md <UserList> (本地无 frontend-html/.vitepress/theme/components/UserList.vue)`
 - `frontend/design-system.md <Button> (本地无 frontend-html/.vitepress/theme/components/Button.vue)`
 - `frontend/css-in-js.md <Button> (本地无 frontend-html/.vitepress/theme/components/Button.vue)`
-- `frontend/astro.md <LikeButton> (本地无 frontend-html/.vitepress/theme/components/LikeButton.vue)`
 - `frontend/astro.md <Layout> (本地无 frontend-html/.vitepress/theme/components/Layout.vue)`
-- `frontend/remix.md <Home> (本地无 frontend-html/.vitepress/theme/components/Home.vue)`
+- `frontend/astro.md <LikeButton> (本地无 frontend-html/.vitepress/theme/components/LikeButton.vue)`
 - `frontend/remix.md <Route> (本地无 frontend-html/.vitepress/theme/components/Route.vue)`
 - `frontend/remix.md <Post> (本地无 frontend-html/.vitepress/theme/components/Post.vue)`
+- `frontend/remix.md <Home> (本地无 frontend-html/.vitepress/theme/components/Home.vue)`
 - `frontend/rtl.md <Page> (本地无 frontend-html/.vitepress/theme/components/Page.vue)`
 - `frontend/rtl.md <Counter> (本地无 frontend-html/.vitepress/theme/components/Counter.vue)`
 - `frontend/storybook.md <Story> (本地无 frontend-html/.vitepress/theme/components/Story.vue)`
-- `frontend/monitor.md <App> (本地无 frontend-html/.vitepress/theme/components/App.vue)`
 - `frontend/monitor.md <ErrorPage> (本地无 frontend-html/.vitepress/theme/components/ErrorPage.vue)`
+- `frontend/monitor.md <App> (本地无 frontend-html/.vitepress/theme/components/App.vue)`
 - `frontend/loading.md <Spinner> (本地无 frontend-html/.vitepress/theme/components/Spinner.vue)`
 - ... 及其他 30 处
 
