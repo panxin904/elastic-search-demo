@@ -77,7 +77,7 @@ jobs:
     runs-on: ubuntu-22.04
     needs: check
     # workflow_dispatch + skip_build=true → 跳过 28 站重建，复用上次 artifact
-    if: !(github.event_name == 'workflow_dispatch' && inputs.skip_build == 'true')
+    if: "!(github.event_name == 'workflow_dispatch' && inputs.skip_build == 'true')"
     timeout-minutes: 10
     strategy:
       fail-fast: false
