@@ -51,6 +51,9 @@ else
 fi
 
 cp -R "$SCRIPT_DIR/www" "$STAGE_DIR/www"
+
+# VPS 渲染 nginx 配置需要 conf/（nginx.conf + 子站 vhost fragments）
+cp -R "$SCRIPT_DIR/conf" "$STAGE_DIR/conf"
 # T7: 自托管字体 (Latin subset woff2)
 if [[ -d "$SCRIPT_DIR/www/fonts" ]]; then
   mkdir -p "$STAGE_DIR/www/fonts"
