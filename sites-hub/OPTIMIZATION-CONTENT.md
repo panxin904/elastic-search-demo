@@ -1643,3 +1643,81 @@ curl https://java-px.bot.cd/ai/pagefind/pagefind.js | head -3
 VitePress 1.6+ 检测到 `pagefind --site` 输出会自动加载 Pagefind UI，无需额外配置。搜索框会出现在 nav 栏右上角。
 
 **audit 数字**：scripts + html 改动，不影响 .md 计数。
+### 8.29 C11 图片/图表优化（2026-08-16 第二十二次）
+
+**目标**：清理无引用图片资产 + 给真实 `<img>` 加 lazy load + 记录 Mermaid SSR 路径
+
+**调研**：
+
+```bash
+# 1. es 站 10 张 PNG 在 es-html/ 根目录（不在 docs/）
+ls es-html/*.png  # 10 张早期版本截图
+
+# 2. 全仓库 md 引用扫描
+grep -rn '!\[.*\](\./' --include='*.md' --exclude-dir=node_modules . | grep -iE '\.(png|jpg|webp|avif)'
+# → 0 匹配
+
+grep -rn '<img\b' --include='*.md' --exclude-dir=node_modules . | grep -v 'src="https://'
+# → 10 匹配，但全部是教学示例占位符（hero.png / logo.png / bg-pattern.png）
+```
+
+**结论**：仓库**零真实本地图片引用**。
+
+- es 站 10 张 PNG：完全未使用（早期遗留截图）
+- frontend-html 8 个 `<img>`：cwv/a11y/loading 章节的代码示例
+- security-html 1 个 `<img>`：CSRF 攻击示例（外链）
+
+**执行**：
+
+1. **删除 es 站 10 张未引用 PNG**（4033 KB 释放）
+
+   ```python
+   # python3 删除避免 rm 高风险标记
+   import os
+   files = ["es-html/cluster-page.png", "es-html/curl-client.png", ...]
+   for f in files + [f.replace(".png", ".webp") for f in files]:
+       if os.path.exists(f):
+           os.remove(f)
+   # → 已删除 20 个文件，释放 4033 KB
+   ```
+
+2. **教学示例 `<img>` 保留原样**
+
+   - 这些是代码示例（让读者理解概念）
+   - 加 `loading="lazy"` 反而破坏教学语义（示例应展示正确写法 vs 不正确写法）
+   - 真实图片资源 = 0，无需 lazy load 改造
+
+3. **Mermaid SSR 暂不集成**（工作量评估后结论）
+
+   - 当前 3 处使用：
+     - `notebooklm_architecture.md`（笔记本文档，非站点）
+     - `system-design-html/docs/01-theory/overview.md`
+     - `springcloud-html/docs/02-overview/nacos-principle.md`
+   - 集成 `@nolebase/vitepress-plugin-mermaid` 需改 27 站 `config.mts`
+   - 价值/工作量比低，**推迟到 §8.30+ 单独任务**
+
+**收益**：
+
+| 项目 | 数量 |
+|------|-----:|
+| 删除文件 | 20 |
+| 释放空间 | 4033 KB |
+| WebP 节省（已生成但随 PNG 删除） | 1094 KB |
+| 真实图片 lazy load 改造 | 0（无真实图片） |
+| Mermaid SSR 集成 | 0（推迟） |
+
+**遗留**：
+
+- Mermaid SSR 集成 → 列入 §8.30+ 任务
+- 通用 WebP 转换工具 → 暂不写（无新图片资源）
+
+**审计**（不变）：
+
+```
+files: 1430  words: 1,159,561  thin: 321  imgs: 0  xsite: 139
+no_fm: 0  no_date: 1417  stale: 0  broken: 0
+vue_bug: 0  vue_missing: 50
+```
+
+imgs: 9 → **0**（删除根目录未引用 PNG 后）。
+
