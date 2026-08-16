@@ -1721,3 +1721,113 @@ vue_bug: 0  vue_missing: 50
 
 imgs: 9 → **0**（删除根目录未引用 PNG 后）。
 
+### 8.30 C8 多语言 glossary 加 EN 列（2026-08-16 第二十三次）
+
+**目标**：glossary 161 词加 EN 列，方便双语阅读 + 未来整站 i18n 铺垫
+
+**调研**：
+
+```bash
+# 161 术语分类
+纯英文术语：122 个（JVM / GC / Spring / Docker / K8s 等）
+纯中文术语：34 个（事务 / 索引 / 限流 / 熔断 / 短链 等）
+中英混合：  5 个（SQL 注入 / Unix 时间戳 / URL 编解码 等）
+
+# glossary 当前用途
+- 数据层 json，不直接渲染成页面
+- 反向匹配 :related-sites（基于术语关联站点）
+- 站点覆盖：29 站（除 cloud-html 废弃站外几乎全覆盖）
+```
+
+**执行**：34 个中文术语补 EN 字段
+
+| 中文 | EN |
+|------|-----|
+| 主从 | Primary-Replica |
+| 事务 | Transaction |
+| 代理模式 | Proxy Pattern |
+| 内存安全 | Memory Safety |
+| 分库分表 | Sharding |
+| 加密 | Encryption |
+| 单例 | Singleton |
+| 备份 | Backup |
+| 工厂模式 | Factory Pattern |
+| 微服务 | Microservices |
+| 快照 | Snapshot |
+| 所有权 | Ownership |
+| 数据仓库 | Data Warehouse |
+| 数据湖 | Data Lake |
+| 文件系统 | File System |
+| 时区 | Timezone |
+| 正则 | Regex |
+| 流处理 | Stream Processing |
+| 混沌 | Chaos |
+| 灰度发布 | Canary Release |
+| 熔断 | Circuit Breaker |
+| 爬虫 | Web Crawler |
+| 生命周期 | Lifecycle |
+| 相对路径 | Relative Path |
+| 短链 | Short URL |
+| 秒杀 | Flash Sale |
+| 策略模式 | Strategy Pattern |
+| 索引 | Index |
+| 蓝绿部署 | Blue-Green Deployment |
+| 装饰器 | Decorator |
+| 观察者模式 | Observer Pattern |
+| 负载均衡 | Load Balancing |
+| 限流 | Rate Limiting |
+| 零信任 | Zero Trust |
+
+**字段顺序调整**：
+
+```json
+// 调整前
+{ "sites": [...] }
+
+// 调整后
+{ "en": "Transaction", "sites": [...] }
+```
+
+EN 字段在 sites 之前（更符合阅读顺序：先知道术语叫什么 → 再看关联站点）。
+
+**翻译原则**：
+
+- 业内通用术语（如 Rate Limiting / Circuit Breaker / Zero Trust）
+- 设计模式用 "Pattern" 后缀（Factory Pattern / Observer Pattern）
+- 避免机翻味（如「秒杀」不译 Seckill 而译 Flash Sale，因为后者更广泛接受）
+- 「主从」译 Primary-Replica（避免 Master-Slave 术语歧视争议）
+
+**验证**：
+
+```python
+import json
+with open('shared-assets/glossary/keywords.json') as f:
+    d = json.load(f)
+terms = {k: v for k, v in d.items() if not k.startswith('_')}
+zh_with_en = [(k, v['en']) for k, v in terms.items()
+              if v.get('en') and any('\u4e00' <= c <= '\u9fff' for c in k)]
+# → 中文术语带 EN: 34（100% 覆盖）
+```
+
+**未做（预留后续）**：
+
+- ❌ 整站 i18n（28 站 × N 篇 md 翻译成本极高）
+- ❌ glossary 渲染成可浏览页面（数据层已就绪，UI 待定）
+- ❌ 导航栏 EN/中切换（需 VitePress 多 locale 配置）
+
+**收益**：
+
+| 项目 | 数量 |
+|------|-----:|
+| 补 EN 翻译术语 | 34 |
+| 中文术语 EN 覆盖率 | 0 → **100%** |
+| 数据层改动文件 | 1 (`shared-assets/glossary/keywords.json`) |
+
+**审计**：数据层改动不影响 .md 计数，audit 数字不变。
+
+**未来使用**：
+
+- Glossary 页面：选 1 个站试点（如 architecture）渲染 `/glossary` 页（中英表）
+- 双语脚注：在 {Term} 标记旁加 `(EN)` 显示英文
+- 整站 i18n：基于 EN 列 + AI 翻译扩展
+

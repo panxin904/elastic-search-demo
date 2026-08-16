@@ -49,6 +49,7 @@
     ]
   },
   "事务": {
+    "en": "Transaction",
     "sites": [
       {
         "site": "mysql",
@@ -63,6 +64,7 @@
     ]
   },
   "索引": {
+    "en": "Index",
     "sites": [
       {
         "site": "es",
@@ -362,6 +364,7 @@
     ]
   },
   "限流": {
+    "en": "Rate Limiting",
     "sites": [
       {
         "site": "architecture",
@@ -376,6 +379,7 @@
     ]
   },
   "熔断": {
+    "en": "Circuit Breaker",
     "sites": [
       {
         "site": "architecture",
@@ -390,6 +394,7 @@
     ]
   },
   "短链": {
+    "en": "Short URL",
     "sites": [
       {
         "site": "architecture",
@@ -404,6 +409,7 @@
     ]
   },
   "秒杀": {
+    "en": "Flash Sale",
     "sites": [
       {
         "site": "architecture",
@@ -459,6 +465,7 @@
     ]
   },
   "加密": {
+    "en": "Encryption",
     "sites": [
       {
         "site": "security",
@@ -531,6 +538,7 @@
     ]
   },
   "混沌": {
+    "en": "Chaos",
     "sites": [
       {
         "site": "chaos",
@@ -540,6 +548,7 @@
     ]
   },
   "文件系统": {
+    "en": "File System",
     "sites": [
       {
         "site": "filesystem",
@@ -567,6 +576,7 @@
     ]
   },
   "快照": {
+    "en": "Snapshot",
     "sites": [
       {
         "site": "filesystem",
@@ -576,6 +586,7 @@
     ]
   },
   "备份": {
+    "en": "Backup",
     "sites": [
       {
         "site": "filesystem",
@@ -630,6 +641,7 @@
     ]
   },
   "流处理": {
+    "en": "Stream Processing",
     "sites": [
       {
         "site": "kafka",
@@ -653,6 +665,7 @@
     ]
   },
   "数据仓库": {
+    "en": "Data Warehouse",
     "sites": [
       {
         "site": "bigdata",
@@ -662,6 +675,7 @@
     ]
   },
   "数据湖": {
+    "en": "Data Lake",
     "sites": [
       {
         "site": "bigdata",
@@ -685,6 +699,7 @@
     ]
   },
   "微服务": {
+    "en": "Microservices",
     "sites": [
       {
         "site": "cloud",
@@ -731,6 +746,7 @@
     ]
   },
   "主从": {
+    "en": "Primary-Replica",
     "sites": [
       {
         "site": "mysql",
@@ -749,6 +765,7 @@
     ]
   },
   "分库分表": {
+    "en": "Sharding",
     "sites": [
       {
         "site": "mysql",
@@ -876,6 +893,7 @@
     ]
   },
   "装饰器": {
+    "en": "Decorator",
     "sites": [
       {
         "site": "python",
@@ -885,6 +903,7 @@
     ]
   },
   "所有权": {
+    "en": "Ownership",
     "sites": [
       {
         "site": "rust",
@@ -1162,6 +1181,7 @@
     ]
   },
   "时区": {
+    "en": "Timezone",
     "sites": [
       {
         "site": "tools",
@@ -1194,6 +1214,7 @@
     ]
   },
   "相对路径": {
+    "en": "Relative Path",
     "sites": [
       {
         "site": "tools",
@@ -1203,6 +1224,7 @@
     ]
   },
   "正则": {
+    "en": "Regex",
     "sites": [
       {
         "site": "tools",
@@ -1290,6 +1312,7 @@
     ]
   },
   "蓝绿部署": {
+    "en": "Blue-Green Deployment",
     "sites": [
       {
         "site": "devops",
@@ -1299,6 +1322,7 @@
     ]
   },
   "灰度发布": {
+    "en": "Canary Release",
     "sites": [
       {
         "site": "devops",
@@ -1322,6 +1346,7 @@
     ]
   },
   "生命周期": {
+    "en": "Lifecycle",
     "sites": [
       {
         "site": "rust",
@@ -1417,6 +1442,7 @@
     ]
   },
   "内存安全": {
+    "en": "Memory Safety",
     "sites": [
       {
         "site": "rust",
@@ -1455,6 +1481,7 @@
     ]
   },
   "单例": {
+    "en": "Singleton",
     "sites": [
       {
         "site": "design-pattern",
@@ -1474,6 +1501,7 @@
     ]
   },
   "工厂模式": {
+    "en": "Factory Pattern",
     "sites": [
       {
         "site": "design-pattern",
@@ -1493,6 +1521,7 @@
     ]
   },
   "观察者模式": {
+    "en": "Observer Pattern",
     "sites": [
       {
         "site": "design-pattern",
@@ -1512,6 +1541,7 @@
     ]
   },
   "策略模式": {
+    "en": "Strategy Pattern",
     "sites": [
       {
         "site": "design-pattern",
@@ -1531,6 +1561,7 @@
     ]
   },
   "代理模式": {
+    "en": "Proxy Pattern",
     "sites": [
       {
         "site": "design-pattern",
@@ -1664,6 +1695,7 @@
     ]
   },
   "负载均衡": {
+    "en": "Load Balancing",
     "sites": [
       {
         "site": "network",
@@ -1816,6 +1848,7 @@
     ]
   },
   "爬虫": {
+    "en": "Web Crawler",
     "sites": [
       {
         "site": "python",
@@ -1892,6 +1925,7 @@
     ]
   },
   "零信任": {
+    "en": "Zero Trust",
     "sites": [
       {
         "site": "security",
