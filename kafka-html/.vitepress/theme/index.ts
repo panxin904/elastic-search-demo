@@ -5,9 +5,13 @@ import KafkaPlayground from './components/KafkaPlayground.vue'
 import KafkaTopology from './components/KafkaTopology.vue'
 import ConsumerSimulator from './components/ConsumerSimulator.vue'
 import CommandCheatsheet from './components/CommandCheatsheet.vue'
+import { setupReadingProgress } from '../../../../shared-assets/vitepress-template/theme/composables/readingProgress'
 import './style.css'
 
 export default {
+  setup() {
+    setupReadingProgress()
+  },
   extends: DefaultTheme,
   enhanceApp({ app }) {
     app.component('KnowledgeGraph', KnowledgeGraph)

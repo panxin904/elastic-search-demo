@@ -6,9 +6,13 @@ import EsDslRecipes from './components/EsDslRecipes.vue'
 import EsJavaSnippets from './components/EsJavaSnippets.vue'
 import EsScenarios from './components/EsScenarios.vue'
 import EsDeploymentConfig from './components/EsDeploymentConfig.vue'
+import { setupReadingProgress } from '../../../../shared-assets/vitepress-template/theme/composables/readingProgress'
 import './style.css'
 
 export default {
+  setup() {
+    setupReadingProgress()
+  },
   extends: DefaultTheme,
   enhanceApp({ app }) {
     app.component('KnowledgeGraph', KnowledgeGraph)

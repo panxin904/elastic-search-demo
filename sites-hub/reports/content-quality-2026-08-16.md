@@ -272,11 +272,11 @@
 - `frontend/css-in-js.md <Button> (本地无 frontend-html/.vitepress/theme/components/Button.vue)`
 - `frontend/astro.md <LikeButton> (本地无 frontend-html/.vitepress/theme/components/LikeButton.vue)`
 - `frontend/astro.md <Layout> (本地无 frontend-html/.vitepress/theme/components/Layout.vue)`
-- `frontend/remix.md <Post> (本地无 frontend-html/.vitepress/theme/components/Post.vue)`
 - `frontend/remix.md <Home> (本地无 frontend-html/.vitepress/theme/components/Home.vue)`
 - `frontend/remix.md <Route> (本地无 frontend-html/.vitepress/theme/components/Route.vue)`
-- `frontend/rtl.md <Counter> (本地无 frontend-html/.vitepress/theme/components/Counter.vue)`
+- `frontend/remix.md <Post> (本地无 frontend-html/.vitepress/theme/components/Post.vue)`
 - `frontend/rtl.md <Page> (本地无 frontend-html/.vitepress/theme/components/Page.vue)`
+- `frontend/rtl.md <Counter> (本地无 frontend-html/.vitepress/theme/components/Counter.vue)`
 - `frontend/storybook.md <Story> (本地无 frontend-html/.vitepress/theme/components/Story.vue)`
 - `frontend/monitor.md <App> (本地无 frontend-html/.vitepress/theme/components/App.vue)`
 - `frontend/monitor.md <ErrorPage> (本地无 frontend-html/.vitepress/theme/components/ErrorPage.vue)`
