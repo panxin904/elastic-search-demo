@@ -1,0 +1,287 @@
+# filesystem 子站
+
+> 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
+> 94 个文档页 · 324,231 字
+> 生成时间：2026-08-16T08:58:46
+
+## [01 · 文件系统基础](https://java-px.bot.cd/filesystem/01-basics/README)
+> <span class="kg-badge kg-badge-basics">基础</span> 理解"打开一个文件背后发生了什么"——这是掌握所有存储技术的起点。 | 节点 | 一句话 | |------|--------| | [inode 与 dentry](/01-basics/inode-dentry) | 文件的"身份证"——文件名背后的元数据 | | [VFS 虚拟文件系统](/01
+
+## [文件描述符与 open](https://java-px.bot.cd/filesystem/01-basics/file-descriptor)
+> <span class="kg-badge kg-badge-basics">基础</span> `open()` 返回的那个 int 是什么？fd 表如何工作？为什么 `Too many open files`？ 文件描述符是进程级的**整数索引**，指向内核中的"打开文件表"项。 **关键**：多个 fd 可以指向同一个 file（比如 `dup()` 后）；多个进程可以指向同一个 file（
+
+## [inode 与 dentry](https://java-px.bot.cd/filesystem/01-basics/inode-dentry)
+> <span class="kg-badge kg-badge-basics">基础</span> 理解"文件"的本质——文件名只是别名，真正的身份证是 inode。 **inode**（index node）是 Linux 文件系统中描述文件元数据的数据结构。它不包含文件名，但包含文件的所有"非名字信息"。 **关键事实**： - 文件名 ≠ inode。一个文件可以多个名字（硬链接），但只有一个
+
+## [日志与一致性](https://java-px.bot.cd/filesystem/01-basics/journal)
+> <span class="kg-badge kg-badge-basics">基础</span> 突然断电，文件系统会不会坏？日志（journal）就是答案。 **Journal**（也叫 write-ahead log）是 FS 在正式写数据之前，先把"我要做什么改动"记到日志区的技术。断电后通过 replay 日志保证一致性。 假设执行 `write /a/file`： 1. 写 inode
+
+## [挂载与文件系统树](https://java-px.bot.cd/filesystem/01-basics/mount)
+> <span class="kg-badge kg-badge-basics">基础</span> 文件系统如何"接入"Linux 的目录树？挂载点的本质是什么？ **mount** 是把一个文件系统（设备）关联到目录树某个节点的过程。Linux 所有 FS 共享一棵统一的目录树。 - `defaults`：rw, suid, dev, exec, auto, nouser, async - `no
+
+## [Page Cache 页缓存](https://java-px.bot.cd/filesystem/01-basics/page-cache)
+> <span class="kg-badge kg-badge-basics">基础</span> Linux I/O 性能的核心——所有"第二次变快"的秘密。 **Page Cache** 是内核管理的磁盘文件页缓存，以 4KB 为单位缓存磁盘内容到内存。 每个被缓存的文件页对应一个 `struct page`，所有页通过 LRU 链表管理。 **关键**：第二次 read 同样的内容 → 直接从
+
+## [目录与路径解析](https://java-px.bot.cd/filesystem/01-basics/path-resolution)
+> <span class="kg-badge kg-badge-basics">基础</span> `/a/b/c` 这个路径是怎么解析到 c 的？软链接和硬链接的本质区别是什么？ Linux 内核只理解绝对路径，相对路径在用户态库（glibc）转换为绝对路径后传给 syscall。 **关键优化**： - 每一段查找都先看 dentry cache - 命中 → 直接拿 inode - 未命中 →
+
+## [VFS 虚拟文件系统](https://java-px.bot.cd/filesystem/01-basics/vfs)
+> <span class="kg-badge kg-badge-basics">基础</span> Linux 的"万能适配器"——同一套系统调用接口支持 ext4 / NTFS / NFS / procfs / sysfs ... **VFS**（Virtual File System）是 Linux 内核中的一层抽象，让上层应用看到的是"统一的文件操作接口"，下层可以接入任何具体文件系统。 **
+
+## [02 · 本地盘文件系统](https://java-px.bot.cd/filesystem/02-disk-fs/README)
+> <span class="kg-badge kg-badge-disk-fs">本地盘</span> 单块磁盘上的文件系统——从 ext4 到 ZFS，每种 FS 都是一组权衡。 | 节点 | 一句话 | |------|--------| | [ext4 经典之选](/02-disk-fs/ext4) | Linux 默认，稳定可靠，日志型 FS | | [XFS 高性能日志](/02-disk
+
+## [APFS / HFS+](https://java-px.bot.cd/filesystem/02-disk-fs/apple-fs)
+> <span class="kg-badge kg-badge-disk-fs">本地盘</span> Apple 设备的文件系统演进——从 HFS+ 到 APFS。 1985 年发布的 Mac OS 经典 FS，1998 年随 Mac OS 8.1 引入 HFS+。 - B-tree 目录索引 - Catalog（文件元数据） - Extents overflow file - 区分大小写（可选）
+
+## [Btrfs COW与快照](https://java-px.bot.cd/filesystem/02-disk-fs/btrfs)
+> <span class="kg-badge kg-badge-disk-fs">本地盘</span> B-tree FS——为快照、校验、子卷而生的现代 FS。 Btrfs 全称 **B-tree File System**，核心思想： - 所有元数据用 B-tree - **写时复制（COW）**：写新位置，原子切指针 - 内置快照 / 子卷 / 校验和 **优势**： - 写过程 crash-
+
+## [横向对比与选型](https://java-px.bot.cd/filesystem/02-disk-fs/compare)
+> <span class="kg-badge kg-badge-disk-fs">本地盘</span> 7 种主流本地文件系统——一张表选型。 | FS | 平台 | 一致性 | 快照 | 校验和 | 加密 | 默认 | |----|------|--------|------|--------|------|------| | **ext4** | Linux | journal | ❌ | ⚠️
+
+## [ext4 经典之选](https://java-px.bot.cd/filesystem/02-disk-fs/ext4)
+> <span class="kg-badge kg-badge-disk-fs">本地盘</span> Linux 的默认文件系统——ext2/3/4 家族的集大成者。 - **ext2** (1993)：最早的可扩展 FS，无日志 - **ext3** (2001)：加日志，兼容 ext2 - **ext4** (2008)：extent、B+ tree、延迟分配、大文件支持 ext3 用**直接
+
+## [NTFS / FAT / exFAT](https://java-px.bot.cd/filesystem/02-disk-fs/windows-fs)
+> <span class="kg-badge kg-badge-disk-fs">本地盘</span> Windows 世界的文件系统——从软盘到现代 SSD。 **File Allocation Table 32**——最简单的 FS 之一。 - 簇（cluster）：最小分配单位 - FAT 表：每个簇一个 entry，记录"下一个簇号"或"EOF" | 限制 | 值 | |------|---
+
+## [XFS 高性能日志](https://java-px.bot.cd/filesystem/02-disk-fs/xfs)
+> <span class="kg-badge kg-badge-disk-fs">本地盘</span> SGI 血统，分配组 + B+ tree，为大文件和大容量而生。 SGI 在 1990 年代为 IRIX 开发 XFS，2001 年开源，2002 年并入 Linux 2.5。RHEL/CentOS 7+ 默认 XFS。 XFS 把磁盘分成多个独立管理的 AG（默认几百个），每个 AG 有自己的：
+
+## [ZFS 企业级](https://java-px.bot.cd/filesystem/02-disk-fs/zfs)
+> <span class="kg-badge kg-badge-disk-fs">本地盘</span> 终极文件系统的代表——128-bit 地址空间、内置 RAID-Z、自愈校验、ARC 缓存。 ZFS 由 Sun Microsystems 在 2005 年发布，因 CDDL 许可证与 GPL 不兼容，未能并入 Linux 内核。Linux 上通过 **OpenZFS** 项目独立提供（作为内核模
+
+## [03 · 分布式文件系统](https://java-px.bot.cd/filesystem/03-distributed/README)
+> <span class="kg-badge kg-badge-distributed">分布式</span> 文件不再局限于单台机器——本章介绍跨节点的文件系统。 | 节点 | 一句话 | |------|--------| | [HDFS 大数据基石](/03-distributed/hdfs) | Hadoop 默认 FS，PB 级顺序写 | | [CephFS 统一存储](/03-distr
+
+## [CephFS 统一存储](https://java-px.bot.cd/filesystem/03-distributed/cephfs)
+> <span class="kg-badge kg-badge-distributed">分布式</span> Ceph 的 POSIX 文件系统——统一块/对象/文件三种接口的存储平台。 Ceph 提供三种存储接口： **核心**：所有接口共享底层 **RADOS**（可靠自主分布式对象存储）。 - **MDS**：把元数据树切分（dirfrag）分给不同 MDS - **客户端**：直接和 OS
+
+## [分布式文件系统对比](https://java-px.bot.cd/filesystem/03-distributed/compare)
+> > <span class="kg-badge kg-badge--distributed">分布式 FS</span> > 6 大主流 · 一张表选型 · 决策树 分布式 FS 不是一个"通用解"。HDFS、CephFS、GlusterFS、JuiceFS、MooseFS、Lustre 各自定位完全不同。本节给你**一张选型决策表 + 决策树**，看完能落地。 | 维度 | HDFS | Cep
+
+## [GlusterFS](https://java-px.bot.cd/filesystem/03-distributed/glusterfs)
+> > <span class="kg-badge kg-badge--distributed">分布式 FS</span> > 无元数据节点 · 弹性哈希 · 用户态 FUSE GlusterFS（现属 Red Hat / Gluster.org）是一款**完全运行在用户态**的横向扩展文件系统。它不依赖独立的元数据服务器，靠 **弹性哈希（DHT）** 把目录映射到具体 brick，是"轻量、好上
+
+## [HDFS 大数据基石](https://java-px.bot.cd/filesystem/03-distributed/hdfs)
+> <span class="kg-badge kg-badge-distributed">分布式</span> Hadoop Distributed File System——PB 级顺序写优化的经典分布式 FS。 HDFS 采用**主从架构**： - **内存中维护整个 FS 树**：文件名 → block → DataNode 列表 - 接收客户端元数据操作（mkdir、ls、rm） - 接收
+
+## [JuiceFS](https://java-px.bot.cd/filesystem/03-distributed/juicefs)
+> > <span class="kg-badge kg-badge--distributed">分布式 FS</span> > 元数据上 Redis/TiKV · 数据走对象存储 · POSIX 兼容 JuiceFS 是国内团队开源的云原生分布式文件系统，把"元数据"和"数据"分别放到两套独立的系统里： - **元数据** → Redis / TiKV / MySQL（任意 KV/关系库） - **
+
+## [Lustre](https://java-px.bot.cd/filesystem/03-distributed/lustre)
+> > <span class="kg-badge kg-badge--distributed">分布式 FS</span> > MDS + OSS · RDMA · HPC 专属 Lustre 名字源自 "Linux + Cluster"，专为 **HPC（高性能计算）** 设计：在 Top 500 超算里，70%+ 的系统曾使用 Lustre 作为主存储。它是**吞吐量之王**，但前提是"专为大文
+
+## [MooseFS](https://java-px.bot.cd/filesystem/03-distributed/moosefs)
+> > <span class="kg-badge kg-badge--distributed">分布式 FS</span> > 中心元数据 · chunk server · 易上手 MooseFS（MFS）借鉴了 Google File System 的设计思路，提供 POSIX 兼容的分布式文件存储。它因**架构简洁、运维简单**而被中小企业广泛使用，是入门分布式 FS 的优选。 | 特性 | 说
+
+## [04 · 对象存储](https://java-px.bot.cd/filesystem/04-object/README)
+> <span class="kg-badge kg-badge-object">对象</span> 通过 HTTP API 访问的"桶+对象"模型——云时代的存储基石。 | 节点 | 一句话 | |------|--------| | [S3 协议规范](/04-object/s3-protocol) | 事实标准，RESTful API | | [MinIO 自建对象存储](/04-object/
+
+## [一致性模型](https://java-px.bot.cd/filesystem/04-object/consistency)
+> > <span class="kg-badge kg-badge--object">对象存储</span> > 强一致 vs 最终一致 · 列表收敛 · 自定义业务 对象存储是一个**分布式系统**。多副本、多区域、不同节点对同一对象的视图可能短暂不一致。 理解一致性模型对开发**正确**的程序至关重要。 | 等级 | 含义 | 例子 | |------|------|------| | 强一致（
+
+## [腾讯云 COS](https://java-px.bot.cd/filesystem/04-object/cos)
+> > <span class="kg-badge kg-badge--object">对象存储</span> > 腾讯云原生 · S3 兼容 · 微信生态深度集成 腾讯云对象存储 COS（COS，Cloud Object Storage）是腾讯云提供的对象存储服务。它在国内市场份额仅次于阿里 OSS，特点是与微信小程序、企业微信等腾讯生态深度集成。 | 概念 | 说明 | |------|-----
+
+## [纠删码 EC](https://java-px.bot.cd/filesystem/04-object/erasure-coding)
+> > <span class="kg-badge kg-badge--object">对象存储</span> > Reed-Solomon · k + m · 50% 空间冗余 副本策略最简单：数据写 N 份。但代价是**存储开销 100%（2 副本）到 200%（3 副本）**。 纠删码（EC）用数学手段把"冗余度"降到 **50% 甚至更低**，同时保留容错能力。它是 PB 级对象存储的核心技术
+
+## [生命周期管理](https://java-px.bot.cd/filesystem/04-object/lifecycle)
+> > <span class="kg-badge kg-badge--object">对象存储</span> > 标准 → 低频 → 归档 · 自动降本 对象存储的成本随"访问频率"变化极大。Amazon S3 标准存储 0.023 美元/GB/月，Glacier Deep Archive 只有 0.00099 美元/GB/月——**差 23 倍**。 生命周期策略让数据**自动从热到冷**。这是对
+
+## [MinIO](https://java-px.bot.cd/filesystem/04-object/minio)
+> > <span class="kg-badge kg-badge--object">对象存储</span> > 兼容 S3 API · 轻量 · 自建对象存储首选 MinIO 是一款采用 **AGPLv3** 协议发布的开源对象存储。它以单二进制、Go 语言、S3 协议 100% 兼容而著称，是私有化部署对象存储的事实标准。 | 场景 | 是否合适 | |------|----------| |
+
+## [阿里云 OSS](https://java-px.bot.cd/filesystem/04-object/oss)
+> > <span class="kg-badge kg-badge--object">对象存储</span> > 阿里云原生 · S3 兼容 · 国内实战首选 阿里云对象存储 OSS（Object Storage Service）是国内最早、最大规模的对象存储服务。它既提供**自有 SDK**，也兼容 S3 API，让跨云迁移无负担。 | 概念 | 说明 | |------|------| | Bu
+
+## [S3 协议](https://java-px.bot.cd/filesystem/04-object/s3-protocol)
+> > <span class="kg-badge kg-badge--object">对象存储</span> > HTTP/REST · bucket+key · 2006 年至今 S3（Simple Storage Service）是 Amazon 2006 年推出的对象存储服务，**它定义的协议**后来成为整个对象存储的事实标准——MinIO、Ceph RGW、阿里 OSS、腾讯 COS、华为
+
+## [05 · 网络文件协议](https://java-px.bot.cd/filesystem/05-network/README)
+> <span class="kg-badge kg-badge-network">网络</span> 跨机器访问文件的标准协议。 | 节点 | 一句话 | |------|--------| | [NFS Unix 经典](/05-network/nfs) | 网络文件系统的事实标准 | | [SMB / CIFS Windows](/05-network/smb) | Windows 共享 / S
+
+## [FTP / SFTP](https://java-px.bot.cd/filesystem/05-network/ftp-sftp)
+> > <span class="kg-badge kg-badge--network">网络协议</span> > FTP 明文 · SFTP 走 SSH · 备份上传场景 FTP（File Transfer Protocol）和 SFTP（SSH File Transfer Protocol）是两个常被混淆的协议： | 协议 | 含义 | 安全 | 端口 | |------|------|----
+
+## [NFS](https://java-px.bot.cd/filesystem/05-network/nfs)
+> > <span class="kg-badge kg-badge--network">网络协议</span> > RPC · v4 · 共享文件夹标准 NFS（Network File System）是 Sun 公司在 1984 年提出的网络文件系统协议，是 Unix/Linux 之间共享文件的标准方式。今天主流是 **NFSv4**（2003 标准化），它在性能、安全、状态上比 NFSv3 强很
+
+## [rsync](https://java-px.bot.cd/filesystem/05-network/rsync)
+> > <span class="kg-badge kg-badge--network">网络协议</span> > 增量传输 · SSH 隧道 · 经典同步工具 rsync 是文件**增量同步**的事实标准。它通过"滚动校验和"算法，只传输差异部分。在备份、镜像、跨机同步场景里几乎"必装"。 把文件切成小块： 1. 发送方给每个块算两个滚动校验（弱 32-bit + 强 MD5） 2. 接收方对比
+
+## [SMB / CIFS](https://java-px.bot.cd/filesystem/05-network/smb)
+> > <span class="kg-badge kg-badge--network">网络协议</span> > 微软主导 · 跨平台共享 · Active Directory 集成 SMB（Server Message Block）是微软提出的文件共享协议，又称 CIFS（Common Internet File System）。它是**Windows 文件共享的事实标准**，Linux/mac
+
+## [WebDAV](https://java-px.bot.cd/filesystem/05-network/webdav)
+> > <span class="kg-badge kg-badge--network">网络协议</span> > HTTP 扩展 · 跨互联网友好 · 协作场景 WebDAV（Web Distributed Authoring and Versioning）是一组 HTTP 方法扩展，让客户端能**在远端 web 服务器上读写文件**。它把 HTTP 当成"远程文件系统"，是云盘、协作工具的核心协
+
+## [06 · 云原生存储](https://java-px.bot.cd/filesystem/06-cloud-native/README)
+> <span class="kg-badge kg-badge-cloud-native">云原生</span> Kubernetes 时代的存储抽象——CSI、PV/PVC、Operator。 | 节点 | 一句话 | |------|--------| | [CSI 容器存储接口](/06-cloud-native/csi) | K8s 存储标准 | | [PV / PVC / StorageC
+
+## [CSI](https://java-px.bot.cd/filesystem/06-cloud-native/csi)
+> > <span class="kg-badge kg-badge--cloud-native">云原生</span> > 标准驱动接口 · 跨存储系统 · 解耦供应商 CSI（Container Storage Interface）是 Kubernetes 在 1.13 后 GA 的存储驱动标准。它把"卷的提供 / 挂载 / 快照 / 扩"做成统一的 gRPC 接口，任何厂商按这个接口实现 dri
+
+## [动态卷供给](https://java-px.bot.cd/filesystem/06-cloud-native/dynamic)
+> > <span class="kg-badge kg-badge--cloud-native">云原生</span> > 模板化创建 · 按需扩容 · 延迟绑定 动态卷供给（Dynamic Provisioning）是 K8s 存储的最佳实践：用户**只声明需求**（StorageClass + 容量），K8s 通过 CSI Driver **按需创建**实际卷。 静态 PV 的痛点： - 集群管
+
+## [Longhorn](https://java-px.bot.cd/filesystem/06-cloud-native/longhorn)
+> > <span class="kg-badge kg-badge--cloud-native">云原生</span> > 微服务架构 · 增量快照 · 简单好用 Longhorn 是 Rancher 出品的 K8s 块存储系统。它**专为 K8s 设计**： - 100% 微服务化（每个卷一个 Pod） - 增量快照 / 备份 - 内置 Dashboard - 比 Ceph 简单 90%，比 Op
+
+## [OpenEBS](https://java-px.bot.cd/filesystem/06-cloud-native/openebs)
+> > <span class="kg-badge kg-badge--cloud-native">云原生</span> > cStor / Jiva / Mayastor · 三种引擎可选 OpenEBS 是 MayaData 出品的开源 K8s 存储系统。它把卷拆成**微服务**（与 Longhorn 类似），但提供**三种引擎**： - **Jiva**：基于 Linux LVM 的用户态复制
+
+## [PV 与 PVC](https://java-px.bot.cd/filesystem/06-cloud-native/pv-pvc)
+> > <span class="kg-badge kg-badge--cloud-native">云原生</span> > PV 资源池 · PVC 申请单 · StorageClass 动态分配 K8s 把存储分成**供应者（PV）**和**消费者（PVC）**两个抽象： - **PV（PersistentVolume）**：集群里的"一块存储" - **PVC（PersistentVolumeC
+
+## [Rook](https://java-px.bot.cd/filesystem/06-cloud-native/rook)
+> > <span class="kg-badge kg-badge--cloud-native">云原生</span> > Operator 模式 · Ceph / NFS / Cassandra · 云原生存储管家 Rook 把**分布式存储系统**变成 Kubernetes 上的"原生"服务。它通过 Operator 模式，把 Ceph、NFS、Cassandra、MinIO、EdgeFS 等部
+
+## [VolumeSnapshot](https://java-px.bot.cd/filesystem/06-cloud-native/snapshot)
+> > <span class="kg-badge kg-badge--cloud-native">云原生</span> > CSI 原生快照 · 备份与恢复 · 数据保护 K8s 通过 `VolumeSnapshot` API 把"卷快照"做成标准资源。它是数据保护、灾备、克隆的核心机制。 | 资源 | API | 作用 | |------|-----|------| | VolumeSnapsho
+
+## [07 · 容器文件系统](https://java-px.bot.cd/filesystem/07-container/README)
+> <span class="kg-badge kg-badge-container">容器</span> Docker 镜像背后——OverlayFS 与分层原理。 | 节点 | 一句话 | |------|--------| | [OverlayFS 联合挂载](/07-container/overlayfs) | 镜像层的底层技术 | | [Docker 镜像分层](/07-container/
+
+## [BuildKit](https://java-px.bot.cd/filesystem/07-container/buildkit)
+> > <span class="kg-badge kg-badge--container">容器 FS</span> > 并行构建 · 缓存优化 · 多前端多后端 BuildKit 是 Docker 公司开发、Moby 项目孵化的下一代镜像构建工具。它有： - **并行构建**：依赖自动 DAG 化 - **高级缓存**：本地 / registry / inline 多种 - **mount / s
+
+## [containerd](https://java-px.bot.cd/filesystem/07-container/containerd)
+> > <span class="kg-badge kg-badge--container">容器 FS</span> > K8s 默认 CRI · CNCF 毕业项目 · 高性能 containerd 是 Docker 公司开源的容器运行时（2015 年），现由 CNCF 管理，是 **Kubernetes 1.0+ 的默认 CRI 运行时**。它从 Docker daemon 中剥离，专注容器生命
+
+## [Docker 镜像分层](https://java-px.bot.cd/filesystem/07-container/docker-layers)
+> > <span class="kg-badge kg-badge--container">容器 FS</span> > Dockerfile 指令 → 层 · 缓存复用 · 关键优化点 Docker 镜像本质是**一系列只读层**的叠加，每一层对应 Dockerfile 的一条（或几条）指令。理解分层 = 理解镜像体积、构建速度、缓存效率。 一个镜像由**多层只读目录** + **配置（manif
+
+## [OverlayFS](https://java-px.bot.cd/filesystem/07-container/overlayfs)
+> > <span class="kg-badge kg-badge--container">容器 FS</span> > COW · 写时复制 · 容器镜像基础 OverlayFS（Overlay File System）是 Linux 内核的**联合挂载（Union Mount）**实现。它把两个目录（lowerdir + upperdir）合并为一个视图，对上层透明。Docker / conta
+
+## [容器存储驱动](https://java-px.bot.cd/filesystem/07-container/storage-drivers)
+> > <span class="kg-badge kg-badge--container">容器 FS</span> > Snapshotter · 选驱动 · 性能与兼容 容器运行时的**存储驱动（Storage Driver）**决定镜像如何存、容器如何写入。Docker、containerd、Kubernetes 都使用相同的逻辑：基于一个**快照器（Snapshotter）**在文件系统层之
+
+## [08 · 文件工具集](https://java-px.bot.cd/filesystem/08-tools/README)
+> <span class="kg-badge kg-badge-tools">工具</span> 日常必备的文件操作、调试、监控工具。 | 节点 | 一句话 | |------|--------| | [FUSE 用户态 FS](/08-tools/fuse) | 让用户态程序实现文件系统 | | [debugfs 调试工具](/08-tools/debugfs) | ext 系列底层调试器 | |
+
+## [debugfs](https://java-px.bot.cd/filesystem/08-tools/debugfs)
+> > <span class="kg-badge kg-badge--tools">工具集</span> > 抢救数据 · 手动编辑元数据 · 文件系统诊断 debugfs 是 e2fsprogs 包提供的 ext2/ext3/ext4 **交互式调试器**。它是文件系统管理员和数据救援的"瑞士军刀"——可以打开一个块设备直接读写 inode、目录、数据块。 debugfs 直接读写元数据： - *
+
+## [du / df](https://java-px.bot.cd/filesystem/08-tools/du-df)
+> > <span class="kg-badge kg-badge--tools">工具集</span> > 目录占用 · 文件系统空闲 · 实时排查 du 与 df 是排查"磁盘满了"的左膀右臂： - **df**：文件系统级别的"剩余空间" - **du**：目录级别的"占用分布" 输出： **关键字段**： | 字段 | 含义 | |------|------| | Size | 文件系统总大
+
+## [find / fd](https://java-px.bot.cd/filesystem/08-tools/find-fd)
+> > <span class="kg-badge kg-badge--tools">工具集</span> > 递归查找 · 高级过滤 · 性能与场景 find 是 POSIX 标准，fd 是 Rust 写的现代化替代。它们都能递归查找文件、过滤、按动作执行命令。 | 动作 | 含义 | |------|------| | `-print` | 打印路径（默认） | | `-print0` | 用 \
+
+## [FUSE](https://java-px.bot.cd/filesystem/08-tools/fuse)
+> > <span class="kg-badge kg-badge--tools">工具集</span> > 用户态驱动 · 容器存储 · 灵活扩展 FUSE（Filesystem in Userspace）是 Linux 内核提供的一个**用户态文件系统框架**。它允许你**在用户进程**里实现一个完整文件系统，挂载到 VFS 上。**S3FS、GlusterFS、sshfs、JuiceFS、fu
+
+## [inotify](https://java-px.bot.cd/filesystem/08-tools/inotify)
+> > <span class="kg-badge kg-badge--tools">工具集</span> > 文件变更事件 · 实时响应 · 替代轮询 inotify 是 Linux 内核的**文件系统事件通知**机制。它让应用监听"文件被创建/修改/删除"等事件，**无需轮询**。rsync、systemd、auditd、Docker、K8s 都用它。 传统方式：**轮询**（cron 定期查 s
+
+## [lsof](https://java-px.bot.cd/filesystem/08-tools/lsof)
+> > <span class="kg-badge kg-badge--tools">工具集</span> > 打开文件诊断 · 网络 FD · 删除但占用 Linux 中**一切皆文件**——socket、pipe、设备、目录都是文件描述符。lsof 列出所有打开的文件描述符，是排查"磁盘满但 du 不见大文件"、"端口被谁占用"等问题的瑞士军刀。 | 字段 | 含义 | |------|-----
+
+## [strace / ltrace](https://java-px.bot.cd/filesystem/08-tools/strace)
+> > <span class="kg-badge kg-badge--tools">工具集</span> > syscall 跟踪 · IO 调试 · 性能瓶颈定位 strace 跟踪**系统调用**，ltrace 跟踪**库函数调用**。它们是 IO / FS 调试的"核武器"——能看到程序究竟做了什么 syscall，性能瓶颈在哪。 输出示例： | 选项 | 含义 | |------|-----
+
+## [09 · 性能调优](https://java-px.bot.cd/filesystem/09-perf/README)
+> <span class="kg-badge kg-badge-perf">性能</span> 让文件系统跑得更快的核心方法论。 | 节点 | 一句话 | |------|--------| | [IO 调度器选型](/09-perf/io-scheduler) | SSD vs HDD 的调度器差异 | | [Page Cache 调优](/09-perf/page-cache-tune) | `
+
+## [Direct I/O](https://java-px.bot.cd/filesystem/09-perf/direct-io)
+> > <span class="kg-badge kg-badge--perf">性能调优</span> > O_DIRECT · 双缓冲问题 · 数据库场景 Direct I/O 让应用程序**绕过 Page Cache**，直接读写磁盘。在某些场景下能显著降低延迟、避免双重缓存，但要求应用自己处理对齐、刷盘等细节。 | 场景 | 推荐 | |------|------| | MySQL Inno
+
+## [fsync 与持久化](https://java-px.bot.cd/filesystem/09-perf/fsync)
+> > <span class="kg-badge kg-badge--perf">性能调优</span> > 数据安全 · fsync / fdatasync / barrier · 性能取舍 fsync 是"把数据强制刷到磁盘"的系统调用。它是**数据持久化**与**性能**之间最大的取舍点。 **fsync 的作用**：把上述路径**强制同步到底**，保证调用返回时数据已经在物理磁盘上。 | 系
+
+## [IO 调度器](https://java-px.bot.cd/filesystem/09-perf/io-scheduler)
+> > <span class="kg-badge kg-badge--perf">性能调优</span> > mq-deadline / kyber / bfq · 决定磁盘延迟 IO 调度器（IO Scheduler）是 Linux 内核在**块设备驱动之上**的一层。它决定： - **顺序**：先处理哪个 IO - **合并**：相邻 IO 合并 - **限流**：避免单一进程打爆磁盘 | 调度
+
+## [性能方法论](https://java-px.bot.cd/filesystem/09-perf/methodology)
+> > <span class="kg-badge kg-badge--perf">性能调优</span> > USE 方法 · RED 方法 · 负载剖析 · 性能思维 性能调优不是"调参数碰运气"。**有方法论**才能**系统**地找到瓶颈。本节讲业界三大方法论： - **USE 方法**（Brendan Gregg）— 用于定位资源问题 - **RED 方法**（Tom Wilkie）— 用于微
+
+## [Page Cache 调优](https://java-px.bot.cd/filesystem/09-perf/page-cache-tune)
+> > <span class="kg-badge kg-badge--perf">性能调优</span> > 内存缓存 · 内核参数 · 性能方法论 Linux 把"未刷盘"的数据缓存在 **Page Cache**（页缓存）。调整 Page Cache 的参数能让普通业务轻松获得 10-100 倍性能提升。 **关键**： - **读**：先查 Page Cache，没命中才读盘 - **写**：
+
+## [readahead](https://java-px.bot.cd/filesystem/09-perf/readahead)
+> > <span class="kg-badge kg-badge--perf">性能调优</span> > 内核预读 · 用户态预读 · 实战取舍 readahead（预读）是 OS 提前把后续数据从磁盘读到 Page Cache 的机制。对**顺序读**场景（视频、备份、大数据查询），合理 readahead 能把 IO 性能提升 5-50 倍。 **核心算法**： - 连续顺序读 → 加大 r
+
+## [10 · 安全与权限](https://java-px.bot.cd/filesystem/10-security/README)
+> <span class="kg-badge kg-badge-security">安全</span> 文件系统层面的访问控制、加密、审计。 | 节点 | 一句话 | |------|--------| | [POSIX 权限位](/10-security/posix-perm) | rwx 三组九位 | | [ACL 访问控制列表](/10-security/acl) | 细粒度权限 | | [x
+
+## [ACL 访问控制列表](https://java-px.bot.cd/filesystem/10-security/acl)
+> > <span class="kg-badge kg-badge--security">安全权限</span> > 用户级 · 组级 · 默认 ACL · 实战场景 POSIX 权限只有三类用户（owner/group/other），太粗。ACL（Access Control List）允许**任意多用户**、**任意多组**的细粒度权限控制。 | ACL 类型 | 含义 | |---------
+
+## [auditd 文件审计](https://java-px.bot.cd/filesystem/10-security/auditd)
+> > <span class="kg-badge kg-badge--security">安全权限</span> > 文件访问审计 · 合规 · 入侵检测 auditd 是 Linux 内核审计系统（audit subsystem）的用户态守护进程。它记录**谁**、**何时**、**对什么**文件做了什么操作——是合规、入侵检测的关键工具。 **关键选项**： | 选项 | 含义 | |-----
+
+## [文件系统加密](https://java-px.bot.cd/filesystem/10-security/encryption)
+> > <span class="kg-badge kg-badge--security">安全权限</span> > LUKS / eCryptfs / fscrypt · 加密即安全 文件系统加密保护**静态数据**——磁盘被偷 / 磁盘镜像泄漏时，无法读出真实内容。 每层独立，常**叠加**： - 块设备 + FS 加密（双重保险） - 应用加密 + FS 加密（合规场景） LUKS 是 Lin
+
+## [POSIX 权限模型](https://java-px.bot.cd/filesystem/10-security/posix-perm)
+> > <span class="kg-badge kg-badge--security">安全权限</span> > 三类用户 · rwx · 实战管理 POSIX 权限模型是 Unix/Linux 文件系统的**基础权限系统**。所有其他权限机制（ACL、SELinux）都是在它之上扩展。 每个文件 / 目录有三组权限： - **user (u)**：文件所有者 - **group (g)**：所
+
+## [xattr 扩展属性](https://java-px.bot.cd/filesystem/10-security/xattr)
+> > <span class="kg-badge kg-badge--security">安全权限</span> > user / trusted / system / security · 实战标签 xattr（Extended Attributes）是文件的**额外元数据**，以 `key=value` 形式存在。 | 命名空间 | 含义 | 谁可读写 | |----------|------|
+
+## [3-2-1 备份原则](https://java-px.bot.cd/filesystem/11-backup/3-2-1)
+> > <span class="kg-badge kg-badge--backup">备份快照</span> > 3 份副本 · 2 种介质 · 1 份异地 **3-2-1 规则**是数据保护的事实标准： - **3 份**数据副本（1 原始 + 2 备份） - **2 种**存储介质（防介质级故障） - **1 份**异地（防灾难级故障） 源自 2000 年代摄影业： - 3 份：照片重要 - 2
+
+## [11 · 备份与快照](https://java-px.bot.cd/filesystem/11-backup/README)
+> <span class="kg-badge kg-badge-backup">备份</span> 数据保护——从快照到异地容灾。 | 节点 | 一句话 | |------|--------| | [快照技术对比](/11-backup/snapshot) | LVM / ZFS / Btrfs / EBS | | [Borg 增量备份](/11-backup/borg) | 去重压缩 + 加密 |
+
+## [BorgBackup](https://java-px.bot.cd/filesystem/11-backup/borg)
+> > <span class="kg-badge kg-badge--backup">备份快照</span> > 增量 · 去重 · 加密 · 服务器备份首选 BorgBackup（borg）是一款用 Python 写的去重、压缩、加密备份工具。它是**服务器备份**的事实标准之一，主打"增量去重，备份越大越省空间"。 | 特性 | 含义 | |------|------| | **去重** | 块
+
+## [容灾恢复](https://java-px.bot.cd/filesystem/11-backup/dr)
+> > <span class="kg-badge kg-badge--backup">备份快照</span> > 同城双活 · 异地灾备 · RTO/RPO 决策树 容灾（Disaster Recovery）是业务在数据中心故障、自然灾害、人为错误下**持续运行**的能力。 | 等级 | 描述 | RTO | RPO | |------|------|-----|-----| | Tier 0 |
+
+## [restic](https://java-px.bot.cd/filesystem/11-backup/restic)
+> > <span class="kg-badge kg-badge--backup">备份快照</span> > 多后端 · 增量 · Go 编写 · 易上手 restic 是一款 Go 写的备份工具。它的杀手锏是**支持 12+ 后端**——S3、SFTP、Backblaze B2、Azure Blob、Google Cloud Storage、本地、rclone mount 等等。 | 特性 |
+
+## [快照与备份](https://java-px.bot.cd/filesystem/11-backup/snapshot)
+> > <span class="kg-badge kg-badge--backup">备份快照</span> > 快照 = 瞬时副本 · 备份 = 异地持久 · 组合最佳 快照（Snapshot）与备份（Backup）是不同的概念，本质差别： - **快照**：在同一存储上的"瞬时副本"，几乎零延迟恢复 - **备份**：把数据复制到独立位置，跨故障、跨地域 | 维度 | 快照 | 备份 | |--
+
+## [12 · 企业案例](https://java-px.bot.cd/filesystem/12-cases/README)
+> <span class="kg-badge kg-badge-cases">案例</span> 真实世界的大型存储架构演进。 | 节点 | 一句话 | |------|--------| | [Netflix S3 架构](/12-cases/netflix-s3) | 每天 1.4 万亿次 S3 操作 | | [ByteDance JuiceFS](/12-cases/juicefs-byted
+
+## [CERN EOS 存储](https://java-px.bot.cd/filesystem/12-cases/cern-eos)
+> > <span class="kg-badge kg-badge--cases">企业案例</span> > EOS · CERN · 粒子物理 · PB/天 CERN（欧洲核子研究组织）是大型强子对撞机（LHC）的所在地。每秒产生上百万次粒子碰撞，**每年产生数十 PB 数据**。他们用 **EOS**（CERN 开发的存储系统）管理这些数据。 | 指标 | 数值 | |------|-----
+
+## [字节跳动 JuiceFS 实践](https://java-px.bot.cd/filesystem/12-cases/juicefs-bytedance)
+> > <span class="kg-badge kg-badge--cases">企业案例</span> > JuiceFS · K8s 大规模 · AI 训练数据集 字节跳动（TikTok 母公司）是 JuiceFS 的**最大用户**之一。JuiceFS 在字节内部被用于 **Kubernetes 大规模共享存储**和**AI 训练数据集**，日承载 PB 级数据。 | 指标 | 数值 | |
+
+## [Meta HDFS 演进](https://java-px.bot.cd/filesystem/12-cases/meta-hdfs)
+> > <span class="kg-badge kg-badge--cases">企业案例</span> > HDFS · Exabyte 级 · 从单一存储到分层 Meta（Facebook）是 HDFS 的**最大用户**。他们曾经部署了**全球最大的 HDFS 集群**，单集群达 **EB 级**，后来又演进到分层存储。 | 指标 | 数值 | |------|------| | 单集群节点
+
+## [Netflix S3 数据湖](https://java-px.bot.cd/filesystem/12-cases/netflix-s3)
+> > <span class="kg-badge kg-badge--cases">企业案例</span> > S3 + Iceberg + IceD  ·  AWS 极致实践 Netflix 是全球最大的流媒体公司，也是 AWS 上**最大的对象存储用户之一**。他们在 S3 上构建了**EB 级数据湖**，是"云时代数据湖架构"的典范。 | 指标 | 数值 | |------|------| |
+
+## [Snowflake 云数仓](https://java-px.bot.cd/filesystem/12-cases/snowflake)
+> > <span class="kg-badge kg-badge--cases">企业案例</span> > S3 + 微服务 · 多云 · 计算存储分离 Snowflake 是 2020 年最成功的 SaaS 公司之一，**云原生数据仓库**的开创者。它的存储架构是"计算 / 存储完全分离"的典范。 | 指标 | 数值 | |------|------| | 客户 | 7000+ | | 数据
+
+## [13 · 面试 / 实战](https://java-px.bot.cd/filesystem/13-interview/README)
+> <span class="kg-badge kg-badge-interview">面试</span> 求职导向的高频题、系统设计、对比表。 | 节点 | 一句话 | |------|--------| | [高频面试题](/13-interview/questions) | 50+ 道（含要点答案） | | [系统设计题](/13-interview/system-design) | 6 大经典
+
+## [全维度对比](https://java-px.bot.cd/filesystem/13-interview/comparison)
+> > <span class="kg-badge kg-badge--interview">面试对比</span> > 17 个 FS / 存储 一张表看全 本章把本站涉及的所有文件系统 / 存储做一个**终极对比**，作为面试 / 选型的最后参考。 | FS / 存储 | 类型 | 主战场 | POSIX | 一致性 | 主从 | 推荐度 | |-----------|------|-------
+
+## [面试题与高频考点](https://java-px.bot.cd/filesystem/13-interview/questions)
+> > <span class="kg-badge kg-badge--interview">面试对比</span> > 经典题 · 标准答案 · 高频考点 本章整理文件系统 / 存储领域的**经典面试题**，按概念 → 实战 → 设计三层次组织。 **答案**：文件系统是操作系统在块设备之上组织的**数据 + 元数据结构**，对外暴露命名空间与操作接口（open / read / write / c
+
+## [系统设计](https://java-px.bot.cd/filesystem/13-interview/system-design)
+> > <span class="kg-badge kg-badge--interview">面试对比</span> > 场景拆解 · 容量估算 · 选型决策 本章给常见系统设计题一套**存储维度**的解法。 - 100 亿张照片，平均 200 KB - 总容量：200 PB - 读多写少 - 全球用户访问 **关键决策**： | 选型 | 理由 | |------|------| | 对象存储 |
+
+## [速记卡](https://java-px.bot.cd/filesystem/cheatsheet)
+> 一页速查 — 关键概念、命令、对比表。 - **inode** = 文件元数据（权限/大小/时间戳/数据块指针） - **dentry** = 目录项缓存（文件名 → inode 映射） - **file** = 进程打开后的"打开文件表"项 | 场景 | 推荐 | 原因 | |------|------|------| | Linux 默认 | ext4 | 稳定/广泛支持 | | 大文件顺序写
+
+## [知识图谱](https://java-px.bot.cd/filesystem/graph)
+> 按章节组织的 76 个核心节点关系图。点击节点跳转对应文档。 <ClientOnly> <KnowledgeGraph :height="880" /> </ClientOnly> 13 种颜色对应 13 个章节，节点大小表示该知识点的重要性/复杂度。边表示节点间的依赖或衍生关系（如「日志」概念应用于 ext4 / XFS / NTFS 等多个本地盘 FS）。 - 鼠标拖拽节点重新布局 - 滚轮缩
+
+## [文件系统 / 文件服务 / 存储全栈](https://java-px.bot.cd/filesystem/index)
+> <ClientOnly> <WhyThisGraph :pain-points="[ "从单块磁盘的 inode 到跨数据中心的对象存储，怎么系统学？", "POSIX 权限 / ACL / Capabilities 到底有什么区别？", "本地 FS（ext4 / xfs / btrfs / zfs）怎么选？", "网络 FS（NFS / SMB / CIFS）vs 分布式 FS（Ceph /
+
+## [思维导图](https://java-px.bot.cd/filesystem/mindmap)
+> 树形结构浏览所有节点。点击 ▶ 展开 / 收起子节点。 <ClientOnly> <MindMap :height="760" /> </ClientOnly> | # | 章节 | 节点数 | 重点 | |---|------|--------|------| | 1 | 文件系统基础 | 7 | inode / VFS / Page Cache 等核心抽象 | | 2 | 本地盘 FS | 7
+
+## [学习路径](https://java-px.bot.cd/filesystem/path)
+> 根据不同角色与目标，规划差异化学习路线。 1. [inode 与 dentry](/01-basics/inode-dentry) — 理解文件的本质（不是文件名，是 inode） 2. [VFS 虚拟文件系统](/01-basics/vfs) — Linux 如何用统一接口抽象不同 FS 3. [文件描述符](/01-basics/file-descriptor) — open/read/wri

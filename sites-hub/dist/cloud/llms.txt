@@ -1,0 +1,110 @@
+# cloud 子站
+
+> 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
+> 35 个文档页 · 237,833 字
+> 生成时间：2026-08-16T08:58:46
+
+## [自动配置原理](https://java-px.bot.cd/cloud/01-springboot/auto-config)
+> > 理解 `@SpringBootApplication` 背后的魔法，是掌握 Spring Boot 的关键。 Spring Boot 根据**类路径上的 jar 包**自动配置 Spring 应用： **核心思想：约定优于配置** **Spring Boot 内置 100+ 自动配置类** | 注解 | 作用 | |---|---| | `@AutoConfiguration` | 标记为自动
+
+## [数据访问](https://java-px.bot.cd/cloud/01-springboot/data)
+> > Spring Boot 集成 MyBatis-Plus / Spring Data JPA 都极简。本章聚焦**企业最常用**的 MyBatis-Plus 集成。 **推荐方案：MyBatis-Plus** - ✅ 零 SQL CRUD（80% 场景） - ✅ 类型安全（Lambda 表达式） - ✅ 内置分页、逻辑删除、乐观锁 - ✅ 与 Spring Boot 完美集成 **vs Spri
+
+## [Spring Boot 快速开始](https://java-px.bot.cd/cloud/01-springboot/quickstart)
+> > 5 分钟搭建第一个 Spring Boot 应用，理解约定优于配置的设计哲学。 Spring Boot 是 Pivotal 团队基于 Spring 框架开发的**快速脚手架**： **三个核心注解的组合：** - ✅ `@SpringBootConfiguration` — 标记为配置类 - ✅ `@EnableAutoConfiguration` — **开启自动配置**（核心） - ✅ `
+
+## [事务管理](https://java-px.bot.cd/cloud/01-springboot/transaction)
+> > 理解 `@Transactional` 的传播机制、隔离级别、回滚规则，是处理并发数据问题的关键。 | 传播行为 | 说明 | |---|---| | **REQUIRED**（默认） | 存在事务则加入，不存在则新建 | | SUPPORTS | 存在事务则加入，不存在则非事务执行 | | MANDATORY | 必须在事务中调用，否则抛异常 | | REQUIRES_NEW | 总是新建事
+
+## [Web 开发](https://java-px.bot.cd/cloud/01-springboot/web)
+> > 掌握 REST API 开发、参数校验、统一异常处理，是每个 Java 开发者必备技能。 | 注解 | 说明 | 示例 | |---|---|---| | `@GetMapping` | GET 请求 | 查询 | | `@PostMapping` | POST 请求 | 创建 | | `@PutMapping` | PUT 请求 | 全量更新 | | `@PatchMapping` | PA
+
+## [Spring Cloud Alibaba 总览](https://java-px.bot.cd/cloud/02-overview/intro)
+> > Spring Cloud Alibaba 是阿里开源的**一站式微服务解决方案**，是对 Spring Cloud 标准实现的**国产化增强**。 | 组件 | 功能 | 替代 | |---|---|---| | **Nacos** | 服务发现 + 配置中心 | Eureka + Config + Bus | | **Sentinel** | 流量控制 + 熔断降级 | Hystrix +
+
+## [Nacos 配置中心](https://java-px.bot.cd/cloud/02-overview/nacos-config)
+> > Nacos 不只是服务发现，还是**配置中心**。配置变更可**实时推送**给应用，无需重启。 > ⚠️ **重要**：Spring Boot 3.x / Spring Cloud Alibaba 2023.x **不再默认使用 bootstrap.yml**，改为 `spring.config.import`。如果仍在用 Spring Boot 2.x / 2021 版本，则需使用 boot
+
+## [Nacos 服务发现](https://java-px.bot.cd/cloud/02-overview/nacos-discovery)
+> > Nacos = **Na**ming and **Co**nfiguration **S**ervice，阿里巴巴开源的**服务发现 + 配置中心**，生产环境的标配。 | 维度 | Eureka | Nacos | Consul | |---|---|---|---| | 一致性 | AP | **AP/CP 可切换** | CP | | 健康检查 | 心跳 | **心跳 + HTTP/TP
+
+## [Nacos 底层原理](https://java-px.bot.cd/cloud/02-overview/nacos-principle)
+> > Nacos 同时作为**服务发现**和**配置中心**，在底层采用了**两套不同的一致性协议**： > - **服务发现** → **Distro 协议**（AP，最终一致） > - **配置中心** → **JRaft 协议**（CP，强一致） > > 理解这些底层机制，才能真正掌握 Nacos 的架构设计。 | 模块 | 职责 | 一致性协议 | |------|------|------
+
+## [Gateway 基础](https://java-px.bot.cd/cloud/03-gateway/basic)
+> > Spring Cloud Gateway 是 Spring Cloud 官方推出的**第二代网关**，基于 Spring 5 + WebFlux + Reactor，**性能是 Zuul 的 1.6 倍**。 | 维度 | Zuul 1.x | Spring Cloud Gateway | |---|---|---| | 性能 | 阻塞 | **响应式（非阻塞）** | | 长连接支持 | 弱
+
+## [Gateway 过滤器](https://java-px.bot.cd/cloud/03-gateway/filter)
+> > 过滤器（Filter）是 Gateway 的灵魂，可以**修改请求 / 响应 / 限流 / 鉴权 / 日志**。 | 类型 | 范围 | 数量 | 顺序 | |---|---|---|---| | **GatewayFilter** | 局部（单路由） | 可多个 | 路由内顺序 | | **GlobalFilter** | 全局（所有路由） | 可多个 | 全局 + 路由内 | **执行顺序
+
+## [路由与断言](https://java-px.bot.cd/cloud/03-gateway/route)
+> > 路由（Route）是 Gateway 的核心，断言（Predicate）决定**请求是否匹配**这条路由。 Spring Cloud Gateway 内置 **12+ 断言工厂**，每个对应一个配置项： | 断言 | 配置 | 说明 | |---|---|---| | Path | `- Path=/api/**` | 路径匹配（Ant 风格） | | Method | `- Method=G
+
+## [Spring Cloud LoadBalancer](https://java-px.bot.cd/cloud/04-loadbalancer/basic)
+> > Spring Cloud LoadBalancer 是 Spring Cloud **官方**的客户端负载均衡器，替代了 Netflix Ribbon。 | 维度 | Ribbon | LoadBalancer | |---|---|---| | 维护方 | Netflix（已停止维护） | **Spring 官方** | | 架构 | 阻塞 | **响应式（Reactor）** | | 性能
+
+## [负载均衡策略](https://java-px.bot.cd/cloud/04-loadbalancer/strategy)
+> > 选对负载均衡策略，**比加机器更有效**。理解各策略的适用场景，是微服务调优的关键。 | 策略 | 优点 | 缺点 | 适用 | |---|---|---|---| | 轮询 (RoundRobin) | 简单均匀 | 不考虑机器差异 | **机器配置相同** | | 随机 (Random) | 简单 | 极端不均 | 大量机器 | | 加权轮询 | 考虑差异 | 配置静态 | 机器配置不同
+
+## [统一认证中心](https://java-px.bot.cd/cloud/05-security/auth-center)
+> > 多个微服务下，**统一认证中心（Auth Center）** 是标准方案。SSO 单点登录，所有服务共用一个 Token 颁发方。 **Auth Center 核心：** - ✅ 独立部署的认证服务 - ✅ 颁发 / 验证 / 刷新 JWT - ✅ Token 黑名单（登出失效） - ✅ 多端登录（Web / App / 小程序） - ✅ SSO 单点登录 - ✅ 暴力破解防护 **微服务集成
+
+## [Spring Security 基础](https://java-px.bot.cd/cloud/05-security/basic)
+> > Spring Security 是 Spring 生态的**安全框架**，处理认证（Authentication）和授权（Authorization）。 需要启用： **Spring Security 核心：** - ✅ 认证（Authentication）：你是谁 - ✅ 授权（Authorization）：你能做什么 - ✅ Filter Chain：请求拦截链 - ✅ SecurityC
+
+## [OAuth2 + JWT 实战](https://java-px.bot.cd/cloud/05-security/oauth2)
+> > OAuth2 + JWT 是**前后端分离 + 微服务**最主流的认证授权方案。本章从协议到代码完整实现。 | 模式 | 适用 | 流程 | |---|---|---| | **授权码模式** | **最常用**（第三方登录） | 用户 → 授权服务器 → 回调 code → 用 code 换 token | | 密码模式 | **自有应用**（推荐内部用） | 用户名密码直接换 token
+
+## [综合实战项目](https://java-px.bot.cd/cloud/06-practice/comprehensive)
+> > 整合 Spring Cloud Alibaba 全部组件，搭建一个**完整的电商微服务系统**。 构建一个包含以下微服务的电商系统： **实战项目核心：** - ✅ 微服务拆分（按业务边界） - ✅ Gateway 统一入口 - ✅ Nacos 服务发现 + 配置中心 - ✅ JWT 统一认证 - ✅ Seata 分布式事务 - ✅ Kafka 异步事件 - ✅ Sentinel 流控熔断 -
+
+## [高频面试题](https://java-px.bot.cd/cloud/06-practice/interview)
+> > 整理 Spring Boot + Spring Cloud Alibaba 面试中**最高频**的 30 道题，含详细答案。 **答：** **答：** - Starter 是一个**空 jar 包**，只包含 `pom.xml`（依赖管理）+ `META-INF/spring/.../AutoConfiguration.imports`（自动配置声明） - 用户引入 starter → 自动
+
+## [常见坑与最佳实践](https://java-px.bot.cd/cloud/06-practice/pitfalls)
+> > 总结 Spring Boot + Spring Cloud Alibaba 开发中最常踩的 10 个坑，以及 12 条企业级最佳实践。 **解决：服务名严格统一，区分大小写敏感** **解决：路径完全一致，或用 StripPrefix 去掉** **解决：显式配置超时** **解决：资源名要规范** **解决：必须用 @GlobalTransactional + OpenFeign** **解
+
+## [分布式架构模式](https://java-px.bot.cd/cloud/07-distributed/architecture)
+> > 分布式系统的**架构演进**与**典型模式**。 **特点：** 小而自治、独立部署、去中心化 | 优点 | 缺点 | |---|---| | 独立部署 / 扩容 | 运维复杂度高 | | 技术栈灵活 | 分布式事务难题 | | 故障隔离 | 调用链追踪难 | | 适合大型团队 | 服务治理成本高 | **Spring Cloud / Dubbo / gRPC 是典型实现** **特点：**
+
+## [CAP 与 BASE 理论](https://java-px.bot.cd/cloud/07-distributed/cap-base)
+> > 分布式系统的**理论基础**，决定了架构设计的取舍。 **CAP** 是分布式系统的**三个核心特性**，三者**最多只能满足两个**，不可能三者兼得。 | 特性 | 英文 | 含义 | |---|---|---| | **C** | Consistency 一致性 | 所有节点在同一时刻看到的数据完全相同（强一致性）| | **A** | Availability 可用性 | 每个请求都能得
+
+## [分布式协调](https://java-px.bot.cd/cloud/07-distributed/distributed-coordination)
+> > 在分布式系统中实现**协调、选举、配置管理、元数据存储**。 分布式系统中常见需求： - **Leader 选举**：多节点选一个主节点 - **配置管理**：配置变更后所有节点实时感知 - **服务发现**：服务上下线自动感知 - **分布式锁**：见前文 - **集群管理**：节点加入 / 退出感知 **单机方案失效**，需要专门的**协调服务**。 | 特性 | **ZooKeeper*
+
+## [分布式 ID](https://java-px.bot.cd/cloud/07-distributed/distributed-id)
+> > 在分布式系统中生成**全局唯一**的 ID。 **单机 DB** 用自增主键即可，**分布式场景**下： | 场景 | 单机自增 ID 问题 | |---|---| | **分库分表** | 每个库独立自增，跨库 ID 冲突 | | **高并发写入** | 单点性能瓶颈 | | **数据合并** | 不同库数据合并时 ID 冲突 | | **分布式追踪** | 需要趋势递增的 ID | **分
+
+## [分布式锁](https://java-px.bot.cd/cloud/07-distributed/distributed-lock)
+> > 在分布式环境下保证**同一时刻只有一个节点执行某个操作**。 **单机场景下**，可以用 `synchronized` 或 `ReentrantLock` 加锁。 **分布式场景下**，多个 JVM 进程 / 多台机器同时访问共享资源，单机锁失效： 典型场景： - **库存扣减**（防超卖） - **订单幂等**（同一订单只能被处理一次） - **任务调度**（多节点同时抢任务） | 特性 |
+
+## [分布式消息队列](https://java-px.bot.cd/cloud/07-distributed/distributed-mq)
+> > 用**异步消息**解耦分布式系统，是分布式架构的核心组件。 | 问题 | MQ 如何解决 | |---|---| | **服务耦合** | 上下游通过消息解耦，不需要直接调用 | | **流量削峰** | 突发流量写入 MQ，消费者按能力消费 | | **异步处理** | 非关键路径异步化，提升主链路响应速度 | | **数据同步** | 数据库变更 → MQ → 同步到 ES / 缓存 /
+
+## [分布式存储](https://java-px.bot.cd/cloud/07-distributed/distributed-storage)
+> > 当单库**扛不住**写入或查询时，需要把数据**拆分到多个节点**存储。 | 单机 DB 瓶颈 | 量化指标 | |---|---| | **连接数** | MySQL 默认 151，最大 16384 | | **QPS** | 单机 5000 ~ 30000 | | **存储容量** | 单机磁盘有限（TB 级）| | **主从延迟** | 读写分离后从库延迟秒级 | **典型案例：** 淘
+
+## [分布式追踪](https://java-px.bot.cd/cloud/07-distributed/distributed-tracing)
+> > 在微服务架构下追踪**跨服务的完整调用链路**。 **单体应用：** 一个线程一个调用栈，debug 简单 **微服务架构：** 一个请求可能跨 N 个服务 **分布式追踪解决的问题：** - **链路追踪**：一个请求完整经过哪些服务 - **耗时分析**：每个服务耗时多少 - **故障定位**：哪个服务出错 - **依赖分析**：服务间依赖关系 | 概念 | 含义 | |---|---|
+
+## [分布式事务](https://java-px.bot.cd/cloud/07-distributed/distributed-transaction)
+> > 在分布式环境下保证**多个数据源的操作要么全部成功要么全部失败**。 **单体应用**：单个数据库，本地事务（ACID）即可 **分布式场景**：订单服务写 MySQL-orders，库存服务写 MySQL-inventory，本地事务无法跨库 | 维度 | 单机 DB（ACID）| 分布式事务 | |---|---|---| | **原子性** | 全部成功或全部回滚 | 跨服务全部成功或全
+
+## [高可用与限流熔断](https://java-px.bot.cd/cloud/07-distributed/high-availability)
+> > 保障分布式系统**在故障和高压下仍能提供服务**。 **可用性 = 系统可以正常服务的时间 / 总时间** | 可用性等级 | 年宕机时间 | 适用场景 | |---|---|---| | **99%** | 87.6 小时 | 一般业务 | | **99.9%** | 8.76 小时 | 互联网应用 | | **99.99%** | 52.6 分钟 | 金融级 | | **99.999%**
+
+## [组件速查](https://java-px.bot.cd/cloud/cheatsheet)
+> > 30+ 常用配置模板，**支持搜索 + 一键复制**。覆盖 Nacos / Gateway / 负载均衡 / 安全 / Sentinel / Seata / OpenFeign / 消息 8 大类。 <ComponentCheatsheet /> | 服务 | 默认端口 | |---|---| | Nacos Server | 8848 | | Nacos Console | 8080 | |
+
+## [知识图谱](https://java-px.bot.cd/cloud/graph)
+> > 全局可视化展示 Spring Cloud Alibaba 的 **20+ 核心概念** 与它们之间的关系。 > 💡 提示：拖动节点调整布局，点击节点跳转对应文档，悬停查看高亮关系。 <KnowledgeGraph :height="700" src="/graph.json" /> | 分类 | 节点数 | 代表概念 | |---|---|---| | 🍃 Spring Boot | 5 |
+
+## [Spring Cloud Alibaba 知识图谱](https://java-px.bot.cd/cloud/index)
+> <ClientOnly> <WhyThisGraph :pain-points="[ "微服务架构选型：Spring Cloud Alibaba vs Spring Cloud Netflix vs Istio？", "Gateway / Nacos / Sentinel / Seata 组件怎么用？", "服务注册发现、配置中心、负载均衡、熔断限流怎么串联？", "分布式事务（Seata AT
+
+## [思维导图](https://java-px.bot.cd/cloud/mindmap)
+> > 按 **6 大主题** 分类的结构化导图，支持展开/收起，点击叶子节点跳转对应文档。 <MindMap :height="720" /> - [🚀 快速开始](/01-springboot/quickstart) - 第一个 Spring Boot 应用 - [⚙️ 自动配置原理](/01-springboot/auto-config) - @SpringBootApplication 背后的
+
+## [Spring Cloud 学习路径](https://java-px.bot.cd/cloud/path)
+> > 不知道从哪里开始？按照这个路径，**5 阶段从入门到精通**，每阶段 1-3 周。 掌握 Spring Boot 开发，能独立搭建 REST API 服务。 1. [🚀 快速开始](/01-springboot/quickstart) — 第一个 Spring Boot 应用 2. [⚙️ 自动配置原理](/01-springboot/auto-config) — @SpringBootApp

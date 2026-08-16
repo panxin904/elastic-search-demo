@@ -1,0 +1,158 @@
+# bigdata 子站
+
+> 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
+> 51 个文档页 · 182,440 字
+> 生成时间：2026-08-16T08:58:46
+
+## [大数据 4V 特征](https://java-px.bot.cd/bigdata/01-basics/4v)
+> 大数据（Big Data）= 无法用传统数据库工具在合理时间内处理的数据集。 | | 传统 DB | 大数据 | |------|--------|--------| | 数据量 | GB-TB | PB-EB | | 速度 | 实时 | 实时 + 批 | | 多样性 | 结构化 | 半/非结构化 | | 价值 | 报表 | 洞察 + ML | | 工具 | Oracle / MySQL | Ha
+
+## [批 / 流计算](https://java-px.bot.cd/bigdata/01-basics/batch-stream)
+> | | 批处理 | 流处理 | |--|--------|--------| | 延迟 | 分钟-小时 | 毫秒-秒 | | 吞吐 | 极高 | 中-高 | | 数据量 | PB | GB-TB / 天 | | 状态 | 无 / 简单 | 复杂（exactly-once） | | 复杂度 | 低 | 高 | | 成本 | 存储 / 算力 | 持续算力 | | 适合 | 报表 / 训练 | 监控 /
+
+## [大数据 CAP 选型](https://java-px.bot.cd/bigdata/01-basics/cap)
+> **适用**：金融、配置、leader 选举 **代价**：分区时部分节点不可写 **适用**：电商购物车、社交 feed **代价**：可能读到旧数据 | 系统 | 一致性 | 选型 | |------|--------|------| | HDFS | CP | 强一致（namenode quorum） | | HBase | CP | 强一致 | | Kafka | CP（ISR 可选 AP
+
+## [Hadoop 生态](https://java-px.bot.cd/bigdata/01-basics/hadoop-eco)
+> Hadoop = HDFS（存储）+ MapReduce（计算）+ YARN（调度） | 项目 | 用途 | |------|------| | **HDFS** | 分布式文件系统 | | **HBase** | 列式 NoSQL（基于 HDFS） | | **Kafka** | 消息队列（流处理核心） | | **Pulsar** | 新一代消息队列（腾讯 / 雅虎） | | **Iceber
+
+## [HDFS 架构](https://java-px.bot.cd/bigdata/02-hdfs/architecture)
+> **优点**：大块减少 NameNode 寻址开销 **缺点**：小文件浪费（一个块只放一个小文件） **rack awareness**：副本跨机架（默认） **NameNode 单点风险**：所有元数据在内存，挂了 = 数据丢失。 **解决**：Secondary NameNode → NameNode HA（JournalNode + ZooKeeper / ZKFC） 写 edit log
+
+## [HDFS 命令速查](https://java-px.bot.cd/bigdata/02-hdfs/commands)
+> - [HDFS 架构](/02-hdfs/architecture)
+
+## [HDFS NameNode HA](https://java-px.bot.cd/bigdata/02-hdfs/ha)
+> NameNode 单点故障 = 整个集群挂（无元数据 = 不可用） **原理**：Active NN 写 edit log 到 JournalNode（多数副本成功才返回）。Standby NN 从 JournalNode 拉 edit log → 内存中重建元数据。 故障切换： 1. ZKFC 监控两个 NN 健康 2. Active NN 挂 → ZKFC 锁住旧 Active 3. 选 St
+
+## [HDFS 副本机制](https://java-px.bot.cd/bigdata/02-hdfs/replication)
+> **优点**：高可用（挂 2 个 DataNode 仍有 1 个副本） **缺点**：3 倍存储开销 **关键**：写本地 DN = "first replica" = "close pipe"。 不一致 → 标记 corrupt 副本 → 删 + 从其他副本复制 | 副本数 | 写吞吐 | 读吞吐 | 容错 | |--------|--------|--------|------| | 1 |
+
+## [Combiner / Partitioner](https://java-px.bot.cd/bigdata/03-mapreduce/optimize)
+> 满足**结合律**的算子： | 算子 | 适用 Combiner | |------|---------------| | sum / count | ✅ | | max / min | ✅ | | avg | ❌（需要分子分母分别加和） | | median | ❌ | | distinct | ❌ | **作用**：决定 K 到哪个 Reduce。 效果：job 时间从 30 min 减到 5
+
+## [MapReduce 原理](https://java-px.bot.cd/bigdata/03-mapreduce/principle)
+> | 改进 | 描述 | |------|------| | 无 sort 阶段 | Reduce 直接接 Map | | Combine 优化 | Map 端本地聚合，减少 shuffle | | 推测执行 | 慢任务备份，缩短总时间 | | YARN | 通用资源调度 | **Shuffle 是 MR 最慢的阶段**，80% 时间在 Shuffle。 控制 K → Reduce 的映射，**数据
+
+## [Shuffle 详解](https://java-px.bot.cd/bigdata/03-mapreduce/shuffle)
+> Shuffle = Map 输出 → Reduce 输入的中间过程（网络 + 磁盘 IO）。 MR 程序 80% 时间在 Shuffle → Shuffle 优化 = 性能优化。 | 参数 | 默认 | 调优 | |------|------|------| | `mapreduce.task.io.sort.mb` | 100MB | 增大减少 spill | | `mapreduce.map.
+
+## [Spark SQL / DataFrame](https://java-px.bot.cd/bigdata/04-spark/dataframe)
+> DataFrame = 分布式表格 + Schema（RDD + Schema）。 Spark SQL 自动优化（无需手动）： 效果：写简单 SQL，跑出优化执行计划。 | | Spark | Hive | Presto/Trino | ClickHouse | |--|-------|------|---------------|-------------| | 执行引擎 | DAG | Map
+
+## [Spark Core / RDD](https://java-px.bot.cd/bigdata/04-spark/rdd)
+> RDD（Resilient Distributed Dataset）= 不可变 + 分区 + 弹性 + 可并行。 | 类型 | 算子 | 影响 | |------|------|------| | **窄依赖** | map / filter / union | 不需 Shuffle，pipeline | | **宽依赖** | groupByKey / join / sortByKey | 触发
+
+## [Spark Structured Streaming](https://java-px.bot.cd/bigdata/04-spark/streaming)
+> 基于 Spark SQL 的流处理引擎：把流当作无限增长的表（unbounded table）。 | 机制 | 说明 | |------|------| | Checkpoint | 状态 / offset 持久化（HDFS / S3） | | Write Ahead Log | 计算前先写日志 | | Idempotent Sink | 多次写结果相同 | | Exactly-once | ch
+
+## [Spark 调优](https://java-px.bot.cd/bigdata/04-spark/tuning)
+> - 个别 Task 极慢，整体被拖 - Stage 长时间不结束 Web UI: http://driver:4040 | 指标 | 调优方向 | |------|---------| | Stage Duration | 优化慢 stage | | Shuffle Read/Write | 加 partition + 调 IO | | GC Time | 调内存 / GC 算法 | | Spil
+
+## [Flink 架构](https://java-px.bot.cd/bigdata/05-flink/architecture)
+> | 场景 | 选 | |------|-----| | 实时低延迟 | Flink（强项） | | ETL + 流批一体 | Flink + Iceberg | | CEP（复杂事件） | Flink CEP | | 状态复杂（聚合 / 关联） | Flink + RocksDB State | | 高吞吐消息队列 | Kafka + Flink | | 简单实时 | Spark Streamin
+
+## [Flink CDC 实时同步](https://java-px.bot.cd/bigdata/05-flink/cdc)
+> CDC（Change Data Capture）= 捕获数据库的变更（insert / update / delete），实时同步到下游。 **优点**：不侵入应用（直接读 log） **缺点**：侵入数据库（需要 binlog） **优点**：不侵入数据库 **缺点**：影响写性能 | 场景 | 方案 | |------|------| | MySQL → Kafka | Flink CDC +
+
+## [Exactly-once 语义](https://java-px.bot.cd/bigdata/05-flink/exactly-once)
+> | Sink | 支持 | 方式 | |------|------|------| | Kafka | ✅ | 2PC | | MySQL | ✅ | XA | | PostgreSQL | ✅ | XA | | HDFS / S3 | ✅ | 文件 + 状态 | | Redis | ❌ | 只能幂等 | | Elasticsearch | ❌ | 只能幂等 | **非 2PC Sink → 至少
+
+## [Flink 状态与 Checkpoint](https://java-px.bot.cd/bigdata/05-flink/state)
+> **vs Checkpoint**： - Checkpoint：自动 / 周期 / 失败即失效 - Savepoint：手动 / 升级 / 回滚 | 场景 | 选 | |------|-----| | 小状态 / 低延迟 | MemoryStateBackend | | 大状态 / 持久化 | RocksDBStateBackend | | 极端大状态 | 自定义 HDFS / S3 后端 | |
+
+## [Hive 架构](https://java-px.bot.cd/bigdata/06-hive/architecture)
+> | 格式 | 特点 | |------|------| | TextFile | 默认，文本 | | SequenceFile | 二进制 | | RCFile / ORC | 列式（推荐） | | Parquet | 列式（推荐） | | Avro | 模式演进 | | JSON | 半结构化 | **生产推荐 ORC / Parquet**（列式 + 压缩 + 谓词下推）。 - LLAP 默认
+
+## [Hive on Spark / Tez](https://java-px.bot.cd/bigdata/06-hive/engine)
+> | 引擎 | 推出 | 模型 | 速度 | 适用 | |------|------|------|------|------| | **MapReduce** | 2007 | 磁盘迭代 | 慢 | 极老（基本不用） | | **Tez** | 2014 | DAG | 较快 | Hive 主流 | | **Spark** | 2014 | 内存迭代 | 快 | Hive 3.x 默认推荐 | |
+
+## [Hive 优化](https://java-px.bot.cd/bigdata/06-hive/optimize)
+> **规则**： - 高频过滤字段（时间 / 地域） - 分区大小 1-10 GB - 分区数 < 10000（避免小文件） | 格式 | 压缩比 | 列裁剪 | 谓词下推 | |------|--------|--------|----------| | TextFile | 无 | 无 | 无 | | SequenceFile | 中 | 无 | 无 | | RCFile | 中 | 有 | 有
+
+## [Flink CDC 实时同步](https://java-px.bot.cd/bigdata/07-kafka-streaming/cdc)
+> | 方式 | 原理 | 延迟 | 影响 | |------|------|------|------| | **基于 trigger** | 数据库 trigger | 秒 | 影响写 | | **基于 binlog / WAL** | 读数据库 log | 毫秒-秒 | 不影响（只读）| | **基于时间戳** | 定期轮询 | 分钟-小时 | 不影响 | **生产首选**：binlog（不侵入
+
+## [数据血缘](https://java-px.bot.cd/bigdata/07-kafka-streaming/lineage)
+> 数据血缘 = 数据的来源、转换、消费全链路可追溯。 | 血缘类型 | 描述 | 工具 | |----------|------|------| | **表级血缘** | 表 A ← 表 B（哪些列来自哪些源） | OpenLineage / DataHub | | **字段级血缘** | A.c1 ← B.c2 | OpenLineage / Marquez | | **任务级血缘** | Job
+
+## [Kafka Streams](https://java-px.bot.cd/bigdata/07-kafka-streaming/streams)
+> Kafka 内置的流处理库（lib 形式，无独立集群）。 **优势**： - 零运维（没新集群，复用 Kafka broker） - exactly-once（Kafka 0.11+ 事务） - 与 Kafka 生态整合（Connect / Schema Registry） | 场景 | 方案 | |------|------| | 实时指标 | Kafka Streams + ClickHous
+
+## [Data Vault](https://java-px.bot.cd/bigdata/08-modeling/data-vault)
+> Data Vault = 3NF + Kimball 混合方法，专为数据仓库设计。 **特点**：只存业务键（稳定）+ 入仓时间 + 来源。 **特点**：多对多关联，独立表。 **特点**：所有历史 + 当前，Kimball 风格的缓慢变化维。 | | Inmon | Kimball | Data Vault | |--|-------|---------|-------------| | 范式
+
+## [Inmon vs Kimball](https://java-px.bot.cd/bigdata/08-modeling/inmon-kimball)
+> | | Inmon | Kimball | |--|-------|---------| | 出品 | Bill Inmon（"数据仓库之父"） | Ralph Kimball | | 架构 | 企业级总线（EDW） | 数据集市（DM） | | 范式 | 第三范式（3NF） | 星型 / 雪花（维度建模） | | 起点 | 企业级中央数据仓库 | 部门级数据集市 | | 整合 | 一次（中央）
+
+## [OLAP vs OLTP](https://java-px.bot.cd/bigdata/08-modeling/olap-oltp)
+> | | OLTP | OLAP | |--|-------|------| | 用途 | 业务交易 | 业务分析 | | 操作 | 增删改查（短事务） | 复杂查询（聚合 / 扫描） | | 延迟 | 毫秒 | 秒-分钟 | | 数据量 | GB-TB | TB-PB | | 用户数 | 大量（万+） | 少量（百+） | | 典型场景 | 下单 / 支付 | 报表 / 数据分析 / BI | |
+
+## [星型 / 雪花模型](https://java-px.bot.cd/bigdata/08-modeling/star-snowflake)
+> **特点**： - 事实表在中间 - 维度表直接连接（无中间层） - 维度表反范式（冗余换性能） **优势**： - 简单直观 - 查询快（少 join） - 适合 OLAP **缺点**： - 维度表冗余 - 更新成本（每行更新） **特点**： - 维度表进一步规范化 - 多层结构（dim_date → dim_month → dim_year） - 节省存储 **优势**： - 节省存储 -
+
+## [Redshift / BigQuery](https://java-px.bot.cd/bigdata/09-dw-architecture/redshift-bigquery)
+> Redshift = AWS 的托管 MPP 列式数据仓库（PostgreSQL 协议）。 BigQuery = GCP 的托管数据仓库（无服务器）。 | | Redshift | BigQuery | |--|-----------|-----------| | 部署 | AWS | GCP | | 协议 | PostgreSQL | Standard SQL | | 定价 | 按节点 / 按量
+
+## [Snowflake 数仓架构](https://java-px.bot.cd/bigdata/09-dw-architecture/snowflake)
+> Snowflake = 云原生数据仓库（SaaS），三层架构：存储 / 计算 / 服务完全分离。 | 场景 | 选 | |------|-----| | 云原生 / 弹性 | **Snowflake**（首选） | | AWS 生态 | **Redshift** | | GCP 生态 | **BigQuery** | | 私有化 | **Apache Doris** / ClickHouse |
+
+## [Delta Iceberg Hudi 选型](https://java-px.bot.cd/bigdata/10-data-lake/delta-iceberg-hudi)
+> | 维度 | Delta Lake | Iceberg | Hudi | |------|-----------|---------|------| | 事务 | ACID | ACID | ACID | | Time Travel | 是 | 是 | 是 | | Schema 演进 | 强 | 极强 | 强 | | 多引擎 | Spark 为主 | 多 | 多 | | 实时 upsert | 弱
+
+## [Lakehouse 架构](https://java-px.bot.cd/bigdata/10-data-lake/lakehouse)
+> Lakehouse = 数据湖（灵活 + 廉价）+ 数据仓库（事务 + 性能）。 Lakehouse = 对象存储 + ACID - 表格式（Iceberg / Delta / Hudi）提供 ACID - 不需要专门数仓 - 既灵活又可靠 同一张表： - 批处理：批量写入（高吞吐） - 流处理：实时 upsert（低延迟） - 同一份数据 - 互不冲突 字段加 / 改 / 类型变 - 旧数据兼容
+
+## [数据湖三剑客](https://java-px.bot.cd/bigdata/10-data-lake/three-pillars)
+> 数据湖（Data Lake）= 存储原始数据（结构化 + 半结构化 + 非结构化）的存储系统。 核心特点： - Schema-on-read（读取时定义） - 原始数据 + 灵活分析 - 大规模 + 低成本 三大开源数据湖格式： - **Apache Iceberg**（Netflix 出品） - **Delta Lake**（Databricks 出品） - **Apache Hudi**（Ub
+
+## [Airflow / dbt](https://java-px.bot.cd/bigdata/11-elt-pipeline/airflow-dbt)
+> Airflow = 任务编排平台（DAG + 调度 + 监控）。 DAG（有向无环图）：任务 + 依赖 - Task A → Task B → Task C - 并行 / 串行 dbt = data build tool（SQL + Jinja 转换 + 测试 + 文档）。 | 场景 | 选 | |------|-----| | 复杂 ETL 编排 | Airflow | | 简单 SQL 转换
+
+## [CDC 同步](https://java-px.bot.cd/bigdata/11-elt-pipeline/cdc)
+> CDC = Change Data Capture = 实时同步数据库变更到下游。 详见 [Flink CDC](/05-flink/cdc)。 | 工具 | 特点 | 适用 | |------|------|------| | **Flink CDC** | Flink 集成，exactly-once | 大数据 + 流处理 | | **Debezium** | 独立框架，写 Kafka | 通
+
+## [数据血缘](https://java-px.bot.cd/bigdata/11-elt-pipeline/lineage)
+> 详见 [数据血缘](/07-kafka-streaming/lineage)（同主题）。
+
+## [ClickHouse](https://java-px.bot.cd/bigdata/12-olap-engine/clickhouse)
+> ClickHouse = Yandex 开源的**列式 OLAP 数据库**（C++）。 性能特点： - 单机 100 亿行 / 秒级查询 - 向量化执行（SIMD） - 列式压缩（10-20x） - 实时写入（不卡数据导入） | 引擎 | 特点 | |------|------| | MergeTree | 默认，insert 不可变 | | ReplacingMergeTree | 保留最新版
+
+## [Doris / StarRocks](https://java-px.bot.cd/bigdata/12-olap-engine/doris-starrocks)
+> Doris = 实时分析型 MPP 数据库（MySQL 协议）。 | 模型 | 适用 | |------|------| | **Unique Key** | 实时更新（订单 / 用户） | | **Aggregate Key** | 实时聚合（指标） | | **Duplicate Key** | 灵活（明细 + 聚合） | StarRocks = Doris 创始团队 fork 出来的新项目（
+
+## [OLAP 选型](https://java-px.bot.cd/bigdata/12-olap-engine/selection)
+> | 引擎 | 类型 | 性能 | 实时更新 | 部署 | 适合 | |------|------|------|----------|------|------| | **ClickHouse** | 列式 | 极强 | 弱 | 自建 / 云 | 海量日志 | | **Doris** | MPP | 强 | 强 | 自建 | 实时 OLAP | | **StarRocks** | MPP | 极强
+
+## [日志平台](https://java-px.bot.cd/bigdata/13-cases/log-platform)
+> 日志平台 = 集中式日志采集 + 存储 + 查询 + 分析系统。 核心价值： - 故障定位 - 性能分析 - 安全审计 - 业务监控 - 用户行为分析 | 级别 | 用途 | |------|------| | DEBUG | 调试信息 | | INFO | 一般信息 | | WARN | 警告 | | ERROR | 错误 | | FATAL | 致命错误 | 1. **日志规范先行**：JSO
+
+## [推荐系统](https://java-px.bot.cd/bigdata/13-cases/recommendation)
+> 推荐系统 = 根据用户行为 / 兴趣，从海量物品中找出用户可能感兴趣的物品。 应用场景： - 电商（淘宝 / 京东） - 内容（抖音 / YouTube） - 社交（微博 / 小红书） - 信息流（今日头条） | 指标 | 含义 | 公式 | |------|------|------| | **CTR** | 点击率 | clicks / impressions | | **CVR** | 转化
+
+## [风控系统](https://java-px.bot.cd/bigdata/13-cases/risk-control)
+> 风控 = 风险管理。识别 + 评估 + 应对风险。 应用场景： - 支付反欺诈 - 信贷风控 - 账号安全 - 反爬虫 - 内容审核 | 层级 | 技术 | |------|------| | 规则 | Drools / Aviator / Easy Rules | | 模型 | XGBoost / TensorFlow / PyTorch | | 特征 | Flink / Spark / Hiv
+
+## [用户画像](https://java-px.bot.cd/bigdata/13-cases/user-profile)
+> 用户画像 = 通过多源数据（行为 / 属性 / 偏好），构建用户的多维特征体系（标签）。 核心价值： - 精准营销 - 个性化推荐 - 风控反欺诈 - 用户运营 | 类别 | 示例 | 加工方式 | |------|------|----------| | 人口属性 | 年龄 / 性别 / 地域 | 直接采集 | | 行为标签 | 浏览 / 收藏 / 加购 | 实时计算 | | 偏好标签 | 品类
+
+## [面试案例](https://java-px.bot.cd/bigdata/14-interview-practice/cases)
+> **问题**：电商订单表 join 用户表时，99% 用户集中在少数几个 key（null / 0）。 **排查**： **解决**： **效果**：原 8 小时 → 优化后 1 小时。 **问题**：某 Reduce 任务跑了 6 小时仍未完成。 **解决**： **ODS（贴源）**： **DWD（清洗 + 规范化）**： **DWS（轻度聚合）**： **ADS（应用指标）**： **架构*
+
+## [面试题](https://java-px.bot.cd/bigdata/14-interview-practice/questions)
+> - [面试案例](/14-interview-practice/cases) - [推荐系统](/13-cases/recommendation) - [用户画像](/13-cases/user-profile)
+
+## [命令速查](https://java-px.bot.cd/bigdata/cheatsheet)
+> - [HDFS 架构](/02-hdfs/architecture) - [Spark Core / RDD](/04-spark/rdd) - [Flink 架构](/05-flink/architecture) - [Kafka Streams](/07-kafka-streaming/streams)
+
+## [知识图谱](https://java-px.bot.cd/bigdata/graph)
+> > 50+ 节点，14 大主题分类，节点可点击跳转。 <ClientOnly><KnowledgeGraph :height="820"></KnowledgeGraph></ClientOnly> | 颜色 | 分类 | 主题数 | |------|------|--------| | 🔵 蓝 | 大数据基础 | 4 | | 🩵 青 | HDFS | 4 | | 🟧 橙 | MapReduce
+
+## [Untitled](https://java-px.bot.cd/bigdata/index)
+> <ClientOnly> <WhyThisGraph :pain-points="[ "Hadoop / Spark / Flink / Hive / Kafka 各自独立文档", "数据仓库 vs 数据湖 vs Lakehouse 怎么选", "离线数仓 vs 实时数仓 怎么统一", "ClickHouse / Doris / StarRocks 怎么选", "模型设计 Inmon vs Kim
+
+## [思维导图](https://java-px.bot.cd/bigdata/mindmap)
+> <ClientOnly><MindMap :height="940"></MindMap></ClientOnly>
+
+## [学习路径](https://java-px.bot.cd/bigdata/path)
+> 1. [4V 特征](/01-basics/4v) — 大数据根 2. [Hadoop 生态](/01-basics/hadoop-eco) — 整体版图 3. [HDFS 架构](/02-hdfs/architecture) — 分布式存储原理 4. [MapReduce 原理](/03-mapreduce/principle) — 经典计算模式 5. [Spark Core / RDD](/0

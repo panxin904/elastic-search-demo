@@ -1,0 +1,206 @@
+# video 子站
+
+> 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
+> 67 个文档页 · 293,724 字
+> 生成时间：2026-08-16T08:58:46
+
+## [编解码概览](https://java-px.bot.cd/video/01-basics/codec-overview)
+> <span class="kg-badge kg-badge-basics">基础</span> <span class="kg-badge kg-badge-codec">原理</span> 视频编解码（CODEC = COder + DECoder）= 视频的"压缩与解压"。 **同一帧内**相邻像素相似 → **帧内预测** + DCT **相邻帧**之间高度相似 → **运动估计 + 运动
+
+## [色彩空间 - YUV / RGB](https://java-px.bot.cd/video/01-basics/color-space)
+> <span class="kg-badge kg-badge-basics">基础</span> <span class="kg-badge kg-badge-algorithm">色彩</span> 视频系统中存在多种色彩模型，目的都是**用最少的数据描述人眼可感知的颜色**。 | 颜色 | R | G | B | | --- | --- | --- | --- | | 黑 | 0 | 0 |
+
+## [容器格式 - MP4/AVI/MKV](https://java-px.bot.cd/video/01-basics/container-format)
+> <span class="kg-badge kg-badge-basics">基础</span> <span class="kg-badge kg-badge-tools">FFmpeg</span> **容器格式**（Container Format）= 视频的"包装盒"，包含视频流、音频流、字幕、元数据等。 | 概念 | 含义 | 关系 | | --- | --- | --- | | **容器
+
+## [分辨率 / 帧率 / 码率](https://java-px.bot.cd/video/01-basics/resolution-fps)
+> <span class="kg-badge kg-badge-basics">基础</span> <span class="kg-badge kg-badge-tools">FFmpeg</span> 视频三**核心参数**，决定画质、流畅度与文件大小。 视频画面**像素数**，宽度 × 高度。 | 名称 | 分辨率 | 像素总数 | 用途 | | --- | --- | --- | --- |
+
+## [视频本质 - 像素与帧](https://java-px.bot.cd/video/01-basics/video-essence)
+> <span class="kg-badge kg-badge-basics">基础</span> <span class="kg-badge kg-badge-codecs">入门</span> 视频 = 一组**按时间顺序**连续播放的**静态图像**（帧），通过人眼的**视觉暂留**现象产生连续运动的感觉。 | 要素 | 含义 | 典型值 | | --- | --- | --- | | **像
+
+## [DCT 变换与量化](https://java-px.bot.cd/video/02-codec/dct-quant)
+> <span class="kg-badge kg-badge-codec">原理</span> <span class="kg-badge kg-badge-codecs">频域</span> 视频编码中两个**最关键的步骤**，负责把空间域数据转换到频域并丢弃不重要的细节。 将**空间域**像素转换为**频域**系数，便于后续量化压缩。 | 编码 | DCT 块 | | --- | --- |
+
+## [熵编码 - CABAC / CAVLC](https://java-px.bot.cd/video/02-codec/entropy-codec)
+> <span class="kg-badge kg-badge-codec">原理</span> <span class="kg-badge kg-badge-codecs">无损</span> 将量化后的符号转换为**二进制比特流**，是视频编码的最后一步，**无损压缩**。 | 算法 | 编码 | 特点 | | --- | --- | --- | | **CAVLC** | H.264 Base
+
+## [帧间预测](https://java-px.bot.cd/video/02-codec/inter-prediction)
+> <span class="kg-badge kg-badge-codec">原理</span> <span class="kg-badge kg-badge-codecs">P / B 帧</span> 利用**相邻帧**之间的高度相似性，通过**运动估计 + 运动补偿**去除时间冗余。 | 类型 | 参考帧 | 数量 | 压缩率 | | --- | --- | --- | --- | | **P
+
+## [帧内预测](https://java-px.bot.cd/video/02-codec/intra-prediction)
+> <span class="kg-badge kg-badge-codec">原理</span> <span class="kg-badge kg-badge-codecs">I 帧</span> 利用**同一帧内**相邻像素的相关性进行预测，是 I 帧压缩的核心。 | 模式 | 名称 | 预测方向 | | --- | --- | --- | | **0** | Intra_4x4_Vertical
+
+## [环路滤波](https://java-px.bot.cd/video/02-codec/loop-filter)
+> <span class="kg-badge kg-badge-codec">原理</span> <span class="kg-badge kg-badge-codecs">后处理</span> 编码环路中的**重建滤波器**，消除块效应、提升主观画质。 | 滤波 | 编码 | 特点 | | --- | --- | --- | | **去块滤波 (DF)** | H.264/H.265 | 必备，
+
+## [运动估计与补偿](https://java-px.bot.cd/video/02-codec/me-mc)
+> <span class="kg-badge kg-badge-codec">原理</span> <span class="kg-badge kg-badge-codecs">P / B 帧</span> 帧间预测的**核心机制**，决定 P/B 帧的压缩效率。 | 缩写 | 全称 | 作用 | | --- | --- | --- | | **ME** | Motion Estimation 运动估
+
+## [音频编码 - AAC / MP3 / Opus](https://java-px.bot.cd/video/03-codecs/audio-codec)
+> <span class="kg-badge kg-badge-codecs">音频</span> <span class="kg-badge kg-badge-tools">FFmpeg</span> <span class="kg-badge kg-badge-protocol">流媒体</span> 视频文件中的**音频流**编码标准，决定音质、延迟与兼容性。 | 编码 | 推出 | 比特率
+
+## [AV1](https://java-px.bot.cd/video/03-codecs/av1)
+> <span class="kg-badge kg-badge-codecs">编码</span> <span class="kg-badge kg-badge-protocol">开源</span> <span class="kg-badge kg-badge-ai">免专利</span> **AV1** = Alliance for Open Media Video 1，**开源免专利**的新一
+
+## [H.264 / AVC](https://java-px.bot.cd/video/03-codecs/h264)
+> <span class="kg-badge kg-badge-codecs">编码</span> <span class="kg-badge kg-badge-codec">主流</span> <span class="kg-badge kg-badge-protocol">流媒体</span> **H.264/AVC** = Advanced Video Coding，国际标准 ISO/IEC
+
+## [H.265 / HEVC](https://java-px.bot.cd/video/03-codecs/h265)
+> <span class="kg-badge kg-badge-codecs">编码</span> <span class="kg-badge kg-badge-codec">高效</span> <span class="kg-badge kg-badge-ai">4K</span> **H.265/HEVC** = High Efficiency Video Coding，H.264 的继任者，压
+
+## [VP9 / VP8](https://java-px.bot.cd/video/03-codecs/vp9)
+> <span class="kg-badge kg-badge-codecs">编码</span> <span class="kg-badge kg-badge-protocol">开源</span> <span class="kg-badge kg-badge-tools">Web</span> **VP9** = Google 开发，**开源免专利**，与 AV1 同源（VP10 → AV1）。
+
+## [色彩转换](https://java-px.bot.cd/video/04-algorithm/color-convert)
+> <span class="kg-badge kg-badge-algorithm">算法</span> <span class="kg-badge kg-badge-basics">色彩</span> 在不同**色彩空间**之间转换（YUV ↔ RGB、BT.601 ↔ BT.709、HDR ↔ SDR）。 | 空间 | 含义 | 用途 | | --- | --- | --- | | **YUV*
+
+## [去隔行](https://java-px.bot.cd/video/04-algorithm/deinterlace)
+> <span class="kg-badge kg-badge-algorithm">算法</span> <span class="kg-badge kg-badge-basics">基础</span> 把**隔行扫描**视频转换为**逐行扫描**视频，消除梳齿状边缘。 | 算法 | 速度 | 画质 | 复杂度 | | --- | --- | --- | --- | | **Weave** | 最快
+
+## [去噪算法](https://java-px.bot.cd/video/04-algorithm/denoise)
+> <span class="kg-badge kg-badge-algorithm">算法</span> <span class="kg-badge kg-badge-ai">AI</span> 去除视频采集、压缩、传输过程中引入的**噪声**，提升画质。 | 噪声 | 特征 | 来源 | | --- | --- | --- | | **高斯噪声** | 正态分布 | 低光照传感器 | | **椒盐
+
+## [帧率转换 / 插帧](https://java-px.bot.cd/video/04-algorithm/frc)
+> <span class="kg-badge kg-badge-algorithm">算法</span> <span class="kg-badge kg-badge-ai">AI 插帧</span> 通过**插帧**技术改变视频帧率（24fps → 60fps）或补帧生成**慢动作**。 | 类型 | 含义 | 用途 | | --- | --- | --- | | **上转换** | 24 → 6
+
+## [缩放插值](https://java-px.bot.cd/video/04-algorithm/scaling)
+> <span class="kg-badge kg-badge-algorithm">算法</span> <span class="kg-badge kg-badge-tools">FFmpeg</span> 将视频从一个**分辨率**转换为另一个分辨率，需要**插值算法**填补未知像素。 | 类型 | 含义 | 用途 | | --- | --- | --- | | **上采样** | 小 → 大（
+
+## [锐化算法](https://java-px.bot.cd/video/04-algorithm/sharpen)
+> <span class="kg-badge kg-badge-algorithm">算法</span> <span class="kg-badge kg-badge-tools">FFmpeg</span> 增强视频**边缘对比度**，让画面看起来更清晰锐利。 | 算法 | 原理 | 特点 | | --- | --- | --- | | **拉普拉斯** | 2 阶微分 | 简单、噪声敏感 | |
+
+## [超分辨率（SR）](https://java-px.bot.cd/video/04-algorithm/super-res)
+> <span class="kg-badge kg-badge-algorithm">算法</span> <span class="kg-badge kg-badge-ai">AI</span> 从低分辨率图像/视频**恢复**高分辨率细节，应用广泛。 | 类型 | 输入 | 优势 | | --- | --- | --- | | **SISR** (Single Image SR) | 1 张图 |
+
+## [CDN 分发架构](https://java-px.bot.cd/video/05-protocol/cdn-arch)
+> <span class="kg-badge kg-badge-protocol">架构</span> <span class="kg-badge kg-badge-app">直播</span> <span class="kg-badge kg-badge-cases">案例</span> **CDN** = Content Delivery Network，将视频内容**就近分发**到用户，提升体
+
+## [DASH 协议](https://java-px.bot.cd/video/05-protocol/dash)
+> <span class="kg-badge kg-badge-protocol">协议</span> <span class="kg-badge kg-badge-app">播放</span> **DASH** = Dynamic Adaptive Streaming over HTTP，MPEG 主导的 HTTP 自适应流协议，对标 HLS。 | 项 | 值 | | --- | --- | |
+
+## [HLS 协议](https://java-px.bot.cd/video/05-protocol/hls)
+> <span class="kg-badge kg-badge-protocol">协议</span> <span class="kg-badge kg-badge-app">播放</span> **HLS** = Apple 开发的**基于 HTTP 的流媒体协议**，将视频切分为**小 TS 文件 + m3u8 索引**，CDN 友好。 | 项 | 值 | | --- | --- | | 推出
+
+## [RTMP 协议](https://java-px.bot.cd/video/05-protocol/rtmp)
+> <span class="kg-badge kg-badge-protocol">协议</span> <span class="kg-badge kg-badge-app">直播</span> **RTMP** = 基于 TCP 的**实时消息传输协议**，由 Macromedia（Adobe）开发，广泛用于直播推流。 | 项 | 值 | | --- | --- | | 推出 | 2002（Mac
+
+## [RTSP / SRT](https://java-px.bot.cd/video/05-protocol/rtsp-srt)
+> <span class="kg-badge kg-badge-protocol">协议</span> <span class="kg-badge kg-badge-app">监控</span> **RTSP**（传统监控） + **SRT**（新一代安全传输）= 监控和广电领域的**主力协议**。 | 项 | 值 | | --- | --- | | 推出 | 1998（哥伦比亚/Netscape）
+
+## [WebRTC](https://java-px.bot.cd/video/05-protocol/webrtc)
+> <span class="kg-badge kg-badge-protocol">协议</span> <span class="kg-badge kg-badge-app">实时</span> <span class="kg-badge kg-badge-ai">互动</span> **WebRTC** = 浏览器原生**实时音视频通信**协议栈，延迟 <500ms，支持 P2P。 | 项 | 值
+
+## [FFmpeg 入门精通](https://java-px.bot.cd/video/06-tools/ffmpeg)
+> <span class="kg-badge kg-badge-tools">工具</span> <span class="kg-badge kg-badge-protocol">流媒体</span> <span class="kg-badge kg-badge-codecs">编解码</span> **FFmpeg** = 跨平台**多媒体处理工具集**，视频/音频/字幕/流媒体的**瑞士军刀**
+
+## [GStreamer 框架](https://java-px.bot.cd/video/06-tools/gstreamer)
+> <span class="kg-badge kg-badge-tools">工具</span> <span class="kg-badge kg-badge-protocol">流媒体</span> <span class="kg-badge kg-badge-protocol">Linux</span> **GStreamer** = Linux 平台强大的**多媒体框架**，基于**管道（pi
+
+## [HandBrake 转码工具](https://java-px.bot.cd/video/06-tools/handbrake)
+> <span class="kg-badge kg-badge-tools">工具</span> <span class="kg-badge kg-badge-cases">日常</span> **HandBrake** = 开源**视频转码工具**，主打易用 GUI，也提供 CLI。 | 项 | 值 | | --- | --- | | 推出 | 2003 | | 语言 | C / GTK | |
+
+## [MediaInfo 元数据](https://java-px.bot.cd/video/06-tools/mediainfo)
+> <span class="kg-badge kg-badge-tools">工具</span> <span class="kg-badge kg-badge-basics">基础</span> **MediaInfo** = 查看媒体文件**详细元数据**的工具，支持几乎所有音视频格式。 | 项 | 值 | | --- | --- | | 推出 | 2002 | | 语言 | C++ | | 许可
+
+## [MoviePy Python](https://java-px.bot.cd/video/06-tools/moviepy)
+> <span class="kg-badge kg-badge-tools">工具</span> <span class="kg-badge kg-badge-basics">Python</span> **MoviePy** = Python 视频编辑库，基于 FFmpeg，简单易用，适合**快速脚本处理**。 | 项 | 值 | | --- | --- | | 推出 | 2014 | | 语言
+
+## [OpenCV 视觉库](https://java-px.bot.cd/video/06-tools/opencv)
+> <span class="kg-badge kg-badge-tools">工具</span> <span class="kg-badge kg-badge-ai">视觉</span> **OpenCV** = Open Source Computer Vision Library，开源**计算机视觉库**，视频处理常用工具。 | 项 | 值 | | --- | --- | | 推出 | 2000
+
+## [数字人 / 虚拟主播](https://java-px.bot.cd/video/07-ai/digital-human)
+> <span class="kg-badge kg-badge-ai">AI</span> <span class="kg-badge kg-badge-cases">应用</span> <span class="kg-badge kg-badge-app">直播</span> **数字人** = AI 驱动的**虚拟形象**，能说话、动作、交互。 | 类型 | 描述 | 例子 | | --- |
+
+## [AI 视频生成 - Sora / Runway](https://java-px.bot.cd/video/07-ai/generation)
+> <span class="kg-badge kg-badge-ai">AI</span> <span class="kg-badge kg-badge-cases">前沿</span> <span class="kg-badge kg-badge-app">应用</span> 用 AI 模型从**文本/图像**生成视频，是 2024-2025 最热门的 AI 应用。 | 模型 | 厂商 | 推出
+
+## [视频修复 Inpainting](https://java-px.bot.cd/video/07-ai/inpainting)
+> <span class="kg-badge kg-badge-ai">AI</span> <span class="kg-badge kg-badge-algorithm">算法</span> 用 AI 模型**填充**视频中的缺失区域（去水印、去字幕、去物体）。 | 场景 | 描述 | | --- | --- | | **去水印** | 移除电视台 logo | | **去字幕** | 翻译前移
+
+## [AI 插帧 RIFE / FILM](https://java-px.bot.cd/video/07-ai/interpolation-ai)
+> <span class="kg-badge kg-badge-ai">AI</span> <span class="kg-badge kg-badge-algorithm">算法</span> <span class="kg-badge kg-badge-app">应用</span> 用 AI 模型在两帧之间**生成**中间帧，实现高帧率、慢动作。 | 模型 | 年份 | 特点 | | --- |
+
+## [唇形同步 Wav2Lip](https://java-px.bot.cd/video/07-ai/lip-sync)
+> <span class="kg-badge kg-badge-ai">AI</span> <span class="kg-badge kg-badge-tools">工具</span> <span class="kg-badge kg-badge-app">数字人</span> 让视频中的人物**嘴型**与**语音**精准同步，是数字人核心技术。 | 指标 | 含义 | 越 | | --- | -
+
+## [视频分割 / 抠像](https://java-px.bot.cd/video/07-ai/segmentation)
+> <span class="kg-badge kg-badge-ai">AI</span> <span class="kg-badge kg-badge-algorithm">算法</span> <span class="kg-badge kg-badge-app">视频会议</span> 把视频中的**前景**与**背景**分离，应用广泛。 | 场景 | 描述 | | --- | --- | |
+
+## [AI 超分辨率](https://java-px.bot.cd/video/07-ai/super-res-ai)
+> <span class="kg-badge kg-badge-ai">AI</span> <span class="kg-badge kg-badge-algorithm">算法</span> <span class="kg-badge kg-badge-tools">模型</span> 用**深度学习**模型对低分辨率视频**重建**高分辨率，效果远超传统算法。 | 类型 | 优势 | 局限 |
+
+## [GPU 处理 CUDA](https://java-px.bot.cd/video/08-perf/gpu-cuda)
+> <span class="kg-badge kg-badge-perf">性能</span> <span class="kg-badge kg-badge-tools">硬件</span> <span class="kg-badge kg-badge-ai">AI</span> 利用 **GPU** 进行视频处理和 AI 推理，速度可达 CPU 的 10-100 倍。 | 平台 | API | 厂
+
+## [硬件加速 NVENC / QSV](https://java-px.bot.cd/video/08-perf/nvenc-qsv)
+> <span class="kg-badge kg-badge-perf">性能</span> <span class="kg-badge kg-badge-tools">硬件</span> <span class="kg-badge kg-badge-app">实时</span> 利用**GPU / 专用硬件**进行视频编解码，相比 CPU 软编可提速 **10-50 倍**。 | 方案 | 厂商
+
+## [实时流性能](https://java-px.bot.cd/video/08-perf/realtime)
+> <span class="kg-badge kg-badge-perf">性能</span> <span class="kg-badge kg-badge-protocol">实时</span> <span class="kg-badge kg-badge-tools">FFmpeg</span> 实时视频流（直播、视频会议、监控）对 **端到端延迟**、**稳定性**、**画质** 要求严苛。
+
+## [多线程并行处理](https://java-px.bot.cd/video/08-perf/threading)
+> <span class="kg-badge kg-badge-perf">性能</span> <span class="kg-badge kg-badge-tools">FFmpeg</span> <span class="kg-badge kg-badge-codec">编解码</span> 视频编解码是 **计算密集型** 任务，合理利用多核 CPU 可大幅提升性能。 | 参数 | 含义 |
+
+## [阿里云媒体处理](https://java-px.bot.cd/video/09-cloud/aliyun-mps)
+> <span class="kg-badge kg-badge-cloud">云服务</span> <span class="kg-badge kg-badge-tools">SDK</span> <span class="kg-badge kg-badge-codec">转码</span> 阿里云媒体处理（Media Processing Service, MPS）提供 **音视频转码、截图、剪辑
+
+## [AWS 媒体服务](https://java-px.bot.cd/video/09-cloud/aws-media)
+> <span class="kg-badge kg-badge-cloud">云服务</span> <span class="kg-badge kg-badge-tools">SDK</span> <span class="kg-badge kg-badge-codec">转码</span> AWS 提供完整的 **媒体生产到分发** 服务栈：**MediaConvert / MediaLive /
+
+## [Serverless 视频处理](https://java-px.bot.cd/video/09-cloud/serverless)
+> <span class="kg-badge kg-badge-cloud">云服务</span> <span class="kg-badge kg-badge-tools">函数计算</span> <span class="kg-badge kg-badge-codec">转码</span> Serverless 视频处理通过 **事件触发 + 函数计算** 实现按需伸缩、无需运维。 | 优势 |
+
+## [腾讯云媒体处理](https://java-px.bot.cd/video/09-cloud/tencent-mps)
+> <span class="kg-badge kg-badge-cloud">云服务</span> <span class="kg-badge kg-badge-tools">SDK</span> <span class="kg-badge kg-badge-codec">转码</span> 腾讯云媒体数据处理 CI（Cloud Infinite）提供 **音视频转码、AI 增强、媒体审核、极速高清
+
+## [视频会议](https://java-px.bot.cd/video/10-application/conference)
+> <span class="kg-badge kg-badge-app">应用</span> <span class="kg-badge kg-badge-protocol">WebRTC</span> <span class="kg-badge kg-badge-ai">AI</span> 视频会议强调 **超低延迟、稳定性、互动性**，代表产品：Zoom、腾讯会议、钉钉、Teams。 | 模型
+
+## [直播技术](https://java-px.bot.cd/video/10-application/live)
+> <span class="kg-badge kg-badge-app">应用</span> <span class="kg-badge kg-badge-protocol">实时</span> <span class="kg-badge kg-badge-cloud">云端</span> 直播是 **实时音视频传输** 场景的代表，覆盖 **娱乐 / 带货 / 教育 / 体育** 等行业。 | 类
+
+## [影视后期](https://java-px.bot.cd/video/10-application/post-product)
+> <span class="kg-badge kg-badge-app">应用</span> <span class="kg-badge kg-badge-codec">专业</span> <span class="kg-badge kg-badge-tools">DAW</span> 影视后期（Post-Production）涵盖 **剪辑、调色、特效合成、声音、输出母版**。 | 格式 | 来源
+
+## [短视频处理](https://java-px.bot.cd/video/10-application/short-video)
+> <span class="kg-badge kg-badge-app">应用</span> <span class="kg-badge kg-badge-tools">端云协同</span> <span class="kg-badge kg-badge-cloud">云端转码</span> 短视频 App（抖音、快手、TikTok、Reels）的技术体系覆盖 **客户端采集 / 上传 / 云端转码
+
+## [安防监控视频](https://java-px.bot.cd/video/10-application/surveillance)
+> <span class="kg-badge kg-badge-app">应用</span> <span class="kg-badge kg-badge-protocol">网络</span> <span class="kg-badge kg-badge-ai">智能分析</span> 安防监控视频（GB28181、海康/大华、Onvif）在 **海量摄像头接入、长时间录像、智能分析** 上有独特
+
+## [B 站视频架构](https://java-px.bot.cd/video/11-cases/bilibili)
+> <span class="kg-badge kg-badge-cases">案例</span> <span class="kg-badge kg-badge-cloud">大规模</span> <span class="kg-badge kg-badge-protocol">流媒体</span> B 站作为中国最大的 UGC 视频平台，月活超 3 亿、视频日播放量数十亿。其视频技术体系覆盖 **上
+
+## [抖音 / TikTok 视频架构](https://java-px.bot.cd/video/11-cases/douyin)
+> <span class="kg-badge kg-badge-cases">案例</span> <span class="kg-badge kg-badge-cloud">超大规模</span> <span class="kg-badge kg-badge-ai">AI 驱动</span> 抖音（TikTok）作为 **全球最大短视频平台**，月活超 15 亿。其技术体系在 **海量用户、海量视频
+
+## [腾讯直播架构](https://java-px.bot.cd/video/11-cases/tencent-live)
+> <span class="kg-badge kg-badge-cases">案例</span> <span class="kg-badge kg-badge-cloud">直播</span> <span class="kg-badge kg-badge-protocol">互动</span> 腾讯云 LVB（Live Video Broadcasting）是商业化直播服务，提供 **标准直播、快直
+
+## [视频架构演进](https://java-px.bot.cd/video/11-cases/video-arch)
+> <span class="kg-badge kg-badge-cases">案例</span> <span class="kg-badge kg-badge-cloud">架构</span> <span class="kg-badge kg-badge-protocol">演化</span> 视频架构从 **单机服务 → 集群 → 微服务 → 云原生 → 边缘计算**，经历多个阶段。本篇梳理典型演
+
+## [系统设计案例](https://java-px.bot.cd/video/12-interview/cases)
+> <span class="kg-badge kg-badge-interview">面试</span> <span class="kg-badge kg-badge-cloud">架构</span> <span class="kg-badge kg-badge-tools">设计</span> - 用户上传 100MB-5GB 视频 - 支持断点续传 - 转码多分辨率 (1080p / 720p
+
+## [编码对比表](https://java-px.bot.cd/video/12-interview/comparison)
+> <span class="kg-badge kg-badge-interview">面试</span> <span class="kg-badge kg-badge-codec">对比</span> | 特性 | H.264 | H.265 | AV1 | VP9 | | --- | --- | --- | --- | | **发布年** | 2003 | 2013 | 2018 | 2013 |
+
+## [高频面试题](https://java-px.bot.cd/video/12-interview/questions)
+> <span class="kg-badge kg-badge-interview">面试</span> <span class="kg-badge kg-badge-codec">理论</span> <span class="kg-badge kg-badge-tools">实战</span> 音视频岗位面试覆盖 **理论原理 + 工程实践 + 性能调优 + 系统设计**。 A: 视频 = **连
+
+## [速记卡](https://java-px.bot.cd/video/cheatsheet)
+> <span class="kg-badge kg-badge-interview">速记</span> <span class="kg-badge kg-badge-cases">面试</span> 一页速记，覆盖**最常用**的编解码参数、FFmpeg 命令、面试题，便于快速回顾。 | 格式 | 含义 | 用途 | | --- | --- | --- | | YUV420 | 4:2:0 降采样
+
+## [知识图谱](https://java-px.bot.cd/video/graph)
+> <span class="kg-badge kg-badge-basics">图谱</span> <span class="kg-badge kg-badge-algorithm">全景</span> 通过交互式知识图谱，**全局**理解视频处理的技术栈关系。点击节点跳转到对应文档。 <KnowledgeGraph /> | 分类 | 颜色 | 节点数 | | --- | --- | --- |
+
+## [视频处理知识库](https://java-px.bot.cd/video/index)
+> <ClientOnly> <WhyThisGraph :pain-points="[ "像素 / 色彩 / 帧率 / 容器格式基础概念混？", "帧内 / 帧间 / DCT / 熵编码 原理讲不清？", "H.264 / H.265 / AV1 / VP9 选哪个？", "RTMP / HLS / DASH 流媒体协议区别？", "FFmpeg 命令太多记不住？" ]" :goals="[ "视频
+
+## [思维导图](https://java-px.bot.cd/video/mindmap)
+> <span class="kg-badge kg-badge-basics">导图</span> <span class="kg-badge kg-badge-cases">结构化</span> 通过交互式思维导图，**结构化**梳理视频处理知识体系。 <MindMap /> - 鼠标拖动：移动画布 - 点击节点：展开/折叠子节点 - 滚轮：缩放 - 顶部按钮：全部展开、全部折叠、重置视角
+
+## [学习路径](https://java-px.bot.cd/video/path)
+> <span class="kg-badge kg-badge-basics">路径</span> <span class="kg-badge kg-badge-interview">指南</span> 按角色和目标提供**结构化学习路径**，从入门到精通逐步进阶。 适合：视频相关岗位入门 / 转行 适合：客户端音视频 / 视频处理开发 适合：直播 SDK / 直播平台开发 适合：视频 AI / 计

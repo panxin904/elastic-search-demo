@@ -1,0 +1,152 @@
+# design-pattern 子站
+
+> 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
+> 49 个文档页 · 269,235 字
+> 生成时间：2026-08-16T08:58:46
+
+## [Abstract Factory 抽象工厂模式](https://java-px.bot.cd/design-pattern/01-gof-creational/abstract-factory)
+> 一族相关对象的创建 + 主题切换 + UI 组件库 / 数据库 driver 族 / Spring ApplicationContext
+
+## [Builder 建造者模式](https://java-px.bot.cd/design-pattern/01-gof-creational/builder)
+> 多参数对象构造 + Java Lombok @Builder + Go Functional Options + TypeScript chainable
+
+## [Factory Method 工厂方法模式](https://java-px.bot.cd/design-pattern/01-gof-creational/factory-method)
+> 创建逻辑延迟到子类 + 框架扩展点 + Java Spring BeanFactory / Go Wire 源码解读
+
+## [创建型模式总览](https://java-px.bot.cd/design-pattern/01-gof-creational/overview)
+> > GoF 23 模式中专门解决「对象创建」问题的 5 个模式。它们把 `new` 这个动作从客户端代码中抽离出来，根据场景选择不同的创建策略：单实例、工厂、抽象工厂、建造者、原型。 业务代码里最常见的耦合是「客户端直接 `new` 具体类」。例如： 这样做有三个问题： 1. **编译期耦合**：改个实现就要改所有客户端 2. **无法 mock**：单测时没法替换成测试替身 3. **生命周期混
+
+## [Prototype 原型模式](https://java-px.bot.cd/design-pattern/01-gof-creational/prototype)
+> 通过克隆创建对象 + 深拷贝 vs 浅拷贝 + Java Cloneable + JavaScript structuredClone
+
+## [Singleton 单例模式](https://java-px.bot.cd/design-pattern/01-gof-creational/singleton)
+> 全局唯一实例 + 多语言实现 + 线程安全 + 序列化攻击 + 分布式陷阱
+
+## [Adapter 适配器模式](https://java-px.bot.cd/design-pattern/02-gof-structural/adapter)
+> 接口不兼容 + 对象适配 vs 类适配 + Java IO 适配器 + Spring HandlerAdapter
+
+## [Bridge 桥接模式](https://java-px.bot.cd/design-pattern/02-gof-structural/bridge)
+> 抽象与实现分离 + JDBC Driver + 跨平台 UI + 多维度独立变化
+
+## [Composite 组合模式](https://java-px.bot.cd/design-pattern/02-gof-structural/composite)
+> 树形结构 + 部分-整体 + 文件系统 / DOM / Kubernetes 资源树
+
+## [Decorator 装饰器模式](https://java-px.bot.cd/design-pattern/02-gof-structural/decorator)
+> 动态添加职责 + Java IO 流 + Go middleware + TypeScript 装饰器 + Spring AOP
+
+## [Facade 外观模式](https://java-px.bot.cd/design-pattern/02-gof-structural/facade)
+> 子系统统一高层接口 + Spring JdbcTemplate + 第三方 SDK 封装 + API Gateway
+
+## [Flyweight 享元模式](https://java-px.bot.cd/design-pattern/02-gof-structural/flyweight)
+> 共享细粒度对象 + 减少内存 / Integer 缓存 / 文本编辑器 / 游戏地图 / 字符串池
+
+## [结构型模式总览](https://java-px.bot.cd/design-pattern/02-gof-structural/overview)
+> > GoF 23 模式中专门解决「类与对象如何组合」问题的 7 个模式。结构型模式通过**继承或组合**，让接口/实现分离、对象组合灵活、性能开销可控。 继承是 OOP 的核心武器，但「过度继承」会让类层次爆炸、接口污染。结构型模式回答三个问题： 1. **如何适配不兼容的接口？** → Adapter / Bridge 2. **如何让对象组合替代继承？** → Composite / Deco
+
+## [Proxy 代理模式](https://java-px.bot.cd/design-pattern/02-gof-structural/proxy)
+> 控制对象访问 + 远程代理 / 虚拟代理 / 保护代理 / 智能引用 / 缓存代理 + Spring AOP
+
+## [Chain of Responsibility 责任链模式](https://java-px.bot.cd/design-pattern/03-gof-behavioral/chain-of-responsibility)
+> 请求沿链传递 + HTTP 中间件 / Servlet Filter / Spring Interceptor
+
+## [Command 命令模式](https://java-px.bot.cd/design-pattern/03-gof-behavioral/command)
+> 请求封装为对象 + 撤销重做 + 任务队列 + CQRS / Saga 命令模式
+
+## [Interpreter 解释器模式](https://java-px.bot.cd/design-pattern/03-gof-behavioral/interpreter)
+> 自定义语言求值 + 表达式解析 + SQL parser / 正则表达式 / DSL
+
+## [Iterator 迭代器模式](https://java-px.bot.cd/design-pattern/03-gof-behavioral/iterator)
+> 顺序访问聚合对象 + Java Iterator / Go range / TypeScript Iterable / Rust IntoIterator
+
+## [Mediator 中介者模式](https://java-px.bot.cd/design-pattern/03-gof-behavioral/mediator)
+> 集中对象间交互 + 聊天室 / GUI 组件协作 / MediatR / NestJS EventBus
+
+## [Memento 备忘录模式](https://java-px.bot.cd/design-pattern/03-gof-behavioral/memento)
+> 保存恢复对象状态 + 撤销操作 / 数据库快照 / Redux undo / Git 内部原理
+
+## [Observer 观察者模式](https://java-px.bot.cd/design-pattern/03-gof-behavioral/observer)
+> 一对多依赖 + 事件总线 + Vue 响应式 / Kafka consumer / Node EventEmitter / Spring Event
+
+## [行为型模式总览](https://java-px.bot.cd/design-pattern/03-gof-behavioral/overview)
+> > GoF 23 模式中专门解决「对象间职责分配与通信」问题的 11 个模式。行为型模式既关注类之间的算法/职责流转（Template Method / Strategy / State），也关注对象间的消息传递（Observer / Mediator / Command）和状态管理（Memento）。 结构型模式回答「**用什么**」和行为型模式回答「**怎么做**」。当业务复杂度提升后，最难的
+
+## [State 状态模式](https://java-px.bot.cd/design-pattern/03-gof-behavioral/state)
+> 行为随状态变化 + 订单状态机 / TCP 连接状态 / Spring StateMachine
+
+## [Strategy 策略模式](https://java-px.bot.cd/design-pattern/03-gof-behavioral/strategy)
+> 算法族互相替换 + 支付方式 / 排序算法 / 压缩算法 / Spring @Conditional
+
+## [Template Method 模板方法模式](https://java-px.bot.cd/design-pattern/03-gof-behavioral/template-method)
+> 算法骨架不变 + 部分步骤延迟 + Spring JdbcTemplate / Go http.Handler / Java Servlet
+
+## [Visitor 访问者模式](https://java-px.bot.cd/design-pattern/03-gof-behavioral/visitor)
+> 不修改元素类增加新操作 + AST 处理 / 编译器 / 文件遍历 + Java ElementVisitor
+
+## [依赖注入 DI](https://java-px.bot.cd/design-pattern/04-modern-patterns/dependency-injection)
+> 解耦对象创建 + Spring IoC / NestJS Provider / Go Wire + 构造器 vs Setter vs 字段注入
+
+## [Null Object 空对象模式](https://java-px.bot.cd/design-pattern/04-modern-patterns/null-object)
+> 消除 null 检查 + Optional / Maybe / 空集合 / NoopLogger
+
+## [现代模式（响应式 / 事件驱动 / 六边形等）](https://java-px.bot.cd/design-pattern/04-modern-patterns/overview)
+> > 云原生时代涌现的「新一代设计模式」。它们不是 GoF 23 模式的标准成员，但在主流框架（Spring Boot / Go Wire / NestJS / .NET Core）中已成为不可替代的核心抽象。理解这些模式能帮你看清框架源码的设计哲学。 GoF 1994 年的 23 模式针对的是 OOP 语言的**类与对象**，但 2020 年后的软件工程发生了根本变化： 1. **依赖管理从硬编码
+
+## [Repository 仓储模式](https://java-px.bot.cd/design-pattern/04-modern-patterns/repository)
+> 封装数据访问 + Spring Data JPA / TypeORM / EF Core / Go sqlc + Repository vs DAO
+
+## [Specification 规格模式](https://java-px.bot.cd/design-pattern/04-modern-patterns/specification)
+> 查询条件可组合 + JPA Specification + Laravel Query Builder + 函数式 filter
+
+## [Bulkhead 舱壁隔离模式](https://java-px.bot.cd/design-pattern/05-architectural-patterns/bulkhead)
+> 资源隔离防雪崩 + Resilience4j 线程池 + K8s resource limit + 连接池隔离
+
+## [Circuit Breaker 熔断模式](https://java-px.bot.cd/design-pattern/05-architectural-patterns/circuit-breaker)
+> 下游故障快速失败 + Resilience4j / Sentinel / Hystrix + 三种状态
+
+## [CQRS 命令查询分离](https://java-px.bot.cd/design-pattern/05-architectural-patterns/cqrs)
+> 读写模型分离 + Axon / EventStoreDB / Kafka Streams + 4 种架构演进
+
+## [Event Sourcing 事件溯源](https://java-px.bot.cd/design-pattern/05-architectural-patterns/event-sourcing)
+> 用事件序列保存状态 + Axon / EventStoreDB + 优势与挑战
+
+## [Outbox 事务性发件箱](https://java-px.bot.cd/design-pattern/05-architectural-patterns/outbox)
+> 业务数据 + 消息同事务 + Debezium / Spring Modulith + 防止消息丢失
+
+## [架构模式（微服务 / 分层 / 事件溯源等）](https://java-px.bot.cd/design-pattern/05-architectural-patterns/overview)
+> > 微服务时代的「系统级设计模式」。它们不再是单个类与对象的组合，而是**跨服务、跨进程、跨节点**的协作模式。每个架构模式都是一组 GoF 模式的「架构升级版」，并对应一套成熟的开源实现。 单体应用时代，业务逻辑放在同一个进程内，类与类的协作靠 OOP 设计模式就能搞定。但微服务时代，每个服务都是独立部署的进程，业务逻辑必须跨网络协作： 1. **数据一致性**：订单服务扣款 + 库存服务扣货，
+
+## [Saga 分布式事务](https://java-px.bot.cd/design-pattern/05-architectural-patterns/saga)
+> 跨服务事务编排 + Orchestration vs Choreography + Temporal / Camunda
+
+## [Sidecar 边车模式](https://java-px.bot.cd/design-pattern/05-architectural-patterns/sidecar)
+> 辅助能力剥离主应用 + K8s Pod / Istio / Dapr / Envoy
+
+## [Strangler Fig 绞杀者模式](https://java-px.bot.cd/design-pattern/05-architectural-patterns/strangler-fig)
+> 渐进式迁移 monolith + API Gateway 流量切换 + Netflix / Amazon / 蚂蚁金服
+
+## [Anemic Model 贫血模型](https://java-px.bot.cd/design-pattern/06-anti-patterns/anemic-model)
+> 症状 + 病因 + 药方 + 充血模型 vs 贫血模型
+
+## [Big Ball of Mud 大泥球](https://java-px.bot.cd/design-pattern/06-anti-patterns/big-ball-of-mud)
+> 症状 + 病因 + 药方 + DDD 限界上下文 + 架构守护
+
+## [Callback Hell 回调地狱](https://java-px.bot.cd/design-pattern/06-anti-patterns/callback-hell)
+> 症状 + 病因 + 药方 + async/await + Promise + RxJS
+
+## [Circular Dependency 循环依赖](https://java-px.bot.cd/design-pattern/06-anti-patterns/circular-dependency)
+> 症状 + 病因 + 药方 + 依赖反转 + 领域事件 + 检测工具
+
+## [God Object 上帝对象](https://java-px.bot.cd/design-pattern/06-anti-patterns/god-object)
+> 症状 + 病因 + 药方 + 检测工具 + 重构案例
+
+## [Magic Number 魔数](https://java-px.bot.cd/design-pattern/06-anti-patterns/magic-number)
+> 症状 + 病因 + 药方 + 命名常量 + 配置文件 + 单元常量
+
+## [反模式（应避免的反面案例）](https://java-px.bot.cd/design-pattern/06-anti-patterns/overview)
+> > 反模式（Anti-Pattern）是「表面看起来是解决方案，实际上会让代码/系统变得更糟」的常见做法。每个反模式都附「症状-病因-药方」清单，可以直接用作 code review checklist。 学习设计模式是学「**怎么做好**」，学习反模式是学「**怎么识别坏**」。code review 中 80% 的问题都是反模式的重复出现： - 「这个类 5000 行」→ 上帝对象 - 「Se
+
+## [Premature Optimization 提前优化](https://java-px.bot.cd/design-pattern/06-anti-patterns/premature-optimization)
+> 症状 + 病因 + 药方 + 性能分析 + Knuth 法则
+
+## [设计模式 / GoF 23 式 / 反模式](https://java-px.bot.cd/design-pattern/index)
+> <ClientOnly> <WhyThisGraph :pain-points="[ "GoF 23 式记不全，面试问到「装饰器 vs 代理」讲不清？", "创建型 / 结构型 / 行为型 分类背后的设计原则（开闭 / 里氏 / 依赖倒置）？", "现代模式（DI / Repository / Specification）跟 GoF 的关系？", "架构模式（CQRS / Event Sourci

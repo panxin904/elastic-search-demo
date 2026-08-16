@@ -1,0 +1,200 @@
+# frontend 子站
+
+> 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
+> 65 个文档页 · 157,490 字
+> 生成时间：2026-08-16T08:58:46
+
+## [浏览器渲染原理](https://java-px.bot.cd/frontend/01-foundation/browser)
+> | 进程 | 职责 | |------|------| | Browser | 界面、Tab 管理、子进程协调 | | Renderer | 单个 Tab 的渲染（HTML 解析、布局、绘制） | | GPU | 加速绘制、3D CSS | | Network | 网络请求 | | Plugin | 第三方插件（已废弃） | 每个 Tab 默认一个 Renderer 进程（Site Isolati
+
+## [CSS 基础](https://java-px.bot.cd/frontend/01-foundation/css)
+> 每个元素都是一个盒子： 两种盒模型： | | content-box | border-box | |--|--|--| | 宽 = | content | content + padding + border | | 默认 | 旧浏览器 | 现代默认 | - **CSS Reset**：消除浏览器默认样式 - **PostCSS + Autoprefixer**：自动加厂商前缀 - **CSS
+
+## [Event Loop](https://java-px.bot.cd/frontend/01-foundation/event-loop)
+> JS 是单线程语言，但有大量异步操作（I/O、setTimeout、Promise）。Event Loop 用任务调度让单线程也能并发。 | 术语 | 含义 | |------|------| | Call Stack | 函数调用栈（LIFO） | | Microtask Queue | 微任务队列（Promise、queueMicrotask） | | Macrotask Queue | 宏任
+
+## [HTML 语义化](https://java-px.bot.cd/frontend/01-foundation/html)
+> > 用对的标签表达对的含义，是前端工程师的基本功。 语义化 HTML = 用最合适的标签表达内容，让机器（搜索引擎、屏幕阅读器、爬虫）能"读懂"页面。 | 标签 | 用途 | |------|------| | `<header>` | 页面或区块的头部 | | `<nav>` | 导航 | | `<main>` | 页面主内容（一个页面只能有一个） | | `<article>` | 独立的内容
+
+## [Web 协议与安全](https://java-px.bot.cd/frontend/01-foundation/protocol)
+> | 协议 | 端口 | 加密 | 备注 | |------|------|------|------| | HTTP | 80 | ❌ | 已逐步淘汰 | | HTTPS | 443 | ✅ (TLS) | 现代标准 | | WSS | 443 | ✅ | WebSocket Secure | | HTTP/2 | 80/443 | 可选 | 多路复用、首部压缩 | | HTTP/3 | 443
+
+## [ESNext 新特性](https://java-px.bot.cd/frontend/02-language/esnext)
+> > 用到 ES2024 的关键语法、TC39 已进入 stage 4 的提案。 - **ES2015 (ES6)** — class, arrow, Promise, let/const, 解构, 模板字符串… - **ES2016** — `**` 幂、 `Array.includes` - **ES2017** — async/await, Object.values/entries - **
+
+## [JavaScript 核心](https://java-px.bot.cd/frontend/02-language/javascript)
+> > 把 JS 基础打扎实 — ES2024 已经进化很多，但核心机制没变。 每个函数被创建时都会绑定自己的"作用域对象"，即使外层函数已经返回。 | 调用方式 | this 指向 | |----------|----------| | `obj.fn()` | obj | | `fn()` | undefined（严格模式）/ window（sloppy） | | `new Fn()` | 新对象
+
+## [TypeScript 类型系统](https://java-px.bot.cd/frontend/02-language/typescript)
+> | 工具类型 | 作用 | |---------|------| | `Partial<T>` | 全部变可选 | | `Required<T>` | 全部变必填 | | `Readonly<T>` | 全部变只读 | | `Pick<T, K>` | 挑选字段 | | `Omit<T, K>` | 排除字段 | | `Record<K, V>` | `K → V` 的对象 | | `Exclud
+
+## [WebAssembly 入门](https://java-px.bot.cd/frontend/02-language/wasm)
+> Wasm 是**可移植、体积小、加载快、接近原生性能**的二进制指令格式。可以理解为浏览器的"汇编"。 主要用途： - 计算密集型任务（图像处理、视频编解码、CAD、加密、游戏） - 把 C/C++/Rust 编译到 Wasm，拿到浏览器跑 - 替代部分 JS "慢点" | 工具 | 来源语言 | 输出 | |------|---------|------| | Emscripten | C/C+
+
+## [Angular 体系](https://java-px.bot.cd/frontend/03-framework/angular)
+> Google 维护的企业级前端框架：**DI + RxJS + Zone.js + 强类型**。 推荐：从 v14 起不再强制 NgModule。 类 Solid 的细粒度响应式： Angular 大量用 Observable / Subject / Operator。 响应式表单适合复杂校验（异步、跨字段）。 `providedIn: 'root'` 让 Service 成为单例，自动 tree
+
+## [UI 框架总览与选型](https://java-px.bot.cd/frontend/03-framework/overview)
+> > 框架是手段，不是目的。先用对场景，再选技术栈。 | 框架 | 学习曲线 | 生态 | 体积 | 适用场景 | |------|---------|------|------|---------| | React | 中等 | 极大 | ~45KB | 通用首选、大型企业 / SaaS | | Vue | 平缓 | 大 | ~33KB | 中文社区、上手快、中后台 | | Angular | 陡
+
+## [React 核心与 Hooks](https://java-px.bot.cd/frontend/03-framework/react)
+> React = **声明式 UI + 单向数据流 + 不可变状态** | Hook | 作用 | |------|------| | `useState` | 本地状态 | | `useReducer` | 复杂状态 / reducer 模式 | | `useEffect` | 副作用（数据请求、订阅） | | `useLayoutEffect` | 同步执行，在 DOM 变更后绘制前 | | `
+
+## [Svelte / Solid](https://java-px.bot.cd/frontend/03-framework/svelte)
+> > 两个"非主流但很香"的现代前端方案。 **Slogan**: *"Write less code"* — 编译时框架，无运行时虚拟 DOM。 - **真小**：运行时 0（编译为原生 DOM 操作 + 响应式指令） - **`$:` 响应式声明块** 类似 Svelte 的杀手锏 - **CSS 作用域默认隔离**：不需要 CSS Modules - **SvelteKit**：类 Next.
+
+## [Vue 3 组合式 API](https://java-px.bot.cd/frontend/03-framework/vue)
+> Vue = **响应式数据 + 模板编译 + 单向数据流** | API | 作用 | |-----|------| | `ref(value)` | 包装任意值，访问用 `.value` | | `reactive(obj)` | 让对象整体响应式 | | `computed(() => ...)` | 计算属性，自动缓存 | | `watch(source, fn, opts)` | 通用监听
+
+## [Astro / Qwik](https://java-px.bot.cd/frontend/04-meta/astro)
+> **MPA 优先 + 岛架构（Islands）** —— 默认零 JS，按需注入。 | 指令 | 行为 | |------|------| | `client:load` | 立即水合 | | `client:idle` | 浏览器空闲时水合 | | `client:visible` | 进入视口水合 | | `client:media="..."` | 媒体查询匹配时水合 | | `client
+
+## [Next.js (React 元框架)](https://java-px.bot.cd/frontend/04-meta/nextjs)
+> Vercel 维护的 React 元框架，开箱即用 SSR / SSG / ISR / RSC / Edge / Middleware。 | 策略 | 用途 | 何时 | |------|------|------| | SSR | 每次请求渲染 | 内容实时、SEO | | SSG | 构建时静态化 | 内容稳定（博客） | | ISR | 增量静态化 | 大型站点、阶段性更新 | | RSC
+
+## [Nuxt (Vue 元框架)](https://java-px.bot.cd/frontend/04-meta/nuxt)
+> Vue 生态最主流的元框架，类 Next.js 的能力 + Vue DX。 文件路由约定类似 Next.js + 自动按需加载。 Nitro 让 Nuxt 可以脱离 Node 部署（Cloudflare Workers / Vercel Edge）。 Nuxt 会自动导入 `components/`、`composables/`、`utils/` 下的导出： Nuxt 内置跨组件跨 SSR 的 `
+
+## [Remix / RR v7](https://java-px.bot.cd/frontend/04-meta/remix)
+> Remix 已被合并回 **React Router v7**。两者现在共享代码库。 **Remix 的核心思想**： - Load in loader, mutate in action（数据流跟 URL 绑死） - 内置 form、`<Link>`、`<Meta>` 等组件 - 服务端渲染优先，无 RSC（v7 之前） | | Remix (v7) | Next.js | |--|------
+
+## [SvelteKit](https://java-px.bot.cd/frontend/04-meta/sveltekit)
+> Svelte 团队出品的元框架。 - 文件路由（pages 目录） - 服务端钩子（hooks.server.ts） - `+page.server.ts` / `+page.ts` / `+page.svelte` - Forms 内置：`<form method="POST">` - 适配器：`adapter-auto` / `adapter-vercel` / `adapter-node`
+
+## [esbuild / Turbopack](https://java-px.bot.cd/frontend/05-build/esbuild)
+> **用 Go 写的极快 bundler / transpiler**。Vite 的预构建 + minify 都靠它。 性能对比（同等任务）： - Webpack：~40s - esbuild：~0.4s（**100x**） esbuild 适合： - 库打包（`tsup`、`unbuild`） - Vite 的依赖预构建 - monorepo 单文件构建 不适合（暂时）： - 复杂 chunk 拆
+
+## [Monorepo (Turbo/Nx)](https://java-px.bot.cd/frontend/05-build/monorepo)
+> - **增量缓存**（基于文件 hash 的内容缓存） - **任务编排**（`dependsOn: ["^build"]` 先构建依赖） - **远程缓存**（自建或 Vercel） 适合**大型 monorepo**，自带： - 代码生成器（`nx generate @nx/react:app`） - 依赖图可视化（`nx graph`） - 严格的工作区约定 - 受影响的项目分析（`nx a
+
+## [包管理器 (pnpm/yarn)](https://java-px.bot.cd/frontend/05-build/package-manager)
+> | | npm | yarn (classic) | yarn (v4 berry) | pnpm | |--|----|----|----|----| | 安装速度 | 慢 | 中 | 快 | **最快** | | 磁盘占用 | 大 | 大 | 中 | **最小** | | 单仓多包 | workspaces | workspaces | workspaces | workspaces (最快)
+
+## [Vite 原理](https://java-px.bot.cd/frontend/05-build/vite)
+> Vite 是基于**浏览器原生 ESM + esbuild + Rollup** 的下一代前端构建工具。由 Vue 作者尤雨溪团队开发。 - **预构建依赖**：用 esbuild 把 CommonJS 依赖（如 `react`、`lodash`）转换为 ESM，缓存到 `.vite/deps/` - **源码 on-demand**：每个文件就是个 ESM 模块，浏览器直接 import - *
+
+## [Webpack / Rspack](https://java-px.bot.cd/frontend/05-build/webpack)
+> 老牌模块打包器（2012）。所有项目在生产构建时（曾经）都会经过 Webpack： - 多文件合并 → bundle - 加载器链（loader）翻译非 JS - 插件链（plugin）优化产物体积 | 概念 | 作用 | |------|------| | **entry** | 起点文件（如 `./src/index.tsx`） | | **output** | 输出（如 `dist/main
+
+## [CSS-in-JS](https://java-px.bot.cd/frontend/06-style/css-in-js)
+> 把 CSS 写在 JS / TS 中，通过运行时或编译时生成类名。 虽然不算 CSS-in-JS，但语法上类似——已在 [Tailwind 章节](/06-style/tailwind) 详述。 | | 运行时（styled / Emotion） | 编译时（vanilla-extract / Linaria） | |--|----------------|------------------|
+
+## [CSS Modules](https://java-px.bot.cd/frontend/06-style/css-modules)
+> 把 CSS 文件 `import` 进 JS 中，并且**类名自动 scope** 的方案。由构建工具（Vite / webpack）支持。 构建后输出： - **作用域隔离**：不会出现全局污染 - **复用纯 CSS**：不依赖任何运行时 - **零运行时开销**：构建期 class 名 hash - **CSS 文件可读**：保持传统 CSS 心智 - 不易跨组件共享样式（除非配合 :glo
+
+## [设计系统 / 组件库](https://java-px.bot.cd/frontend/06-style/design-system)
+> | 术语 | 含义 | |------|------| | **设计系统** (Design System) | 设计 token + 组件 + 文档 + 规范一整套（设计 + 工程） | | **UI 组件库** (Component Library) | 一套可复用 React/Vue 组件 | | 库 | 特点 | 适合 | |----|------|------| | **Ant Desi
+
+## [CSS 预处理器](https://java-px.bot.cd/frontend/06-style/preprocessor)
+> 特性： - **变量** `$var` - **嵌套** `&` - **mixin** `@mixin` / `@include` - **继承** `@extend` - **运算** `+`、`*`、`darken()` | 需求 | 旧（SCSS） | 现在 | |------|-----------|------| | 变量 | `$primary` | `--var-primary`
+
+## [Tailwind / UnoCSS](https://java-px.bot.cd/frontend/06-style/tailwind)
+> **Utility-first CSS 框架**：在 HTML / JSX 中拼出 class。 - **不用离开 HTML**：无需切换文件 - **约束体积**：自动 purge 未用到的 class - **一致性**：design token 内置（间距、颜色、字号） - **dark mode**：内置 `dark:` 前缀 2024+ 新版本： - **CSS-first 配置**（在
+
+## [React Query / SWR](https://java-px.bot.cd/frontend/07-state/data-fetching)
+> 服务端数据与"本地状态"不同： - **远程**：需要 fetch + loading / error 状态 - **缓存**：避免重复请求 - **失效**：需要 invalidate / 重新拉取 - **乐观更新**：UI 先变，请求失败再回滚 自己写 hook 处理这堆很痛苦，**TanStack Query (React Query) / SWR** 帮你封装好。 | 特性 | 描述 |
+
+## [Pinia (Vue)](https://java-px.bot.cd/frontend/07-state/pinia)
+> Vue 官方推荐的**现代状态库**（替代 Vuex）。Composition API 风格，类型友好。 **Setup 风格**：直接用 Vue 的 `ref`/`computed`，更易测试。 | | Pinia | Vuex 4 | |--|-------|--------| | 体积 | ~1KB | ~10KB | | 类型 | ✅ TS 优先 | 一般 | | Composition
+
+## [Redux Toolkit](https://java-px.bot.cd/frontend/07-state/redux)
+> Redux 是 React 全家桶里的"老资格"，但**过去**写法繁琐（action / reducer / connect）。Redux Toolkit (RTK) 是官方推荐的现代写法，2023+ 的事实标准。 | ✅ | ❌ | |----|---| | 时间旅行调试友好 | 样板代码仍较多 | | 生态强（中间件、devtools） | 相比 Zustand 更繁琐 | | 大型项目结构
+
+## [Zustand / Jotai](https://java-px.bot.cd/frontend/07-state/zustand)
+> **极简的全局状态库**，样板代码极少。 **selector 的好处**：只订阅 `value`，避免整个 store 重渲染。 按业务领域拆，每个组件树按需 import。 `persist` 自动同步到 localStorage。 **原子化**状态管理（类 Recoil）。适合细粒度订阅。 - **细粒度订阅**：仅更新用到该原子的组件 - **派生原子**：`atom(get => ..
+
+## [File-system Routing](https://java-px.bot.cd/frontend/08-routing/file-routing)
+> **用文件路径映射 URL 路由**，不用手写路由配置。 | 框架 | 风格 | |------|------| | Next.js (App Router) | `app/*/page.tsx` | | Nuxt | `pages/*.vue` | | SvelteKit | `src/routes/*/+page.svelte` | | Remix | `app/routes/*.tsx`（约
+
+## [React Router v6/v7](https://java-px.bot.cd/frontend/08-routing/react-router)
+> | 版本 | 特点 | |------|------| | v3 / v4 | 静态路由配置、`<Route>` 内联 | | v5 | Hooks API（useHistory → useNavigate） | | **v6** | `<Routes>`、嵌套路由、`loader` data API | | **v7** | 与 Remix 统一（Remix 模式） | 或者用 v6.4 的 `
+
+## [TanStack Router](https://java-px.bot.cd/frontend/08-routing/tanstack-router)
+> TanStack Router = **类型安全的 React 路由器**。 - **路由即类型**：`Link to=...` 推导参数 - **Search Params 类型化**：`?` 后参数自动推断 - **内置缓存** + loader ⚡ 编译期校验：写错路径或漏参数会报错。 类似 Next.js 的约定，可以用 `@tanstack/router-cli` / `@tanstac
+
+## [Vue Router 4](https://java-px.bot.cd/frontend/08-routing/vue-router)
+> - 适配 Vue 3 Composition API - `createRouter`、`createWebHistory` 替代类导出 - `<router-link>` / `<router-view>` 接口基本不变 也可以在路由表里： 或用 **defineAsyncComponent + Suspense** 思路（Nuxt 更自动化）。 实际项目通常用 **Nuxt** 自动生成路由，
+
+## [GraphQL / Apollo](https://java-px.bot.cd/frontend/09-data/graphql)
+> Facebook 提出的**API 查询语言**：客户端按需请求数据，避免 REST 的 over-fetch / under-fetch。 | | Apollo | urql | Relay | |--|--------|------|-------| | 缓存策略 | Normalized | Document | Normalized | | Bundle | ~35KB | ~12KB |
+
+## [WebSocket / SSE](https://java-px.bot.cd/frontend/09-data/realtime)
+> | | 轮询 (Polling) | SSE (Server-Sent Events) | WebSocket | |--|--------|--------|-------------| | 协议 | HTTP 循环 | HTTP（单向长连接） | WS 升级 | | 方向 | 客户端 → 服务端 | 服务端 → 客户端 | 双工 | | 复杂度 | 低 | 低 | 中 | | 重连 | 应用层
+
+## [REST 规范 / OpenAPI](https://java-px.bot.cd/frontend/09-data/rest)
+> Roy Fielding 2000 年提出的架构风格：**资源 + 表现层 + 状态转移**。 - **资源**（Resource）：一个 URL = 一个资源 - **HTTP 动词**：GET（读）/ POST（建）/ PUT（改）/ DELETE（删）/ PATCH（部分改） - **无状态**：请求自带身份 / 上下文 - **统一接口**：可缓存、可分层 | 状态码 | 含义 | |--
+
+## [tRPC](https://java-px.bot.cd/frontend/09-data/trpc)
+> **TypeScript 优先**的 RPC 方案：服务端定义函数，**前端直接调用，类型自动同步**——零 schema、零 codegen。 底层基于 **TanStack Query**，自动拿到缓存 / refetch / invalidate。 | | tRPC | REST | GraphQL | |--|------|------|---------| | 类型安全 | ✅ 编译期
+
+## [Cypress / Playwright](https://java-px.bot.cd/frontend/10-testing/e2e)
+> | | Cypress | Playwright | |--|---------|------------| | 厂商 | Cypress.io | Microsoft | | 浏览器 | Chromium / Firefox / WebKit | Chromium / Firefox / WebKit | | 语言 | JS / TS | JS / TS / Python / .NET / Ja
+
+## [React Testing Library](https://java-px.bot.cd/frontend/10-testing/rtl)
+> **RTL 测试用户行为，而非实现细节**。 - 找元素：screen.getByRole / getByText / getByLabelText - 触发事件：userEvent.click / type - 断言：可见文本 / 属性 / 值 ✅ 测试组件，❌ 测 hooks / state。 | 方法 | 行为 | |------|------| | `getByRole('button',
+
+## [Storybook 组件测试](https://java-px.bot.cd/frontend/10-testing/storybook)
+> **组件驱动的开发 + 文档平台**：把组件单独拿出来"展示"，独立开发、测试、视觉回归。 自动生成 `.storybook/` 目录和示例 story。 打开 `http://localhost:6006` 即可看到。 可以启用 **@storybook/test-runner** 把所有 story 自动跑一遍。 | 插件 | 作用 | |------|------| | `@storyboo
+
+## [Jest / Vitest 单元测试](https://java-px.bot.cd/frontend/10-testing/unit)
+> | | Jest | Vitest | |--|------|--------| | 引擎 | Node | Vite + esbuild | | 速度 | 慢 | 快 10x+ | | ESM | 配置复杂 | 原生 | | TS | ts-jest | 内置 | | 生态系统 | 极大 | 增长中 | | API | 类似 | 类似（基本可互改） | **新项目建议 Vitest**（Vue
+
+## [Express / Koa](https://java-px.bot.cd/frontend/11-node/express)
+> **Node 生态的事实标准 web 框架**（2010 年发布）。极简、稳定、生态最大。 **Express 同一团队打造**。更现代（基于 async/await + 更小内核）。 `await next()` 可以让中间件在内部"暂停"，等下游执行完再继续。 | | Express | Koa | |--|---------|-----| | 体积 | ~200KB | ~10KB（核心）
+
+## [Fastify / Hono](https://java-px.bot.cd/frontend/11-node/fastify)
+> **性能极强**的 Node web 框架（比 Express 快 2-3x）。插件生态类似 Express。 - **快**：路由用 radix tree，序列化比 Express 快 ~2x - **Schema 优先**：JSON Schema 自动校验 + 序列化 - **日志**集成 pino（最快 Node logger） - **Type Provider**：配合 zod / Ty
+
+## [NestJS](https://java-px.bot.cd/frontend/11-node/nestjs)
+> **类 Spring / Angular 风格的 Node 框架**：DI + 模块化 + 装饰器 + 强类型。适合大型工程。 | 概念 | 作用 | |------|------| | Module | 一组 Provider / Controller 的容器 | | Controller | 路由 + 请求处理 | | Provider（Service） | 业务逻辑、可注入 | | Pipe
+
+## [Node 运行时](https://java-px.bot.cd/frontend/11-node/runtime)
+> Ryan Dahl 2009 年发布：用 **Chrome V8 引擎 + libuv 异步 I/O** 让 JS 跑在服务端。 - **JS 主线程**：单线程（一个调用栈） - **底层 I/O**：libuv 维护**线程池**（默认 4 个）+ OS 异步 syscall - CPU-heavy 会阻塞主线程 → 用 `worker_threads` / `child_process` `
+
+## [Serverless / Edge](https://java-px.bot.cd/frontend/11-node/serverless)
+> 按调用计费、无服务器管理、自动扩缩容。 | 平台 | 函数 | Edge | |------|------|------| | AWS | Lambda | Lambda@Edge / CloudFront Functions | | Vercel | Functions | Edge Functions (V8 isolates) | | Cloudflare | Workers | Worke
+
+## [可访问性 a11y](https://java-px.bot.cd/frontend/12-perf/a11y)
+> | 键 | 行为 | |----|------| | Tab | 下一个焦点 | | Shift+Tab | 上一个 | | Enter | 触发按钮 / 链接 | | Space | 切换复选框 / 按钮激活 | | Esc | 关闭弹窗 | | Arrow | 单选按钮 / tab / 菜单导航 | **焦点陷阱**：弹窗打开时把焦点限制在内部。 工具： - Chrome DevTools 颜
+
+## [Core Web Vitals](https://java-px.bot.cd/frontend/12-perf/cwv)
+> Google 2020 年推出，作为搜索排名因子之一。 | 指标 | 含义 | 阈值（好） | |------|------|----------| | **LCP** (Largest Contentful Paint) | 最大内容渲染时间 | < 2.5s | | **INP** (Interaction to Next Paint) | 交互到下一次绘制 | < 200ms | | **C
+
+## [加载性能](https://java-px.bot.cd/frontend/12-perf/loading)
+> > 减少首屏到达时间（TTI / LCP）。 1. **代码分割（懒加载）** Next.js App Router / Nuxt 自动做基于路由的代码分割。 2. **Tree Shaking**：默认生产模式开启，但别忘了写 side-effect-free 3. **压缩**：开启 gzip / brotli 4. **移除未用依赖** - 用 `<picture>` 或 `<source>
+
+## [运行时性能](https://java-px.bot.cd/frontend/12-perf/runtime)
+> > 用户开始操作后，UI 是否快速响应。 - 把"输入 → state"放到受控组件自身 - 用 stable key（避免 index 当 key） - **派生状态用 useMemo**：处理昂贵计算 Context 全部消费者都会重渲染。最佳实践： - 拆小组件，**用 selector** - 大数据放 `useRef` 或外部 store 1 万行列表也只渲染可见的几十条。 React
+
+## [高频面试题](https://java-px.bot.cd/frontend/13-interview/basic)
+> > 2024-2026 春招 / 秋招常考题汇总。 1. **闭包**：原理 + 实战场景（防抖、Hooks、单次权限） 2. **原型链**：实现继承的几条路 3. **Event Loop**：浏览器 / Node 差别 4. **this 绑定**：call / apply / bind / new / 箭头函数 5. **Promise 全家桶**：all / allSettled / r
+
+## [手写代码题](https://java-px.bot.cd/frontend/13-interview/coding)
+> > 30 个手写代码题，按主题分类。 - [高频面试题](/13-interview/basic) - [系统设计题](/13-interview/system)
+
+## [系统设计题](https://java-px.bot.cd/frontend/13-interview/system)
+> > 面试常考的"大型"题：电商 / 内容 / 协作 / 实时。 **关键设计**： - **发号器**：自增 ID / 雪花 / Hash - **Hash 算法**：MD5 → 取前 N 位 / CRC32 - **冲突处理**：追加 1 字符再 Hash - **存储**：MySQL / Redis（缓存）+ 异步落库 - **301 vs 302**：301 永久（缓存到浏览器），302 临
+
+## [CI/CD](https://java-px.bot.cd/frontend/14-tools/cicd)
+> `.husky/pre-commit` 自动由 husky 生成： `.husky/commit-msg`： 格式：`type(scope?): subject` - feat: 新功能 - fix: 修复 - docs: 文档 - style: 格式 - refactor: 重构 - test: 测试 - chore: 杂项 | 策略 | 描述 | 回滚 | |------|------|---
+
+## [Lint / Format](https://java-px.bot.cd/frontend/14-tools/lint)
+> 常用 preset： - `eslint-config-airbnb`（严格） - `eslint-config-standard`（折中） - `eslint-config-prettier`（与 Prettier 配合） - `eslint-plugin-react` / `eslint-plugin-react-hooks` - `eslint-plugin-jsx-a11y` 顺序：**P
+
+## [微前端](https://java-px.bot.cd/frontend/14-tools/micro-frontend)
+> | | qiankun | micro-app | Module Federation | Single-SPA | wujie | |--|---------|-----------|-------------------|------------|-------| | 出身 | 阿里 | 京东 | Webpack 5 | 历史悠久 | 腾讯 | | 隔离 | Proxy 沙箱 | Proxy
+
+## [前端监控 / Sentry](https://java-px.bot.cd/frontend/14-tools/monitor)
+> Sentry 才能把压缩后的行号还原为源码行号。 `sendBeacon` 在 unload 时仍能发出；用 `fetch` 在 unload 时会被丢弃。 | 信号 | 含义 | |------|------| | **JS error rate ↑** | 某次发布有问题（搜 release） | | **特定页面 error ↑** | 某功能退化 | | **API P95 ↑** | 后
+
+## [知识图谱](https://java-px.bot.cd/frontend/graph)
+> > 80+ 节点，14 大主题分类，节点可点击跳转到对应章节。鼠标拖动可调整布局，悬停查看节点关联。 <ClientOnly> <KnowledgeGraph :height="820" /> </ClientOnly> | 颜色 | 分类 | 主题数 | |------|------|--------| | 🟠 橙 | 基础层 | 5 | | 🔵 蓝 | 语言层 | 4 | | 🩵 青 | UI
+
+## [Untitled](https://java-px.bot.cd/frontend/index)
+> <ClientOnly> <WhyThisGraph :pain-points="[ "HTML / CSS 基础不扎实，遇到复杂布局就懵？", "React / Vue / Angular / Svelte 选哪个？", "浏览器渲染原理、Event Loop 讲不清？", "TypeScript 类型系统、泛型、条件类型卡壳？", "Node 后端怎么写、怎么部署、怎么调优？" ]" :goa
+
+## [思维导图](https://java-px.bot.cd/frontend/mindmap)
+> > 树形结构总览全部知识，可展开/收起节点，点击叶子节点跳转。 <ClientOnly> <MindMap :height="920" /> </ClientOnly> - **全部展开 / 收起**：顶部按钮控制 - **点击叶子节点**：跳转到对应章节 - **重置视图**：恢复初始展开状态
+
+## [学习路径](https://java-px.bot.cd/frontend/path)
+> > 根据你的角色选择对应路径，每条路径推荐了核心阅读顺序。 适合**刚接触前端**的开发者，或转岗的全栈工程师。 1. [🌐 HTML 语义化](/01-foundation/html) — 标签语义与 a11y 2. [🎨 CSS 基础](/01-foundation/css) — 盒模型 / 布局 / 变量 3. [🌐 浏览器渲染原理](/01-foundation/browser) — DO

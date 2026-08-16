@@ -1,0 +1,155 @@
+# observability 子站
+
+> 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
+> 50 个文档页 · 246,296 字
+> 生成时间：2026-08-16T08:58:46
+
+## [可观测性四大支柱](https://java-px.bot.cd/observability/01-foundations/four-pillars)
+> Metrics / Logs / Traces / Events 信号体系
+
+## [监控 vs 可观测性](https://java-px.bot.cd/observability/01-foundations/observability-vs-monitoring)
+> 从传统监控到现代可观测性的范式转变
+
+## [信号类型](https://java-px.bot.cd/observability/01-foundations/signals)
+> Counter / Gauge / Histogram / Summary 的本质与选型
+
+## [SLI / SLO / Error Budget](https://java-px.bot.cd/observability/01-foundations/sli-slo)
+> SRE 三件套
+
+## [自动埋点](https://java-px.bot.cd/observability/02-opentelemetry/auto-instrumentation)
+> Java agent / eBPF / 零代码埋点
+
+## [OTel Collector 详解](https://java-px.bot.cd/observability/02-opentelemetry/collector)
+> OpenTelemetry Collector 部署模式与配置实战
+
+## [OTLP 协议](https://java-px.bot.cd/observability/02-opentelemetry/otlp)
+> OpenTelemetry Line Protocol / gRPC + HTTP
+
+## [OpenTelemetry 概览](https://java-px.bot.cd/observability/02-opentelemetry/overview)
+> OTel 是什么 / 与 OpenTracing/OpenCensus 关系
+
+## [OpenTelemetry SDK](https://java-px.bot.cd/observability/02-opentelemetry/sdk)
+> 编程语言 SDK / 上下文传播 / 资源属性
+
+## [Prometheus 告警规则](https://java-px.bot.cd/observability/03-prometheus/alert)
+> PromQL alert + 多窗口 burn rate
+
+## [Prometheus 数据模型](https://java-px.bot.cd/observability/03-prometheus/data-model)
+> Metric + Label + Sample
+
+## [Prometheus Exporter](https://java-px.bot.cd/observability/03-prometheus/exporter)
+> node_exporter / 黑盒 / 自定义 exporter
+
+## [Prometheus 架构](https://java-px.bot.cd/observability/03-prometheus/overview)
+> Prometheus 整体架构与核心组件
+
+## [PromQL 详解](https://java-px.bot.cd/observability/03-prometheus/promql)
+> Prometheus 查询语言实战
+
+## [Grafana 告警](https://java-px.bot.cd/observability/04-grafana/alerting)
+> Unified Alerting / Contact Points / Notification Policies
+
+## [Grafana Annotation](https://java-px.bot.cd/observability/04-grafana/annotation)
+> 时间轴标记 / 部署事件 / 告警叠加
+
+## [Grafana Dashboard 设计](https://java-px.bot.cd/observability/04-grafana/dashboard)
+> 监控大盘设计原则与实战
+
+## [Grafana 概览](https://java-px.bot.cd/observability/04-grafana/overview)
+> 数据源 / Dashboard / 告警
+
+## [Grafana 变量](https://java-px.bot.cd/observability/04-grafana/variables)
+> Variables / Templating / Dropdown
+
+## [Loki 最佳实践](https://java-px.bot.cd/observability/05-loki/best-practice)
+> 标签设计 / 存储优化 / 性能调优
+
+## [LogQL 查询语言](https://java-px.bot.cd/observability/05-loki/logql)
+> Loki + Promtail + Grafana
+
+## [Loki 概览](https://java-px.bot.cd/observability/05-loki/overview)
+> Grafana Labs 的日志聚合系统
+
+## [Loki Pipeline 处理](https://java-px.bot.cd/observability/05-loki/pipeline)
+> Promtail pipeline stages / 字段提取 / 转换
+
+## [Trace / Span 概念](https://java-px.bot.cd/observability/06-tracing/concepts)
+> 链路追踪核心数据模型
+
+## [Jaeger 链路追踪](https://java-px.bot.cd/observability/06-tracing/jaeger)
+> Uber 开源的 CNCF 毕业 tracing 系统
+
+## [Tracing 协议对比](https://java-px.bot.cd/observability/06-tracing/protocol-compare)
+> OTLP / Jaeger / Zipkin / OpenTracing
+
+## [Tempo 链路追踪](https://java-px.bot.cd/observability/06-tracing/tempo)
+> Grafana Labs 的轻量级 tracing 后端
+
+## [Zipkin 链路追踪](https://java-px.bot.cd/observability/06-tracing/zipkin)
+> Twitter 2012 开源 / 分布式 tracing 鼻祖
+
+## [Elasticsearch 日志存储](https://java-px.bot.cd/observability/07-elk-efk/elasticsearch-logs)
+> ES 作为日志后端 + ILM + Index Template
+
+## [Filebeat 轻量日志采集](https://java-px.bot.cd/observability/07-elk-efk/filebeat)
+> Elastic 官方的轻量采集器
+
+## [Fluentd 日志采集](https://java-px.bot.cd/observability/07-elk-efk/fluentd)
+> CNCF 毕业的统一日志层
+
+## [Kibana 可视化](https://java-px.bot.cd/observability/07-elk-efk/kibana)
+> Elastic Stack 的可视化层
+
+## [Alertmanager 架构与配置](https://java-px.bot.cd/observability/08-alerting/alertmanager)
+> 去重 / 分组 / 路由 / 抑制
+
+## [On-call 文化与值班](https://java-px.bot.cd/observability/08-alerting/oncall)
+> PagerDuty / OpsGenie / 值班轮转
+
+## [告警分级](https://java-px.bot.cd/observability/08-alerting/severity)
+> P0/P1/P2/P3 与响应 SLO
+
+## [告警静默](https://java-px.bot.cd/observability/08-alerting/silence)
+> Silence / 维护窗口 / 已知问题屏蔽
+
+## [业务指标设计](https://java-px.bot.cd/observability/09-app-instrumentation/business-metrics)
+> DAU / 转化率 / 漏斗 / 业务 SLO
+
+## [JVM 指标采集](https://java-px.bot.cd/observability/09-app-instrumentation/jvm-metrics)
+> JMX / Micrometer / async-profiler
+
+## [K8s 指标采集](https://java-px.bot.cd/observability/09-app-instrumentation/k8s-metrics)
+> kube-state-metrics / cAdvisor / Prometheus Operator
+
+## [RED 方法](https://java-px.bot.cd/observability/09-app-instrumentation/red-method)
+> Rate / Errors / Duration
+
+## [USE 方法](https://java-px.bot.cd/observability/09-app-instrumentation/use-method)
+> Utilization / Saturation / Errors
+
+## [Java async-profiler](https://java-px.bot.cd/observability/10-profiling/async-profiler)
+> Java 生产级低开销 profiler
+
+## [持续剖析](https://java-px.bot.cd/observability/10-profiling/continuous-profiling)
+> Continuous Profiling — 生产环境不间断 profiling
+
+## [Go pprof 剖析](https://java-px.bot.cd/observability/10-profiling/pprof)
+> Go 内置的性能剖析工具
+
+## [Pyroscope 持续剖析实战](https://java-px.bot.cd/observability/10-profiling/pyroscope)
+> Grafana Labs 持续剖析平台
+
+## [可观测成本优化](https://java-px.bot.cd/observability/11-scenarios/cost-optimization)
+> 存储成本 / 采样 / 保留期 / 标签基数
+
+## [数据库可观测性](https://java-px.bot.cd/observability/11-scenarios/database-monitor)
+> MySQL / PostgreSQL / Redis 监控实践
+
+## [K8s 全栈监控实战](https://java-px.bot.cd/observability/11-scenarios/k8s-monitor)
+> ServiceMonitor + PrometheusRule + Grafana 完整 yaml
+
+## [微服务全链路追踪](https://java-px.bot.cd/observability/11-scenarios/microservice-trace)
+> 跨服务 trace + 服务地图 + 依赖分析
+
+## [Observability 知识图谱](https://java-px.bot.cd/observability/index)
+> <ClientOnly> <WhyThisGraph :pain-points="[ "单体时代（CPU/内存/磁盘）vs 微服务时代（调用链/性能瓶颈）监控差异？", "Metrics / Logs / Traces 三件套怎么选型（Prometheus / Loki / Jaeger）？", "OpenTelemetry（OTel） Collector / SDK / Exporter 怎么部

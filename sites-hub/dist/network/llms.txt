@@ -1,0 +1,203 @@
+# network 子站
+
+> 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
+> 66 个文档页 · 204,216 字
+> 生成时间：2026-08-16T08:58:46
+
+## [数据封装与解封装](https://java-px.bot.cd/network/01-basics/encapsulation)
+> > 网络通信过程中数据如何被**层层包装**和**层层拆解**。 **每层加上自己的头部（Header）** | 网络 | MTU（字节）| |---|---| | Ethernet | 1500 | | PPPoE | 1492 | | 4G LTE | 1500 | | WiFi | 1500 | | 巨型帧 (Jumbo Frame) | 9000 | **分片：** 当 IP 包 > MT
+
+## [网络性能指标](https://java-px.bot.cd/network/01-basics/metrics)
+> > 评估网络质量的**关键度量**，是性能优化的基础。 | 指标 | 英文 | 含义 | 公式 | |---|---|---|---| | **带宽** | Bandwidth | 最大传输速率 | bps（bit/s）| | **吞吐量** | Throughput | 实际传输速率 | bps | | **延迟** | Latency | 数据传输时间 | ms | | **丢包率** | P
+
+## [OSI 七层模型](https://java-px.bot.cd/network/01-basics/osi)
+> > 国际标准化组织（ISO）提出的**网络通信参考模型**，是理解计算机网络的基石。 | 层 | 名称 | 数据单位 | 主要协议/设备 | 功能 | |---|---|---|---|---| | 7 | 应用层 | 报文 | HTTP, DNS, FTP, SMTP | 用户接口、网络服务 | | 6 | 表示层 | 报文 | SSL/TLS, JPEG, ASCII | 数据表示、加密 |
+
+## [TCP/IP 四层模型](https://java-px.bot.cd/network/01-basics/tcp-ip)
+> > 互联网实际使用的协议族模型，比 OSI 更精简。 | 层 | 名称 | 数据单位 | 核心协议 | 关键设备 | |---|---|---|---|---| | 4 | 应用层 | 报文/数据 | HTTP, DNS, TLS, FTP | 网关、代理 | | 3 | 传输层 | 段（TCP）/数据报（UDP）| TCP, UDP | 负载均衡器 | | 2 | 网际层 | IP 包 | IP
+
+## [传输介质](https://java-px.bot.cd/network/02-physical/media)
+> > 物理层用于传输信号的**媒介**，决定网络的带宽、距离和抗干扰性。 | 介质 | 类型 | 带宽 | 距离 | 抗干扰 | 成本 | |---|---|---|---|---|---| | **Cat5e** | 双绞线 | 100 MHz / 1 Gbps | 100m | 中 | 低 | | **Cat6** | 双绞线 | 250 MHz / 10 Gbps | 55m | 中 | 低
+
+## [复用技术](https://java-px.bot.cd/network/02-physical/multiplexing)
+> > 在一条物理链路上传输**多路信号**，提升信道利用率。 | 复用方式 | 英文 | 区分依据 | 典型应用 | |---|---|---|---| | **频分复用** | FDM | 频率 | 无线电、有线电视 | | **时分复用** | TDM | 时间 | 数字电话、E1/T1 | | **波分复用** | WDM | 波长 | 光纤通信 | 将信道带宽划分为多个**不同频段**，每路
+
+## [信号与编码](https://java-px.bot.cd/network/02-physical/signal)
+> > 物理层将**比特流**转换成**物理信号**传输。 | 类型 | 特点 | 应用 | |---|---|---| | 模拟信号 | 连续、随时间平滑变化 | 老式电话、广播 | | 数字信号 | 离散、抗干扰强 | 现代网络 | **优点：** 自带时钟同步 | 方式 | 含义 | 适用 | |---|---|---| | 基带 | 直接传输数字信号 | 局域网（以太网）| | 频带 | 调制
+
+## [以太网与交换机](https://java-px.bot.cd/network/03-data-link/ethernet)
+> > 以太网（Ethernet）是局域网**最主流**的技术，交换机是其核心设备。 | 标准 | 年份 | 速率 | 介质 | |---|---|---|---| | 10Base-5 | 1980 | 10 Mbps | 粗同轴 | | 10Base-2 | 1985 | 10 Mbps | 细同轴 | | 10Base-T | 1990 | 10 Mbps | 双绞线 | | 100Base-T
+
+## [MAC 地址](https://java-px.bot.cd/network/03-data-link/mac)
+> > 网络设备的**物理地址**，是数据链路层的核心标识。 **MAC（Media Access Control）地址**是网卡出厂时固化的 48 位物理地址，全球唯一。 | 类型 | 第 8 位 | 范围 | 用途 | |---|---|---|---| | **单播** | 0 | 00:xx:xx:xx:xx:xx | 一对一通信 | | **多播** | 1 | 01:xx:xx:xx:xx
+
+## [STP / RSTP](https://java-px.bot.cd/network/03-data-link/stp)
+> > 生成树协议，防止**交换机环路**导致的广播风暴。 **交换机环路的危害：** **Spanning Tree Protocol（IEEE 802.1D）** 通过**选举**机制，关闭某些端口，打破环路： **实例：** - SW1: Priority 32768, MAC 00:00:00:00:00:01 - SW2: Priority 32768, MAC 00:00:00:00:00
+
+## [VLAN](https://java-px.bot.cd/network/03-data-link/vlan)
+> > 虚拟局域网，在**物理交换机**上划分多个**逻辑上隔离**的网络。 **没有 VLAN 的问题：** - 所有设备在同一广播域 - 广播包泛滥（ARP、DHCP） - 安全性差（任何设备互通） - 网络规模受限 **VLAN 解决方案：** | 类型 | 描述 | 标识 | |---|---|---| | **基于端口** | 最常用 | 端口固定划分 | | **基于 MAC** | MA
+
+## [ARP 协议](https://java-px.bot.cd/network/04-network/arp)
+> <div class="nt-badge nt-badge-network">网络层</div> <div class="nt-badge nt-badge-datalink">链路层</div> ARP（Address Resolution Protocol）用于将 **IP 地址解析为 MAC 地址**，是 IPv4 网络中主机通信的第一步。 主机拿到目标 IP 后，需要知道对方的 MAC 才
+
+## [OSPF 与 BGP](https://java-px.bot.cd/network/04-network/bgp-ospf)
+> <div class="nt-badge nt-badge-network">路由协议</div> <div class="nt-badge nt-badge-interview">高频</div> OSPF（Open Shortest Path First）是主流的**链路状态 IGP**；BGP（Border Gateway Protocol）是互联网的**路径矢量 EGP**。两者共同支撑了
+
+## [ICMP 协议](https://java-px.bot.cd/network/04-network/icmp)
+> <div class="nt-badge nt-badge-network">网络层</div> <div class="nt-badge nt-badge-tools">诊断</div> ICMP（Internet Control Message Protocol）是 IP 的伴随协议，用于在 IP 网络中传递**控制与差错消息**，是 `ping` / `traceroute` 的基础。 |
+
+## [IP 地址](https://java-px.bot.cd/network/04-network/ip-address)
+> <div class="nt-badge nt-badge-basics">网络层</div> <div class="nt-badge nt-badge-network">核心</div> IP（Internet Protocol）地址是分配给网络设备用于在 IP 网络中通信的唯一标识。本章系统讲解 IPv4 / IPv6、地址分类、子网划分、CIDR 等核心知识。 | 特性 | 说明 | |
+
+## [IPv6 协议](https://java-px.bot.cd/network/04-network/ipv6)
+> <div class="nt-badge nt-badge-network">网络层</div> <div class="nt-badge nt-badge-cloud">未来</div> IPv6（Internet Protocol version 6）使用 128 bit 地址，从根本上解决 IPv4 地址枯竭问题，并简化了报文头、增强安全与 QoS。 | 问题 | IPv6 解决方案 | |
+
+## [NAT 网络地址转换](https://java-px.bot.cd/network/04-network/nat)
+> <div class="nt-badge nt-badge-network">网络层</div> <div class="nt-badge nt-badge-cloud">实战</div> NAT（Network Address Translation）通过将**私有 IP** 映射为**公网 IP**，缓解 IPv4 地址枯竭，同时提供基础防护。 | 问题 | NAT 的作用 | | --- |
+
+## [IP 路由](https://java-px.bot.cd/network/04-network/routing)
+> <div class="nt-badge nt-badge-network">网络层</div> <div class="nt-badge nt-badge-interview">核心</div> IP 路由是路由器根据**目的 IP** 在路由表中查找匹配条目，转发数据到下一跳的过程。 | 要素 | 说明 | | --- | --- | | 目的网络 | 目标网段（CIDR） | | 下一跳 |
+
+## [子网划分与 VLSM](https://java-px.bot.cd/network/04-network/subnet)
+> <div class="nt-badge nt-badge-network">网络层</div> <div class="nt-badge nt-badge-interview">高频面试</div> 子网划分（Subnetting）是从一个大的 IP 段中拆出多个子网；VLSM（Variable Length Subnet Masking）允许同一网段内使用不同长度的子网掩码，让地址分配更精细。
+
+## [Socket 编程](https://java-px.bot.cd/network/05-transport/socket)
+> <div class="nt-badge nt-badge-transport">传输层</div> <div class="nt-badge nt-badge-tools">实战</div> Socket 是应用层与传输层之间的**编程接口**，是网络通信的端点。本章梳理 TCP/UDP 客户端、服务端、IO 模型与常见调优。 | 类型 | 协议 | 特点 | | --- | --- | ---
+
+## [TCP 拥塞控制](https://java-px.bot.cd/network/05-transport/tcp-congestion)
+> <div class="nt-badge nt-badge-transport">传输层</div> <div class="nt-badge nt-badge-interview">高频</div> 拥塞控制（Congestion Control）让发送方**探测**网络承载能力，避免注入过多数据导致路由器丢包与瘫痪。 | 维度 | 拥塞控制 | 流量控制 | | --- | --- | ---
+
+## [TCP 流量控制](https://java-px.bot.cd/network/05-transport/tcp-flow-control)
+> <div class="nt-badge nt-badge-transport">传输层</div> <div class="nt-badge nt-badge-interview">中频</div> 流量控制（Flow Control）让**发送方速度匹配接收方处理能力**，避免淹没接收方。TCP 通过**滑动窗口**机制实现。 - 目的：接收方别被发送方压垮 - 手段：接收方在 ACK 中告知
+
+## [TCP 三次握手](https://java-px.bot.cd/network/05-transport/tcp-handshake)
+> <div class="nt-badge nt-badge-transport">传输层</div> <div class="nt-badge nt-badge-interview">必考</div> TCP 是面向连接的可靠协议，建立连接需要 **三次握手**（Three-Way Handshake），目的是同步双方序列号并确认收发能力。 | Flag | 全称 | 含义 | | --- | -
+
+## [TCP 可靠传输](https://java-px.bot.cd/network/05-transport/tcp-reliable)
+> <div class="nt-badge nt-badge-transport">传输层</div> <div class="nt-badge nt-badge-interview">高频</div> TCP 通过**序列号 + 确认应答 + 超时重传**等机制保证数据**无差错、不丢失、不重复、按序到达**。 | 机制 | 作用 | | --- | --- | | 序列号（Seq） | 标识每个
+
+## [TCP 四次挥手](https://java-px.bot.cd/network/05-transport/tcp-wave)
+> <div class="nt-badge nt-badge-transport">传输层</div> <div class="nt-badge nt-badge-interview">必考</div> TCP 断开连接需要**四次挥手**（Four-Way Wavehand），因 TCP 是**全双工**，需要分别关闭两个方向的连接。 | 阶段 | Client | Server | | ---
+
+## [UDP 协议](https://java-px.bot.cd/network/05-transport/udp)
+> <div class="nt-badge nt-badge-transport">传输层</div> <div class="nt-badge nt-badge-basics">入门</div> UDP（User Datagram Protocol）是一种**无连接、不可靠、面向报文**的传输层协议，追求**低延迟**和**简单**。 | 特性 | 说明 | | --- | --- | | 无连接
+
+## [CDN 内容分发网络](https://java-px.bot.cd/network/06-application/cdn)
+> <div class="nt-badge nt-badge-app">应用层</div> <div class="nt-badge nt-badge-cloud">基础设施</div> CDN（Content Delivery Network）通过在**全球部署边缘节点**，让用户从**最近的节点**获取内容，显著降低延迟、减轻源站压力。 | 问题 | CDN 解决 | | --- | --- |
+
+## [DNS 域名解析](https://java-px.bot.cd/network/06-application/dns)
+> <div class="nt-badge nt-badge-app">应用层</div> <div class="nt-badge nt-badge-basics">基础</div> DNS（Domain Name System）将人类可读的域名（如 `www.example.com`）转换为 IP 地址，是互联网的"电话簿"。 | 概念 | 说明 | | --- | --- | | 域名空间 |
+
+## [HTTP 协议](https://java-px.bot.cd/network/06-application/http)
+> <div class="nt-badge nt-badge-app">应用层</div> <div class="nt-badge nt-badge-basics">基础</div> HTTP（HyperText Transfer Protocol）是浏览器与 Web 服务器之间的**请求-响应**协议，是互联网最核心的应用层协议。 | 特性 | 说明 | | --- | --- | | 请求-响
+
+## [HTTP/2 与 HTTP/3](https://java-px.bot.cd/network/06-application/http2-3)
+> <div class="nt-badge nt-badge-app">应用层</div> <div class="nt-badge nt-badge-cloud">性能</div> HTTP/2 与 HTTP/3 是为解决 HTTP/1.1 **队头阻塞、连接数受限、协议冗余**等问题而设计的演进协议。 | 问题 | 现象 | | --- | --- | | 队头阻塞 | 一个响应延迟阻塞后续 |
+
+## [HTTPS 与 TLS](https://java-px.bot.cd/network/06-application/https)
+> <div class="nt-badge nt-badge-app">应用层</div> <div class="nt-badge nt-badge-security">加密</div> HTTPS = HTTP + TLS（早期为 SSL），在传输层与应用层之间插入**加密层**，保护数据的**机密性、完整性、真实性**。 | 风险 | 后果 | | --- | --- | | 明文传输 | 中
+
+## [RESTful API 设计](https://java-px.bot.cd/network/06-application/restful)
+> <div class="nt-badge nt-badge-app">应用层</div> <div class="nt-badge nt-badge-basics">基础</div> REST（Representational State Transfer）是一种基于 HTTP 的**资源导向**架构风格，被广泛用于 Web API 设计。 | 原则 | 含义 | | --- | --- | |
+
+## [RPC 远程过程调用](https://java-px.bot.cd/network/06-application/rpc)
+> <div class="nt-badge nt-badge-app">应用层</div> <div class="nt-badge nt-badge-cloud">微服务</div> RPC（Remote Procedure Call）让程序像调用本地方法一样调用远程服务，隐藏了网络通信细节。 | 维度 | RPC | REST | | --- | --- | --- | | 风格 | 面向动作
+
+## [WebSocket](https://java-px.bot.cd/network/06-application/websocket)
+> <div class="nt-badge nt-badge-app">应用层</div> <div class="nt-badge nt-badge-cloud">实时</div> WebSocket 是 HTML5 引入的**全双工通信协议**，在一个 TCP 连接上实现客户端与服务器**双向实时**通信，是 HTTP 的升级。 | HTTP 痛点 | WebSocket 解决 | | ---
+
+## [对称加密与非对称加密](https://java-px.bot.cd/network/07-security/encryption)
+> <div class="nt-badge nt-badge-security">网络安全</div> <div class="nt-badge nt-badge-basics">基础</div> 加密是网络安全的基石。本章系统讲解对称加密、非对称加密、摘要算法、数字签名等核心概念。 **特点**：加解密使用**同一把密钥**。 | 算法 | 密钥长度 | 块大小 | 状态 | | --- | --
+
+## [防火墙与 VPN](https://java-px.bot.cd/network/07-security/firewall-vpn)
+> <div class="nt-badge nt-badge-security">网络安全</div> <div class="nt-badge nt-badge-cloud">基础设施</div> 防火墙是网络边界的第一道防线，VPN 在公网上构建安全加密隧道，两者共同构成企业网络的安全底座。 | 类别 | 工作层 | 特点 | | --- | --- | --- | | 包过滤防火墙 | L3/
+
+## [常见网络攻击](https://java-px.bot.cd/network/07-security/network-attack)
+> <div class="nt-badge nt-badge-security">网络安全</div> <div class="nt-badge nt-badge-interview">高频</div> 本章梳理常见网络攻击手法与防御措施，是安全工程师与后端开发的必备知识。 | 维度 | 类别 | | --- | --- | | 被动 | 窃听、嗅探 | | 主动 | 篡改、伪造、重放 | | 拒绝
+
+## [PKI 与 TLS 实战](https://java-px.bot.cd/network/07-security/pki-tls)
+> <div class="nt-badge nt-badge-security">网络安全</div> <div class="nt-badge nt-badge-tools">实战</div> 本章聚焦 PKI 与 TLS 在生产环境中的落地：证书签发、TLS 部署、配置加固、故障排查。 证书路径： 适合企业内网、IoT、测试环境。 | 优化 | 收益 | | --- | --- | | TLS
+
+## [SIEM 与 WAF](https://java-px.bot.cd/network/07-security/siem-waf)
+> <div class="nt-badge nt-badge-security">网络安全</div> <div class="nt-badge nt-badge-cloud">运营</div> SIEM（安全信息与事件管理）和 WAF（Web 应用防火墙）是企业安全运营的核心组件，分别从**全局事件**和**应用层攻击**两个维度提供防护。 **SIEM = SI（M） + EM** - **SI
+
+## [数字签名与 PKI](https://java-px.bot.cd/network/07-security/signature-pki)
+> <div class="nt-badge nt-badge-security">网络安全</div> <div class="nt-badge nt-badge-cloud">基础设施</div> 数字签名（Digital Signature）证明数据**完整性 + 来源真实性**；PKI（Public Key Infrastructure）通过 CA 证书体系将公钥与身份绑定，构成全球信任基石。
+
+## [无线安全](https://java-px.bot.cd/network/07-security/wireless-security)
+> <div class="nt-badge nt-badge-security">网络安全</div> <div class="nt-badge nt-badge-wireless">无线</div> 无线网络因**空气传播**特性，安全挑战与有线不同。本章梳理 WiFi 安全演进、常见攻击与防御。 | 协议 | 全称 | 状态 | | --- | --- | --- | | WEP | Wired
+
+## [5G 与移动网络](https://java-px.bot.cd/network/08-wireless/5g)
+> <div class="nt-badge nt-badge-wireless">无线网络</div> <div class="nt-badge nt-badge-cloud">蜂窝</div> 5G 是第五代移动通信技术，定义了 eMBB（增强移动宽带）、mMTC（大规模物联网）、URLLC（超可靠低时延）三大场景。 | 代际 | 特点 | 速率 | | --- | --- | --- | | 1
+
+## [蓝牙与短距](https://java-px.bot.cd/network/08-wireless/bluetooth)
+> <div class="nt-badge nt-badge-wireless">无线网络</div> <div class="nt-badge nt-badge-cases">短距</div> 蓝牙（Bluetooth）是 2.4 GHz ISM 频段的**短距离**低功耗通信协议，广泛用于耳机、手表、IoT 设备。 | 版本 | 速率 | 关键特性 | | --- | --- | --- | |
+
+## [物联网通信](https://java-px.bot.cd/network/08-wireless/iot)
+> <div class="nt-badge nt-badge-wireless">无线网络</div> <div class="nt-badge nt-badge-cloud">IoT</div> 物联网（IoT）通信按**距离**分为短距（蓝牙、Zigbee、WiFi）和广域（LoRa、NB-IoT、4G/5G），按**功耗**分为电池供电的低功耗方案与持续供电的宽带方案。 | 协议 | 频段 |
+
+## [WiFi 原理](https://java-px.bot.cd/network/08-wireless/wifi)
+> <div class="nt-badge nt-badge-wireless">无线网络</div> <div class="nt-badge nt-badge-basics">基础</div> WiFi 基于 IEEE 802.11 协议族，使用 **2.4 / 5 / 6 GHz** 频段，是最普及的无线局域网技术。 | 标准 | 频段 | 最高速率 | 发布时间 | | --- | ---
+
+## [云上 DNS 与 CDN](https://java-px.bot.cd/network/09-cloud-network/dns-cdn)
+> <div class="nt-badge nt-badge-cloud">云网络</div> <div class="nt-badge nt-badge-cases">实战</div> 云上 DNS 提供智能解析与负载均衡，CDN 在全球边缘节点缓存静态内容，两者共同支撑大规模网站的高可用与高性能。 | 厂商 | 产品 | | --- | --- | | AWS | Route 53 | | Az
+
+## [SDN 与 Service Mesh](https://java-px.bot.cd/network/09-cloud-network/sdn-service-mesh)
+> <div class="nt-badge nt-badge-cloud">云网络</div> <div class="nt-badge nt-badge-cases">进阶</div> SDN（Software Defined Networking）将网络**控制面**与**数据面**分离；Service Mesh 是微服务时代的**服务间通信基础设施**。两者都体现了"网络可编程"的趋势。 |
+
+## [负载均衡 SLB](https://java-px.bot.cd/network/09-cloud-network/slb)
+> <div class="nt-badge nt-badge-cloud">云网络</div> <div class="nt-badge nt-badge-network">核心</div> 负载均衡（Server Load Balancer）将流量**均匀**分配到后端多台服务器，提升可用性与扩展性，是云上入口流量的关键组件。 | 维度 | 类别 | | --- | --- | | 层级 | L4
+
+## [VPC 虚拟私有云](https://java-px.bot.cd/network/09-cloud-network/vpc)
+> <div class="nt-badge nt-badge-cloud">云网络</div> <div class="nt-badge nt-badge-network">核心</div> VPC（Virtual Private Cloud）是公有云中**逻辑隔离**的网络空间，用户可在 VPC 内自由规划网段、路由、网关、安全策略，是云上网络的基础。 | 概念 | 说明 | | --- | --
+
+## [网络监控](https://java-px.bot.cd/network/10-tools/monitoring)
+> <div class="nt-badge nt-badge-tools">监控</div> <div class="nt-badge nt-badge-cloud">运维</div> 网络监控是保障服务稳定性的关键，本章梳理常用监控工具、指标、可视化方案。 | 维度 | 指标 | | --- | --- | | 设备 | CPU、内存、温度、电源、风扇 | | 接口 | 带宽、错包、丢包、CRC
+
+## [网络性能测试](https://java-px.bot.cd/network/10-tools/performance-test)
+> <div class="nt-badge nt-badge-tools">性能</div> <div class="nt-badge nt-badge-cases">实战</div> 网络性能测试包括**带宽、时延、抖动、丢包、并发**等维度。本章梳理主流工具与调优思路。 | 指标 | 含义 | 单位 | | --- | --- | --- | | 带宽（Bandwidth） | 最大传输速率 |
+
+## [tcpdump 与 curl](https://java-px.bot.cd/network/10-tools/tcpdump-curl)
+> <div class="nt-badge nt-badge-tools">调试工具</div> <div class="nt-badge nt-badge-basics">基础</div> `tcpdump` 是 Linux 命令行抓包工具，`curl` 是 HTTP 调试瑞士军刀。两者结合足以解决大部分网络调试问题。 | 表达式 | 含义 | | --- | --- | | host 1.2.3
+
+## [故障排查方法](https://java-px.bot.cd/network/10-tools/troubleshooting)
+> <div class="nt-badge nt-badge-tools">故障排查</div> <div class="nt-badge nt-badge-cases">实战</div> 网络故障排查需要**分层**思维（OSI 各层）+ **系统化**思路（先易后难，先外后内）。本章给出常用排查方法与命令清单。 **原则**：从下往上排查。L1 通了再考虑 L2...L7。 - 客户端 → 服务
+
+## [Wireshark 抓包](https://java-px.bot.cd/network/10-tools/wireshark)
+> <div class="nt-badge nt-badge-tools">抓包排查</div> <div class="nt-badge nt-badge-interview">必备</div> Wireshark 是业界最流行的**网络协议分析器**，能抓取并解析几乎所有常见协议，是网络工程师与开发者的必备工具。 - **网卡混杂模式**：抓取所有经过网卡的帧 - **本地抓包**：loopba
+
+## [CDN 全站加速](https://java-px.bot.cd/network/11-cases/cdn-case)
+> <div class="nt-badge nt-badge-cases">企业案例</div> <div class="nt-badge nt-badge-cloud">CDN</div> 通过 CDN 全站加速，将静态资源、API 动态请求优化到极致，是中大型网站的标配。 | 场景 | 问题 | | --- | --- | | 跨地域访问 | 海外慢、延迟 500ms+ | | 静态资源 | 占
+
+## [跨地域组网](https://java-px.bot.cd/network/11-cases/cross-region)
+> <div class="nt-badge nt-badge-cases">企业案例</div> <div class="nt-badge nt-badge-cloud">基础设施</div> 跨地域组网是全球化业务的关键，涉及专线、SD-WAN、Global Accelerator、Anycast 等技术。 | 场景 | 需求 | | --- | --- | | 多地办公 | 内网互通 | | 异
+
+## [HTTPS 性能优化](https://java-px.bot.cd/network/11-cases/https-https)
+> <div class="nt-badge nt-badge-cases">企业案例</div> <div class="nt-badge nt-badge-security">HTTPS</div> HTTPS 在安全之外也带来性能开销，本章梳理典型优化手段。 | 阶段 | 开销 | | --- | --- | | TLS 握手 | 1~2 RTT | | 非对称运算 | RSA 2048 ~ 5
+
+## [微服务网络](https://java-px.bot.cd/network/11-cases/microservice-network)
+> <div class="nt-badge nt-badge-cases">企业案例</div> <div class="nt-badge nt-badge-cloud">微服务</div> 微服务架构中，服务间通信、流量治理、可观测性是网络层的核心挑战。本章梳理典型方案与落地。 | 模式 | 协议 | 适用 | | --- | --- | --- | | 同步 RPC | gRPC / Thrif
+
+## [案例题](https://java-px.bot.cd/network/12-interview-practice/cases)
+> <div class="nt-badge nt-badge-interview">面试</div> <div class="nt-badge nt-badge-cases">综合</div> 本章汇总网络方向的案例题，给出思路与参考答案。 **思路**： **关键技术**： - Envoy / Nginx 多 worker - epoll / io_uring - 连接池 - 长连接复用 - 零拷
+
+## [协议对比](https://java-px.bot.cd/network/12-interview-practice/comparison)
+> <div class="nt-badge nt-badge-interview">面试</div> <div class="nt-badge nt-badge-basics">速记</div> 本章汇总常见协议的对比表，方便速记。 | 维度 | TCP | UDP | | --- | --- | --- | | 连接 | 三次握手 | 无 | | 可靠性 | ACK + 重传 | 无 | | 顺序
+
+## [高频面试题](https://java-px.bot.cd/network/12-interview-practice/questions)
+> <div class="nt-badge nt-badge-interview">面试</div> <div class="nt-badge nt-badge-basics">高频</div> 本章汇总计算机网络方向的高频面试题，按主题分类。 | OSI 七层 | TCP/IP 四层 | | --- | --- | | 应用层 | 应用层 | | 表示层 | 应用层 | | 会话层 | 应用层 |
+
+## [速记卡](https://java-px.bot.cd/network/cheatsheet)
+> <div class="nt-badge nt-badge-interview">速记</div> <div class="nt-badge nt-badge-cases">面试</div> 一页速记，覆盖**最常用**的协议、命令、面试题，便于快速回顾。 | 协议 | 端口 | 用途 | | --- | --- | --- | | HTTP | 80 | Web | | HTTPS | 443
+
+## [知识图谱](https://java-px.bot.cd/network/graph)
+> <div class="nt-badge nt-badge-network">图谱</div> <div class="nt-badge nt-badge-basics">全景</div> 通过交互式知识图谱，**全局**理解计算机网络的技术栈关系。点击节点跳转到对应文档。 <KnowledgeGraph /> | 分类 | 颜色 | 节点数 | | --- | --- | --- | | 网络基
+
+## [计算机网络知识库](https://java-px.bot.cd/network/index)
+> <ClientOnly> <WhyThisGraph :pain-points="[ "TCP/IP 协议栈（IP / TCP / UDP / HTTP）讲不清？", "三次握手 / 四次挥手 / TIME_WAIT 太多怎么排查？", "HTTPS / TLS 1.3 / HTTP/2 / HTTP/3 关系？", "DNS 解析过程、CDN 调度、负载均衡策略？", "网络排查工具（tcpdu
+
+## [思维导图](https://java-px.bot.cd/network/mindmap)
+> <div class="nt-badge nt-badge-network">导图</div> <div class="nt-badge nt-badge-interview">结构化</div> 通过交互式思维导图，**结构化**梳理计算机网络知识体系。 <MindMap /> - 鼠标拖动：移动画布 - 点击节点：展开/折叠子节点 - 滚轮：缩放 - 顶部按钮：全部展开、全部折叠、重置视角
+
+## [学习路径](https://java-px.bot.cd/network/path)
+> <div class="nt-badge nt-badge-basics">入门</div> <div class="nt-badge nt-badge-interview">系统化</div> 按图索骥，从入门到精通。本章提供**5 条学习路径**，适配不同角色与目标。 | 资源 | 链接 | 说明 | | --- | --- | --- | | 书籍 | 《TCP/IP 详解 卷1》 | 经典

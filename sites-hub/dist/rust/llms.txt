@@ -1,0 +1,110 @@
+# rust 子站
+
+> 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
+> 35 个文档页 · 119,136 字
+> 生成时间：2026-08-16T08:58:46
+
+## [借用 Borrowing](https://java-px.bot.cd/rust/01-basics/borrowing)
+> 借用允许"使用值而不获取所有权"。通过 `&` 和 `&mut` 两种引用实现，编译期防止数据竞争。 > **借用 = 不获取所有权的引用**。**两大规则：不可变借用可多个、可变借用独占、不可变与可变不可共存**。**编译期消灭数据竞争**。 --- - **01-basics/ownership**：所有权基础 - **01-basics/lifetimes**：生命周期标注 - **04-c
+
+## [Hello World 实战](https://java-px.bot.cd/rust/01-basics/hello-world)
+> 第一个 Rust 程序：从安装到部署，完整实战。 > **Hello World = 安装 Rust → cargo new → cargo run**。**5 分钟跑通，30 分钟熟悉工具链**。 --- - **01-basics/overview**：基础总览 - **03-ecosystem/cargo**：Cargo 深度 - **03-ecosystem/tooling**：工具链 |
+
+## [生命周期 Lifetimes](https://java-px.bot.cd/rust/01-basics/lifetimes)
+> 生命周期是 Rust 防止悬垂引用的机制：每个引用都有生命周期，标注确保引用不会比它指向的数据活得更久。 > **生命周期 = 引用的有效期标注**。**核心规则：引用的生命周期 ≤ 数据的生命周期**。**多数情况自动推断，复杂情况手动标注**。 --- - **01-basics/ownership**：所有权 - **01-basics/borrowing**：借用 - **02-types
+
+## [Rust 基础总览](https://java-px.bot.cd/rust/01-basics/overview)
+> Rust 入门阶段的核心：所有权 / 借用 / 生命周期三大概念 + Rust 思维模型建立。 > **Rust 基础 = 所有权 + 借用 + 生命周期**。**核心理念：内存安全 + 零成本抽象 + 无 GC**。**学习曲线陡峭但回报丰厚**。 --- | 维度 | C/C++ | Java/Go | Rust | |------|-------|---------|------| | **
+
+## [所有权 Ownership](https://java-px.bot.cd/rust/01-basics/ownership)
+> 所有权是 Rust 最核心的概念：每个值有且仅有一个所有者，所有者离开作用域时值被自动 drop。 > **所有权 = Rust 的"内存安全无 GC"密码**。**三大规则：唯一所有者 / move 转移 / drop 自动释放**。**目标：编译期消灭 use-after-free / double-free**。 --- - **01-basics/borrowing**：借用规则 - **
+
+## [语法基础](https://java-px.bot.cd/rust/01-basics/syntax-fundamentals)
+> Rust 语法与其他语言相似但有差异：变量默认不可变、match 强制穷尽、错误处理无异常。 > **Rust 语法 = 类 C 系 + 强类型 + 默认不可变 + match 模式匹配**。**关键差异：let/let mut / match / 错误传播 ?**。 --- - **01-basics/overview**：基础总览 - **02-types-traits/overview**：
+
+## [高级类型](https://java-px.bot.cd/rust/02-types-traits/advanced-types)
+> Newtype / 类型别名 / 永不返回类型 / DST / PhantomData — Rust 类型系统的"瑞士军刀"。 > **高级类型 = 表达领域语义 + 类型安全 + 零成本抽象**。**核心：Newtype 模式 / PhantomData / never 类型**。 --- - **02-types-traits/overview**：类型系统 - **02-types-trai
+
+## [枚举与模式匹配](https://java-px.bot.cd/rust/02-types-traits/enum-and-pattern)
+> Rust 的 enum 是"和类型"（sum type），能表达"或"语义；模式匹配强制穷尽每个变体。 > **enum + match = Rust 消灭 null 与异常的核心**。**核心：Option\<T\> / Result`<T,E>` / 自定义 enum 表达业务状态**。 --- - **02-types-traits/overview**：类型系统 - **02-types-
+
+## [泛型 Generics](https://java-px.bot.cd/rust/02-types-traits/generics)
+> Rust 泛型实现"零成本抽象"：编译期单态化（每个具体类型生成独立代码），运行时性能等同手写。 > **泛型 = 类型参数化 + 零成本**。**核心：编译期单态化、Trait 约束、where 子句**。 --- - **02-types-traits/overview**：类型系统 - **02-types-traits/trait**：Trait - **02-types-traits/a
+
+## [类型系统总览](https://java-px.bot.cd/rust/02-types-traits/overview)
+> Rust 的类型系统是其"零成本抽象"的基石。理解 enum / 泛型 / Trait 三件套，等于掌握了 Rust 抽象能力的 80%。 > **Rust 类型系统 = 枚举 + 模式匹配 + 泛型 + Trait**。**核心：类型即文档、编译期多态、零运行时开销**。 --- - **02-types-traits/enum-and-pattern**：枚举与模式匹配深度 - **02-ty
+
+## [Trait 对象与动态分发](https://java-px.bot.cd/rust/02-types-traits/trait-objects)
+> dyn Trait 是运行时多态：通过虚函数表（vtable）在运行时决定调用的具体实现。 > **dyn Trait = 运行时多态**。**核心：堆分配的 Box\<dyn Trait\> / 引用形式 &dyn Trait**。**对比泛型：性能略低、灵活性高**。 --- - **02-types-traits/trait**：Trait 基础 - **02-types-traits/ge
+
+## [Trait](https://java-px.bot.cd/rust/02-types-traits/trait)
+> Trait 是 Rust 行为抽象的核心：定义共享行为，支持默认方法、关联类型、Trait bound。 > **Trait = 行为接口 + 默认实现 + 关联类型**。**类比 Java interface 但更强（默认方法 + 默认泛型 + 关联类型）**。 --- - **02-types-traits/overview**：类型系统 - **02-types-traits/generic
+
+## [Cargo](https://java-px.bot.cd/rust/03-ecosystem/cargo)
+> Cargo 是 Rust 的官方构建系统与包管理器：一个工具搞定 build / test / bench / doc / publish。 > **Cargo = Rust 的 npm + maven + make + 文档生成器**。**核心：项目工作流 + 依赖管理 + 测试 + 发布**。 --- - **03-ecosystem/overview**：生态总览 - **03-ecosys
+
+## [crates.io](https://java-px.bot.cd/rust/03-ecosystem/crates-io)
+> crates.io 是 Rust 官方包仓库，与 npm / PyPI 同级，130k+ crates 覆盖几乎所有场景。 > **crates.io = Rust 生态的事实标准**。**核心：注册 / 搜索 / 版本管理 / 文档浏览**。 --- | 类别 | crate | 用途 | |------|-------|------| | **Web 框架** | axum | Tokio 生
+
+## [生态总览](https://java-px.bot.cd/rust/03-ecosystem/overview)
+> Rust 生态以 Cargo 为核心，crates.io 为包仓库，标准库 + 第三方库覆盖了现代软件工程的全部需求。 > **Rust 生态 = Cargo + crates.io + 标准库**。**核心：Cargo 一站式（build/test/format/lint/doc）、crates.io 是最大包仓库（130k+ crates）、标准库覆盖广**。 --- | 领域 | 主流 cr
+
+## [标准库](https://java-px.bot.cd/rust/03-ecosystem/std-lib)
+> Rust 标准库（std）覆盖了现代软件工程的 90% 需求：集合 / IO / 线程 / 网络 / 时间 / 错误处理。 > **std = Rust 标准库**。**核心：核心库 core（无 std）+ alloc + std**。**无 std 模式用于嵌入式**。 --- - **03-ecosystem/overview**：生态总览 - **03-ecosystem/cargo**：
+
+## [测试与工具链](https://java-px.bot.cd/rust/03-ecosystem/tooling)
+> Rust 工具链一流：rustfmt / clippy / rust-analyzer / cargo test / cargo bench 全内置。 > **Rust 工具链 = 格式化 + lint + IDE + 测试 + 基准**。**核心：cargo test / clippy / rust-analyzer**。 --- - **03-ecosystem/overview**：生态总览
+
+## [async / await](https://java-px.bot.cd/rust/04-concurrency/async-await)
+> Rust async-await 是零成本抽象：编译为状态机，运行时由 tokio / async-std 调度。 > **async-await = 零成本协程**。**核心：Future trait / 状态机 / 运行时调度**。**与线程对比：内存更省、并发更高**。 --- - **04-concurrency/overview**：并发总览 - **04-concurrency/tok
+
+## [Channel 与共享状态](https://java-px.bot.cd/rust/04-concurrency/channels)
+> 并发原语两大阵营：消息传递（Channel）与共享状态（Arc + Mutex）。Rust 都提供类型安全版本。 > **Channel = 消息传递、Arc`<Mutex>` = 共享状态**。**Rust 哲学："恐惧共享，鼓励消息传递"**。 --- - **04-concurrency/overview**：并发总览 - **04-concurrency/threads**：线程 - **
+
+## [并发总览](https://java-px.bot.cd/rust/04-concurrency/overview)
+> Rust 的并发模型建立在"类型系统保证线程安全"之上：用类型防止数据竞争，编译期消灭一类 bug。 > **Rust 并发 = 类型系统保证线程安全**。**核心原语：Thread / Channel / Arc+Mutex / async-await**。**目标：fearless concurrency**。 --- - **04-concurrency/threads**：线程深度 - *
+
+## [线程与 Thread](https://java-px.bot.cd/rust/04-concurrency/threads)
+> Rust 标准库的 std::thread 提供原生线程支持，类型系统保证线程安全。 > **std::thread = 原生 1:1 OS 线程**。**核心：spawn / join / Send + 'static 闭包**。 --- - **04-concurrency/overview**：并发总览 - **04-concurrency/channels**：Channel 与共享状态
+
+## [Tokio 运行时](https://java-px.bot.cd/rust/04-concurrency/tokio)
+> Tokio 是 Rust 生态最成熟的异步运行时：多线程调度 + IO reactor + 定时器 + 同步原语。 > **Tokio = Rust 异步事实标准**。**核心：reactor + 多线程调度 + timer + sync**。**生态完整（axum / hyper / tonic）**。 --- - **04-concurrency/overview**：并发总览 - **04-
+
+## [嵌入式 Rust](https://java-px.bot.cd/rust/05-systems/embedded)
+> Rust 嵌入式生态成熟：用 no std 编程微控制器，类型安全 + 零运行时开销 + 强大生态。 > **嵌入式 Rust = no_std + 裸机 + 外设访问**。**核心：cortex-m / embedded-hal / RTIC / probe-rs**。 --- - **05-systems/overview**：系统编程 - **05-systems/ffi**：FFI - *
+
+## [FFI 与 C 互操作](https://java-px.bot.cd/rust/05-systems/ffi)
+> Rust 通过 FFI（外部函数接口）与 C 库互操作：调用 C 函数、从 C 调用 Rust、用 bindgen 自动生成绑定。 > **FFI = Rust 与 C 的双向桥梁**。**核心：extern "C" / #[no_mangle] / bindgen / cbindgen**。 --- - **05-systems/overview**：系统编程 - **05-systems/un
+
+## [系统编程总览](https://java-px.bot.cd/rust/05-systems/overview)
+> Rust 是少数同时具备"系统级性能 + 内存安全"的语言。本章覆盖 unsafe / FFI / 嵌入式 / WASM / 性能优化 5 大方向。 > **Rust 系统编程 = unsafe 精确控制 + 安全抽象边界**。**核心：unsafe 块隔离危险、FFI 与 C 互操作、嵌入式裸机、WASM 跨平台、性能零开销**。 --- - **05-systems/unsafe**：unsa
+
+## [性能优化](https://java-px.bot.cd/rust/05-systems/performance)
+> Rust 的"零成本抽象"已接近最优，但仍有优化空间：剖析 + SIMD + 内存布局 + 并行。 > **性能优化 = 剖析先行 + 针对性优化 + 测量验证**。**核心：cargo flamegraph / criterion / SIMD / rayon**。 --- - **05-systems/overview**：系统编程 - **05-systems/unsafe**：unsafe
+
+## [unsafe Rust](https://java-px.bot.cd/rust/05-systems/unsafe)
+> unsafe 块绕过 Rust 编译器的部分检查（4 种操作），允许直接操作内存和硬件。 > **unsafe = 关闭 4 种编译期检查**。**核心：解引用裸指针 / 调用 unsafe fn / 访问可变静态 / 实现 unsafe Trait**。**用途：性能优化 + 硬件抽象 + FFI**。 --- - **05-systems/overview**：系统编程 - **05-syst
+
+## [WebAssembly](https://java-px.bot.cd/rust/05-systems/wasm)
+> Rust 是 WebAssembly 编译目标的事实标准：单一语言，浏览器 / Node.js / 边缘计算 / Serverless 全覆盖。 > **WASM = 浏览器 + 边缘 + Serverless 的跨平台运行时**。**核心：wasm-bindgen / wasm-pack / wasmtime / WasmEdge**。 --- - **05-systems/overview**
+
+## [异步生态对比](https://java-px.bot.cd/rust/06-advanced/async-ecosystem)
+> Rust 异步生态有多个运行时选择：tokio / async-std / smol / embassy，各有侧重。 > **tokio = 事实标准 / async-std = 类 std 风格 / smol = 轻量 / embassy = 嵌入式**。**90% 项目选 tokio**。 --- | 维度 | tokio | async-std | smol | embassy | |---
+
+## [Rust 案例研究](https://java-px.bot.cd/rust/06-advanced/case-study)
+> 5 个真实 Rust 生产案例：Discord / Cloudflare / AWS / Figma / TiKV。每个案例展示 Rust 在生产中的关键决策与陷阱。 > **Rust 生产案例 = 高性能 + 高可靠 + 工程实践**。**核心场景：网络服务 / 数据库 / 系统工具 / WebAssembly**。 --- **背景**：Discord 的 Read State 服务最初用 E
+
+## [闭包与迭代器](https://java-px.bot.cd/rust/06-advanced/closure-and-iterator)
+> 闭包是匿名函数，迭代器是惰性序列。两者结合是 Rust 函数式编程的核心。 > **闭包 + 迭代器 = Rust 函数式编程**。**核心：Fn / FnMut / FnOnce / Iterator trait**。**性能：零成本抽象**。 --- - **02-types-traits/trait**：Trait - **06-advanced/macro**：宏 - **06-advan
+
+## [错误处理](https://java-px.bot.cd/rust/06-advanced/error-handling)
+> Rust 错误处理基于 Result / Option + ? 操作符，无异常，无 panic（除非不可恢复）。 > **错误处理 = Result`<T, E>` + ? + 类型驱动**。**核心：anyhow（应用）/ thiserror（库）+ 自定义 Error**。 --- - **02-types-traits/overview**：类型系统 - **01-basics/syntax
+
+## [宏 Macro](https://java-px.bot.cd/rust/06-advanced/macro)
+> Rust 宏是"编译期代码生成"：声明宏（macro_rules!）和过程宏（proc_macro）两大类。 > **宏 = 编译期代码生成**。**核心：macro_rules!（声明宏）+ proc_macro（过程宏）**。**用途：DSL / derive / 代码减少**。 --- - **02-types-traits/overview**：类型系统 - **06-advanced/c
+
+## [智能指针](https://java-px.bot.cd/rust/06-advanced/smart-pointer)
+> 智能指针是实现了 Deref + Drop 的数据结构，管理堆内存的所有权与生命周期。 > **智能指针 = 实现 Deref + Drop 的指针**。**核心：Box / Rc / Arc / RefCell / Mutex**。 --- - **02-types-traits/advanced-types**：高级类型 - **04-concurrency/channels**：Channe
+
+## [Rust 知识图谱](https://java-px.bot.cd/rust/index)
+> <ClientOnly> <WhyThisGraph :pain-points="[ "所有权 / 借用 / 生命周期推导卡壳？", "异步编程（async-await / Tokio）复杂？", "Trait / 泛型 / 高级类型（新类型 / PhantomData）难理解？", "宏系统（声明宏 / 过程宏）门槛高？", "生态相对小、生产案例少？" ]" :goals="[ "基础与所有权

@@ -1,0 +1,113 @@
+# go 子站
+
+> 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
+> 36 个文档页 · 230,682 字
+> 生成时间：2026-08-16T08:58:46
+
+## [错误处理](https://java-px.bot.cd/go/01-basics/error-handling)
+> Go 错误处理哲学：**错误是值，不是异常**。通过显式 error 返回，强制调用者处理错误。 > **Go 错误处理 = error 接口 + 显式返回 + errors.Is/As**。**核心：error 是值 / panic 是真异常 / recover 兜底**。 --- --- --- --- --- --- 1. **显式**：错误处理在函数签名中可见 2. **类型安全**：错误
+
+## [Hello World 实战](https://java-px.bot.cd/go/01-basics/hello-world)
+> 从安装到第一个 HTTP 服务：5 分钟跑通，10 分钟理解项目结构。 > **Hello World = 安装 Go → go mod init → 写 main.go → go run**。**5 分钟跑通第一个 Go 程序**。 --- --- --- --- --- --- --- - 安装 **Go 插件** - File → Settings → Go → GOROOT：选择 Go 安
+
+## [Go 总览](https://java-px.bot.cd/go/01-basics/overview)
+> Go（又称 Golang）是 Google 于 2009 年开源的编译型静态语言，以"少即是多"的哲学和云原生时代的统治地位著称。 > **Go = 简洁 + 并发 + 云原生母语**。**核心：CSP 并发模型 + 极简类型系统 + 编译期反思**。**杀手级应用：Docker / K8s / Prometheus / etcd**。 --- - **2007**：Google 内部由 Robe
+
+## [包与模块管理](https://java-px.bot.cd/go/01-basics/package-and-module)
+> Go 包管理从 GOPATH（≤Go 1.10）演进到 Go Modules（≥Go 1.11），现在已成为云原生生态的事实标准。 > **Go Modules = go.mod + go.sum + semantic import versioning**。**核心：包是目录 / 模块是版本化单元 / 语义化版本**。 --- --- - **h1**：模块内容的哈希（zip 文件） - **/
+
+## [语法速览](https://java-px.bot.cd/go/01-basics/syntax-fundamentals)
+> Go 语法极简：25 个关键字，5 分钟上手，1 小时精通。 > **Go 语法 = C 风格 + 类型后置 + 错误显式返回**。**核心：变量 := / 切片 slice / map / struct / interface**。 --- 每个类型都有零值，**变量声明后立即可用**： --- --- --- --- --- --- --- --- --- --- - **01-basics/
+
+## [类型与函数](https://java-px.bot.cd/go/01-basics/types-and-functions)
+> 深入 Go 类型系统：基础类型 / 复合类型 / 自定义类型 / 函数签名 / 闭包 / 错误处理。 > **Go 类型 = 基础类型 + slice/map/chan + struct/interface**。**函数：一等公民，支持多返回值、闭包、defer**。 --- --- --- --- --- --- --- --- --- - **01-basics/overview**：Go 总
+
+## [channel](https://java-px.bot.cd/go/02-concurrency/channel)
+> channel 是 goroutine 之间的通信机制：类型安全的消息队列，遵循 CSP（Communicating Sequential Processes）模型。 > **channel = goroutine 间的消息队列**。**核心：make 创建 / ch <- 发送 / <-ch 接收 / close 关闭 / select 多路复用**。 --- --- | 操作 | nil ch
+
+## [context 上下文](https://java-px.bot.cd/go/02-concurrency/context)
+> context 是 Go 并发编程的"瑞士军刀"：取消传播、超时控制、request-scoped 数据传递。 > **context = 请求级别的全局状态 + 取消信号传播**。**核心：WithCancel / WithTimeout / WithValue / Done() channel**。 --- --- --- **取消规则**：父 context 取消 → 所有子 context
+
+## [goroutine](https://java-px.bot.cd/go/02-concurrency/goroutine)
+> goroutine 是 Go 最核心的并发原语：轻量协程，由 Go runtime 调度，单个程序可同时运行数十万个 goroutine。 > **goroutine = Go runtime 调度的协程（M:N 模型）**。**核心：go 关键字启动 / 2KB 栈 / GMP 调度 / 协作式+抢占式调度**。 --- --- --- | 模型 | 调度方 | 数量级 | |---|---|-
+
+## [CSP 并发总览](https://java-px.bot.cd/go/02-concurrency/overview)
+> Go 的并发模型基于 **CSP（Communicating Sequential Processes）** 理论，由 Tony Hoare 在 1978 年提出。Go 通过 **goroutine + channel** 让并发编程变得直观。 > **CSP = "通过通信共享内存，而不是通过共享内存通信"**。**核心：goroutine（M:N 协程）+ channel（消息传递）+ con
+
+## [并发模式实战](https://java-px.bot.cd/go/02-concurrency/patterns)
+> Go 并发的 7 大实战模式：Worker Pool、Pipeline、Fan-out/Fan-in、Pub-Sub、限流、熔断、分布式协调。 > **Go 并发模式 = Worker Pool + Pipeline + Fan-out/Fan-in + errgroup**。**核心：用 channel 通信、用 errgroup 错误传播、用 context 取消**。 --- --- ---
+
+## [sync 包](https://java-px.bot.cd/go/02-concurrency/sync-package)
+> Go 标准库 sync 包提供传统并发原语：Mutex、WaitGroup、Once、Pool 等。channel 是 Go 的"高级抽象"，sync 包则是"底层原语"。 > **sync 包 = Mutex + WaitGroup + Once + Pool + atomic**。**核心：锁保护共享内存 + 信号量同步 + 对象池复用**。 --- | 场景 | 推荐 | |---|---|
+
+## [性能基准与 pprof](https://java-px.bot.cd/go/03-ecosystem/benchmark)
+> **Go 的性能分析是其他语言望尘莫及的**——`pprof` + `trace` + `benchstat` 三大武器。 > **Go 性能 = benchmark + pprof CPU/Heap/Goroutine + trace 时序图 + benchstat 对比**。**10 行代码接入，定位慢在哪儿**。 --- **测试函数命名**：`BenchmarkXxx(b *testing
+
+## [Go 工具链](https://java-px.bot.cd/go/03-ecosystem/go-toolchain)
+> Go 的杀手锏：**官方工具链**——格式化、依赖管理、测试、构建一条龙。 > **Go 工具链 = gofmt + go vet + go mod + go test + go build + 交叉编译**。**没有第三方包管理器战争，go mod 一统天下**。 --- **理念**：代码风格不应有争议，gofmt 让所有 Go 代码看起来一样。所有 IDE 集成 gofmt on save。
+
+## [Go 生态总览](https://java-px.bot.cd/go/03-ecosystem/overview)
+> Go 生态以"官方工具链 + 标准库 + 社区精选包"三层架构著称，避免 Java 那样的"jar hell"，追求一致性与简洁性。 > **Go 生态 = 官方强约束 + 标准库丰富 + 社区精选**。**核心：go.mod 包管理 + 标准库 net/http / encoding / io + testing 体系**。 --- --- | 包 | 用途 | |---|---| | `fmt
+
+## [标准库](https://java-px.bot.cd/go/03-ecosystem/standard-library)
+> **Go 标准库是 Go 最大的优势**——`net/http` `encoding/json` `sync` `context` `database/sql` 全部开箱即用，无需 Spring/Hibernate/Express 这样的重量级框架。 > **Go 标准库 ≈ Java 17 + Spring Boot 核心 + Jackson + Guava 一半**。**`net/http`
+
+## [测试与覆盖率](https://java-px.bot.cd/go/03-ecosystem/testing)
+> **Go 测试哲学**：简单、明确、无需第三方库。 > **Go 测试 = table-driven + testify 断言 + mockgen + race detector + go-carries**。**核心：测试金字塔 + race 必跑 + 覆盖率 80%+**。 --- **测试文件命名**：`xxx_test.go`，同包或 `_test` 包（黑盒测试）。 **基本结构**：
+
+## [CNCF 项目全景](https://java-px.bot.cd/go/04-cloud-native/cncf-ecosystem)
+> **CNCF（Cloud Native Computing Foundation）= 云原生生态**——80% 项目是 Go 写。 > **CNCF Landscape = 130+ 毕业项目 + 200+ 沙盒项目**。**Go 是云原生时代的 C 语言**。 --- - 2015 年成立，Linux Foundation 旗下 - 总部：旧金山 - 会员：红帽 / 谷歌 / AWS / Azu
+
+## [Docker 源码导读](https://java-px.bot.cd/go/04-cloud-native/docker-internals)
+> **Docker 80% Go 写**——理解 Docker = 理解 Go 在系统编程中的应用。 > **Docker = containerd + runc + daemon + CLI**。**Go 优势：静态二进制 + goroutine 高并发 + 跨平台编译**。 --- **Docker 现在是上层**，底层是 containerd + runc，都是 Go 写。 **关键 Go 包
+
+## [etcd 源码导读](https://java-px.bot.cd/go/04-cloud-native/etcd-internals)
+> **etcd = 分布式 KV + Raft + watch**——K8s / 微服务的事实配置/协调中心。 > **etcd = Raft 共识 + BoltDB + gRPC + watch + lease**。**Go 让分布式系统代码保持可读**。 --- - **名字**：/`ˈɛtsiːdiː/`，Linux `/etc` 配置目录 + distributed `d` - **作者**
+
+## [Kubernetes 源码导读](https://java-px.bot.cd/go/04-cloud-native/kubernetes-internals)
+> **Kubernetes（K8s）= Go 写的事实标准**——100+ 个组件，全是 Go。 > **K8s = kube-apiserver + kube-scheduler + kube-controller-manager + kubelet + kube-proxy + etcd**。**所有组件用 client-go 通信**。 --- **Go monorepo 模式**：`stag
+
+## [云原生总览](https://java-px.bot.cd/go/04-cloud-native/overview)
+> CNCF（Cloud Native Computing Foundation）是云原生生态的"联合国"，旗下项目几乎全部用 Go 写。Go 是云原生时代的"母语"。 > **Go = 云原生时代的母语**。**CNCF 毕业项目 100% Go 写**：Kubernetes / Docker / Prometheus / etcd / Consul / Terraform / Vitess / T
+
+## [Prometheus 源码导读](https://java-px.bot.cd/go/04-cloud-native/prometheus-internals)
+> **Prometheus = Cloud Native 监控的事实标准**——Go 写，80+ 组件，10 年迭代。 > **Prometheus = pull-based TSDB + PromQL + alerting + service discovery**。**Go 让单机/集群部署都简单**。 --- **关键包**： - `prometheus/tsdb/`：自研 TSDB - `p
+
+## [Go 微服务案例研究](https://java-px.bot.cd/go/05-microservices/case-study)
+> 真实大厂用 Go 做微服务的最佳实践：架构设计、踩坑教训、性能数据。 > **Go 微服务案例 = Uber / 字节 / Twitch / B 站 / Cloudflare 的真实架构**。**核心：高 QPS / 低延迟 / 高可用 / 全球部署**。 --- - **服务数量**：4,000+ 微服务 - **每日请求**：百亿+ RPC 调用 - **语言**：Go（主力）+ Java +
+
+## [Gin 框架](https://java-px.bot.cd/go/05-microservices/gin-framework)
+> **Gin = Go 生态最流行的 Web 框架**——80k+ stars，性能接近 net/http + httprouter。 > **Gin = httprouter 路由 + 中间件链 + JSON 绑定 + 错误处理**。**替代品：Echo / Fiber / Chi**。 --- - 性能：50k+ QPS - API 友好：JSON / XML / YAML - 中间件：日志 /
+
+## [gRPC + Protobuf](https://java-px.bot.cd/go/05-microservices/grpc)
+> **gRPC = 跨语言高性能 RPC 框架**——基于 HTTP/2 + Protobuf，由 Google 开发。 > **gRPC = HTTP/2 + Protobuf + 多语言 + 流式 RPC**。**微服务内部通信的事实标准**。 --- | 优势 | 体现 | |---|---| | 性能 | Protobuf 二进制编码，比 JSON 小 3-10 倍 | | 类型安全 | .
+
+## [Kratos / go-zero / go-micro](https://java-px.bot.cd/go/05-microservices/kratos)
+> **三个主流 Go 微服务框架对比**——Kratos、go-zero、go-micro。 > **Kratos（字节/B 站）= 完整套件；go-zero（好未来）= 工程化；go-micro = 早期标杆**。**国内推荐 Kratos 或 go-zero**。 --- **Gin 写单体服务够用，但微服务需要**： - 服务注册 / 发现 - 负载均衡 - 限流 / 熔断 - 链路追踪 -
+
+## [微服务总览](https://java-px.bot.cd/go/05-microservices/overview)
+> Go 在后端微服务领域有统治地位：从 Web 框架到 RPC 到服务治理，生态成熟、性能优异、部署简单。 > **Go 微服务 = Gin/gRPC + 服务发现 + 服务治理**。**核心：高性能（与 Java 同级）+ 启动快（秒级 vs Java 分钟级）+ 单二进制部署**。 --- | 维度 | Go (Gin/gRPC) | Java (Spring Cloud) | |---|---
+
+## [服务治理](https://java-px.bot.cd/go/05-microservices/service-governance)
+> **服务治理 = 让多个服务稳定运行**：限流 / 熔断 / 降级 / 链路追踪 / 配置中心 / 服务发现。 > **服务治理 = 高可用 + 可观测 + 可配置 + 可扩展**。**核心：限流 + 熔断 + 链路追踪 + 配置中心**。 --- **目的**：防止流量过载，保护后端。 | 算法 | 原理 | 优点 | 缺点 | |---|---|---|---| | 固定窗口 | 1s 计数
+
+## [cgo 与 FFI](https://java-px.bot.cd/go/06-advanced/cgo)
+> **cgo = Go 调用 C 代码的桥**——双刃剑，能用但要谨慎。 > **cgo = C 库的 Go 绑定**。**性能收益大但破坏 Go 部署模型（必须 glibc / libxxx），能避免就避免**。 --- **原理**： - `import "C"` 启用 cgo - 注释里写 C 代码 - 通过 `C.xxx` 调 C 函数 - Go 编译器调用 gcc/clang 编译 C 代
+
+## [GC 三色标记](https://java-px.bot.cd/go/06-advanced/gc)
+> **Go GC = 并发三色标记 + 写屏障**——STW < 1ms（Go 1.8+），vs Java G1 几 ms 到几十 ms。 > **Go GC = Concurrent Tri-color Mark + Write Barrier + Pacemaker**。**STW 阶段仅 ms 级，业务无感知**。 --- | 版本 | 算法 | STW | |---|---|---| | G
+
+## [进阶总览](https://java-px.bot.cd/go/06-advanced/overview)
+> 从语言用户到 runtime 工程师：理解 Go runtime、GC、调度器、性能分析、cgo、反射——这些是 Go 工程师从"会用"到"精通"的分水岭。 > **Go 进阶 = runtime + GC + 性能分析 + cgo + reflect**。**核心：GMP 调度器 / 三色标记 GC / pprof 调优**。**目标：写出生产级高性能 Go 程序**。 --- - 写业务代码没
+
+## [pprof 与 trace](https://java-px.bot.cd/go/06-advanced/pprof)
+> **pprof = Go 内置性能分析**——CPU / heap / goroutine / block / mutex / trace 全覆盖。 > **pprof = 5 种 profile（CPU/heap/goroutine/block/mutex）+ trace 时序图**。**生产 10 行接入，定位慢在哪儿**。 --- | Profile | 抓什么 | 何时用 | |---|-
+
+## [反射 reflect](https://java-px.bot.cd/go/06-advanced/reflection)
+> **反射 = 运行时检查类型和值**——强大但慢，谨慎使用。 > **反射 = TypeOf + ValueOf + 动态调用**。**99% 场景不需要，仅 JSON / ORM / 配置 / DI 用**。 --- **Type 和 Value 互转**： **注意**：private 字段（首字母小写）不可 Set（CanSet() == false）。 **无参数方法**： **构造并调用
+
+## [runtime 调度器 GMP](https://java-px.bot.cd/go/06-advanced/runtime)
+> **Go runtime = GMP 调度器 + GC + goroutine + channel**——理解它 = 写出高性能 Go。 > **GMP = G (goroutine) + M (machine/OS thread) + P (processor/逻辑 CPU)**。**work-stealing + hand-off 调度算法**。 --- - **G（Goroutine）**：
+
+## [Untitled](https://java-px.bot.cd/go/index)
+> <ClientOnly> <WhyThisGraph :pain-points="[ "goroutine 调度原理、栈扩容讲不清？", "channel vs sync.Mutex 不知道选哪个？", "Go 错误处理（error / panic / recover）哲学？", "微服务架构、gRPC、Service Mesh 怎么落地？", "K8s operator / controller

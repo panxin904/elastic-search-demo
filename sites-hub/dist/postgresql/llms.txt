@@ -1,0 +1,164 @@
+# postgresql 子站
+
+> 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
+> 53 个文档页 · 257,149 字
+> 生成时间：2026-08-16T08:58:46
+
+## [进程架构](https://java-px.bot.cd/postgresql/01-basics/architecture)
+> PostgreSQL 进程模型与内存结构
+
+## [关键配置参数](https://java-px.bot.cd/postgresql/01-basics/config)
+> postgresql.conf 核心参数调优
+
+## [PostgreSQL 概述](https://java-px.bot.cd/postgresql/01-basics/overview)
+> > 世界上最先进的开源关系型数据库。**30+ 年演化，关系型 + 文档 + 空间 + 向量的全能选手**。 | 维度 | PostgreSQL | MySQL | |---|---|---| | 许可证 | BSD-like（更宽松） | GPL | | SQL 标准 | 严格遵循 | 部分支持 | | JSON 支持 | JSONB（原生索引） | JSON（无索引友好） | | 全文检索 |
+
+## [数组类型](https://java-px.bot.cd/postgresql/02-data-types/array)
+> PostgreSQL 原生数组类型详解
+
+## [内置类型](https://java-px.bot.cd/postgresql/02-data-types/built-in)
+> PostgreSQL 内置类型全景
+
+## [自定义类型](https://java-px.bot.cd/postgresql/02-data-types/custom)
+> CREATE TYPE 实战
+
+## [JSONB 类型](https://java-px.bot.cd/postgresql/02-data-types/jsonb)
+> > PostgreSQL 的"杀手锏"——既是关系型数据库，又是文档数据库。**JSONB + GIN = 文档 + 索引**。 | 维度 | PostgreSQL JSONB | MongoDB | |---|---|---| | 数据模型 | 关系 + 文档（混合） | 纯文档 | | 索引 | GIN 表达式索引 | B-Tree / 全文 / 地理 | | 事务 | ACID 完整 | 4
+
+## [Range 范围类型](https://java-px.bot.cd/postgresql/02-data-types/range)
+> PostgreSQL 原生范围类型详解
+
+## [BRIN 索引](https://java-px.bot.cd/postgresql/03-tables-and-indexes/brin)
+> Block Range 索引（适合时序数据）
+
+## [B-tree 索引](https://java-px.bot.cd/postgresql/03-tables-and-indexes/btree)
+> PostgreSQL 默认索引类型详解
+
+## [GIN 倒排索引](https://java-px.bot.cd/postgresql/03-tables-and-indexes/gin)
+> PostgreSQL 全文检索 / JSONB / 数组的利器
+
+## [GiST 索引](https://java-px.bot.cd/postgresql/03-tables-and-indexes/gist)
+> Generalized Search Tree（多维 + 范围 + 全文）
+
+## [Hash 索引](https://java-px.bot.cd/postgresql/03-tables-and-indexes/hash)
+> PG 10+ 可用的 Hash 索引
+
+## [声明式分区](https://java-px.bot.cd/postgresql/03-tables-and-indexes/partition)
+> PostgreSQL 表分区策略与实战
+
+## [SP-GiST 索引](https://java-px.bot.cd/postgresql/03-tables-and-indexes/spgist)
+> Space-Partitioned GiST
+
+## [表与存储](https://java-px.bot.cd/postgresql/03-tables-and-indexes/table)
+> PG 物理存储结构
+
+## [CTE 公用表表达式](https://java-px.bot.cd/postgresql/04-query/cte)
+> > WITH 子句 + 临时命名结果集，让 SQL 像写代码一样可读。**CTE 是 SQL 的"局部变量"**。 | 维度 | CTE | 子查询 | |---|---|---| | 可读性 | 优（命名 + 分层） | 差（嵌套深） | | 重用 | 同 CTE 可多次引用 | 需重复写 | | 递归 | 支持 | 不支持 | | 性能 | 可控（NOT MATERIALIZED） | 通常内
+
+## [EXPLAIN 详解](https://java-px.bot.cd/postgresql/04-query/explain)
+> > 看懂执行计划，慢查询不再黑盒。**EXPLAIN ANALYZE 是 DBA 的眼睛**。 - PostgreSQL 官方文档：Performance Tips - "PostgreSQL Query Optimization"（2024） - "Use The Index, Luke"（Markus Winand） - explain.dalibo.com 可视化工具 - pg_stat_s
+
+## [全文检索](https://java-px.bot.cd/postgresql/04-query/fulltext-search)
+> tsvector / tsquery / GIN
+
+## [查询规划器](https://java-px.bot.cd/postgresql/04-query/planner)
+> EXPLAIN 解读与优化
+
+## [递归 CTE](https://java-px.bot.cd/postgresql/04-query/recursive)
+> WITH RECURSIVE 实战
+
+## [窗口函数](https://java-px.bot.cd/postgresql/04-query/window)
+> PostgreSQL 强大的分析函数
+
+## [死锁排查](https://java-px.bot.cd/postgresql/05-transaction/deadlock)
+> deadlock_detected 错误处理
+
+## [事务隔离级别](https://java-px.bot.cd/postgresql/05-transaction/isolation)
+> PostgreSQL 4 个隔离级别与异常现象
+
+## [锁机制](https://java-px.bot.cd/postgresql/05-transaction/lock)
+> PostgreSQL 行级锁、表锁、咨询锁
+
+## [MVCC 多版本并发控制](https://java-px.bot.cd/postgresql/05-transaction/mvcc)
+> > PostgreSQL 的灵魂：让读不阻塞写、写不阻塞读。**xmin / xmax 是 PG 的版本号系统**。 | 数据库 | 实现 | 优点 | 缺点 | |---|---|---|---| | PostgreSQL | 行级 MVCC | 读写不阻塞 | 表膨胀 | | MySQL InnoDB | 行级 MVCC（undo log） | 读写不阻塞 | undo 膨胀 | | Orac
+
+## [函数与过程](https://java-px.bot.cd/postgresql/06-advanced/function)
+> PL/pgSQL 编程
+
+## [Generated 列](https://java-px.bot.cd/postgresql/06-advanced/generated)
+> PG 12+ 计算列
+
+## [触发器](https://java-px.bot.cd/postgresql/06-advanced/trigger)
+> BEFORE / AFTER / INSTEAD OF 触发器实战
+
+## [UPSERT](https://java-px.bot.cd/postgresql/06-advanced/upsert)
+> INSERT ON CONFLICT 实战
+
+## [视图与物化视图](https://java-px.bot.cd/postgresql/06-advanced/view)
+> VIEW / MATERIALIZED VIEW
+
+## [备份与恢复](https://java-px.bot.cd/postgresql/07-operations/backup)
+> pg_dump / pg_basebackup / PITR
+
+## [慢查询分析](https://java-px.bot.cd/postgresql/07-operations/slow-query)
+> pg_stat_statements + auto_explain + EXPLAIN
+
+## [统计信息](https://java-px.bot.cd/postgresql/07-operations/stats)
+> pg_stat / pg_stats 实战
+
+## [版本升级](https://java-px.bot.cd/postgresql/07-operations/upgrade)
+> pg_upgrade / 逻辑复制升级
+
+## [Vacuum 与 autovacuum](https://java-px.bot.cd/postgresql/07-operations/vacuum)
+> PostgreSQL MVCC 垃圾回收机制
+
+## [Hot Standby 从库查询](https://java-px.bot.cd/postgresql/08-replication/hot-standby)
+> PostgreSQL 从库只读查询
+
+## [逻辑复制](https://java-px.bot.cd/postgresql/08-replication/logical)
+> PG 10+ 行列级复制
+
+## [Patroni 高可用](https://java-px.bot.cd/postgresql/08-replication/patroni)
+> PostgreSQL 自动故障切换集群管理
+
+## [流复制 Streaming Replication](https://java-px.bot.cd/postgresql/08-replication/streaming)
+> PostgreSQL 主从复制核心机制
+
+## [JDBC 连接](https://java-px.bot.cd/postgresql/09-connection/jdbc)
+> PostgreSQL JDBC 驱动实战
+
+## [libpq C 库](https://java-px.bot.cd/postgresql/09-connection/libpq)
+> PostgreSQL C API 实战
+
+## [PgBouncer 连接池](https://java-px.bot.cd/postgresql/09-connection/pgbouncer)
+> 轻量级 PostgreSQL 连接池实战
+
+## [Psycopg Python 驱动](https://java-px.bot.cd/postgresql/09-connection/psycopg)
+> Python 连接 PostgreSQL
+
+## [Citus 分布式](https://java-px.bot.cd/postgresql/10-extensions/citus)
+> PG 水平扩展方案
+
+## [pg_trgm 模糊匹配](https://java-px.bot.cd/postgresql/10-extensions/pg_trgm)
+> 三元组相似度
+
+## [pgvector 向量数据库](https://java-px.bot.cd/postgresql/10-extensions/pgvector)
+> > PostgreSQL 同时是向量数据库。**AI 时代的关键扩展 + HNSW 索引 = 毫秒级相似度搜索**。 | 维度 | HNSW | IVFFlat | |---|---|---| | 查询速度 | 快（10-100x） | 中 | | 构建速度 | 慢 | 快 | | 内存占用 | 大（10x） | 中 | | 召回率 | 高（> 95%） | 中（80-90%） | | 增量更新
+
+## [PostGIS 空间数据库](https://java-px.bot.cd/postgresql/10-extensions/postgis)
+> > PostgreSQL 的"地理信息系统"——GIS 行业的事实标准。**PostGIS + OpenStreetMap = 全球最强开源 GIS**。 | 索引 | 适用 | |---|---| | GiST | 默认，最常用 | | SP-GiST | 点 / 线（平衡树） | | BRIN | 大表（时序） | - PostGIS 官方文档 - "PostGIS in Action"（O'
+
+## [TimescaleDB 时序扩展](https://java-px.bot.cd/postgresql/10-extensions/timescaledb)
+> PG 时序数据库
+
+## [MongoDB vs PostgreSQL](https://java-px.bot.cd/postgresql/11-compare/mongodb-vs-postgresql)
+> 文档型 vs 关系型数据库对比
+
+## [MySQL vs PostgreSQL](https://java-px.bot.cd/postgresql/11-compare/mysql-vs-postgresql)
+> > 关系型数据库两大巨头，各有所长。**没有最好，只有最适合**。 | 标准 | PostgreSQL | MySQL | |---|---|---| | SQL:2016 核心 | 100% | ~70% | | 窗口函数 | ✅ | ✅ 8.0+ | | CTE | ✅ 8.4+ | ✅ 8.0+ | | 递归 CTE | ✅ | ✅ | | UPSERT | ✅ ON CONFLICT |
+
+## [Oracle vs PostgreSQL](https://java-px.bot.cd/postgresql/11-compare/oracle-vs-postgresql)
+> 企业级 RDBMS 迁移对比
+
+## [PostgreSQL 知识图谱](https://java-px.bot.cd/postgresql/index)
+> <ClientOnly> <WhyThisGraph :pain-points="[ "MVCC 原理：为什么 PG 的读不阻塞写？", "事务隔离级别（RC / RR / Serializable）选哪个？", "索引类型（B-tree / Hash / GIN / BRIN / GiST）怎么选？", "主从复制延迟、逻辑复制、FDW 怎么用？", "慢查询、锁等待、checkpoint 怎么

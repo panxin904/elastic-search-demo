@@ -1,0 +1,44 @@
+# tools 子站
+
+> 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
+> 13 个文档页 · 56,406 字
+> 生成时间：2026-08-16T08:58:46
+
+## [Base64 编解码](https://java-px.bot.cd/tools/base64)
+> 字符串与 Base64 互转，支持 UTF-8（中文）。 <script setup> import { ref } from 'vue' const input = ref('你好，世界！Hello, World!') const direction = ref('encode') const status = ref({ kind: 'muted', text: '' }) const out
+
+## [Cron 表达式](https://java-px.bot.cd/tools/cron)
+> 解析 5/6 字段 Cron 表达式，描述字段含义，并列出接下来 5 次运行时间。 <script setup> import { ref, computed } from 'vue' const expr = ref('0 */2 * * *') const status = ref({ kind: 'muted', text: '' }) // 解析为 6 字段（缺少年份则补 *） const
+
+## [Untitled](https://java-px.bot.cd/tools/index)
+> <div id="all-tools"></div> <ClientOnly> <WhyThisGraph :pain-points="[ "日常 JSON 格式化 / 压缩 / 校验每次都开在线工具？", "时间戳 / 时区 / ISO 8601 转换容易出错？", "URL 编解码 / Base64 / UUID / JWT 解码手算不来？", "正则表达式每次都要查语法？", "在线工具有数
+
+## [ISO / RFC 格式化](https://java-px.bot.cd/tools/iso)
+> 把一个日期转换为多种 ISO / RFC 字符串格式。 <script setup> import { ref, computed } from 'vue' const input = ref(new Date().toISOString().slice(0, 19)) const status = ref('') const parsed = ref(null) function parse()
+
+## [JSON ↔ CSV](https://java-px.bot.cd/tools/json-csv)
+> JSON 数组（对象数组）转换为 CSV，反之亦然。 <script setup> import { ref } from 'vue' const sampleJson = `[\n  {"name":"alice","age":30,"city":"Beijing"},\n  {"name":"bob","age":25,"city":"Shanghai"},\n  {"name":"carol
+
+## [JSON Diff](https://java-px.bot.cd/tools/json-diff)
+> 对比两个 JSON 的差异并以行级方式展示。 <script setup> import { ref, computed } from 'vue' const left = ref(`{\n  "name": "alice",\n  "age": 30,\n  "city": "Beijing"\n}`) const right = ref(`{\n  "name": "alice",\n  "a
+
+## [JSON ↔ YAML](https://java-px.bot.cd/tools/json-yaml)
+> JSON 与 YAML 互相转换。 <script setup> import { ref, computed } from 'vue' const sampleJson = `{\n  "service": "api",\n  "port": 8080,\n  "tags": ["prod", "v2"],\n  "db": { "host": "localhost", "user": "roo
+
+## [JSON 格式化 / 校验](https://java-px.bot.cd/tools/json)
+> 格式化、压缩、校验 JSON，错误位置高亮。 <script setup> import { ref, computed } from 'vue' const sample = `{"name":"alice","age":30,"skills":["js","ts"],"address":{"city":"Beijing","zip":"100000"},"active":true,"score
+
+## [相对时间](https://java-px.bot.cd/tools/relative)
+> 计算两个时间之间的相对时间，例如 "3 小时 25 分钟"。也支持"X 之前"/"X 之后"。 <script setup> import { ref, computed } from 'vue' // 默认现在 const now = ref(new Date().toISOString().slice(0, 19)) // 默认 1 小时前 const target = ref(new Dat
+
+## [时间戳 ↔ 日期](https://java-px.bot.cd/tools/timestamp)
+> Unix 时间戳（秒/毫秒）与人类可读日期互转。 <script setup> import { ref, computed, onMounted } from 'vue' const now = ref(Date.now()) const timestamp = ref(Math.floor(Date.now() / 1000)) const unit = ref('s') const loca
+
+## [时区转换](https://java-px.bot.cd/tools/timezone)
+> 把一个时刻在不同时区之间互转。 <script setup> import { ref, computed } from 'vue' const allZones = [ 'UTC', 'Asia/Shanghai', 'Asia/Tokyo', 'Asia/Seoul', 'Asia/Singapore', 'Asia/Hong_Kong', 'Asia/Taipei', 'Asia/Kolka
+
+## [URL 编解码](https://java-px.bot.cd/tools/url)
+> URL / URI 组件编码、解码，以及查询字符串解析。 <script setup> import { ref, computed } from 'vue' const input = ref('https://example.com/search?q=你好 世界&page=2&sort=desc') const direction = ref('encode') const safeMode
+
+## [UUID 生成](https://java-px.bot.cd/tools/uuid)
+> 生成 v1 / v4 / v7 风格的 UUID，支持批量。 <script setup> import { ref } from 'vue' const version = ref('v4') const count = ref(5) const upper = ref(false) const list = ref([]) const status = ref('') function uui

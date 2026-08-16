@@ -1,0 +1,194 @@
+# es 子站
+
+> 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
+> 63 个文档页 · 95,023 字
+> 生成时间：2026-08-16T08:58:46
+
+## [集群 Cluster](https://java-px.bot.cd/es/01-storage/cluster)
+> <span class="kg-badge kg-badge-storage">存储层</span> ES 集群是由**一个或多个节点**组成的、能对外提供统一搜索服务的分布式系统。 - **水平扩展**：突破单机容量与吞吐上限 - **高可用**：节点故障时副本接管 - **并行处理**：查询与索引在多节点并行执行 返回： | 状态 | 含义 | |---|---| | 🟢 green | 所有
+
+## [文档 Document](https://java-px.bot.cd/es/01-storage/document)
+> <span class="kg-badge kg-badge-storage">存储层</span> 文档是 ES 中可被索引和搜索的**最小数据单元**，本质是一个 **JSON 对象**。 > 指定 `_doc/p001` 中的 `p001` 即为文档 ID；不指定则 ES 自动生成。 本项目 [`ElasticsearchService#indexProduct`](https://gith
+
+## [字段类型](https://java-px.bot.cd/es/01-storage/field-types)
+> <span class="kg-badge kg-badge-storage">存储层</span> ES 7.x 字段类型分为**六大族系**： | 类型 | 用途 | 分词 | |---|---|---| | `text` | 全文检索 | ✅ 是 | | `keyword` | 精确匹配、聚合、排序 | ❌ 否 | | `wildcard` | 通配符与正则（7.9+） | ❌ 否 | >
+
+## [索引 Index](https://java-px.bot.cd/es/01-storage/index)
+> <span class="kg-badge kg-badge-storage">存储层</span> 索引是具有**相似特征文档**的集合，是 ES 中读写数据的**最顶层组织单位**。 > 💡 类比关系数据库：**Index ≈ Database**，**Document ≈ Row**，**Mapping ≈ Schema** 本项目 [ElasticsearchService.java#cr
+
+## [映射 Mapping](https://java-px.bot.cd/es/01-storage/mapping)
+> <span class="kg-badge kg-badge-storage">存储层</span> Mapping 定义了**索引中文档的字段类型与结构**，是 ES 的"schema"。 未预先定义的字段写入时 ES 自动推断类型： | `dynamic` 值 | 行为 | |---|---| | `true`（默认） | 自动添加字段 | | `false` | 存储字段但**不索引**（不
+
+## [节点 Node](https://java-px.bot.cd/es/01-storage/node)
+> <span class="kg-badge kg-badge-storage">存储层</span> 节点是运行一个 ES 进程（`org.elasticsearch.bootstrap.Elasticsearch`）的 JVM 实例。 | 角色 | 配置 | 职责 | |---|---|---| | Master-eligible | `node.master: true` | 参与主节点选举
+
+## [存储层 总览](https://java-px.bot.cd/es/01-storage/overview)
+> 存储层是 ES 的"地基"，涉及**数据如何写入、存储、切分、检索**的底层机制。本章按物理-逻辑-机制三个维度组织： | 概念 | 层级 | 说明 | |---|---|---| | [集群 Cluster](/01-storage/cluster) | 物理 | 由多个节点组成的服务集合 | | [节点 Node](/01-storage/node) | 物理 | 运行 ES 进程的实例 |
+
+## [Refresh 机制](https://java-px.bot.cd/es/01-storage/refresh)
+> <span class="kg-badge kg-badge-storage">存储层</span> Refresh 是 ES 将**内存中的文档**转换为**可搜索的 segment**的过程，是 ES "**准实时 (NRT, Near Real-Time)**" 的核心。 | 维度 | 默认值 | |---|---| | Refresh 间隔 | **1 秒** | | 触发时机 | 定时
+
+## [副本 Replica](https://java-px.bot.cd/es/01-storage/replica)
+> <span class="kg-badge kg-badge-storage">存储层</span> 副本是主分片的**完整拷贝**，提供**高可用**与**读吞吐扩展**。 | 作用 | 说明 | |---|---| | **高可用** | 主分片所在节点宕机时，副本提升为新主分片 | | **读扩展** | 搜索请求可在主+副本分片并行执行（默认轮询） | 副本数**可动态调整**，不影响写入
+
+## [段 Segment](https://java-px.bot.cd/es/01-storage/segment)
+> <span class="kg-badge kg-badge-storage">存储层</span> 段是分片内部的**不可变数据文件**（Lucene Index），是 ES 真正存储倒排索引的物理单位。 | 操作 | 频率 | 作用 | |---|---|---| | **Refresh** | 默认 1s | Memory Buffer → 新 Segment（可搜索） | | **Flus
+
+## [分片 Shard](https://java-px.bot.cd/es/01-storage/shard)
+> <span class="kg-badge kg-badge-storage">存储层</span> 分片是 ES 索引数据的**物理切分单位**，每个分片本质上是一个**独立的 Lucene 索引**。 - **水平扩展**：突破单机容量上限 - **并行处理**：查询/写入分散到多个分片 - **故障隔离**：单分片故障不影响整体 > ⚠️ `number_of_shards` **创建后不可
+
+## [_source 元数据](https://java-px.bot.cd/es/01-storage/source)
+> <span class="kg-badge kg-badge-storage">存储层</span> `_source` 字段存储文档的**原始 JSON 原文**，是 ES 返回、更新、reindex 的数据源。 | 配置 | 影响 | |---|---| | `enabled: true`（默认） | 存储原始 JSON，update/reindex 可用 | | `enabled: fals
+
+## [Translog](https://java-px.bot.cd/es/01-storage/translog)
+> <span class="kg-badge kg-badge-storage">存储层</span> Translog 是分片级别的**事务日志**，用于节点崩溃后**恢复尚未 flush 到磁盘的数据**。 | 参数 | 取值 | 说明 | |---|---|---| | `durability` | `request`（默认） | 每个请求 fsync，**安全但慢** | | `durabi
+
+## [聚合 Aggregation](https://java-px.bot.cd/es/02-query/aggregation)
+> <span class="kg-badge kg-badge-query">查询层</span> 聚合用于对搜索结果进行**统计分析**，是 ES 实现 BI/报表能力的核心。 | 族系 | 作用 | 示例 | |---|---|---| | **Metric** | 单值/多值数值计算 | `avg`, `sum`, `min`, `max`, `cardinality` | | **Bucke
+
+## [Bool Query](https://java-px.bot.cd/es/02-query/bool)
+> <span class="kg-badge kg-badge-query">查询层</span> Bool Query 用 `must` / `should` / `filter` / `must_not` **组合多个子句**，是 ES 中最核心的查询方式。 | 子句 | 作用 | 是否评分 | 是否影响匹配 | |---|---|---|---| | `must` | 必须满足，**参与评分*
+
+## [Boost 相关度](https://java-px.bot.cd/es/02-query/boost)
+> <span class="kg-badge kg-badge-query">查询层</span> Boost 调整某个查询子句的**评分权重**，从而**影响结果排序**。 `name^3` 表示 `name` 字段命中权重是 `description` 的 **3 倍**。 Boost **只影响评分**，**不决定文档是否匹配**。要让某条件必须满足，用 `must`/`filter`；想提升
+
+## [Highlight](https://java-px.bot.cd/es/02-query/highlight)
+> <span class="kg-badge kg-badge-query">查询层</span> Highlight 在搜索结果中**标记匹配的关键字**，通常用 `<em>` 标签包裹。 返回： | 类型 | 适用字段 | 性能 | |---|---|---| | `unified`（默认） | 全部 | 高（需 term vectors / offsets） | | `plain` | 全部
+
+## [Match Query](https://java-px.bot.cd/es/02-query/match)
+> <span class="kg-badge kg-badge-query">查询层</span> Match Query 对查询文本**先分词再匹配**，是 `text` 字段**全文检索**的标准查询。 执行过程： 1. `机械键盘` → analyzer → tokens：`机械`、`键盘` 2. 任一 token 命中即返回（默认 `operator: or`） | 值 | 行为 | |--
+
+## [Multi Search](https://java-px.bot.cd/es/02-query/multi-search)
+> <span class="kg-badge kg-badge-query">查询层</span> Multi Search 允许**单次 HTTP 请求**执行**多个搜索**，减少网络开销。 格式：每两行一组 - 第 1 行: 元数据（可选 index） - 第 2 行: query body 每个响应**独立**，某个失败不影响其他。 | 场景 | 说明 | |---|---| | 仪表盘多面
+
+## [查询层 总览](https://java-px.bot.cd/es/02-query/overview)
+> 查询层是 ES 的"用户界面"，涉及**如何向 ES 表达需求、获取结果、控制相关性**。 | 子句 | 作用 | 是否评分 | |---|---|---| | [Match](/02-query/match) | 分词后匹配 | ✅ | | [Term](/02-query/term) | 精确匹配 | ✅ | | [Bool](/02-query/bool) | 组合多个子句 | 取决于子句
+
+## [分页](https://java-px.bot.cd/es/02-query/pagination)
+> <span class="kg-badge kg-badge-query">查询层</span> ES 提供 **三种分页方式**，适用不同场景。 | 维度 | 说明 | |---|---| | 原理 | 每个分片返回 `from + size` 条，**协调节点聚合后丢弃**前 `from` 条 | | 性能 | 随 from 增大而**线性下降** | | 适用 | from + size <
+
+## [Query Profile](https://java-px.bot.cd/es/02-query/profile)
+> <span class="kg-badge kg-badge-query">查询层</span> Profile API 返回查询的**详细执行剖析**（各阶段耗时、Lucene 评分细节），是性能调优的关键工具。 | 字段 | 含义 | |---|---| | `score` | 评分耗时 | | `build_scorer_count` | scorer 构建次数 | | `match_cou
+
+## [Query DSL](https://java-px.bot.cd/es/02-query/query-dsl)
+> <span class="kg-badge kg-badge-query">查询层</span> Query DSL 是 ES 的**基于 JSON 的结构化查询语言**，是所有查询/过滤的表达基础。 | 维度 | Query Context | Filter Context | |---|---|---| | 目的 | 找匹配 + **计算评分** | 只判断**是否匹配** | | 性能 |
+
+## [Range Query](https://java-px.bot.cd/es/02-query/range)
+> <span class="kg-badge kg-badge-query">查询层</span> Range Query 对**数值 / 日期 / 字符串**字段做范围匹配。 | 操作符 | 含义 | |---|---| | `gt`  | > | | `gte` | ≥ | | `lt`  | < | | `lte` | ≤ | 支持的日期数学表达式： - `now` / `now+1d` /
+
+## [Query Rewrite](https://java-px.bot.cd/es/02-query/rewrite)
+> <span class="kg-badge kg-badge-query">查询层</span> Query Rewrite 是 ES 在**真正执行搜索前**，将高层查询转换为**底层 Lucene 查询**的预处理阶段。 `prefix: { user: "ki" ` 会重写为： 类似 prefix，`wildcard: { user: "ki*" }` 也会展开。 `range: { age
+
+## [Script Query](https://java-px.bot.cd/es/02-query/script)
+> <span class="kg-badge kg-badge-query">查询层</span> Script Query 使用 **Painless 脚本**（ES 内置安全语言）做查询与计算。 > 查找 `price × stock > 10000` 的商品。 | 维度 | 说明 | |---|---| | 性能 | 编译后接近原生 Java 速度 | | 沙箱 | 强制白名单，禁止反射、文件
+
+## [Search After](https://java-px.bot.cd/es/02-query/search-after)
+> <span class="kg-badge kg-badge-query">查询层</span> Search After 是**基于排序值的无状态深度分页**，是 `from/size` 深度分页的现代替代。 每次返回结果时携带排序值，下次请求用此值作为起点。 返回： 下一页： 否则不同文档可能 sort 值相同，**导致分页漏数据**： | 维度 | scroll | search_after
+
+## [排序](https://java-px.bot.cd/es/02-query/sort)
+> <span class="kg-badge kg-badge-query">查询层</span> ES 默认按 **`_score` 降序**排序，可自定义。 > 💡 排序会**禁用评分计算**（除非显式保留 `_score`）。 `search_after` 必须有**唯一性 tiebreaker**（推荐 `_id` 或带 doc_value 的字段）。 | mode | 行为 | |---|
+
+## [Term Query](https://java-px.bot.cd/es/02-query/term)
+> <span class="kg-badge kg-badge-query">查询层</span> Term Query **不做分词**，精确匹配**已索引的 term**，适用于 `keyword`、数值、日期等精确字段。 | 维度 | match | term | |---|---|---| | 是否分词查询 | ✅ 是 | ❌ 否 | | 适用字段 | `text` | `keyword`
+
+## [Analyzer 分析器](https://java-px.bot.cd/es/03-analysis/analyzer)
+> <span class="kg-badge kg-badge-analysis">分析层</span> Analyzer 是**将文本转换为 token 流**的处理管道，由**三段式**组成：Char Filter → Tokenizer → Token Filter。 输入：`"Mechanical Keyboard, RGB!"` (经过 `standard` analyzer) | 阶段
+
+## [BM25 相关度](https://java-px.bot.cd/es/03-analysis/bm25)
+> <span class="kg-badge kg-badge-analysis">分析层</span> BM25 (Best Matching 25) 是 ES 7.x 默认的**文档评分算法**，用于衡量 query 与 document 的相关度。 | 符号 | 含义 | |---|---| | `f(qi, D)` | 词 qi 在文档 D 中的词频 | | `|D|` | 文档 D 的长度
+
+## [内置分词器](https://java-px.bot.cd/es/03-analysis/builtin-analyzers)
+> <span class="kg-badge kg-badge-analysis">分析层</span> ES 自带的常用分词器，开箱即用。 | Analyzer | Tokenizer + Filter | 适用 | |---|---|---| | `standard`（默认） | standard + lowercase | 通用 | | `simple` | letter + lowercas
+
+## [Char Filter](https://java-px.bot.cd/es/03-analysis/char-filter)
+> <span class="kg-badge kg-badge-analysis">分析层</span> Char Filter 是 Analyzer 三段式的**第一段**，在分词**之前**对**原始字符流**做预处理。 | Filter | 作用 | |---|---| | `html_strip` | 去除 HTML 标签 | | `mapping` | 字符映射（替换特定字符） | | `
+
+## [自定义分词](https://java-px.bot.cd/es/03-analysis/custom-analyzer)
+> <span class="kg-badge kg-badge-analysis">分析层</span> 自定义分词器是在索引 settings 中**自由组合** Char Filter、Tokenizer、Token Filter，形成专属文本处理管道。 | 工具 | 用途 | |---|---| | `_analyze` | 测试当前索引的分词效果 | | `tokens` API | 查看
+
+## [Explain API](https://java-px.bot.cd/es/03-analysis/explain)
+> <span class="kg-badge kg-badge-analysis">分析层</span> Explain API 返回**每个文档的具体评分组成**，帮助你理解"为什么这个文档排在这个位置"。 | 字段 | 含义 | |---|---| | `value` | 该子表达式的评分 | | `description` | 描述计算方式 | | `details` | 嵌套子项 | | `
+
+## [IK 分词器](https://java-px.bot.cd/es/03-analysis/ik-analyzer)
+> <span class="kg-badge kg-badge-analysis">分析层</span> IK 是**国内最常用的中文分词器**，由 Elasticsearch-Medcl 维护，支持细粒度和智能两种模式。 > ⚠️ 插件版本必须**与 ES 主版本严格一致**（如 7.17.x 对应 IK 7.17.x） | 模式 | 行为 | 典型用途 | |---|---|---| | `ik
+
+## [倒排索引](https://java-px.bot.cd/es/03-analysis/inverted-index)
+> <span class="kg-badge kg-badge-analysis">分析层</span> 倒排索引是**从 term 到文档列表**的映射结构，是 ES/Lucene 实现快速搜索的核心数据结构。 | 类型 | 映射方向 | 用途 | |---|---|---| | 正排索引 | 文档 → 字段 → 词 | 重建原文 | | **倒排索引** | **词 → 文档列表** | **快
+
+## [分析层 总览](https://java-px.bot.cd/es/03-analysis/overview)
+> 分析层是 ES "**如何理解文本**" 的机制：把用户输入/文档内容**拆解为标准化的 token**，并据此构建**倒排索引**。 | 组件 | 作用 | |---|---| | [Analyzer](/03-analysis/analyzer) | 文本分析器（三段式管道） | | [Tokenizer](/03-analysis/tokenizer) | 切词器（按规则切分） | | [T
+
+## [pinyin 分词器](https://java-px.bot.cd/es/03-analysis/pinyin-analyzer)
+> <span class="kg-badge kg-badge-analysis">分析层</span> pinyin 分词器将**中文转为拼音**，常用于**拼音搜索**场景（如"罗永浩" → "luoyonghao"）。 输入：`"机械键盘"` 输出：`["ji", "xie", "jian", "pan", "jixie", "jianpan"]` 这样查询时： - 中文：搜"键盘" → 命中
+
+## [Token Filter](https://java-px.bot.cd/es/03-analysis/token-filter)
+> <span class="kg-badge kg-badge-analysis">分析层</span> Token Filter 是 Analyzer 三段式的**第三段**，对 tokenizer 输出的 token 流做**进一步处理**。 | Filter | 作用 | |---|---| | `lowercase` | 转小写 | | `uppercase` | 转大写 | | `stop
+
+## [Tokenizer 分词器](https://java-px.bot.cd/es/03-analysis/tokenizer)
+> <span class="kg-badge kg-badge-analysis">分析层</span> Tokenizer 是 Analyzer 三段式中的**第二段**，负责将文本**按特定规则切分为 token**。 | Tokenizer | 规则 | 适用 | |---|---|---| | `standard` | Unicode 文本分割 | 通用（默认） | | `letter` |
+
+## [别名 Alias](https://java-px.bot.cd/es/04-ops/alias)
+> <span class="kg-badge kg-badge-ops">运维层</span> Alias 是**索引的逻辑名**，一个别名可指向一个或多个物理索引，**支持零停机切换**。 之后**所有读写都通过 `products`**： - `GET /products/_search` - `POST /products/_doc/p001` | 别名 | 指向 | 用途 | |---|--
+
+## [_cat API](https://java-px.bot.cd/es/04-ops/cat-api)
+> <span class="kg-badge kg-badge-ops">运维层</span> `_cat` API 提供**人类可读**的集群状态信息，是运维诊断的瑞士军刀。 | 命令 | 用途 | |---|---| | `/_cat/health` | 集群健康 | | `/_cat/nodes` | 节点列表 | | `/_cat/indices` | 索引列表 | | `/_cat/sha
+
+## [集群健康](https://java-px.bot.cd/es/04-ops/cluster-health)
+> <span class="kg-badge kg-badge-ops">运维层</span> 返回： | 状态 | 含义 | 行动 | |---|---|---| | 🟢 **green** | 所有分片（含副本）正常分配 | 正常 | | 🟡 **yellow** | 主分片正常，**副本缺失** | 单节点集群正常；多节点需查 | | 🔴 **red** | 至少 1 个主分片**未分配**
+
+## [Curator](https://java-px.bot.cd/es/04-ops/curator)
+> <span class="kg-badge kg-badge-ops">运维层</span> Curator 是 Elastic 官方的**索引管理 CLI 工具**，用于批量删除、合并、快照索引。 > ⚠️ ES 5.x 之后，**ILM** 替代了部分 Curator 场景。但 Curator 在**跨索引管理**和**精细控制**上仍有优势。 `curator.yml`（连接配置）： `ac
+
+## [ILM 生命周期](https://java-px.bot.cd/es/04-ops/ilm)
+> <span class="kg-badge kg-badge-ops">运维层</span> ILM (Index Lifecycle Management) 自动管理索引从**创建到删除**的整个生命周期，按**阶段**触发动作。 | 阶段 | 典型操作 | |---|---| | **hot** | 频繁写入、查询 | | **warm** | 不再写入、偶尔查询 | | **cold** |
+
+## [索引模板](https://java-px.bot.cd/es/04-ops/index-template)
+> <span class="kg-badge kg-badge-ops">运维层</span> 索引模板在**新索引创建时**自动套用预设的 settings、mappings、aliases，避免重复配置。 之后创建 `products-2026-07-13` 会**自动应用**上述配置。 | 字段 | 说明 | |---|---| | `priority` | 数字越大越优先 | | `comp
+
+## [安装部署](https://java-px.bot.cd/es/04-ops/installation)
+> <span class="kg-badge kg-badge-ops">运维层</span> | 方式 | 适用 | 难度 | |---|---|---| | **Tar 包** | 生产环境、定制化 | ⭐⭐⭐ | | **Docker** | 快速试用、容器化 | ⭐⭐ | | **RPM/DEB** | 传统服务器 | ⭐⭐ | > ⚠️ ES **不能用 root 启动**（出于安全考虑）
+
+## [JVM 调优](https://java-px.bot.cd/es/04-ops/jvm-tuning)
+> <span class="kg-badge kg-badge-ops">运维层</span> ES 是 Java 应用，**JVM 调优**直接影响性能与稳定性。 | 维度 | 建议 | |---|---| | 最大堆 | **≤ 32 GB**（超出会失去 CompressedOops 优化） | | Xms = Xmx | **必须相等**，避免运行时扩容 | | 物理内存比例 | 堆 ≤ 物
+
+## [监控 Cerebro](https://java-px.bot.cd/es/04-ops/monitoring)
+> <span class="kg-badge kg-badge-ops">运维层</span> | 组件 | 用途 | |---|---| | **Cerebro** | 集群拓扑可视化（开源） | | **Elasticsearch Monitoring** | 官方指标收集（X-Pack） | | **Kibana** | 数据可视化 + 监控仪表盘 | | **Prometheus + Gra
+
+## [运维层 总览](https://java-px.bot.cd/es/04-ops/overview)
+> 运维层关注 ES 的**部署、监控、备份、扩缩容、性能调优**，是生产环境**稳定运行**的关键。 | 主题 | 说明 | |---|---| | [安装部署](/04-ops/installation) | 单机 / 集群 / Docker | | [JVM 调优](/04-ops/jvm-tuning) | 堆内存、GC | | [分片分配](/04-ops/shard-allocation)
+
+## [集群重启](https://java-px.bot.cd/es/04-ops/restart)
+> <span class="kg-badge kg-badge-ops">运维层</span> | 方式 | 适用 | 风险 | |---|---|---| | **滚动重启** (Rolling) | 升级、配置变更 | 低（服务不中断） | | **全量重启** (Full) | 灾难恢复 | 高（服务中断） | > 阻止主分片在重启时迁移（避免不必要的复制流量） > ⚠️ **不要**同时重启
+
+## [分片分配](https://java-px.bot.cd/es/04-ops/shard-allocation)
+> <span class="kg-badge kg-badge-ops">运维层</span> ES 通过**分片分配策略**决定分片在哪些节点上分布。 | 规则 | 说明 | |---|---| | `include` | 白名单 | | `exclude` | 黑名单 | | `require` | 必须满足 | 主分片和副本**强制分布到不同 zone**，单 zone 故障不丢数据。 | 阈
+
+## [慢日志](https://java-px.bot.cd/es/04-ops/slow-log)
+> <span class="kg-badge kg-badge-ops">运维层</span> 慢日志记录**慢查询**与**慢索引**到专用日志文件，是性能问题的**第一手线索**。 | 级别 | 含义 | |---|---| | `warn` | 重要告警 | | `info` | 普通 | | `debug` | 调试 | | `trace` | 详细跟踪 | | 文件 | 内容 | |---
+
+## [Snapshot 备份](https://java-px.bot.cd/es/04-ops/snapshot)
+> <span class="kg-badge kg-badge-ops">运维层</span> Snapshot 是 ES 内置的**集群级备份机制**，基于**增量**原理，支持 S3/HDFS/共享文件系统等多种 repository。 | 操作 | API | |---|---| | 列出快照 | `GET /_snapshot/my_backup/_all` | | 快照状态 | `GET
+
+## [ES 调试器](https://java-px.bot.cd/es/05-tools/curl-client)
+> <span class="kg-badge kg-badge-storage">调试</span> > 在线构造并发送 ES 请求，附带 **JSON 格式化**、**请求头编辑**、**认证**、**自动生成 curl 命令**。 - ✏️ 自定义 HTTP 方法 + URL 路径 - 📦 Body 编辑器 + **一键 JSON 格式化** - 📑 自定义请求头（多 header） - 🔐 B
+
+## [ES 集群仪表板](https://java-px.bot.cd/es/05-tools/dashboard)
+> <span class="kg-badge kg-badge-storage">监控</span> > 从 4 个维度（集群健康 / 节点指标 / 索引概览 / 分片分布）实时可视化 ES 集群状态。 1. 配置 **endpoint**（自动持久化到 localStorage） 2. 首次进入页面**自动拉取**数据 3. 点击右上角 **↻ 刷新** 手动更新 4. 勾选 **「自动刷新」**
+
+## [ES 部署与配置](https://java-px.bot.cd/es/05-tools/deploy)
+> <span class="kg-badge kg-badge-ops">部署</span> > 26 个生产环境必备的 ES 7 部署与配置模板，按 **6 大主题** 整理。 > 每个模板含场景说明、完整 yaml/命令、关键说明，可直接复制到生产环境使用。 | 主题 | 数量 | 内容 | |---|---|---| | 🛠️ **安装方式** | 4 | Tar 包 / Docker 单机
+
+## [Query DSL 速查](https://java-px.bot.cd/es/05-tools/dsl)
+> <span class="kg-badge kg-badge-query">DSL</span> > **67 个**常用 ES 7 Query DSL 模板，按 **16 大类** 整理，可直接复制或一键转到 [调试器](/05-tools/curl-client) 预填。 按 **16 大类** 整理，共 **67 个** Query DSL 模板： | 分类 | 数量 | 包含 | |---
+
+## [Java SDK 速查](https://java-px.bot.cd/es/05-tools/java)
+> <span class="kg-badge kg-badge-query">Java</span> > **54 个** Java Client 代码片段，按 **12 大类** 整理。所有代码段均内建 RestHighLevelClient / New Client 切换按钮。 > 💡 **想看企业级落地？** → [📚 使用场景与最佳实践](/05-tools/scenarios)（8 个场景
+
+## [使用场景与最佳实践](https://java-px.bot.cd/es/05-tools/scenarios)
+> <span class="kg-badge kg-badge-ops">Scenarios</span> > 按 **业务场景** 组织的 ES 落地方案。覆盖 **8 个企业级场景**：日志分析 / 全文搜索 / 时序监控 / 电商搜索 / 向量 RAG / 地理位置 / 安全审计 / 实时报表。 > > 每个场景含典型用例、数据特征、关键 Mapping、索引设计、典型查询、常见陷阱与最佳实践
+
+## [ES 7 vs ES 8 差异](https://java-px.bot.cd/es/99-compare/diff)
+> 本页聚焦从 7.x 升级到 8.x 时**最关键的差异点**，供升级决策参考。 > 💡 本站主要讲 ES 7.17（搭配 [elastic-search-demo](https://github.com/your-repo) 项目使用 7.17.10）。如需了解 8.x 新特性请参考 [官方升级指南](https://www.elastic.co/guide/en/elasticsearch/re
+
+## [ES Knowledge Atlas](https://java-px.bot.cd/es/index)
+> <ClientOnly> <WhyThisGraph :pain-points="[ "倒排索引原理（分词 / 词典 / Posting List）讲不清？", "ES 集群架构（Master / Data / Coordinating 节点）怎么设计？", "Mapping / Analyzer / 分词器怎么配置才高效？", "查询性能调优（Query DSL / Profile / 慢查询）
