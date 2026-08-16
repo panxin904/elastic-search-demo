@@ -531,6 +531,12 @@ a{color:inherit;text-decoration:none}
   .card{opacity:1;transform:none}
 }
 </style>
+<!-- C9: Plausible analytics (cookieless, GDPR-friendly) -->
+<!-- 接入方式：替换 data-domain 为实际域名，注册 https://plausible.io 免费账号 -->
+<!-- 或自托管：https://github.com/plausible/analytics -->
+<script defer data-domain="java-px.bot.cd" src="https://plausible.io/js/script.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
 </head>
 <body>
 
@@ -859,8 +865,199 @@ a{color:inherit;text-decoration:none}
         <div class="section-sub">最近 14 天发布 / 重构的站点</div>
       </div>
       <div class="updates-grid">
-        <a class="update-item" href="/clickhouse/" data-cat="data">
-          <div class="update-date">2026-08-09</div>
+      <div id="updates-list">
+        <a class="update-item" href="/" data-cat="arch">
+          <div class="update-date">2026-08-16</div>
+          <div class="update-icon">✨</div>
+          <div class="update-body">
+            <div class="update-title">add EN translation for 34 Chinese glossary terms</div>
+            <div class="update-desc"><code>6b113aa</code> · scope: <code>c8</code></div>
+          </div>
+        </a>
+        <a class="update-item" href="/" data-cat="arch">
+          <div class="update-date">2026-08-16</div>
+          <div class="update-icon">✨</div>
+          <div class="update-body">
+            <div class="update-title">Pagefind full-text search setup + portal search.html</div>
+            <div class="update-desc"><code>eaa8f7b</code> · scope: <code>c4</code></div>
+          </div>
+        </a>
+        <a class="update-item" href="/" data-cat="arch">
+          <div class="update-date">2026-08-16</div>
+          <div class="update-icon">✨</div>
+          <div class="update-body">
+            <div class="update-title">add RSS 2.0 feed.xml for 28 sites + portal aggregation</div>
+            <div class="update-desc"><code>057ce61</code> · scope: <code>c5</code></div>
+          </div>
+        </a>
+        <a class="update-item" href="/" data-cat="arch">
+          <div class="update-date">2026-08-16</div>
+          <div class="update-icon">✨</div>
+          <div class="update-body">
+            <div class="update-title">build sitemap.xml + llms.txt for 28 sites + portal</div>
+            <div class="update-desc"><code>dd10495</code> · scope: <code>c12</code></div>
+          </div>
+        </a>
+        <a class="update-item" href="/" data-cat="arch">
+          <div class="update-date">2026-08-16</div>
+          <div class="update-icon">✨</div>
+          <div class="update-body">
+            <div class="update-title">Giscus comment component + issue templates + CONTRIBUTING.md</div>
+            <div class="update-desc"><code>411dbfc</code> · scope: <code>c6</code></div>
+          </div>
+        </a>
+        <a class="update-item" href="/" data-cat="arch">
+          <div class="update-date">2026-08-16</div>
+          <div class="update-icon">✨</div>
+          <div class="update-body">
+            <div class="update-title">wire setupReadingProgress + shared CSS into 22 more sites</div>
+            <div class="update-desc"><code>b3cd431</code> · scope: <code>c7+1</code></div>
+          </div>
+        </a>
+        <a class="update-item" href="/" data-cat="arch">
+          <div class="update-date">2026-08-16</div>
+          <div class="update-icon">✨</div>
+          <div class="update-body">
+            <div class="update-title">add reading progress bar JS to 5 sites</div>
+            <div class="update-desc"><code>5938090</code> · scope: <code>c7</code></div>
+          </div>
+        </a>
+        <a class="update-item" href="/" data-cat="arch">
+          <div class="update-date">2026-08-16</div>
+          <div class="update-icon">✨</div>
+          <div class="update-body">
+            <div class="update-title">enhance reading experience CSS across shared template + 5 sites</div>
+            <div class="update-desc"><code>38d47cc</code> · scope: <code>c7</code></div>
+          </div>
+        </a>
+        <a class="update-item" href="/" data-cat="arch">
+          <div class="update-date">2026-08-16</div>
+          <div class="update-icon">🐛</div>
+          <div class="update-body">
+            <div class="update-title">copy WhyThisGraph.vue to 22 sites + audit detects component missing</div>
+            <div class="update-desc"><code>2daee29</code> · scope: <code>c2</code></div>
+          </div>
+        </a>
+        <a class="update-item" href="/" data-cat="arch">
+          <div class="update-date">2026-08-15</div>
+          <div class="update-icon">✨</div>
+          <div class="update-body">
+            <div class="update-title">add 36 terms covering 6 zero-coverage sites</div>
+            <div class="update-desc"><code>e1274f8</code> · scope: <code>glossary</code></div>
+          </div>
+        </a>
+        <a class="update-item" href="/" data-cat="arch">
+          <div class="update-date">2026-08-15</div>
+          <div class="update-icon">✨</div>
+          <div class="update-body">
+            <div class="update-title">detect Vue prop array missing-comma bug (§8.14 lesson)</div>
+            <div class="update-desc"><code>3603dc5</code> · scope: <code>audit</code></div>
+          </div>
+        </a>
+        <a class="update-item" href="/" data-cat="arch">
+          <div class="update-date">2026-08-15</div>
+          <div class="update-icon">✨</div>
+          <div class="update-body">
+            <div class="update-title">clean up 8 functional-overlap sections after WhyThisGraph injection</div>
+            <div class="update-desc"><code>58f1980</code> · scope: <code>c2</code></div>
+          </div>
+        </a>
+      </div>
+          <div class="update-icon">✨</div>
+          <div class="update-body">
+            <div class="update-title">add EN translation for 34 Chinese glossary terms</div>
+            <div class="update-desc"><code>6b113aa</code> · scope: <code>c8</code></div>
+          </div>
+        </a>
+        <a class="update-item" href="/" data-cat="backend">
+          <div class="update-date">2026-08-16</div>
+          <div class="update-icon">✨</div>
+          <div class="update-body">
+            <div class="update-title">Pagefind full-text search setup + portal search.html</div>
+            <div class="update-desc"><code>eaa8f7b</code> · scope: <code>c4</code></div>
+          </div>
+        </a>
+        <a class="update-item" href="/" data-cat="backend">
+          <div class="update-date">2026-08-16</div>
+          <div class="update-icon">✨</div>
+          <div class="update-body">
+            <div class="update-title">add RSS 2.0 feed.xml for 28 sites + portal aggregation</div>
+            <div class="update-desc"><code>057ce61</code> · scope: <code>c5</code></div>
+          </div>
+        </a>
+        <a class="update-item" href="/" data-cat="backend">
+          <div class="update-date">2026-08-16</div>
+          <div class="update-icon">✨</div>
+          <div class="update-body">
+            <div class="update-title">build sitemap.xml + llms.txt for 28 sites + portal</div>
+            <div class="update-desc"><code>dd10495</code> · scope: <code>c12</code></div>
+          </div>
+        </a>
+        <a class="update-item" href="/" data-cat="backend">
+          <div class="update-date">2026-08-16</div>
+          <div class="update-icon">✨</div>
+          <div class="update-body">
+            <div class="update-title">Giscus comment component + issue templates + CONTRIBUTING.md</div>
+            <div class="update-desc"><code>411dbfc</code> · scope: <code>c6</code></div>
+          </div>
+        </a>
+        <a class="update-item" href="/" data-cat="backend">
+          <div class="update-date">2026-08-16</div>
+          <div class="update-icon">✨</div>
+          <div class="update-body">
+            <div class="update-title">wire setupReadingProgress + shared CSS into 22 more sites</div>
+            <div class="update-desc"><code>b3cd431</code> · scope: <code>c7+1</code></div>
+          </div>
+        </a>
+        <a class="update-item" href="/" data-cat="backend">
+          <div class="update-date">2026-08-16</div>
+          <div class="update-icon">✨</div>
+          <div class="update-body">
+            <div class="update-title">add reading progress bar JS to 5 sites</div>
+            <div class="update-desc"><code>5938090</code> · scope: <code>c7</code></div>
+          </div>
+        </a>
+        <a class="update-item" href="/" data-cat="backend">
+          <div class="update-date">2026-08-16</div>
+          <div class="update-icon">✨</div>
+          <div class="update-body">
+            <div class="update-title">enhance reading experience CSS across shared template + 5 sites</div>
+            <div class="update-desc"><code>38d47cc</code> · scope: <code>c7</code></div>
+          </div>
+        </a>
+        <a class="update-item" href="/" data-cat="backend">
+          <div class="update-date">2026-08-16</div>
+          <div class="update-icon">🐛</div>
+          <div class="update-body">
+            <div class="update-title">copy WhyThisGraph.vue to 22 sites + audit detects component missing</div>
+            <div class="update-desc"><code>2daee29</code> · scope: <code>c2</code></div>
+          </div>
+        </a>
+        <a class="update-item" href="/" data-cat="backend">
+          <div class="update-date">2026-08-15</div>
+          <div class="update-icon">✨</div>
+          <div class="update-body">
+            <div class="update-title">add 36 terms covering 6 zero-coverage sites</div>
+            <div class="update-desc"><code>e1274f8</code> · scope: <code>glossary</code></div>
+          </div>
+        </a>
+        <a class="update-item" href="/" data-cat="backend">
+          <div class="update-date">2026-08-15</div>
+          <div class="update-icon">✨</div>
+          <div class="update-body">
+            <div class="update-title">detect Vue prop array missing-comma bug (§8.14 lesson)</div>
+            <div class="update-desc"><code>3603dc5</code> · scope: <code>audit</code></div>
+          </div>
+        </a>
+        <a class="update-item" href="/" data-cat="backend">
+          <div class="update-date">2026-08-15</div>
+          <div class="update-icon">✨</div>
+          <div class="update-body">
+            <div class="update-title">clean up 8 functional-overlap sections after WhyThisGraph injection</div>
+            <div class="update-desc"><code>58f1980</code> · scope: <code>c2</code></div>
+          </div>
+        </a>
+      </div>
           <div class="update-icon">🟡</div>
           <div class="update-body">
             <div class="update-title">第 26 个站点：ClickHouse OLAP</div>

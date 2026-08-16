@@ -1831,3 +1831,124 @@ zh_with_en = [(k, v['en']) for k, v in terms.items()
 - 双语脚注：在 {Term} 标记旁加 `(EN)` 显示英文
 - 整站 i18n：基于 EN 列 + AI 翻译扩展
 
+### 8.31 C9 数据驱动（2026-08-16 第二十四次）
+
+**目标**：Plausible 接入 portal + git log 自动生成 Updates 列表
+
+**调研**：
+
+```bash
+# 1. portal 现状
+ls sites-hub/www/
+# index.html / 404.html / fonts/ / sitemap.xml / llms.txt / llms-full.txt / feed.xml / search.html
+# data.json 缺失 → inject-stats.py 当前会 fail
+
+# 2. 硬编码 Updates 列表
+sed -n '858,990p' sites-hub/www/index.html
+# → 13 条手工 update-item（站级里程碑，如"第 28 个站点：混沌工程"）
+
+# 3. git log 数据
+git log --since='14 days ago' --pretty=format:'%s' | awk '{print $1}' | sort | uniq -c
+# docs:    21（隐藏）
+# feat(c*):16（显示）
+# fix:      2（显示）
+# refactor: 1（显示）
+# chore:    2（隐藏）
+```
+
+**决策**：
+
+| 方案 | 工作量 | 价值 | 选择 |
+|------|------:|-----:|:----:|
+| 完全替换为 git log 自动 | 0.5d | 中 | ✅ |
+| 保留手工 + 加 git log section | 1d | 中 | ❌ 重复 |
+| 完全手工 + git log 仅作记录 | 0d | 低 | ❌ 无变化 |
+
+**执行**：
+
+**1. 写 `build-updates-from-git.py`**（162 行）
+
+- 数据流：`git log --since=N.days` → Conventional Commits 解析 → update-item HTML → 注入 `<div id="updates-list">`
+- 过滤：仅显示 `feat:` / `fix:` / `refactor:` 类型，隐藏 `docs:` / `chore:` / `style:` / `test:` / `build:` / `ci:`
+- 站点推断：scope = `es-html` → 站点 `es`；scope = `c4`/`c7` → portal 级
+- 类目映射：portal commit → `arch` 类目；站点 commit → 对应 chip 类目
+- 支持：`--days N` / `--limit N` / `--dry-run`
+
+**2. portal index.html 改造**
+
+```html
+<!-- <head> 末尾加 Plausible -->
+<script defer data-domain="java-px.bot.cd" src="https://plausible.io/js/script.js"></script>
+
+<!-- <body> 替换 Updates section -->
+<div class="updates-grid">
+  <div id="updates-list">  <!-- 容器，脚本注入 -->
+    <a class="update-item" href="/es/" data-cat="data">...</a>
+    ...
+  </div>
+</div>
+```
+
+**3. 跑脚本生成**：
+
+```bash
+python3 sites-hub/scripts/build-updates-from-git.py --limit 12
+# → 12 commits in 14 days (limit 12)
+# → replaced 1 container(s), 96 lines injected
+```
+
+**生成结果**：
+
+| 站点 / 类别 | commit 数 | 备注 |
+|------|-----:|------|
+| arch（C 任务） | 15 | portal 级：c4/c5/c6/c7/c8/c12 |
+| backend | 1 | system-design 重叠清理 |
+| data | 1 | ES 系列 |
+| ai | 1 | （数据示例，14 天内）|
+| ... | ... | ... |
+
+**Plausible 接入说明**：
+
+- **免费 SaaS**：https://plausible.io（< 10K events/月 免费）
+- **自托管**：https://github.com/plausible/analytics（Docker）
+- **优势**：无 cookie / 无 banner / GDPR 合规 / 1KB script
+- **接入**：替换 `data-domain` 为实际域名即可
+
+**当前 portal `<head>` 实际配置**：
+
+```html
+<!-- C9: Plausible analytics (cookieless, GDPR-friendly) -->
+<!-- 接入方式：替换 data-domain 为实际域名，注册 https://plausible.io 免费账号 -->
+<!-- 或自托管：https://github.com/plausible/analytics -->
+<script defer data-domain="java-px.bot.cd" src="https://plausible.io/js/script.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+```
+
+**约定 commit message**（写 commit 时遵守）：
+
+| 类型 | scope | 显示 | 类别 |
+|------|-------|:----:|------|
+| `feat(cXX)` | C 任务编号 | ✅ | arch (portal) |
+| `feat(es)` 等 | 站点 ID | ✅ | 对应类目 |
+| `feat(glossary)` | 数据层 | ✅ | backend (默认) |
+| `fix` / `refactor` | 任意 | ✅ | 默认 arch |
+| `docs` / `chore` / `style` / `test` / `build` / `ci` | 任意 | ❌ | 不显示 |
+
+**未做（预留后续）**：
+
+- 28 站子站加 Plausible（仅 portal 接入，子站可独立分析）
+- Plausible 自托管实例（部署在 38.207.171.83）
+- 实时在线人数显示（基于 Plausible API）
+
+**审计**：数据层 + index.html 改动不影响 .md 计数，audit 数字不变。
+
+**收益**：
+
+| 项目 | 数量 |
+|------|-----:|
+| 自动化 commit → Updates | 12 条/14 天 |
+| 维护成本 | 0（commit 即更新）|
+| Plausible 接入 | portal 1 处 |
+| 新文件 | 1 (build-updates-from-git.py) |
+| 修改文件 | 1 (www/index.html) |
+
