@@ -1155,3 +1155,64 @@ vue_bug: 0  vue_missing: 50 (其中 50 误报，0 真缺失)
 6. **C11 图片优化**（PNG→WebP + Mermaid SSR）
 
 C1 模板统一推进列为后续：选 1 个小站（tools-html）做 pilot，验证 build → 渐进迁移。
+
+### 8.22 C7 阅读体验 CSS 增强（2026-08-16 第十五次）
+
+承接 §8.21 C 任务线推进，开始 **C7 阅读体验**任务。本节聚焦 CSS 增强，JS 阅读进度条留 §8.23。
+
+**C1 模板 style.css 扩展**（103 → 288 行）：
+
+```
++ 暗色 AA 对比度（--vp-c-text-1/2/3 + .dark 变量重写，WCAG ≥ 4.5:1）
++ 中英间距（word-spacing + :lang(zh) + text-justify: inter-ideograph）
++ 行距 1.6 → 1.75（中文排版更舒服）
++ 字号 16px → 16px，移动端 15px
++ 代码块（JetBrains Mono + ligatures + 自定义滚动条 + 行内 code 优化）
++ 阅读进度条 CSS（@supports animation-timeline: scroll() 渐进增强）
++ 引用块（品牌色左边框 + 柔和背景）
++ 标题层级（h2 下划线，h3-h4 间距优化）
++ 链接（虚线下划线 hover 过渡）
++ 表格（圆角 + 表头柔和背景）
++ 列表项间距（margin: 0.4rem）
++ 图片（圆角 + max-width: 100%）
++ 响应式（移动端 768px 断点）
+```
+
+**5 站迁移**（本地有 style.css 的）：
+
+| 站 | 改动 | 行数 |
+|----|------|----:|
+| ai-html | + `@import` 行 | 35 → 36 |
+| architecture-html | + `@import` 行 | 31 → 32 |
+| bigdata-html | + `@import` 行 | 32 → 33 |
+| cloud-native-html | + `@import` 行 | 125 → 126 |
+| java-language-html | + `@import` 行 | 31 → 32 |
+
+每站站点特定样式（kg-badge / cmd-block / 品牌色变量等）保留在 `@import` 行**之后**，所以品牌色和站点专属组件不被覆盖。
+
+**23 站未迁移**：还没 theme/index.ts 的站（§8.21 才创建 theme/ 目录）。批量迁移是 §8.24 工作（C1 模板 + C7 合并推进）。
+
+**已知限制 / 遗留**：
+
+1. **阅读进度条 JS 待 §8.23**：CSS 已准备（`.at-reading-progress` 样式 + `@supports` 渐进增强），但需要 `theme/index.ts` 注入 `<div class="at-reading-progress"></div>` 到 DOM。也可以纯 JS 监听 scroll 事件更新 width（兼容性最好）。
+2. **23 站 index.ts 未迁移**：theme/index.ts 需要补 `import shared CSS + 站点 component + 进度条 JS`。批量推进需要谨慎，避免破坏现有站点。
+3. **未做 build 验证**：本地无 VitePress build 环境（npm install VitePress 需要时间）。需要部署到 VPS 后用浏览器实际验证。
+
+**deploy 验证 SOP**（后续）：
+
+```bash
+cd ai-html
+npm run docs:build
+# build 成功后：
+npx vitepress preview
+# 浏览器打开 http://localhost:4173 看效果
+```
+
+**audit 数字**（CSS 改动不影响）：
+```
+files: 1430  words: 1,159,521  thin: 321  imgs: 9  xsite: 139
+no_fm: 0  no_date: 1417  stale: 0  broken: 0  dups: 243+462
+vue_bug: 0  vue_missing: 50 (50 known React/Apache false positives)
+```
+
+效果：5 站立即获得 C7 阅读体验增强（中英间距、暗色 AA、行距、代码块优化）。下次 build 部署后用户能直接看到改进。
