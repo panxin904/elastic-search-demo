@@ -216,28 +216,20 @@ jobs:
           test -f /tmp/release/sites-hub-static.tar.gz || { echo "missing tarball"; exit 1; }
           echo "Artifact size: $(du -h /tmp/release/sites-hub-static.tar.gz | cut -f1)"
 
-      - name: Copy tarball to VPS
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          port: ${{ secrets.VPS_PORT || 22 }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          source: "/tmp/release/sites-hub-static.tar.gz"
-          target: "/tmp/sites-hub-static.tar.gz"
-
-      - name: Run deploy-release.sh on VPS
+      - name: SCP tarball + run deploy-release.sh on VPS
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           port: ${{ secrets.VPS_PORT || 22 }}
           key: ${{ secrets.VPS_SSH_KEY }}
-          command_timeout: 5m
+          command_timeout: 10m
           script: |
             set -euo pipefail
             echo "==> Pre-deploy: previous release"
             ls -la /var/www/sites-hub/current 2>&1 | head -2 || echo "no previous release"
+            echo "==> SCP tarball to VPS"
+            scp -o StrictHostKeyChecking=no -P ${{ secrets.VPS_PORT || 22 }} /tmp/release/sites-hub-static.tar.gz ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/tmp/sites-hub-static.tar.gz
             echo "==> Running deploy-release.sh"
             sudo /var/www/sites-hub/scripts/deploy-release.sh /tmp/sites-hub-static.tar.gz
             echo "==> Post-deploy: verify"
