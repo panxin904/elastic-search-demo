@@ -92,6 +92,12 @@ jobs:
             if [[ "$count" -lt 1 ]]; then exit 1; fi
           done
 
+      - name: Upload dists artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sites-dists
+          path: "*/.vitepress/dist"
+
   release:
     needs: [check, build-all]
     runs-on: ubuntu-22.04
@@ -103,7 +109,13 @@ jobs:
         with:
           node-version: 20
 
-      - name: Build static release (MOCK_BUILD reuses build-all dists)
+      - name: Download dists from artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: sites-dists
+          path: release/sites-hub
+
+      - name: Build static release (MOCK_BUILD=1 reuses dists)
         run: MOCK_BUILD=1 bash sites-hub/build-release.sh
 
       - uses: actions/upload-artifact@v4
