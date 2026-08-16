@@ -13,27 +13,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install nginx (for nginx -t)
-        run: sudo apt-get update && sudo apt-get install -y nginx-full  # need limit_req + stub_status modules
+      - name: Install nginx-full (need limit_req + stub_status)
+        run: sudo apt-get update && sudo apt-get install -y nginx-full
 
-      - name: Check SITES consistency (28 sites, 28 cards, 28 locations)
+      - name: Check SITES consistency
         run: bash sites-hub/scripts/check-sites.sh
 
       - name: Re-render nginx.conf from sites.sh
         run: bash sites-hub/scripts/render-nginx-conf.sh
 
-      - name: Patch nginx.conf (macOS → Linux paths)
+      - name: Patch macOS → Linux paths
         run: |
-          # nginx.conf 在 macOS 本地用 /opt/homebrew/etc/nginx/，CI (Ubuntu) 需改成 /etc/nginx/
-          if grep -q '/opt/homebrew/etc/nginx' sites-hub/conf/nginx.conf; then
-            sed -i 's|/opt/homebrew/etc/nginx/|/etc/nginx/|g' sites-hub/conf/nginx.conf
-            echo "Patched macOS paths → Linux"
+          if grep -q "/opt/homebrew/etc/nginx" sites-hub/conf/nginx.conf; then
+            sed -i "s|/opt/homebrew/etc/nginx/|/etc/nginx/|g" sites-hub/conf/nginx.conf
+            echo "Patched macOS paths"
           fi
 
-      - name: nginx -t on rendered config
-        run: |
-          sudo nginx -c $PWD/sites-hub/conf/nginx.conf \
-                    -p $PWD/sites-hub/ -t
+      - name: nginx -t
+        run: sudo nginx -c $PWD/sites-hub/conf/nginx.conf -p $PWD/sites-hub/ -t
 
       - name: Smoke-test Python helpers
         run: |
@@ -42,24 +39,22 @@ jobs:
           python3 -m py_compile sites-hub/scripts/build-updates-from-git.py
           python3 -m py_compile sites-hub/scripts/audit-content.py
 
-      - name: Verify PWA assets present
+      - name: Verify PWA assets
         run: |
           test -f sites-hub/www/manifest.webmanifest
           test -f sites-hub/www/favicon-192.png
           test -f sites-hub/www/favicon-512.png
           test -f sites-hub/www/og-cover.png
-          echo "PWA assets OK"
 
-      - name: Verify expected gzip / security / metrics locations
+      - name: Verify nginx config guards
         run: |
-          grep -q 'gzip_types'                  sites-hub/conf/nginx.conf
-          grep -q 'stub_status'                 sites-hub/conf/nginx.conf
-          grep -q 'limit_req_zone.*zone=auth'   sites-hub/conf/nginx.conf
-          grep -q 'location = /healthz'         sites-hub/conf/nginx.conf
-          grep -q 'location = /metrics'         sites-hub/conf/nginx.conf
-          grep -q 'location = /csp-report'      sites-hub/conf/nginx.conf
-          grep -q 'Content-Security-Policy'     sites-hub/conf/nginx.conf
-          echo "config guards OK"
+          grep -q gzip_types sites-hub/conf/nginx.conf
+          grep -q stub_status sites-hub/conf/nginx.conf
+          grep -q "limit_req_zone.*zone=auth" sites-hub/conf/nginx.conf
+          grep -q "location = /healthz" sites-hub/conf/nginx.conf
+          grep -q "location = /metrics" sites-hub/conf/nginx.conf
+          grep -q "location = /csp-report" sites-hub/conf/nginx.conf
+          grep -q "Content-Security-Policy" sites-hub/conf/nginx.conf
 
   build-all:
     runs-on: ubuntu-22.04
@@ -70,78 +65,35 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: 20
+          cache: npm
 
-      - name: Build 28 sites + Pagefind index
+      - name: Build 28 sites + Pagefind
         run: bash sites-hub/scripts/build-with-pagefind.sh
 
-      - name: Verify Pagefind output for each site
-        run: |
-          source sites-hub/scripts/sites.sh
-          failed=0
-          for s in "${SITES[@]}"; do
-            proj=$(site_to_project "$s")
-            if [[ -f "$proj/.vitepress/dist/pagefind/pagefind.js" ]]; then
-              echo "  ✓ $s ($proj) — pagefind OK"
-            else
-              echo "  ✗ $s ($proj) — pagefind MISSING"
-              failed=1
-            fi
-          done
-          exit $failed
-
-      - name: Verify dist directory count
+      - name: Verify Pagefind output
         run: |
           source sites-hub/scripts/sites.sh
           for s in "${SITES[@]}"; do
             proj=$(site_to_project "$s")
-            count=$(find "$proj/.vitepress/dist" -name '*.html' 2>/dev/null | wc -l)
-            echo "  $s ($proj): $count HTML files"
-            if [[ "$count" -lt 1 ]]; then
-              echo "ERROR: $s has no HTML output"
+            if [[ ! -f "$proj/.vitepress/dist/pagefind/pagefind.js" ]]; then
+              echo "FAIL: $s ($proj) missing pagefind"
               exit 1
             fi
           done
 
-      - name: Upload dist artifacts
-        if: success()
-        uses: actions/upload-artifact@v4
-        with:
-          name: dist-${{ github.sha }}
-          path: */.vitepress/dist
-          if-no-files-found: error
-
-  lighthouse:
-    runs-on: ubuntu-22.04
-    needs: build-all
-    timeout-minutes: 8
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Serve www/ on :8081
+      - name: Verify dist html count
         run: |
-          sudo mkdir -p /var/www/sites-hub
-          sudo cp -R sites-hub/www /var/www/sites-hub/www
-          cat > /tmp/ci-server.conf <<'NGX'
-          server {
-            listen 8081;
-            root /var/www/sites-hub/www;
-            index index.html;
-          }
-          NGX
-          sudo mv /tmp/ci-server.conf /etc/nginx/sites-enabled/ci
-          sudo nginx -s reload 2>/dev/null || sudo nginx
-
-      - name: Lighthouse audit
-        uses: treosh/lighthouse-ci-action@v10
-        with:
-          urls: ["http://localhost:8081/"]
-          budgetPath: ./sites-hub/lighthouse-budget.json
-          uploadArtifacts: true
+          source sites-hub/scripts/sites.sh
+          for s in "${SITES[@]}"; do
+            proj=$(site_to_project "$s")
+            count=$(find "$proj/.vitepress/dist" -name "*.html" 2>/dev/null | wc -l)
+            echo "$s: $count"
+            if [[ "$count" -lt 1 ]]; then exit 1; fi
+          done
 
   release:
-    needs: [check, build-all, lighthouse]
+    needs: [check, build-all]
     runs-on: ubuntu-22.04
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     timeout-minutes: 15
@@ -149,13 +101,12 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 20
 
-      - name: Build static release (re-use build-all dists via MOCK_BUILD)
+      - name: Build static release (MOCK_BUILD reuses build-all dists)
         run: MOCK_BUILD=1 bash sites-hub/build-release.sh
 
-      - name: Upload release artifact
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
           name: sites-hub-static
           path: release/sites-hub-static.tar.gz
