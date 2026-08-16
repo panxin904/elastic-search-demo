@@ -222,6 +222,14 @@ server {
         add_header Content-Type text/plain;
     }
 
+    # P0: GoAccess stats — public（无需 auth，让匿名访问看流量统计）
+    location = /stats.html {
+        auth_basic off;
+        access_log off;
+        add_header Cache-Control "no-cache, must-revalidate";
+        alias /var/www/sites-hub/www/stats.html;
+    }
+
     # T15：CSP violation report（写日志，可接 ELK）
     location = /csp-report {
         auth_basic off;
