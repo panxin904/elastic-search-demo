@@ -1,8 +1,8 @@
 # java-language 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 55 个文档页 · 34,458 字
-> 生成时间：2026-08-16T09:03:50
+> 55 个文档页 · 34,653 字
+> 生成时间：2026-08-16T17:50:25
 
 ## [数据类型 / 包装类](https://java-px.bot.cd/java-language/01-basics/datatypes)
 > | 类型 | 字节 | 范围 | 包装类 | |------|------|------|--------| | byte | 1 | -128~127 | Byte | | short | 2 | -32k~32k | Short | | int | 4 | -2B~2B | Integer | | long | 8 | -9e18~9e18 | Long | | float | 4 | 6-7
@@ -161,7 +161,7 @@
 > > 50+ 节点，14 大主题分类，节点可点击跳转。 <ClientOnly><KnowledgeGraph :height="820" /></ClientOnly> | 颜色 | 分类 | 节点数 | |------|------|--------| | 🔴 红 | 基础语法 | 5 | | 🔵 蓝 | 集合框架 | 5 | | 🟣 紫 | 并发编程 | 5 | | 🟧 橙 | JVM 内存模
 
 ## [java-language 知识图谱](https://java-px.bot.cd/java-language/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "会用 HashMap 但不理解红黑树和 Hash 冲突", "写了 Spring 但不理解 IoC 容器如何工作", "遇到 GC 停顿只会调 Xmx", "用了线程池但不理解核心参数", "面试问 JVM 只知道「堆栈方法区」" ]" :goals="[ "系统化讲清 Java 基础 → 集合 → 并发 →
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "会用 HashMap 但不理解红黑树和 Hash 冲突", "写了 Spring 但不理解 IoC 容器如何工作", "遇到 GC 停顿只会调 Xmx",
 
 ## [思维导图](https://java-px.bot.cd/java-language/mindmap)
 > <ClientOnly><MindMap :height="940" /></ClientOnly>

@@ -6,13 +6,13 @@
     <atom:link href="https://java-px.bot.cd/devops/feed.xml" rel="self" type="application/rss+xml" />
     <description>devops 知识图谱（30 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 16 Aug 2026 09:03:50 -0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2026 17:50:25 -0000</lastBuildDate>
     <item>
       <title>DevOps 知识图谱</title>
       <link>https://java-px.bot.cd/devops/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/devops/</guid>
-      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "CI/CD 工具太多（Jenkins / GitLab CI / GitHub Actions / Argo），怎么选？", "Pipeline as Code 怎么写才不会变成 YAML 屎山？", "Terraform / Pulumi / Ansible 三大 IaC 工具怎么选？", "ArgoCD /</description>
-      <pubDate>Sat, 15 Aug 2026 18:56:48 -0000</pubDate>
+      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "CI/CD 工具太多（Jenkins / GitLab CI / GitHub Actions / Argo），怎么选？", "Pipeline as Co</description>
+      <pubDate>Sun, 16 Aug 2026 09:36:38 -0000</pubDate>
     </item>
     <item>
       <title>GitLab CI</title>

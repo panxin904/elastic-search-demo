@@ -1,8 +1,8 @@
 # frontend 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 65 个文档页 · 157,490 字
-> 生成时间：2026-08-16T09:03:50
+> 65 个文档页 · 157,685 字
+> 生成时间：2026-08-16T17:50:25
 
 ## [浏览器渲染原理](https://java-px.bot.cd/frontend/01-foundation/browser)
 > | 进程 | 职责 | |------|------| | Browser | 界面、Tab 管理、子进程协调 | | Renderer | 单个 Tab 的渲染（HTML 解析、布局、绘制） | | GPU | 加速绘制、3D CSS | | Network | 网络请求 | | Plugin | 第三方插件（已废弃） | 每个 Tab 默认一个 Renderer 进程（Site Isolati
@@ -191,7 +191,7 @@
 > > 80+ 节点，14 大主题分类，节点可点击跳转到对应章节。鼠标拖动可调整布局，悬停查看节点关联。 <ClientOnly> <KnowledgeGraph :height="820" /> </ClientOnly> | 颜色 | 分类 | 主题数 | |------|------|--------| | 🟠 橙 | 基础层 | 5 | | 🔵 蓝 | 语言层 | 4 | | 🩵 青 | UI
 
 ## [frontend 知识图谱](https://java-px.bot.cd/frontend/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "HTML / CSS 基础不扎实，遇到复杂布局就懵？", "React / Vue / Angular / Svelte 选哪个？", "浏览器渲染原理、Event Loop 讲不清？", "TypeScript 类型系统、泛型、条件类型卡壳？", "Node 后端怎么写、怎么部署、怎么调优？" ]" :goa
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "HTML / CSS 基础不扎实，遇到复杂布局就懵？", "React / Vue / Angular / Svelte 选哪个？", "浏览器渲染原理、E
 
 ## [思维导图](https://java-px.bot.cd/frontend/mindmap)
 > > 树形结构总览全部知识，可展开/收起节点，点击叶子节点跳转。 <ClientOnly> <MindMap :height="920" /> </ClientOnly> - **全部展开 / 收起**：顶部按钮控制 - **点击叶子节点**：跳转到对应章节 - **重置视图**：恢复初始展开状态

@@ -1,8 +1,8 @@
 # rust 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 35 个文档页 · 119,136 字
-> 生成时间：2026-08-16T09:03:50
+> 35 个文档页 · 119,331 字
+> 生成时间：2026-08-16T17:50:25
 
 ## [借用 Borrowing](https://java-px.bot.cd/rust/01-basics/borrowing)
 > 借用允许"使用值而不获取所有权"。通过 `&` 和 `&mut` 两种引用实现，编译期防止数据竞争。 > **借用 = 不获取所有权的引用**。**两大规则：不可变借用可多个、可变借用独占、不可变与可变不可共存**。**编译期消灭数据竞争**。 --- - **01-basics/ownership**：所有权基础 - **01-basics/lifetimes**：生命周期标注 - **04-c
@@ -107,4 +107,4 @@
 > 智能指针是实现了 Deref + Drop 的数据结构，管理堆内存的所有权与生命周期。 > **智能指针 = 实现 Deref + Drop 的指针**。**核心：Box / Rc / Arc / RefCell / Mutex**。 --- - **02-types-traits/advanced-types**：高级类型 - **04-concurrency/channels**：Channe
 
 ## [Rust 知识图谱](https://java-px.bot.cd/rust/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "所有权 / 借用 / 生命周期推导卡壳？", "异步编程（async-await / Tokio）复杂？", "Trait / 泛型 / 高级类型（新类型 / PhantomData）难理解？", "宏系统（声明宏 / 过程宏）门槛高？", "生态相对小、生产案例少？" ]" :goals="[ "基础与所有权
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "所有权 / 借用 / 生命周期推导卡壳？", "异步编程（async-await / Tokio）复杂？", "Trait / 泛型 / 高级类型（新类型

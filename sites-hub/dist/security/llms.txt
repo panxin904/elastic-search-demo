@@ -1,8 +1,8 @@
 # security 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 36 个文档页 · 124,491 字
-> 生成时间：2026-08-16T09:03:50
+> 36 个文档页 · 124,686 字
+> 生成时间：2026-08-16T17:50:25
 
 ## [A01 访问控制失效](https://java-px.bot.cd/security/01-web-top10/a01-broken-access)
 > > **访问控制失效 = 越权访问**。**典型：水平越权（看别人的订单）/ 垂直越权（普通用户拿管理员权限）**。**防御：服务端校验 + 最小权限 + 资源所有权检查**。 --- 访问控制是 Web 应用最基础的安全机制——**谁被允许做什么**。失效意味着： - 用户 A 能访问用户 B 的资源（**水平越权 / IDOR**） - 普通用户能调管理员 API（**垂直越权 / Privi
@@ -110,4 +110,4 @@
 > > **SPIFFE = 工作负载身份标准**。**SPIRE = SPIFFE Runtime Environment（实现）**。**核心：SVID（X.509 证书 / JWT）+ 自动签发 + 短期**。**服务网格 / 零信任 / mTLS 的身份基座**。 --- - **06-zero-trust/overview**：零信任总览 - **06-zero-trust/implemen
 
 ## [Security 知识图谱](https://java-px.bot.cd/security/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "OWASP Top 10 风险记不全，audit 一个 Web 应用无从下手？", "认证 vs 授权、RBAC vs ABAC 模型区别？", "密码学（对称 / 非对称 / 哈希 / 数字签名）讲不清？", "TLS / HTTPS / 证书体系不熟？", "XSS / CSRF / SQL 注入 / SS
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "OWASP Top 10 风险记不全，audit 一个 Web 应用无从下手？", "认证 vs 授权、RBAC vs ABAC 模型区别？", "密码学（

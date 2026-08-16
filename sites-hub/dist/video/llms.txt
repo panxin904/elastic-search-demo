@@ -1,8 +1,8 @@
 # video 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 67 个文档页 · 293,724 字
-> 生成时间：2026-08-16T09:03:50
+> 67 个文档页 · 293,919 字
+> 生成时间：2026-08-16T17:50:25
 
 ## [编解码概览](https://java-px.bot.cd/video/01-basics/codec-overview)
 > <span class="kg-badge kg-badge-basics">基础</span> <span class="kg-badge kg-badge-codec">原理</span> 视频编解码（CODEC = COder + DECoder）= 视频的"压缩与解压"。 **同一帧内**相邻像素相似 → **帧内预测** + DCT **相邻帧**之间高度相似 → **运动估计 + 运动
@@ -197,7 +197,7 @@
 > <span class="kg-badge kg-badge-basics">图谱</span> <span class="kg-badge kg-badge-algorithm">全景</span> 通过交互式知识图谱，**全局**理解视频处理的技术栈关系。点击节点跳转到对应文档。 <KnowledgeGraph /> | 分类 | 颜色 | 节点数 | | --- | --- | --- |
 
 ## [视频处理知识库](https://java-px.bot.cd/video/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "像素 / 色彩 / 帧率 / 容器格式基础概念混？", "帧内 / 帧间 / DCT / 熵编码 原理讲不清？", "H.264 / H.265 / AV1 / VP9 选哪个？", "RTMP / HLS / DASH 流媒体协议区别？", "FFmpeg 命令太多记不住？" ]" :goals="[ "视频
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "像素 / 色彩 / 帧率 / 容器格式基础概念混？", "帧内 / 帧间 / DCT / 熵编码 原理讲不清？", "H.264 / H.265 / AV1
 
 ## [思维导图](https://java-px.bot.cd/video/mindmap)
 > <span class="kg-badge kg-badge-basics">导图</span> <span class="kg-badge kg-badge-cases">结构化</span> 通过交互式思维导图，**结构化**梳理视频处理知识体系。 <MindMap /> - 鼠标拖动：移动画布 - 点击节点：展开/折叠子节点 - 滚轮：缩放 - 顶部按钮：全部展开、全部折叠、重置视角

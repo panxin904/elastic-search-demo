@@ -28,7 +28,7 @@ from xml.sax.saxutils import escape
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 SITES_SH = ROOT / 'sites-hub' / 'scripts' / 'sites.sh'
-WWW_DIR = ROOT / 'www'
+WWW_DIR = ROOT / 'sites-hub' / 'www'
 DIST_DIR = ROOT / 'sites-hub' / 'dist'
 BASE_URL = 'https://java-px.bot.cd'
 

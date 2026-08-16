@@ -1,8 +1,8 @@
 # filesystem 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 94 个文档页 · 324,231 字
-> 生成时间：2026-08-16T09:03:50
+> 94 个文档页 · 324,426 字
+> 生成时间：2026-08-16T17:50:25
 
 ## [01 · 文件系统基础](https://java-px.bot.cd/filesystem/01-basics/README)
 > <span class="kg-badge kg-badge-basics">基础</span> 理解"打开一个文件背后发生了什么"——这是掌握所有存储技术的起点。 | 节点 | 一句话 | |------|--------| | [inode 与 dentry](/01-basics/inode-dentry) | 文件的"身份证"——文件名背后的元数据 | | [VFS 虚拟文件系统](/01
@@ -278,7 +278,7 @@
 > 按章节组织的 76 个核心节点关系图。点击节点跳转对应文档。 <ClientOnly> <KnowledgeGraph :height="880" /> </ClientOnly> 13 种颜色对应 13 个章节，节点大小表示该知识点的重要性/复杂度。边表示节点间的依赖或衍生关系（如「日志」概念应用于 ext4 / XFS / NTFS 等多个本地盘 FS）。 - 鼠标拖拽节点重新布局 - 滚轮缩
 
 ## [文件系统 / 文件服务 / 存储全栈](https://java-px.bot.cd/filesystem/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "从单块磁盘的 inode 到跨数据中心的对象存储，怎么系统学？", "POSIX 权限 / ACL / Capabilities 到底有什么区别？", "本地 FS（ext4 / xfs / btrfs / zfs）怎么选？", "网络 FS（NFS / SMB / CIFS）vs 分布式 FS（Ceph /
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "从单块磁盘的 inode 到跨数据中心的对象存储，怎么系统学？", "POSIX 权限 / ACL / Capabilities 到底有什么区别？", "本
 
 ## [思维导图](https://java-px.bot.cd/filesystem/mindmap)
 > 树形结构浏览所有节点。点击 ▶ 展开 / 收起子节点。 <ClientOnly> <MindMap :height="760" /> </ClientOnly> | # | 章节 | 节点数 | 重点 | |---|------|--------|------| | 1 | 文件系统基础 | 7 | inode / VFS / Page Cache 等核心抽象 | | 2 | 本地盘 FS | 7

@@ -1,8 +1,8 @@
 # python 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 60 个文档页 · 433,216 字
-> 生成时间：2026-08-16T09:03:50
+> 60 个文档页 · 433,411 字
+> 生成时间：2026-08-16T17:50:25
 
 ## [控制流](https://java-px.bot.cd/python/01-basics/control-flow)
 > > Python 控制流包括**条件分支（if/elif/else）、循环（for/while）、异常处理（try/except）**。Python 用**缩进**表示代码块，简洁优雅。 <ClientOnly> <PythonPlayground /> </ClientOnly> 试试在 Playground 里运行控制流代码： **Python 控制流核心要点**： - ✅ 缩进表示代码块（4
@@ -176,7 +176,7 @@
 > > 62 节点，9 大主题分类，节点可点击跳转到对应章节。鼠标拖动可调整布局，悬停查看节点关联。 <ClientOnly> <KnowledgeGraph :height="820" /> </ClientOnly> | 颜色 | 分类 | 节点数 | |------|------|--------| | 🔵 蓝 | Python 入门 | 5 | | 🟠 橙 | 底层原理 | 7 | | 🟢 绿
 
 ## [python 知识图谱](https://java-px.bot.cd/python/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "只懂基础语法，不了解底层原理（解释器 / 字节码 / 对象模型）", "用过 requests / pandas 但不知道内部实现", "写 GIL 多线程却不知道为什么慢", "爬虫写完就封 IP，不知道反爬怎么破", "LLM 应用只会调 API，不知道 prompt 怎么写" ]" :goals="[ "
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "只懂基础语法，不了解底层原理（解释器 / 字节码 / 对象模型）", "用过 requests / pandas 但不知道内部实现", "写 GIL 多线程
 
 ## [思维导图](https://java-px.bot.cd/python/mindmap)
 > > 树形结构总览 Python 全栈知识，可展开/收起节点，点击叶子节点跳转。 <ClientOnly> <MindMap :height="900" /> </ClientOnly> - **全部展开 / 收起**：顶部按钮控制 - **点击叶子节点**：跳转到对应章节 - **重置视图**：恢复初始展开状态

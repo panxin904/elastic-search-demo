@@ -6,13 +6,13 @@
     <atom:link href="https://java-px.bot.cd/design-pattern/feed.xml" rel="self" type="application/rss+xml" />
     <description>design-pattern 知识图谱（49 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 16 Aug 2026 09:03:50 -0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2026 17:50:25 -0000</lastBuildDate>
     <item>
       <title>设计模式 / GoF 23 式 / 反模式</title>
       <link>https://java-px.bot.cd/design-pattern/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/design-pattern/</guid>
-      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "GoF 23 式记不全，面试问到「装饰器 vs 代理」讲不清？", "创建型 / 结构型 / 行为型 分类背后的设计原则（开闭 / 里氏 / 依赖倒置）？", "现代模式（DI / Repository / Specification）跟 GoF 的关系？", "架构模式（CQRS / Event Sourci</description>
-      <pubDate>Sat, 15 Aug 2026 18:51:02 -0000</pubDate>
+      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "GoF 23 式记不全，面试问到「装饰器 vs 代理」讲不清？", "创建型 / 结构型 / 行为型 分类背后的设计原则（开闭 / 里氏 / 依赖倒置）？"</description>
+      <pubDate>Sun, 16 Aug 2026 09:36:38 -0000</pubDate>
     </item>
     <item>
       <title>Builder 建造者模式</title>

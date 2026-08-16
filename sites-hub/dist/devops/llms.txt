@@ -1,8 +1,8 @@
 # devops 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 30 个文档页 · 87,942 字
-> 生成时间：2026-08-16T09:03:50
+> 30 个文档页 · 88,137 字
+> 生成时间：2026-08-16T17:50:25
 
 ## [CI/CD Pipeline 最佳实践](https://java-px.bot.cd/devops/01-pipeline/best-practices)
 > 跨工具通用的 Pipeline 设计原则，让团队从"能跑"到"跑得快、跑得稳"。 > **Pipeline 最佳实践 = 4 大原则：缓存 / 并行 / 分层 / 反馈**。**目标：提交到反馈 < 10 分钟、cache hit > 80%、success rate > 95%**。 --- - **01-pipeline/github-actions**：GitHub Actions 缓存 -
@@ -92,4 +92,4 @@
 > CI/CD Pipeline 本身是攻击面最大的目标之一（拥有生产部署权限）。本章梳理 Pipeline 全链路的 8 大安全措施。 > **Pipeline 安全 = SLSA + 最小权限 + 可审计**。**核心：Secret 管理 / OIDC 联邦 / SBOM / 镜像签名 / 制品完整性**。 --- - **06-best-practices/secrets-management*
 
 ## [DevOps 知识图谱](https://java-px.bot.cd/devops/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "CI/CD 工具太多（Jenkins / GitLab CI / GitHub Actions / Argo），怎么选？", "Pipeline as Code 怎么写才不会变成 YAML 屎山？", "Terraform / Pulumi / Ansible 三大 IaC 工具怎么选？", "ArgoCD /
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "CI/CD 工具太多（Jenkins / GitLab CI / GitHub Actions / Argo），怎么选？", "Pipeline as Co

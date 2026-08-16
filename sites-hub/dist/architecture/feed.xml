@@ -6,13 +6,13 @@
     <atom:link href="https://java-px.bot.cd/architecture/feed.xml" rel="self" type="application/rss+xml" />
     <description>architecture 知识图谱（51 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 16 Aug 2026 09:03:50 -0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2026 17:50:25 -0000</lastBuildDate>
     <item>
       <title>企业级架构知识图谱</title>
       <link>https://java-px.bot.cd/architecture/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/architecture/</guid>
-      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "会写 CRUD 却讲不清 CAP 定理", "知道消息队列但说不清幂等性设计", "调过限流却不懂令牌桶 vs 滑动窗口的区别", "用了 Seata 却不知道 AT 模式的 undo_log 怎么工作", "部署过微服务但没读过 DDD" ]" :goals="[ "JMM / happens-before</description>
-      <pubDate>Sat, 15 Aug 2026 18:30:02 -0000</pubDate>
+      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "会写 CRUD 却讲不清 CAP 定理", "知道消息队列但说不清幂等性设计", "调过限流却不懂令牌桶 vs 滑动窗口的区别", "用了 Seata 却不</description>
+      <pubDate>Sun, 16 Aug 2026 09:36:38 -0000</pubDate>
     </item>
     <item>
       <title>BASE / 最终一致性</title>

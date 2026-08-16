@@ -6,13 +6,13 @@
     <atom:link href="https://java-px.bot.cd/mysql/feed.xml" rel="self" type="application/rss+xml" />
     <description>mysql 知识图谱（67 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 16 Aug 2026 09:03:50 -0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2026 17:50:25 -0000</lastBuildDate>
     <item>
       <title>MySQL 知识图谱</title>
       <link>https://java-px.bot.cd/mysql/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/mysql/</guid>
-      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "知识点碎片化，不知道先后顺序（11 大主题怎么学？）", "InnoDB 引擎原理（MVCC / Buffer Pool / Redo Log）讲不清？", "索引（B+Tree / Hash / 全文）怎么建才高效？", "SQL 优化（EXPLAIN / 慢查询 / 索引失效）？", "主从复制 / 读写分</description>
-      <pubDate>Sat, 15 Aug 2026 18:56:48 -0000</pubDate>
+      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "知识点碎片化，不知道先后顺序（11 大主题怎么学？）", "InnoDB 引擎原理（MVCC / Buffer Pool / Redo Log）讲不清？",</description>
+      <pubDate>Sun, 16 Aug 2026 09:36:38 -0000</pubDate>
     </item>
     <item>
       <title>Saga 模式详解</title>

@@ -1,8 +1,8 @@
 # redis 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 59 个文档页 · 349,159 字
-> 生成时间：2026-08-16T09:03:50
+> 59 个文档页 · 349,354 字
+> 生成时间：2026-08-16T17:50:25
 
 ## [5 大基础类型](https://java-px.bot.cd/redis/01-basics/datatypes)
 > > Redis 不是简单的 key-value 缓存，**value 可以是 5 种不同的数据结构**，每种都针对特定场景优化。 | 类型 | 描述 | 底层编码（Redis 7） | 适用场景 | |------|------|---------------------|---------| | **String** | 字符串 / 数字 / 二进制 | int / embstr / raw |
@@ -173,7 +173,7 @@
 > > 60+ 节点，8 大主题分类，节点可点击跳转到对应章节。鼠标拖动可调整布局，悬停查看节点关联。 <ClientOnly> <KnowledgeGraph :height="780" /> </ClientOnly> | 颜色 | 分类 | 节点数 | |------|------|--------| | 🔴 红 | 基础入门 | 5 | | 🟠 橙 | 数据结构原理 | 7 | | 🟢 绿 |
 
 ## [redis 知识图谱](https://java-px.bot.cd/redis/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "只会简单 SET / GET，不懂底层数据结构（SDS / Dict / SkipList）", "不了解 RDB / AOF 的差异与混合持久化", "集群模式分不清主从 / 哨兵 / Cluster / Gossip", "用过 Jedis 但不知道 Lettuce 是怎么 NIO 异步的", "做过分布式
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "只会简单 SET / GET，不懂底层数据结构（SDS / Dict / SkipList）", "不了解 RDB / AOF 的差异与混合持久化", "集
 
 ## [思维导图](https://java-px.bot.cd/redis/mindmap)
 > > 树形结构总览 Redis 全栈知识，可展开/收起节点，点击叶子节点跳转。 <ClientOnly> <MindMap :height="820" /> </ClientOnly> - **全部展开 / 收起**：顶部按钮控制 - **点击叶子节点**：跳转到对应章节 - **重置视图**：恢复初始展开状态

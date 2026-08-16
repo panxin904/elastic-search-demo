@@ -1,8 +1,8 @@
 # tools 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 13 个文档页 · 56,406 字
-> 生成时间：2026-08-16T09:03:50
+> 13 个文档页 · 56,601 字
+> 生成时间：2026-08-16T17:50:25
 
 ## [Base64 编解码](https://java-px.bot.cd/tools/base64)
 > 字符串与 Base64 互转，支持 UTF-8（中文）。 <script setup> import { ref } from 'vue' const input = ref('你好，世界！Hello, World!') const direction = ref('encode') const status = ref({ kind: 'muted', text: '' }) const out
@@ -11,7 +11,7 @@
 > 解析 5/6 字段 Cron 表达式，描述字段含义，并列出接下来 5 次运行时间。 <script setup> import { ref, computed } from 'vue' const expr = ref('0 */2 * * *') const status = ref({ kind: 'muted', text: '' }) // 解析为 6 字段（缺少年份则补 *） const
 
 ## [tools 知识图谱](https://java-px.bot.cd/tools/index)
-> <div id="all-tools"></div> <ClientOnly> <WhyThisGraph :pain-points="[ "日常 JSON 格式化 / 压缩 / 校验每次都开在线工具？", "时间戳 / 时区 / ISO 8601 转换容易出错？", "URL 编解码 / Base64 / UUID / JWT 解码手算不来？", "正则表达式每次都要查语法？", "在线工具有数
+> <div id="all-tools"></div> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "日常 JSON 格式化 / 压缩 / 校验每次都开在线工具？", "时间戳 / 时区 / ISO 86
 
 ## [ISO / RFC 格式化](https://java-px.bot.cd/tools/iso)
 > 把一个日期转换为多种 ISO / RFC 字符串格式。 <script setup> import { ref, computed } from 'vue' const input = ref(new Date().toISOString().slice(0, 19)) const status = ref('') const parsed = ref(null) function parse()

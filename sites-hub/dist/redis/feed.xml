@@ -6,13 +6,13 @@
     <atom:link href="https://java-px.bot.cd/redis/feed.xml" rel="self" type="application/rss+xml" />
     <description>redis 知识图谱（59 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 16 Aug 2026 09:03:50 -0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2026 17:50:25 -0000</lastBuildDate>
     <item>
       <title>redis 知识图谱</title>
       <link>https://java-px.bot.cd/redis/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/redis/</guid>
-      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "只会简单 SET / GET，不懂底层数据结构（SDS / Dict / SkipList）", "不了解 RDB / AOF 的差异与混合持久化", "集群模式分不清主从 / 哨兵 / Cluster / Gossip", "用过 Jedis 但不知道 Lettuce 是怎么 NIO 异步的", "做过分布式</description>
-      <pubDate>Sat, 15 Aug 2026 18:44:55 -0000</pubDate>
+      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "只会简单 SET / GET，不懂底层数据结构（SDS / Dict / SkipList）", "不了解 RDB / AOF 的差异与混合持久化", "集</description>
+      <pubDate>Sun, 16 Aug 2026 09:36:38 -0000</pubDate>
     </item>
     <item>
       <title>缓存一致性</title>

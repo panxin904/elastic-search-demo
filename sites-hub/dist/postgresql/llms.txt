@@ -1,8 +1,8 @@
 # postgresql 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 53 个文档页 · 257,149 字
-> 生成时间：2026-08-16T09:03:50
+> 53 个文档页 · 257,344 字
+> 生成时间：2026-08-16T17:50:25
 
 ## [进程架构](https://java-px.bot.cd/postgresql/01-basics/architecture)
 > PostgreSQL 进程模型与内存结构
@@ -161,4 +161,4 @@
 > 企业级 RDBMS 迁移对比
 
 ## [PostgreSQL 知识图谱](https://java-px.bot.cd/postgresql/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "MVCC 原理：为什么 PG 的读不阻塞写？", "事务隔离级别（RC / RR / Serializable）选哪个？", "索引类型（B-tree / Hash / GIN / BRIN / GiST）怎么选？", "主从复制延迟、逻辑复制、FDW 怎么用？", "慢查询、锁等待、checkpoint 怎么
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "MVCC 原理：为什么 PG 的读不阻塞写？", "事务隔离级别（RC / RR / Serializable）选哪个？", "索引类型（B-tree /

@@ -1,8 +1,8 @@
 # bigdata 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 51 个文档页 · 182,440 字
-> 生成时间：2026-08-16T09:03:50
+> 51 个文档页 · 182,635 字
+> 生成时间：2026-08-16T17:50:25
 
 ## [大数据 4V 特征](https://java-px.bot.cd/bigdata/01-basics/4v)
 > 大数据（Big Data）= 无法用传统数据库工具在合理时间内处理的数据集。 | | 传统 DB | 大数据 | |------|--------|--------| | 数据量 | GB-TB | PB-EB | | 速度 | 实时 | 实时 + 批 | | 多样性 | 结构化 | 半/非结构化 | | 价值 | 报表 | 洞察 + ML | | 工具 | Oracle / MySQL | Ha
@@ -149,7 +149,7 @@
 > > 50+ 节点，14 大主题分类，节点可点击跳转。 <ClientOnly><KnowledgeGraph :height="820"></KnowledgeGraph></ClientOnly> | 颜色 | 分类 | 主题数 | |------|------|--------| | 🔵 蓝 | 大数据基础 | 4 | | 🩵 青 | HDFS | 4 | | 🟧 橙 | MapReduce
 
 ## [bigdata 知识图谱](https://java-px.bot.cd/bigdata/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "Hadoop / Spark / Flink / Hive / Kafka 各自独立文档", "数据仓库 vs 数据湖 vs Lakehouse 怎么选", "离线数仓 vs 实时数仓 怎么统一", "ClickHouse / Doris / StarRocks 怎么选", "模型设计 Inmon vs Kim
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Hadoop / Spark / Flink / Hive / Kafka 各自独立文档", "数据仓库 vs 数据湖 vs Lakehouse 怎么选",
 
 ## [思维导图](https://java-px.bot.cd/bigdata/mindmap)
 > <ClientOnly><MindMap :height="940"></MindMap></ClientOnly>

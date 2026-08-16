@@ -6,13 +6,13 @@
     <atom:link href="https://java-px.bot.cd/bigdata/feed.xml" rel="self" type="application/rss+xml" />
     <description>bigdata 知识图谱（51 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 16 Aug 2026 09:03:50 -0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2026 17:50:25 -0000</lastBuildDate>
     <item>
       <title>bigdata 知识图谱</title>
       <link>https://java-px.bot.cd/bigdata/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/bigdata/</guid>
-      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "Hadoop / Spark / Flink / Hive / Kafka 各自独立文档", "数据仓库 vs 数据湖 vs Lakehouse 怎么选", "离线数仓 vs 实时数仓 怎么统一", "ClickHouse / Doris / StarRocks 怎么选", "模型设计 Inmon vs Kim</description>
-      <pubDate>Sat, 15 Aug 2026 18:30:02 -0000</pubDate>
+      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Hadoop / Spark / Flink / Hive / Kafka 各自独立文档", "数据仓库 vs 数据湖 vs Lakehouse 怎么选",</description>
+      <pubDate>Sun, 16 Aug 2026 09:36:38 -0000</pubDate>
     </item>
     <item>
       <title>风控系统</title>

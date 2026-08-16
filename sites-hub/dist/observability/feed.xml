@@ -6,13 +6,13 @@
     <atom:link href="https://java-px.bot.cd/observability/feed.xml" rel="self" type="application/rss+xml" />
     <description>observability 知识图谱（50 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 16 Aug 2026 09:03:50 -0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2026 17:50:25 -0000</lastBuildDate>
     <item>
       <title>Observability 知识图谱</title>
       <link>https://java-px.bot.cd/observability/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/observability/</guid>
-      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "单体时代（CPU/内存/磁盘）vs 微服务时代（调用链/性能瓶颈）监控差异？", "Metrics / Logs / Traces 三件套怎么选型（Prometheus / Loki / Jaeger）？", "OpenTelemetry（OTel） Collector / SDK / Exporter 怎么部</description>
-      <pubDate>Sat, 15 Aug 2026 18:56:48 -0000</pubDate>
+      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "单体时代（CPU/内存/磁盘）vs 微服务时代（调用链/性能瓶颈）监控差异？", "Metrics / Logs / Traces 三件套怎么选型（Prom</description>
+      <pubDate>Sun, 16 Aug 2026 09:36:38 -0000</pubDate>
     </item>
     <item>
       <title>OTLP 协议</title>

@@ -1,8 +1,8 @@
 # linux 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 71 个文档页 · 243,604 字
-> 生成时间：2026-08-16T09:03:50
+> 71 个文档页 · 243,799 字
+> 生成时间：2026-08-16T17:50:25
 
 ## [发行版选择](https://java-px.bot.cd/linux/01-foundation/distros)
 > > 同一个内核 + 不同软件 = 不同发行版（Distribution）。选哪个不是信仰问题，是工程问题。 | 发行版 | 包管理 | 适合 | 备注 | |--------|--------|------|------| | **Ubuntu Server LTS** | apt / deb | 服务器 / 云 / 新手 | 文档最多，社区最大 | | **Debian** | apt / de
@@ -209,7 +209,7 @@
 > > 70+ 节点，14 大主题分类，节点可点击跳转到对应章节。鼠标拖动可调整布局，悬停查看节点关联。 <ClientOnly> <KnowledgeGraph :height="820" /> </ClientOnly> | 颜色 | 分类 | 节点数 | |------|------|--------| | 🟠 橙 | 入门基础 | 4 | | 🔵 蓝 | 文件与目录 | 5 | | 🩵 青 |
 
 ## [linux 知识图谱](https://java-px.bot.cd/linux/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "常用命令（ls / find / grep / awk）记不牢？", "Shell 脚本（bash / zsh）写不出来？", "systemd / 服务管理一团乱？", "iptables / nftables 防火墙不会配？", "内核参数调优（sysctl / cgroup）无从下手？" ]" :goal
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "常用命令（ls / find / grep / awk）记不牢？", "Shell 脚本（bash / zsh）写不出来？", "systemd / 服务管
 
 ## [思维导图](https://java-px.bot.cd/linux/mindmap)
 > > 树形结构总览全部知识，可展开/收起节点，点击叶子节点跳转。 <ClientOnly> <MindMap :height="920" /> </ClientOnly> - **全部展开 / 收起**：顶部按钮控制 - **点击叶子节点**：跳转到对应章节 - **重置视图**：恢复初始展开状态

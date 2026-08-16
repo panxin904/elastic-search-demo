@@ -6,13 +6,13 @@
     <atom:link href="https://java-px.bot.cd/es/feed.xml" rel="self" type="application/rss+xml" />
     <description>es 知识图谱（63 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 16 Aug 2026 09:03:50 -0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2026 17:50:25 -0000</lastBuildDate>
     <item>
       <title>ES Knowledge Atlas</title>
       <link>https://java-px.bot.cd/es/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/es/</guid>
-      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "倒排索引原理（分词 / 词典 / Posting List）讲不清？", "ES 集群架构（Master / Data / Coordinating 节点）怎么设计？", "Mapping / Analyzer / 分词器怎么配置才高效？", "查询性能调优（Query DSL / Profile / 慢查询）</description>
-      <pubDate>Sat, 15 Aug 2026 18:49:19 -0000</pubDate>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="painPoints" :goals="goals" :related-sites="relatedSites" title="🎯 为什么写这个图谱？" /&gt; &lt;/ClientOnly&gt; &lt;script setup&gt; // WhyThisGraph 数据从 frontmatter 读不到（YAML 数组太复杂），放这</description>
+      <pubDate>Sun, 16 Aug 2026 09:34:58 -0000</pubDate>
     </item>
     <item>
       <title>使用场景与最佳实践</title>

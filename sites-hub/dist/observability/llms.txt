@@ -1,8 +1,8 @@
 # observability 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 50 个文档页 · 246,296 字
-> 生成时间：2026-08-16T09:03:50
+> 50 个文档页 · 246,491 字
+> 生成时间：2026-08-16T17:50:25
 
 ## [可观测性四大支柱](https://java-px.bot.cd/observability/01-foundations/four-pillars)
 > Metrics / Logs / Traces / Events 信号体系
@@ -152,4 +152,4 @@
 > 跨服务 trace + 服务地图 + 依赖分析
 
 ## [Observability 知识图谱](https://java-px.bot.cd/observability/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "单体时代（CPU/内存/磁盘）vs 微服务时代（调用链/性能瓶颈）监控差异？", "Metrics / Logs / Traces 三件套怎么选型（Prometheus / Loki / Jaeger）？", "OpenTelemetry（OTel） Collector / SDK / Exporter 怎么部
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "单体时代（CPU/内存/磁盘）vs 微服务时代（调用链/性能瓶颈）监控差异？", "Metrics / Logs / Traces 三件套怎么选型（Prom

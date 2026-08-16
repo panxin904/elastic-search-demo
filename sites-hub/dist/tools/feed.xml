@@ -6,13 +6,13 @@
     <atom:link href="https://java-px.bot.cd/tools/feed.xml" rel="self" type="application/rss+xml" />
     <description>tools 知识图谱（13 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 16 Aug 2026 09:03:50 -0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2026 17:50:25 -0000</lastBuildDate>
     <item>
       <title>tools 知识图谱</title>
       <link>https://java-px.bot.cd/tools/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/tools/</guid>
-      <description>&lt;div id="all-tools"&gt;&lt;/div&gt; &lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "日常 JSON 格式化 / 压缩 / 校验每次都开在线工具？", "时间戳 / 时区 / ISO 8601 转换容易出错？", "URL 编解码 / Base64 / UUID / JWT 解码手算不来？", "正则表达式每次都要查语法？", "在线工具有数</description>
-      <pubDate>Sat, 15 Aug 2026 18:49:19 -0000</pubDate>
+      <description>&lt;div id="all-tools"&gt;&lt;/div&gt; &lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "日常 JSON 格式化 / 压缩 / 校验每次都开在线工具？", "时间戳 / 时区 / ISO 86</description>
+      <pubDate>Sun, 16 Aug 2026 09:36:38 -0000</pubDate>
     </item>
     <item>
       <title>Cron 表达式</title>

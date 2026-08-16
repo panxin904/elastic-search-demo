@@ -6,13 +6,13 @@
     <atom:link href="https://java-px.bot.cd/network/feed.xml" rel="self" type="application/rss+xml" />
     <description>network 知识图谱（66 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 16 Aug 2026 09:03:50 -0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2026 17:50:25 -0000</lastBuildDate>
     <item>
       <title>计算机网络知识库</title>
       <link>https://java-px.bot.cd/network/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/network/</guid>
-      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "TCP/IP 协议栈（IP / TCP / UDP / HTTP）讲不清？", "三次握手 / 四次挥手 / TIME_WAIT 太多怎么排查？", "HTTPS / TLS 1.3 / HTTP/2 / HTTP/3 关系？", "DNS 解析过程、CDN 调度、负载均衡策略？", "网络排查工具（tcpdu</description>
-      <pubDate>Sat, 15 Aug 2026 18:56:48 -0000</pubDate>
+      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "TCP/IP 协议栈（IP / TCP / UDP / HTTP）讲不清？", "三次握手 / 四次挥手 / TIME_WAIT 太多怎么排查？", "HT</description>
+      <pubDate>Sun, 16 Aug 2026 09:36:38 -0000</pubDate>
     </item>
     <item>
       <title>思维导图</title>

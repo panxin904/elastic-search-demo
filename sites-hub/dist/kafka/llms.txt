@@ -1,8 +1,8 @@
 # kafka 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 73 个文档页 · 573,339 字
-> 生成时间：2026-08-16T09:03:50
+> 73 个文档页 · 573,534 字
+> 生成时间：2026-08-16T17:50:25
 
 ## [核心概念](https://java-px.bot.cd/kafka/01-basics/concepts)
 > > Kafka 的术语多但不难。理解 **Broker / Topic / Partition / Producer / Consumer / Consumer Group / Offset** 这 7 个核心概念就够了。 | 概念 | 数量 | 作用 | 比喻 | |------|------|------|------| | Cluster | 1 个 | 整体服务 | 公司 | | Brok
@@ -215,7 +215,7 @@
 > > 62 节点，10 大主题分类，节点可点击跳转到对应章节。鼠标拖动可调整布局，悬停查看节点关联。 <ClientOnly> <KnowledgeGraph :height="820" /> </ClientOnly> | 颜色 | 分类 | 节点数 | |------|------|--------| | 🔴 红 | Kafka 入门 | 5 | | 🟠 橙 | 架构原理 | 7 | | 🟢 绿
 
 ## [kafka 知识图谱](https://java-px.bot.cd/kafka/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "分区副本机制、Leader 选举讲不清？", "Exactly-Once 语义怎么实现？", "消费者组位移提交策略选哪个？", "Kafka 性能调优参数（broker / producer / consumer）？", "Kafka + Flink / Spark 流处理集成怎么做？" ]" :goals=
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "分区副本机制、Leader 选举讲不清？", "Exactly-Once 语义怎么实现？", "消费者组位移提交策略选哪个？", "Kafka 性能调优参数
 
 ## [思维导图](https://java-px.bot.cd/kafka/mindmap)
 > > 树形结构总览 Kafka 全栈知识，可展开/收起节点，点击叶子节点跳转。 <ClientOnly> <MindMap :height="900" /> </ClientOnly> - **全部展开 / 收起**：顶部按钮控制 - **点击叶子节点**：跳转到对应章节 - **重置视图**：恢复初始展开状态

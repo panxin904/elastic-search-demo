@@ -1,8 +1,8 @@
 # system-design 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 52 个文档页 · 243,926 字
-> 生成时间：2026-08-16T09:03:50
+> 52 个文档页 · 244,121 字
+> 生成时间：2026-08-16T17:50:25
 
 ## [CAP 定理](https://java-px.bot.cd/system-design/01-theory/cap)
 > > Eric Brewer 2000 年提出，2002 年 Gilbert & Lynch 给出形式化证明。 > **在异步网络模型下，一个分布式系统不可能同时满足以下三项中的超过两项**： > - **C**onsistency（一致性）：所有节点看到同一份数据 > - **A**vailability（可用性）：每个请求都能收到非错误响应 > - **P**artition tolerance
@@ -158,4 +158,4 @@
 > > 短链是系统设计面试的"Hello World"。考察候选人对**高读 / 低写**场景下读写路径优化、缓存层级、短码生成等核心问题的把握。 **为什么需要短链**： - **短信字数限制**：短信有 70 字符限制，长链占用过多 - **美观**：微博 / Twitter 限制字符数 - **统计**：可以统计点击数据（替代长链直接发） - **防爬**：长链带参数可被恶意爬取 | 指标 |
 
 ## [System Design 知识图谱](https://java-px.bot.cd/system-design/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "会写 CRUD 却讲不清 CAP", "调过 Redis 却说不出 cache-aside 的失效边界", "用过 Kafka 但说不清「不丢消息」需要哪几道防线", "设计过系统但写不出「短链」的短码生成选型", "读过 Raft 论文但没自己推导过选举超时" ]" :goals="[ "一致性模型谱 + C
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "会写 CRUD 却讲不清 CAP", "调过 Redis 却说不出 cache-aside 的失效边界", "用过 Kafka 但说不清「不丢消息」需要哪几

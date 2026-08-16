@@ -151,20 +151,15 @@ jq -n \
   printf ']}'
 } > "$STAGE_DIR/www/ld.json"
 
-# 生成 sitemap.xml（T4 SEO）
-cat > "$STAGE_DIR/www/sitemap.xml" <<EOF
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://java-px.bot.cd/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-EOF
-for s in "${built_sites[@]}"; do
-  echo "  <url><loc>https://java-px.bot.cd/$s/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" \
-    >> "$STAGE_DIR/www/sitemap.xml"
-done
-echo "</urlset>" >> "$STAGE_DIR/www/sitemap.xml"
+# 生成 sitemap.xml + llms.txt + llms-full.txt + feed.xml（C12/C5）
+# 调 build-sitemap-and-llms.py（已存在，145 行）覆盖 $SCRIPT_DIR/www/{sitemap,llms,feed}.{xml,txt}
+if [[ -f "$SCRIPT_DIR/scripts/build-sitemap-and-llms.py" ]]; then
+  echo "==> Generating sitemap + llms + feed for main portal + 28 sites..."
+  python3 "$SCRIPT_DIR/scripts/build-sitemap-and-llms.py" >/dev/null
+fi
 
 # robots.txt（T4 SEO）
-cat > "$STAGE_DIR/www/robots.txt" <<EOF
+cat > "$SCRIPT_DIR/www/robots.txt" <<EOF
 User-agent: *
 Allow: /
 Sitemap: https://java-px.bot.cd/sitemap.xml

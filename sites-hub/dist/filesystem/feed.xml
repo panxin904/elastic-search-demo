@@ -6,13 +6,13 @@
     <atom:link href="https://java-px.bot.cd/filesystem/feed.xml" rel="self" type="application/rss+xml" />
     <description>filesystem 知识图谱（94 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 16 Aug 2026 09:03:50 -0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2026 17:50:25 -0000</lastBuildDate>
     <item>
       <title>文件系统 / 文件服务 / 存储全栈</title>
       <link>https://java-px.bot.cd/filesystem/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/filesystem/</guid>
-      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "从单块磁盘的 inode 到跨数据中心的对象存储，怎么系统学？", "POSIX 权限 / ACL / Capabilities 到底有什么区别？", "本地 FS（ext4 / xfs / btrfs / zfs）怎么选？", "网络 FS（NFS / SMB / CIFS）vs 分布式 FS（Ceph /</description>
-      <pubDate>Sat, 15 Aug 2026 18:56:48 -0000</pubDate>
+      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "从单块磁盘的 inode 到跨数据中心的对象存储，怎么系统学？", "POSIX 权限 / ACL / Capabilities 到底有什么区别？", "本</description>
+      <pubDate>Sun, 16 Aug 2026 09:36:38 -0000</pubDate>
     </item>
     <item>
       <title>学习路径</title>

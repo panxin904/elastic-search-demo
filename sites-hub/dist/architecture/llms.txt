@@ -1,8 +1,8 @@
 # architecture 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 51 个文档页 · 145,503 字
-> 生成时间：2026-08-16T09:03:50
+> 51 个文档页 · 145,698 字
+> 生成时间：2026-08-16T17:50:25
 
 ## [CAS / Lock-Free](https://java-px.bot.cd/architecture/01-concurrency-theory/cas)
 > **Compare-And-Swap**（比较并交换），CPU 硬件原语： **乐观锁**：不断重试直到成功。 **解决**：版本号（AtomicStampedReference）或加锁。 高竞争下 CAS 反复失败 → CPU 空转。**解决**：自适应自旋 / Exponential Backoff / 让出 CPU。 CAS 只能保护**一个**变量。多变量一致性需要**事务 / 锁**。
@@ -149,7 +149,7 @@
 > > 50+ 节点，14 大主题分类，节点可点击跳转。 <ClientOnly><KnowledgeGraph :height="820" /></ClientOnly> | 颜色 | 分类 | 主题数 | |------|------|--------| | ⚫ 石 | 并发理论 | 4 | | 🩵 青 | 线程池 | 3 | | 🟣 紫 | 高可用理论 | 5 | | 🩷 粉 | 限流 | 3
 
 ## [企业级架构知识图谱](https://java-px.bot.cd/architecture/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "会写 CRUD 却讲不清 CAP 定理", "知道消息队列但说不清幂等性设计", "调过限流却不懂令牌桶 vs 滑动窗口的区别", "用了 Seata 却不知道 AT 模式的 undo_log 怎么工作", "部署过微服务但没读过 DDD" ]" :goals="[ "JMM / happens-before
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "会写 CRUD 却讲不清 CAP 定理", "知道消息队列但说不清幂等性设计", "调过限流却不懂令牌桶 vs 滑动窗口的区别", "用了 Seata 却不
 
 ## [思维导图](https://java-px.bot.cd/architecture/mindmap)
 > <ClientOnly><MindMap :height="940" /></ClientOnly>

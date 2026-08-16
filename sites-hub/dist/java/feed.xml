@@ -6,13 +6,13 @@
     <atom:link href="https://java-px.bot.cd/java/feed.xml" rel="self" type="application/rss+xml" />
     <description>java 知识图谱（53 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 16 Aug 2026 09:03:50 -0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2026 17:50:25 -0000</lastBuildDate>
     <item>
       <title>Java Web Dev Manual</title>
       <link>https://java-px.bot.cd/java/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/java/</guid>
-      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "Java 知识图谱太广（基础 / JVM / 并发 / 框架 / 中间件）怎么系统学？", "JVM 内存模型（堆 / 栈 / Metaspace / 直接内存）？", "并发编程（synchronized / Lock / JUC / 线程池）？", "Spring / Spring Boot / MyBat</description>
-      <pubDate>Sat, 15 Aug 2026 18:49:19 -0000</pubDate>
+      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Java 知识图谱太广（基础 / JVM / 并发 / 框架 / 中间件）怎么系统学？", "JVM 内存模型（堆 / 栈 / Metaspace / 直接</description>
+      <pubDate>Sun, 16 Aug 2026 09:36:38 -0000</pubDate>
     </item>
     <item>
       <title>MyBatis / MyBatis-Plus</title>

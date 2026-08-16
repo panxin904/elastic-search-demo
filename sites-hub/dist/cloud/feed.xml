@@ -6,13 +6,13 @@
     <atom:link href="https://java-px.bot.cd/cloud/feed.xml" rel="self" type="application/rss+xml" />
     <description>cloud 知识图谱（35 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 16 Aug 2026 09:03:50 -0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2026 17:50:25 -0000</lastBuildDate>
     <item>
       <title>Spring Cloud Alibaba 知识图谱</title>
       <link>https://java-px.bot.cd/cloud/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/cloud/</guid>
-      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "微服务架构选型：Spring Cloud Alibaba vs Spring Cloud Netflix vs Istio？", "Gateway / Nacos / Sentinel / Seata 组件怎么用？", "服务注册发现、配置中心、负载均衡、熔断限流怎么串联？", "分布式事务（Seata AT</description>
-      <pubDate>Sat, 15 Aug 2026 18:56:48 -0000</pubDate>
+      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "微服务架构选型：Spring Cloud Alibaba vs Spring Cloud Netflix vs Istio？", "Gateway / Na</description>
+      <pubDate>Sun, 16 Aug 2026 09:36:38 -0000</pubDate>
     </item>
     <item>
       <title>Spring Cloud 学习路径</title>

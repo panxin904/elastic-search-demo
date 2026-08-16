@@ -1,8 +1,8 @@
 # Scholar's Atlas 跨站知识图谱
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 1464 个文档页 · 6,217,206 字
-> 生成时间：2026-08-16T09:03:50
+> 1464 个文档页 · 6,222,557 字
+> 生成时间：2026-08-16T17:50:25
 
 ## [集群 Cluster](https://java-px.bot.cd/es/01-storage/cluster)
 > <span class="kg-badge kg-badge-storage">存储层</span> ES 集群是由**一个或多个节点**组成的、能对外提供统一搜索服务的分布式系统。 - **水平扩展**：突破单机容量与吞吐上限 - **高可用**：节点故障时副本接管 - **并行处理**：查询与索引在多节点并行执行 返回： | 状态 | 含义 | |---|---| | 🟢 green | 所有
@@ -191,7 +191,7 @@
 > 本页聚焦从 7.x 升级到 8.x 时**最关键的差异点**，供升级决策参考。 > 💡 本站主要讲 ES 7.17（搭配 [elastic-search-demo](https://github.com/your-repo) 项目使用 7.17.10）。如需了解 8.x 新特性请参考 [官方升级指南](https://www.elastic.co/guide/en/elasticsearch/re
 
 ## [ES Knowledge Atlas](https://java-px.bot.cd/es/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "倒排索引原理（分词 / 词典 / Posting List）讲不清？", "ES 集群架构（Master / Data / Coordinating 节点）怎么设计？", "Mapping / Analyzer / 分词器怎么配置才高效？", "查询性能调优（Query DSL / Profile / 慢查询）
+> <ClientOnly> <WhyThisGraph :pain-points="painPoints" :goals="goals" :related-sites="relatedSites" title="🎯 为什么写这个图谱？" /> </ClientOnly> <script setup> // WhyThisGraph 数据从 frontmatter 读不到（YAML 数组太复杂），放这
 
 ## [体系结构](https://java-px.bot.cd/mysql/01-foundation/architecture)
 > > 理解 MySQL 是怎么运行的，是掌握所有高级特性的基础。 负责与客户端建立连接、权限验证、连接管理： **关键配置：** - `max_connections=151`：默认 151，生产建议 1000+ - `wait_timeout=28800`：默认 8 小时 - `thread_cache_size=9`：线程缓存，避免频繁创建销毁 > 💡 **为什么 8.0 删除？** 因为只要表
@@ -386,7 +386,7 @@
 > > 全局可视化展示 MySQL 的 **50 个核心概念** 与它们之间的 **80+ 条关联关系** > > 💡 提示：拖动节点调整布局，点击节点跳转对应文档，悬停查看高亮关系。 <KnowledgeGraph :height="700" src="/graph.json" /> | 分类 | 节点数 | 代表概念 | |---|---|---| | 🏛️ 基础层 | 6 | InnoDB /
 
 ## [MySQL 知识图谱](https://java-px.bot.cd/mysql/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "知识点碎片化，不知道先后顺序（11 大主题怎么学？）", "InnoDB 引擎原理（MVCC / Buffer Pool / Redo Log）讲不清？", "索引（B+Tree / Hash / 全文）怎么建才高效？", "SQL 优化（EXPLAIN / 慢查询 / 索引失效）？", "主从复制 / 读写分
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "知识点碎片化，不知道先后顺序（11 大主题怎么学？）", "InnoDB 引擎原理（MVCC / Buffer Pool / Redo Log）讲不清？",
 
 ## [思维导图](https://java-px.bot.cd/mysql/mindmap)
 > > 按 **11 大主题** 分类的结构化导图，支持展开/收起，点击叶子节点跳转对应文档。 <MindMap :height="720" /> - [体系结构](01-foundation/architecture) - MySQL 是怎么运行的 - [存储引擎](01-foundation/storage-engine) - InnoDB vs MyISAM vs MEMORY - [数据类型]
@@ -563,7 +563,7 @@
 > > 60+ 节点，8 大主题分类，节点可点击跳转到对应章节。鼠标拖动可调整布局，悬停查看节点关联。 <ClientOnly> <KnowledgeGraph :height="780" /> </ClientOnly> | 颜色 | 分类 | 节点数 | |------|------|--------| | 🔴 红 | 基础入门 | 5 | | 🟠 橙 | 数据结构原理 | 7 | | 🟢 绿 |
 
 ## [redis 知识图谱](https://java-px.bot.cd/redis/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "只会简单 SET / GET，不懂底层数据结构（SDS / Dict / SkipList）", "不了解 RDB / AOF 的差异与混合持久化", "集群模式分不清主从 / 哨兵 / Cluster / Gossip", "用过 Jedis 但不知道 Lettuce 是怎么 NIO 异步的", "做过分布式
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "只会简单 SET / GET，不懂底层数据结构（SDS / Dict / SkipList）", "不了解 RDB / AOF 的差异与混合持久化", "集
 
 ## [思维导图](https://java-px.bot.cd/redis/mindmap)
 > > 树形结构总览 Redis 全栈知识，可展开/收起节点，点击叶子节点跳转。 <ClientOnly> <MindMap :height="820" /> </ClientOnly> - **全部展开 / 收起**：顶部按钮控制 - **点击叶子节点**：跳转到对应章节 - **重置视图**：恢复初始展开状态
@@ -668,7 +668,7 @@
 > > 全局可视化展示 Spring Cloud Alibaba 的 **20+ 核心概念** 与它们之间的关系。 > 💡 提示：拖动节点调整布局，点击节点跳转对应文档，悬停查看高亮关系。 <KnowledgeGraph :height="700" src="/graph.json" /> | 分类 | 节点数 | 代表概念 | |---|---|---| | 🍃 Spring Boot | 5 |
 
 ## [Spring Cloud Alibaba 知识图谱](https://java-px.bot.cd/cloud/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "微服务架构选型：Spring Cloud Alibaba vs Spring Cloud Netflix vs Istio？", "Gateway / Nacos / Sentinel / Seata 组件怎么用？", "服务注册发现、配置中心、负载均衡、熔断限流怎么串联？", "分布式事务（Seata AT
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "微服务架构选型：Spring Cloud Alibaba vs Spring Cloud Netflix vs Istio？", "Gateway / Na
 
 ## [思维导图](https://java-px.bot.cd/cloud/mindmap)
 > > 按 **6 大主题** 分类的结构化导图，支持展开/收起，点击叶子节点跳转对应文档。 <MindMap :height="720" /> - [🚀 快速开始](/01-springboot/quickstart) - 第一个 Spring Boot 应用 - [⚙️ 自动配置原理](/01-springboot/auto-config) - @SpringBootApplication 背后的
@@ -848,7 +848,7 @@
 > > 62 节点，9 大主题分类，节点可点击跳转到对应章节。鼠标拖动可调整布局，悬停查看节点关联。 <ClientOnly> <KnowledgeGraph :height="820" /> </ClientOnly> | 颜色 | 分类 | 节点数 | |------|------|--------| | 🔵 蓝 | Python 入门 | 5 | | 🟠 橙 | 底层原理 | 7 | | 🟢 绿
 
 ## [python 知识图谱](https://java-px.bot.cd/python/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "只懂基础语法，不了解底层原理（解释器 / 字节码 / 对象模型）", "用过 requests / pandas 但不知道内部实现", "写 GIL 多线程却不知道为什么慢", "爬虫写完就封 IP，不知道反爬怎么破", "LLM 应用只会调 API，不知道 prompt 怎么写" ]" :goals="[ "
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "只懂基础语法，不了解底层原理（解释器 / 字节码 / 对象模型）", "用过 requests / pandas 但不知道内部实现", "写 GIL 多线程
 
 ## [思维导图](https://java-px.bot.cd/python/mindmap)
 > > 树形结构总览 Python 全栈知识，可展开/收起节点，点击叶子节点跳转。 <ClientOnly> <MindMap :height="900" /> </ClientOnly> - **全部展开 / 收起**：顶部按钮控制 - **点击叶子节点**：跳转到对应章节 - **重置视图**：恢复初始展开状态
@@ -1067,7 +1067,7 @@
 > > 62 节点，10 大主题分类，节点可点击跳转到对应章节。鼠标拖动可调整布局，悬停查看节点关联。 <ClientOnly> <KnowledgeGraph :height="820" /> </ClientOnly> | 颜色 | 分类 | 节点数 | |------|------|--------| | 🔴 红 | Kafka 入门 | 5 | | 🟠 橙 | 架构原理 | 7 | | 🟢 绿
 
 ## [kafka 知识图谱](https://java-px.bot.cd/kafka/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "分区副本机制、Leader 选举讲不清？", "Exactly-Once 语义怎么实现？", "消费者组位移提交策略选哪个？", "Kafka 性能调优参数（broker / producer / consumer）？", "Kafka + Flink / Spark 流处理集成怎么做？" ]" :goals=
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "分区副本机制、Leader 选举讲不清？", "Exactly-Once 语义怎么实现？", "消费者组位移提交策略选哪个？", "Kafka 性能调优参数
 
 ## [思维导图](https://java-px.bot.cd/kafka/mindmap)
 > > 树形结构总览 Kafka 全栈知识，可展开/收起节点，点击叶子节点跳转。 <ClientOnly> <MindMap :height="900" /> </ClientOnly> - **全部展开 / 收起**：顶部按钮控制 - **点击叶子节点**：跳转到对应章节 - **重置视图**：恢复初始展开状态
@@ -1232,7 +1232,7 @@
 > Java 测试的核心组合：JUnit 5 + Mockito + SpringBootTest。 <KnowledgeGraph mode="neighbor" focusNodeId="testing" :height="400" />
 
 ## [Java Web Dev Manual](https://java-px.bot.cd/java/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "Java 知识图谱太广（基础 / JVM / 并发 / 框架 / 中间件）怎么系统学？", "JVM 内存模型（堆 / 栈 / Metaspace / 直接内存）？", "并发编程（synchronized / Lock / JUC / 线程池）？", "Spring / Spring Boot / MyBat
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Java 知识图谱太广（基础 / JVM / 并发 / 框架 / 中间件）怎么系统学？", "JVM 内存模型（堆 / 栈 / Metaspace / 直接
 
 ## [Base64 编解码](https://java-px.bot.cd/tools/base64)
 > 字符串与 Base64 互转，支持 UTF-8（中文）。 <script setup> import { ref } from 'vue' const input = ref('你好，世界！Hello, World!') const direction = ref('encode') const status = ref({ kind: 'muted', text: '' }) const out
@@ -1241,7 +1241,7 @@
 > 解析 5/6 字段 Cron 表达式，描述字段含义，并列出接下来 5 次运行时间。 <script setup> import { ref, computed } from 'vue' const expr = ref('0 */2 * * *') const status = ref({ kind: 'muted', text: '' }) // 解析为 6 字段（缺少年份则补 *） const
 
 ## [tools 知识图谱](https://java-px.bot.cd/tools/index)
-> <div id="all-tools"></div> <ClientOnly> <WhyThisGraph :pain-points="[ "日常 JSON 格式化 / 压缩 / 校验每次都开在线工具？", "时间戳 / 时区 / ISO 8601 转换容易出错？", "URL 编解码 / Base64 / UUID / JWT 解码手算不来？", "正则表达式每次都要查语法？", "在线工具有数
+> <div id="all-tools"></div> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "日常 JSON 格式化 / 压缩 / 校验每次都开在线工具？", "时间戳 / 时区 / ISO 86
 
 ## [ISO / RFC 格式化](https://java-px.bot.cd/tools/iso)
 > 把一个日期转换为多种 ISO / RFC 字符串格式。 <script setup> import { ref, computed } from 'vue' const input = ref(new Date().toISOString().slice(0, 19)) const status = ref('') const parsed = ref(null) function parse()
@@ -1460,7 +1460,7 @@
 > > 80+ 节点，14 大主题分类，节点可点击跳转到对应章节。鼠标拖动可调整布局，悬停查看节点关联。 <ClientOnly> <KnowledgeGraph :height="820" /> </ClientOnly> | 颜色 | 分类 | 主题数 | |------|------|--------| | 🟠 橙 | 基础层 | 5 | | 🔵 蓝 | 语言层 | 4 | | 🩵 青 | UI
 
 ## [frontend 知识图谱](https://java-px.bot.cd/frontend/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "HTML / CSS 基础不扎实，遇到复杂布局就懵？", "React / Vue / Angular / Svelte 选哪个？", "浏览器渲染原理、Event Loop 讲不清？", "TypeScript 类型系统、泛型、条件类型卡壳？", "Node 后端怎么写、怎么部署、怎么调优？" ]" :goa
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "HTML / CSS 基础不扎实，遇到复杂布局就懵？", "React / Vue / Angular / Svelte 选哪个？", "浏览器渲染原理、E
 
 ## [思维导图](https://java-px.bot.cd/frontend/mindmap)
 > > 树形结构总览全部知识，可展开/收起节点，点击叶子节点跳转。 <ClientOnly> <MindMap :height="920" /> </ClientOnly> - **全部展开 / 收起**：顶部按钮控制 - **点击叶子节点**：跳转到对应章节 - **重置视图**：恢复初始展开状态
@@ -1673,7 +1673,7 @@
 > > 70+ 节点，14 大主题分类，节点可点击跳转到对应章节。鼠标拖动可调整布局，悬停查看节点关联。 <ClientOnly> <KnowledgeGraph :height="820" /> </ClientOnly> | 颜色 | 分类 | 节点数 | |------|------|--------| | 🟠 橙 | 入门基础 | 4 | | 🔵 蓝 | 文件与目录 | 5 | | 🩵 青 |
 
 ## [linux 知识图谱](https://java-px.bot.cd/linux/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "常用命令（ls / find / grep / awk）记不牢？", "Shell 脚本（bash / zsh）写不出来？", "systemd / 服务管理一团乱？", "iptables / nftables 防火墙不会配？", "内核参数调优（sysctl / cgroup）无从下手？" ]" :goal
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "常用命令（ls / find / grep / awk）记不牢？", "Shell 脚本（bash / zsh）写不出来？", "systemd / 服务管
 
 ## [思维导图](https://java-px.bot.cd/linux/mindmap)
 > > 树形结构总览全部知识，可展开/收起节点，点击叶子节点跳转。 <ClientOnly> <MindMap :height="920" /> </ClientOnly> - **全部展开 / 收起**：顶部按钮控制 - **点击叶子节点**：跳转到对应章节 - **重置视图**：恢复初始展开状态
@@ -2162,7 +2162,7 @@
 > > 50+ 节点，14 大主题分类，节点可点击跳转。 <ClientOnly><KnowledgeGraph :height="820"></KnowledgeGraph></ClientOnly> | 颜色 | 分类 | 主题数 | |------|------|--------| | 🔵 蓝 | 大数据基础 | 4 | | 🩵 青 | HDFS | 4 | | 🟧 橙 | MapReduce
 
 ## [bigdata 知识图谱](https://java-px.bot.cd/bigdata/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "Hadoop / Spark / Flink / Hive / Kafka 各自独立文档", "数据仓库 vs 数据湖 vs Lakehouse 怎么选", "离线数仓 vs 实时数仓 怎么统一", "ClickHouse / Doris / StarRocks 怎么选", "模型设计 Inmon vs Kim
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Hadoop / Spark / Flink / Hive / Kafka 各自独立文档", "数据仓库 vs 数据湖 vs Lakehouse 怎么选",
 
 ## [思维导图](https://java-px.bot.cd/bigdata/mindmap)
 > <ClientOnly><MindMap :height="940"></MindMap></ClientOnly>
@@ -2360,7 +2360,7 @@
 > <div class="nt-badge nt-badge-network">图谱</div> <div class="nt-badge nt-badge-basics">全景</div> 通过交互式知识图谱，**全局**理解计算机网络的技术栈关系。点击节点跳转到对应文档。 <KnowledgeGraph /> | 分类 | 颜色 | 节点数 | | --- | --- | --- | | 网络基
 
 ## [计算机网络知识库](https://java-px.bot.cd/network/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "TCP/IP 协议栈（IP / TCP / UDP / HTTP）讲不清？", "三次握手 / 四次挥手 / TIME_WAIT 太多怎么排查？", "HTTPS / TLS 1.3 / HTTP/2 / HTTP/3 关系？", "DNS 解析过程、CDN 调度、负载均衡策略？", "网络排查工具（tcpdu
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "TCP/IP 协议栈（IP / TCP / UDP / HTTP）讲不清？", "三次握手 / 四次挥手 / TIME_WAIT 太多怎么排查？", "HT
 
 ## [思维导图](https://java-px.bot.cd/network/mindmap)
 > <div class="nt-badge nt-badge-network">导图</div> <div class="nt-badge nt-badge-interview">结构化</div> 通过交互式思维导图，**结构化**梳理计算机网络知识体系。 <MindMap /> - 鼠标拖动：移动画布 - 点击节点：展开/折叠子节点 - 滚轮：缩放 - 顶部按钮：全部展开、全部折叠、重置视角
@@ -2561,7 +2561,7 @@
 > <span class="kg-badge kg-badge-basics">图谱</span> <span class="kg-badge kg-badge-algorithm">全景</span> 通过交互式知识图谱，**全局**理解视频处理的技术栈关系。点击节点跳转到对应文档。 <KnowledgeGraph /> | 分类 | 颜色 | 节点数 | | --- | --- | --- |
 
 ## [视频处理知识库](https://java-px.bot.cd/video/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "像素 / 色彩 / 帧率 / 容器格式基础概念混？", "帧内 / 帧间 / DCT / 熵编码 原理讲不清？", "H.264 / H.265 / AV1 / VP9 选哪个？", "RTMP / HLS / DASH 流媒体协议区别？", "FFmpeg 命令太多记不住？" ]" :goals="[ "视频
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "像素 / 色彩 / 帧率 / 容器格式基础概念混？", "帧内 / 帧间 / DCT / 熵编码 原理讲不清？", "H.264 / H.265 / AV1
 
 ## [思维导图](https://java-px.bot.cd/video/mindmap)
 > <span class="kg-badge kg-badge-basics">导图</span> <span class="kg-badge kg-badge-cases">结构化</span> 通过交互式思维导图，**结构化**梳理视频处理知识体系。 <MindMap /> - 鼠标拖动：移动画布 - 点击节点：展开/折叠子节点 - 滚轮：缩放 - 顶部按钮：全部展开、全部折叠、重置视角
@@ -2843,7 +2843,7 @@
 > 按章节组织的 76 个核心节点关系图。点击节点跳转对应文档。 <ClientOnly> <KnowledgeGraph :height="880" /> </ClientOnly> 13 种颜色对应 13 个章节，节点大小表示该知识点的重要性/复杂度。边表示节点间的依赖或衍生关系（如「日志」概念应用于 ext4 / XFS / NTFS 等多个本地盘 FS）。 - 鼠标拖拽节点重新布局 - 滚轮缩
 
 ## [文件系统 / 文件服务 / 存储全栈](https://java-px.bot.cd/filesystem/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "从单块磁盘的 inode 到跨数据中心的对象存储，怎么系统学？", "POSIX 权限 / ACL / Capabilities 到底有什么区别？", "本地 FS（ext4 / xfs / btrfs / zfs）怎么选？", "网络 FS（NFS / SMB / CIFS）vs 分布式 FS（Ceph /
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "从单块磁盘的 inode 到跨数据中心的对象存储，怎么系统学？", "POSIX 权限 / ACL / Capabilities 到底有什么区别？", "本
 
 ## [思维导图](https://java-px.bot.cd/filesystem/mindmap)
 > 树形结构浏览所有节点。点击 ▶ 展开 / 收起子节点。 <ClientOnly> <MindMap :height="760" /> </ClientOnly> | # | 章节 | 节点数 | 重点 | |---|------|--------|------| | 1 | 文件系统基础 | 7 | inode / VFS / Page Cache 等核心抽象 | | 2 | 本地盘 FS | 7
@@ -3008,7 +3008,7 @@
 > > 50+ 节点，14 大主题分类，节点可点击跳转。 <ClientOnly><KnowledgeGraph :height="820" /></ClientOnly> | 颜色 | 分类 | 节点数 | |------|------|--------| | 🔴 红 | 基础语法 | 5 | | 🔵 蓝 | 集合框架 | 5 | | 🟣 紫 | 并发编程 | 5 | | 🟧 橙 | JVM 内存模
 
 ## [java-language 知识图谱](https://java-px.bot.cd/java-language/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "会用 HashMap 但不理解红黑树和 Hash 冲突", "写了 Spring 但不理解 IoC 容器如何工作", "遇到 GC 停顿只会调 Xmx", "用了线程池但不理解核心参数", "面试问 JVM 只知道「堆栈方法区」" ]" :goals="[ "系统化讲清 Java 基础 → 集合 → 并发 →
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "会用 HashMap 但不理解红黑树和 Hash 冲突", "写了 Spring 但不理解 IoC 容器如何工作", "遇到 GC 停顿只会调 Xmx",
 
 ## [思维导图](https://java-px.bot.cd/java-language/mindmap)
 > <ClientOnly><MindMap :height="940" /></ClientOnly>
@@ -3161,7 +3161,7 @@
 > > 50+ 节点，14 大主题分类，节点可点击跳转。 <ClientOnly><KnowledgeGraph :height="820" /></ClientOnly> | 颜色 | 分类 | 主题数 | |------|------|--------| | ⚫ 石 | 并发理论 | 4 | | 🩵 青 | 线程池 | 3 | | 🟣 紫 | 高可用理论 | 5 | | 🩷 粉 | 限流 | 3
 
 ## [企业级架构知识图谱](https://java-px.bot.cd/architecture/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "会写 CRUD 却讲不清 CAP 定理", "知道消息队列但说不清幂等性设计", "调过限流却不懂令牌桶 vs 滑动窗口的区别", "用了 Seata 却不知道 AT 模式的 undo_log 怎么工作", "部署过微服务但没读过 DDD" ]" :goals="[ "JMM / happens-before
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "会写 CRUD 却讲不清 CAP 定理", "知道消息队列但说不清幂等性设计", "调过限流却不懂令牌桶 vs 滑动窗口的区别", "用了 Seata 却不
 
 ## [思维导图](https://java-px.bot.cd/architecture/mindmap)
 > <ClientOnly><MindMap :height="940" /></ClientOnly>
@@ -3323,7 +3323,7 @@
 > > 短链是系统设计面试的"Hello World"。考察候选人对**高读 / 低写**场景下读写路径优化、缓存层级、短码生成等核心问题的把握。 **为什么需要短链**： - **短信字数限制**：短信有 70 字符限制，长链占用过多 - **美观**：微博 / Twitter 限制字符数 - **统计**：可以统计点击数据（替代长链直接发） - **防爬**：长链带参数可被恶意爬取 | 指标 |
 
 ## [System Design 知识图谱](https://java-px.bot.cd/system-design/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "会写 CRUD 却讲不清 CAP", "调过 Redis 却说不出 cache-aside 的失效边界", "用过 Kafka 但说不清「不丢消息」需要哪几道防线", "设计过系统但写不出「短链」的短码生成选型", "读过 Raft 论文但没自己推导过选举超时" ]" :goals="[ "一致性模型谱 + C
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "会写 CRUD 却讲不清 CAP", "调过 Redis 却说不出 cache-aside 的失效边界", "用过 Kafka 但说不清「不丢消息」需要哪几
 
 ## [进程架构](https://java-px.bot.cd/postgresql/01-basics/architecture)
 > PostgreSQL 进程模型与内存结构
@@ -3482,7 +3482,7 @@
 > 企业级 RDBMS 迁移对比
 
 ## [PostgreSQL 知识图谱](https://java-px.bot.cd/postgresql/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "MVCC 原理：为什么 PG 的读不阻塞写？", "事务隔离级别（RC / RR / Serializable）选哪个？", "索引类型（B-tree / Hash / GIN / BRIN / GiST）怎么选？", "主从复制延迟、逻辑复制、FDW 怎么用？", "慢查询、锁等待、checkpoint 怎么
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "MVCC 原理：为什么 PG 的读不阻塞写？", "事务隔离级别（RC / RR / Serializable）选哪个？", "索引类型（B-tree /
 
 ## [可观测性四大支柱](https://java-px.bot.cd/observability/01-foundations/four-pillars)
 > Metrics / Logs / Traces / Events 信号体系
@@ -3632,7 +3632,7 @@
 > 跨服务 trace + 服务地图 + 依赖分析
 
 ## [Observability 知识图谱](https://java-px.bot.cd/observability/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "单体时代（CPU/内存/磁盘）vs 微服务时代（调用链/性能瓶颈）监控差异？", "Metrics / Logs / Traces 三件套怎么选型（Prometheus / Loki / Jaeger）？", "OpenTelemetry（OTel） Collector / SDK / Exporter 怎么部
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "单体时代（CPU/内存/磁盘）vs 微服务时代（调用链/性能瓶颈）监控差异？", "Metrics / Logs / Traces 三件套怎么选型（Prom
 
 ## [A01 访问控制失效](https://java-px.bot.cd/security/01-web-top10/a01-broken-access)
 > > **访问控制失效 = 越权访问**。**典型：水平越权（看别人的订单）/ 垂直越权（普通用户拿管理员权限）**。**防御：服务端校验 + 最小权限 + 资源所有权检查**。 --- 访问控制是 Web 应用最基础的安全机制——**谁被允许做什么**。失效意味着： - 用户 A 能访问用户 B 的资源（**水平越权 / IDOR**） - 普通用户能调管理员 API（**垂直越权 / Privi
@@ -3740,7 +3740,7 @@
 > > **SPIFFE = 工作负载身份标准**。**SPIRE = SPIFFE Runtime Environment（实现）**。**核心：SVID（X.509 证书 / JWT）+ 自动签发 + 短期**。**服务网格 / 零信任 / mTLS 的身份基座**。 --- - **06-zero-trust/overview**：零信任总览 - **06-zero-trust/implemen
 
 ## [Security 知识图谱](https://java-px.bot.cd/security/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "OWASP Top 10 风险记不全，audit 一个 Web 应用无从下手？", "认证 vs 授权、RBAC vs ABAC 模型区别？", "密码学（对称 / 非对称 / 哈希 / 数字签名）讲不清？", "TLS / HTTPS / 证书体系不熟？", "XSS / CSRF / SQL 注入 / SS
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "OWASP Top 10 风险记不全，audit 一个 Web 应用无从下手？", "认证 vs 授权、RBAC vs ABAC 模型区别？", "密码学（
 
 ## [CI/CD Pipeline 最佳实践](https://java-px.bot.cd/devops/01-pipeline/best-practices)
 > 跨工具通用的 Pipeline 设计原则，让团队从"能跑"到"跑得快、跑得稳"。 > **Pipeline 最佳实践 = 4 大原则：缓存 / 并行 / 分层 / 反馈**。**目标：提交到反馈 < 10 分钟、cache hit > 80%、success rate > 95%**。 --- - **01-pipeline/github-actions**：GitHub Actions 缓存 -
@@ -3830,7 +3830,7 @@
 > CI/CD Pipeline 本身是攻击面最大的目标之一（拥有生产部署权限）。本章梳理 Pipeline 全链路的 8 大安全措施。 > **Pipeline 安全 = SLSA + 最小权限 + 可审计**。**核心：Secret 管理 / OIDC 联邦 / SBOM / 镜像签名 / 制品完整性**。 --- - **06-best-practices/secrets-management*
 
 ## [DevOps 知识图谱](https://java-px.bot.cd/devops/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "CI/CD 工具太多（Jenkins / GitLab CI / GitHub Actions / Argo），怎么选？", "Pipeline as Code 怎么写才不会变成 YAML 屎山？", "Terraform / Pulumi / Ansible 三大 IaC 工具怎么选？", "ArgoCD /
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "CI/CD 工具太多（Jenkins / GitLab CI / GitHub Actions / Argo），怎么选？", "Pipeline as Co
 
 ## [借用 Borrowing](https://java-px.bot.cd/rust/01-basics/borrowing)
 > 借用允许"使用值而不获取所有权"。通过 `&` 和 `&mut` 两种引用实现，编译期防止数据竞争。 > **借用 = 不获取所有权的引用**。**两大规则：不可变借用可多个、可变借用独占、不可变与可变不可共存**。**编译期消灭数据竞争**。 --- - **01-basics/ownership**：所有权基础 - **01-basics/lifetimes**：生命周期标注 - **04-c
@@ -3935,7 +3935,7 @@
 > 智能指针是实现了 Deref + Drop 的数据结构，管理堆内存的所有权与生命周期。 > **智能指针 = 实现 Deref + Drop 的指针**。**核心：Box / Rc / Arc / RefCell / Mutex**。 --- - **02-types-traits/advanced-types**：高级类型 - **04-concurrency/channels**：Channe
 
 ## [Rust 知识图谱](https://java-px.bot.cd/rust/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "所有权 / 借用 / 生命周期推导卡壳？", "异步编程（async-await / Tokio）复杂？", "Trait / 泛型 / 高级类型（新类型 / PhantomData）难理解？", "宏系统（声明宏 / 过程宏）门槛高？", "生态相对小、生产案例少？" ]" :goals="[ "基础与所有权
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "所有权 / 借用 / 生命周期推导卡壳？", "异步编程（async-await / Tokio）复杂？", "Trait / 泛型 / 高级类型（新类型
 
 ## [错误处理](https://java-px.bot.cd/go/01-basics/error-handling)
 > Go 错误处理哲学：**错误是值，不是异常**。通过显式 error 返回，强制调用者处理错误。 > **Go 错误处理 = error 接口 + 显式返回 + errors.Is/As**。**核心：error 是值 / panic 是真异常 / recover 兜底**。 --- --- --- --- --- --- 1. **显式**：错误处理在函数签名中可见 2. **类型安全**：错误
@@ -4043,7 +4043,7 @@
 > **Go runtime = GMP 调度器 + GC + goroutine + channel**——理解它 = 写出高性能 Go。 > **GMP = G (goroutine) + M (machine/OS thread) + P (processor/逻辑 CPU)**。**work-stealing + hand-off 调度算法**。 --- - **G（Goroutine）**：
 
 ## [go 知识图谱](https://java-px.bot.cd/go/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "goroutine 调度原理、栈扩容讲不清？", "channel vs sync.Mutex 不知道选哪个？", "Go 错误处理（error / panic / recover）哲学？", "微服务架构、gRPC、Service Mesh 怎么落地？", "K8s operator / controller
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "goroutine 调度原理、栈扩容讲不清？", "channel vs sync.Mutex 不知道选哪个？", "Go 错误处理（error / pan
 
 ## [客户端连接](https://java-px.bot.cd/clickhouse/01-basics/client)
 > clickhouse-client / HTTP / JDBC / Go / Python / Node.js 客户端完整对比
@@ -4151,7 +4151,7 @@
 > 12 个真实生产级 ClickHouse 案例：Uber / Cloudflare / 字节 / B 站 / 京东等
 
 ## [clickhouse 知识图谱](https://java-px.bot.cd/clickhouse/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "列存 vs 行存：为什么 OLAP 要用列存？", "MergeTree 引擎家族（Replacing / Summing / Aggregating）怎么选？", "实时数仓（Lambda / Kappa / 湖仓一体）架构怎么选？", "集群扩容、副本、数据分片怎么平衡成本与可用性？", "SQL 优化：O
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "列存 vs 行存：为什么 OLAP 要用列存？", "MergeTree 引擎家族（Replacing / Summing / Aggregating）怎么
 
 ## [Abstract Factory 抽象工厂模式](https://java-px.bot.cd/design-pattern/01-gof-creational/abstract-factory)
 > 一族相关对象的创建 + 主题切换 + UI 组件库 / 数据库 driver 族 / Spring ApplicationContext
@@ -4298,7 +4298,7 @@
 > 症状 + 病因 + 药方 + 性能分析 + Knuth 法则
 
 ## [设计模式 / GoF 23 式 / 反模式](https://java-px.bot.cd/design-pattern/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "GoF 23 式记不全，面试问到「装饰器 vs 代理」讲不清？", "创建型 / 结构型 / 行为型 分类背后的设计原则（开闭 / 里氏 / 依赖倒置）？", "现代模式（DI / Repository / Specification）跟 GoF 的关系？", "架构模式（CQRS / Event Sourci
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "GoF 23 式记不全，面试问到「装饰器 vs 代理」讲不清？", "创建型 / 结构型 / 行为型 分类背后的设计原则（开闭 / 里氏 / 依赖倒置）？"
 
 ## [爆炸半径](https://java-px.bot.cd/chaos/01-foundations/blast-radius)
 > 爆炸半径（Blast Radius）是「实验失败时的最大影响范围」。分级管理： | 级别 | 流量 | 实例 | 区域 | 时长 | 适用 | |---|---|---|---|---|---| | L1 · 单测 | 0% | 1 Pod | 单 AZ | 5s | 首次实验 | | L2 · 金丝雀 | 1% | 10% Pods | 单 AZ | 30s | 灰度验证 | | L3 · 灰度
@@ -4394,4 +4394,4 @@
 > **SLI（Service Level Indicator）**：可度量的指标 - 例：订单成功率、P99 延迟 **SLO（Service Level Objective）**：目标值 - 例：99.5% 成功率、P99 < 1.5s **Error Budget**：可消耗的错误预算 - 例：每月 0.5% 错误预算 **每月 Error Budget 计算**： 例：SLO 99.5% ×
 
 ## [chaos 知识图谱](https://java-px.bot.cd/chaos/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "Netflix Chaos Monkey 起源：混沌工程到底解决什么问题？", "稳态假设（steady state）怎么定义才不会被实验打破？", "爆炸半径（blast radius）如何控制才安全？", "Chaos Mesh / Litmus / Gremlin / ChaosBlade 工具怎么选？"
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Netflix Chaos Monkey 起源：混沌工程到底解决什么问题？", "稳态假设（steady state）怎么定义才不会被实验打破？", "爆炸

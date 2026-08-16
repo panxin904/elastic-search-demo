@@ -1,8 +1,8 @@
 # cloud 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 35 个文档页 · 237,833 字
-> 生成时间：2026-08-16T09:03:50
+> 35 个文档页 · 238,028 字
+> 生成时间：2026-08-16T17:50:25
 
 ## [自动配置原理](https://java-px.bot.cd/cloud/01-springboot/auto-config)
 > > 理解 `@SpringBootApplication` 背后的魔法，是掌握 Spring Boot 的关键。 Spring Boot 根据**类路径上的 jar 包**自动配置 Spring 应用： **核心思想：约定优于配置** **Spring Boot 内置 100+ 自动配置类** | 注解 | 作用 | |---|---| | `@AutoConfiguration` | 标记为自动
@@ -101,7 +101,7 @@
 > > 全局可视化展示 Spring Cloud Alibaba 的 **20+ 核心概念** 与它们之间的关系。 > 💡 提示：拖动节点调整布局，点击节点跳转对应文档，悬停查看高亮关系。 <KnowledgeGraph :height="700" src="/graph.json" /> | 分类 | 节点数 | 代表概念 | |---|---|---| | 🍃 Spring Boot | 5 |
 
 ## [Spring Cloud Alibaba 知识图谱](https://java-px.bot.cd/cloud/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "微服务架构选型：Spring Cloud Alibaba vs Spring Cloud Netflix vs Istio？", "Gateway / Nacos / Sentinel / Seata 组件怎么用？", "服务注册发现、配置中心、负载均衡、熔断限流怎么串联？", "分布式事务（Seata AT
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "微服务架构选型：Spring Cloud Alibaba vs Spring Cloud Netflix vs Istio？", "Gateway / Na
 
 ## [思维导图](https://java-px.bot.cd/cloud/mindmap)
 > > 按 **6 大主题** 分类的结构化导图，支持展开/收起，点击叶子节点跳转对应文档。 <MindMap :height="720" /> - [🚀 快速开始](/01-springboot/quickstart) - 第一个 Spring Boot 应用 - [⚙️ 自动配置原理](/01-springboot/auto-config) - @SpringBootApplication 背后的

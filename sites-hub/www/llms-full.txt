@@ -1,8 +1,8 @@
 # Scholar's Atlas 跨站知识图谱
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 1464 个文档页 · 6,217,206 字
-> 生成时间：2026-08-16T09:03:50
+> 1464 个文档页 · 6,222,557 字
+> 生成时间：2026-08-16T17:50:25
 
 ## [集群 Cluster](https://java-px.bot.cd/es/01-storage/cluster)
 > <span class="kg-badge kg-badge-storage">存储层</span> ES 集群是由**一个或多个节点**组成的、能对外提供统一搜索服务的分布式系统。 - **水平扩展**：突破单机容量与吞吐上限 - **高可用**：节点故障时副本接管 - **并行处理**：查询与索引在多节点并行执行 返回： | 状态 | 含义 | |---|---| | 🟢 green | 所有
@@ -5278,35 +5278,42 @@ PUT /metrics
 ---
 
 ## [ES Knowledge Atlas](https://java-px.bot.cd/es/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "倒排索引原理（分词 / 词典 / Posting List）讲不清？", "ES 集群架构（Master / Data / Coordinating 节点）怎么设计？", "Mapping / Analyzer / 分词器怎么配置才高效？", "查询性能调优（Query DSL / Profile / 慢查询）
+> <ClientOnly> <WhyThisGraph :pain-points="painPoints" :goals="goals" :related-sites="relatedSites" title="🎯 为什么写这个图谱？" /> </ClientOnly> <script setup> // WhyThisGraph 数据从 frontmatter 读不到（YAML 数组太复杂），放这
 
 <ClientOnly>
   <WhyThisGraph
-    :pain-points="[
-      "倒排索引原理（分词 / 词典 / Posting List）讲不清？",
-      "ES 集群架构（Master / Data / Coordinating 节点）怎么设计？",
-      "Mapping / Analyzer / 分词器怎么配置才高效？",
-      "查询性能调优（Query DSL / Profile / 慢查询）？",
-      "ES vs ClickHouse vs Solr 选哪个？"
-    ]"
-    :goals="[
-      "ES 基础（倒排索引 / 集群架构 / 分片副本）",
-      "Mapping + Analyzer + 分词器",
-      "Query DSL 深度（Match / Term / Bool / Aggregation）",
-      "集群运维（Master 选举 / 脑裂 / 快照恢复）",
-      "性能调优（Profile / 慢查询 / JVM / 磁盘）",
-      "生态集成（Logstash / Beats / Kibana / Filebeat）"
-    ]"
-    :related-sites="[
-      { site: "clickhouse", path: "/01-storage/index-design", label: "CH 索引对比" },
-      { site: "mysql", path: "/03-index", label: "MySQL 索引" },
-      { site: "observability", path: "/02-logs/es", label: "ES 日志存储" },
-      { site: "bigdata", path: "/06-warehouse/overview", label: "数仓架构" },
-      { site: "devops", path: "/05-cicd-observability/sre", label: "SRE 实践" }
-    ]"
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
+
+<script setup>
+// WhyThisGraph 数据从 frontmatter 读不到（YAML 数组太复杂），放这里
+const painPoints = [
+  "倒排索引原理（分词 / 词典 / Posting List）讲不清？",
+  "ES 集群架构（Master / Data / Coordinating 节点）怎么设计？",
+  "Mapping / Analyzer / 分词器怎么配置才高效？",
+  "查询性能调优（Query DSL / Profile / 慢查询）？",
+  "ES vs ClickHouse vs Solr 选哪个？"
+]
+const goals = [
+  "ES 基础（倒排索引 / 集群架构 / 分片副本）",
+  "Mapping + Analyzer + 分词器",
+  "Query DSL 深度（Match / Term / Bool / Aggregation）",
+  "集群运维（Master 选举 / 脑裂 / 快照恢复）",
+  "性能调优（Profile / 慢查询 / JVM / 磁盘）",
+  "生态集成（Logstash / Beats / Kibana / Filebeat）"
+]
+const relatedSites = [
+  { site: "clickhouse", path: "/01-storage/index-design", label: "CH 索引对比" },
+  { site: "mysql", path: "/03-index", label: "MySQL 索引" },
+  { site: "observability", path: "/02-logs/es", label: "ES 日志存储" },
+  { site: "bigdata", path: "/06-warehouse/overview", label: "数仓架构" },
+  { site: "devops", path: "/05-cicd-observability/sre", label: "SRE 实践" }
+]
+</script>
 
 ## 🗺️ 完整知识图谱 {#complete-graph}
 
@@ -29066,31 +29073,39 @@ SELECT
 ---
 
 ## [MySQL 知识图谱](https://java-px.bot.cd/mysql/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "知识点碎片化，不知道先后顺序（11 大主题怎么学？）", "InnoDB 引擎原理（MVCC / Buffer Pool / Redo Log）讲不清？", "索引（B+Tree / Hash / 全文）怎么建才高效？", "SQL 优化（EXPLAIN / 慢查询 / 索引失效）？", "主从复制 / 读写分
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "知识点碎片化，不知道先后顺序（11 大主题怎么学？）", "InnoDB 引擎原理（MVCC / Buffer Pool / Redo Log）讲不清？",
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "知识点碎片化，不知道先后顺序（11 大主题怎么学？）",
       "InnoDB 引擎原理（MVCC / Buffer Pool / Redo Log）讲不清？",
       "索引（B+Tree / Hash / 全文）怎么建才高效？",
       "SQL 优化（EXPLAIN / 慢查询 / 索引失效）？",
       "主从复制 / 读写分离 / 分库分表 / 分布式事务怎么落地？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "体系结构 + 存储引擎 + 数据类型 + 字符集",
       "索引 + SQL + 事务锁（日常开发 90% 场景）",
       "性能优化 + 复制 + 高可用 + 备份 + 监控",
       "分库分表 + 工具速查",
       "SQL Playground + 思维导图 + 知识图谱"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "postgresql", path: "/01-basics/intro", label: "PostgreSQL 对比" },
       { site: "clickhouse", path: "/01-storage/index-design", label: "ClickHouse 索引" },
       { site: "redis", path: "/01-basics/intro", label: "Redis 缓存" },
       { site: "architecture", path: "/09-cases/sharding", label: "分库分表实战" },
       { site: "observability", path: "/07-operations/monitor", label: "MySQL 监控" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -45324,31 +45339,39 @@ ZRANGE zset 0 10      # O(log N + M) 跳表范围
 ---
 
 ## [redis 知识图谱](https://java-px.bot.cd/redis/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "只会简单 SET / GET，不懂底层数据结构（SDS / Dict / SkipList）", "不了解 RDB / AOF 的差异与混合持久化", "集群模式分不清主从 / 哨兵 / Cluster / Gossip", "用过 Jedis 但不知道 Lettuce 是怎么 NIO 异步的", "做过分布式
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "只会简单 SET / GET，不懂底层数据结构（SDS / Dict / SkipList）", "不了解 RDB / AOF 的差异与混合持久化", "集
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "只会简单 SET / GET，不懂底层数据结构（SDS / Dict / SkipList）",
       "不了解 RDB / AOF 的差异与混合持久化",
       "集群模式分不清主从 / 哨兵 / Cluster / Gossip",
       "用过 Jedis 但不知道 Lettuce 是怎么 NIO 异步的",
       "做过分布式锁但不清楚「看门狗」续期原理"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "系统化讲解 Redis 底层原理",
       "覆盖 5 大基础类型（String / Hash / List / Set / ZSet） + Stream",
       "Java SDK 全场景（Jedis / Lettuce / Redisson / Spring Data Redis）",
       "企业实战（分布式锁 / 限流 / Session / 消息队列 / 排行榜）",
       "面试手撕题 + 性能调优"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "java", path: "/03-practice/jedis", label: "Jedis / Lettuce" },
       { site: "architecture", path: "/04-cache/redis", label: "架构中的 Redis" },
       { site: "system-design", path: "/01-theory/cap-theorem", label: "CAP 与一致性" },
       { site: "observability", path: "/05-sre/redis-monitor", label: "Redis 监控" },
       { site: "mysql", path: "/09-connection/cache-pattern", label: "MySQL + Redis 缓存" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -56565,32 +56588,40 @@ logging:
 ---
 
 ## [Spring Cloud Alibaba 知识图谱](https://java-px.bot.cd/cloud/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "微服务架构选型：Spring Cloud Alibaba vs Spring Cloud Netflix vs Istio？", "Gateway / Nacos / Sentinel / Seata 组件怎么用？", "服务注册发现、配置中心、负载均衡、熔断限流怎么串联？", "分布式事务（Seata AT
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "微服务架构选型：Spring Cloud Alibaba vs Spring Cloud Netflix vs Istio？", "Gateway / Na
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "微服务架构选型：Spring Cloud Alibaba vs Spring Cloud Netflix vs Istio？",
       "Gateway / Nacos / Sentinel / Seata 组件怎么用？",
       "服务注册发现、配置中心、负载均衡、熔断限流怎么串联？",
       "分布式事务（Seata AT / TCC / SAGA）模式怎么选？",
       "Spring Boot 3 + Spring Cloud 2023 新特性？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "微服务架构核心组件（Gateway / Nacos / Sentinel / Seata）",
       "请求链路可视化（从网关到数据库全链路）",
       "服务治理（注册发现 / 配置中心 / 负载均衡 / 熔断限流）",
       "分布式事务（Seata AT / TCC / SAGA 模式选型）",
       "Spring Boot 3 + Spring Cloud 2023 新特性",
       "6 大主题（入门 / 进阶 / 实战 / 监控 / 安全 / 部署）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "java", path: "/01-springboot/quickstart", label: "Spring Boot 入门" },
       { site: "cloud-native", path: "/02-k8s-arch/control-plane", label: "K8s 架构" },
       { site: "observability", path: "/03-otel/overview", label: "OpenTelemetry" },
       { site: "architecture", path: "/01-distributed/cap", label: "分布式理论" },
       { site: "kafka", path: "/01-basics/architecture", label: "消息架构" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -79530,18 +79561,19 @@ def test_benchmark():
 ---
 
 ## [python 知识图谱](https://java-px.bot.cd/python/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "只懂基础语法，不了解底层原理（解释器 / 字节码 / 对象模型）", "用过 requests / pandas 但不知道内部实现", "写 GIL 多线程却不知道为什么慢", "爬虫写完就封 IP，不知道反爬怎么破", "LLM 应用只会调 API，不知道 prompt 怎么写" ]" :goals="[ "
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "只懂基础语法，不了解底层原理（解释器 / 字节码 / 对象模型）", "用过 requests / pandas 但不知道内部实现", "写 GIL 多线程
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "只懂基础语法，不了解底层原理（解释器 / 字节码 / 对象模型）",
       "用过 requests / pandas 但不知道内部实现",
       "写 GIL 多线程却不知道为什么慢",
       "爬虫写完就封 IP，不知道反爬怎么破",
       "LLM 应用只会调 API，不知道 prompt 怎么写"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "Python 底层原理（解释器 / 字节码 / 对象模型 / GIL / GC）",
       "常用库（requests / BeautifulSoup / pandas / SQLAlchemy / pytest）",
       "并发编程（threading / asyncio / multiprocessing）",
@@ -79550,14 +79582,21 @@ def test_benchmark():
       "数据处理（pandas / NumPy / Matplotlib）",
       "算法与数据结构实战",
       "企业级项目（FastAPI / Docker / 性能优化）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "ai", path: "/03-sdks/claude-sdk", label: "LLM SDK" },
       { site: "go", path: "/01-basics/golang-intro", label: "Go 对比" },
       { site: "java-language", path: "/04-jvm/overview", label: "JVM 对比" },
       { site: "devops", path: "/01-pipeline/overview", label: "CI/CD 流水线" },
       { site: "architecture", path: "/01-distributed/cap", label: "系统架构" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -107179,31 +107218,39 @@ for (OrderEvent event : events) {
 ---
 
 ## [kafka 知识图谱](https://java-px.bot.cd/kafka/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "分区副本机制、Leader 选举讲不清？", "Exactly-Once 语义怎么实现？", "消费者组位移提交策略选哪个？", "Kafka 性能调优参数（broker / producer / consumer）？", "Kafka + Flink / Spark 流处理集成怎么做？" ]" :goals=
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "分区副本机制、Leader 选举讲不清？", "Exactly-Once 语义怎么实现？", "消费者组位移提交策略选哪个？", "Kafka 性能调优参数
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "分区副本机制、Leader 选举讲不清？",
       "Exactly-Once 语义怎么实现？",
       "消费者组位移提交策略选哪个？",
       "Kafka 性能调优参数（broker / producer / consumer）？",
       "Kafka + Flink / Spark 流处理集成怎么做？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "核心概念（Topic / Partition / Offset / Broker）",
       "架构原理（Controller / 副本机制 / 零拷贝）",
       "命令行工具（kafka-topics / kafka-console-*）",
       "生产消费实战（Java / Go / Python 客户端）",
       "企业级应用（监控 / 调优 / 安全 / 多集群）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "bigdata", path: "/03-streaming/kafka", label: "大数据 Kafka" },
       { site: "observability", path: "/05-sre/overview", label: "SRE 实践" },
       { site: "architecture", path: "/01-distributed/cap", label: "分布式理论" },
       { site: "clickhouse", path: "/05-ecosystem/kafka-engine", label: "Kafka → ClickHouse" },
       { site: "system-design", path: "/01-theory/cap-theorem", label: "系统设计基础" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -111205,32 +111252,40 @@ void listOrders_shouldReturnPaginatedResults() { ... }
 ---
 
 ## [Java Web Dev Manual](https://java-px.bot.cd/java/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "Java 知识图谱太广（基础 / JVM / 并发 / 框架 / 中间件）怎么系统学？", "JVM 内存模型（堆 / 栈 / Metaspace / 直接内存）？", "并发编程（synchronized / Lock / JUC / 线程池）？", "Spring / Spring Boot / MyBat
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Java 知识图谱太广（基础 / JVM / 并发 / 框架 / 中间件）怎么系统学？", "JVM 内存模型（堆 / 栈 / Metaspace / 直接
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "Java 知识图谱太广（基础 / JVM / 并发 / 框架 / 中间件）怎么系统学？",
       "JVM 内存模型（堆 / 栈 / Metaspace / 直接内存）？",
       "并发编程（synchronized / Lock / JUC / 线程池）？",
       "Spring / Spring Boot / MyBatis 源码怎么读？",
       "分布式场景（RPC / 消息 / 缓存 / 数据库）实战？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "Java 基础（语法 / 集合 / 泛型 / 反射 / 注解）",
       "JVM 原理（内存模型 / GC / 类加载 / 字节码）",
       "并发编程（JUC / 线程池 / CompletableFuture）",
       "Spring 全家桶（IoC / AOP / Transaction / Boot）",
       "中间件实战（MySQL / Redis / Kafka / ES）",
       "分布式（RPC / 消息 / 缓存 / 配置中心）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "java-language", path: "/04-jvm/overview", label: "JVM 原理" },
       { site: "system-design", path: "/01-theory/cap-theorem", label: "CAP 定理" },
       { site: "kafka", path: "/01-basics/architecture", label: "Kafka 架构" },
       { site: "mysql", path: "/01-basics/intro", label: "MySQL 基础" },
       { site: "redis", path: "/01-basics/intro", label: "Redis 基础" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -111576,33 +111631,41 @@ function copy(text) {
 ---
 
 ## [tools 知识图谱](https://java-px.bot.cd/tools/index)
-> <div id="all-tools"></div> <ClientOnly> <WhyThisGraph :pain-points="[ "日常 JSON 格式化 / 压缩 / 校验每次都开在线工具？", "时间戳 / 时区 / ISO 8601 转换容易出错？", "URL 编解码 / Base64 / UUID / JWT 解码手算不来？", "正则表达式每次都要查语法？", "在线工具有数
+> <div id="all-tools"></div> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "日常 JSON 格式化 / 压缩 / 校验每次都开在线工具？", "时间戳 / 时区 / ISO 86
 
 <div id="all-tools"></div>
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "日常 JSON 格式化 / 压缩 / 校验每次都开在线工具？",
       "时间戳 / 时区 / ISO 8601 转换容易出错？",
       "URL 编解码 / Base64 / UUID / JWT 解码手算不来？",
       "正则表达式每次都要查语法？",
       "在线工具有数据泄露风险？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "JSON 系列（格式化 / 转 YAML / 转 CSV / Diff）",
       "时间系列（Unix 时间戳 / 时区 / ISO 8601 / Cron）",
       "编码系列（Base64 / URL / JWT / Unicode）",
       "生成系列（UUID / 哈希 / 随机数 / 密码）",
       "正则 / 字符编码 / 相对路径 等"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "frontend", path: "/01-basics/json", label: "前端 JSON" },
       { site: "linux", path: "/11-shell/cron", label: "cron 任务" },
       { site: "cloud-native", path: "/04-helm/values", label: "Helm values.yaml" },
       { site: "system-design", path: "/09-id/snowflake", label: "UUID / Snowflake" },
       { site: "python", path: "/01-basics/intro", label: "Python 基础" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -121540,31 +121603,39 @@ window.fetch = async (...args) => {
 ---
 
 ## [frontend 知识图谱](https://java-px.bot.cd/frontend/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "HTML / CSS 基础不扎实，遇到复杂布局就懵？", "React / Vue / Angular / Svelte 选哪个？", "浏览器渲染原理、Event Loop 讲不清？", "TypeScript 类型系统、泛型、条件类型卡壳？", "Node 后端怎么写、怎么部署、怎么调优？" ]" :goa
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "HTML / CSS 基础不扎实，遇到复杂布局就懵？", "React / Vue / Angular / Svelte 选哪个？", "浏览器渲染原理、E
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "HTML / CSS 基础不扎实，遇到复杂布局就懵？",
       "React / Vue / Angular / Svelte 选哪个？",
       "浏览器渲染原理、Event Loop 讲不清？",
       "TypeScript 类型系统、泛型、条件类型卡壳？",
       "Node 后端怎么写、怎么部署、怎么调优？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "HTML / CSS / 浏览器渲染 / Event Loop 全链路打通",
       "JS 核心 + TypeScript 类型系统深入",
       "React Hooks + Vue 3 组合式 API + 选型矩阵",
       "构建工具链（Vite / Webpack / Turbopack）",
       "Node 后端（Express / Koa / NestJS / Fastify）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "tools", path: "/json", label: "JSON 工具" },
       { site: "network", path: "/01-fundamentals/tcp-ip", label: "TCP/IP 协议" },
       { site: "system-design", path: "/01-theory/cap-theorem", label: "CAP 定理" },
       { site: "ai", path: "/06-mcp/core", label: "MCP 协议" },
       { site: "go", path: "/04-cloud-native/overview", label: "Go 云原生" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -134867,32 +134938,40 @@ command || { echo "失败"; exit 1; }
 ---
 
 ## [linux 知识图谱](https://java-px.bot.cd/linux/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "常用命令（ls / find / grep / awk）记不牢？", "Shell 脚本（bash / zsh）写不出来？", "systemd / 服务管理一团乱？", "iptables / nftables 防火墙不会配？", "内核参数调优（sysctl / cgroup）无从下手？" ]" :goal
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "常用命令（ls / find / grep / awk）记不牢？", "Shell 脚本（bash / zsh）写不出来？", "systemd / 服务管
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "常用命令（ls / find / grep / awk）记不牢？",
       "Shell 脚本（bash / zsh）写不出来？",
       "systemd / 服务管理一团乱？",
       "iptables / nftables 防火墙不会配？",
       "内核参数调优（sysctl / cgroup）无从下手？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "入门基础（发行版 / Shell / 文件系统树）",
       "文件与目录（ls / cp / mv / find / 权限）",
       "文本三剑客（grep / sed / awk）",
       "Shell 脚本（bash 语法 / 流程控制 / 函数）",
       "服务管理（systemd / supervisor）",
       "网络配置（iptables / ip / ss / netstat）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "filesystem", path: "/01-storage/ext4", label: "ext4 文件系统" },
       { site: "network", path: "/01-fundamentals/tcp-ip", label: "TCP/IP 协议" },
       { site: "devops", path: "/01-pipeline/overview", label: "CI/CD 流水线" },
       { site: "security", path: "/01-basics/permissions", label: "Linux 权限" },
       { site: "observability", path: "/02-logs/filebeat", label: "日志采集" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -147074,16 +147153,17 @@ features:
 
 ---
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "写了 Dockerfile 不知道 -it / -d / -p 的区别",
       "kubectl apply 后 Pod 一直 Pending / CrashLoopBackOff",
       "Deployment / StatefulSet / DaemonSet 不知道该用哪个",
       "写 Helm Chart 不会 values.yaml",
       "Service Mesh / GitOps 只听过没用过"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "系统化讲清 Docker 镜像 / 容器 / 网络 / 卷",
       "深入 k8s 控制面 / 工作负载 / Service / 网络 / 存储",
       "Helm 包管理 + Kustomize",
@@ -147091,13 +147171,20 @@ features:
       "Service Mesh（Istio）+ GitOps（ArgoCD）",
       "安全（RBAC / NetworkPolicy / Falco）",
       "排错套路 + CKA / CKS 考试"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "architecture", path: "/04-micro/overview", label: "云原生架构" },
       { site: "bigdata", path: "/06-warehouse/overview", label: "云上数仓" },
       { site: "observability", path: "/01-prometheus/overview", label: "云原生监控" },
       { site: "chaos", path: "/01-concepts/overview", label: "云原生韧性" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -157684,29 +157771,37 @@ features:
 
 ---
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "Claude / GPT / Gemini / DeepSeek 到底选哪个？",
       "Claude Code / Codex / Cursor / Copilot / Aider 怎么用？",
       "Claude SDK / OpenAI SDK / LangChain / LangGraph 关系？",
       "Agent / RAG / MCP / Function Calling 是什么关系？",
       "LoRA / QLoRA / GGUF 怎么微调 / 量化？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "主流大模型横向对比 + 选型",
       "AI 编程工具安装 + 命令速查",
       "SDK / Agent 框架生态",
       "RAG / MCP / Tool use 原理",
       "微调 / 部署 / 评测",
       "工程化（API Key / 成本 / 容器化）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "architecture", path: "/01-distributed/cap", label: "分布式 CAP" },
       { site: "bigdata", path: "/06-warehouse/overview", label: "数仓架构" },
       { site: "cloud-native", path: "/05-observability/prometheus", label: "AI 部署监控" },
       { site: "observability", path: "/03-otel/overview", label: "AI 可观测性" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -168015,18 +168110,19 @@ kafka-consumer-groups --bootstrap-server kafka:9092   --describe --group my-cons
 ---
 
 ## [bigdata 知识图谱](https://java-px.bot.cd/bigdata/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "Hadoop / Spark / Flink / Hive / Kafka 各自独立文档", "数据仓库 vs 数据湖 vs Lakehouse 怎么选", "离线数仓 vs 实时数仓 怎么统一", "ClickHouse / Doris / StarRocks 怎么选", "模型设计 Inmon vs Kim
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Hadoop / Spark / Flink / Hive / Kafka 各自独立文档", "数据仓库 vs 数据湖 vs Lakehouse 怎么选",
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "Hadoop / Spark / Flink / Hive / Kafka 各自独立文档",
       "数据仓库 vs 数据湖 vs Lakehouse 怎么选",
       "离线数仓 vs 实时数仓 怎么统一",
       "ClickHouse / Doris / StarRocks 怎么选",
       "模型设计 Inmon vs Kimball vs Data Vault 怎么选"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "4V特征 / Hadoop生态 / 分布式存储原理",
       "Spark / Flink / Hive 核心原理与调优",
       "Kafka 流处理 / CDC / 数据血缘",
@@ -168036,14 +168132,21 @@ kafka-consumer-groups --bootstrap-server kafka:9092   --describe --group my-cons
       "OLAP 引擎 ClickHouse / Doris / StarRocks",
       "ELT 流水线 Airflow / dbt",
       "真实业务案例：用户画像 / 推荐 / 风控 / 日志"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "kafka", path: "/03-stream/overview", label: "流处理引擎" },
       { site: "mysql", path: "/01-foundation/architecture", label: "OLTP 数据库" },
       { site: "clickhouse", path: "/01-basics/overview", label: "ClickHouse 列存" },
       { site: "filesystem", path: "/03-distributed/hdfs", label: "HDFS 分布式存储" },
       { site: "architecture", path: "/01-distributed/cap", label: "分布式理论" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -179450,32 +179553,40 @@ OSI / TCP/IP (基础)
 ---
 
 ## [计算机网络知识库](https://java-px.bot.cd/network/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "TCP/IP 协议栈（IP / TCP / UDP / HTTP）讲不清？", "三次握手 / 四次挥手 / TIME_WAIT 太多怎么排查？", "HTTPS / TLS 1.3 / HTTP/2 / HTTP/3 关系？", "DNS 解析过程、CDN 调度、负载均衡策略？", "网络排查工具（tcpdu
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "TCP/IP 协议栈（IP / TCP / UDP / HTTP）讲不清？", "三次握手 / 四次挥手 / TIME_WAIT 太多怎么排查？", "HT
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "TCP/IP 协议栈（IP / TCP / UDP / HTTP）讲不清？",
       "三次握手 / 四次挥手 / TIME_WAIT 太多怎么排查？",
       "HTTPS / TLS 1.3 / HTTP/2 / HTTP/3 关系？",
       "DNS 解析过程、CDN 调度、负载均衡策略？",
       "网络排查工具（tcpdump / wireshark / ss / netstat）不会用？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "理论体系（OSI 7 层 / TCP/IP 4 层 / 协议族）",
       "HTTP 全家桶（HTTP/1.1 / HTTP/2 / HTTP/3 / HTTPS）",
       "TCP 深度（握手 / 挥手 / 重传 / 拥塞控制）",
       "DNS / CDN / 负载均衡",
       "网络安全（TLS / WAF / ACL）",
       "排查工具（tcpdump / wireshark / ss / iperf）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "linux", path: "/13-net/iptables", label: "iptables 防火墙" },
       { site: "security", path: "/02-network/tls", label: "TLS 协议" },
       { site: "system-design", path: "/01-theory/cap-theorem", label: "CAP 定理" },
       { site: "devops", path: "/01-pipeline/overview", label: "CI/CD 流水线" },
       { site: "observability", path: "/05-sre/network-debug", label: "网络排查" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -196092,32 +196203,40 @@ CDN 架构   性能加速 (NVENC)
 ---
 
 ## [视频处理知识库](https://java-px.bot.cd/video/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "像素 / 色彩 / 帧率 / 容器格式基础概念混？", "帧内 / 帧间 / DCT / 熵编码 原理讲不清？", "H.264 / H.265 / AV1 / VP9 选哪个？", "RTMP / HLS / DASH 流媒体协议区别？", "FFmpeg 命令太多记不住？" ]" :goals="[ "视频
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "像素 / 色彩 / 帧率 / 容器格式基础概念混？", "帧内 / 帧间 / DCT / 熵编码 原理讲不清？", "H.264 / H.265 / AV1
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "像素 / 色彩 / 帧率 / 容器格式基础概念混？",
       "帧内 / 帧间 / DCT / 熵编码 原理讲不清？",
       "H.264 / H.265 / AV1 / VP9 选哪个？",
       "RTMP / HLS / DASH 流媒体协议区别？",
       "FFmpeg 命令太多记不住？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "视频基础（像素 / 色彩 / 帧率 / 容器）",
       "编解码原理（帧内 / 帧间 / DCT / 熵编码）",
       "主流编码（H.264 / H.265 / AV1 / VP9）",
       "流媒体协议（RTMP / HLS / DASH / WebRTC）",
       "工具实战（FFmpeg / OpenCV / MediaInfo）",
       "AI 视频（超分 / 插帧 / 数字人 / Sora）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "ai", path: "/10-deploy/ollama", label: "AI 推理部署" },
       { site: "frontend", path: "/01-foundation/html", label: "Web 前端" },
       { site: "cloud-native", path: "/06-storage/overview", label: "云原生存储" },
       { site: "go", path: "/02-concurrency/goroutine", label: "Go 高性能" },
       { site: "observability", path: "/05-sre/overview", label: "流媒体监控" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -214130,32 +214249,40 @@ restic -r /backup init      # restic 备份
 ---
 
 ## [文件系统 / 文件服务 / 存储全栈](https://java-px.bot.cd/filesystem/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "从单块磁盘的 inode 到跨数据中心的对象存储，怎么系统学？", "POSIX 权限 / ACL / Capabilities 到底有什么区别？", "本地 FS（ext4 / xfs / btrfs / zfs）怎么选？", "网络 FS（NFS / SMB / CIFS）vs 分布式 FS（Ceph /
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "从单块磁盘的 inode 到跨数据中心的对象存储，怎么系统学？", "POSIX 权限 / ACL / Capabilities 到底有什么区别？", "本
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "从单块磁盘的 inode 到跨数据中心的对象存储，怎么系统学？",
       "POSIX 权限 / ACL / Capabilities 到底有什么区别？",
       "本地 FS（ext4 / xfs / btrfs / zfs）怎么选？",
       "网络 FS（NFS / SMB / CIFS）vs 分布式 FS（Ceph / MinIO / HDFS）",
       "K8s CSI 抽象、PV / PVC / StorageClass 怎么设计？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "存储全栈（单机 FS / 网络 FS / 分布式 FS / 对象存储）",
       "POSIX 权限模型 + ACL + 高级特性",
       "本地 FS 实战（ext4 / xfs / btrfs / zfs）",
       "网络 FS（NFS / SMB / CIFS / pNFS）",
       "分布式存储（Ceph / MinIO / HDFS / JuiceFS）",
       "云原生存储（CSI / Rook / Longhorn）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "linux", path: "/11-shell/debug", label: "Linux 实战" },
       { site: "bigdata", path: "/02-hdfs/architecture", label: "HDFS 架构" },
       { site: "cloud-native", path: "/06-storage/overview", label: "CSI 抽象" },
       { site: "devops", path: "/01-pipeline/overview", label: "CI/CD 流水线" },
       { site: "architecture", path: "/01-distributed/cap", label: "分布式理论" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -215529,31 +215656,39 @@ keytool -import -alias cert -file cert.cer -keystore trust.jks
 ---
 
 ## [java-language 知识图谱](https://java-px.bot.cd/java-language/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "会用 HashMap 但不理解红黑树和 Hash 冲突", "写了 Spring 但不理解 IoC 容器如何工作", "遇到 GC 停顿只会调 Xmx", "用了线程池但不理解核心参数", "面试问 JVM 只知道「堆栈方法区」" ]" :goals="[ "系统化讲清 Java 基础 → 集合 → 并发 →
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "会用 HashMap 但不理解红黑树和 Hash 冲突", "写了 Spring 但不理解 IoC 容器如何工作", "遇到 GC 停顿只会调 Xmx",
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "会用 HashMap 但不理解红黑树和 Hash 冲突",
       "写了 Spring 但不理解 IoC 容器如何工作",
       "遇到 GC 停顿只会调 Xmx",
       "用了线程池但不理解核心参数",
       "面试问 JVM 只知道「堆栈方法区」"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "系统化讲清 Java 基础 → 集合 → 并发 → JVM → GC",
       "Spring IoC/AOP/事务/自动配置原理",
       "微服务：Nacos/Gateway/Sentinel/Seata",
       "性能调优：Arthas/jstack/jmap/jstat",
       "设计模式 + 测试 + 工具",
       "面试高频题 + 手写代码"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "architecture", path: "/02-thread-pool/executor", label: "并发架构" },
       { site: "system-design", path: "/09-id/snowflake", label: "ID 生成实战" },
       { site: "cloud", path: "/01-springboot/quickstart", label: "Spring Boot 微服务" },
       { site: "kafka", path: "/02-sdks/java", label: "Java 客户端 SDK" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -223414,32 +223549,40 @@ sh seata-server.sh 8091
 ---
 
 ## [企业级架构知识图谱](https://java-px.bot.cd/architecture/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "会写 CRUD 却讲不清 CAP 定理", "知道消息队列但说不清幂等性设计", "调过限流却不懂令牌桶 vs 滑动窗口的区别", "用了 Seata 却不知道 AT 模式的 undo_log 怎么工作", "部署过微服务但没读过 DDD" ]" :goals="[ "JMM / happens-before
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "会写 CRUD 却讲不清 CAP 定理", "知道消息队列但说不清幂等性设计", "调过限流却不懂令牌桶 vs 滑动窗口的区别", "用了 Seata 却不
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "会写 CRUD 却讲不清 CAP 定理",
       "知道消息队列但说不清幂等性设计",
       "调过限流却不懂令牌桶 vs 滑动窗口的区别",
       "用了 Seata 却不知道 AT 模式的 undo_log 怎么工作",
       "部署过微服务但没读过 DDD"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "JMM / happens-before / CAS：并发编程的根",
       "CAP / BASE / Raft：分布式系统的根",
       "限流 / 熔断 / 降级：高可用三大法宝",
       "2PC / TCC / Saga：分布式事务选型",
       "DDD：微服务拆分的理论",
       "短链 / 秒杀 / 异地多活：真实案例分析"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "system-design", path: "/cap-theorem", label: "系统设计的 CAP" },
       { site: "cloud", path: "/01-overview/microservices", label: "Spring Cloud 落地" },
       { site: "bigdata", path: "/06-warehouse/overview", label: "大数据架构" },
       { site: "kafka", path: "/01-basics/architecture", label: "消息架构" },
       { site: "system-design", path: "/short-url", label: "短链架构案例" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -241005,29 +241148,37 @@ A：
 ---
 
 ## [System Design 知识图谱](https://java-px.bot.cd/system-design/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "会写 CRUD 却讲不清 CAP", "调过 Redis 却说不出 cache-aside 的失效边界", "用过 Kafka 但说不清「不丢消息」需要哪几道防线", "设计过系统但写不出「短链」的短码生成选型", "读过 Raft 论文但没自己推导过选举超时" ]" :goals="[ "一致性模型谱 + C
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "会写 CRUD 却讲不清 CAP", "调过 Redis 却说不出 cache-aside 的失效边界", "用过 Kafka 但说不清「不丢消息」需要哪几
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "会写 CRUD 却讲不清 CAP",
       "调过 Redis 却说不出 cache-aside 的失效边界",
       "用过 Kafka 但说不清「不丢消息」需要哪几道防线",
       "设计过系统但写不出「短链」的短码生成选型",
       "读过 Raft 论文但没自己推导过选举超时"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "一致性模型谱 + CAP + PACELC + FLP：分布式理论的根",
       "短链 / Feed / 秒杀 / 抢红包 / LBS：系统设计面试与实战",
       "每章给出：问题 → 经典方案 → 工程取舍 → 代码骨架"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "architecture", path: "/01-distributed/cap", label: "CAP 定理" },
       { site: "java-language", path: "/04-jvm/overview", label: "JVM 原理" },
       { site: "java", path: "/04-tech/jvm", label: "Java Web JVM" },
       { site: "kafka", path: "/01-basics/architecture", label: "Kafka 架构" },
       { site: "redis", path: "/01-basics/intro", label: "Redis 基础" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -254735,32 +254886,40 @@ Connection conn = DriverManager.getConnection(
 ---
 
 ## [PostgreSQL 知识图谱](https://java-px.bot.cd/postgresql/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "MVCC 原理：为什么 PG 的读不阻塞写？", "事务隔离级别（RC / RR / Serializable）选哪个？", "索引类型（B-tree / Hash / GIN / BRIN / GiST）怎么选？", "主从复制延迟、逻辑复制、FDW 怎么用？", "慢查询、锁等待、checkpoint 怎么
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "MVCC 原理：为什么 PG 的读不阻塞写？", "事务隔离级别（RC / RR / Serializable）选哪个？", "索引类型（B-tree /
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "MVCC 原理：为什么 PG 的读不阻塞写？",
       "事务隔离级别（RC / RR / Serializable）选哪个？",
       "索引类型（B-tree / Hash / GIN / BRIN / GiST）怎么选？",
       "主从复制延迟、逻辑复制、FDW 怎么用？",
       "慢查询、锁等待、checkpoint 怎么监控？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "SQL 基础（DDL / DML / 查询 / 聚合 / CTE / Window）",
       "事务与并发控制（MVCC / 隔离级别 / 锁）",
       "索引体系（B-tree / Hash / GIN / BRIN / GiST）",
       "复制与高可用（流复制 / 逻辑复制 / Patroni / PgBouncer）",
       "性能调优（EXPLAIN / pg_stat_statements / 参数调优）",
       "扩展生态（PostGIS / pgvector / TimescaleDB）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "mysql", path: "/11-compare/mysql-vs-postgresql", label: "MySQL vs PostgreSQL" },
       { site: "clickhouse", path: "/06-compare/clickhouse", label: "PG → ClickHouse HTAP" },
       { site: "redis", path: "/09-connection/cache-pattern", label: "PG + Redis 缓存层" },
       { site: "observability", path: "/07-operations/monitor", label: "PG 慢查询监控" },
       { site: "architecture", path: "/04-transaction/overview", label: "分布式事务" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -266080,32 +266239,40 @@ Kafka：
 ---
 
 ## [Observability 知识图谱](https://java-px.bot.cd/observability/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "单体时代（CPU/内存/磁盘）vs 微服务时代（调用链/性能瓶颈）监控差异？", "Metrics / Logs / Traces 三件套怎么选型（Prometheus / Loki / Jaeger）？", "OpenTelemetry（OTel） Collector / SDK / Exporter 怎么部
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "单体时代（CPU/内存/磁盘）vs 微服务时代（调用链/性能瓶颈）监控差异？", "Metrics / Logs / Traces 三件套怎么选型（Prom
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "单体时代（CPU/内存/磁盘）vs 微服务时代（调用链/性能瓶颈）监控差异？",
       "Metrics / Logs / Traces 三件套怎么选型（Prometheus / Loki / Jaeger）？",
       "OpenTelemetry（OTel） Collector / SDK / Exporter 怎么部署？",
       "SLO / SLI / Error Budget 怎么设计与度量？",
       "告警风暴怎么治理？告警分级 + 抑制 + 路由？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "可观测性基础（Metrics / Logs / Traces 三件套）",
       "Metrics 体系（Prometheus / VictoriaMetrics / Grafana Mimir）",
       "Logs 体系（Loki / ELK / ClickHouse）",
       "Traces 体系（Jaeger / Tempo / OpenTelemetry）",
       "SLO / SLI / Error Budget 工程实践",
       "告警治理 + AIOps"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "devops", path: "/05-cicd-observability/sre", label: "SRE 实践" },
       { site: "cloud-native", path: "/05-observability/prometheus", label: "Prometheus" },
       { site: "kafka", path: "/01-basics/architecture", label: "Kafka 架构" },
       { site: "es", path: "/01-storage/overview", label: "ES 日志存储" },
       { site: "clickhouse", path: "/01-storage/index-design", label: "ClickHouse 日志" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -271779,32 +271946,40 @@ federation {
 ---
 
 ## [Security 知识图谱](https://java-px.bot.cd/security/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "OWASP Top 10 风险记不全，audit 一个 Web 应用无从下手？", "认证 vs 授权、RBAC vs ABAC 模型区别？", "密码学（对称 / 非对称 / 哈希 / 数字签名）讲不清？", "TLS / HTTPS / 证书体系不熟？", "XSS / CSRF / SQL 注入 / SS
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "OWASP Top 10 风险记不全，audit 一个 Web 应用无从下手？", "认证 vs 授权、RBAC vs ABAC 模型区别？", "密码学（
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "OWASP Top 10 风险记不全，audit 一个 Web 应用无从下手？",
       "认证 vs 授权、RBAC vs ABAC 模型区别？",
       "密码学（对称 / 非对称 / 哈希 / 数字签名）讲不清？",
       "TLS / HTTPS / 证书体系不熟？",
       "XSS / CSRF / SQL 注入 / SSRF 等 Web 攻击原理？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "安全基础（认证 / 授权 / 密码学 / TLS / 攻击面）",
       "Web 安全（OWASP Top 10 / XSS / CSRF / SSRF / SQL 注入）",
       "Linux / 系统安全（权限 / capabilities / SELinux）",
       "网络安全（TLS / WAF / 防火墙 / IDS / IPS）",
       "应用安全（API 安全 / JWT / OAuth2 / OIDC）",
       "云原生安全（容器安全 / K8s RBAC / Sigstore / SBOM）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "network", path: "/01-fundamentals/tcp-ip", label: "TCP/IP 协议" },
       { site: "linux", path: "/13-net/iptables", label: "Linux 防火墙" },
       { site: "cloud-native", path: "/08-security/overview", label: "云原生安全" },
       { site: "devops", path: "/06-best-practices/secure-pipeline", label: "安全流水线" },
       { site: "frontend", path: "/04-react/hooks", label: "前端安全" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -276314,33 +276489,41 @@ runs-on: [self-hosted, isolated, prod-deploy]
 ---
 
 ## [DevOps 知识图谱](https://java-px.bot.cd/devops/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "CI/CD 工具太多（Jenkins / GitLab CI / GitHub Actions / Argo），怎么选？", "Pipeline as Code 怎么写才不会变成 YAML 屎山？", "Terraform / Pulumi / Ansible 三大 IaC 工具怎么选？", "ArgoCD /
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "CI/CD 工具太多（Jenkins / GitLab CI / GitHub Actions / Argo），怎么选？", "Pipeline as Co
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "CI/CD 工具太多（Jenkins / GitLab CI / GitHub Actions / Argo），怎么选？",
       "Pipeline as Code 怎么写才不会变成 YAML 屎山？",
       "Terraform / Pulumi / Ansible 三大 IaC 工具怎么选？",
       "ArgoCD / Flux GitOps 的「声明式真相源」怎么落地？",
       "蓝绿 / 灰度 / 金丝雀 发布策略与回滚机制怎么设计？",
       "DORA 4 个核心指标（部署频率 / 变更前置时间 / 变更失败率 / 恢复时间）怎么度量？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "CI/CD 全链路（Pipeline as Code / Artifact / 制品库 / 部署）",
       "IaC 框架（Terraform / Pulumi / Ansible）",
       "GitOps 落地（ArgoCD / Flux / 渐进式交付）",
       "发布策略（蓝绿 / 灰度 / 金丝雀 / Argo Rollouts）",
       "研发效能度量（DORA 4 指标 / 平台工程）",
       "安全流水线（OIDC / Sigstore / SBOM）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "observability", path: "/05-sre/overview", label: "SRE 实践" },
       { site: "cloud-native", path: "/03-gitops/argocd", label: "ArgoCD 落地" },
       { site: "security", path: "/06-best-practices/secure-pipeline", label: "安全流水线" },
       { site: "architecture", path: "/01-pipeline/overview", label: "软件交付架构" },
       { site: "chaos", path: "/04-release/canary", label: "蓝绿 + 混沌验证" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -283207,31 +283390,39 @@ impl<K: Clone + Eq + std::hash::Hash, V> LruCache<K, V> {
 ---
 
 ## [Rust 知识图谱](https://java-px.bot.cd/rust/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "所有权 / 借用 / 生命周期推导卡壳？", "异步编程（async-await / Tokio）复杂？", "Trait / 泛型 / 高级类型（新类型 / PhantomData）难理解？", "宏系统（声明宏 / 过程宏）门槛高？", "生态相对小、生产案例少？" ]" :goals="[ "基础与所有权
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "所有权 / 借用 / 生命周期推导卡壳？", "异步编程（async-await / Tokio）复杂？", "Trait / 泛型 / 高级类型（新类型
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "所有权 / 借用 / 生命周期推导卡壳？",
       "异步编程（async-await / Tokio）复杂？",
       "Trait / 泛型 / 高级类型（新类型 / PhantomData）难理解？",
       "宏系统（声明宏 / 过程宏）门槛高？",
       "生态相对小、生产案例少？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "基础与所有权（Ownership / Borrowing / Lifetime）",
       "类型系统与 Trait（枚举 / 泛型 / 高级类型）",
       "生态与工具链（Cargo / crates.io / rustfmt / clippy）",
       "并发与异步（async-await / Tokio / Channel）",
       "系统编程（unsafe / FFI / 嵌入式 / WebAssembly）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "go", path: "/01-basics/golang-intro", label: "Go 对比" },
       { site: "linux", path: "/14-kernel/overview", label: "Linux 内核" },
       { site: "security", path: "/01-basics/permissions", label: "内存安全" },
       { site: "architecture", path: "/01-distributed/cap", label: "分布式架构" },
       { site: "system-design", path: "/01-theory/cap-theorem", label: "系统设计基础" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -296124,31 +296315,39 @@ fmt.Println(string(buf))
 ---
 
 ## [go 知识图谱](https://java-px.bot.cd/go/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "goroutine 调度原理、栈扩容讲不清？", "channel vs sync.Mutex 不知道选哪个？", "Go 错误处理（error / panic / recover）哲学？", "微服务架构、gRPC、Service Mesh 怎么落地？", "K8s operator / controller
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "goroutine 调度原理、栈扩容讲不清？", "channel vs sync.Mutex 不知道选哪个？", "Go 错误处理（error / pan
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "goroutine 调度原理、栈扩容讲不清？",
       "channel vs sync.Mutex 不知道选哪个？",
       "Go 错误处理（error / panic / recover）哲学？",
       "微服务架构、gRPC、Service Mesh 怎么落地？",
       "K8s operator / controller-runtime 不会写？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "Go 基础语法 + 类型系统 + 函数闭包",
       "并发模型（CSP / goroutine / channel / context）",
       "错误处理 + 包管理 + 工具链",
       "云原生生态（Docker / K8s / Prometheus / etcd）",
       "微服务实战（gRPC / 服务发现 / 链路追踪）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "cloud-native", path: "/01-docker/overview", label: "Docker 全栈" },
       { site: "java-language", path: "/04-jvm/overview", label: "JVM 对比" },
       { site: "architecture", path: "/01-distributed/cap", label: "分布式 CAP" },
       { site: "devops", path: "/01-pipeline/overview", label: "CI/CD 流水线" },
       { site: "system-design", path: "/01-theory/cap-theorem", label: "系统设计基础" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -305489,32 +305688,40 @@ A: ClickHouse（专用 OLAP）
 ---
 
 ## [clickhouse 知识图谱](https://java-px.bot.cd/clickhouse/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "列存 vs 行存：为什么 OLAP 要用列存？", "MergeTree 引擎家族（Replacing / Summing / Aggregating）怎么选？", "实时数仓（Lambda / Kappa / 湖仓一体）架构怎么选？", "集群扩容、副本、数据分片怎么平衡成本与可用性？", "SQL 优化：O
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "列存 vs 行存：为什么 OLAP 要用列存？", "MergeTree 引擎家族（Replacing / Summing / Aggregating）怎么
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "列存 vs 行存：为什么 OLAP 要用列存？",
       "MergeTree 引擎家族（Replacing / Summing / Aggregating）怎么选？",
       "实时数仓（Lambda / Kappa / 湖仓一体）架构怎么选？",
       "集群扩容、副本、数据分片怎么平衡成本与可用性？",
       "SQL 优化：ORDER BY / PARTITION BY / INDEX / SAMPLE 怎么用？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "列存原理 + MergeTree 引擎对比",
       "表引擎（Log / MergeTree / Distributed / MaterializedView）",
       "数仓场景（Lambda / Kappa / 湖仓一体）",
       "生态集成（Kafka 引擎 / MySQL CDC / PG FDW）",
       "可观测性存储（Grafana Mimir / VictoriaMetrics / Loki 替代）",
       "性能调优 + 运维实战"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "kafka", path: "/05-ecosystem/kafka-engine", label: "Kafka 引擎消费" },
       { site: "observability", path: "/04-olap-scenarios/observability", label: "可观测性存储" },
       { site: "mysql", path: "/06-compare/mysql", label: "MySQL → ClickHouse 实时数仓" },
       { site: "postgresql", path: "/06-compare/postgresql", label: "PG → ClickHouse HTAP" },
       { site: "architecture", path: "/04-olap-scenarios/lambda-kappa", label: "实时数仓架构" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -317798,31 +318005,39 @@ OrderModule { /* 5 个 Service 放一起 */ }
 ---
 
 ## [设计模式 / GoF 23 式 / 反模式](https://java-px.bot.cd/design-pattern/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "GoF 23 式记不全，面试问到「装饰器 vs 代理」讲不清？", "创建型 / 结构型 / 行为型 分类背后的设计原则（开闭 / 里氏 / 依赖倒置）？", "现代模式（DI / Repository / Specification）跟 GoF 的关系？", "架构模式（CQRS / Event Sourci
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "GoF 23 式记不全，面试问到「装饰器 vs 代理」讲不清？", "创建型 / 结构型 / 行为型 分类背后的设计原则（开闭 / 里氏 / 依赖倒置）？"
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "GoF 23 式记不全，面试问到「装饰器 vs 代理」讲不清？",
       "创建型 / 结构型 / 行为型 分类背后的设计原则（开闭 / 里氏 / 依赖倒置）？",
       "现代模式（DI / Repository / Specification）跟 GoF 的关系？",
       "架构模式（CQRS / Event Sourcing / Saga / Sidecar）落地难？",
       "反模式（God Object / 贫血模型 / 大泥球）怎么识别 + 改造？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "GoF 23 式（创建型 5 + 结构型 7 + 行为型 11）三语言（Java / Go / TS）实现",
       "现代模式（DI / Repository / Specification / Null Object）",
       "架构模式（CQRS / Event Sourcing / Saga / Sidecar / Circuit Breaker）",
       "反模式自查（God Object / Anemic Model / Big Ball of Mud / Callback Hell）",
       "6 大主题（GoF 创建型 / GoF 结构型 / GoF 行为型 / 现代模式 / 架构模式 / 反模式）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "java-language", path: "/05-spring/ioc", label: "Spring IoC/AOP" },
       { site: "java", path: "/01-springboot/quickstart", label: "Spring Boot 实战" },
       { site: "architecture", path: "/05-patterns/circuit-breaker", label: "熔断 / 舱壁模式" },
       { site: "kafka", path: "/01-basics/architecture", label: "Event Sourcing 架构" },
       { site: "system-design", path: "/01-theory/cap-theorem", label: "系统设计基础" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
@@ -323485,32 +323700,40 @@ slos:
 ---
 
 ## [chaos 知识图谱](https://java-px.bot.cd/chaos/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "Netflix Chaos Monkey 起源：混沌工程到底解决什么问题？", "稳态假设（steady state）怎么定义才不会被实验打破？", "爆炸半径（blast radius）如何控制才安全？", "Chaos Mesh / Litmus / Gremlin / ChaosBlade 工具怎么选？"
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Netflix Chaos Monkey 起源：混沌工程到底解决什么问题？", "稳态假设（steady state）怎么定义才不会被实验打破？", "爆炸
 
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="[
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
       "Netflix Chaos Monkey 起源：混沌工程到底解决什么问题？",
       "稳态假设（steady state）怎么定义才不会被实验打破？",
       "爆炸半径（blast radius）如何控制才安全？",
       "Chaos Mesh / Litmus / Gremlin / ChaosBlade 工具怎么选？",
       "故障画像、实验报告、复盘怎么写才有用？"
-    ]"
-    :goals="[
+    ]
+const goals = [
       "混沌工程基础（稳态 / 爆炸半径 / 实验方法论）",
       "Chaos Mesh 全场景实操（PodChaos / NetworkChaos / StressChaos / IOChaos）",
       "Litmus ChaosExperiment CRD + Probe / Check + 50+ 内置实验",
       "韧性模式（重试 / 超时 / 舱壁 / 熔断 / 限流 / 降级 / 多活 / 灾备）",
       "游戏日演练设计（指挥官 / 注入者 / 观察员 / 记录员角色分工）",
       "混沌可观测性闭环（metric/log/trace 联动 + SLO 反馈）"
-    ]"
-    :related-sites="[
+    ]
+const relatedSites = [
       { site: "observability", path: "/07-operations/slo", label: "SLO 与稳态假设" },
       { site: "system-design", path: "/01-theory/cap-theorem", label: "副本与隔离域" },
       { site: "postgresql", path: "/09-connection/failover", label: "主从切换演练" },
       { site: "devops", path: "/04-release/canary", label: "蓝绿 + 灰度验证" },
       { site: "architecture", path: "/05-patterns/circuit-breaker", label: "熔断 / 限流 / 舱壁" }
-    ]"
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>

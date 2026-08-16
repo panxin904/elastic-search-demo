@@ -1,8 +1,8 @@
 # mysql 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 67 个文档页 · 484,969 字
-> 生成时间：2026-08-16T09:03:50
+> 67 个文档页 · 485,164 字
+> 生成时间：2026-08-16T17:50:25
 
 ## [体系结构](https://java-px.bot.cd/mysql/01-foundation/architecture)
 > > 理解 MySQL 是怎么运行的，是掌握所有高级特性的基础。 负责与客户端建立连接、权限验证、连接管理： **关键配置：** - `max_connections=151`：默认 151，生产建议 1000+ - `wait_timeout=28800`：默认 8 小时 - `thread_cache_size=9`：线程缓存，避免频繁创建销毁 > 💡 **为什么 8.0 删除？** 因为只要表
@@ -197,7 +197,7 @@
 > > 全局可视化展示 MySQL 的 **50 个核心概念** 与它们之间的 **80+ 条关联关系** > > 💡 提示：拖动节点调整布局，点击节点跳转对应文档，悬停查看高亮关系。 <KnowledgeGraph :height="700" src="/graph.json" /> | 分类 | 节点数 | 代表概念 | |---|---|---| | 🏛️ 基础层 | 6 | InnoDB /
 
 ## [MySQL 知识图谱](https://java-px.bot.cd/mysql/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "知识点碎片化，不知道先后顺序（11 大主题怎么学？）", "InnoDB 引擎原理（MVCC / Buffer Pool / Redo Log）讲不清？", "索引（B+Tree / Hash / 全文）怎么建才高效？", "SQL 优化（EXPLAIN / 慢查询 / 索引失效）？", "主从复制 / 读写分
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "知识点碎片化，不知道先后顺序（11 大主题怎么学？）", "InnoDB 引擎原理（MVCC / Buffer Pool / Redo Log）讲不清？",
 
 ## [思维导图](https://java-px.bot.cd/mysql/mindmap)
 > > 按 **11 大主题** 分类的结构化导图，支持展开/收起，点击叶子节点跳转对应文档。 <MindMap :height="720" /> - [体系结构](01-foundation/architecture) - MySQL 是怎么运行的 - [存储引擎](01-foundation/storage-engine) - InnoDB vs MyISAM vs MEMORY - [数据类型]

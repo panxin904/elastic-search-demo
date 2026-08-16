@@ -1,8 +1,8 @@
 # design-pattern 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 49 个文档页 · 269,235 字
-> 生成时间：2026-08-16T09:03:50
+> 49 个文档页 · 269,430 字
+> 生成时间：2026-08-16T17:50:25
 
 ## [Abstract Factory 抽象工厂模式](https://java-px.bot.cd/design-pattern/01-gof-creational/abstract-factory)
 > 一族相关对象的创建 + 主题切换 + UI 组件库 / 数据库 driver 族 / Spring ApplicationContext
@@ -149,4 +149,4 @@
 > 症状 + 病因 + 药方 + 性能分析 + Knuth 法则
 
 ## [设计模式 / GoF 23 式 / 反模式](https://java-px.bot.cd/design-pattern/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "GoF 23 式记不全，面试问到「装饰器 vs 代理」讲不清？", "创建型 / 结构型 / 行为型 分类背后的设计原则（开闭 / 里氏 / 依赖倒置）？", "现代模式（DI / Repository / Specification）跟 GoF 的关系？", "架构模式（CQRS / Event Sourci
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "GoF 23 式记不全，面试问到「装饰器 vs 代理」讲不清？", "创建型 / 结构型 / 行为型 分类背后的设计原则（开闭 / 里氏 / 依赖倒置）？"

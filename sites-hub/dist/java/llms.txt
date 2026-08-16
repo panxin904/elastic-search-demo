@@ -1,8 +1,8 @@
 # java 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 53 个文档页 · 76,558 字
-> 生成时间：2026-08-16T09:03:50
+> 53 个文档页 · 76,753 字
+> 生成时间：2026-08-16T17:50:25
 
 ## [接口设计](https://java-px.bot.cd/java/01-process/api-design)
 > 接口是前后端协作的契约，设计好坏直接影响开发效率和系统质量。 <div class="kg-note"> <strong>规范</strong>：URL 用名词复数、小写、短横线分隔；资源嵌套不超过两层。 </div> | 范围 | 含义 | 示例 | |---|---|---| | 0 | 成功 | | | 1xxx | 参数错误 | 1001-参数缺失, 1002-参数格式错误 | | 2xx
@@ -161,4 +161,4 @@
 > Java 测试的核心组合：JUnit 5 + Mockito + SpringBootTest。 <KnowledgeGraph mode="neighbor" focusNodeId="testing" :height="400" />
 
 ## [Java Web Dev Manual](https://java-px.bot.cd/java/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "Java 知识图谱太广（基础 / JVM / 并发 / 框架 / 中间件）怎么系统学？", "JVM 内存模型（堆 / 栈 / Metaspace / 直接内存）？", "并发编程（synchronized / Lock / JUC / 线程池）？", "Spring / Spring Boot / MyBat
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Java 知识图谱太广（基础 / JVM / 并发 / 框架 / 中间件）怎么系统学？", "JVM 内存模型（堆 / 栈 / Metaspace / 直接

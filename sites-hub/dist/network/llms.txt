@@ -1,8 +1,8 @@
 # network 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 66 个文档页 · 204,216 字
-> 生成时间：2026-08-16T09:03:50
+> 66 个文档页 · 204,411 字
+> 生成时间：2026-08-16T17:50:25
 
 ## [数据封装与解封装](https://java-px.bot.cd/network/01-basics/encapsulation)
 > > 网络通信过程中数据如何被**层层包装**和**层层拆解**。 **每层加上自己的头部（Header）** | 网络 | MTU（字节）| |---|---| | Ethernet | 1500 | | PPPoE | 1492 | | 4G LTE | 1500 | | WiFi | 1500 | | 巨型帧 (Jumbo Frame) | 9000 | **分片：** 当 IP 包 > MT
@@ -194,7 +194,7 @@
 > <div class="nt-badge nt-badge-network">图谱</div> <div class="nt-badge nt-badge-basics">全景</div> 通过交互式知识图谱，**全局**理解计算机网络的技术栈关系。点击节点跳转到对应文档。 <KnowledgeGraph /> | 分类 | 颜色 | 节点数 | | --- | --- | --- | | 网络基
 
 ## [计算机网络知识库](https://java-px.bot.cd/network/index)
-> <ClientOnly> <WhyThisGraph :pain-points="[ "TCP/IP 协议栈（IP / TCP / UDP / HTTP）讲不清？", "三次握手 / 四次挥手 / TIME_WAIT 太多怎么排查？", "HTTPS / TLS 1.3 / HTTP/2 / HTTP/3 关系？", "DNS 解析过程、CDN 调度、负载均衡策略？", "网络排查工具（tcpdu
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "TCP/IP 协议栈（IP / TCP / UDP / HTTP）讲不清？", "三次握手 / 四次挥手 / TIME_WAIT 太多怎么排查？", "HT
 
 ## [思维导图](https://java-px.bot.cd/network/mindmap)
 > <div class="nt-badge nt-badge-network">导图</div> <div class="nt-badge nt-badge-interview">结构化</div> 通过交互式思维导图，**结构化**梳理计算机网络知识体系。 <MindMap /> - 鼠标拖动：移动画布 - 点击节点：展开/折叠子节点 - 滚轮：缩放 - 顶部按钮：全部展开、全部折叠、重置视角
