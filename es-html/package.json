@@ -7,11 +7,14 @@
   "scripts": {
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "docs:preview": "vitepress preview",
+    "docs:index": "pagefind --site .vitepress/dist",
+    "docs:build:full": "npm run docs:build && npm run docs:index"
   },
   "devDependencies": {
     "vitepress": "^1.6.3",
-    "vue": "^3.5.13"
+    "vue": "^3.5.13",
+    "pagefind": "^1.3.0"
   },
   "dependencies": {
     "echarts": "^5.5.1"
