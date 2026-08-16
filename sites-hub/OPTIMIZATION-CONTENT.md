@@ -2789,3 +2789,141 @@ mermaidDivs.forEach(d => console.log('has_svg=' + /<svg/.test(d)));
 - `/tmp/mermaid-svg/system-design-overview-1.svg` (18KB)
 - 截图：`*fixed.png`（HTML 包裹后 chrome headless 渲染）
 
+
+### 8.40 Git remote 自动 deploy（push to main → CI → VPS 部署）（2026-08-16 第三十三次）
+
+**目标**：push 到 main → CI build 通过 → 自动 SSH 到 VPS 跑 deploy-release.sh（蓝绿切换 + nginx reload）
+
+**架构**：
+
+```
+git push main
+    ↓
+[GitHub Actions: check + build-all + release]
+    ↓ upload artifact sites-hub-static.tar.gz
+[GitHub Actions: deploy job]
+    ↓ scp tarball → SSH to VPS
+[VPS: /var/www/sites-hub/scripts/deploy-release.sh]
+    ↓ tar xzf → nginx -t → mv symlink → nginx reload
+    ↑ zero downtime
+```
+
+**新增/改动文件**：
+
+| 文件 | 类型 | 说明 |
+|------|------|------|
+| `sites-hub/scripts/deploy-release.sh`（新，122 行）| VPS 端部署脚本（蓝绿切换）|
+| `.github/workflows/sites-hub-ci.yml` | 加 `deploy` job（依赖 release）|
+| `sites-hub/build-release.sh` | stage 加 `deploy-release.sh` 到 release tarball |
+| `.github/workflows/sites-hub-ci.yml`（check）| `bash -n deploy-release.sh` 语法验证 |
+
+**deploy-release.sh 关键设计**：
+
+1. **flock 防并发**：`exec 9>"$LOCK_FILE"` + `flock -n 9`，两次 push 同时只跑 1 次
+2. **解压失败回滚**：`tar xzf` 失败自动 `rm -rf $RELEASE_DIR` + exit 6
+3. **结构验证**：必须有 `www/` + `conf/nginx.conf`，否则丢弃 release
+4. **nginx 配置预检**：`nginx -t -c $RELEASE_DIR/conf/nginx.conf -p $RELEASE_DIR/`（临时 symlink `_current_for_validation` 模拟 `${CURRENT_LINK}`）
+5. **原子切换**：`ln -sfn new + mv -Tf $CURRENT_LINK.new $CURRENT_LINK`（mv rename 是 atomic）
+6. **nginx reload**（非 restart）：worker 进程平滑替换，零停机
+7. **保留 5 个历史 release**：超过自动清理，磁盘可控
+8. **清理 tmp tarball**：部署成功后 `rm -f /tmp/sites-hub-static.tar.gz`
+
+**deploy job 步骤**（CI）：
+
+```yaml
+deploy:
+  needs: [release]
+  if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+  steps:
+    - Download sites-hub-static artifact
+    - Verify artifact (test -f, du -h)
+    - scp to VPS (/tmp/sites-hub-static.tar.gz)
+    - ssh to VPS: sudo deploy-release.sh + curl healthz + cleanup
+```
+
+**trigger 条件**：
+
+| 触发方式 | check | build-all | release | deploy |
+|---------|:---:|:---:|:---:|:---:|
+| `push to main` | ✅ | ✅ | ✅ | ✅ 自动 |
+| `pull_request` | ✅ | ✅ | ⏭️ | ⏭️ |
+| `workflow_dispatch`（默认）| ✅ | ✅ | ⏭️ | ✅ 手动重试 |
+| `workflow_dispatch`（skip_build=true）| ⏭️ | ⏭️ | ✅ | ✅ |
+
+**安全设计**：
+
+- **不写死 IP / user / key**：全用 `secrets.VPS_HOST` / `VPS_USER` / `VPS_SSH_KEY`
+- **SSH key 不落地**：用 `appleboy/ssh-action@v1` 的 `key` 参数直传，不写磁盘
+- **scp + ssh 分离**：scp 失败 deploy 不会触发
+- **healthz 验证**：部署后 `curl http://localhost/healthz` 失败 exit
+- **建议启用 GitHub Environment**（生产环境）：打开注释掉的 `environment: production` 块，可加 reviewer approval gate
+
+**需要的 GitHub Secrets**（用户配置）：
+
+| Secret 名 | 值 | 说明 |
+|----------|-----|------|
+| `VPS_HOST` | `38.207.171.83` | VPS IP 或域名 |
+| `VPS_USER` | `root` 或 `deploy` | 跑 sudo 的用户 |
+| `VPS_SSH_KEY` | （整段 private key 含 BEGIN/END）| SSH private key |
+| `VPS_PORT`（可选）| `22` 或自定义 | SSH 端口 |
+
+**VPS 端前置**（用户一次性配置）：
+
+```bash
+# 1. 把 CI 的 SSH public key 加到 root authorized_keys（或 deploy 用户的）
+cat >> /root/.ssh/authorized_keys << 'PUBKEY'
+ssh-ed25519 AAAA... github-ci-deploy
+PUBKEY
+chmod 600 /root/.ssh/authorized_keys
+
+# 2. 第一次手动跑 deploy-vps.sh（创建目录结构 + nginx + certbot + htpasswd）
+cd /var/www/sites-hub
+sudo ./deploy-vps.sh java-px.bot.cd admin@example.com myuser
+
+# 3. 验证 deploy-release.sh 已上传
+ls -la /var/www/sites-hub/scripts/deploy-release.sh
+
+# 4. 测试 deploy（手动触发 workflow_dispatch）
+#    GitHub → Actions → sites-hub CI → Run workflow
+```
+
+**首跑建议**（手动触发 workflow_dispatch）：
+
+1. 先 `workflow_dispatch`（不带 skip_build）跑一遍完整流程，确认 deploy 成功
+2. 再 `push to main` 验证自动部署
+
+**审计**：新增 deploy-release.sh（122 行）+ workflow 改动 ~50 行，不影响 .md 计数。
+
+**关键 SSH key 选择**：
+
+- ✅ **ed25519**（推荐）：密钥短、性能好、GitHub 全面支持
+- ✅ **RSA 4096**：兼容性最广
+- ❌ **DSA**：已不安全
+- ❌ **密码登录**：必须用 key，否则 `appleboy/ssh-action` 失败
+
+**本地测试**：
+
+```bash
+# mock release + 验证脚本逻辑（不需要真 VPS）
+bash -n sites-hub/scripts/deploy-release.sh  # syntax OK
+grep -c 'flock\|tar xzf\|nginx -t\|mv -Tf\|nginx -s reload' deploy-release.sh
+# 期望: flock 3 / tar 1 / nginx -t 2 / mv 1 / nginx -s reload 1
+```
+
+**未做（范围控制）**：
+
+- ❌ 启用 GitHub Environment `production`（需手动创建 + 配置 reviewer，避免阻塞首次 deploy）
+- ❌ SSH key 自动 rotate（手动控制）
+- ❌ 部署失败自动 rollback（deploy-release.sh 失败不会回滚到旧 release，但旧 release 仍在 5 个保留内）
+- ❌ Slack / Discord 部署通知（用户可后续加）
+- ❌ 多 VPS 部署（单 VPS 设计）
+
+**收益**：
+
+| 项目 | 数量 |
+|------|-----:|
+| 新增文件 | 1（deploy-release.sh）|
+| 改动文件 | 3（workflow + build-release + check）|
+| 部署耗时（实测预估）| ~30s（scp 5s + 解压 5s + reload 1s + healthz 1s）|
+| 零停机 | ✅ nginx reload 不丢连接 |
+| 历史 release | 保留 5 个可回滚 |

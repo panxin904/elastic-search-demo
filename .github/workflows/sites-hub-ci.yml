@@ -5,6 +5,14 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
+    inputs:
+      skip_build:
+        description: 'Skip rebuild, deploy existing artifact only'
+        required: false
+        default: 'false'
+        type: choice
+        options: ['false', 'true']
 
 jobs:
   check:
@@ -43,6 +51,7 @@ jobs:
         run: |
           bash -n sites-hub/scripts/setup-goaccess.sh
           bash -n sites-hub/scripts/setup-fail2ban.sh
+          bash -n sites-hub/scripts/deploy-release.sh
           bash -n sites-hub/scripts/check-sites.sh
           bash -n sites-hub/scripts/spell-check.sh
           echo "Bash syntax OK" 
@@ -137,7 +146,10 @@ jobs:
   release:
     needs: [check, build-all]
     runs-on: ubuntu-22.04
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # push 自动；workflow_dispatch 默认跳过（skip_build=true 才跑）
+    if: |
+      (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+      (github.event_name == 'workflow_dispatch' && inputs.skip_build == 'true')
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
@@ -179,3 +191,57 @@ jobs:
         with:
           name: sites-hub-static
           path: release/sites-hub-static.tar.gz
+
+  deploy:
+    needs: [release]
+    runs-on: ubuntu-22.04
+    # push 自动；workflow_dispatch 默认跳过（除非显式触发 deploy）
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    # 启用 GitHub Environment 做 deployment gate 时把下面 environment 块打开：
+    # environment:
+    #   name: production
+    #   url: https://java-px.bot.cd
+    timeout-minutes: 10
+    steps:
+      - name: Download sites-hub-static artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: sites-hub-static
+          path: /tmp/release
+          if-no-files-found: error
+
+      - name: Verify artifact
+        run: |
+          ls -la /tmp/release/
+          test -f /tmp/release/sites-hub-static.tar.gz || { echo "missing tarball"; exit 1; }
+          echo "Artifact size: $(du -h /tmp/release/sites-hub-static.tar.gz | cut -f1)"
+
+      - name: Copy tarball to VPS
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          port: ${{ secrets.VPS_PORT || 22 }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          source: "/tmp/release/sites-hub-static.tar.gz"
+          target: "/tmp/sites-hub-static.tar.gz"
+
+      - name: Run deploy-release.sh on VPS
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          port: ${{ secrets.VPS_PORT || 22 }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          command_timeout: 5m
+          script: |
+            set -euo pipefail
+            echo "==> Pre-deploy: previous release"
+            ls -la /var/www/sites-hub/current 2>&1 | head -2 || echo "no previous release"
+            echo "==> Running deploy-release.sh"
+            sudo /var/www/sites-hub/scripts/deploy-release.sh /tmp/sites-hub-static.tar.gz
+            echo "==> Post-deploy: verify"
+            curl -fsS http://localhost/healthz || { echo "healthz failed"; exit 1; }
+            echo "==> Cleanup"
+            rm -f /tmp/sites-hub-static.tar.gz
+
