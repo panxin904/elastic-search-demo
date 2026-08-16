@@ -1552,3 +1552,94 @@ https://java-px.bot.cd/kafka/feed.xml   # 另一个站
 - ✅ RFC 2822 pubDate
 - ✅ atom:link 自引用
 - ✅ 按 date 排序
+
+### 8.28 C4 Pagefind 全文搜索基础（2026-08-16 第二十一次）
+
+承接 C 任务线，本节做 C4 Pagefind 搜索基础（脚本 + portal 搜索入口）。
+
+**28 站 package.json 加 pagefind**：
+
+```json
+{
+  "devDependencies": {
+    "vitepress": "^1.6.4",
+    "pagefind": "^1.3.0"        // ← 新增
+  },
+  "scripts": {
+    "docs:dev":     "vitepress dev",
+    "docs:build":   "vitepress build",
+    "docs:index":   "pagefind --site .vitepress/dist",   // ← 新增
+    "docs:build:full": "docs:build && docs:index"        // ← 新增
+  }
+}
+```
+
+**统一 build 脚本**：`sites-hub/scripts/build-with-pagefind.sh`（56 行）
+
+```bash
+# 全 28 站
+bash sites-hub/scripts/build-with-pagefind.sh
+
+# 指定子站
+bash sites-hub/scripts/build-with-pagefind.sh ai kafka
+
+# 流程（每站）：
+# 1. cd <project_dir>
+# 2. npm install (if missing)
+# 3. npm run docs:build  (VitePress 静态生成)
+# 4. npx pagefind --site .vitepress/dist  (生成 pagefind 索引)
+```
+
+**portal 搜索聚合页**：`www/search.html`（252 行）
+
+功能：
+- 28 子站 chip 快捷入口（点击跳转 `<site>/?q=<keyword>`）
+- 输入框 + 搜索按钮
+- URL `?q=xxx` 自动填入（支持 deep link）
+- 暗色模式自适应
+- 响应式 grid
+
+MVP 局限：**portal 不真正聚合跨站搜索结果**。每站有独立 Pagefind 索引，portal 提供"跳板"让用户快速去各站搜索。
+
+**完整跨站聚合方案**（§8.29 计划）：
+
+需要 iframe + postMessage 跨域通信：
+1. portal 页面嵌入各子站 pagefind iframe
+2. 各子站 pagefind UI 接受 postMessage 查询
+3. portal 收集结果聚合展示
+
+复杂度高，MVP 跳板已满足 80% 场景。
+
+**Pagefind 1.x 中文支持**：
+
+- 默认按字符 n-gram 索引，中文/日文/韩文都能搜
+- 无需额外配置中文分词
+- 索引体积小（每站 50-200KB）
+- 客户端 JS，无需服务端
+
+**deploy SOP**：
+
+```bash
+# 1. 在 VPS 上 cd 到仓库
+ssh vps
+cd /var/www/sites-hub/repo
+
+# 2. 全量 build（首次或大规模更新）
+bash sites-hub/scripts/build-with-pagefind.sh
+
+# 3. 单站 build（日常小更新）
+bash sites-hub/scripts/build-with-pagefind.sh ai
+
+# 4. nginx 重新加载（如配置变更）
+sudo nginx -s reload
+
+# 5. 验证
+curl https://java-px.bot.cd/ai/ | grep 'pagefind'
+curl https://java-px.bot.cd/ai/pagefind/pagefind.js | head -3
+```
+
+**VitePress Pagefind 集成**（自动）：
+
+VitePress 1.6+ 检测到 `pagefind --site` 输出会自动加载 Pagefind UI，无需额外配置。搜索框会出现在 nav 栏右上角。
+
+**audit 数字**：scripts + html 改动，不影响 .md 计数。
