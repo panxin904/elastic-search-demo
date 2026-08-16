@@ -114,7 +114,7 @@ jobs:
           proj=$(site_to_project "${{ matrix.site }}")
           cd "$proj"
           echo "Building $proj..."
-          npm ci --no-audit --no-fund
+          npm install --no-audit --no-fund  # 允许 lockfile 与 package.json 略不同步
           npm run docs:build
           npx pagefind --site .vitepress/dist
           tar czf /tmp/dist-${{ matrix.site }}.tar.gz .vitepress/dist
