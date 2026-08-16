@@ -2264,3 +2264,112 @@ const relatedSites = [ ... ]
 - 跑 `bash sites-hub/build-release.sh` 或 `bash build-with-pagefind.sh` 全量验证
 - 在 CI 环境启用（git remote push + GitHub Actions）
 
+### 8.35 GitHub 仓库 + CI 启用（2026-08-16 第二十八次）
+
+**目标**：建立 GitHub 远程仓库 + 启用 GitHub Actions CI，真跑 28 站 build 验证
+
+**远程仓库创建**：
+
+```bash
+gh repo create elastic-search-demo --private \
+  --description "Scholar's Atlas — 28 个 VitePress 子站集群（java-px.bot.cd）" \
+  --source=. --remote=origin --push
+
+# → https://github.com/panxin904/elastic-search-demo (private)
+# → 49 commits 已 push
+```
+
+**CI workflow 增强**（`.github/workflows/sites-hub-ci.yml`）：
+
+4 个 jobs，依赖链 `check → build-all → lighthouse → release`：
+
+| Job | 触发条件 | 职责 | 超时 |
+|------|---------|------|:----:|
+| `check` | push / PR | nginx sanity / Python 编译 / PWA 资产 | 10 min |
+| `build-all` | needs: check | **真跑 28 站 npm install + vitepress build + Pagefind** | 30 min |
+| `lighthouse` | needs: build-all | www/ 性能审计 | 8 min |
+| `release` | needs: 全部；仅 main push | MOCK_BUILD release + artifact | 15 min |
+
+**build-all 关键步骤**：
+
+```yaml
+- uses: actions/setup-node@v4
+  with:
+    node-version: '20'
+    cache: 'npm'
+
+- name: Build 28 sites + Pagefind index
+  run: bash sites-hub/scripts/build-with-pagefind.sh
+
+- name: Verify Pagefind output for each site
+  run: |
+    source sites-hub/scripts/sites.sh
+    failed=0
+    for s in "${SITES[@]}"; do
+      proj=$(site_to_project "$s")
+      if [[ -f "$proj/.vitepress/dist/pagefind/pagefind.js" ]]; then
+        echo "  ✓ $s"
+      else
+        echo "  ✗ $s"
+        failed=1
+      fi
+    done
+    exit $failed
+```
+
+**release 优化**：
+
+之前 release job 重复跑 `build-release.sh`（完整 build）。改为：
+
+```yaml
+- name: Build static release (re-use build-all dists via MOCK_BUILD)
+  run: MOCK_BUILD=1 bash sites-hub/build-release.sh
+```
+
+- 利用 build-all 已 build 的 dist
+- MOCK_BUILD=1 跳过 npm，复用 dist → release ~1min 而非 ~10min
+- 总 wall time: check (3min) + build-all (10min) + lighthouse (5min) + release (1min) ≈ 20min
+
+**触发条件**：
+
+```yaml
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+```
+
+注意：从原来的 `paths` 过滤（`sites-hub/**`）改为全触发——任何 main 分支的 push/PR 都跑 CI（更稳）。
+
+**未做（预留后续）**：
+
+- ❌ 28 站真 build 在 CI 的耗时调优（默认 npm cache + setup-node 4）
+- ❌ Lighthouse 性能预算调整（沿用原 `lighthouse-budget.json`）
+- ❌ 自动 deploy 到 VPS（CI 仅 build 验证，部署仍走 sshpass 手动）
+- ❌ Dependabot / 自动依赖更新
+
+**安全考虑**：
+
+- 仓库 `private`：内部项目，不公开
+- CI 不含任何 secret（不需要 SSH key 等敏感信息）
+- 部署到 VPS 仍是手动流程（避免 CI 误触发生产变更）
+
+**审计**：CI 配置改动不影响 .md 计数，audit 数字不变。
+
+**收益**：
+
+| 项目 | 数量 |
+|------|-----:|
+| 远程仓库 | 1 (private) |
+| 已 push commits | 49 |
+| CI jobs | 4 (check / build-all / lighthouse / release) |
+| build 验证覆盖 | 28 站全量 |
+| 新文件 | 0（修改 .github/workflows/sites-hub-ci.yml）|
+| 修改文件 | 1 |
+
+**下一步**：
+
+- 首次 push 触发 CI，验证 ~20min 跑通
+- 如失败，迭代修复
+

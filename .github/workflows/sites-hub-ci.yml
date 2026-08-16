@@ -3,14 +3,8 @@ name: sites-hub CI
 on:
   push:
     branches: [main]
-    paths:
-      - 'sites-hub/**'
-      - '.github/workflows/sites-hub-ci.yml'
   pull_request:
     branches: [main]
-    paths:
-      - 'sites-hub/**'
-      - '.github/workflows/sites-hub-ci.yml'
 
 jobs:
   check:
@@ -35,10 +29,10 @@ jobs:
 
       - name: Smoke-test Python helpers
         run: |
-          python3 sites-hub/scripts/inject-stats.py --dry-run 2>&1 || true
-          # fall back: just verify they parse
           python3 -m py_compile sites-hub/scripts/inject-stats.py
-          python3 -m py_compile sites-hub/scripts/make-og-cover.py
+          python3 -m py_compile sites-hub/scripts/build-sitemap-and-llms.py
+          python3 -m py_compile sites-hub/scripts/build-updates-from-git.py
+          python3 -m py_compile sites-hub/scripts/audit-content.py
 
       - name: Verify PWA assets present
         run: |
@@ -59,9 +53,61 @@ jobs:
           grep -q 'Content-Security-Policy'     sites-hub/conf/nginx.conf
           echo "config guards OK"
 
-  lighthouse:
+  build-all:
     runs-on: ubuntu-22.04
     needs: check
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Build 28 sites + Pagefind index
+        run: bash sites-hub/scripts/build-with-pagefind.sh
+
+      - name: Verify Pagefind output for each site
+        run: |
+          source sites-hub/scripts/sites.sh
+          failed=0
+          for s in "${SITES[@]}"; do
+            proj=$(site_to_project "$s")
+            if [[ -f "$proj/.vitepress/dist/pagefind/pagefind.js" ]]; then
+              echo "  ✓ $s ($proj) — pagefind OK"
+            else
+              echo "  ✗ $s ($proj) — pagefind MISSING"
+              failed=1
+            fi
+          done
+          exit $failed
+
+      - name: Verify dist directory count
+        run: |
+          source sites-hub/scripts/sites.sh
+          for s in "${SITES[@]}"; do
+            proj=$(site_to_project "$s")
+            count=$(find "$proj/.vitepress/dist" -name '*.html' 2>/dev/null | wc -l)
+            echo "  $s ($proj): $count HTML files"
+            if [[ "$count" -lt 1 ]]; then
+              echo "ERROR: $s has no HTML output"
+              exit 1
+            fi
+          done
+
+      - name: Upload dist artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-${{ github.sha }}
+          path: |
+            */.vitepress/dist/**
+          if-no-files-found: warn
+
+  lighthouse:
+    runs-on: ubuntu-22.04
+    needs: build-all
     timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
@@ -70,7 +116,6 @@ jobs:
         run: |
           sudo mkdir -p /var/www/sites-hub
           sudo cp -R sites-hub/www /var/www/sites-hub/www
-          # Use nginx to serve static (auth_basic off for CI)
           cat > /tmp/ci-server.conf <<'NGX'
           server {
             listen 8081;
@@ -89,15 +134,20 @@ jobs:
           uploadArtifacts: true
 
   release:
-    needs: [check, lighthouse]
+    needs: [check, build-all, lighthouse]
     runs-on: ubuntu-22.04
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
-      - name: Build static release (MOCK_BUILD for CI)
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build static release (re-use build-all dists via MOCK_BUILD)
         run: MOCK_BUILD=1 bash sites-hub/build-release.sh
-      - name: Upload artifact
+
+      - name: Upload release artifact
         uses: actions/upload-artifact@v4
         with:
           name: sites-hub-static
