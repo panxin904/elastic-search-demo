@@ -1470,3 +1470,85 @@ curl -s https://java-px.bot.cd/llms.txt | head -5
 - ✅ llms.txt（28 子站 + 主门户）
 - ✅ llms-full.txt（主门户聚合 6.2M 字）
 - ✅ llmstxt.org 规范兼容（AI 爬虫友好）
+
+### 8.27 C5 RSS 2.0 feed.xml 全量生成（2026-08-16 第二十次）
+
+承接 §8.26 sitemap 基础设施，本节加 RSS feed 输出。
+
+**扩展 build-sitemap-and-llms.py**：
+
+新增 `build_rss_xml(pages, title, link, description)` 函数，输出 RSS 2.0 + atom:link 自引用。
+
+**生成结果**：
+
+| 文件 | 数量 | 单文件大小 | 总计 |
+|------|----:|--------:|----:|
+| `www/feed.xml` | 1 | 30KB | 50 items（聚合 top 50） |
+| `dist/<site>/feed.xml` | 28 | 30-47KB | ~1MB（含该站所有页）|
+
+**RSS 2.0 合规性**：
+
+```xml
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>站点名</title>
+    <link>https://java-px.bot.cd/<site>/</link>
+    <atom:link href="...feed.xml" rel="self" type="application/rss+xml" />
+    <description>...</description>
+    <language>zh-cn</language>
+    <lastBuildDate>RFC 2822 格式</lastBuildDate>
+    <item>
+      <title>页面标题</title>
+      <link>...URL</link>
+      <guid isPermaLink="true">...URL</guid>
+      <description>摘要</description>
+      <pubDate>RFC 2822 格式</pubDate>
+    </item>
+  </channel>
+</rss>
+```
+
+**关键设计**：
+
+- **排序**：按 date 降序（最新在前），date 缺失 fallback 到文件 mtime
+- **聚合**：主门户 feed.xml 取所有子站最近 50 条（按 date 全局排序）
+- **子站 feed**：每个站独立 feed，包含该站所有页（无 top N 限制）
+- **pubDate**：用 `email.utils.format_datetime` 输出 RFC 2822 标准格式
+
+**实施中修复的 3 个 bug**：
+
+| Bug | 表现 | 修复 |
+|-----|------|------|
+| `<title>Untitled</title>` | index.md 没有 h1，没标题 | 从 `hero.name:` 提取 + fallback 到 `{site} 知识图谱` |
+| Portal item link 错误 | 所有 portal item 都指向 portal 根 | 改用 `page['site']` 拼 URL |
+| Description 含 features: | YAML 列表残留 | 跳过 `- ... :` 形式的列表行 |
+
+**已知 cosmetic 限制**（§8.28 优化）：
+
+- description 偶尔含 `<ClientOnly>` 块（WhyThisGraph 组件调用）—— 需进一步过滤
+- summary 第一段可能跳到 features: 行的子项（因为 hero 段被跳过）
+
+**deploy 后用户操作**：
+
+```bash
+# 在 RSS reader（如 Feedly / Inoreader）添加：
+https://java-px.bot.cd/feed.xml          # 全站聚合
+https://java-px.bot.cd/ai/feed.xml      # 单站订阅
+https://java-px.bot.cd/kafka/feed.xml   # 另一个站
+```
+
+**feed 自动发现**（后续工作）：
+
+在 www/index.html `<head>` 加：
+```html
+<link rel="alternate" type="application/rss+xml" 
+      title="Scholar's Atlas" href="https://java-px.bot.cd/feed.xml" />
+```
+
+让浏览器和 RSS reader 能自动发现 feed。
+
+**C5 完整收官**：
+- ✅ RSS 2.0 feed（28 子站 + 主门户）
+- ✅ RFC 2822 pubDate
+- ✅ atom:link 自引用
+- ✅ 按 date 排序
