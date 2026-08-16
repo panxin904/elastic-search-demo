@@ -2679,3 +2679,113 @@ build-all 内部最小单 job（tools）：47s
 3. `npm ci` 严格 lockfile → CI 用 `npm install` 更稳
 4. GitHub Actions 免费账户 20 并发节流，28 站矩阵实际只跑 20 并发，但仍是 5× 提速
 5. `fail-fast: false` 是并行 CI 的黄金标配
+
+### 8.39 Mermaid SSR 真实验证：3 张 SVG 全部成功（CSR + 浏览器异步渲染）（2026-08-16 第三十二次）
+
+**目标**：跑 springcloud + system-design 两个用 mermaid 的站点，看 SVG 是否真渲染
+
+**§8.33 的认知修正**：之前以为 vitepress-plugin-mermaid 是 SSR（构建时输出 SVG），实为 **CSR（客户端 onMounted 渲染）**
+
+| 阶段 | 行为 |
+|------|------|
+| 构建（SSR）| 输出 `<div class="mermaid"></div>` 占位 div + `virtual_mermaid-config.js` chunk |
+| 浏览器 | hydrate 后 `onMounted` 异步调 `mermaid.render()`，SVG 注入 div |
+
+**验证证据**（springcloud-html/.vitepress/dist/02-overview/nacos-principle.html）：
+
+```html
+<!-- SSR 输出 -->
+<div class="mermaid"></div>
+<link rel="modulepreload" href="/cloud/assets/chunks/virtual_mermaid-config.CQTEIV6y.js">
+
+<!-- dist/assets/chunks/ 全部 mermaid 库 chunk（按需懒加载）-->
+architectureDiagram-*.js  c4Diagram-*.js  flowchart-*.js  gitGraphDiagram-*.js  ...
+```
+
+**plugin 源码证据**（`Mermaid.vue`）：
+
+```vue
+<template>
+  <div v-html="svg" class="mermaid"></div>
+</template>
+<script setup>
+const svg = ref(null);  // SSR 时 null
+onMounted(async () => {
+  await init(...);
+  let settings = await import("virtual:mermaid-config");
+  ...
+  svg.value = await render(id, code, config);  // CSR 异步
+});
+</script>
+```
+
+**真实验证**：用 vitepress dev server + Chrome headless 加载 3 个含 mermaid 的页面，dump DOM 后提取 `<svg>` 标签
+
+| 页面 | mermaid div | SVG 渲染 | viewBox | 元素数 | 大小 |
+|------|:---:|:---:|---|:---:|:---:|
+| `springcloud/nacos-principle.md` | 2 | ✅ 2 | 2001×174 / 2349×546 | 85 + 123 | 23KB + 28KB |
+| `system-design/overview.md` | 1 | ✅ 1 | 1408×94 | 60 | 18KB |
+
+**渲染样例**：
+
+| 页面 | 内容 |
+|------|------|
+| nacos-principle §核心区别 | AP 模式 - Distro（5 特性）+ CP 模式 - Raft（4 特性），中文节点标签 |
+| nacos-principle §原理全景图 | Nacos Server subgraph → Nacos Core → Distro/JRaft 两个 subgraph（每个 4 节点）+ Client subgraph，`<br/>` 换行生效 |
+| system-design/overview §一致性级别 | 7 个一致性模型（强一致 → 最终一致）的中英双语标签横向链 |
+
+**subgraph 嵌套**：Nacos Server 包含 Distro subgraph + JRaft subgraph + Client subgraph 三层嵌套，正确渲染。
+
+**`<br/>` 标签**：markdown 写 `<br/>`（自闭合），mermaid 输出 `<br>`（在 `<foreignObject>` xhtml namespace 内），浏览器渲染正确换行。
+
+**验证脚本**（`/tmp/render-svg-batch.mjs`，~50 行）：
+
+```js
+// 1. 启动 vitepress dev server
+spawn('npx', ['vitepress', 'dev', '--port', '5174'], { cwd: 'springcloud-html' });
+// 2. Chrome headless dump-dom
+spawn(CHROME, ['--headless=new', '--dump-dom', `http://localhost:5174/cloud/02-overview/nacos-principle`]);
+// 3. 提取 mermaid div + 验证 has_svg
+const mermaidDivs = dom.match(/<div[^>]*class="[^"]*\bmermaid\b[^"]*"[^>]*>([\s\S]*?)<\/div>/g);
+mermaidDivs.forEach(d => console.log('has_svg=' + /<svg/.test(d)));
+```
+
+**Chrome 截图经验**：直接 `chrome --screenshot file://*.svg` 会触发 XHTML namespace 报错（SVG 内 `<br>` 被当 HTML 解析），需用 `<html><body>{svg}</body></html>` 包裹后再截图。
+
+**SSR vs CSR 取舍**：
+
+| 维度 | SSR（vritepress-plugin-mermaid 旧版 + @mermaid-js/mermaid-cli 风格）| **CSR（vitepress-plugin-mermaid v2）**|
+|------|------|------|
+| 构建时长 | +30s/站（mermaid + jsdom）| 0 |
+| HTML 体积 | +30KB/页（内联 SVG）| +0（占位 div）|
+| 首屏渲染 | ✅ 即时 | ⏳ 等 JS 加载（~50-200ms）|
+| SEO | ✅ 完整 SVG 内容 | ❌ 只看到占位 div |
+| 主题切换 | ✅ CSS 即时 | ✅ MutationObserver 自动重渲染 |
+
+**本项目选择 CSR**（v2 plugin 默认）：
+
+- 28 站 × 30KB SSR 体积 = 840KB 浪费
+- 用户开 Basic Auth，SEO 不重要（爬虫看不到）
+- 主题切换需自动重渲染，CSR 的 MutationObserver 是现成的
+- vitepress-plugin-mermaid v2 维护活跃，是社区主流
+
+**未做（范围控制）**：
+
+- ❌ 切换到 SSR（v1 plugin + jsdom + 增加 30s 构建时间，收益小）
+- ❌ 离屏预渲染（puppeteer 太重，不适合 build 时跑）
+- ❌ 主题色适配（默认主题够用，深色模式 plugin 自动切 dark）
+
+**关键发现**（写给未来的我）：
+
+1. **dist HTML 里的 `<div class="mermaid"></div>` 空 div 是正常的**，不是 bug
+2. **mermaid 库是按需懒加载**（dist/assets/chunks/*Diagram-*.js），用户没看到 mermaid 的页面不加载
+3. **`<br/>` 写自闭合即可**，mermaid 转成 `<br>` 在 foreignObject xhtml 里正确换行
+4. **chrome headless 直接打开 .svg 会触发 XHTML 报错**，需用 HTML 包裹才能截图
+
+**SVG 产物**（用户可本地预览）：
+
+- `/tmp/mermaid-svg/springcloud-nacos-principle-1.svg` (23KB)
+- `/tmp/mermaid-svg/springcloud-nacos-principle-2.svg` (28KB)
+- `/tmp/mermaid-svg/system-design-overview-1.svg` (18KB)
+- 截图：`*fixed.png`（HTML 包裹后 chrome headless 渲染）
+
