@@ -22,6 +22,14 @@ jobs:
       - name: Re-render nginx.conf from sites.sh
         run: bash sites-hub/scripts/render-nginx-conf.sh
 
+      - name: Patch nginx.conf (macOS → Linux paths)
+        run: |
+          # nginx.conf 在 macOS 本地用 /opt/homebrew/etc/nginx/，CI (Ubuntu) 需改成 /etc/nginx/
+          if grep -q '/opt/homebrew/etc/nginx' sites-hub/conf/nginx.conf; then
+            sed -i 's|/opt/homebrew/etc/nginx/|/etc/nginx/|g' sites-hub/conf/nginx.conf
+            echo "Patched macOS paths → Linux"
+          fi
+
       - name: nginx -t on rendered config
         run: |
           sudo nginx -c $PWD/sites-hub/conf/nginx.conf \
