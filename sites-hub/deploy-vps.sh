@@ -36,17 +36,23 @@ if [[ -z "$AUTH_USER" ]]; then
   exit 1
 fi
 
-while true; do
-  read -r -s -p "Password for ${AUTH_USER}: " AUTH_PASSWORD
-  echo
-  read -r -s -p "Confirm password: " AUTH_PASSWORD_CONFIRM
-  echo
-  if [[ -n "$AUTH_PASSWORD" && "$AUTH_PASSWORD" == "$AUTH_PASSWORD_CONFIRM" ]]; then
-    break
-  fi
-  echo "Passwords are empty or do not match; try again." >&2
-done
-unset AUTH_PASSWORD_CONFIRM
+# P0 fix: 支持非交互模式（CI 自动部署）
+# 优先级：AUTH_PASSWORD env var > 交互 read
+if [[ -z "${AUTH_PASSWORD:-}" ]]; then
+  while true; do
+    read -r -s -p "Password for ${AUTH_USER}: " AUTH_PASSWORD
+    echo
+    read -r -s -p "Confirm password: " AUTH_PASSWORD_CONFIRM
+    echo
+    if [[ -n "$AUTH_PASSWORD" && "$AUTH_PASSWORD" == "$AUTH_PASSWORD_CONFIRM" ]]; then
+      break
+    fi
+    echo "Passwords are empty or do not match; try again." >&2
+  done
+  unset AUTH_PASSWORD_CONFIRM
+else
+  echo "==> Using AUTH_PASSWORD from environment (non-interactive mode)"
+fi
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 WEB_ROOT="/var/www/sites-hub"
@@ -245,6 +251,8 @@ ${location_blocks}
     }
 }
 EOF
+  # P0 fix: nginx 不支持 ${VAR} 语法（只支持 $VAR），把占位符展开为实际路径
+  sed -i "s|\${CURRENT_LINK}|${CURRENT_LINK}|g" "$CONFIG_PATH"
 }
 
 install_dependencies
