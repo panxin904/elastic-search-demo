@@ -2366,3 +2366,95 @@ check → build-all → release
 - CI 完整跑通 ✓
 - 后续 push 自动触发 CI ✓
 
+### 8.36 C10 内容运营收尾：PR review checklist（2026-08-16 第二十九次）
+
+**目标**：补完 C10 内容运营 — PR review 流程与 checklist
+
+**改动**（3 个文件）：
+
+| 文件 | 内容 |
+|------|------|
+| `.github/PULL_REQUEST_TEMPLATE.md` | GitHub PR 创建时自动填充的模板（27 行） |
+| `docs/PR-REVIEW-CHECKLIST.md` | 完整审核清单（127 行，6 维度 + SLA + 拒绝原则） |
+| `CONTRIBUTING.md` | 新增「PR 提交流程」节（66 行） |
+
+**PR 模板关键字段**：
+
+```markdown
+- 改了什么 / 为什么改 / 影响范围 / 本地验证 / 截图 / 关联 Issue
+- 影响范围多选：子站 / shared-assets / glossary / scripts / workflows / docs
+- 本地验证多选：build-with-pagefind / audit-content / spell-check / CI
+```
+
+**review checklist 6 个维度**：
+
+1. **技术合规**：CI 全绿 + 本地验证（author 责任）
+2. **内容质量**：frontmatter / glossary / 图片 WebP / 主题 CSS 变量
+3. **提交规范**：Conventional Commits / branch 命名 / PR 描述完整
+4. **数据层**：glossary JSON 合法 / 新术语 EN 字段
+5. **脚本兼容**：Python 3.9 / bash 3.2 / --help / --dry-run
+6. **文档同步**：OPTIMIZATION*.md / CONTRIBUTING.md 仓库结构登记
+
+**审核 SLA**：
+
+| 改动规模 | approve 数 | SLA |
+|---------|----------:|------|
+| 单文件 / 单站 | 1 | 24h |
+| 跨 5+ 站 | 2 | 24h |
+| CI / nginx / deploy 脚本 | 2 必须 | 24h |
+
+**拒绝 PR 原则**（仅 3 类）：
+
+- 安全漏洞（XSS / npm 依赖漏洞）
+- 故意破坏 build
+- 违反协议（CC-BY-NC-SA）
+
+其它（命名 / 风格）通过 review 反馈而非拒绝。
+
+**merge 后流程**：
+
+- Squash merge（保持 git log 单 commit）
+- CI 自动跑 release job → tar.gz artifact
+- 手动 deploy 到 VPS（暂未自动化）
+
+**CONTRIBUTING.md 结构更新**：
+
+```
+1. ## 🔀 PR 提交流程        ← 新增
+2. ## 🚀 快速开始
+3. ## 📋 仓库结构
+4. ## 🔧 配置 Giscus 评论（C6）
+5. ## 📐 内容规范
+6. ## 🚫 不要做
+7. ## 📞 联系
+```
+
+PR 流程排在最前（贡献者第一件事是提 PR）。
+
+**commit message 规则（重申）**：
+
+| type | 显示在首页 Updates | 例子 |
+|------|:----------------:|------|
+| `feat` | ✅ | `feat(c2): add glossary terms` |
+| `fix` | ✅ | `fix(es-html): correct mapping` |
+| `refactor` | ✅ | `refactor(audit): use re.DOTALL` |
+| `docs` | ❌ | `docs(OPTIMIZATION-CONTENT): record §8.36` |
+| `chore` | ❌ | `chore: bump vitepress` |
+
+**审计**：内容运营文档改动不影响 .md 计数，audit 数字不变。
+
+**收益**：
+
+| 项目 | 数量 |
+|------|-----:|
+| 新文件 | 2 (PULL_REQUEST_TEMPLATE + PR-REVIEW-CHECKLIST) |
+| 修改文件 | 1 (CONTRIBUTING.md) |
+| 总行数增 | ~250 行 |
+| 流程文档化 | 100%（fork → branch → commit → PR → CI → review → merge）|
+
+**未做（后续）**：
+
+- ❌ CODEOWNERS 文件（自动 assign reviewer）
+- ❌ branch protection rules（API 配置）
+- ❌ 自动 deploy 到 VPS（需 SSH key）
+

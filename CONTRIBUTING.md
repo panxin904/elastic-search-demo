@@ -2,6 +2,77 @@
 
 > 28 个 VitePress 子站的知识图谱集群（`java-px.bot.cd`）。
 
+---
+
+## 🔀 PR 提交流程
+
+### 1. Fork + branch
+
+```bash
+# 从 main fork 到你的仓库
+git checkout -b feat/<short-desc>
+# 例：git checkout -b feat/add-glossary-terms
+```
+
+### 2. 改内容 + 本地验证
+
+参见 [PR Review Checklist](docs/PR-REVIEW-CHECKLIST.md) 的「本地验证」节：
+
+```bash
+# 子站 build 测试
+cd <site>-html && npm install && npm run docs:build
+
+# 全 28 站 build 测试（改 .vue / config.mts 时必跑）
+bash sites-hub/scripts/build-with-pagefind.sh
+
+# 内容审计
+python3 sites-hub/scripts/audit-content.py
+
+# 拼写检查
+bash sites-hub/scripts/spell-check.sh
+```
+
+### 3. Commit（Conventional Commits）
+
+```bash
+git add .
+git commit -m "feat(<scope>): <中文描述>"
+# 例子：
+#   feat(c2): add 5 new glossary terms
+#   fix(es-html): correct mapping for index field
+#   docs(OPTIMIZATION-CONTENT): record §8.36 C10 PR review
+#   chore: bump vitepress to 1.6.5
+```
+
+**type 取值**：
+- `feat` / `fix` / `refactor` → 显示在首页 Updates 列表（自动生成）
+- `docs` / `chore` / `style` / `test` / `build` / `ci` / `perf` → 不显示
+
+### 4. Push + 提 PR
+
+```bash
+git push origin feat/<short-desc>
+# 在 GitHub 提 PR，用 .github/PULL_REQUEST_TEMPLATE.md 模板
+```
+
+### 5. CI + Review
+
+- CI 自动跑（check / build-all / release，全绿后 merge）
+- 至少 1 个 maintainer approve；跨 5+ 站 / 改 CI / nginx 需 2 个
+
+### 6. Squash merge
+
+- 单 commit squash merge（保持 git log 整洁）
+- 自动触发 CI release job 生成 tar.gz artifact
+
+---
+
+**完整审核清单**：详见 **[docs/PR-REVIEW-CHECKLIST.md](docs/PR-REVIEW-CHECKLIST.md)**，覆盖技术合规 / 内容质量 / 提交规范 / 数据层 / 脚本兼容 / 文档同步 6 个维度。
+
+**审核者 SLA**：24h 内首次响应，单文件 1 个 approve，跨 5+ 站 2 个 approve。
+
+---
+
 ## 🚀 快速开始
 
 ### 提 Issue
