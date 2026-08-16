@@ -1,3 +1,5 @@
+@import '../../../../shared-assets/vitepress-template/theme/style.css';
+
 /* Architecture Atlas theme */
 :root { --arc-ink: #1f2937; --arc-accent: #7c3aed; --arc-soft: #ede9fe; }
 .kg-badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 13px; font-weight: 500; margin-right: 8px; vertical-align: middle; }

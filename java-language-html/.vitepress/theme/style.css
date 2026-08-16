@@ -1,3 +1,5 @@
+@import '../../../../shared-assets/vitepress-template/theme/style.css';
+
 /* Java Atlas theme styles */
 :root { --java-ink: #1f2937; --java-accent: #dc2626; --java-soft: #fee2e2; }
 .kg-badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 13px; font-weight: 500; margin-right: 8px; vertical-align: middle; }
