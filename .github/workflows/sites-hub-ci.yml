@@ -92,11 +92,22 @@ jobs:
             if [[ "$count" -lt 1 ]]; then exit 1; fi
           done
 
+      - name: Tar all 28 site dists
+        run: |
+          source sites-hub/scripts/sites.sh
+          paths=""
+          for s in "${SITES[@]}"; do
+            proj=$(site_to_project "$s")
+            paths="$paths $proj/.vitepress/dist"
+          done
+          tar czf /tmp/sites-dists.tar.gz $paths
+          echo "Created /tmp/sites-dists.tar.gz ($(stat -c%s /tmp/sites-dists.tar.gz) bytes)"
+
       - name: Upload dists artifact
         uses: actions/upload-artifact@v4
         with:
           name: sites-dists
-          path: "*/.vitepress/dist"
+          path: /tmp/sites-dists.tar.gz
 
   release:
     needs: [check, build-all]
@@ -109,11 +120,23 @@ jobs:
         with:
           node-version: 20
 
-      - name: Download dists from artifact
+      - name: Download dists artifact
         uses: actions/download-artifact@v4
         with:
           name: sites-dists
-          path: release/sites-hub
+          path: /tmp
+
+      - name: Extract dists to project roots
+        run: |
+          cd /home/runner/work/elastic-search-demo/elastic-search-demo
+          tar xzf /tmp/sites-dists.tar.gz
+          # 确认 28 站 dist 都在
+          source sites-hub/scripts/sites.sh
+          for s in "${SITES[@]}"; do
+            proj=$(site_to_project "$s")
+            test -d "$proj/.vitepress/dist" || { echo "MISSING $proj"; exit 1; }
+          done
+          echo "All 28 site dists extracted"
 
       - name: Build static release (MOCK_BUILD=1 reuses dists)
         run: MOCK_BUILD=1 bash sites-hub/build-release.sh
