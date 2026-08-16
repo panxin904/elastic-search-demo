@@ -624,7 +624,6 @@ VPS `authorized_keys` 加 CI 的 public key。
 | [`setup-fail2ban.sh`](../sites-hub/scripts/setup-fail2ban.sh) | VPS 防爆破（nginx-auth jail） |
 | [`setup-goaccess.sh`](../sites-hub/scripts/setup-goaccess.sh) | VPS 访问统计（cron 每日 0:00）|
 | [`backup-htpasswd.sh`](../sites-hub/scripts/backup-htpasswd.sh) | htpasswd 备份 |
-| [`build-with-pagefind.sh`](../sites-hub/scripts/build-with-pagefind.sh) | 28 站全 build（**已废**，改用 CI matrix）|
 
 ---
 
@@ -680,9 +679,8 @@ VPS `authorized_keys` 加 CI 的 public key。
 
 | 优先级 | 任务 | 原因 |
 |:---:|------|------|
-| 🔲 P2 | 共享组件同步脚本 | 改 `shared-assets/vitepress-template/theme/` 后自动 cp 到 28 站 |
+| ⊘ P2 | 共享组件同步脚本 | **跳过** — `sites-hub/shared-assets/` 不存在；无共享 theme 需要同步；按需新建 |
 | 🔲 P2 | 验证 Mermaid SSR | §8.33 文档与实际不符（实际 CSR）|
-| 🔲 P2 | `build-with-pagefind.sh` 退役 | CI matrix 已替代 |
 | 🔲 P3 | nginx gzip_static 启用 | 服务 .gz 版本（sitemap.xml.gz / llms-full.txt.gz）|
 | 🔲 P3 | GitHub Environment `production` | 加 reviewer approval gate |
 | 🔲 P3 | SSH key 自动 rotate | 当前手动 |
@@ -720,8 +718,7 @@ gh run list --workflow=sites-hub-ci.yml --limit 5
 # 单站
 cd <site>-html && npm install && npm run docs:dev
 
-# 全 28 站（CI 会跑，但本地可提前验证）
-bash sites-hub/scripts/build-with-pagefind.sh  # 已废，仅本地参考
+# 全 28 站（本地基本不会跑，CI matrix 是 source of truth；单站调试进子目录 npm run docs:dev）
 
 # 提交前
 python3 sites-hub/scripts/audit-content.py

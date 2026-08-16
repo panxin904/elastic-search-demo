@@ -17,7 +17,7 @@
 ### 本地验证（手动，作者负责）
 
 - [ ] 作者在 PR 描述勾选了所有本地验证项
-- [ ] 改动 build 链路时，作者本地跑过 `bash sites-hub/scripts/build-with-pagefind.sh`
+- [ ] 改动 build 链路时，作者本地跑过 `bash sites-hub/build-release.sh`（CI matrix 是 source of truth，本地可选择性跑）
 - [ ] 没引入新 audit 错误（`python3 sites-hub/scripts/audit-content.py`）
 
 ## 📚 内容质量（人工 review）
