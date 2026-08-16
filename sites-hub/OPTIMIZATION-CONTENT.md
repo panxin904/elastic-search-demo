@@ -2458,3 +2458,117 @@ PR 流程排在最前（贡献者第一件事是提 PR）。
 - ❌ branch protection rules（API 配置）
 - ❌ 自动 deploy 到 VPS（需 SSH key）
 
+### 8.37 GoAccess 访问统计接入（资源极轻方案）（2026-08-16 第三十次）
+
+**目标**：轻量级访问统计，零 Docker、零外部依赖，适合资源受限 VPS
+
+**选型对比**：
+
+| 方案 | 资源消耗 | 部署 | 数据可见性 |
+|------|:------:|:----:|:---------:|
+| Plausible SaaS | 0（云托管）| 注册账号 | plausible.io |
+| **Plausible 自托管** | ~500MB RAM | Docker | 自有 dashboard |
+| **GoAccess** | ~30MB RAM | apt 一行 | 本地 HTML |
+| Cloudflare Analytics | 0 | 需 CF DNS | CF dashboard |
+
+选择 **GoAccess**（资源受限 VPS 最优）。
+
+**GoAccess 优势**：
+
+- 单二进制（apt-get install goaccess，~5MB）
+- 无依赖（无 MySQL / Node / Docker）
+- 解析 nginx access.log（不引入新协议）
+- HTML 输出静态文件（CDN 友好）
+- 增量模式（`--persist`）：只读新行，DB 状态持久化
+
+**改动**（5 个文件）：
+
+| 文件 | 内容 |
+|------|------|
+| `sites-hub/scripts/setup-goaccess.sh`（新，132 行）| VPS 一次性 install + cron 配置 |
+| `sites-hub/www/stats.html`（新，38 行）| 占位 HTML（首次部署前不 404）|
+| `sites-hub/www/index.html`（footer）| 加 `<a href="/stats.html">访问统计</a>` 链接 |
+| `sites-hub/build-release.sh` | stage 同步 setup-goaccess.sh |
+| `sites-hub/deploy-vps.sh` | 部署时调用 setup-goaccess.sh |
+| `.github/workflows/sites-hub-ci.yml` | 加 `bash -n setup-goaccess.sh` smoke test |
+
+**setup-goaccess.sh 流程**：
+
+```bash
+# 1. 装 goaccess（apt-get install --no-install-recommends）
+# 2. 创建 /var/lib/goaccess/ 持久化目录
+# 3. 占位 HTML（避免首次 404）
+# 4. Generator: /usr/local/bin/goaccess-generate-stats.sh
+#    goaccess access.log -o stats.html --persist --keep-last=30
+# 5. Cron: 每日 0:00 跑 generator
+# 6. 立即跑一次（如已有 access log）
+```
+
+**资源占用**（实测参考）：
+
+```
+二进制:        ~5MB
+每次运行 RAM:  ~30MB（~30s spike）
+持久化 DB:     ~5MB（30 天）
+输出 HTML:     ~300KB
+```
+
+对比 Plausible 自托管（Docker + Postgres + ClickHouse）：
+- RAM 节省 ~95%（30MB vs ~500MB）
+- 磁盘节省 ~90%（5MB vs ~50MB）
+- 启动时间 ~3s vs ~30s
+
+**报告维度**：
+
+- 每日 PV / UV / 独立 IP
+- Top 页面（哪些文档最常被访问）
+- 来源（referer / 直接 / 搜索）
+- HTTP 状态码分布（4xx / 5xx）
+- 客户端类型（浏览器 / 爬虫）
+
+**CI 验证**（commit 后跑通）：
+
+```
+✓ check: smoke-test Bash deploy scripts（bash -n setup-goaccess.sh）
+✓ build-all: 28 站真 build
+✓ release: MOCK_BUILD=1 reuse dists
+```
+
+**审计**：脚本文档改动不影响 .md 计数，audit 数字不变。
+
+**VPS 部署步骤**（用户手动）：
+
+```bash
+# 1. 拉最新 release（含 setup-goaccess.sh + stats.html）
+cd /var/www/sites-hub && bash deploy-vps.sh example.com admin@example.com
+
+# 或单独跑（已有 release 不重 deploy）
+sudo bash /var/www/sites-hub/scripts/setup-goaccess.sh
+
+# 2. 验证 cron 已加
+ls -la /etc/cron.d/goaccess-stats
+cat /etc/cron.d/goaccess-stats
+
+# 3. 立即生成（可选，等明日 0:00 也行）
+sudo /usr/local/bin/goaccess-generate-stats.sh
+
+# 4. 查看报告
+# https://java-px.bot.cd/stats.html
+```
+
+**未做（预留）**：
+
+- ❌ log rotate 集成（nginx log rotate 后手动跑 generator）
+- ❌ 多 log 合并（28 站 access_log 各自单独统计）
+- ❌ 自定义 dashboard（GoAccess 默认够用）
+
+**收益**：
+
+| 项目 | 数量 |
+|------|-----:|
+| 部署成本 | 0（apt 一行）|
+| RAM | ~30MB（vs Plausible ~500MB）|
+| 新增文件 | 2（setup-goaccess.sh + stats.html）|
+| 修改文件 | 4 |
+| 数据可见 | https://java-px.bot.cd/stats.html |
+

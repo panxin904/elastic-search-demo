@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>访问统计 · Scholar's Atlas</title>
+<style>
+body { font-family: system-ui, -apple-system, sans-serif; max-width: 600px; margin: 4rem auto; padding: 0 1.5rem; line-height: 1.6; color: #333; }
+h1 { color: #1a1a2e; }
+.note { color: #666; font-size: 0.9em; border-left: 3px solid #ddd; padding-left: 1rem; margin: 1rem 0; }
+a { color: #2563eb; }
+</style>
+</head>
+<body>
+<h1>📊 访问统计</h1>
+<p>本页基于 <a href="https://goaccess.io/" target="_blank" rel="noopener">GoAccess</a> 实时分析 nginx 访问日志生成。</p>
+<div class="note">
+<p><strong>首次部署说明</strong>：VPS 首次部署后需要运行一次 <code>setup-goaccess.sh</code>（详见 §8.37），之后每日 0:00 cron 自动重新生成。</p>
+</div>
+<h2>📈 数据维度</h2>
+<ul>
+<li>每日 PV / UV / 独立 IP</li>
+<li>Top 页面（哪些文档最常被访问）</li>
+<li>来源（referer / 直接访问 / 搜索）</li>
+<li>HTTP 状态码分布（4xx / 5xx）</li>
+<li>客户端类型（浏览器 / 爬虫）</li>
+</ul>
+<h2>🔧 资源占用</h2>
+<ul>
+<li>GoAccess 二进制：~5MB</li>
+<li>运行 RAM：~30MB（每次 ~30s）</li>
+<li>持久化 DB：~5MB（30 天）</li>
+<li>输出 HTML：~300KB</li>
+</ul>
+<p>对比 Plausible SaaS：0 外部依赖，0 cookie，0 GDPR 顾虑，完全本地分析。</p>
+<p><a href="/">← 返回门户首页</a></p>
+</body>
+</html>

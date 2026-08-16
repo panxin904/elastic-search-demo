@@ -116,7 +116,7 @@ chmod +x "$STAGE_DIR/deploy-vps.sh"
 # (deploy-vps.sh on VPS does `source $SCRIPT_DIR/scripts/sites.sh`;
 #  setup-fail2ban.sh on VPS copies filter + jail into /etc/fail2ban/)
 mkdir -p "$STAGE_DIR/scripts"
-for f in sites.sh check-sites.sh render-nginx-conf.sh          setup-fail2ban.sh fail2ban-nginx-auth.conf fail2ban-nginx-auth-filter.conf          inject-stats.py; do
+for f in sites.sh check-sites.sh render-nginx-conf.sh          setup-fail2ban.sh fail2ban-nginx-auth.conf fail2ban-nginx-auth-filter.conf          setup-goaccess.sh          inject-stats.py; do
   if [[ -f "$SCRIPT_DIR/scripts/$f" ]]; then
     cp "$SCRIPT_DIR/scripts/$f" "$STAGE_DIR/scripts/$f"
     chmod +x "$STAGE_DIR/scripts/$f"

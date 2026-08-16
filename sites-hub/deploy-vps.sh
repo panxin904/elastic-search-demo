@@ -308,6 +308,14 @@ else
   echo "WARN: scripts/setup-fail2ban.sh not found; skipping fail2ban install" >&2
 fi
 
+# C9：轻量访问统计（GoAccess，单二进制 + cron，零外部依赖）
+if [[ -f "$SCRIPT_DIR/scripts/setup-goaccess.sh" ]]; then
+  echo "==> Setting up GoAccess stats..."
+  bash "$SCRIPT_DIR/scripts/setup-goaccess.sh" || echo "WARN: goaccess setup failed; continuing"
+else
+  echo "WARN: scripts/setup-goaccess.sh not found; skipping GoAccess install" >&2
+fi
+
 # T13：保留最近 5 个 release，避免 /var/www/sites-hub/releases 无限堆积
 if [[ -d "$RELEASES_DIR" ]]; then
   ls -1dt "$RELEASES_DIR"/*/ 2>/dev/null | tail -n +6 | while read -r old; do

@@ -39,6 +39,14 @@ jobs:
           python3 -m py_compile sites-hub/scripts/build-updates-from-git.py
           python3 -m py_compile sites-hub/scripts/audit-content.py
 
+      - name: Smoke-test Bash deploy scripts
+        run: |
+          bash -n sites-hub/scripts/setup-goaccess.sh
+          bash -n sites-hub/scripts/setup-fail2ban.sh
+          bash -n sites-hub/scripts/check-sites.sh
+          bash -n sites-hub/scripts/spell-check.sh
+          echo "Bash syntax OK" 
+
       - name: Verify PWA assets
         run: |
           test -f sites-hub/www/manifest.webmanifest
