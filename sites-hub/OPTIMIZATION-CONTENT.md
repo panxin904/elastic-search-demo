@@ -1216,3 +1216,32 @@ vue_bug: 0  vue_missing: 50 (50 known React/Apache false positives)
 ```
 
 效果：5 站立即获得 C7 阅读体验增强（中英间距、暗色 AA、行距、代码块优化）。下次 build 部署后用户能直接看到改进。
+
+### 8.23 C7 阅读进度条 JS（2026-08-16 第十六次）
+
+承接 §8.22 CSS 准备工作，本节实现阅读进度条 JS 逻辑。
+
+**新增 composable**：`shared-assets/vitepress-template/theme/composables/readingProgress.ts`（64 行）
+
+关键设计点：
+
+- **rAF 节流**：scroll 事件高频触发，用 `requestAnimationFrame` 合并到每帧 1 次更新（60fps）
+- **SSR safe**：`typeof window === 'undefined'` 检查，build 阶段不执行
+- **去重插入**：先 querySelector，有则复用，避免路由切换后重复 append
+- **SPA 路由切换**：`popstate` 事件 + `MutationObserver` 监听 body childList
+- **60s 自动清理 MutationObserver**：避免长期性能开销
+
+**5 站 index.ts 接入**：在每个 setup() 中调用 setupReadingProgress()。
+
+5 站覆盖：ai / architecture / bigdata / cloud-native / java-language
+
+**23 站未覆盖**：theme/index.ts 不存在（§8.21 才创建 theme/ 目录），§8.24 批量迁移。
+
+**浏览器支持**：
+
+- JS 路径：所有现代浏览器（Chrome 1+ / Firefox 1+ / Safari 1+）
+- CSS scroll-driven animations 路径（§8.22 style.css）：Chrome 115+ / Edge 115+（Firefox/Safari 暂不支持）
+
+**视觉表现**：固定在浏览器顶部 3px 高的进度条，颜色从品牌色渐变到 pink，宽度 = 已读百分比。
+
+**audit 数字**：CSS + JS 改动，不影响 .md 文件，所有数字不变。
