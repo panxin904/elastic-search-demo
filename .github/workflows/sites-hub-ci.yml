@@ -151,6 +151,13 @@ jobs:
             echo "Extracting $f..."
             tar xzf "$f"
           done
+          # 验证
+          source sites-hub/scripts/sites.sh
+          for s in "${SITES[@]}"; do
+            proj=$(site_to_project "$s")
+            test -d "$proj/.vitepress/dist/pagefind/pagefind.js" || { echo "MISSING $proj"; exit 1; }
+          done
+          echo "All 28 site dists verified with pagefind index" 
           source sites-hub/scripts/sites.sh
           for s in "${SITES[@]}"; do
             proj=$(site_to_project "$s")
