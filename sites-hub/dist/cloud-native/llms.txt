@@ -2,7 +2,7 @@
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
 > 55 个文档页 · 223,440 字
-> 生成时间：2026-08-16T08:58:46
+> 生成时间：2026-08-16T09:03:50
 
 ## [Docker Compose](https://java-px.bot.cd/cloud-native/01-docker/compose)
 > > 多容器应用一键编排。最适合本地开发 / 单机测试 / 小规模部署。 | 字段 | 作用 | |------|------| | `image` | 用镜像 | | `build` | 构建（路径 / Dockerfile 名） | | `command` | 覆盖 CMD | | `entrypoint` | 覆盖 ENTRYPOINT | | `environment` | 环境变量 | |
@@ -59,7 +59,7 @@
 > > 默认 k8s 集群内所有 Pod 互通。NetworkPolicy = 集群内的"防火墙"。 | 类型 | 含义 | |------|------| | `IngressPolicy` | 入口流量（谁可以访问我） | | `EgressPolicy` | 出口流量（我可以访问谁） | | 行为 | 含义 | |------|------| | 默认 allow | 没有匹配 NP 规则 →
 
 ## [Service 三种类型](https://java-px.bot.cd/cloud-native/04-k8s-service/service)
-> > Pod 不稳定（会换 Node / 重建 IP 变）。Service = Pod 集合的"固定 IP"。 适合：集群内服务间调用（API → DB）。 - 主机 30080 端口 → 转发到 Pod 8080 - 通过 `任意NodeIP:30080` 访问 - 适合：开发 / 演示 / 简单公网访问 - 自动创建云 LB（AWS ELB / GCP LB / 阿里 SLB） - 适合：生产公
+> > Pod 不稳定（会换 Node / 重建 IP 变）。Service = Pod 集合的"固定 IP"。 适合：集群内服务间调用（API → DB）。 - 主机 30080 端口 → 转发到 Pod 8080 - 适合：开发 / 演示 / 简单公网访问 - 自动创建云 LB（AWS ELB / GCP LB / 阿里 SLB） - 适合：生产公网访问 无 clusterIP — DNS 直接解
 
 ## [ConfigMap / Secret](https://java-px.bot.cd/cloud-native/05-k8s-storage/configmap-secret)
 > > 配置文件 / 密钥 不要硬编码到镜像。ConfigMap + Secret 让"代码"和"配置"分离。 更新 ConfigMap：文件**不会自动热加载**（需要 reload Pod 或用 Reloader）。 | type | 用途 | |------|------| | `Opaque` | 通用 | | `kubernetes.io/tls` | TLS 证书 | | `kuberne
@@ -160,8 +160,8 @@
 ## [知识图谱](https://java-px.bot.cd/cloud-native/graph)
 > > 80+ 节点，14 大主题分类，节点可点击跳转到对应章节。鼠标拖动可调整布局，悬停查看节点关联。 <ClientOnly> <KnowledgeGraph :height="820" /> </ClientOnly> | 颜色 | 分类 | 主题数 | |------|------|--------| | 🔵 蓝 | Docker 容器 | 6 | | 🟦 深蓝 | k8s 架构 | 5 |
 
-## [Untitled](https://java-px.bot.cd/cloud-native/index)
-> features: - icon: 🐳 title: Docker 容器 details: Docker 基础 · 镜像 · 容器 · 网络 · 卷 · Compose link: /01-docker/intro linkText: 开始 Docker → - icon: 🏛️ title: k8s 架构 details: 控制面 / Node / kubectl / etcd · 集群全貌 l
+## [cloud-native 知识图谱](https://java-px.bot.cd/cloud-native/index)
+> features: title: Docker 容器 details: Docker 基础 · 镜像 · 容器 · 网络 · 卷 · Compose link: /01-docker/intro linkText: 开始 Docker → title: k8s 架构 details: 控制面 / Node / kubectl / etcd · 集群全貌 link: /02-k8s-arch/ove
 
 ## [思维导图](https://java-px.bot.cd/cloud-native/mindmap)
 > > 树形结构总览全部知识，可展开/收起节点，点击叶子节点跳转。 <ClientOnly> <MindMap :height="940" /> </ClientOnly> - **全部展开 / 收起**：顶部按钮控制 - **点击叶子节点**：跳转到对应章节 - **重置视图**：恢复初始展开状态

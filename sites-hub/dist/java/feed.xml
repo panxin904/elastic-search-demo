@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>java - Scholar's Atlas</title>
+    <link>https://java-px.bot.cd/java/</link>
+    <atom:link href="https://java-px.bot.cd/java/feed.xml" rel="self" type="application/rss+xml" />
+    <description>java 知识图谱（53 页）</description>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 16 Aug 2026 09:03:50 -0000</lastBuildDate>
+    <item>
+      <title>Java Web Dev Manual</title>
+      <link>https://java-px.bot.cd/java/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "Java 知识图谱太广（基础 / JVM / 并发 / 框架 / 中间件）怎么系统学？", "JVM 内存模型（堆 / 栈 / Metaspace / 直接内存）？", "并发编程（synchronized / Lock / JUC / 线程池）？", "Spring / Spring Boot / MyBat</description>
+      <pubDate>Sat, 15 Aug 2026 18:49:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>MyBatis / MyBatis-Plus</title>
+      <link>https://java-px.bot.cd/java/04-tech/mybatis</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/mybatis</guid>
+      <description>MyBatis 是 Java 最流行的 ORM 框架之一，MyBatis-Plus 在其基础上提供了更多便捷功能。 | | MyBatis | MyBatis-Plus | |---|---|---| | 基础 CRUD | 手写 SQL | 内置 BaseMapper | | 分页 | 手动实现 | Page 类型 + 插件 | | 条件构造 | Example / 手写 | LambdaQue</description>
+      <pubDate>Wed, 22 Jul 2026 20:56:10 -0000</pubDate>
+    </item>
+    <item>
+      <title>需求分析</title>
+      <link>https://java-px.bot.cd/java/01-process/requirement-analysis</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/01-process/requirement-analysis</guid>
+      <description>拿到需求后的第一步，决定了后续所有工作的方向和质量。 &lt;div class="kg-note"&gt; &lt;strong&gt;不要一上来就想技术方案&lt;/strong&gt;，先搞清楚：这个需求要解决什么业务问题？涉及哪些用户角色？业务流程是什么？ &lt;/div&gt; 关键问题清单： - 这个需求解决什么问题？（用户痛点） - 涉及哪些角色？（用户、管理员、第三方） - 核心业务流程是什么？（画流程图） - 有没有参考系统</description>
+      <pubDate>Wed, 22 Jul 2026 20:54:58 -0000</pubDate>
+    </item>
+    <item>
+      <title>接口文档</title>
+      <link>https://java-px.bot.cd/java/04-tech/api-doc</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/api-doc</guid>
+      <description>自动生成在线 API 文档，支持在线调试，前端不用再对着静态文档开发。 Knife4j 是 Swagger 的增强版，UI 更好看，功能更丰富。 访问 `http://localhost:8080/doc.html` 即可看到在线文档。 | 注解 | 作用 | |---|---| | @Tag | Controller 分类标签 | | @Operation | 接口说明 | | @Paramet</description>
+      <pubDate>Wed, 22 Jul 2026 20:53:18 -0000</pubDate>
+    </item>
+    <item>
+      <title>测试框架</title>
+      <link>https://java-px.bot.cd/java/04-tech/testing</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/testing</guid>
+      <description>Java 测试的核心组合：JUnit 5 + Mockito + SpringBootTest。 &lt;KnowledgeGraph mode="neighbor" focusNodeId="testing" :height="400" /&gt;</description>
+      <pubDate>Wed, 22 Jul 2026 20:53:10 -0000</pubDate>
+    </item>
+    <item>
+      <title>Nginx</title>
+      <link>https://java-px.bot.cd/java/04-tech/nginx</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/nginx</guid>
+      <description>Nginx 是高性能的 HTTP 服务器和反向代理，常用于负载均衡、静态资源、HTTPS 终端。 &lt;KnowledgeGraph mode="neighbor" focusNodeId="nginx" :height="400" /&gt;</description>
+      <pubDate>Wed, 22 Jul 2026 20:53:02 -0000</pubDate>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>https://java-px.bot.cd/java/04-tech/docker</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/docker</guid>
+      <description>Docker 实现应用容器化，解决"在我机器上能跑"的问题。 | 概念 | 说明 | |---|---| | 镜像 Image | 应用的只读模板 | | 容器 Container | 镜像的运行实例 | | Dockerfile | 镜像构建脚本 | | docker-compose | 多容器编排 | &lt;KnowledgeGraph mode="neighbor" focusNodeId="d</description>
+      <pubDate>Wed, 22 Jul 2026 20:52:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>构建工具 Maven/Gradle</title>
+      <link>https://java-px.bot.cd/java/04-tech/build-tools</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/build-tools</guid>
+      <description>构建工具管理项目的依赖、编译、测试、打包、发布全生命周期。 | 概念 | 说明 | |---|---| | GAV 坐标 | groupId:artifactId:version，唯一标识一个依赖 | | 生命周期 | clean(清理) → compile(编译) → test(测试) → package(打包) → install(安装) → deploy(发布) | | 依赖管理 | 传递依</description>
+      <pubDate>Wed, 22 Jul 2026 20:52:49 -0000</pubDate>
+    </item>
+    <item>
+      <title>消息队列 MQ</title>
+      <link>https://java-px.bot.cd/java/04-tech/message-queue</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/message-queue</guid>
+      <description>消息队列实现异步解耦、削峰填谷、最终一致性。 | | RabbitMQ | Kafka | |---|---|---| | 定位 | 消息代理 | 分布式流平台 | | 吞吐量 | 万级/秒 | 百万级/秒 | | 消息可靠性 | 高（ACK确认） | 高（副本机制） | | 适用场景 | 业务异步解耦 | 日志收集、流处理、大数据 | | 协议 | AMQP | 自定义 | | 场景 | 说明</description>
+      <pubDate>Wed, 22 Jul 2026 20:52:42 -0000</pubDate>
+    </item>
+    <item>
+      <title>Redis</title>
+      <link>https://java-px.bot.cd/java/04-tech/redis</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/redis</guid>
+      <description>Redis 是高性能的 KV 内存数据库，Java Web 中最常用的缓存和分布式协调中间件。 | 结构 | 命令 | 应用场景 | |---|---|---| | String | SET/GET | 缓存、计数器、分布式锁 | | Hash | HSET/HGET | 对象缓存（用户信息） | | List | LPUSH/RPOP | 消息队列、最新列表 | | Set | SADD/SIN</description>
+      <pubDate>Wed, 22 Jul 2026 20:52:34 -0000</pubDate>
+    </item>
+    <item>
+      <title>MySQL</title>
+      <link>https://java-px.bot.cd/java/04-tech/mysql</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/mysql</guid>
+      <description>MySQL 是 Java Web 开发中最常用的关系型数据库。 | 类型 | 说明 | 使用场景 | |---|---|---| | 主键索引 | 唯一、非空、聚簇 | 每表必须有 | | 唯一索引 | 唯一、允许空 | 手机号、用户名 | | 普通索引 | 加速查询 | 高频查询字段 | | 联合索引 | 多列组合 | 多条件查询 | | 全文索引 | 文本搜索 | 文章内容搜索 | 关键字段：</description>
+      <pubDate>Wed, 22 Jul 2026 20:52:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>Spring Security</title>
+      <link>https://java-px.bot.cd/java/04-tech/spring-security</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/spring-security</guid>
+      <description>Spring Security 提供认证（你是谁）和授权（你能做什么）功能。 | 概念 | 说明 | |---|---| | Authentication | 认证：验证用户身份 | | Authorization | 授权：验证用户权限 | | Principal | 当前登录用户 | | GrantedAuthority | 权限/角色 | | SecurityContext | 安全上下文（</description>
+      <pubDate>Wed, 22 Jul 2026 20:52:11 -0000</pubDate>
+    </item>
+    <item>
+      <title>Spring MVC</title>
+      <link>https://java-px.bot.cd/java/04-tech/spring-mvc</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/spring-mvc</guid>
+      <description>Spring MVC 处理 Web 层的请求分发、参数绑定、响应返回。 &lt;KnowledgeGraph mode="neighbor" focusNodeId="spring-mvc" :height="400" /&gt;</description>
+      <pubDate>Wed, 22 Jul 2026 20:52:04 -0000</pubDate>
+    </item>
+    <item>
+      <title>Spring Boot</title>
+      <link>https://java-px.bot.cd/java/04-tech/spring-boot</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/spring-boot</guid>
+      <description>Spring Boot 是 Java Web 开发的事实标准框架，核心价值是**约定大于配置**。 | 特性 | 说明 | |---|---| | 自动配置 | 根据依赖自动配置 Bean，减少 XML/注解配置 | | 起步依赖 | starter 包一站式引入相关依赖 | | 内嵌容器 | 内嵌 Tomcat/Jetty/Undertow，jar 包直接运行 | | Actuator | 生产</description>
+      <pubDate>Wed, 22 Jul 2026 20:51:58 -0000</pubDate>
+    </item>
+    <item>
+      <title>并发控制</title>
+      <link>https://java-px.bot.cd/java/03-practice/concurrency</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/03-practice/concurrency</guid>
+      <description>多线程环境下保证数据一致性和线程安全。 | | synchronized | ReentrantLock | |---|---|---| | 实现 | JVM 级，关键字 | JDK 级，API | | 锁释放 | 自动（代码块结束/异常） | 手动（finally unlock） | | 功能 | 单一 | 可中断、超时、公平锁、条件变量 | | 性能 | 优化后差异不大 | 优化后差异不大 |</description>
+      <pubDate>Wed, 22 Jul 2026 20:51:48 -0000</pubDate>
+    </item>
+    <item>
+      <title>限流熔断</title>
+      <link>https://java-px.bot.cd/java/03-practice/rate-limiting</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/03-practice/rate-limiting</guid>
+      <description>限流控制流量入口，熔断保护下游服务，是系统稳定性的最后防线。 当某个服务持续失败，熔断器打开，直接返回降级结果而不是继续调用。 | 策略 | 说明 | 示例 | |---|---|---| | 返回默认值 | 返回兜底数据 | 推荐列表返回热门商品 | | 返回缓存 | 用缓存数据 | 商品详情返回缓存 | | 功能降级 | 关闭非核心功能 | 关闭推荐模块 | | 排队等待 | 提示用户稍后再试</description>
+      <pubDate>Wed, 22 Jul 2026 20:51:40 -0000</pubDate>
+    </item>
+    <item>
+      <title>数据脱敏</title>
+      <link>https://java-px.bot.cd/java/03-practice/data-masking</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/03-practice/data-masking</guid>
+      <description>对手机号、身份证、银行卡等敏感信息进行部分遮蔽处理。 | 类型 | 规则 | 示例 | |---|---|---| | 手机号 | 保留前3后4 | 138****1234 | | 身份证 | 保留前4后4 | 3301**********1234 | | 银行卡 | 保留后4 | ****1234 | | 姓名 | 保留姓，名用* | 张** | | 邮箱 | 用户名部分打* | t***@qq</description>
+      <pubDate>Wed, 22 Jul 2026 20:51:30 -0000</pubDate>
+    </item>
+    <item>
+      <title>接口幂等</title>
+      <link>https://java-px.bot.cd/java/03-practice/idempotency</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/03-practice/idempotency</guid>
+      <description>幂等：同一个操作执行一次和执行多次，结果相同。 - 用户手抖点多次提交按钮 - 网络超时，客户端自动重试 - MQ 消息重复消费 - 定时任务重复执行 &lt;KnowledgeGraph mode="neighbor" focusNodeId="idempotency" :height="400" /&gt;</description>
+      <pubDate>Wed, 22 Jul 2026 20:51:24 -0000</pubDate>
+    </item>
+    <item>
+      <title>代码规范</title>
+      <link>https://java-px.bot.cd/java/03-practice/code-style</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/03-practice/code-style</guid>
+      <description>统一的代码风格降低阅读成本，提高团队协作效率。 | 元素 | 规则 | 示例 | |---|---|---| | 类名 | 大驼峰，名词 | UserService, OrderController | | 方法名 | 小驼峰，动词 | getUserById, createOrder | | 变量名 | 小驼峰，名词 | orderList, userName | | 常量 | 全大写+下划线</description>
+      <pubDate>Wed, 22 Jul 2026 20:51:17 -0000</pubDate>
+    </item>
+    <item>
+      <title>性能优化</title>
+      <link>https://java-px.bot.cd/java/03-practice/performance</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/03-practice/performance</guid>
+      <description>性能优化是一个持续的过程，从 SQL 调优到架构升级，逐层深入。 | 工具 | 用途 | |---|---| | Arthas | 在线诊断（方法耗时、热更新） | | JProfiler | JVM 性能分析 | | Druid | SQL 监控 | | SkyWalking | 链路追踪（找慢接口） | &lt;KnowledgeGraph mode="neighbor" focusNodeId="</description>
+      <pubDate>Wed, 22 Jul 2026 20:51:10 -0000</pubDate>
+    </item>
+    <item>
+      <title>安全实践</title>
+      <link>https://java-px.bot.cd/java/03-practice/security</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/03-practice/security</guid>
+      <description>安全是底线。一个漏洞可能导致数据泄露、资金损失、法律风险。 - 前后端分离架构中，使用 Token 认证天然防 CSRF - Cookie 设置 SameSite=Strict | 组件 | 用途 | |---|---| | Spring Security | 认证授权框架 | | JWT | 无状态 Token | | OAuth2 | 第三方登录 | | RBAC | 基于角色的权限控制 |</description>
+      <pubDate>Wed, 22 Jul 2026 20:51:02 -0000</pubDate>
+    </item>
+    <item>
+      <title>缓存策略</title>
+      <link>https://java-px.bot.cd/java/03-practice/cache-strategy</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/03-practice/cache-strategy</guid>
+      <description>合理使用缓存能大幅提升系统性能，但缓存引入的复杂性也带来了新挑战。 | 问题 | 原因 | 解决方案 | |---|---|---| | 缓存穿透 | 查不存在的数据，绕过缓存打DB | 布隆过滤器 / 缓存空值 | | 缓存击穿 | 热点key过期，大量请求打DB | 互斥锁 / 永不过期 + 异步更新 | | 缓存雪崩 | 大量key同时过期 | 过期时间加随机值 / 多级缓存 | &lt;Know</description>
+      <pubDate>Wed, 22 Jul 2026 20:50:54 -0000</pubDate>
+    </item>
+    <item>
+      <title>事务管理</title>
+      <link>https://java-px.bot.cd/java/03-practice/transaction</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/03-practice/transaction</guid>
+      <description>事务保证一组数据库操作要么全部成功，要么全部回滚。 | 传播行为 | 说明 | |---|---| | REQUIRED（默认） | 有事务则加入，无则新建 | | REQUIRES_NEW | 总是新建事务，挂起当前事务 | | NESTED | 嵌套事务，内层回滚不影响外层 | | SUPPORTS | 有事务则加入，无则以非事务运行 | | NOT_SUPPORTED | 以非事务运行，挂起</description>
+      <pubDate>Wed, 22 Jul 2026 20:50:47 -0000</pubDate>
+    </item>
+    <item>
+      <title>参数校验</title>
+      <link>https://java-px.bot.cd/java/03-practice/validation</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/03-practice/validation</guid>
+      <description>永远不要信任前端传来的数据，必须在服务端做严格校验。 | 注解 | 说明 | |---|---| | @NotNull | 不能为 null | | @NotBlank | 不能为 null 且 trim 后长度 &gt; 0 | | @NotEmpty | 不能为 null 且 size &gt; 0（集合/字符串） | | @Size(min, max) | 长度范围 | | @Min / @Max |</description>
+      <pubDate>Wed, 22 Jul 2026 20:50:37 -0000</pubDate>
+    </item>
+    <item>
+      <title>日志规范</title>
+      <link>https://java-px.bot.cd/java/03-practice/logging</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/03-practice/logging</guid>
+      <description>日志是排查问题的核心手段，规范的日志让问题定位效率提升 10 倍。 | 级别 | 使用场景 | |---|---| | ERROR | 系统错误，需要人工介入（数据库挂了、第三方不可用） | | WARN | 潜在问题（参数异常但有兜底、降级触发、接近阈值） | | INFO | 关键业务流程节点（请求入参、调用外部接口、重要状态变更） | | DEBUG | 调试信息（方法入参出参、中间变量，生</description>
+      <pubDate>Wed, 22 Jul 2026 20:50:31 -0000</pubDate>
+    </item>
+    <item>
+      <title>异常处理</title>
+      <link>https://java-px.bot.cd/java/03-practice/exception-handling</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/03-practice/exception-handling</guid>
+      <description>统一的异常处理是系统稳定的基石，确保错误信息清晰、可追踪、不泄露敏感信息。 | 原则 | 说明 | |---|---| | 不吞异常 | finally 块不要 return，catch 后要记录日志 | | 不暴露细节 | 生产环境不返回堆栈信息给前端 | | 分层处理 | ControllerAdvice 统一拦截，Service 层只管抛 | | 异常转换 | 第三方异常转为业务异常再抛出</description>
+      <pubDate>Wed, 22 Jul 2026 20:50:22 -0000</pubDate>
+    </item>
+    <item>
+      <title>代理模式</title>
+      <link>https://java-px.bot.cd/java/02-design/proxy-pattern</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/proxy-pattern</guid>
+      <description>为其他对象提供代理，控制对原对象的访问。 - **Spring AOP**：JDK 动态代理（接口代理）+ CGLIB（类代理） - **MyBatis Mapper**：接口没有实现类，运行时生成代理对象 - **@Transactional**：生成代理，在方法前后开启/提交/回滚事务 | | JDK 动态代理 | CGLIB | |---|---|---| | 机制 | 基于接口 | 基于继</description>
+      <pubDate>Wed, 22 Jul 2026 20:50:14 -0000</pubDate>
+    </item>
+    <item>
+      <title>工厂模式</title>
+      <link>https://java-px.bot.cd/java/02-design/factory-pattern</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/factory-pattern</guid>
+      <description>定义创建对象的接口，让子类决定实例化哪个类。 - **Spring BeanFactory**：IoC 容器本身就是巨型工厂 - **SqlSessionFactory**：MyBatis 创建 SqlSession - **ThreadPoolExecutor 工厂**：统一创建线程池 &lt;KnowledgeGraph mode="neighbor" focusNodeId="factory-pa</description>
+      <pubDate>Wed, 22 Jul 2026 20:50:11 -0000</pubDate>
+    </item>
+    <item>
+      <title>模板方法模式</title>
+      <link>https://java-px.bot.cd/java/02-design/template-method</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/template-method</guid>
+      <description>在父类中定义算法骨架，子类实现具体步骤。 - **BaseService**：通用 CRUD 模板 - **JdbcTemplate / RestTemplate**：连接管理、异常处理已封装 - **数据导出**：查询数据 → 格式化 → 写入文件（子类实现格式化） &lt;KnowledgeGraph mode="neighbor" focusNodeId="template-method" :he</description>
+      <pubDate>Wed, 22 Jul 2026 20:50:09 -0000</pubDate>
+    </item>
+    <item>
+      <title>策略模式</title>
+      <link>https://java-px.bot.cd/java/02-design/strategy-pattern</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/strategy-pattern</guid>
+      <description>定义一组算法，分别封装，使其可以互相替换。 - **多种支付方式**：微信支付、支付宝、银行卡 - **多种通知渠道**：短信、邮件、App推送 - **多种计费规则**：普通用户、VIP、企业 &lt;KnowledgeGraph mode="neighbor" focusNodeId="strategy-pattern" :height="400" /&gt;</description>
+      <pubDate>Wed, 22 Jul 2026 20:50:06 -0000</pubDate>
+    </item>
+    <item>
+      <title>责任链模式</title>
+      <link>https://java-px.bot.cd/java/02-design/chain-of-responsibility</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/chain-of-responsibility</guid>
+      <description>将请求沿着处理链传递，每个处理器决定处理或传递给下一个。 - **Servlet Filter 链**：每个 Filter 决定是否放行 - **Spring Interceptor**：preHandle → Controller → postHandle → afterCompletion - **审批流**：组长 → 经理 → 总监 逐级审批 &lt;KnowledgeGraph mode="ne</description>
+      <pubDate>Wed, 22 Jul 2026 20:50:04 -0000</pubDate>
+    </item>
+    <item>
+      <title>微服务架构</title>
+      <link>https://java-px.bot.cd/java/02-design/microservices</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/microservices</guid>
+      <description>微服务将单体应用拆分为一组独立部署的小服务，每个服务围绕特定业务能力构建。 | 组件 | 功能 | |---|---| | Nacos | 注册中心 + 配置中心 | | Sentinel | 流量控制、熔断降级 | | Seata | 分布式事务 | | Gateway | API 网关 | | RocketMQ | 消息队列 | | 原则 | 说明 | |---|---| | 单一职责 | 一</description>
+      <pubDate>Wed, 22 Jul 2026 20:50:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>领域驱动设计 DDD</title>
+      <link>https://java-px.bot.cd/java/02-design/ddd</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/ddd</guid>
+      <description>DDD 适用于复杂业务场景，通过领域建模让代码结构与业务逻辑一致。 | 概念 | 说明 | 示例 | |---|---|---| | 实体 Entity | 有唯一标识、可变 | User (有 userId) | | 值对象 VO | 无唯一标识、不可变 | Address, Money | | 聚合根 | 聚合的入口，保证一致性 | Order（聚合根，管理 OrderItem） | | 领域</description>
+      <pubDate>Wed, 22 Jul 2026 20:49:57 -0000</pubDate>
+    </item>
+    <item>
+      <title>RESTful 风格</title>
+      <link>https://java-px.bot.cd/java/02-design/restful-api</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/restful-api</guid>
+      <description>REST（Representational State Transfer）是一种资源导向的 API 设计风格。 | 原则 | 说明 | |---|---| | 资源导向 | URL 表示资源（名词），而非动作（动词） | | HTTP 方法表达操作 | GET查/POST增/PUT改/DELETE删 | | 无状态 | 服务端不存客户端状态，每次请求自包含 | | 统一接口 | 一致的 URL 格</description>
+      <pubDate>Wed, 22 Jul 2026 20:49:53 -0000</pubDate>
+    </item>
+    <item>
+      <title>AOP 切面</title>
+      <link>https://java-px.bot.cd/java/02-design/aop</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/aop</guid>
+      <description>AOP（Aspect-Oriented Programming）在不修改原有代码的前提下，通过"切面"横向织入增强逻辑。 | 场景 | 说明 | |---|---| | 日志记录 | 自动记录方法入参、出参、耗时 | | 事务管理 | @Transactional 就是 AOP 实现 | | 权限校验 | 方法执行前校验权限 | | 缓存处理 | 方法结果自动缓存 | | 异常处理 | 统一拦截异</description>
+      <pubDate>Wed, 22 Jul 2026 20:49:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>依赖注入</title>
+      <link>https://java-px.bot.cd/java/02-design/dependency-injection</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/dependency-injection</guid>
+      <description>Spring 通过 IoC 容器管理对象的创建和依赖关系，开发者只需声明需要什么。 | | @Autowired | @Resource | |---|---|---| | 来源 | Spring | JDK (JSR-250) | | 默认装配 | byType | byName | | 指定方式 | @Qualifier | name 属性 | &lt;KnowledgeGraph mode="ne</description>
+      <pubDate>Wed, 22 Jul 2026 20:49:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>MVC 模式</title>
+      <link>https://java-px.bot.cd/java/02-design/mvc-pattern</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/mvc-pattern</guid>
+      <description>Spring MVC 是 Spring Web 框架的核心，基于 Model-View-Controller 模式。 | | Filter | Interceptor | |---|---|---| | 层面 | Servlet 容器 | Spring 框架 | | 能获取 Bean | 否 | 是 | | 能获取请求体 | 否（只能 request/response） | 是（HandlerMe</description>
+      <pubDate>Wed, 22 Jul 2026 20:49:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>分层架构</title>
+      <link>https://java-px.bot.cd/java/02-design/layered-architecture</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/layered-architecture</guid>
+      <description>分层架构是 Java Web 开发最核心的架构思想，核心原则是**上层依赖下层，下层不感知上层**。 | 规则 | 说明 | |---|---| | Controller 不写业务 | 只做参数校验、调用 Service、返回结果 | | Service 不碰 Request/Response | 参数和返回值用 DTO/VO，不依赖 Web 层 | | Mapper 只做数据操作 | 不包含业务</description>
+      <pubDate>Wed, 22 Jul 2026 20:49:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>文档沉淀</title>
+      <link>https://java-px.bot.cd/java/01-process/documentation</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/01-process/documentation</guid>
+      <description>好的文档让团队协作更高效，新人上手更快，自己三个月后还能看懂自己的代码。 | 文档类型 | 内容 | 放哪里 | |---|---|---| | 接口文档 | API 列表、入参出参 | Swagger/Knife4j 自动生成 | | 设计文档 | 架构设计、技术方案 | Wiki / 语雀 / Notion | | 操作手册 | 部署步骤、常见问题 | 运维 Wiki | | 知识库 | 业务</description>
+      <pubDate>Wed, 22 Jul 2026 20:48:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>迭代优化</title>
+      <link>https://java-px.bot.cd/java/01-process/iteration</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/01-process/iteration</guid>
+      <description>系统上线不是终点，根据监控数据和用户反馈持续优化。 | 来源 | 示例 | |---|---| | 监控数据 | 接口 RT 持续上升 → 优化慢 SQL | | 用户反馈 | 页面加载慢 → 加缓存、CDN | | 代码评审 | 代码耦合严重 → 重构拆分 | | 技术调研 | 新技术更高效 → 评估替换 | | 线上事故 | 复盘根因 → 加强防护 | | 债务类型 | 处理策略 | |---</description>
+      <pubDate>Wed, 22 Jul 2026 20:48:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>监控运维</title>
+      <link>https://java-px.bot.cd/java/01-process/monitoring</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/01-process/monitoring</guid>
+      <description>系统上线后需要持续监控，及时发现和处理问题。 关键端点： - `/actuator/health` — 健康检查 - `/actuator/metrics` — 指标数据 - `/actuator/env` — 环境信息 - `/actuator/loggers` — 动态修改日志级别 | 告警项 | 阈值 | 处理 | |---|---|---| | 接口错误率 &gt; 1% | 持续 5 分钟 |</description>
+      <pubDate>Wed, 22 Jul 2026 20:48:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>部署上线</title>
+      <link>https://java-px.bot.cd/java/01-process/deployment</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/01-process/deployment</guid>
+      <description>将开发完成的功能安全、可靠地发布到生产环境。 | 环境 | 用途 | 配置 | |---|---|---| | dev | 本地开发 | application-dev.yml | | test | 测试环境 | application-test.yml | | staging | 预发布环境 | application-staging.yml | | prod | 生产环境 | applicat</description>
+      <pubDate>Wed, 22 Jul 2026 20:48:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>集成测试</title>
+      <link>https://java-px.bot.cd/java/01-process/integration-test</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/01-process/integration-test</guid>
+      <description>集成测试验证多个模块之间的协作是否正常，包括数据库、缓存、消息队列等中间件的真实交互。 | | 单元测试 | 集成测试 | |---|---|---| | 范围 | 单个方法/类 | 多个模块协作 | | 外部依赖 | 全部 Mock | 使用真实/内存中间件 | | 速度 | 毫秒级 | 秒级 | | 目的 | 逻辑正确性 | 交互正确性 | | 要点 | 实践 | |---|---| | 使用</description>
+      <pubDate>Wed, 22 Jul 2026 20:48:34 -0000</pubDate>
+    </item>
+    <item>
+      <title>单元测试</title>
+      <link>https://java-px.bot.cd/java/01-process/unit-test</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/01-process/unit-test</guid>
+      <description>单元测试验证代码的最小单元（方法/类）是否正确，是保证代码质量和重构信心的基础。 核心组件：JUnit 5 + Mockito + AssertJ + SpringBootTest | 原则 | 说明 | |---|---| | FIRST | Fast/Independent/Repeatable/Self-Validating/Timely | | 一个测试只测一个场景 | 方法名清晰描述测试</description>
+      <pubDate>Wed, 22 Jul 2026 20:48:34 -0000</pubDate>
+    </item>
+    <item>
+      <title>代码评审</title>
+      <link>https://java-px.bot.cd/java/01-process/code-review</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/01-process/code-review</guid>
+      <description>代码评审是保证代码质量的最后一道防线，也是团队知识传递的重要途径。 | 检查点 | 说明 | |---|---| | SQL 注入 | 是否使用了参数化查询（MyBatis #{} vs ${}） | | XSS | 用户输入是否做了转义 | | 敏感信息 | 日志是否打印了密码、token、手机号 | | 权限 | 接口是否有认证鉴权 | | 越权 | 是否校验了数据归属（用户只能操作自己的数据</description>
+      <pubDate>Wed, 22 Jul 2026 20:48:34 -0000</pubDate>
+    </item>
+    <item>
+      <title>编码开发</title>
+      <link>https://java-px.bot.cd/java/01-process/coding</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/01-process/coding</guid>
+      <description>编码是将设计落地为代码的阶段，遵循规范和流程能显著提升代码质量。 | 分支 | 用途 | 命名 | |---|---|---| | main | 生产环境代码 | main | | develop | 开发环境集成 | develop | | feature/* | 功能开发 | feature/user-login | | hotfix/* | 紧急修复 | hotfix/order-crash</description>
+      <pubDate>Wed, 22 Jul 2026 20:48:34 -0000</pubDate>
+    </item>
+    <item>
+      <title>接口设计</title>
+      <link>https://java-px.bot.cd/java/01-process/api-design</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/01-process/api-design</guid>
+      <description>接口是前后端协作的契约，设计好坏直接影响开发效率和系统质量。 &lt;div class="kg-note"&gt; &lt;strong&gt;规范&lt;/strong&gt;：URL 用名词复数、小写、短横线分隔；资源嵌套不超过两层。 &lt;/div&gt; | 范围 | 含义 | 示例 | |---|---|---| | 0 | 成功 | | | 1xxx | 参数错误 | 1001-参数缺失, 1002-参数格式错误 | | 2xx</description>
+      <pubDate>Wed, 22 Jul 2026 20:47:53 -0000</pubDate>
+    </item>
+    <item>
+      <title>数据库设计</title>
+      <link>https://java-px.bot.cd/java/01-process/database-design</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/01-process/database-design</guid>
+      <description>好的数据库设计是系统稳定运行的基石。设计不当会导致性能问题、数据错乱、扩展困难。 先理清实体和关系： &lt;div class="kg-note kg-note-tip"&gt; &lt;strong&gt;规范要点&lt;/strong&gt;： &lt;ul&gt; &lt;li&gt;表名加前缀 t_，字段命名用下划线&lt;/li&gt; &lt;li&gt;每个字段必须有 COMMENT&lt;/li&gt; &lt;li&gt;必须有 create_time 和 update_time&lt;/</description>
+      <pubDate>Wed, 22 Jul 2026 20:47:53 -0000</pubDate>
+    </item>
+    <item>
+      <title>技术方案</title>
+      <link>https://java-px.bot.cd/java/01-process/tech-solution</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/01-process/tech-solution</guid>
+      <description>在理解需求之后，需要产出技术方案，明确怎么做、用什么技术、花多少时间。 | 层面 | 选项 | 选择理由 | |---|---|---| | 框架 | Spring Boot 2.x / 3.x | 公司技术栈统一 | | ORM | MyBatis-Plus | SQL 灵活、分页方便 | | 数据库 | MySQL 8.0 | 数据量合适、团队熟悉 | | 缓存 | Redis | 热点数据缓</description>
+      <pubDate>Wed, 22 Jul 2026 20:47:53 -0000</pubDate>
+    </item>
+    <item>
+      <title>技术栈 总览</title>
+      <link>https://java-px.bot.cd/java/04-tech/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/overview</guid>
+      <description>Java Web 开发的核心技术组件，涵盖**框架、数据库、中间件、工具链**。 | 技术 | 定位 | 核心功能 | |---|---|---| | [Spring Boot](/04-tech/spring-boot) | 开发框架 | 自动配置、起步依赖、内嵌容器、Actuator 监控 | | [Spring MVC](/04-tech/spring-mvc) | Web 层框架 | 请求</description>
+      <pubDate>Wed, 22 Jul 2026 20:46:57 -0000</pubDate>
+    </item>
+    <item>
+      <title>重点关注 总览</title>
+      <link>https://java-px.bot.cd/java/03-practice/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/03-practice/overview</guid>
+      <description>开发中容易踩坑、影响系统质量和稳定性的 12 个关键领域，是每个 Java Web 开发者的必修课。 | 维度 | 要点 | 出了问题会怎样 | |---|---|---| | **规范类** | 异常处理、日志、参数校验、代码规范 | 线上排查困难、代码难以维护 | | **数据类** | 事务管理、缓存策略、数据脱敏 | 数据错乱、缓存雪崩、隐私泄露 | | **稳定性类** | 接口幂等、限</description>
+      <pubDate>Wed, 22 Jul 2026 20:46:43 -0000</pubDate>
+    </item>
+    <item>
+      <title>实现思路 总览</title>
+      <link>https://java-px.bot.cd/java/02-design/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/overview</guid>
+      <description>Java Web 开发的实现思路涵盖**架构设计、设计模式、编程范式**三个层面。好的思路让代码可读、可扩展、可维护。 | 维度 | 核心要点 | |---|---| | **架构模式** | 分层架构、MVC、领域驱动DDD、微服务 | | **核心机制** | 依赖注入（IoC/DI）、AOP切面、RESTful设计 | | **设计模式** | 责任链、策略、模板方法、工厂、代理 | | 机</description>
+      <pubDate>Wed, 22 Jul 2026 20:46:28 -0000</pubDate>
+    </item>
+    <item>
+      <title>开发流程 总览</title>
+      <link>https://java-px.bot.cd/java/01-process/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/01-process/overview</guid>
+      <description>从"拿到一个需求"到"系统上线稳定运行"，完整的 Java Web 开发流程分为 13 个关键环节。 &lt;div class="flowchart"&gt; &lt;div class="step"&gt; &lt;div class="step-box" style="background:#3b82f6"&gt;📋&lt;/div&gt; &lt;div class="step-label"&gt;需求分析&lt;/div&gt; &lt;div class="st</description>
+      <pubDate>Wed, 22 Jul 2026 20:46:14 -0000</pubDate>
+    </item>
+  </channel>
+</rss>

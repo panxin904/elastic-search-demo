@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>java-language - Scholar's Atlas</title>
+    <link>https://java-px.bot.cd/java-language/</link>
+    <atom:link href="https://java-px.bot.cd/java-language/feed.xml" rel="self" type="application/rss+xml" />
+    <description>java-language 知识图谱（55 页）</description>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 16 Aug 2026 09:03:50 -0000</lastBuildDate>
+    <item>
+      <title>java-language 知识图谱</title>
+      <link>https://java-px.bot.cd/java-language/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "会用 HashMap 但不理解红黑树和 Hash 冲突", "写了 Spring 但不理解 IoC 容器如何工作", "遇到 GC 停顿只会调 Xmx", "用了线程池但不理解核心参数", "面试问 JVM 只知道「堆栈方法区」" ]" :goals="[ "系统化讲清 Java 基础 → 集合 → 并发 →</description>
+      <pubDate>Sat, 15 Aug 2026 18:30:02 -0000</pubDate>
+    </item>
+    <item>
+      <title>MyBatis / MyBatis-Plus</title>
+      <link>https://java-px.bot.cd/java-language/08-database/mybatis</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/08-database/mybatis</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:50:13 -0000</pubDate>
+    </item>
+    <item>
+      <title>手写代码</title>
+      <link>https://java-px.bot.cd/java-language/14-interview/coding</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/14-interview/coding</guid>
+      <description>1. 线程安全单例（DCL+volatile, static inner class, enum） 2. 生产者-消费者（BlockingQueue, wait/notify, Lock+Condition） 3. 死锁（两线程互相等待对方锁） 4. LRU缓存（LinkedHashMap accessOrder，或 HashMap+双向链表） 5. 两个线程交替打印奇偶数 6. 限流器（令牌桶/</description>
+      <pubDate>Wed, 29 Jul 2026 19:50:13 -0000</pubDate>
+    </item>
+    <item>
+      <title>字节码 / 指令</title>
+      <link>https://java-px.bot.cd/java-language/04-jvm/bytecode</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/04-jvm/bytecode</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:50:13 -0000</pubDate>
+    </item>
+    <item>
+      <title>泛型 / 注解 / 反射</title>
+      <link>https://java-px.bot.cd/java-language/01-basics/generics</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/01-basics/generics</guid>
+      <description>- @Override, @FunctionalInterface, @Deprecated, @SuppressWarnings</description>
+      <pubDate>Wed, 29 Jul 2026 19:49:45 -0000</pubDate>
+    </item>
+    <item>
+      <title>学习路径</title>
+      <link>https://java-px.bot.cd/java-language/14-interview/path</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/14-interview/path</guid>
+      <description>速查：[OOP](/01-basics/oop) → [集合](/02-collections/list) → [并发](/03-concurrency/thread-pool) → [JVM](/04-jvm/runtime) → [GC](/05-gc/algorithms) → [Spring](/06-spring/ioc-aop) → [Cloud](/07-spring-cloud/n</description>
+      <pubDate>Wed, 29 Jul 2026 19:48:43 -0000</pubDate>
+    </item>
+    <item>
+      <title>高频面试题</title>
+      <link>https://java-px.bot.cd/java-language/14-interview/questions</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/14-interview/questions</guid>
+      <description>1. HashMap 原理？数组+链表/红黑树，hash冲突，扩容，loadFactor 0.75 2. ConcurrentHashMap 怎么保证线程安全？Java 7 Segment锁，Java 8 CAS+synchronized 3. synchronized vs Lock？JVM内置 vs API，自动释放 vs finally unlock，condition等待通知 4. vol</description>
+      <pubDate>Wed, 29 Jul 2026 19:48:43 -0000</pubDate>
+    </item>
+    <item>
+      <title>Spring Boot Test</title>
+      <link>https://java-px.bot.cd/java-language/13-testing/spring-test</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/13-testing/spring-test</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:48:43 -0000</pubDate>
+    </item>
+    <item>
+      <title>Mockito</title>
+      <link>https://java-px.bot.cd/java-language/13-testing/mockito</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/13-testing/mockito</guid>
+      <description>- @Mock create mock, @InjectMocks inject mocks into target - when().thenReturn() stub, verify() check invocation - ArgumentCaptor capture arguments, @Spy partial mock</description>
+      <pubDate>Wed, 29 Jul 2026 19:48:43 -0000</pubDate>
+    </item>
+    <item>
+      <title>JUnit5</title>
+      <link>https://java-px.bot.cd/java-language/13-testing/junit5</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/13-testing/junit5</guid>
+      <description>- @Test/@BeforeEach/@AfterEach/@BeforeAll (static) - @ParameterizedTest + @CsvSource/@MethodSource - assertThrows, assertTimeout, assertAll (group assertions) - @Nested for hierarchical tests, @Tag fo</description>
+      <pubDate>Wed, 29 Jul 2026 19:48:43 -0000</pubDate>
+    </item>
+    <item>
+      <title>常用命令速查</title>
+      <link>https://java-px.bot.cd/java-language/12-tools/commands</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/12-tools/commands</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:48:43 -0000</pubDate>
+    </item>
+    <item>
+      <title>Lombok / MapStruct</title>
+      <link>https://java-px.bot.cd/java-language/12-tools/lombok</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/12-tools/lombok</guid>
+      <description>- @Data = @Getter + @Setter + @ToString + @EqualsAndHashCode + @RequiredArgsConstructor</description>
+      <pubDate>Wed, 29 Jul 2026 19:48:43 -0000</pubDate>
+    </item>
+    <item>
+      <title>Maven / Gradle</title>
+      <link>https://java-px.bot.cd/java-language/12-tools/build</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/12-tools/build</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:48:43 -0000</pubDate>
+    </item>
+    <item>
+      <title>行为型设计模式</title>
+      <link>https://java-px.bot.cd/java-language/11-design/behavioral</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/11-design/behavioral</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:48:43 -0000</pubDate>
+    </item>
+    <item>
+      <title>结构型设计模式</title>
+      <link>https://java-px.bot.cd/java-language/11-design/structural</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/11-design/structural</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:48:43 -0000</pubDate>
+    </item>
+    <item>
+      <title>创建型设计模式</title>
+      <link>https://java-px.bot.cd/java-language/11-design/creational</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/11-design/creational</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:48:43 -0000</pubDate>
+    </item>
+    <item>
+      <title>jstack / jmap / jstat</title>
+      <link>https://java-px.bot.cd/java-language/10-performance/jvm-tools</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/10-performance/jvm-tools</guid>
+      <description>- jcmd pid GC.heap_dump /tmp/dump.hprof</description>
+      <pubDate>Wed, 29 Jul 2026 19:48:43 -0000</pubDate>
+    </item>
+    <item>
+      <title>Arthas 诊断</title>
+      <link>https://java-px.bot.cd/java-language/10-performance/arthas</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/10-performance/arthas</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:48:43 -0000</pubDate>
+    </item>
+    <item>
+      <title>JVM 调优参数</title>
+      <link>https://java-px.bot.cd/java-language/10-performance/jvm-tuning</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/10-performance/jvm-tuning</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:48:43 -0000</pubDate>
+    </item>
+    <item>
+      <title>序列化 / JSON / ProtoBuf</title>
+      <link>https://java-px.bot.cd/java-language/09-io/serialize</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/09-io/serialize</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:48:43 -0000</pubDate>
+    </item>
+    <item>
+      <title>Netty 框架</title>
+      <link>https://java-px.bot.cd/java-language/09-io/netty</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/09-io/netty</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:48:43 -0000</pubDate>
+    </item>
+    <item>
+      <title>BIO / NIO / AIO</title>
+      <link>https://java-px.bot.cd/java-language/09-io/nio</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/09-io/nio</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:48:43 -0000</pubDate>
+    </item>
+    <item>
+      <title>JPA / Hibernate</title>
+      <link>https://java-px.bot.cd/java-language/08-database/jpa</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/08-database/jpa</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:48:43 -0000</pubDate>
+    </item>
+    <item>
+      <title>JDBC / HikariCP</title>
+      <link>https://java-px.bot.cd/java-language/08-database/jdbc</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/08-database/jdbc</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:48:43 -0000</pubDate>
+    </item>
+    <item>
+      <title>Seata 分布式事务</title>
+      <link>https://java-px.bot.cd/java-language/07-spring-cloud/seata</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/07-spring-cloud/seata</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:47:45 -0000</pubDate>
+    </item>
+    <item>
+      <title>Gateway / Sentinel</title>
+      <link>https://java-px.bot.cd/java-language/07-spring-cloud/gateway</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/07-spring-cloud/gateway</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:47:45 -0000</pubDate>
+    </item>
+    <item>
+      <title>Nacos 注册/配置中心</title>
+      <link>https://java-px.bot.cd/java-language/07-spring-cloud/nacos</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/07-spring-cloud/nacos</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:47:45 -0000</pubDate>
+    </item>
+    <item>
+      <title>声明式事务</title>
+      <link>https://java-px.bot.cd/java-language/06-spring/transaction</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/06-spring/transaction</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:47:45 -0000</pubDate>
+    </item>
+    <item>
+      <title>Spring MVC</title>
+      <link>https://java-px.bot.cd/java-language/06-spring/mvc</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/06-spring/mvc</guid>
+      <description>- @RestController = @Controller + @ResponseBody - @ExceptionHandler, @ControllerAdvice for global error handling</description>
+      <pubDate>Wed, 29 Jul 2026 19:47:45 -0000</pubDate>
+    </item>
+    <item>
+      <title>Spring Boot 自动配置</title>
+      <link>https://java-px.bot.cd/java-language/06-spring/boot</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/06-spring/boot</guid>
+      <description>- @SpringBootApplication = @Configuration + @EnableAutoConfiguration + @ComponentScan - application.yml &gt; application.properties &gt; command line args &gt; env vars</description>
+      <pubDate>Wed, 29 Jul 2026 19:47:45 -0000</pubDate>
+    </item>
+    <item>
+      <title>IoC / DI / AOP</title>
+      <link>https://java-px.bot.cd/java-language/06-spring/ioc-aop</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/06-spring/ioc-aop</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:47:45 -0000</pubDate>
+    </item>
+    <item>
+      <title>GC 日志 / 调优</title>
+      <link>https://java-px.bot.cd/java-language/05-gc/tuning</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/05-gc/tuning</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:47:45 -0000</pubDate>
+    </item>
+    <item>
+      <title>G1 / ZGC / Shenandoah</title>
+      <link>https://java-px.bot.cd/java-language/05-gc/collectors</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/05-gc/collectors</guid>
+      <description>| Collector | Young | Old | Pause | Target | |-----------|-------|-----|-------|--------| | Serial | Serial | Serial Old | long | single CPU | | Parallel | Parallel Scavenge | Parallel Old | medium |</description>
+      <pubDate>Wed, 29 Jul 2026 19:47:45 -0000</pubDate>
+    </item>
+    <item>
+      <title>GC 算法</title>
+      <link>https://java-px.bot.cd/java-language/05-gc/algorithms</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/05-gc/algorithms</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:47:45 -0000</pubDate>
+    </item>
+    <item>
+      <title>对象创建 / OOM</title>
+      <link>https://java-px.bot.cd/java-language/04-jvm/oom</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/04-jvm/oom</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:47:45 -0000</pubDate>
+    </item>
+    <item>
+      <title>类加载机制</title>
+      <link>https://java-px.bot.cd/java-language/04-jvm/classloading</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/04-jvm/classloading</guid>
+      <description>- Bootstrap ClassLoader (JVM built-in, loads rt.jar) - Extension/Platform ClassLoader (jre/lib/ext, Java 9+ Platform) - Application ClassLoader (classpath)</description>
+      <pubDate>Wed, 29 Jul 2026 19:47:45 -0000</pubDate>
+    </item>
+    <item>
+      <title>JVM 运行时数据区</title>
+      <link>https://java-px.bot.cd/java-language/04-jvm/runtime</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/04-jvm/runtime</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:47:45 -0000</pubDate>
+    </item>
+    <item>
+      <title>虚拟线程 (Loom)</title>
+      <link>https://java-px.bot.cd/java-language/03-concurrency/virtual-threads</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/03-concurrency/virtual-threads</guid>
+      <description>- For IO-bound tasks, don't pool virtual threads</description>
+      <pubDate>Wed, 29 Jul 2026 19:47:08 -0000</pubDate>
+    </item>
+    <item>
+      <title>CompletableFuture</title>
+      <link>https://java-px.bot.cd/java-language/03-concurrency/future</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/03-concurrency/future</guid>
+      <description>- thenApply (sync map), thenApplyAsync (async) - thenCompose (flatMap), thenCombine (zip two futures) - allOf (wait all), anyOf (first done) - exceptionally (handle error), handle (map + error)</description>
+      <pubDate>Wed, 29 Jul 2026 19:47:08 -0000</pubDate>
+    </item>
+    <item>
+      <title>JUC 工具</title>
+      <link>https://java-px.bot.cd/java-language/03-concurrency/juc</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/03-concurrency/juc</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:47:08 -0000</pubDate>
+    </item>
+    <item>
+      <title>synchronized / AQS</title>
+      <link>https://java-px.bot.cd/java-language/03-concurrency/locks</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/03-concurrency/locks</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:47:08 -0000</pubDate>
+    </item>
+    <item>
+      <title>线程 / 线程池</title>
+      <link>https://java-px.bot.cd/java-language/03-concurrency/thread-pool</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/03-concurrency/thread-pool</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:47:08 -0000</pubDate>
+    </item>
+    <item>
+      <title>并发集合</title>
+      <link>https://java-px.bot.cd/java-language/02-collections/concurrent</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/02-collections/concurrent</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:47:08 -0000</pubDate>
+    </item>
+    <item>
+      <title>Stream API</title>
+      <link>https://java-px.bot.cd/java-language/02-collections/stream</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/02-collections/stream</guid>
+      <description>- collect(Collectors.toList/toMap/toSet/groupingBy/partitioningBy/joining)</description>
+      <pubDate>Wed, 29 Jul 2026 19:47:08 -0000</pubDate>
+    </item>
+    <item>
+      <title>Set / TreeSet</title>
+      <link>https://java-px.bot.cd/java-language/02-collections/set</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/02-collections/set</guid>
+      <description>- HashSet backed by HashMap (value is a dummy PRESENT object)</description>
+      <pubDate>Wed, 29 Jul 2026 19:47:08 -0000</pubDate>
+    </item>
+    <item>
+      <title>HashMap 原理</title>
+      <link>https://java-px.bot.cd/java-language/02-collections/map</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/02-collections/map</guid>
+      <description>- Array + linked list + red-black tree (Java 8+) - Default capacity 16, load factor 0.75 (resize when size &gt; capacity * loadFactor)</description>
+      <pubDate>Wed, 29 Jul 2026 19:47:08 -0000</pubDate>
+    </item>
+    <item>
+      <title>ArrayList / LinkedList</title>
+      <link>https://java-px.bot.cd/java-language/02-collections/list</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/02-collections/list</guid>
+      <description>- Use ArrayList for random access, LinkedList for queue/deque</description>
+      <pubDate>Wed, 29 Jul 2026 19:47:08 -0000</pubDate>
+    </item>
+    <item>
+      <title>JDK 17-21 新特性</title>
+      <link>https://java-px.bot.cd/java-language/01-basics/new-features</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/01-basics/new-features</guid>
+      <description>(暂无摘要)</description>
+      <pubDate>Wed, 29 Jul 2026 19:47:08 -0000</pubDate>
+    </item>
+    <item>
+      <title>异常处理</title>
+      <link>https://java-px.bot.cd/java-language/01-basics/exceptions</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/01-basics/exceptions</guid>
+      <description>- Checked (IOException/SQLException) vs Unchecked (RuntimeException) - try-with-resources (AutoCloseable) for auto cleanup - finally always runs (except System.exit)</description>
+      <pubDate>Wed, 29 Jul 2026 19:47:08 -0000</pubDate>
+    </item>
+    <item>
+      <title>数据类型 / 包装类</title>
+      <link>https://java-px.bot.cd/java-language/01-basics/datatypes</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/01-basics/datatypes</guid>
+      <description>| 类型 | 字节 | 范围 | 包装类 | |------|------|------|--------| | byte | 1 | -128~127 | Byte | | short | 2 | -32k~32k | Short | | int | 4 | -2B~2B | Integer | | long | 8 | -9e18~9e18 | Long | | float | 4 | 6-7</description>
+      <pubDate>Wed, 29 Jul 2026 19:46:34 -0000</pubDate>
+    </item>
+    <item>
+      <title>OOP / 类与对象</title>
+      <link>https://java-px.bot.cd/java-language/01-basics/oop</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/01-basics/oop</guid>
+      <description>Java 单继承，多实现。 | | Abstract Class | Interface | |--|----------------|-----------| | 构造器 | ✅ | ❌ | | 实例变量 | ✅ | ❌（仅 static final） | | 默认实现 | ✅ | ✅（default method） | | 多继承 | ❌ | ✅ | | 访问修饰 | 任意 | public（</description>
+      <pubDate>Wed, 29 Jul 2026 19:46:20 -0000</pubDate>
+    </item>
+    <item>
+      <title>命令速查</title>
+      <link>https://java-px.bot.cd/java-language/cheatsheet</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/cheatsheet</guid>
+      <description>- [OOP 类与对象](/01-basics/oop) - [Arthas 诊断](/10-performance/arthas) - [JVM 调优参数](/10-performance/jvm-tuning)</description>
+      <pubDate>Wed, 29 Jul 2026 19:44:51 -0000</pubDate>
+    </item>
+    <item>
+      <title>学习路径</title>
+      <link>https://java-px.bot.cd/java-language/path</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/path</guid>
+      <description>1. [OOP / 类与对象](/01-basics/oop) — 封装继承多态 2. [数据类型 / 包装类](/01-basics/datatypes) — 基本类型 vs 引用 3. [异常处理](/01-basics/exceptions) — try-catch-finally 4. [泛型 / 注解 / 反射](/01-basics/generics) — Java 高级特性 5. [</description>
+      <pubDate>Wed, 29 Jul 2026 19:44:32 -0000</pubDate>
+    </item>
+    <item>
+      <title>思维导图</title>
+      <link>https://java-px.bot.cd/java-language/mindmap</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/mindmap</guid>
+      <description>&lt;ClientOnly&gt;&lt;MindMap :height="940" /&gt;&lt;/ClientOnly&gt;</description>
+      <pubDate>Wed, 29 Jul 2026 19:44:16 -0000</pubDate>
+    </item>
+    <item>
+      <title>知识图谱</title>
+      <link>https://java-px.bot.cd/java-language/graph</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/graph</guid>
+      <description>&gt; 50+ 节点，14 大主题分类，节点可点击跳转。 &lt;ClientOnly&gt;&lt;KnowledgeGraph :height="820" /&gt;&lt;/ClientOnly&gt; | 颜色 | 分类 | 节点数 | |------|------|--------| | 🔴 红 | 基础语法 | 5 | | 🔵 蓝 | 集合框架 | 5 | | 🟣 紫 | 并发编程 | 5 | | 🟧 橙 | JVM 内存模</description>
+      <pubDate>Wed, 29 Jul 2026 19:44:10 -0000</pubDate>
+    </item>
+  </channel>
+</rss>

@@ -2,7 +2,7 @@
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
 > 57 个文档页 · 211,974 字
-> 生成时间：2026-08-16T08:58:46
+> 生成时间：2026-08-16T09:03:50
 
 ## [Claude 模型家族](https://java-px.bot.cd/ai/01-models/claude)
 > > Anthropic 公司出品的闭源大模型，以 **Constitutional AI**（宪法 AI）和 **长上下文**（200K）著称。 | 模型 | 上下文 | 定位 | 何时用 | |------|--------|------|--------| | **Claude Opus 4.5** | 200K | 最强推理 | 复杂代码 / 研究 / 多步分析 | | **Claude S
@@ -166,8 +166,8 @@
 ## [知识图谱](https://java-px.bot.cd/ai/graph)
 > > 80+ 节点，14 大主题分类，节点可点击跳转到对应章节。 <ClientOnly> <KnowledgeGraph :height="820" /> </ClientOnly> | 颜色 | 分类 | 主题数 | |------|------|--------| | 🟣 紫 | 大模型与推理 | 6 | | 🩵 青 | AI 编程工具 | 6 | | 🟨 黄 | SDK 接入 | 5 | |
 
-## [Untitled](https://java-px.bot.cd/ai/index)
-> features: - icon: 🧠 title: 大模型与推理 details: Claude / GPT / Gemini / DeepSeek / Llama / Mistral / 选型 link: /01-models/claude linkText: 开始看模型 → - icon: 🔧 title: AI 编程工具 details: Claude Code / Cursor / Co
+## [ai 知识图谱](https://java-px.bot.cd/ai/index)
+> features: title: 大模型与推理 details: Claude / GPT / Gemini / DeepSeek / Llama / Mistral / 选型 link: /01-models/claude linkText: 开始看模型 → title: AI 编程工具 details: Claude Code / Cursor / Copilot / Continue / A
 
 ## [思维导图](https://java-px.bot.cd/ai/mindmap)
 > > 树形结构总览全部知识，可展开/收起节点，点击叶子节点跳转。 <ClientOnly> <MindMap :height="940" /> </ClientOnly> - 全部展开 / 收起：顶部按钮控制 - 点击叶子节点：跳转到对应章节 - 重置视图：恢复初始展开状态

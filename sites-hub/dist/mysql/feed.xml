@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mysql - Scholar's Atlas</title>
+    <link>https://java-px.bot.cd/mysql/</link>
+    <atom:link href="https://java-px.bot.cd/mysql/feed.xml" rel="self" type="application/rss+xml" />
+    <description>mysql 知识图谱（67 页）</description>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 16 Aug 2026 09:03:50 -0000</lastBuildDate>
+    <item>
+      <title>MySQL 知识图谱</title>
+      <link>https://java-px.bot.cd/mysql/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "知识点碎片化，不知道先后顺序（11 大主题怎么学？）", "InnoDB 引擎原理（MVCC / Buffer Pool / Redo Log）讲不清？", "索引（B+Tree / Hash / 全文）怎么建才高效？", "SQL 优化（EXPLAIN / 慢查询 / 索引失效）？", "主从复制 / 读写分</description>
+      <pubDate>Sat, 15 Aug 2026 18:56:48 -0000</pubDate>
+    </item>
+    <item>
+      <title>Saga 模式详解</title>
+      <link>https://java-px.bot.cd/mysql/14-microservice/saga-pattern</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/14-microservice/saga-pattern</guid>
+      <description>&gt; Saga 是处理**跨服务长事务**的经典模式。在微服务架构下，没有分布式事务也能保证最终一致性。 **核心思想：** - 把长事务拆成多个**本地子事务** - 每个子事务都有对应的**补偿操作** - 如果某个子事务失败，按相反顺序执行补偿 **对比：** | 维度 | 协调式 | 编排式 | |---|---|---| | 业务代码 | 集中在协调器 | 分散在每个服务 | | 服务耦合</description>
+      <pubDate>Sun, 19 Jul 2026 10:02:57 -0000</pubDate>
+    </item>
+    <item>
+      <title>数据一致性</title>
+      <link>https://java-px.bot.cd/mysql/14-microservice/data-consistency</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/14-microservice/data-consistency</guid>
+      <description>&gt; 微服务架构下，**跨服务的数据一致性**是核心难题。本章深入讨论最终一致性、分布式锁、Canal 同步等实战方案。 **CAP 理论：** - **C**onsistency（一致性） - **A**vailability（可用性） - **P**artition tolerance（分区容错） **微服务必须在 C 和 A 之间二选一：** - 选 C：强一致（如 Seata AT 模式）</description>
+      <pubDate>Sun, 19 Jul 2026 10:02:22 -0000</pubDate>
+    </item>
+    <item>
+      <title>分布式 ID 生成</title>
+      <link>https://java-px.bot.cd/mysql/14-microservice/distributed-id</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/14-microservice/distributed-id</guid>
+      <description>&gt; 分布式系统下，**全局唯一 ID** 是基础。MySQL 自增主键在分库分表下失效，必须用分布式 ID 生成方案。 **分布式 ID 要求：** - ✅ **全局唯一** - ✅ **趋势递增**（MySQL InnoDB 聚簇索引友好） - ✅ **高性能**（分布式下高并发） - ✅ **高可用**（不能单点） - ✅ **信息安全**（避免暴露业务量） | 方案 | 唯一性 | 趋势递增</description>
+      <pubDate>Sun, 19 Jul 2026 09:14:52 -0000</pubDate>
+    </item>
+    <item>
+      <title>微服务数据库模式</title>
+      <link>https://java-px.bot.cd/mysql/14-microservice/db-pattern</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/14-microservice/db-pattern</guid>
+      <description>&gt; 微服务架构下，**每个服务一个数据库**是核心原则。本章深入讨论各种数据库模式、CQRS、Saga 等企业级实战。 - ✅ **服务自治**：独立部署、扩容、技术选型 - ✅ **故障隔离**：一个服务挂掉不影响其他 - ✅ **独立扩展**：订单库压力大，只扩订单服务 - ✅ **团队独立**：不同团队负责不同服务 - ❌ **跨服务 JOIN**：不能直接 SQL JOIN - ❌ **跨</description>
+      <pubDate>Sun, 19 Jul 2026 09:14:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>分布式事务</title>
+      <link>https://java-px.bot.cd/mysql/13-multids/transaction</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/13-multids/transaction</guid>
+      <description>&gt; 当业务涉及**多个数据源**或**多个服务**时，传统单库事务（ACID）无法保证一致性。分布式事务是微服务架构的核心难题之一。 | 方案 | 一致性 | 性能 | 复杂度 | 适用场景 | |---|---|---|---|---| | 2PC（两阶段提交） | 强一致 | 差 | 中 | 数据库支持时 | | 3PC（三阶段提交） | 强一致 | 差 | 高 | 理论，很少用 | | **</description>
+      <pubDate>Sun, 19 Jul 2026 09:13:47 -0000</pubDate>
+    </item>
+    <item>
+      <title>分片策略与扩容</title>
+      <link>https://java-px.bot.cd/mysql/13-multids/sharding-strategy</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/13-multids/sharding-strategy</guid>
+      <description>&gt; 分片键的选择和扩容方案，是分库分表**最核心的决策**。选错了，扩容就要付出巨大代价。 | 字段 | 查询频率 | 数据分布 | 业务稳定 | 总分 | 是否适合 | |---|---|---|---|---|---| | user_id | ⭐⭐⭐⭐⭐ | 均匀 ✅ | 永不变 ✅ | 13 | ✅ **推荐** | | id (主键) | ⭐⭐⭐⭐⭐ | 均匀 ✅ | 永不变 ✅ | 13</description>
+      <pubDate>Sun, 19 Jul 2026 09:13:11 -0000</pubDate>
+    </item>
+    <item>
+      <title>ShardingSphere-JDBC 实战</title>
+      <link>https://java-px.bot.cd/mysql/13-multids/sharding-jdbc</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/13-multids/sharding-jdbc</guid>
+      <description>&gt; Apache ShardingSphere 是**国产最优秀的分库分表中间件**，提供数据分片、读写分离、分布式事务一站式解决方案。 **自动效果：** **适用：** - 配置表（每分片都存一份） - 字典表（商品分类、地区） - 系统表 **自动效果：** **需求：** - 订单表数据量大（&gt; 1 亿行） - 按 user_id 分库分表 - order_items 与 orders 绑</description>
+      <pubDate>Sun, 19 Jul 2026 09:12:46 -0000</pubDate>
+    </item>
+    <item>
+      <title>读写分离</title>
+      <link>https://java-px.bot.cd/mysql/13-multids/read-write-split</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/13-multids/read-write-split</guid>
+      <description>&gt; 读写分离是**扩展读能力**的标准方案。**80% 的互联网应用**都采用主从读写分离。 | 方式 | 复杂度 | 性能 | 适用场景 | |---|---|---|---| | ① 应用层手动切换 | ⭐ | 高 | 简单读写分离 | | ② AbstractRoutingDataSource | ⭐⭐ | 高 | 通用方案 | | ③ MyBatis-Plus dynamic-dataso</description>
+      <pubDate>Sun, 19 Jul 2026 09:12:17 -0000</pubDate>
+    </item>
+    <item>
+      <title>动态数据源</title>
+      <link>https://java-px.bot.cd/mysql/13-multids/dynamic-datasource</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/13-multids/dynamic-datasource</guid>
+      <description>&gt; 动态数据源是**运行时切换数据库连接**的能力。读写分离、多租户、分库分表的基础。 详见 [🔄 分布式事务](/13-multids/transaction) 章节。 **动态数据源选型：** - ✅ 简单场景：MyBatis-Plus dynamic-datasource（推荐） - ✅ 复杂场景：AbstractRoutingDataSource（更灵活） - ✅ 读写分离前置：先用动态数</description>
+      <pubDate>Sun, 19 Jul 2026 09:11:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>多数据源配置</title>
+      <link>https://java-px.bot.cd/mysql/13-multids/multi-datasource</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/13-multids/multi-datasource</guid>
+      <description>&gt; 真实的 Java 项目中，**多数据源**是常见需求：业务库 / 报表库分离、读写分离前的过渡、跨库查询等。本章从基础到高级，详解多数据源的正确姿势。 **典型场景：** - ✅ 业务库 + 报表库分离（不影响业务） - ✅ 多租户系统（每租户独立库） - ✅ 异构数据库（MySQL + PostgreSQL + MongoDB） - ✅ 读写分离前的过渡（主从两个数据源） - ✅ 微服务中（</description>
+      <pubDate>Sun, 19 Jul 2026 09:11:32 -0000</pubDate>
+    </item>
+    <item>
+      <title>数据库连接池</title>
+      <link>https://java-px.bot.cd/mysql/13-multids/connection-pool</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/13-multids/connection-pool</guid>
+      <description>&gt; 连接池是数据库访问的**基础设施**。选错连接池或配置不当，**性能可差 10 倍**。本章深入对比主流连接池，详解 HikariCP 的正确配置。 | 连接池 | 性能 | 特性 | 适用场景 | |---|---|---|---| | **HikariCP** | ⭐⭐⭐⭐⭐ | 极快，零依赖 | **默认推荐** | | Druid (Alibaba) | ⭐⭐⭐⭐ | 监控完善，WAF</description>
+      <pubDate>Sun, 19 Jul 2026 09:11:07 -0000</pubDate>
+    </item>
+    <item>
+      <title>MyBatis 常见坑与最佳实践</title>
+      <link>https://java-px.bot.cd/mysql/12-mybatis/pitfalls</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/12-mybatis/pitfalls</guid>
+      <description>&gt; 总结 MyBatis / MyBatis-Plus 开发中最常见的 10 个坑，以及 12 条企业级最佳实践。 **原因：** XML 没编译到 classpath **解决：** **原因：** `@TableName` 写错了表名（MySQL 大小写敏感） **解决：** **原因：** Hikari 连接池过大 + 长事务 **解决：** **原因：** MySQL 行锁被长事务持有 *</description>
+      <pubDate>Sun, 19 Jul 2026 08:57:18 -0000</pubDate>
+    </item>
+    <item>
+      <title>MyBatis 与 Spring Boot 集成</title>
+      <link>https://java-px.bot.cd/mysql/12-mybatis/spring-boot</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/12-mybatis/spring-boot</guid>
+      <description>&gt; 完整的 **Spring Boot + MyBatis-Plus + MySQL** 项目实战，从零搭建到生产部署。 访问 `http://localhost:8080/actuator/health` 查看应用健康状况。 - ✅ Entity 用 `@TableName`, `@TableId` 等注解 - ✅ DTO 单独定义（与 Entity 解耦） - ✅ Controller 只负责</description>
+      <pubDate>Sun, 19 Jul 2026 08:56:54 -0000</pubDate>
+    </item>
+    <item>
+      <title>MyBatis-Plus 高级特性</title>
+      <link>https://java-px.bot.cd/mysql/12-mybatis/advanced</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/12-mybatis/advanced</guid>
+      <description>&gt; 深入 MyBatis-Plus 的进阶特性：**逻辑删除、乐观锁、自动填充、租户插件**，让企业级开发更高效。 | 特性 | 解决的问题 | 应用场景 | |---|---|---| | **逻辑删除** | 软删除，数据可恢复 | 所有业务表 | | **乐观锁** | 防止并发更新丢失 | 库存、订单状态 | | **自动填充** | 自动维护时间/用户字段 | 所有业务表 | | **多</description>
+      <pubDate>Sun, 19 Jul 2026 08:56:26 -0000</pubDate>
+    </item>
+    <item>
+      <title>MyBatis 性能优化</title>
+      <link>https://java-px.bot.cd/mysql/12-mybatis/performance</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/12-mybatis/performance</guid>
+      <description>&gt; MyBatis 性能问题 90% 都来自 **N+1 查询、批量操作不当、慢 SQL**。学会这些优化技巧，**性能提升 10-50 倍**。 **方案 1：JOIN 查询（推荐）** **方案 2：MyBatis-Plus 的 `@RelationField`（3.5.3+）** **方案 3：批量 IN 查询** **优化：必传分页参数** **MyBatis-Plus 方式：** **性</description>
+      <pubDate>Sun, 19 Jul 2026 08:55:59 -0000</pubDate>
+    </item>
+    <item>
+      <title>代码生成器</title>
+      <link>https://java-px.bot.cd/mysql/12-mybatis/generator</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/12-mybatis/generator</guid>
+      <description>&gt; 一键生成 **Entity + Mapper + Service + Controller** 全套代码，告别手写 CRUD。 **代码生成器优势：** - ✅ 提高效率 10 倍（手写 vs 生成） - ✅ 代码风格统一（团队规范） - ✅ 减少手写错误（注解自动加） - ✅ 字段映射自动处理（snake_case） - ✅ 集成 MP 全功能（逻辑删除、乐观锁、自动填充） **最佳实践：*</description>
+      <pubDate>Sun, 19 Jul 2026 08:55:35 -0000</pubDate>
+    </item>
+    <item>
+      <title>MyBatis 缓存机制</title>
+      <link>https://java-px.bot.cd/mysql/12-mybatis/cache</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/12-mybatis/cache</guid>
+      <description>&gt; MyBatis 提供两级缓存，正确使用可以**减少 60% 以上**的数据库查询。但用错会有脏读问题。 | 特性 | 说明 | |---|---| | 默认 | 开启 | | 范围 | SqlSession 级别（同一会话内） | | 实现 | PerpetualCache（HashMap） | | 生命周期 | SqlSession 关闭时清空 | | 失效 | 任何 update/inse</description>
+      <pubDate>Sun, 19 Jul 2026 08:55:09 -0000</pubDate>
+    </item>
+    <item>
+      <title>MyBatis-Plus 实战</title>
+      <link>https://java-px.bot.cd/mysql/12-mybatis/mybatis-plus</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/12-mybatis/mybatis-plus</guid>
+      <description>&gt; MyBatis-Plus（MP）是 MyBatis 的**增强工具**，**只做增强不做改变**，极大简化 CRUD 开发。是现代 Java 项目的首选 ORM。 MyBatis-Plus 是在 MyBatis 基础上**只做增强**的框架，提供了： - ✅ **内置通用 CRUD**：无需写 SQL 即可完成 80% 的单表操作 - ✅ **内置分页插件**：一行代码实现分页 - ✅ **代</description>
+      <pubDate>Sun, 19 Jul 2026 08:54:50 -0000</pubDate>
+    </item>
+    <item>
+      <title>MyBatis 插件机制</title>
+      <link>https://java-px.bot.cd/mysql/12-mybatis/plugins</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/12-mybatis/plugins</guid>
+      <description>&gt; MyBatis 的插件机制（Interceptor）让你可以**拦截 SQL 执行的四个关键节点**，实现分页、性能监控、读写分离等高级功能。 **配置：** 详见 [🚀 MyBatis-Plus 实战](/12-mybatis/mybatis-plus) 章节。 **插件执行顺序：** **MyBatis 四大拦截点：** - Executor：拦截 update/query/flush/c</description>
+      <pubDate>Sun, 19 Jul 2026 08:54:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>动态 SQL</title>
+      <link>https://java-px.bot.cd/mysql/12-mybatis/dynamic-sql</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/12-mybatis/dynamic-sql</guid>
+      <description>&gt; 动态 SQL 是 MyBatis 的核心特性，让你**用 XML 拼接条件**，比 Java 字符串拼接优雅得多。 **动态 SQL 标签速查：** | 标签 | 用途 | |---|---| | `&lt;if&gt;` | 条件判断 | | `&lt;where&gt;` | 智能 WHERE（去除开头的 AND/OR） | | `&lt;set&gt;` | 智能 SET（去除末尾的逗号） | | `&lt;choose&gt;/&lt;w</description>
+      <pubDate>Sun, 19 Jul 2026 08:53:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>MyBatis 快速入门</title>
+      <link>https://java-px.bot.cd/mysql/12-mybatis/quickstart</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/12-mybatis/quickstart</guid>
+      <description>&gt; MyBatis 是 Java 生态最流行的 ORM 框架之一，**SQL 与 Java 代码分离**，既保留 SQL 灵活性，又提供对象映射能力。 MyBatis（前身 iBatis）是 Apache 顶级项目，通过 **XML 或注解** 配置 SQL，将 Java 方法映射到 SQL 语句。 简单的 CRUD 可以用注解替代 XML： **XML vs 注解：** - ✅ XML：适合复杂</description>
+      <pubDate>Sun, 19 Jul 2026 08:53:35 -0000</pubDate>
+    </item>
+    <item>
+      <title>性能计算器</title>
+      <link>https://java-px.bot.cd/mysql/11-tools/perf-calculator</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/11-tools/perf-calculator</guid>
+      <description>&gt; 4 个实用的性能计算工具，帮助你**量化评估 MySQL 配置和性能**。 &lt;PerfCalculator /&gt; 根据**数据量 + 扇出（fanout）** 估算 B+Tree 索引树的高度。 **应用场景：** - 评估索引效率（树高 = 磁盘 IO 次数） - 决定主键宽度（主键越小，扇出越大） - 优化分片键选择 **示例：** - 1 亿行 + 扇出 200 → 树高 3 层 → 3</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>mysql client 命令</title>
+      <link>https://java-px.bot.cd/mysql/11-tools/mysql-client</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/11-tools/mysql-client</guid>
+      <description>&gt; mysql client 是 MySQL 自带的命令行工具，DBA 必备。掌握这些命令能让你**高效完成 90% 的日常运维**。 **mysql client 核心命令：** | 场景 | 命令 | |---|---| | 连接 | `mysql -h host -u user -p db` | | 查看表结构 | `DESC table` / `SHOW CREATE TABLE tabl</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>pt-toolkit 工具集</title>
+      <link>https://java-px.bot.cd/mysql/11-tools/pt-toolkit</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/11-tools/pt-toolkit</guid>
+      <description>&gt; Percona Toolkit（原 Maatkit）是 MySQL DBA 的瑞士军刀，包含 30+ 工具，用于性能分析、数据校验、运维管理。**DBA 必备**。 Percona Toolkit 是 Percona 公司维护的 MySQL 高级命令行工具集，几乎所有大型互联网公司的 DBA 都在用。 **最常用**：慢查询分析神器 **输出解读：** **在线 DDL**：不锁表修改表结构</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>SQL 速查表</title>
+      <link>https://java-px.bot.cd/mysql/11-tools/cheatsheet</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/11-tools/cheatsheet</guid>
+      <description>&gt; 30+ 常用 SQL 模板，**支持搜索 + 一键复制**。覆盖 CRUD / DDL / 查询 / 聚合 / JOIN / 索引 / 事务 / 性能 / 运维 9 大类。 &lt;SqlCheatsheet /&gt; 打开 [🛢️ SQL Playground](../cheatsheet) 直接写 SQL，模拟执行结果 + EXPLAIN 解读。 - **[💻 mysql client](../11</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>B+Tree 原理</title>
+      <link>https://java-px.bot.cd/mysql/02-index/btree</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/02-index/btree</guid>
+      <description>&gt; **索引的本质：减少磁盘 IO 次数**。理解 B+Tree，你就理解了为什么索引这么快。 **提升 3 万倍以上！** 1. **平衡树**：所有叶子节点在同一层 2. **多路搜索**：每个节点有 N 个 key 和 N+1 个子节点指针 3. **数据只在叶子**：非叶子节点只存 key 和指针 4. **叶子链表**：叶子节点之间用指针相连，支持范围查询 | 特性 | B-Tree |</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>索引下推 ICP</title>
+      <link>https://java-px.bot.cd/mysql/02-index/icp</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/02-index/icp</guid>
+      <description>&gt; **Index Condition Pushdown（ICP）** 是 MySQL 5.6 引入的优化，可以让查询**减少 50% 以上的回表次数**。 在 ICP 出现之前，MySQL 处理这样的查询： **ICP 之前的执行过程：** **问题：** 大量回表后发现不符合 age 条件，IO 浪费严重。 **MySQL 5.6+ 引入了 ICP：把 WHERE 条件下推到存储引擎层**，在</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>覆盖索引与最左前缀</title>
+      <link>https://java-px.bot.cd/mysql/02-index/covering</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/02-index/covering</guid>
+      <description>&gt; 两个最重要的索引优化技巧。可以让查询性能提升 **10 倍甚至 100 倍**。 如果一个索引**包含了查询语句需要的所有字段**，MySQL 就不需要回表查询，直接在索引中拿到结果。 **这个索引可以用于以下查询：** **黄金法则：高选择性 + 高频过滤 字段放前面** **决策步骤：** 1. 列出所有查询模式 2. 按频率排序 3. 把高频查询的字段放复合索引前面 4. 范围查询字段放</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>聚簇索引 vs 二级索引</title>
+      <link>https://java-px.bot.cd/mysql/02-index/clustered</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/02-index/clustered</guid>
+      <description>&gt; InnoDB 的特殊设计：**数据即索引，索引即数据**。理解这个区别，你就理解了为什么 InnoDB 主键如此重要。 聚簇索引的**叶子节点直接存储完整的数据行**，数据按主键顺序物理存储。 - ✅ **每张表只能有一个聚簇索引** - ✅ InnoDB 的数据文件（.ibd）本身就是按聚簇索引组织的 - ✅ 数据按主键顺序物理存储 → 范围查询极快 - ✅ 主键查询极快（直接定位到数据）</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>存储引擎</title>
+      <link>https://java-px.bot.cd/mysql/01-foundation/storage-engine</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/01-foundation/storage-engine</guid>
+      <description>&gt; MySQL 的**插件式架构**让你可以为每张表选择不同的存储引擎。理解各引擎特性是选型的第一步。 | 引擎 | 事务 | 锁粒度 | MVCC | 索引 | 适用场景 | 默认 | |---|---|---|---|---|---|---| | **InnoDB** | ✅ | 行锁 | ✅ | B+Tree / 全文 / 空间 | **通用 OLTP**（推荐） | ✅ MySQL 5.6</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>数据类型</title>
+      <link>https://java-px.bot.cd/mysql/01-foundation/data-types</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/01-foundation/data-types</guid>
+      <description>&gt; 数据类型选错了，性能会差 **10 倍甚至 100 倍**。理解每个类型的存储方式和适用场景，是 MySQL 优化的基础。 | 类型 | 字节 | 范围（无符号） | 范围（有符号） | 用途 | |---|---|---|---|---| | `TINYINT` | 1 | 0~255 | -128~127 | 状态、布尔 (0/1) | | `SMALLINT` | 2 | 0~65535</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>体系结构</title>
+      <link>https://java-px.bot.cd/mysql/01-foundation/architecture</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/01-foundation/architecture</guid>
+      <description>&gt; 理解 MySQL 是怎么运行的，是掌握所有高级特性的基础。 负责与客户端建立连接、权限验证、连接管理： **关键配置：** - `max_connections=151`：默认 151，生产建议 1000+ - `wait_timeout=28800`：默认 8 小时 - `thread_cache_size=9`：线程缓存，避免频繁创建销毁 &gt; 💡 **为什么 8.0 删除？** 因为只要表</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>字符集与排序规则</title>
+      <link>https://java-px.bot.cd/mysql/01-foundation/charset</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/01-foundation/charset</guid>
+      <description>&gt; 一个 `utf8` 字符集的选择，藏着 **表情符号存不进**、**索引失效**、**性能差 3 倍** 的坑。 字符集定义了**字符到二进制字节的映射规则**。 排序规则定义了**字符如何比较和排序**。 **命名规则：** - `_ci`：case-insensitive（不区分大小写） - `_cs`：case-sensitive（区分大小写） - `_bin`：binary（二进制比较</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>binlog 与 relay log</title>
+      <link>https://java-px.bot.cd/mysql/06-replication/binlog</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/06-replication/binlog</guid>
+      <description>&gt; 主从复制的核心是 binlog。理解 binlog 的格式、写入、读取过程，是掌握主从复制和高可用的基础。 **binlog（Binary Log）** 是 MySQL Server 层实现的二进制日志，记录所有**修改数据的 SQL**（不记录 SELECT）。 1. **主从复制**：从库读取主库的 binlog，重放 SQL 2. **数据恢复**：基于时间点恢复（Point-in-Ti</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>主从延迟排查</title>
+      <link>https://java-px.bot.cd/mysql/06-replication/lag</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/06-replication/lag</guid>
+      <description>&gt; 主从延迟是主从复制最常见的问题。延迟过大会导致读到"过时"的数据，影响业务。 主库执行完事务后，从库需要时间应用这些变更。这个时间差就是延迟。 | 版本 | 复制性能 | |---|---| | 5.5 及之前 | 单线程，慢 | | 5.6 | 单线程，但支持 GTID | | 5.7 | **多线程复制，性能 10x** | | 8.0 | 更智能的多线程 + 写入集优化 | **延迟优化</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>读写分离实战</title>
+      <link>https://java-px.bot.cd/mysql/06-replication/read-write-split</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/06-replication/read-write-split</guid>
+      <description>&gt; 主从复制最常见的应用就是读写分离。通过将读流量分散到从库，大幅提升系统的读吞吐能力。 **收益：** - 读能力线性扩展（1 主 3 从 = 3 倍读能力） - 写不影响读（读写分离） - 减少主库压力 **解决方案：** **读写分离核心：** - ✅ 写主库，读从库 - ✅ 应用层或中间件实现 - ✅ 强制读主库处理关键路径 - ✅ 监控从库延迟 **中间件选择：** - 简单场景：应用层</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>主从同步原理</title>
+      <link>https://java-px.bot.cd/mysql/06-replication/replication</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/06-replication/replication</guid>
+      <description>&gt; 主从复制是 MySQL 实现读写分离、扩展读能力、高可用的基础。深入理解同步原理，是排查复制延迟和搭建高可用集群的前提。 **GTID 优势：** - ✅ 自动定位 binlog position（崩溃恢复更容易） - ✅ 一致性保证更强 - ✅ 故障切换更简单 **缺点：** - 需要手动指定 position - 故障切换时容易出错 **优势：** - 全局唯一，自动定位 - 故障切换更容</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>MVCC 多版本并发</title>
+      <link>https://java-px.bot.cd/mysql/04-transaction/mvcc</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/04-transaction/mvcc</guid>
+      <description>&gt; MVCC（Multi-Version Concurrency Control）是 InnoDB 实现**非阻塞读**的核心机制，让读不阻塞写、写不阻塞读。 **MVCC 的精髓：读快照（不加锁）+ 写新版本（不阻塞读）** 每行数据有两个隐藏列： - `DB_TRX_ID`：最后修改该行的事务 ID - `DB_ROLL_PTR`：指向 Undo Log 中该行的上一版本 每次 UPDATE/</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>InnoDB 锁机制</title>
+      <link>https://java-px.bot.cd/mysql/04-transaction/locks</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/04-transaction/locks</guid>
+      <description>&gt; 理解 InnoDB 的锁机制，是排查并发问题和性能调优的基础。 - **共享锁（S Lock）**：允许多个事务同时持有（读读兼容） - **排他锁（X Lock）**：只允许一个事务持有（其他事务阻塞） | | S Lock | X Lock | |---|---|---| | **S Lock** | ✅ 兼容 | ❌ 阻塞 | | **X Lock** | ❌ 阻塞 | ❌ 阻塞 | |</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>ACID 与隔离级别</title>
+      <link>https://java-px.bot.cd/mysql/04-transaction/isolation</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/04-transaction/isolation</guid>
+      <description>&gt; 事务是数据库的核心概念。理解 ACID 和四种隔离级别，是处理并发问题的基础。 **事务（Transaction）** 是一组 SQL 操作的逻辑单元，要么全部成功，要么全部失败。 **事务是最小执行单元，不可分割。** **实现机制：** `undo log`（回滚日志） - 事务执行时，记录每条 SQL 的反向操作 - ROLLBACK 时执行反向操作恢复数据 **事务前后，数据库从一个一</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>死锁分析与排查</title>
+      <link>https://java-px.bot.cd/mysql/04-transaction/deadlock</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/04-transaction/deadlock</guid>
+      <description>&gt; 死锁是并发系统的常见问题。InnoDB 自动检测死锁并回滚一个事务，但应用层必须妥善处理。 **两个或多个事务互相等待对方持有的锁，导致都无法继续执行。** 1. **互斥**：锁只能被一个事务持有 2. **持有并等待**：事务持有锁的同时等待其他锁 3. **不可抢占**：锁不能被强制剥夺 4. **循环等待**：事务之间形成等待环路 **打破任一条件即可避免死锁**。 发现死锁时，按以下</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>慢查询定位</title>
+      <link>https://java-px.bot.cd/mysql/05-optimization/slow-query</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/05-optimization/slow-query</guid>
+      <description>&gt; 慢查询是性能问题的头号元凶。系统化的慢查询分析流程，能帮你快速定位和优化瓶颈。 | 字段 | 含义 | |---|---| | Query_time | 查询耗时（秒） | | Lock_time | 等待锁的时间 | | Rows_sent | 返回给客户端的行数 | | Rows_examined | 扫描的行数 | | SET timestamp | 时间戳 | **关键指标：** `R</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>SQL 改写 12 招</title>
+      <link>https://java-px.bot.cd/mysql/05-optimization/sql-rewrite</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/05-optimization/sql-rewrite</guid>
+      <description>&gt; 即使索引设计完美，SQL 写法不当也会导致慢查询。掌握这些改写技巧，能**不加索引也能提速 2-10 倍**。 **特例：** IN 子查询结果是常量列表时，两者差不多 **SQL 改写 12 招速查：** | 招数 | 性能提升 | 难度 | |---|---|---| | 避免 SELECT * | 2-5x | ⭐ | | 避免索引列用函数 | 10-100x | ⭐ | | UNION</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>EXPLAIN 解读</title>
+      <link>https://java-px.bot.cd/mysql/05-optimization/explain</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/05-optimization/explain</guid>
+      <description>&gt; **EXPLAIN 是 MySQL 性能调优的"听诊器"**。学会看 EXPLAIN 输出，就能诊断 90% 的慢查询问题。 | select_type | 含义 | |---|---| | SIMPLE | 简单查询（无 UNION / 子查询） | | PRIMARY | 最外层查询 | | SUBQUERY | 子查询 | | DERIVED | 派生表（FROM 子查询） | | UN</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>索引优化实战</title>
+      <link>https://java-px.bot.cd/mysql/05-optimization/index-tuning</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/05-optimization/index-tuning</guid>
+      <description>&gt; 索引选型是 MySQL 性能优化的核心。选对了索引，查询性能提升 **10-100 倍**；选错了，再多的调优也是徒劳。 | ✅ 优化项 | 实施难度 | 效果 | |---|---|---| | 高频 WHERE 字段建索引 | ⭐ | 高 | | 复合索引满足最左前缀 | ⭐⭐ | 高 | | 覆盖索引避免回表 | ⭐⭐ | 高 | | 删除冗余索引 | ⭐ | 中 | | 删除未使用的索</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>mysqldump 逻辑备份</title>
+      <link>https://java-px.bot.cd/mysql/08-backup/mysqldump</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/08-backup/mysqldump</guid>
+      <description>&gt; mysqldump 是 MySQL 自带的逻辑备份工具，适合中小数据量备份（&lt; 100GB），是 DBA 必备技能。 mysqldump 生成 **SQL 脚本**，包含建表语句和 INSERT 数据，可以用来恢复数据库。 **参数说明：** - `--single-transaction`：单事务，保证一致性（InnoDB） - `--quick`：不缓存查询，逐行读取 - `--maste</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>xtrabackup 热备</title>
+      <link>https://java-px.bot.cd/mysql/08-backup/xtrabackup</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/08-backup/xtrabackup</guid>
+      <description>&gt; Percona XtraBackup 是业界标准的 MySQL 热备工具，支持 **TB 级数据在线热备**，是生产环境的首选备份方案。 xtrabackup 是 Percona 开发的 **物理热备工具**，可以**在不锁表的情况下**备份整个数据库。 **参数说明：** - `--parallel=4`：并行备份（4 线程） - `--compress`：压缩备份 - `--slave-i</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>binlog 时间点恢复</title>
+      <link>https://java-px.bot.cd/mysql/08-backup/binlog-recovery</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/08-backup/binlog-recovery</guid>
+      <description>&gt; 误删数据、误更新表？binlog 是救命稻草。学会从 binlog 恢复数据，是 DBA 的核心技能。 binlog 记录了**所有数据变更**，通过应用 binlog，可以把数据库恢复到**任意时间点**。 **binlog 恢复核心：** - ✅ 找到误操作前的完整备份 - ✅ 定位误操作的 binlog position - ✅ 应用 binlog 到误操作前 - ✅ 验证数据完整性 *</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>MyCat 中间件</title>
+      <link>https://java-px.bot.cd/mysql/10-sharding/mycat</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/10-sharding/mycat</guid>
+      <description>&gt; MyCat 是基于阿里 Cobar 二次开发的数据库中间件，是 Java 生态中最老牌的分库分表方案之一。 MyCat 是一个**数据库代理**，位于应用和 MySQL 之间，对应用表现为一个 MySQL 服务器。 适用：小表、配置表、字典表 | 特性 | MyCat | ShardingSphere | |---|---|---| | 架构 | Proxy（独立部署） | JDBC（嵌入）或</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>垂直拆分 vs 水平拆分</title>
+      <link>https://java-px.bot.cd/mysql/10-sharding/strategy</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/10-sharding/strategy</guid>
+      <description>&gt; 当单库数据量达到瓶颈时（通常 &gt; 5TB 或 QPS &gt; 10万），就需要分库分表。选择正确的拆分策略是关键。 | 优点 | 缺点 | |---|---| | 业务清晰 | 跨库 JOIN 困难 | | 不同业务独立扩展 | 分布式事务复杂 | | 影响范围小 | 需考虑数据一致性 | **优点：** - 范围查询友好 - 新数据写入新分片 **缺点：** - 数据可能不均匀（热点） - 扩容</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>一致性 Hash 与分片键</title>
+      <link>https://java-px.bot.cd/mysql/10-sharding/sharding-key</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/10-sharding/sharding-key</guid>
+      <description>&gt; 分库分表的核心是**分片键**的选择。选错了会导致数据倾斜、热点频发、扩容困难。 **分片键选择黄金法则：** - ✅ 高频查询字段 - ✅ 高基数（&gt; 10000） - ✅ 分布均匀 - ✅ 业务稳定（不会变） **一致性 Hash：** - ✅ 扩容只影响相邻节点 - ✅ 虚拟节点均匀分布 - ✅ 适用频繁扩容场景 **扩容策略：** - 翻倍扩容（4 → 8）迁移量 50% - 一致性</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>ShardingSphere 实战</title>
+      <link>https://java-px.bot.cd/mysql/10-sharding/shardingsphere</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/10-sharding/shardingsphere</guid>
+      <description>&gt; Apache ShardingSphere 是国产最优秀的分库分表中间件，提供数据分片、读写分离、分布式事务等一站式解决方案。 **ShardingSphere 核心特性：** - ✅ 数据分片（水平/垂直） - ✅ 读写分离 - ✅ 分布式事务 - ✅ 数据加密 - ✅ 弹性扩容 **两种模式选择：** - JDBC（嵌入式）：性能好，适合 Java 应用 - Proxy（代理）：对应用透明</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>JOIN 七种用法</title>
+      <link>https://java-px.bot.cd/mysql/03-sql/join</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/03-sql/join</guid>
+      <description>&gt; 多表查询的核心是 JOIN。理解 7 种 JOIN 的差异和性能特征，是写出高效 SQL 的基础。 **返回两表都匹配的记录**（交集） **性能特征：** - ✅ 驱动表选择很重要（小表驱动大表） - ✅ 关联字段加索引 - ⚠️ 数据量大时性能下降明显 **返回左表全部，右表无匹配填 NULL**（左表全集 + 右表交集） **返回右表全部，左表无匹配填 NULL**（基本不用，交换表顺序</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>常用函数与 CTE</title>
+      <link>https://java-px.bot.cd/mysql/03-sql/functions</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/03-sql/functions</guid>
+      <description>&gt; SQL 函数速查 + CTE（Common Table Expressions，公共表表达式）让复杂查询更优雅。 **GROUP_CONCAT：行转列神器** **常用函数：** - 聚合：COUNT / SUM / AVG / GROUP_CONCAT - 日期：DATE_FORMAT / DATE_ADD / DATEDIFF / UNIX_TIMESTAMP - 字符串：CONCAT /</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>CRUD 与 DDL</title>
+      <link>https://java-px.bot.cd/mysql/03-sql/crud</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/03-sql/crud</guid>
+      <description>&gt; 日常开发 80% 的 SQL：增删改查、建表改表。看似基础，却藏着无数坑。 **正确做法：** - 大 DDL 单独执行，不要放在事务里 - 用 `pt-online-schema-change` 或 `gh-ost` 工具 1. **明确列名**（不用 SELECT *） 2. **UPDATE/DELETE 必须带 WHERE** 3. **批量操作分批次**（1000-5000 行/批）</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>窗口函数</title>
+      <link>https://java-px.bot.cd/mysql/03-sql/window-functions</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/03-sql/window-functions</guid>
+      <description>&gt; MySQL 8.0 引入的强大功能。可以**不聚合但计算同组信息**，如排名、累计、前后行对比等。 | 特性 | GROUP BY | 窗口函数 | |---|---|---| | 行数变化 | 聚合后行数减少 | **保留所有行** | | 聚合粒度 | 全组聚合 | **每行都看全组** | | 排序 | 自动排序 | ORDER BY 控制 | | 性能 | 通常更快 | 略慢（计算每行</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>MGR 组复制</title>
+      <link>https://java-px.bot.cd/mysql/07-ha/mgr</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/07-ha/mgr</guid>
+      <description>&gt; MGR（MySQL Group Replication）是 MySQL 5.7.17+ 官方推出的高可用与高扩展方案，基于 Paxos 协议实现强一致性。 MGR 是 MySQL 官方提供的 **多主同步复制** 方案，支持： - **单主模式**：1 主多从，自动选主 - **多主模式**：多主多从，任何节点都可写 | 特性 | MHA | MGR | |---|---|---| | 切换时</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>MHA 故障切换</title>
+      <link>https://java-px.bot.cd/mysql/07-ha/mha</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/07-ha/mha</guid>
+      <description>&gt; MHA（Master High Availability）是业界成熟的 MySQL 主库故障自动切换方案，30 秒内完成切换，数据零丢失。 MHA 由日本 DeNA 公司开发的一套 **MySQL 高可用解决方案**，专注于 **主库故障自动切换**。 **切换时间：10-30 秒** **数据丢失：0 字节**（基于半同步复制） - 切换时间短（10-30 秒） - 数据零丢失（需半同步复制</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>ProxySQL 中间件</title>
+      <link>https://java-px.bot.cd/mysql/07-ha/proxysql</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/07-ha/proxysql</guid>
+      <description>&gt; ProxySQL 是高性能的 MySQL 代理，提供查询路由、读写分离、连接池、查询缓存等功能，是 MySQL 架构中常用的中间件。 ProxySQL 是一个 **高性能的 MySQL 代理**，位于应用和 MySQL 之间： **ProxySQL 核心：** - ✅ 读写分离（自动路由） - ✅ 连接池（节省 MySQL 资源） - ✅ 查询缓存（提升性能） - ✅ 限流熔断（保护 MySQ</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>performance_schema</title>
+      <link>https://java-px.bot.cd/mysql/09-monitoring/performance-schema</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/09-monitoring/performance-schema</guid>
+      <description>&gt; performance_schema 是 MySQL 5.5+ 提供的**内置性能监控框架**，可以观测到 MySQL 内部的运行细节，是定位深层次问题的利器。 performance_schema 是 MySQL **引擎级的监控框架**，在存储引擎层采集性能数据。 | 表名 | 用途 | |---|---| | events_statements_summary_by_digest | S</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>慢查询日志</title>
+      <link>https://java-px.bot.cd/mysql/09-monitoring/slow-log</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/09-monitoring/slow-log</guid>
+      <description>&gt; 慢查询日志是性能优化的"第一道防线"。开启它，定位慢查询，才能进行后续优化。 MySQL 记录所有**执行时间超过阈值**的 SQL 到日志文件，是定位慢查询的**最直接手段**。 | 字段 | 含义 | |---|---| | Time | 查询时间 | | User@Host | 用户和客户端 IP | | Query_time | 查询耗时（秒） | | Lock_time | 等待锁的</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>Prometheus + mysqld_exporter</title>
+      <link>https://java-px.bot.cd/mysql/09-monitoring/prometheus</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/09-monitoring/prometheus</guid>
+      <description>&gt; Prometheus + Grafana 是云原生时代的标准监控方案，配合 mysqld_exporter 可以实现 MySQL 的**全方位生产级监控**。 **关键面板：** - MySQL Up/Down - QPS / TPS - 连接数 - 慢查询数量 - Buffer Pool 命中率 - 主从延迟 - 锁等待 - 复制状态 **监控体系核心：** - ✅ mysqld_expor</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>知识图谱</title>
+      <link>https://java-px.bot.cd/mysql/graph</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/graph</guid>
+      <description>&gt; 全局可视化展示 MySQL 的 **50 个核心概念** 与它们之间的 **80+ 条关联关系** &gt; &gt; 💡 提示：拖动节点调整布局，点击节点跳转对应文档，悬停查看高亮关系。 &lt;KnowledgeGraph :height="700" src="/graph.json" /&gt; | 分类 | 节点数 | 代表概念 | |---|---|---| | 🏛️ 基础层 | 6 | InnoDB /</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>思维导图</title>
+      <link>https://java-px.bot.cd/mysql/mindmap</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/mindmap</guid>
+      <description>&gt; 按 **11 大主题** 分类的结构化导图，支持展开/收起，点击叶子节点跳转对应文档。 &lt;MindMap :height="720" /&gt; - [体系结构](01-foundation/architecture) - MySQL 是怎么运行的 - [存储引擎](01-foundation/storage-engine) - InnoDB vs MyISAM vs MEMORY - [数据类型]</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>SQL 速查表</title>
+      <link>https://java-px.bot.cd/mysql/cheatsheet</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/cheatsheet</guid>
+      <description>&gt; 30+ 常用 SQL 模板，**支持搜索 + 一键复制**。覆盖 CRUD / DDL / 查询 / 聚合 / JOIN / 索引 / 事务 / 性能 / 运维 9 大类。 &lt;SqlCheatsheet /&gt;</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>学习路径</title>
+      <link>https://java-px.bot.cd/mysql/path</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/path</guid>
+      <description>&gt; 不知道从哪里开始？按照这个路径，**4 阶段从入门到精通**，每阶段 1-2 周时间。 理解 MySQL 是什么，能写出基本的 CRUD SQL。 1. **[🏛️ 体系结构](01-foundation/architecture.md)** — MySQL 是怎么运行的（连接器 / 查询缓存 / 分析器 / 优化器 / 执行器） 2. **[🔧 存储引擎](01-foundation/sto</description>
+      <pubDate>Sat, 18 Jul 2026 15:16:15 -0000</pubDate>
+    </item>
+  </channel>
+</rss>

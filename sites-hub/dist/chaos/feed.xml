@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>chaos - Scholar's Atlas</title>
+    <link>https://java-px.bot.cd/chaos/</link>
+    <atom:link href="https://java-px.bot.cd/chaos/feed.xml" rel="self" type="application/rss+xml" />
+    <description>chaos 知识图谱（32 页）</description>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 16 Aug 2026 09:03:50 -0000</lastBuildDate>
+    <item>
+      <title>chaos 知识图谱</title>
+      <link>https://java-px.bot.cd/chaos/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "Netflix Chaos Monkey 起源：混沌工程到底解决什么问题？", "稳态假设（steady state）怎么定义才不会被实验打破？", "爆炸半径（blast radius）如何控制才安全？", "Chaos Mesh / Litmus / Gremlin / ChaosBlade 工具怎么选？"</description>
+      <pubDate>Sat, 15 Aug 2026 19:04:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>限流与降级</title>
+      <link>https://java-px.bot.cd/chaos/05-resilience-patterns/rate-limit-degrade</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/05-resilience-patterns/rate-limit-degrade</guid>
+      <description>**1. 令牌桶（Token Bucket）**： - 桶容量 N，每 R 秒加 1 个令牌 - 请求消耗 1 个令牌，无令牌则拒绝 - 允许突发（桶满时可瞬时 N 个） **2. 漏桶（Leaky Bucket）**： - 请求进入桶，桶以固定速率漏水 - 桶满则溢出（拒绝） - 强制平滑输出 **3. 滑动窗口（Sliding Window）**： - 滚动时间窗口（1 分钟内最多 N 个请求</description>
+      <pubDate>Wed, 12 Aug 2026 21:08:20 -0000</pubDate>
+    </item>
+    <item>
+      <title>舱壁与隔离</title>
+      <link>https://java-px.bot.cd/chaos/05-resilience-patterns/bulkhead</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/05-resilience-patterns/bulkhead</guid>
+      <description>**1. 线程池隔离**： - 每个下游服务一个独立线程池 - payment-service 线程池满 → order-service 不受影响 - 缺点：线程上下文切换开销 **2. 信号量隔离**： - 轻量（不切换线程） - 仅限制并发数，不隔离线程 - 适用：纯计算型调用 **3. 进程隔离**： - 每个下游服务独立进程（Sidecar） - Istio / Linkerd 默认采用</description>
+      <pubDate>Wed, 12 Aug 2026 21:08:20 -0000</pubDate>
+    </item>
+    <item>
+      <title>开源 vs 商业（Gremlin）</title>
+      <link>https://java-px.bot.cd/chaos/04-platform-compare/open-vs-commercial</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/04-platform-compare/open-vs-commercial</guid>
+      <description>**Gremlin 公司**： - 2018 商业化 / 总部旧金山 - 创始人：Kolton Andrus（前 AWS Chaos Engineer） - 累计融资：5500 万美元（B / C 轮） **产品套餐**： - **Free**：$0，10 个 Pod，单用户 - **Pro**：$5k/月（年付 $60k），500 Pod，5 用户 - **Enterprise**：$20k+/</description>
+      <pubDate>Wed, 12 Aug 2026 21:08:20 -0000</pubDate>
+    </item>
+    <item>
+      <title>Chaos Mesh vs Litmus</title>
+      <link>https://java-px.bot.cd/chaos/04-platform-compare/mesh-vs-litmus</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/04-platform-compare/mesh-vs-litmus</guid>
+      <description>| 维度 | Chaos Mesh | Litmus | |---|---|---| | CRD 数量 | 10+ 故障类型 | 3 核心 | | 故障定义位置 | Chaos CRD 内联 | ChaosExperiment 单独资源 | | Probe 机制 | 间接验证（dashboard / Grafana） | 内置 5 种 Probe 类型 | | 工作流 | Workflow CRD</description>
+      <pubDate>Wed, 12 Aug 2026 21:08:20 -0000</pubDate>
+    </item>
+    <item>
+      <title>角色分工</title>
+      <link>https://java-px.bot.cd/chaos/06-game-day/roles</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/06-game-day/roles</guid>
+      <description>**1. 指挥官（Game Master / Commander）**： - 主持游戏日 - 选择故障场景 + 决定爆炸半径 - 决定「继续 / 暂停 / 中止」 - **绝对权威**：业务影响超阈值 → 立即 kill chaos **2. 注入者（Injector）**： - 执行 chaos 命令（kubectl apply / ChaosBlade CLI） - 监控 chaos 状态 -</description>
+      <pubDate>Wed, 12 Aug 2026 21:08:20 -0000</pubDate>
+    </item>
+    <item>
+      <title>选型决策树</title>
+      <link>https://java-px.bot.cd/chaos/04-platform-compare/decision-tree</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/04-platform-compare/decision-tree</guid>
+      <description>**Step 1：你的运行时是什么？** - **仅 K8s** → Chaos Mesh 或 Litmus（两大开源主力） - **K8s + VM** → Litmus / Gremlin / ChaosBlade（多运行时支持） - **VM + Host**（传统数据中心） → Gremlin / ChaosBlade（覆盖宿主机） - **多云**（AWS/GCP/Azure） → Gr</description>
+      <pubDate>Wed, 12 Aug 2026 21:08:20 -0000</pubDate>
+    </item>
+    <item>
+      <title>多活与灾备</title>
+      <link>https://java-px.bot.cd/chaos/05-resilience-patterns/multi-region-dr</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/05-resilience-patterns/multi-region-dr</guid>
+      <description>**多活（Active-Active）**： - 多个 Region 同时服务流量 - 任意 Region 故障，其他 Region 接管 - 资源利用率高（无闲置） **灾备（Active-Passive / DR）**： - 主 Region 服务流量，备 Region 待机 - 主 Region 故障，备 Region 接管 - 资源利用率低（备 Region 闲置） | 级别 | RTO（</description>
+      <pubDate>Wed, 12 Aug 2026 21:08:20 -0000</pubDate>
+    </item>
+    <item>
+      <title>Litmus SDK</title>
+      <link>https://java-px.bot.cd/chaos/03-litmus/sdk</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/03-litmus/sdk</guid>
+      <description>Litmus 提供 Go SDK 用于编写自定义实验。 **SDK 核心 API**： **实验参数定义（环境变量）**： 1. 在 `litmus-go/contrib/developer-experiments/` 创建新目录 2. 实现 main.go（使用 SDK） 3. 添加 Dockerfile 4. 创建 ChaosExperiment CRD（指向你的镜像） 5. 注册到 Chao</description>
+      <pubDate>Wed, 12 Aug 2026 21:08:20 -0000</pubDate>
+    </item>
+    <item>
+      <title>工作流编排</title>
+      <link>https://java-px.bot.cd/chaos/02-chaos-mesh/workflow</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/02-chaos-mesh/workflow</guid>
+      <description>**Workflow 是 Chaos Mesh 的多步骤实验编排（DAG）**。 **典型场景**： - 大促前全链路验证（订单 → 支付 → 库存 → 物流） - 跨服务故障传播测试 - 复杂业务场景模拟（用户下单 → 失败 → 重试 → 成功） **优势**： - 多步骤串联（真实场景模拟） - 状态可视化（chaos-dashboard 显示每个步骤） - 失败自动中止 + 通知 - 与 S</description>
+      <pubDate>Wed, 12 Aug 2026 21:08:20 -0000</pubDate>
+    </item>
+    <item>
+      <title>演练设计</title>
+      <link>https://java-px.bot.cd/chaos/06-game-day/exercise-design</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/06-game-day/exercise-design</guid>
+      <description>**Step 1：确定演练目标** - 示例：「验证大促期间 Region 故障时的应急能力」 - 目标要 SMART：Specific / Measurable / Achievable / Relevant / Time-bound **Step 2：选择故障场景** - 故障画像优先级（P × I 模型） - 本季度 TOP 5 故障 **Step 3：设计爆炸半径** - L1（首次）：1</description>
+      <pubDate>Wed, 12 Aug 2026 21:08:20 -0000</pubDate>
+    </item>
+    <item>
+      <title>实战案例</title>
+      <link>https://java-px.bot.cd/chaos/07-observability-for-chaos/case-study</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/07-observability-for-chaos/case-study</guid>
+      <description>**Vizceral**：Netflix 开源实时流量拓扑图 - 显示服务间流量（线宽代表 QPS） - Chaos Monkey 注入故障 → Vizceral 实时显示流量转移 - SRE 一眼看出「哪些服务受影响」 **关键洞察**： - 故障注入是「视觉化」的 - 团队可以「看到」故障传播 - 沟通效率提升（不用看 dashboard） **M3**：Uber 自研时序数据库（基于 Cas</description>
+      <pubDate>Wed, 12 Aug 2026 21:08:20 -0000</pubDate>
+    </item>
+    <item>
+      <title>SLO 反馈环</title>
+      <link>https://java-px.bot.cd/chaos/07-observability-for-chaos/slo-feedback-loop</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/07-observability-for-chaos/slo-feedback-loop</guid>
+      <description>**SLI（Service Level Indicator）**：可度量的指标 - 例：订单成功率、P99 延迟 **SLO（Service Level Objective）**：目标值 - 例：99.5% 成功率、P99 &lt; 1.5s **Error Budget**：可消耗的错误预算 - 例：每月 0.5% 错误预算 **每月 Error Budget 计算**： 例：SLO 99.5% ×</description>
+      <pubDate>Wed, 12 Aug 2026 21:08:20 -0000</pubDate>
+    </item>
+    <item>
+      <title>稳态假设度量</title>
+      <link>https://java-px.bot.cd/chaos/07-observability-for-chaos/measure-steady-state</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/07-observability-for-chaos/measure-steady-state</guid>
+      <description>**1. 业务指标（KBI）**： - 电商：订单成功率 / 支付成功率 - 视频：缓冲率 / 卡顿率 / 首帧时间 - 金融：交易成功率 / 清算时效 **2. 系统指标（SLI）**： - 可用性：成功率 = 成功请求 / 总请求 - 延迟：P50 / P95 / P99 - 吞吐：QPS / TPS - 错误：错误率 / 5xx 比例 **3. 资源指标**： - CPU / 内存 / 磁盘</description>
+      <pubDate>Wed, 12 Aug 2026 21:01:58 -0000</pubDate>
+    </item>
+    <item>
+      <title>复盘与改进</title>
+      <link>https://java-px.bot.cd/chaos/06-game-day/retro</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/06-game-day/retro</guid>
+      <description>**Blameless（无指责）原则**： - 聚焦「系统如何失败」而非「谁犯了错」 - 故障 = 学习机会 - 严禁「追责文化」 **事实优先**： - 时间线 + 数据 + 截图 - 不猜测、不臆断、不甩锅 **学习导向**： - 每个故障都是改进机会 - 输出 Action Items（不是抱怨） **公开分享**： - 内部 Wiki / 公众号 - 跨团队学习 **Jira Epic 模</description>
+      <pubDate>Wed, 12 Aug 2026 21:01:58 -0000</pubDate>
+    </item>
+    <item>
+      <title>熔断器</title>
+      <link>https://java-px.bot.cd/chaos/05-resilience-patterns/circuit-breaker</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/05-resilience-patterns/circuit-breaker</guid>
+      <description>熔断器三态： **CLOSED（关闭）**：正常状态，请求正常通过。 **OPEN（开启）**：错误率超阈值，所有请求直接失败（不调用下游）。 **HALF_OPEN（半开）**：经过 sleepWindow 后，允许少量探测请求。成功 → CLOSED，失败 → OPEN。 **关键参数**： - `failureRateThreshold`：错误率阈值（默认 50%） - `slidingWi</description>
+      <pubDate>Wed, 12 Aug 2026 21:01:58 -0000</pubDate>
+    </item>
+    <item>
+      <title>重试与退避</title>
+      <link>https://java-px.bot.cd/chaos/05-resilience-patterns/retry-backoff</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/05-resilience-patterns/retry-backoff</guid>
+      <description>**1. 重试条件**： - 重试：网络错误 / 超时 / 5xx / 特定业务码 - 不重试：4xx（业务错误 / 权限 / 参数错误） **2. 退避策略**： - **指数退避（Exponential Backoff）**：`delay = base * 2^attempt` - 示例：1s, 2s, 4s, 8s, 16s - **指数退避 + 抖动（Jitter）**：`delay =</description>
+      <pubDate>Wed, 12 Aug 2026 21:01:58 -0000</pubDate>
+    </item>
+    <item>
+      <title>Probe 与 Check</title>
+      <link>https://java-px.bot.cd/chaos/03-litmus/probe-check</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/03-litmus/probe-check</guid>
+      <description>Litmus 提供五种 Probe 类型，用于显式断言实验成功/失败： **1. httpProbe**： **2. cmdProbe**： **3. promProbe**： **4. sqlProbe**： **5. k8sProbe**： **Continuous（持续探测）**： - 实验期间持续探测 - 失败立即中止实验 - 默认模式 **OnChaos（故障时探测）**： - 仅在故障</description>
+      <pubDate>Wed, 12 Aug 2026 21:01:58 -0000</pubDate>
+    </item>
+    <item>
+      <title>ChaosExperiment CRD</title>
+      <link>https://java-px.bot.cd/chaos/03-litmus/chaos-experiment</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/03-litmus/chaos-experiment</guid>
+      <description>Litmus 的 CRD 分三层： 1. **ChaosExperiment**：故障定义（可复用） 2. **ChaosEngine**：实验编排（绑定 Experiment + Probe） 3. **ChaosSchedule**：定时调度（cron 触发） **ChaosExperiment 示例**： **ChaosEngine 示例**： **ChaosSchedule 示例**： 通</description>
+      <pubDate>Wed, 12 Aug 2026 21:01:58 -0000</pubDate>
+    </item>
+    <item>
+      <title>NetworkChaos 实验</title>
+      <link>https://java-px.bot.cd/chaos/02-chaos-mesh/network-chaos</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/02-chaos-mesh/network-chaos</guid>
+      <description>NetworkChaos 支持六种网络故障动作： **1. delay（延迟）**： **2. loss（丢包）**： **3. duplicate（重复）**： **4. corrupt（损坏）**： **5. partition（分区）**： **6. bandwidth（带宽限制）**： **场景**：验证 checkout-service 在跨 AZ 网络延迟 200ms 时的可用性。 *</description>
+      <pubDate>Wed, 12 Aug 2026 21:01:58 -0000</pubDate>
+    </item>
+    <item>
+      <title>PodChaos 实验</title>
+      <link>https://java-px.bot.cd/chaos/02-chaos-mesh/pod-chaos</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/02-chaos-mesh/pod-chaos</guid>
+      <description>PodChaos 支持四种故障动作： **1. pod-kill**： - SIGKILL 杀进程（立即） - 最常见场景：验证 Pod 重启 + 流量转移 - 应用：Deployments / StatefulSets / DaemonSets **2. pod-failure**： - 容器启动失败（不可恢复） - 需要手动删除 Pod 才能恢复 - 应用：测试 readinessProbe</description>
+      <pubDate>Wed, 12 Aug 2026 21:01:58 -0000</pubDate>
+    </item>
+    <item>
+      <title>Chaos Mesh 架构</title>
+      <link>https://java-px.bot.cd/chaos/02-chaos-mesh/architecture</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/02-chaos-mesh/architecture</guid>
+      <description>Chaos Mesh 由三个核心组件构成： **1. chaos-controller-manager**： - 监听 CRD 变化（PodChaos / NetworkChaos / StressChaos 等 11 种） - 调度 chaos daemon 执行故障 - 高可用：Deployment 多副本 + leader election - 资源占用低（&lt; 256Mi 内存 / 100m</description>
+      <pubDate>Wed, 12 Aug 2026 21:01:58 -0000</pubDate>
+    </item>
+    <item>
+      <title>爆炸半径</title>
+      <link>https://java-px.bot.cd/chaos/01-foundations/blast-radius</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/01-foundations/blast-radius</guid>
+      <description>爆炸半径（Blast Radius）是「实验失败时的最大影响范围」。分级管理： | 级别 | 流量 | 实例 | 区域 | 时长 | 适用 | |---|---|---|---|---|---| | L1 · 单测 | 0% | 1 Pod | 单 AZ | 5s | 首次实验 | | L2 · 金丝雀 | 1% | 10% Pods | 单 AZ | 30s | 灰度验证 | | L3 · 灰度</description>
+      <pubDate>Wed, 12 Aug 2026 21:01:58 -0000</pubDate>
+    </item>
+    <item>
+      <title>稳态假设</title>
+      <link>https://java-px.bot.cd/chaos/01-foundations/steady-state</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/01-foundations/steady-state</guid>
+      <description>稳态（Steady State）是系统在正常情况下的可度量行为模式。它是混沌实验的「对照组」—— 没有稳态，实验结果无法解读。 **稳态三要素**： 1. **可度量的指标（Measurable）**：CPU 使用率、订单成功率、P99 延迟、错误率等 2. **基线值（Baseline）**：过去 7 天 / 30 天的 P50 / P95 / P99 3. **区间范围（Range）**：不是</description>
+      <pubDate>Wed, 12 Aug 2026 21:01:58 -0000</pubDate>
+    </item>
+    <item>
+      <title>历史与哲学</title>
+      <link>https://java-px.bot.cd/chaos/01-foundations/history</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/01-foundations/history</guid>
+      <description>混沌工程的起源可以追溯到 2010 年 Netflix 的云架构迁移。当时 Netflix 把单体应用迁移到 AWS 云上，失去对硬件的直接控制，需要一种方法来验证云上系统的韧性。 2010 年 Netflix 内部开始开发 Chaos Monkey，自动随机终止 EC2 实例。2012 年 Netflix 把 Chaos Monkey 开源，业界开始关注。2014 年 Netflix 推出 Si</description>
+      <pubDate>Wed, 12 Aug 2026 21:01:58 -0000</pubDate>
+    </item>
+    <item>
+      <title>混沌工程的可观测性</title>
+      <link>https://java-px.bot.cd/chaos/07-observability-for-chaos/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/07-observability-for-chaos/overview</guid>
+      <description>混沌工程的「**稳态假设**」和「**实验验证**」都依赖可观测性。没有可观测性，混沌实验就是「**盲目破坏**」。 **可观测性三支柱**： - **Metrics（指标）**：聚合数值（CPU / 错误率 / QPS），用于稳态判读 - **Logs（日志）**：离散事件（异常堆栈），用于根因定位 - **Traces（追踪）**：请求链路（跨服务），用于性能瓶颈 **混沌实验的三层观测**：</description>
+      <pubDate>Wed, 12 Aug 2026 20:58:42 -0000</pubDate>
+    </item>
+    <item>
+      <title>游戏日（Game Day）总览</title>
+      <link>https://java-px.bot.cd/chaos/06-game-day/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/06-game-day/overview</guid>
+      <description>游戏日（Game Day）是**组织级混沌演练活动**：在受控环境下，跨团队协作模拟真实故障，验证系统韧性 + 团队应急能力。 **与单次混沌实验的区别**： | 维度 | 单次混沌实验 | 游戏日 | |---|---|---| | 规模 | 单一服务 / 单一故障 | 多服务 / 多故障 / 多团队 | | 时间 | 30 秒 - 5 分钟 | 2-8 小时 | | 目的 | 验证韧性假设 |</description>
+      <pubDate>Wed, 12 Aug 2026 20:58:22 -0000</pubDate>
+    </item>
+    <item>
+      <title>韧性模式总览</title>
+      <link>https://java-px.bot.cd/chaos/05-resilience-patterns/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/05-resilience-patterns/overview</guid>
+      <description>韧性模式（Resilience Patterns）是**系统应对故障的设计模式**，与设计模式（Design Patterns）层级类似，但聚焦「**在故障下保持功能**」而非「解决常见设计问题」。 **与设计模式的关系**： - 设计模式（design-pattern 站）：OO / 架构 / 分布式模式（Circuit Breaker / Bulkhead 属于这一类） - 韧性模式（本节）：</description>
+      <pubDate>Wed, 12 Aug 2026 20:57:54 -0000</pubDate>
+    </item>
+    <item>
+      <title>混沌工程工具对比</title>
+      <link>https://java-px.bot.cd/chaos/04-platform-compare/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/04-platform-compare/overview</guid>
+      <description>2024 年混沌工程工具生态已形成 **「四足鼎立」**： | 工具 | 项目方 | 状态 | 运行时 | 部署方式 | 学习曲线 | |---|---|---|---|---|---| | **Chaos Mesh** | PingCAP | CNCF Graduated | K8s only | Operator + DaemonSet | 中 | | **Litmus** | MayaDat</description>
+      <pubDate>Wed, 12 Aug 2026 20:57:31 -0000</pubDate>
+    </item>
+    <item>
+      <title>Litmus 总览</title>
+      <link>https://java-px.bot.cd/chaos/03-litmus/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/03-litmus/overview</guid>
+      <description>Litmus 是 **CNCF Incubating 项目**（2021 年进入 Sandbox，2023 年 Incubating），最初由 MayaData 开源，专注 **Kubernetes + 云的混沌工程**。 **核心理念**： - Chaos Experiments 即代码（CRD） - ChaosHub 实验市场（社区贡献 50+ 预置实验） - Probe-based 验证（显</description>
+      <pubDate>Wed, 12 Aug 2026 20:57:13 -0000</pubDate>
+    </item>
+    <item>
+      <title>Chaos Mesh 总览</title>
+      <link>https://java-px.bot.cd/chaos/02-chaos-mesh/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/02-chaos-mesh/overview</guid>
+      <description>Chaos Mesh 是 **CNCF Graduated 项目**（2024 年毕业），由 PingCAP 团队 2019 年 12 月开源，2021 年 2 月进入 CNCF Sandbox，2022 年 6 月晋升 Incubating，2023 年 12 月发布 v2.6（Workflow / Schedule / Resource Manager 全面成熟），2024 年 11 月毕业（</description>
+      <pubDate>Wed, 12 Aug 2026 20:56:49 -0000</pubDate>
+    </item>
+    <item>
+      <title>混沌工程基础总览</title>
+      <link>https://java-px.bot.cd/chaos/01-foundations/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/01-foundations/overview</guid>
+      <description>混沌工程（Chaos Engineering）是在生产环境或类生产环境中，**主动注入可控故障**来验证系统韧性的工程实践。 它不是「破坏测试」（break things），也不是「故障演练」（drill）的同义词，而是一套**有方法论、有工具、有度量的科学实验体系**。 2010 年 Netflix 的云架构迁移催生了 Chaos Monkey，2012 年公开后引发业界跟进；2014 年 Ne</description>
+      <pubDate>Wed, 12 Aug 2026 20:09:15 -0000</pubDate>
+    </item>
+  </channel>
+</rss>

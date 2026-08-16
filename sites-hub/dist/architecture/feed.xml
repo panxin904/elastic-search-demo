@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>architecture - Scholar's Atlas</title>
+    <link>https://java-px.bot.cd/architecture/</link>
+    <atom:link href="https://java-px.bot.cd/architecture/feed.xml" rel="self" type="application/rss+xml" />
+    <description>architecture 知识图谱（51 页）</description>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 16 Aug 2026 09:03:50 -0000</lastBuildDate>
+    <item>
+      <title>企业级架构知识图谱</title>
+      <link>https://java-px.bot.cd/architecture/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "会写 CRUD 却讲不清 CAP 定理", "知道消息队列但说不清幂等性设计", "调过限流却不懂令牌桶 vs 滑动窗口的区别", "用了 Seata 却不知道 AT 模式的 undo_log 怎么工作", "部署过微服务但没读过 DDD" ]" :goals="[ "JMM / happens-before</description>
+      <pubDate>Sat, 15 Aug 2026 18:30:02 -0000</pubDate>
+    </item>
+    <item>
+      <title>BASE / 最终一致性</title>
+      <link>https://java-px.bot.cd/architecture/03-ha-theory/base</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/03-ha-theory/base</guid>
+      <description>Eric Brewer 提出，CAP 的 AP 选择方案： - **B**asically **A**available（基本可用） - **S**oft state（软状态，状态可以暂时不一致） - **E**ventually consistent（最终一致） **核心思想**：放弃强一致，换可用性 + 最终一致。 | ACID（传统数据库） | BASE（分布式） | |----------</description>
+      <pubDate>Sat, 15 Aug 2026 18:23:25 -0000</pubDate>
+    </item>
+    <item>
+      <title>volatile / final</title>
+      <link>https://java-px.bot.cd/architecture/01-concurrency-theory/volatile</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/01-concurrency-theory/volatile</guid>
+      <description>| 特性 | 含义 | |------|------| | **可见性** | 写立刻刷主内存，读从主内存读 | | **禁止重排** | 写前后加 StoreLoad 屏障 | | **不保证原子性** | `count++` 仍是三步操作，非原子 | &gt; volatile 是**轻量级同步**：性能优于 synchronized（无 monitorenter/exit）。 **JMM 底层用</description>
+      <pubDate>Sat, 15 Aug 2026 11:58:57 -0000</pubDate>
+    </item>
+    <item>
+      <title>CAS / Lock-Free</title>
+      <link>https://java-px.bot.cd/architecture/01-concurrency-theory/cas</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/01-concurrency-theory/cas</guid>
+      <description>**Compare-And-Swap**（比较并交换），CPU 硬件原语： **乐观锁**：不断重试直到成功。 **解决**：版本号（AtomicStampedReference）或加锁。 高竞争下 CAS 反复失败 → CPU 空转。**解决**：自适应自旋 / Exponential Backoff / 让出 CPU。 CAS 只能保护**一个**变量。多变量一致性需要**事务 / 锁**。</description>
+      <pubDate>Sat, 15 Aug 2026 11:58:57 -0000</pubDate>
+    </item>
+    <item>
+      <title>ForkJoinPool</title>
+      <link>https://java-px.bot.cd/architecture/02-thread-pool/forkjoin</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/02-thread-pool/forkjoin</guid>
+      <description>**分治（divide and conquer）+ 工作窃取（work-stealing）**： - **每个线程有自己 deque**（双端队列） - **空闲线程从别人的 deque 尾部偷任务**（work-stealing） - **自己的 deque LIFO（FILO）** 拿最新任务（hot cache） 1. **充分利用多核**：递归拆任务并行 2. **负载均衡**：自动从繁忙</description>
+      <pubDate>Sat, 15 Aug 2026 11:58:57 -0000</pubDate>
+    </item>
+    <item>
+      <title>思维导图</title>
+      <link>https://java-px.bot.cd/architecture/mindmap</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/mindmap</guid>
+      <description>&lt;ClientOnly&gt;&lt;MindMap :height="940" /&gt;&lt;/ClientOnly&gt;</description>
+      <pubDate>Wed, 05 Aug 2026 20:12:38 -0000</pubDate>
+    </item>
+    <item>
+      <title>异地多活</title>
+      <link>https://java-px.bot.cd/architecture/14-enterprise-cases/multi-region</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/14-enterprise-cases/multi-region</guid>
+      <description>单机房： 简单、低成本 单点故障：地震 / 火灾 / 电力 → 全站停 容量天花板（一个机房） 延迟：异地用户访问慢 异地多活：多机房同时服务 容灾（任一机房挂了其他接管） 就近访问（用户走最近机房） 容量扩展（横向） 复杂（数据同步 / 流量调度 / 一致性） 机房 A 和 B 在同一城市，RTT &lt; 2ms。 适用：金融 / 支付 / 关键业务。 成本：高（机房 + 专线）。 主机房 + 异地</description>
+      <pubDate>Thu, 30 Jul 2026 20:03:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>短链系统</title>
+      <link>https://java-px.bot.cd/architecture/14-enterprise-cases/short-url</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/14-enterprise-cases/short-url</guid>
+      <description>长链 https://example.com/article/2024/01/15/long-title → 短链 https://ex.co/Ab3xY 点击短链 → 302 跳转长链 | 要求 | 数值 | |------|------| | QPS | 100 万 (读) / 1 万 (写) | | 延迟 | P99 &lt; 50ms | | 存储 | 千亿短链 / PB 级 | | 命中率 |</description>
+      <pubDate>Thu, 30 Jul 2026 20:03:39 -0000</pubDate>
+    </item>
+    <item>
+      <title>秒杀系统</title>
+      <link>https://java-px.bot.cd/architecture/14-enterprise-cases/flash-sale</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/14-enterprise-cases/flash-sale</guid>
+      <description>秒杀 = 100 万用户抢 100 件商品 99% 请求是"无效"的（用户抢不到） 1% 请求是"有效"的（抢到） → 系统要在极端流量下保持稳定 → 不能超卖 → 用户体验好 三大挑战： 1. 瞬时高并发：100 万 QPS，10 万倍日常流量 2. 读多写少：库存查询 1000x，写 1x 3. 超卖防护：原子扣减，不能超卖 好处：秒杀服务快速返回，DB 写入异步。 两层防护： 1. Redi</description>
+      <pubDate>Thu, 30 Jul 2026 20:03:25 -0000</pubDate>
+    </item>
+    <item>
+      <title>OpenTelemetry</title>
+      <link>https://java-px.bot.cd/architecture/13-observability/otel</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/13-observability/otel</guid>
+      <description>**OTel = OpenTracing + OpenCensus**（2021 合并），CNCF 项目。 **统一的可观测性标准**： - 一次 instrumentation - 多语言 SDK（Java/Go/Node/Python/Rust/...） - 多个后端导出（Jaeger / Prometheus / Tempo / Zipkin / Datadog / NewRelic / 商</description>
+      <pubDate>Thu, 30 Jul 2026 20:01:43 -0000</pubDate>
+    </item>
+    <item>
+      <title>三大支柱 Metrics/Tracing/Logging</title>
+      <link>https://java-px.bot.cd/architecture/13-observability/three-pillars</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/13-observability/three-pillars</guid>
+      <description>| 支柱 | 回答什么问题 | 典型工具 | 数据形式 | |------|-------------|----------|---------| | **Metrics** | 系统在做什么 | Prometheus / Grafana | 数值 / 时序 | | **Tracing** | 请求经过哪些服务 | Jaeger / Zipkin / Tempo | span / trace |</description>
+      <pubDate>Thu, 30 Jul 2026 20:01:43 -0000</pubDate>
+    </item>
+    <item>
+      <title>Saga / Bulkhead</title>
+      <link>https://java-px.bot.cd/architecture/12-microservice-patterns/saga</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/12-microservice-patterns/saga</guid>
+      <description>详见 [Saga 模式](/07-distributed-tx/saga)。在微服务模式下： | | Saga | 同步 RPC | |--|------|----------| | 失败处理 | 自动补偿 | 需手动 try-catch | | 数据一致性 | 最终一致 | 强一致（锁） | | 性能 | 异步（快） | 同步（慢） | | 复杂度 | 中 | 低 | **实践**：用 Saga</description>
+      <pubDate>Thu, 30 Jul 2026 19:26:17 -0000</pubDate>
+    </item>
+    <item>
+      <title>Sidecar 模式</title>
+      <link>https://java-px.bot.cd/architecture/12-microservice-patterns/sidecar</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/12-microservice-patterns/sidecar</guid>
+      <description>**把不属于业务的"横切关注点"抽到独立的伴生容器**，与主容器共享网络/存储。 | 用途 | Sidecar 例子 | |------|------------| | **日志收集** | Filebeat / Fluentd / Vector | | **配置同步** | Confd / Reloader / ConfigMapWatcher | | **代理** | Envoy / Side</description>
+      <pubDate>Thu, 30 Jul 2026 19:26:17 -0000</pubDate>
+    </item>
+    <item>
+      <title>Service Mesh</title>
+      <link>https://java-px.bot.cd/architecture/12-microservice-patterns/service-mesh</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/12-microservice-patterns/service-mesh</guid>
+      <description>| 能力 | 说明 | |------|------| | **服务发现** | Sidecar 自动注册 + DNS | | **负载均衡** | 多种算法（轮询 / 最少连接 / 一致性 hash） | | **熔断** | Sidecar 层自动熔断（不用改应用） | | **重试 / 超时** | 配置即可 | | **mTLS** | Sidecar 自动证书管理 + 加密 | | **</description>
+      <pubDate>Thu, 30 Jul 2026 19:26:17 -0000</pubDate>
+    </item>
+    <item>
+      <title>事件风暴</title>
+      <link>https://java-px.bot.cd/architecture/11-ddd/event-storming</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/11-ddd/event-storming</guid>
+      <description>Alberto Brandolini 2013 提出，**DDD 战术设计**的核心实践。 **核心**：通过**领域事件**为线索，把业务完整地"铺"在工作墙上。 **为什么有效**： - 技术 + 业务 + 测试 + 设计师同处一室 - 不画 UML 类图，**只贴便签**（事件 + 命令 + 聚合 + 边界） - 一张图能装下整个业务 事件贴在时间轴上（从左到右）。 **关键**：每个命令贴</description>
+      <pubDate>Thu, 30 Jul 2026 19:25:30 -0000</pubDate>
+    </item>
+    <item>
+      <title>限界上下文</title>
+      <link>https://java-px.bot.cd/architecture/11-ddd/bounded-context</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/11-ddd/bounded-context</guid>
+      <description>| 上下文 | User 含义 | 关键属性 | |--------|----------|---------| | 销售 | 客户 | 邮箱 / 偏好 / 购买力 | | 客服 | 工单创建者 | 联系方式 / 历史工单 | | 风控 | 风控对象 | 设备指纹 / 风险评分 | | 认证 | 凭据主体 | 账号 / 密码 / Token | **错误**：把 4 个 User 合在一个表 /</description>
+      <pubDate>Thu, 30 Jul 2026 19:25:30 -0000</pubDate>
+    </item>
+    <item>
+      <title>DDD 聚合 / 实体 / 值对象</title>
+      <link>https://java-px.bot.cd/architecture/11-ddd/basics</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/11-ddd/basics</guid>
+      <description>**一个业务领域 = 多个限界上下文**。每个上下文有： - 自己的通用语言 - 自己的领域模型 - 自己的团队 - 自己的代码库 **关键**：**跨上下文通过 API / 事件**，**不共享数据库**。 有唯一标识的对象，**生命周期可变状态**。 **关键**：业务逻辑在实体上（不是贫血模型）。Getter 少，setter 几乎不用。 无唯一标识的对象，**只描述特征**。不可变。 **</description>
+      <pubDate>Thu, 30 Jul 2026 19:25:30 -0000</pubDate>
+    </item>
+    <item>
+      <title>分布式 ID</title>
+      <link>https://java-px.bot.cd/architecture/10-database-sharding/id</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/10-database-sharding/id</guid>
+      <description>分布式系统主键生成，不能再依赖 auto_increment（每库独立）。 **优**：简单，无单点。 **缺**：128-bit 太大（浪费）；无序（索引碎片化）；v4 信息熵大但无业务含义。 UUIDv7 = 时间戳（前 48 bit）+ 随机后缀 **优**：趋势递增（类似 Snowflake）、标准 RFC。 **优**：64-bit，趋势递增，高性能。 **缺**：时钟回拨问题（ntpd</description>
+      <pubDate>Thu, 30 Jul 2026 19:24:35 -0000</pubDate>
+    </item>
+    <item>
+      <title>路由 / 扩容</title>
+      <link>https://java-px.bot.cd/architecture/10-database-sharding/routing</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/10-database-sharding/routing</guid>
+      <description>**目标**：给定 sharding key，定位到具体 shard。 应用代码（@Sharding-JDBC / 业务自己算）： **优**：简单，零中间件。 **缺**：语言绑定；分库规则改动需改代码 + 重发布。 **优**：语言无关，集中管理。 **缺**：Proxy 单点 / 性能瓶颈 / 部署运维复杂。 TiDB / CockroachDB 自动分片，对应用透明。 **优**：零改造。</description>
+      <pubDate>Thu, 30 Jul 2026 19:24:35 -0000</pubDate>
+    </item>
+    <item>
+      <title>分库分表策略</title>
+      <link>https://java-px.bot.cd/architecture/10-database-sharding/strategy</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/10-database-sharding/strategy</guid>
+      <description>**分库分表**：水平拆分（拆行）+ 垂直拆分（拆列）。 **适用**：列冷热差异大，字段数多。 **优点**：DDL 简单，单表小。 **缺点**：单行 join 跨表（拆库后 join 难）。 **适用**：单表数据量爆炸。 **优点**：单表小（几亿 → 几千万），查询快。 **缺点**：跨 shard 聚合复杂。 **优点**：简单，平均分布。 **缺点**：扩容困难（4 库改 8 库 =</description>
+      <pubDate>Thu, 30 Jul 2026 19:24:35 -0000</pubDate>
+    </item>
+    <item>
+      <title>缓存一致性</title>
+      <link>https://java-px.bot.cd/architecture/09-cache/consistency</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/09-cache/consistency</guid>
+      <description>**特点**：代码简单，DB 是唯一事实源。 **问题**：写后立即读可能读到旧缓存（别人刚回填）。 **代表**：Caffeine loadingCache、Hazelcast。 **特点**：强一致，但慢。 写 cache 时序错乱 → 脏数据。 但仍有问题：T1 删 cache 后崩了，T2 已读 DB，但 cache 还没写新值。**下次读 cache 还是旧值**。 **第一次删**：让</description>
+      <pubDate>Thu, 30 Jul 2026 19:23:37 -0000</pubDate>
+    </item>
+    <item>
+      <title>缓存三大问题</title>
+      <link>https://java-px.bot.cd/architecture/09-cache/breakdown</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/09-cache/breakdown</guid>
+      <description>穿透 / 击穿 / 雪崩 —— 缓存系统最大的三个故障场景。 **场景**：查询一个**根本不存在**的数据 → 缓存没有 → 每次都打 DB → DB 被打死。 **1. 缓存空对象** **问题**：攻击大量不同 key → 内存被空对象占满。 **2. 布隆过滤器（Bloom Filter）** **优点**：极小内存判存在性。 **缺点**：有误判率（1%）。 **3. 限流 + WAF*</description>
+      <pubDate>Thu, 30 Jul 2026 19:23:37 -0000</pubDate>
+    </item>
+    <item>
+      <title>多级缓存架构</title>
+      <link>https://java-px.bot.cd/architecture/09-cache/architecture</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/09-cache/architecture</guid>
+      <description>**代表**：所有主流缓存库都支持。 **代表**：Hazelcast / Caffeine loadingCache。 **特点**：强一致，但慢。 **特点**：最快，但丢数据风险。 **延迟双删**：解决"先删缓存 → 并发请求回填旧值 → 写 DB → DB 旧值"问题。 | 场景 | 推荐 | |------|------| | 读多写少（电商详情）| Redis + 本地缓存 | |</description>
+      <pubDate>Thu, 30 Jul 2026 19:23:37 -0000</pubDate>
+    </item>
+    <item>
+      <title>死信队列 / 重试策略</title>
+      <link>https://java-px.bot.cd/architecture/08-message-queue/dlq</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/08-message-queue/dlq</guid>
+      <description>**或用 Spring Kafka 的 DefaultErrorHandler**： **重试 5 次都不会出错**：幂等保护 + 乐观锁 + 库存检查。 **重放**：修复后重发到主队列 **修复**：手动修改业务数据 **丢弃**：确认是无效消息（如重复） | 场景 | 重试 | DLQ | |------|------|-----| | 瞬态故障（网络抖动） | ✅ | | | 业务校验失败</description>
+      <pubDate>Thu, 30 Jul 2026 19:22:44 -0000</pubDate>
+    </item>
+    <item>
+      <title>顺序保证 / 幂等消费</title>
+      <link>https://java-px.bot.cd/architecture/08-message-queue/idempotency</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/08-message-queue/idempotency</guid>
+      <description>**仅分区内有序，跨分区无序**。 **保持顺序的关键**：相同业务 key 路由到相同 partition。 **消费端**：单 partition 单 consumer 可保证顺序。**多 consumer 同 group**：每个分区只被一个 consumer 消费。 **解决**： - 全部消息同 partition（同 key） - 或消费端按业务 ID 排序 MQ 默认 **at-le</description>
+      <pubDate>Thu, 30 Jul 2026 19:22:44 -0000</pubDate>
+    </item>
+    <item>
+      <title>Kafka vs RabbitMQ vs RocketMQ</title>
+      <link>https://java-px.bot.cd/architecture/08-message-queue/compare</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/08-message-queue/compare</guid>
+      <description>| | Kafka | RabbitMQ | RocketMQ | |--|-------|-----------|-----------| | 出品 | LinkedIn | RabbitMQ 公司（Pivotal） | 阿里 | | 定位 | 分布式日志（流处理） | 传统消息队列 | 阿里消息（金融级） | | 协议 | 自定义 TCP | AMQP 0-9-1 | 自定义 | | 性能 |</description>
+      <pubDate>Thu, 30 Jul 2026 19:22:44 -0000</pubDate>
+    </item>
+    <item>
+      <title>本地消息表</title>
+      <link>https://java-px.bot.cd/architecture/07-distributed-tx/local-table</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/07-distributed-tx/local-table</guid>
+      <description>**业务表和消息表写同一个本地事务** → 一定能发出去。 **保证**：业务成功 → 消息一定能被发出去（at-least-once 消息 + 业务强一致）。 ✅ **优点**： - **不丢消息**：业务和消息同事务 - **无 2PC**：纯本地事务，性能好 - **易实现**：一张表 + 一个定时器 ❌ **缺点**： - **轮询延迟**：秒级（可优化为 CDC / logtail） -</description>
+      <pubDate>Thu, 30 Jul 2026 19:21:42 -0000</pubDate>
+    </item>
+    <item>
+      <title>Saga 模式</title>
+      <link>https://java-px.bot.cd/architecture/07-distributed-tx/saga</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/07-distributed-tx/saga</guid>
+      <description>把分布式事务拆成**多个本地事务**，每个本地事务有对应的**补偿操作**。 中央协调者（Orchestrator）管理事务流程。 **代表**：Apache ServiceComb Saga、Seata Saga 模式、Cadence（Uber）。 无中心协调者，服务间通过**事件**联动。 **代表**：Apache Eventuate、Saga Pattern（经典论文）。 | | 2PC</description>
+      <pubDate>Thu, 30 Jul 2026 19:21:42 -0000</pubDate>
+    </item>
+    <item>
+      <title>TCC 模式</title>
+      <link>https://java-px.bot.cd/architecture/07-distributed-tx/tcc</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/07-distributed-tx/tcc</guid>
+      <description>TCC = **Try + Confirm + Cancel** 三阶段，把 2PC 的数据库层 prepare/commit 提到业务层。 协调者收到 A / B 都 "try ok" → 调 A / B 的 confirm 任何 try 失败 → 调 A / B 的 cancel 不是直接扣款，是"冻结" → 失败时可逆。 confirm 可能因网络重试 → 必须幂等（用业务 ID 去重）。</description>
+      <pubDate>Thu, 30 Jul 2026 19:21:42 -0000</pubDate>
+    </item>
+    <item>
+      <title>2PC / 3PC</title>
+      <link>https://java-px.bot.cd/architecture/07-distributed-tx/2pc</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/07-distributed-tx/2pc</guid>
+      <description>**Phase 1（Prepare）**： - Coordinator：你们能 commit 吗？ - A / B / C：执行但不提交，记 redo/undo log → 返回 "ready" - 任意一个返回 "no" → 中止 **Phase 2（Commit / Rollback）**： - 全部 ready → Coordinator 发 commit - A / B / C：真正提交</description>
+      <pubDate>Thu, 30 Jul 2026 19:21:42 -0000</pubDate>
+    </item>
+    <item>
+      <title>配置中心</title>
+      <link>https://java-px.bot.cd/architecture/06-microservice/config</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/06-microservice/config</guid>
+      <description>| 系统 | 特点 | |------|------| | **Nacos** | 配置 + 注册中心，国内最常用 | | **Apollo**（携程） | 配置中心，Java 生态，灰度完善 | | **Spring Cloud Config** | Spring 生态，Git 后端 | | **Consul KV** | 多数据中心，Service Mesh 配套 | | **etcd** |</description>
+      <pubDate>Thu, 30 Jul 2026 19:20:42 -0000</pubDate>
+    </item>
+    <item>
+      <title>API 网关</title>
+      <link>https://java-px.bot.cd/architecture/06-microservice/gateway</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/06-microservice/gateway</guid>
+      <description>| 功能 | 说明 | |------|------| | **路由** | URL / header / cookie → 服务 | | **鉴权** | OAuth2 / JWT / API Key 校验 | | **限流** | 令牌桶 / 漏桶 / 滑动窗口 | | **熔断** | 服务异常时快速失败 | | **协议转换** | HTTP → gRPC / WebSocket | |</description>
+      <pubDate>Thu, 30 Jul 2026 19:20:42 -0000</pubDate>
+    </item>
+    <item>
+      <title>服务发现</title>
+      <link>https://java-px.bot.cd/architecture/06-microservice/discovery</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/06-microservice/discovery</guid>
+      <description>代表：Eureka、Consul、Nacos、ZooKeeper **缺点**：语言绑定、客户端复杂 代表：Kubernetes Service + DNS、Consul Connect、Istio **优点**：客户端无感，跨语言 | 类型 | 用途 | 发现方式 | |------|------|---------| | ClusterIP | 集群内（默认） | DNS: my-svc.my</description>
+      <pubDate>Thu, 30 Jul 2026 19:20:42 -0000</pubDate>
+    </item>
+    <item>
+      <title>服务拆分原则</title>
+      <link>https://java-px.bot.cd/architecture/06-microservice/split</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/06-microservice/split</guid>
+      <description>按**限界上下文（Bounded Context）**拆： - 订单上下文（OrderContext）：订单、支付、物流 - 商品上下文（CatalogueContext）：商品、类目、库存 - 用户上下文（IdentityContext）：用户、认证、权限 每个上下文 = 一个服务（或多个聚合服务）。 &gt; "设计系统的组织，受限于沟通结构" 团队结构 = 系统结构。微服务团队 = 2 个披萨团队</description>
+      <pubDate>Thu, 30 Jul 2026 19:20:42 -0000</pubDate>
+    </item>
+    <item>
+      <title>Fallback 设计</title>
+      <link>https://java-px.bot.cd/architecture/05-circuit-breaker/fallback</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/05-circuit-breaker/fallback</guid>
+      <description>服务降级：限流/熔断后**还能返回有意义结果**，而不是直接报错。 | 策略 | 描述 | 适用 | |------|------|------| | **默认值** | 返回兜底值（null / empty list / {}） | 简单读 | | **缓存** | 返回 stale cache | 读多写少 | | **降级逻辑** | 简化版功能（如返回热门而非个性化） | 推荐系统 | |</description>
+      <pubDate>Thu, 30 Jul 2026 19:18:32 -0000</pubDate>
+    </item>
+    <item>
+      <title>Sentinel / Hystrix / Resilience4j</title>
+      <link>https://java-px.bot.cd/architecture/05-circuit-breaker/impl</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/05-circuit-breaker/impl</guid>
+      <description>Netflix 2012 出品，2018 宣布停止主动开发。**设计思想仍是标准**。 **关键概念**：Command 模式 + 滑动窗口统计 + 隔离（线程池 / 信号量）+ Fallback。 Java 8+ 函数式风格，轻量（无线程池隔离），模块化： **模块**： - CircuitBreaker（熔断） - Retry（重试） - RateLimiter（限流） - BulkHead（</description>
+      <pubDate>Thu, 30 Jul 2026 19:18:32 -0000</pubDate>
+    </item>
+    <item>
+      <title>熔断器三态</title>
+      <link>https://java-px.bot.cd/architecture/05-circuit-breaker/states</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/05-circuit-breaker/states</guid>
+      <description>Martin Fowler 2014 年提出。 | 状态 | 行为 | |------|------| | **CLOSED**（关闭） | 正常：所有请求通过；统计失败率 | | **OPEN**（断开） | 拒绝所有请求（fail fast）；超时后转 HALF_OPEN | | **HALF_OPEN**（半开）| 放少量探测请求；都成功 → CLOSED，有失败 → OPEN | | |</description>
+      <pubDate>Thu, 30 Jul 2026 19:18:32 -0000</pubDate>
+    </item>
+    <item>
+      <title>分布式限流</title>
+      <link>https://java-px.bot.cd/architecture/04-rate-limit/distributed</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/04-rate-limit/distributed</guid>
+      <description>**优点**：单次 round-trip，原子，简单。 **缺点**：Redis 故障 → 限流失效（可降级到本地限流）。 按 key hash 到不同 slot，**分片**提升吞吐。 10 节点 Redis Cluster → 理论限流 RPS × 10。 分布式版本，状态在 Redis 共享，但用 sliding window log 而非 token bucket，更精确。 **降级原则*</description>
+      <pubDate>Thu, 30 Jul 2026 19:18:32 -0000</pubDate>
+    </item>
+    <item>
+      <title>漏桶 / 滑动窗口</title>
+      <link>https://java-px.bot.cd/architecture/04-rate-limit/leaky-bucket</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/04-rate-limit/leaky-bucket</guid>
+      <description>水滴匀速流出，无论输入多快，输出都是恒定速率。 **特点**： - 严格匀速（无法应对突发） - 实现简单（队列 + 定时器） - 适合流量整形（Traffic Shaping） | | 令牌桶 | 漏桶 | |--|--------|------| | 突发允许 | ✅ 桶内令牌可累积 | ❌ 超出即拒绝 | | 平滑性 | 平均速率受控 | 严格匀速 | | 流量整形 | 弱 | 强 | |</description>
+      <pubDate>Thu, 30 Jul 2026 19:18:32 -0000</pubDate>
+    </item>
+    <item>
+      <title>令牌桶算法</title>
+      <link>https://java-px.bot.cd/architecture/04-rate-limit/token-bucket</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/04-rate-limit/token-bucket</guid>
+      <description>想象一个桶，按固定速率往里放令牌；每个请求消耗一个令牌；桶空则拒绝。 **优点**：允许突发（桶内累计的令牌），同时限制平均速率。 **关键参数**： - `b` 决定允许的突发长度 - `r` 决定平均吞吐 | 优点 | 缺点 | |------|------| | 允许突发（桶满时） | 桶满丢弃 → 用户感知"突然后就限流" | | 配置简单 | 双参数（b + r）难调 | | O(1)</description>
+      <pubDate>Thu, 30 Jul 2026 19:18:32 -0000</pubDate>
+    </item>
+    <item>
+      <title>幂等性设计</title>
+      <link>https://java-px.bot.cd/architecture/03-ha-theory/idempotency</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/03-ha-theory/idempotency</guid>
+      <description>**f(f(x)) = f(x)**：执行一次和执行 N 次效果一样。 | 场景 | 方案 | |------|------| | 支付扣款 | Idempotency-Key + DB 唯一约束 | | 创建订单 | 业务订单号 + 唯一索引 | | 状态变更 | 当前状态校验（CAS） | | 异步任务 | 任务 ID + 结果缓存 | - **缓存幂等 = 不用幂等**：缓存可能丢，应该双写</description>
+      <pubDate>Thu, 30 Jul 2026 19:16:38 -0000</pubDate>
+    </item>
+    <item>
+      <title>Quorum 多数派</title>
+      <link>https://java-px.bot.cd/architecture/03-ha-theory/quorum</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/03-ha-theory/quorum</guid>
+      <description>N 副本集群，写操作需 W 个节点确认，读操作需 R 个节点响应。 **强一致性要求：W + R &gt; N** | 配置 | W | R | 写可用 | 读可用 | 一致性 | |------|---|---|--------|--------|---------| | 多数写 | N/2+1 | 1 | N/2 | N | 强 | | 多数读 | 1 | N/2+1 | N | N/2 | 强 |</description>
+      <pubDate>Thu, 30 Jul 2026 19:16:38 -0000</pubDate>
+    </item>
+    <item>
+      <title>Raft 共识</title>
+      <link>https://java-px.bot.cd/architecture/03-ha-theory/raft</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/03-ha-theory/raft</guid>
+      <description>分布式系统多副本时，**所有节点必须对"某件事是否发生"达成一致**。例：leader 选举、配置变更、分布式锁。 - **Paxos**（Leslie Lamport 1990）：正确但**难懂难实现** - **Raft**（Diego Ongaro 2014）：**易于理解**，与 Paxos 等价 Raft 设计目标：**可理解性**。三种状态 + 三个子问题。 **Term（任期）单调递</description>
+      <pubDate>Thu, 30 Jul 2026 19:16:38 -0000</pubDate>
+    </item>
+    <item>
+      <title>CAP 定理</title>
+      <link>https://java-px.bot.cd/architecture/03-ha-theory/cap</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/03-ha-theory/cap</guid>
+      <description>Eric Brewer 2000 年提出，2002 年 Gilbert &amp; Lynch 证明： - **C**onsistency（一致性）：所有节点同时看到同一份数据 - **A**vailability（可用性）：每个请求都能收到响应（不保证最新） - **P**artition tolerance（分区容忍）：网络分区时系统仍能继续工作 **实际含义**：分布式系统**必须容忍网络分区**（</description>
+      <pubDate>Thu, 30 Jul 2026 19:16:38 -0000</pubDate>
+    </item>
+    <item>
+      <title>JDK 21 虚拟线程</title>
+      <link>https://java-px.bot.cd/architecture/02-thread-pool/virtual</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/02-thread-pool/virtual</guid>
+      <description>**平台线程 = OS 线程，1:1 映射**，每线程约 1MB 栈。 **虚拟线程 = JVM 线程**，约 1KB 栈，**百万级**并发。 1. **高吞吐**：单进程支持百万级并发连接 2. **简化代码**：无需回调 / Future / ReactiveX 3. **兼容现有 API**：所有 `synchronized` / `BlockingQueue` / JDBC / NIO</description>
+      <pubDate>Thu, 30 Jul 2026 19:15:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>ThreadPoolExecutor</title>
+      <link>https://java-px.bot.cd/architecture/02-thread-pool/executor</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/02-thread-pool/executor</guid>
+      <description>**降低资源消耗 + 提高响应速度 + 提高线程可管理性**。 | 队列 | 行为 | 适用 | |------|------|------| | `SynchronousQueue` | 不存储，直接 hand-off | 大池子 + 高吞吐 | | `LinkedBlockingQueue` | 无界（Integer.MAX_VALUE） | 慎用：可能 OOM | | `ArrayBlock</description>
+      <pubDate>Thu, 30 Jul 2026 19:15:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>happens-before</title>
+      <link>https://java-px.bot.cd/architecture/01-concurrency-theory/happens-before</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/01-concurrency-theory/happens-before</guid>
+      <description>**没有 happens-before 关系，JVM 可任意重排序，前一个线程的写对后一个线程不可见。** happens-before 是 JMM 的**核心概念**：A happens-before B 表示 A 的结果对 B 可见。 1. **程序顺序规则**：同线程内，按代码顺序，前面的操作 happens-before 后面。 2. **volatile 规则**：volatile 写</description>
+      <pubDate>Thu, 30 Jul 2026 19:15:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>JMM 内存模型</title>
+      <link>https://java-px.bot.cd/architecture/01-concurrency-theory/jmm</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/01-concurrency-theory/jmm</guid>
+      <description>JMM 定义了线程如何与内存交互，**解决了"可见性"和"指令重排"**两大核心问题： - **可见性**：一个线程修改了共享变量，另一个线程能立即看到。 - **原子性**：操作要么全部完成，要么全部不完成。 - **有序性**：程序执行的顺序看起来是按代码顺序的（实际 JIT/CPU 可能重排）。 &gt; 没有 JMM 之前，多线程程序的行为依赖物理硬件，Java 是跨平台的——必须定义一个**与</description>
+      <pubDate>Thu, 30 Jul 2026 19:15:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>命令速查</title>
+      <link>https://java-px.bot.cd/architecture/cheatsheet</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/cheatsheet</guid>
+      <description>&gt; 30+ 高频命令，分类速查。 - [秒杀系统](/14-enterprise-cases/flash-sale) - [CAP 定理](/03-ha-theory/cap) - [分布式事务 2PC](/07-distributed-tx/2pc)</description>
+      <pubDate>Wed, 29 Jul 2026 20:13:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>学习路径</title>
+      <link>https://java-px.bot.cd/architecture/path</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/path</guid>
+      <description>1. [JMM 内存模型](/01-concurrency-theory/jmm) — 并发编程的根 2. [CAP 定理](/03-ha-theory/cap) — 分布式系统设计的基础 3. [限流令牌桶算法](/04-rate-limit/token-bucket) — 高可用三件套之 1 4. [熔断器三态](/05-circuit-breaker/states) — 高可用三件套之 2</description>
+      <pubDate>Wed, 29 Jul 2026 20:13:09 -0000</pubDate>
+    </item>
+    <item>
+      <title>知识图谱</title>
+      <link>https://java-px.bot.cd/architecture/graph</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/graph</guid>
+      <description>&gt; 50+ 节点，14 大主题分类，节点可点击跳转。 &lt;ClientOnly&gt;&lt;KnowledgeGraph :height="820" /&gt;&lt;/ClientOnly&gt; | 颜色 | 分类 | 主题数 | |------|------|--------| | ⚫ 石 | 并发理论 | 4 | | 🩵 青 | 线程池 | 3 | | 🟣 紫 | 高可用理论 | 5 | | 🩷 粉 | 限流 | 3</description>
+      <pubDate>Wed, 29 Jul 2026 20:09:28 -0000</pubDate>
+    </item>
+  </channel>
+</rss>

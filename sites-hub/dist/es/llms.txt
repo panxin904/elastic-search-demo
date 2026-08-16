@@ -2,7 +2,7 @@
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
 > 63 个文档页 · 95,023 字
-> 生成时间：2026-08-16T08:58:46
+> 生成时间：2026-08-16T09:03:50
 
 ## [集群 Cluster](https://java-px.bot.cd/es/01-storage/cluster)
 > <span class="kg-badge kg-badge-storage">存储层</span> ES 集群是由**一个或多个节点**组成的、能对外提供统一搜索服务的分布式系统。 - **水平扩展**：突破单机容量与吞吐上限 - **高可用**：节点故障时副本接管 - **并行处理**：查询与索引在多节点并行执行 返回： | 状态 | 含义 | |---|---| | 🟢 green | 所有
@@ -59,7 +59,7 @@
 > <span class="kg-badge kg-badge-query">查询层</span> Match Query 对查询文本**先分词再匹配**，是 `text` 字段**全文检索**的标准查询。 执行过程： 1. `机械键盘` → analyzer → tokens：`机械`、`键盘` 2. 任一 token 命中即返回（默认 `operator: or`） | 值 | 行为 | |--
 
 ## [Multi Search](https://java-px.bot.cd/es/02-query/multi-search)
-> <span class="kg-badge kg-badge-query">查询层</span> Multi Search 允许**单次 HTTP 请求**执行**多个搜索**，减少网络开销。 格式：每两行一组 - 第 1 行: 元数据（可选 index） - 第 2 行: query body 每个响应**独立**，某个失败不影响其他。 | 场景 | 说明 | |---|---| | 仪表盘多面
+> <span class="kg-badge kg-badge-query">查询层</span> Multi Search 允许**单次 HTTP 请求**执行**多个搜索**，减少网络开销。 格式：每两行一组 每个响应**独立**，某个失败不影响其他。 | 场景 | 说明 | |---|---| | 仪表盘多面板 | 一次请求返回多个聚合 | | 同一页面多个搜索 | 减少前端多次请求 | |
 
 ## [查询层 总览](https://java-px.bot.cd/es/02-query/overview)
 > 查询层是 ES 的"用户界面"，涉及**如何向 ES 表达需求、获取结果、控制相关性**。 | 子句 | 作用 | 是否评分 | |---|---|---| | [Match](/02-query/match) | 分词后匹配 | ✅ | | [Term](/02-query/term) | 精确匹配 | ✅ | | [Bool](/02-query/bool) | 组合多个子句 | 取决于子句

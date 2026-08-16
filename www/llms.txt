@@ -2,7 +2,7 @@
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
 > 1464 个文档页 · 6,217,206 字
-> 生成时间：2026-08-16T08:58:46
+> 生成时间：2026-08-16T09:03:50
 
 ## [集群 Cluster](https://java-px.bot.cd/es/01-storage/cluster)
 > <span class="kg-badge kg-badge-storage">存储层</span> ES 集群是由**一个或多个节点**组成的、能对外提供统一搜索服务的分布式系统。 - **水平扩展**：突破单机容量与吞吐上限 - **高可用**：节点故障时副本接管 - **并行处理**：查询与索引在多节点并行执行 返回： | 状态 | 含义 | |---|---| | 🟢 green | 所有
@@ -59,7 +59,7 @@
 > <span class="kg-badge kg-badge-query">查询层</span> Match Query 对查询文本**先分词再匹配**，是 `text` 字段**全文检索**的标准查询。 执行过程： 1. `机械键盘` → analyzer → tokens：`机械`、`键盘` 2. 任一 token 命中即返回（默认 `operator: or`） | 值 | 行为 | |--
 
 ## [Multi Search](https://java-px.bot.cd/es/02-query/multi-search)
-> <span class="kg-badge kg-badge-query">查询层</span> Multi Search 允许**单次 HTTP 请求**执行**多个搜索**，减少网络开销。 格式：每两行一组 - 第 1 行: 元数据（可选 index） - 第 2 行: query body 每个响应**独立**，某个失败不影响其他。 | 场景 | 说明 | |---|---| | 仪表盘多面
+> <span class="kg-badge kg-badge-query">查询层</span> Multi Search 允许**单次 HTTP 请求**执行**多个搜索**，减少网络开销。 格式：每两行一组 每个响应**独立**，某个失败不影响其他。 | 场景 | 说明 | |---|---| | 仪表盘多面板 | 一次请求返回多个聚合 | | 同一页面多个搜索 | 减少前端多次请求 | |
 
 ## [查询层 总览](https://java-px.bot.cd/es/02-query/overview)
 > 查询层是 ES 的"用户界面"，涉及**如何向 ES 表达需求、获取结果、控制相关性**。 | 子句 | 作用 | 是否评分 | |---|---|---| | [Match](/02-query/match) | 分词后匹配 | ✅ | | [Term](/02-query/term) | 精确匹配 | ✅ | | [Bool](/02-query/bool) | 组合多个子句 | 取决于子句
@@ -562,7 +562,7 @@
 ## [知识图谱](https://java-px.bot.cd/redis/graph)
 > > 60+ 节点，8 大主题分类，节点可点击跳转到对应章节。鼠标拖动可调整布局，悬停查看节点关联。 <ClientOnly> <KnowledgeGraph :height="780" /> </ClientOnly> | 颜色 | 分类 | 节点数 | |------|------|--------| | 🔴 红 | 基础入门 | 5 | | 🟠 橙 | 数据结构原理 | 7 | | 🟢 绿 |
 
-## [Untitled](https://java-px.bot.cd/redis/index)
+## [redis 知识图谱](https://java-px.bot.cd/redis/index)
 > <ClientOnly> <WhyThisGraph :pain-points="[ "只会简单 SET / GET，不懂底层数据结构（SDS / Dict / SkipList）", "不了解 RDB / AOF 的差异与混合持久化", "集群模式分不清主从 / 哨兵 / Cluster / Gossip", "用过 Jedis 但不知道 Lettuce 是怎么 NIO 异步的", "做过分布式
 
 ## [思维导图](https://java-px.bot.cd/redis/mindmap)
@@ -689,7 +689,7 @@
 > > **Python** 是一种**高级、解释型、动态类型、多范式**的通用编程语言。以**简洁优雅**的语法和**强大的生态**著称。 | 维度 | Python | Java | JavaScript | C++ | |------|--------|------|------------|-----| | 语法 | 简洁 | 啰嗦 | 中等 | 复杂 | | 类型 | 动态 | 静态 | 动
 
 ## [基础语法](https://java-px.bot.cd/python/01-basics/syntax)
-> > Python 的语法以**简洁优雅**著称。本章覆盖**变量、运算符、字符串、输入输出**等基础语法。 <ClientOnly> <PythonPlayground /> </ClientOnly> 试试在 Playground 里运行 Python 代码： **Python 基础语法核心要点**： - ✅ 动态类型，无需声明 - ✅ 简洁优雅（接近自然语言） - ✅ 字符串切片 `s[sta
+> > Python 的语法以**简洁优雅**著称。本章覆盖**变量、运算符、字符串、输入输出**等基础语法。 <ClientOnly> <PythonPlayground /> </ClientOnly> 试试在 Playground 里运行 Python 代码： **Python 基础语法核心要点**： - ✅ 动态类型，无需声明 - ✅ 简洁优雅（接近自然语言） - ✅ f-string 格式化
 
 ## [字节码与执行](https://java-px.bot.cd/python/02-principles/bytecode)
 > > Python 字节码是 **CPython 解释器执行的中间表示**。理解字节码有助于**性能优化、问题排查、深入 Python**。 输出： | 指令 | 含义 | 操作数 | |------|------|--------| | LOAD_FAST | 加载局部变量 | 变量索引 | | STORE_FAST | 存储局部变量 | 变量索引 | | LOAD_GLOBAL | 加载全局变量
@@ -710,7 +710,7 @@
 > > Python 中**一切皆对象**。理解 PyObject 底层结构是掌握 Python 内存管理和性能优化的基础。 **Python 对象模型核心要点**： - ✅ 一切皆对象（int、str、func、class 都是对象） - ✅ PyObject 包含 ob_refcnt 和 ob_type - ✅ 不可变对象：int、float、str、tuple - ✅ 可变对象：list、dic
 
 ## [性能剖析](https://java-px.bot.cd/python/02-principles/profiling)
-> > **性能剖析（Profiling）**是定位 Python 性能瓶颈的关键手段。本章介绍常用工具和最佳实践。 字段说明： - `ncalls`：调用次数 - `tottime`：函数自身耗时（不含子函数） - `percall`：平均每次调用耗时 - `cumtime`：累计耗时（含子函数） - `filename:lineno(function)`：函数位置 输出： 输出： 输出（CPU +
+> > **性能剖析（Profiling）**是定位 Python 性能瓶颈的关键手段。本章介绍常用工具和最佳实践。 字段说明： - `ncalls`：调用次数 - `tottime`：函数自身耗时（不含子函数） - `percall`：平均每次调用耗时 - `cumtime`：累计耗时（含子函数） 输出： 输出： 输出（CPU + GPU + 内存）： **Python 性能剖析核心要点**： -
 
 ## [BeautifulSoup](https://java-px.bot.cd/python/03-libraries/beautifulsoup)
 > > **BeautifulSoup** 是 Python **最流行的 HTML/XML 解析库**。配合 requests 是爬虫的经典组合。 | 解析器 | 速度 | 容错 | 依赖 | |--------|------|------|------| | html.parser | 中 | 中 | 标准库 | | **lxml** | **快** | 好 | 需安装 | | html5lib
@@ -847,7 +847,7 @@
 ## [知识图谱](https://java-px.bot.cd/python/graph)
 > > 62 节点，9 大主题分类，节点可点击跳转到对应章节。鼠标拖动可调整布局，悬停查看节点关联。 <ClientOnly> <KnowledgeGraph :height="820" /> </ClientOnly> | 颜色 | 分类 | 节点数 | |------|------|--------| | 🔵 蓝 | Python 入门 | 5 | | 🟠 橙 | 底层原理 | 7 | | 🟢 绿
 
-## [Untitled](https://java-px.bot.cd/python/index)
+## [python 知识图谱](https://java-px.bot.cd/python/index)
 > <ClientOnly> <WhyThisGraph :pain-points="[ "只懂基础语法，不了解底层原理（解释器 / 字节码 / 对象模型）", "用过 requests / pandas 但不知道内部实现", "写 GIL 多线程却不知道为什么慢", "爬虫写完就封 IP，不知道反爬怎么破", "LLM 应用只会调 API，不知道 prompt 怎么写" ]" :goals="[ "
 
 ## [思维导图](https://java-px.bot.cd/python/mindmap)
@@ -1066,7 +1066,7 @@
 ## [知识图谱](https://java-px.bot.cd/kafka/graph)
 > > 62 节点，10 大主题分类，节点可点击跳转到对应章节。鼠标拖动可调整布局，悬停查看节点关联。 <ClientOnly> <KnowledgeGraph :height="820" /> </ClientOnly> | 颜色 | 分类 | 节点数 | |------|------|--------| | 🔴 红 | Kafka 入门 | 5 | | 🟠 橙 | 架构原理 | 7 | | 🟢 绿
 
-## [Untitled](https://java-px.bot.cd/kafka/index)
+## [kafka 知识图谱](https://java-px.bot.cd/kafka/index)
 > <ClientOnly> <WhyThisGraph :pain-points="[ "分区副本机制、Leader 选举讲不清？", "Exactly-Once 语义怎么实现？", "消费者组位移提交策略选哪个？", "Kafka 性能调优参数（broker / producer / consumer）？", "Kafka + Flink / Spark 流处理集成怎么做？" ]" :goals=
 
 ## [思维导图](https://java-px.bot.cd/kafka/mindmap)
@@ -1240,7 +1240,7 @@
 ## [Cron 表达式](https://java-px.bot.cd/tools/cron)
 > 解析 5/6 字段 Cron 表达式，描述字段含义，并列出接下来 5 次运行时间。 <script setup> import { ref, computed } from 'vue' const expr = ref('0 */2 * * *') const status = ref({ kind: 'muted', text: '' }) // 解析为 6 字段（缺少年份则补 *） const
 
-## [Untitled](https://java-px.bot.cd/tools/index)
+## [tools 知识图谱](https://java-px.bot.cd/tools/index)
 > <div id="all-tools"></div> <ClientOnly> <WhyThisGraph :pain-points="[ "日常 JSON 格式化 / 压缩 / 校验每次都开在线工具？", "时间戳 / 时区 / ISO 8601 转换容易出错？", "URL 编解码 / Base64 / UUID / JWT 解码手算不来？", "正则表达式每次都要查语法？", "在线工具有数
 
 ## [ISO / RFC 格式化](https://java-px.bot.cd/tools/iso)
@@ -1310,7 +1310,7 @@
 > React = **声明式 UI + 单向数据流 + 不可变状态** | Hook | 作用 | |------|------| | `useState` | 本地状态 | | `useReducer` | 复杂状态 / reducer 模式 | | `useEffect` | 副作用（数据请求、订阅） | | `useLayoutEffect` | 同步执行，在 DOM 变更后绘制前 | | `
 
 ## [Svelte / Solid](https://java-px.bot.cd/frontend/03-framework/svelte)
-> > 两个"非主流但很香"的现代前端方案。 **Slogan**: *"Write less code"* — 编译时框架，无运行时虚拟 DOM。 - **真小**：运行时 0（编译为原生 DOM 操作 + 响应式指令） - **`$:` 响应式声明块** 类似 Svelte 的杀手锏 - **CSS 作用域默认隔离**：不需要 CSS Modules - **SvelteKit**：类 Next.
+> > 两个"非主流但很香"的现代前端方案。 **Slogan**: *"Write less code"* — 编译时框架，无运行时虚拟 DOM。 - **真小**：运行时 0（编译为原生 DOM 操作 + 响应式指令） - **CSS 作用域默认隔离**：不需要 CSS Modules - **SvelteKit**：类 Next.js 的元框架，支持 SSR/SSG/Edge - 关注性能（移动
 
 ## [Vue 3 组合式 API](https://java-px.bot.cd/frontend/03-framework/vue)
 > Vue = **响应式数据 + 模板编译 + 单向数据流** | API | 作用 | |-----|------| | `ref(value)` | 包装任意值，访问用 `.value` | | `reactive(obj)` | 让对象整体响应式 | | `computed(() => ...)` | 计算属性，自动缓存 | | `watch(source, fn, opts)` | 通用监听
@@ -1334,7 +1334,7 @@
 > **用 Go 写的极快 bundler / transpiler**。Vite 的预构建 + minify 都靠它。 性能对比（同等任务）： - Webpack：~40s - esbuild：~0.4s（**100x**） esbuild 适合： - 库打包（`tsup`、`unbuild`） - Vite 的依赖预构建 - monorepo 单文件构建 不适合（暂时）： - 复杂 chunk 拆
 
 ## [Monorepo (Turbo/Nx)](https://java-px.bot.cd/frontend/05-build/monorepo)
-> - **增量缓存**（基于文件 hash 的内容缓存） - **任务编排**（`dependsOn: ["^build"]` 先构建依赖） - **远程缓存**（自建或 Vercel） 适合**大型 monorepo**，自带： - 代码生成器（`nx generate @nx/react:app`） - 依赖图可视化（`nx graph`） - 严格的工作区约定 - 受影响的项目分析（`nx a
+> - **增量缓存**（基于文件 hash 的内容缓存） - **远程缓存**（自建或 Vercel） 适合**大型 monorepo**，自带： - 依赖图可视化（`nx graph`） - 严格的工作区约定 - 受影响的项目分析（`nx affected`） | 工具 | 推荐 | |------|------| | npm workspaces | 简单项目 | | yarn workspac
 
 ## [包管理器 (pnpm/yarn)](https://java-px.bot.cd/frontend/05-build/package-manager)
 > | | npm | yarn (classic) | yarn (v4 berry) | pnpm | |--|----|----|----|----| | 安装速度 | 慢 | 中 | 快 | **最快** | | 磁盘占用 | 大 | 大 | 中 | **最小** | | 单仓多包 | workspaces | workspaces | workspaces | workspaces (最快)
@@ -1349,7 +1349,7 @@
 > 把 CSS 写在 JS / TS 中，通过运行时或编译时生成类名。 虽然不算 CSS-in-JS，但语法上类似——已在 [Tailwind 章节](/06-style/tailwind) 详述。 | | 运行时（styled / Emotion） | 编译时（vanilla-extract / Linaria） | |--|----------------|------------------|
 
 ## [CSS Modules](https://java-px.bot.cd/frontend/06-style/css-modules)
-> 把 CSS 文件 `import` 进 JS 中，并且**类名自动 scope** 的方案。由构建工具（Vite / webpack）支持。 构建后输出： - **作用域隔离**：不会出现全局污染 - **复用纯 CSS**：不依赖任何运行时 - **零运行时开销**：构建期 class 名 hash - **CSS 文件可读**：保持传统 CSS 心智 - 不易跨组件共享样式（除非配合 :glo
+> 把 CSS 文件 `import` 进 JS 中，并且**类名自动 scope** 的方案。由构建工具（Vite / webpack）支持。 构建后输出： - **作用域隔离**：不会出现全局污染 - **复用纯 CSS**：不依赖任何运行时 - **零运行时开销**：构建期 class 名 hash - **CSS 文件可读**：保持传统 CSS 心智 - 动态化不如 CSS-in-JS CSS
 
 ## [设计系统 / 组件库](https://java-px.bot.cd/frontend/06-style/design-system)
 > | 术语 | 含义 | |------|------| | **设计系统** (Design System) | 设计 token + 组件 + 文档 + 规范一整套（设计 + 工程） | | **UI 组件库** (Component Library) | 一套可复用 React/Vue 组件 | | 库 | 特点 | 适合 | |----|------|------| | **Ant Desi
@@ -1358,7 +1358,7 @@
 > 特性： - **变量** `$var` - **嵌套** `&` - **mixin** `@mixin` / `@include` - **继承** `@extend` - **运算** `+`、`*`、`darken()` | 需求 | 旧（SCSS） | 现在 | |------|-----------|------| | 变量 | `$primary` | `--var-primary`
 
 ## [Tailwind / UnoCSS](https://java-px.bot.cd/frontend/06-style/tailwind)
-> **Utility-first CSS 框架**：在 HTML / JSX 中拼出 class。 - **不用离开 HTML**：无需切换文件 - **约束体积**：自动 purge 未用到的 class - **一致性**：design token 内置（间距、颜色、字号） - **dark mode**：内置 `dark:` 前缀 2024+ 新版本： - **CSS-first 配置**（在
+> **Utility-first CSS 框架**：在 HTML / JSX 中拼出 class。 - **不用离开 HTML**：无需切换文件 - **约束体积**：自动 purge 未用到的 class - **一致性**：design token 内置（间距、颜色、字号） 2024+ 新版本： - **CSS-first 配置**（在 CSS 里写 `@theme`） - 零配置 / 更快的构
 
 ## [React Query / SWR](https://java-px.bot.cd/frontend/07-state/data-fetching)
 > 服务端数据与"本地状态"不同： - **远程**：需要 fetch + loading / error 状态 - **缓存**：避免重复请求 - **失效**：需要 invalidate / 重新拉取 - **乐观更新**：UI 先变，请求失败再回滚 自己写 hook 处理这堆很痛苦，**TanStack Query (React Query) / SWR** 帮你封装好。 | 特性 | 描述 |
@@ -1445,7 +1445,7 @@
 > > 面试常考的"大型"题：电商 / 内容 / 协作 / 实时。 **关键设计**： - **发号器**：自增 ID / 雪花 / Hash - **Hash 算法**：MD5 → 取前 N 位 / CRC32 - **冲突处理**：追加 1 字符再 Hash - **存储**：MySQL / Redis（缓存）+ 异步落库 - **301 vs 302**：301 永久（缓存到浏览器），302 临
 
 ## [CI/CD](https://java-px.bot.cd/frontend/14-tools/cicd)
-> `.husky/pre-commit` 自动由 husky 生成： `.husky/commit-msg`： 格式：`type(scope?): subject` - feat: 新功能 - fix: 修复 - docs: 文档 - style: 格式 - refactor: 重构 - test: 测试 - chore: 杂项 | 策略 | 描述 | 回滚 | |------|------|---
+> `.husky/pre-commit` 自动由 husky 生成： `.husky/commit-msg`： 格式：`type(scope?): subject` | 策略 | 描述 | 回滚 | |------|------|------| | 蓝绿 | 新旧两套，切换流量 | 切回旧 | | 灰度 | 部分用户访问新版本 | 移除比例 | | 金丝雀 | 小流量验证 | 移除 | | Feat
 
 ## [Lint / Format](https://java-px.bot.cd/frontend/14-tools/lint)
 > 常用 preset： - `eslint-config-airbnb`（严格） - `eslint-config-standard`（折中） - `eslint-config-prettier`（与 Prettier 配合） - `eslint-plugin-react` / `eslint-plugin-react-hooks` - `eslint-plugin-jsx-a11y` 顺序：**P
@@ -1459,7 +1459,7 @@
 ## [知识图谱](https://java-px.bot.cd/frontend/graph)
 > > 80+ 节点，14 大主题分类，节点可点击跳转到对应章节。鼠标拖动可调整布局，悬停查看节点关联。 <ClientOnly> <KnowledgeGraph :height="820" /> </ClientOnly> | 颜色 | 分类 | 主题数 | |------|------|--------| | 🟠 橙 | 基础层 | 5 | | 🔵 蓝 | 语言层 | 4 | | 🩵 青 | UI
 
-## [Untitled](https://java-px.bot.cd/frontend/index)
+## [frontend 知识图谱](https://java-px.bot.cd/frontend/index)
 > <ClientOnly> <WhyThisGraph :pain-points="[ "HTML / CSS 基础不扎实，遇到复杂布局就懵？", "React / Vue / Angular / Svelte 选哪个？", "浏览器渲染原理、Event Loop 讲不清？", "TypeScript 类型系统、泛型、条件类型卡壳？", "Node 后端怎么写、怎么部署、怎么调优？" ]" :goa
 
 ## [思维导图](https://java-px.bot.cd/frontend/mindmap)
@@ -1672,7 +1672,7 @@
 ## [知识图谱](https://java-px.bot.cd/linux/graph)
 > > 70+ 节点，14 大主题分类，节点可点击跳转到对应章节。鼠标拖动可调整布局，悬停查看节点关联。 <ClientOnly> <KnowledgeGraph :height="820" /> </ClientOnly> | 颜色 | 分类 | 节点数 | |------|------|--------| | 🟠 橙 | 入门基础 | 4 | | 🔵 蓝 | 文件与目录 | 5 | | 🩵 青 |
 
-## [Untitled](https://java-px.bot.cd/linux/index)
+## [linux 知识图谱](https://java-px.bot.cd/linux/index)
 > <ClientOnly> <WhyThisGraph :pain-points="[ "常用命令（ls / find / grep / awk）记不牢？", "Shell 脚本（bash / zsh）写不出来？", "systemd / 服务管理一团乱？", "iptables / nftables 防火墙不会配？", "内核参数调优（sysctl / cgroup）无从下手？" ]" :goal
 
 ## [思维导图](https://java-px.bot.cd/linux/mindmap)
@@ -1736,7 +1736,7 @@
 > > 默认 k8s 集群内所有 Pod 互通。NetworkPolicy = 集群内的"防火墙"。 | 类型 | 含义 | |------|------| | `IngressPolicy` | 入口流量（谁可以访问我） | | `EgressPolicy` | 出口流量（我可以访问谁） | | 行为 | 含义 | |------|------| | 默认 allow | 没有匹配 NP 规则 →
 
 ## [Service 三种类型](https://java-px.bot.cd/cloud-native/04-k8s-service/service)
-> > Pod 不稳定（会换 Node / 重建 IP 变）。Service = Pod 集合的"固定 IP"。 适合：集群内服务间调用（API → DB）。 - 主机 30080 端口 → 转发到 Pod 8080 - 通过 `任意NodeIP:30080` 访问 - 适合：开发 / 演示 / 简单公网访问 - 自动创建云 LB（AWS ELB / GCP LB / 阿里 SLB） - 适合：生产公
+> > Pod 不稳定（会换 Node / 重建 IP 变）。Service = Pod 集合的"固定 IP"。 适合：集群内服务间调用（API → DB）。 - 主机 30080 端口 → 转发到 Pod 8080 - 适合：开发 / 演示 / 简单公网访问 - 自动创建云 LB（AWS ELB / GCP LB / 阿里 SLB） - 适合：生产公网访问 无 clusterIP — DNS 直接解
 
 ## [ConfigMap / Secret](https://java-px.bot.cd/cloud-native/05-k8s-storage/configmap-secret)
 > > 配置文件 / 密钥 不要硬编码到镜像。ConfigMap + Secret 让"代码"和"配置"分离。 更新 ConfigMap：文件**不会自动热加载**（需要 reload Pod 或用 Reloader）。 | type | 用途 | |------|------| | `Opaque` | 通用 | | `kubernetes.io/tls` | TLS 证书 | | `kuberne
@@ -1837,8 +1837,8 @@
 ## [知识图谱](https://java-px.bot.cd/cloud-native/graph)
 > > 80+ 节点，14 大主题分类，节点可点击跳转到对应章节。鼠标拖动可调整布局，悬停查看节点关联。 <ClientOnly> <KnowledgeGraph :height="820" /> </ClientOnly> | 颜色 | 分类 | 主题数 | |------|------|--------| | 🔵 蓝 | Docker 容器 | 6 | | 🟦 深蓝 | k8s 架构 | 5 |
 
-## [Untitled](https://java-px.bot.cd/cloud-native/index)
-> features: - icon: 🐳 title: Docker 容器 details: Docker 基础 · 镜像 · 容器 · 网络 · 卷 · Compose link: /01-docker/intro linkText: 开始 Docker → - icon: 🏛️ title: k8s 架构 details: 控制面 / Node / kubectl / etcd · 集群全貌 l
+## [cloud-native 知识图谱](https://java-px.bot.cd/cloud-native/index)
+> features: title: Docker 容器 details: Docker 基础 · 镜像 · 容器 · 网络 · 卷 · Compose link: /01-docker/intro linkText: 开始 Docker → title: k8s 架构 details: 控制面 / Node / kubectl / etcd · 集群全貌 link: /02-k8s-arch/ove
 
 ## [思维导图](https://java-px.bot.cd/cloud-native/mindmap)
 > > 树形结构总览全部知识，可展开/收起节点，点击叶子节点跳转。 <ClientOnly> <MindMap :height="940" /> </ClientOnly> - **全部展开 / 收起**：顶部按钮控制 - **点击叶子节点**：跳转到对应章节 - **重置视图**：恢复初始展开状态
@@ -2008,8 +2008,8 @@
 ## [知识图谱](https://java-px.bot.cd/ai/graph)
 > > 80+ 节点，14 大主题分类，节点可点击跳转到对应章节。 <ClientOnly> <KnowledgeGraph :height="820" /> </ClientOnly> | 颜色 | 分类 | 主题数 | |------|------|--------| | 🟣 紫 | 大模型与推理 | 6 | | 🩵 青 | AI 编程工具 | 6 | | 🟨 黄 | SDK 接入 | 5 | |
 
-## [Untitled](https://java-px.bot.cd/ai/index)
-> features: - icon: 🧠 title: 大模型与推理 details: Claude / GPT / Gemini / DeepSeek / Llama / Mistral / 选型 link: /01-models/claude linkText: 开始看模型 → - icon: 🔧 title: AI 编程工具 details: Claude Code / Cursor / Co
+## [ai 知识图谱](https://java-px.bot.cd/ai/index)
+> features: title: 大模型与推理 details: Claude / GPT / Gemini / DeepSeek / Llama / Mistral / 选型 link: /01-models/claude linkText: 开始看模型 → title: AI 编程工具 details: Claude Code / Cursor / Copilot / Continue / A
 
 ## [思维导图](https://java-px.bot.cd/ai/mindmap)
 > > 树形结构总览全部知识，可展开/收起节点，点击叶子节点跳转。 <ClientOnly> <MindMap :height="940" /> </ClientOnly> - 全部展开 / 收起：顶部按钮控制 - 点击叶子节点：跳转到对应章节 - 重置视图：恢复初始展开状态
@@ -2161,7 +2161,7 @@
 ## [知识图谱](https://java-px.bot.cd/bigdata/graph)
 > > 50+ 节点，14 大主题分类，节点可点击跳转。 <ClientOnly><KnowledgeGraph :height="820"></KnowledgeGraph></ClientOnly> | 颜色 | 分类 | 主题数 | |------|------|--------| | 🔵 蓝 | 大数据基础 | 4 | | 🩵 青 | HDFS | 4 | | 🟧 橙 | MapReduce
 
-## [Untitled](https://java-px.bot.cd/bigdata/index)
+## [bigdata 知识图谱](https://java-px.bot.cd/bigdata/index)
 > <ClientOnly> <WhyThisGraph :pain-points="[ "Hadoop / Spark / Flink / Hive / Kafka 各自独立文档", "数据仓库 vs 数据湖 vs Lakehouse 怎么选", "离线数仓 vs 实时数仓 怎么统一", "ClickHouse / Doris / StarRocks 怎么选", "模型设计 Inmon vs Kim
 
 ## [思维导图](https://java-px.bot.cd/bigdata/mindmap)
@@ -2198,7 +2198,7 @@
 > > 网络设备的**物理地址**，是数据链路层的核心标识。 **MAC（Media Access Control）地址**是网卡出厂时固化的 48 位物理地址，全球唯一。 | 类型 | 第 8 位 | 范围 | 用途 | |---|---|---|---| | **单播** | 0 | 00:xx:xx:xx:xx:xx | 一对一通信 | | **多播** | 1 | 01:xx:xx:xx:xx
 
 ## [STP / RSTP](https://java-px.bot.cd/network/03-data-link/stp)
-> > 生成树协议，防止**交换机环路**导致的广播风暴。 **交换机环路的危害：** **Spanning Tree Protocol（IEEE 802.1D）** 通过**选举**机制，关闭某些端口，打破环路： **实例：** - SW1: Priority 32768, MAC 00:00:00:00:00:01 - SW2: Priority 32768, MAC 00:00:00:00:00
+> > 生成树协议，防止**交换机环路**导致的广播风暴。 **交换机环路的危害：** **Spanning Tree Protocol（IEEE 802.1D）** 通过**选举**机制，关闭某些端口，打破环路： **实例：** → SW1 为根桥（MAC 较小） 每个**非根桥**交换机选择到根桥**路径开销最小**的端口作为根端口。 每个**网段**选举一个指定端口，负责该网段的转发。 剩余端口
 
 ## [VLAN](https://java-px.bot.cd/network/03-data-link/vlan)
 > > 虚拟局域网，在**物理交换机**上划分多个**逻辑上隔离**的网络。 **没有 VLAN 的问题：** - 所有设备在同一广播域 - 广播包泛滥（ARP、DHCP） - 安全性差（任何设备互通） - 网络规模受限 **VLAN 解决方案：** | 类型 | 描述 | 标识 | |---|---|---| | **基于端口** | 最常用 | 端口固定划分 | | **基于 MAC** | MA
@@ -2855,133 +2855,133 @@
 > | 类型 | 字节 | 范围 | 包装类 | |------|------|------|--------| | byte | 1 | -128~127 | Byte | | short | 2 | -32k~32k | Short | | int | 4 | -2B~2B | Integer | | long | 8 | -9e18~9e18 | Long | | float | 4 | 6-7
 
 ## [异常处理](https://java-px.bot.cd/java-language/01-basics/exceptions)
-> - Checked (IOException/SQLException) vs Unchecked (RuntimeException) - try-with-resources (AutoCloseable) for auto cleanup - Custom exceptions: extend RuntimeException for unchecked, Exception for che
+> - Checked (IOException/SQLException) vs Unchecked (RuntimeException) - try-with-resources (AutoCloseable) for auto cleanup - finally always runs (except System.exit)
 
 ## [泛型 / 注解 / 反射](https://java-px.bot.cd/java-language/01-basics/generics)
-> - Type erasure: generics exist only at compile time, `&#60;T>` becomes Object at runtime - PECS principle: Producer Extends, Consumer Super - @Override, @FunctionalInterface, @Deprecated, @SuppressWar
+> - @Override, @FunctionalInterface, @Deprecated, @SuppressWarnings
 
 ## [JDK 17-21 新特性](https://java-px.bot.cd/java-language/01-basics/new-features)
-> - JDK 17 (LTS): Sealed classes, Pattern matching for switch, Text blocks finalized, Records - JDK 21 (LTS): Virtual Threads, Record Patterns, Pattern Matching for switch finalized, String Templates (p
+> (暂无摘要)
 
 ## [OOP / 类与对象](https://java-px.bot.cd/java-language/01-basics/oop)
 > Java 单继承，多实现。 | | Abstract Class | Interface | |--|----------------|-----------| | 构造器 | ✅ | ❌ | | 实例变量 | ✅ | ❌（仅 static final） | | 默认实现 | ✅ | ✅（default method） | | 多继承 | ❌ | ✅ | | 访问修饰 | 任意 | public（
 
 ## [并发集合](https://java-px.bot.cd/java-language/02-collections/concurrent)
-> - ConcurrentHashMap: segment lock (Java 7) → CAS + synchronized (Java 8+) - CopyOnWriteArrayList: copy entire array on write, read-only snapshot - BlockingQueue: ArrayBlockingQueue (bounded), LinkedBl
+> (暂无摘要)
 
 ## [ArrayList / LinkedList](https://java-px.bot.cd/java-language/02-collections/list)
-> - ArrayList: dynamic array, O(1) get, O(n) insert/remove, grows 1.5x - LinkedList: doubly-linked, O(1) insert/remove at ends, O(n) get - fail-fast: ConcurrentModificationException when iterating while
+> - Use ArrayList for random access, LinkedList for queue/deque
 
 ## [HashMap 原理](https://java-px.bot.cd/java-language/02-collections/map)
-> - Array + linked list + red-black tree (Java 8+) - Default capacity 16, load factor 0.75 (resize when size > capacity * loadFactor) - Hash collision: linked list, convert to red-black tree when list l
+> - Array + linked list + red-black tree (Java 8+) - Default capacity 16, load factor 0.75 (resize when size > capacity * loadFactor)
 
 ## [Set / TreeSet](https://java-px.bot.cd/java-language/02-collections/set)
-> - HashSet backed by HashMap (value is a dummy PRESENT object) - TreeSet: Red-Black Tree, sorted order, O(log n) - LinkedHashSet: insertion order, doubly-linked list + HashSet
+> - HashSet backed by HashMap (value is a dummy PRESENT object)
 
 ## [Stream API](https://java-px.bot.cd/java-language/02-collections/stream)
-> - Intermediate: filter, map, flatMap, distinct, sorted, peek, limit, skip - Terminal: collect, forEach, reduce, count, findFirst, anyMatch, allMatch - collect(Collectors.toList/toMap/toSet/groupingBy/
+> - collect(Collectors.toList/toMap/toSet/groupingBy/partitioningBy/joining)
 
 ## [CompletableFuture](https://java-px.bot.cd/java-language/03-concurrency/future)
 > - thenApply (sync map), thenApplyAsync (async) - thenCompose (flatMap), thenCombine (zip two futures) - allOf (wait all), anyOf (first done) - exceptionally (handle error), handle (map + error)
 
 ## [JUC 工具](https://java-px.bot.cd/java-language/03-concurrency/juc)
-> - CountDownLatch: wait for N tasks to complete - CyclicBarrier: N threads wait for each other at barrier - Semaphore: permits counter, acquire/release - Phaser: flexible barrier for phases - Exchanger
+> (暂无摘要)
 
 ## [synchronized / AQS](https://java-px.bot.cd/java-language/03-concurrency/locks)
-> - synchronized upgrades: biased → lightweight → heavyweight (irreversible) - ReentrantLock: tryLock(timeout), lockInterruptibly, fair mode - AQS (AbstractQueuedSynchronizer): CLH queue, CAS state, tem
+> (暂无摘要)
 
 ## [线程 / 线程池](https://java-px.bot.cd/java-language/03-concurrency/thread-pool)
-> - ThreadPoolExecutor params: corePoolSize, maxPoolSize, keepAliveTime, workQueue, threadFactory, rejectHandler - 4 reject policies: AbortPolicy(default), CallerRunsPolicy, DiscardPolicy, DiscardOldest
+> (暂无摘要)
 
 ## [虚拟线程 (Loom)](https://java-px.bot.cd/java-language/03-concurrency/virtual-threads)
-> - JDK 21: java.lang.VirtualThread, lightweight threads managed by JVM - Platform thread: OS thread (1:1), expensive - Virtual thread: JVM-managed, cheap (millions possible), works with synchronized (p
+> - For IO-bound tasks, don't pool virtual threads
 
 ## [字节码 / 指令](https://java-px.bot.cd/java-language/04-jvm/bytecode)
-> - javap -c classFile: disassemble - Invocation: invokespecial (`<init>`/private/super), invokevirtual (instance), invokestatic (static), invokeinterface (interface), invokedynamic (lambda)
+> (暂无摘要)
 
 ## [类加载机制](https://java-px.bot.cd/java-language/04-jvm/classloading)
-> - Bootstrap ClassLoader (JVM built-in, loads rt.jar) - Extension/Platform ClassLoader (jre/lib/ext, Java 9+ Platform) - Application ClassLoader (classpath) - Parent delegation: child asks parent first
+> - Bootstrap ClassLoader (JVM built-in, loads rt.jar) - Extension/Platform ClassLoader (jre/lib/ext, Java 9+ Platform) - Application ClassLoader (classpath)
 
 ## [对象创建 / OOM](https://java-px.bot.cd/java-language/04-jvm/oom)
-> - java.lang.OutOfMemoryError: Java heap space → -Xmx too small / memory leak - OOM: GC overhead limit → GC spends >98% time reclaiming <2% heap - OOM: Metaspace → too many classes loaded - OOM: Direct
+> (暂无摘要)
 
 ## [JVM 运行时数据区](https://java-px.bot.cd/java-language/04-jvm/runtime)
-> - Heap: Young (Eden+S0+S1), Old, shared by all threads - Method Area / Metaspace: class metadata, constants, static vars (Java 8+ Metaspace in native memory) - VM Stack: each thread has one, stores st
+> (暂无摘要)
 
 ## [GC 算法](https://java-px.bot.cd/java-language/05-gc/algorithms)
-> - Mark-Sweep: mark reachable, sweep unreachable → fragmentation - Copying: Eden → Survivor, compact → used in Young Gen - Mark-Compact: mark then compact → Old Gen - Generational: weak generational hy
+> (暂无摘要)
 
 ## [G1 / ZGC / Shenandoah](https://java-px.bot.cd/java-language/05-gc/collectors)
 > | Collector | Young | Old | Pause | Target | |-----------|-------|-----|-------|--------| | Serial | Serial | Serial Old | long | single CPU | | Parallel | Parallel Scavenge | Parallel Old | medium |
 
 ## [GC 日志 / 调优](https://java-px.bot.cd/java-language/05-gc/tuning)
-> - Goals: throughput >98%, pause <200ms, full GC rare - Tuning: adjust Young/Old ratio, survivor ratio, promotion threshold - G1: -XX:MaxGCPauseMillis=200, -XX:G1HeapRegionSize - ZGC: almost no tuning
+> (暂无摘要)
 
 ## [Spring Boot 自动配置](https://java-px.bot.cd/java-language/06-spring/boot)
-> - @SpringBootApplication = @Configuration + @EnableAutoConfiguration + @ComponentScan - Auto-configuration: spring.factories → @ConditionalOnClass/@ConditionalOnMissingBean - application.yml > applica
+> - @SpringBootApplication = @Configuration + @EnableAutoConfiguration + @ComponentScan - application.yml > application.properties > command line args > env vars
 
 ## [IoC / DI / AOP](https://java-px.bot.cd/java-language/06-spring/ioc-aop)
-> - IoC: container manages bean lifecycle, not you - DI: constructor injection (recommended), field injection (@Autowired), setter injection - AOP: JDK dynamic proxy (interface-based) vs CGLIB proxy (cl
+> (暂无摘要)
 
 ## [Spring MVC](https://java-px.bot.cd/java-language/06-spring/mvc)
-> - DispatcherServlet flow: HandlerMapping → HandlerAdapter → Handler → ModelAndView → ViewResolver - @RestController = @Controller + @ResponseBody - @ExceptionHandler, @ControllerAdvice for global erro
+> - @RestController = @Controller + @ResponseBody - @ExceptionHandler, @ControllerAdvice for global error handling
 
 ## [声明式事务](https://java-px.bot.cd/java-language/06-spring/transaction)
-> - Propagation: REQUIRED (default), REQUIRES_NEW, NESTED - Isolation: DEFAULT, READ_COMMITTED, REPEATABLE_READ, SERIALIZABLE - rollbackFor: default only RuntimeException, add Exception.class for checke
+> (暂无摘要)
 
 ## [Gateway / Sentinel](https://java-px.bot.cd/java-language/07-spring-cloud/gateway)
-> - Route: id + uri + predicates + filters - Predicates: Path, Host, Method, Header, Query, Weight - Filters: AddRequestHeader, StripPrefix, RequestRateLimiter, CircuitBreaker - Sentinel: flow control,
+> (暂无摘要)
 
 ## [Nacos 注册/配置中心](https://java-px.bot.cd/java-language/07-spring-cloud/nacos)
-> - Service discovery: CP (Raft) for registry, AP (Distro) for instances - Config center: namespace/group/dataId, dynamic refresh (@RefreshScope)
+> (暂无摘要)
 
 ## [Seata 分布式事务](https://java-px.bot.cd/java-language/07-spring-cloud/seata)
-> - AT mode: auto, undo_log table for rollback, global lock - TCC mode: Try/Confirm/Cancel, manual implementation - Saga mode: forward + backward compensation
+> (暂无摘要)
 
 ## [JDBC / HikariCP](https://java-px.bot.cd/java-language/08-database/jdbc)
-> - JDBC: DriverManager → DataSource (connection pooling) - PreparedStatement: prevent SQL injection, pre-compiled - HikariCP: fastest pool, defaults: pool-size=10, idle-timeout=600s, max-lifetime=1800s
+> (暂无摘要)
 
 ## [JPA / Hibernate](https://java-px.bot.cd/java-language/08-database/jpa)
-> - Spring Data JPA: findByXxx, @Query, @Modifying for DML - N+1 problem: LAZY loading + loop → 1 + N queries. Fix: @EntityGraph, @Query with JOIN FETCH - Lock: @Lock(LockModeType.PESSIMISTIC_WRITE) for
+> (暂无摘要)
 
 ## [MyBatis / MyBatis-Plus](https://java-px.bot.cd/java-language/08-database/mybatis)
-> - MyBatis: mapper XML with #{param} (PreparedStatement) vs ${param} (string concat, SQL injection risk) - MyBatis-Plus: BaseMapper`<T>`, QueryWrapper, LambdaQueryWrapper, auto pagination
+> (暂无摘要)
 
 ## [Netty 框架](https://java-px.bot.cd/java-language/09-io/netty)
-> - EventLoopGroup: boss (accept) + worker (IO) - ChannelPipeline: chain of ChannelHandlers - ChannelHandler: ChannelInboundHandler (read) / ChannelOutboundHandler (write) - ByteBuf: pooled memory, refe
+> (暂无摘要)
 
 ## [BIO / NIO / AIO](https://java-px.bot.cd/java-language/09-io/nio)
-> - BIO: blocking I/O, one thread per connection - NIO: non-blocking, Buffer (position/limit/capacity), Channel (FileChannel/SocketChannel), Selector (multiplex) - AIO: asynchronous, callback or Future
+> (暂无摘要)
 
 ## [序列化 / JSON / ProtoBuf](https://java-px.bot.cd/java-language/09-io/serialize)
-> - Serializable: writeObject/readObject, serialVersionUID, transient fields - Jackson: @JsonProperty, @JsonIgnore, @JsonFormat, ObjectMapper - ProtoBuf: binary, schema-first, smaller/faster than JSON -
+> (暂无摘要)
 
 ## [Arthas 诊断](https://java-px.bot.cd/java-language/10-performance/arthas)
-> - dashboard: real-time CPU/memory/GC (like htop for JVM) - thread -n 3: top 3 CPU threads - thread -b: find deadlock - watch: observe method invocation args, return, exception - trace: method call tre
+> (暂无摘要)
 
 ## [jstack / jmap / jstat](https://java-px.bot.cd/java-language/10-performance/jvm-tools)
-> - jps -l: list Java processes - jstack pid: thread dump, find deadlocks - jmap -histo:live pid | head: top objects by count - jmap -dump:live,file=dump.hprof pid: heap dump - jstat -gc pid 1000 5: GC
+> - jcmd pid GC.heap_dump /tmp/dump.hprof
 
 ## [JVM 调优参数](https://java-px.bot.cd/java-language/10-performance/jvm-tuning)
-> - -Xms512m -Xmx2g (heap), -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=256m - GC: -XX:+UseG1GC -XX:MaxGCPauseMillis=200 - Dump: -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/dump.hprof - Thread
+> (暂无摘要)
 
 ## [行为型设计模式](https://java-px.bot.cd/java-language/11-design/behavioral)
-> - Strategy: interchangeable algorithms (Comparator) - Observer: publish/subscribe (EventListener) - Chain of Responsibility: pass request along chain (Servlet Filters) - Template Method: define skelet
+> (暂无摘要)
 
 ## [创建型设计模式](https://java-px.bot.cd/java-language/11-design/creational)
-> - Singleton: DCL + volatile, enum, static inner class holder - Factory Method: define interface, subclasses decide class - Builder: fluent API for complex object construction (Lombok @Builder) - Proto
+> (暂无摘要)
 
 ## [结构型设计模式](https://java-px.bot.cd/java-language/11-design/structural)
-> - Proxy: static (compile-time), dynamic (JDK Proxy), CGLIB (subclass) - Decorator: wrap object to add behavior (InputStream hierarchy) - Adapter: convert interface (class adapter vs object adapter) -
+> (暂无摘要)
 
 ## [Maven / Gradle](https://java-px.bot.cd/java-language/12-tools/build)
-> - Maven lifecycle: validate → compile → test → package → verify → install → deploy - Dependency scope: compile (default), provided, runtime, test, system, import - Gradle: Groovy/Kotlin DSL, increment
+> (暂无摘要)
 
 ## [常用命令速查](https://java-px.bot.cd/java-language/12-tools/commands)
 > (暂无摘要)
 
 ## [Lombok / MapStruct](https://java-px.bot.cd/java-language/12-tools/lombok)
-> - @Data = @Getter + @Setter + @ToString + @EqualsAndHashCode + @RequiredArgsConstructor - @Builder: fluent builder pattern - @Slf4j: private static final Logger log - MapStruct: compile-time bean mapp
+> - @Data = @Getter + @Setter + @ToString + @EqualsAndHashCode + @RequiredArgsConstructor
 
 ## [JUnit5](https://java-px.bot.cd/java-language/13-testing/junit5)
 > - @Test/@BeforeEach/@AfterEach/@BeforeAll (static) - @ParameterizedTest + @CsvSource/@MethodSource - assertThrows, assertTimeout, assertAll (group assertions) - @Nested for hierarchical tests, @Tag fo
@@ -2990,13 +2990,13 @@
 > - @Mock create mock, @InjectMocks inject mocks into target - when().thenReturn() stub, verify() check invocation - ArgumentCaptor capture arguments, @Spy partial mock
 
 ## [Spring Boot Test](https://java-px.bot.cd/java-language/13-testing/spring-test)
-> - @SpringBootTest: full context, slow - @WebMvcTest(UserController.class): slice test for controllers - @DataJpaTest: slice test for JPA repositories - TestContainers: real DB in Docker, @Container +
+> (暂无摘要)
 
 ## [手写代码](https://java-px.bot.cd/java-language/14-interview/coding)
 > 1. 线程安全单例（DCL+volatile, static inner class, enum） 2. 生产者-消费者（BlockingQueue, wait/notify, Lock+Condition） 3. 死锁（两线程互相等待对方锁） 4. LRU缓存（LinkedHashMap accessOrder，或 HashMap+双向链表） 5. 两个线程交替打印奇偶数 6. 限流器（令牌桶/
 
 ## [学习路径](https://java-px.bot.cd/java-language/14-interview/path)
-> - Junior (1-2yr): Core Java, Collections, basic concurrency, Spring Boot CRUD, SQL - Mid (3-5yr): JVM tuning, JUC, microservices (Spring Cloud), design patterns, testing - Senior (5-8yr): JVM internal
+> 速查：[OOP](/01-basics/oop) → [集合](/02-collections/list) → [并发](/03-concurrency/thread-pool) → [JVM](/04-jvm/runtime) → [GC](/05-gc/algorithms) → [Spring](/06-spring/ioc-aop) → [Cloud](/07-spring-cloud/n
 
 ## [高频面试题](https://java-px.bot.cd/java-language/14-interview/questions)
 > 1. HashMap 原理？数组+链表/红黑树，hash冲突，扩容，loadFactor 0.75 2. ConcurrentHashMap 怎么保证线程安全？Java 7 Segment锁，Java 8 CAS+synchronized 3. synchronized vs Lock？JVM内置 vs API，自动释放 vs finally unlock，condition等待通知 4. vol
@@ -3007,7 +3007,7 @@
 ## [知识图谱](https://java-px.bot.cd/java-language/graph)
 > > 50+ 节点，14 大主题分类，节点可点击跳转。 <ClientOnly><KnowledgeGraph :height="820" /></ClientOnly> | 颜色 | 分类 | 节点数 | |------|------|--------| | 🔴 红 | 基础语法 | 5 | | 🔵 蓝 | 集合框架 | 5 | | 🟣 紫 | 并发编程 | 5 | | 🟧 橙 | JVM 内存模
 
-## [Untitled](https://java-px.bot.cd/java-language/index)
+## [java-language 知识图谱](https://java-px.bot.cd/java-language/index)
 > <ClientOnly> <WhyThisGraph :pain-points="[ "会用 HashMap 但不理解红黑树和 Hash 冲突", "写了 Spring 但不理解 IoC 容器如何工作", "遇到 GC 停顿只会调 Xmx", "用了线程池但不理解核心参数", "面试问 JVM 只知道「堆栈方法区」" ]" :goals="[ "系统化讲清 Java 基础 → 集合 → 并发 →
 
 ## [思维导图](https://java-px.bot.cd/java-language/mindmap)
@@ -3191,25 +3191,25 @@
 > > 写 W 副本、读 R 副本，通过 R + W > N 保证至少读到最新值。 | N | W | R | 行为 | 一致性 | |---|---|---|---|---| | 3 | 1 | 1 | 全异步，无一致性 | Eventual | | 3 | 2 | 2 | 经典 Quorum | Strong | | 3 | 3 | 1 | 写全确认，读任意 | Strong Read | | 3
 
 ## [主从复制与读写分离](https://java-px.bot.cd/system-design/02-storage/replica)
-> > 复制是分布式的"双保险"——同一份数据存多份，一台挂了另一台顶上。 - MySQL High Availability (Charles Bell et al.) - PostgreSQL Replication Documentation - Dynamo: Amazon's Highly Available Key-value Store (SOSP 2007) - Designing D
+> > 复制是分布式的"双保险"——同一份数据存多份，一台挂了另一台顶上。 - MySQL High Availability (Charles Bell et al.) - PostgreSQL Replication Documentation - Designing Data-Intensive Applications 第 5 章 - Raft Consensus Algorithm (Ong
 
 ## [数据分片策略](https://java-px.bot.cd/system-design/02-storage/sharding)
-> > 当单台机器存不下、扛不住时，把数据**水平切分**到多台机器上。 - Dynamo: Amazon's Highly Available Key-value Store (SOSP 2007) - Bigtable: A Distributed Storage System for Structured Data (OSDI 2006) - Consistent Hashing and Ran
+> > 当单台机器存不下、扛不住时，把数据**水平切分**到多台机器上。 - Consistent Hashing and Random Trees (Karger et al., 1997) - DDIA 第 6 章
 
 ## [分布式锁](https://java-px.bot.cd/system-design/03-coordination/distributed-lock)
 > > 多台机器的进程 / 线程，对同一份资源进行互斥访问。**正确性 > 性能 > 实现复杂度**。 | 方案 | 性能 | 可靠性 | 复杂度 | 适用场景 | |---|---|---|---|---| | DB 唯一索引 | 低 | 高 | 低 | 锁竞争小，秒级业务 | | Redis SETNX | 极高 | 中（主从切换丢锁） | 低 | 高并发，性能敏感 | | ZooKeeper |
 
 ## [Leader 选举](https://java-px.bot.cd/system-design/03-coordination/leader-election)
-> > 集群选出一个"主"负责协调，其他节点 standby。**唯一性 + 高可用**。 特点： 特点： - Raft 论文 (Diego Ongaro, 2014) - Paxos Made Simple (Lamport, 2001) - ZAB 协议论文 - etcd Raft 实现 - Curator LeaderLatch 文档 - "Consensus: Bridging Theory
+> > 集群选出一个"主"负责协调，其他节点 standby。**唯一性 + 高可用**。 特点： 特点： - Raft 论文 (Diego Ongaro, 2014) - Paxos Made Simple (Lamport, 2001) - ZAB 协议论文 - etcd Raft 实现 - Curator LeaderLatch 文档
 
 ## [Paxos 共识算法](https://java-px.bot.cd/system-design/03-coordination/paxos)
 > > Lamport 1998 年提出。最经典的分布式共识算法，但因难懂闻名（"Paxos is beautiful but hard to understand"）。 - The Part-Time Parliament (Lamport, 1998) —— 原论文 - Paxos Made Simple (Lamport, 2001) —— 简化版 - Paxos Made Live (Chan
 
 ## [Raft 共识算法](https://java-px.bot.cd/system-design/03-coordination/raft)
-> > Diego Ongaro & John Ousterhout 2014 年提出。"一种易于理解的共识算法"。 - In Search of an Understandable Consensus Algorithm (Ongaro & Ousterhout, USENIX 2014) - raft.github.io （动画演示） - Consensus: Bridging Theory an
+> > Diego Ongaro & John Ousterhout 2014 年提出。"一种易于理解的共识算法"。 - In Search of an Understandable Consensus Algorithm (Ongaro & Ousterhout, USENIX 2014) - raft.github.io （动画演示） - etcd Internals（GitHub） - DDIA
 
 ## [ZAB 协议（ZooKeeper Atomic Broadcast）](https://java-px.bot.cd/system-design/03-coordination/zab)
-> > ZooKeeper 2010 年前后提出。专为协调服务设计的原子广播协议，类似于 Raft 但有差异。 - ZooKeeper: Wait-free coordination for Internet-scale systems (Hunt et al., 2010) - ZooKeeper's Atomic Broadcast Protocol (Junqueira, 2014) - Apa
+> > ZooKeeper 2010 年前后提出。专为协调服务设计的原子广播协议，类似于 Raft 但有差异。 - ZooKeeper's Atomic Broadcast Protocol (Junqueira, 2014) - Apache ZooKeeper 官方文档 - etcd vs ZooKeeper 对比文章 - DDIA 第 9 章
 
 ## [两阶段提交（2PC）](https://java-px.bot.cd/system-design/04-transaction/2pc)
 > > Two-Phase Commit。最经典的分布式事务协议，也是最被诟病的协议。 - Transaction Recovery in Distributed Database Systems (Gray, 1978) - Distributed Recovery (Skeen, 1981) - XA Specification (X/Open) - Atomikos Documentation
@@ -3233,13 +3233,13 @@
 > > 微服务的"门面"——所有外部请求的统一入口。 | 方案 | 性能 | 语言 | 特点 | |---|---|---|---| | **Nginx** | ★★★★★ | C | 高性能，需配置 Lua | | **Kong** | ★★★★ | OpenResty | Nginx + Lua，生态完善 | | **APISIX** | ★★★★ | OpenResty | 国产，云原生 | |
 
 ## [熔断器模式](https://java-px.bot.cd/system-design/05-patterns/circuit-breaker)
-> > Martin Fowler 2014 年提出。当下游服务故障时，**快速失败**而不是傻等。 - CircuitBreaker (Martin Fowler, 2014) - Hystrix: https://github.com/Netflix/Hystrix - Resilience4j: https://resilience4j.readme.io/ - Sentinel: https:
+> > Martin Fowler 2014 年提出。当下游服务故障时，**快速失败**而不是傻等。 - CircuitBreaker (Martin Fowler, 2014) - Release It! (Michael Nygard, 2018) —— 稳定性设计圣经
 
 ## [配置中心](https://java-px.bot.cd/system-design/05-patterns/config-center)
 > > 把分散在各服务的配置文件集中管理，运行时动态推送变更。 | 方案 | 存储 | 一致性 | 特点 | |---|---|---|---| | **Spring Cloud Config** | Git | 弱 | 生态完善，需配合 Spring Cloud Bus | | **Nacos** | MySQL + 缓存 | 强 | 配置 + 注册中心二合一 | | **Apollo** | My
 
 ## [分布式链路追踪](https://java-px.bot.cd/system-design/05-patterns/distributed-trace)
-> > 一个请求跨多个服务时，**如何追踪它从进入到返回的完整路径**。 - OpenTelemetry: https://opentelemetry.io/ - W3C Trace Context: https://www.w3.org/TR/trace-context/ - Jaeger: https://www.jaegertracing.io/ - Zipkin: https://zipkin
+> > 一个请求跨多个服务时，**如何追踪它从进入到返回的完整路径**。 - Distributed Tracing (Ben Sigelman, 2020) —— O'Reilly - Google Dapper Paper (2010) —— 链路追踪鼻祖
 
 ## [限流](https://java-px.bot.cd/system-design/05-patterns/rate-limiter)
 > > 保护系统不被突发流量冲垮。**有损服务优于系统崩溃**。 | 方案 | 语言 | 特点 | |---|---|---| | **Sentinel** | Java | 阿里，功能丰富（限流/熔断/热点/集群）| | **Resilience4j** | Java | 轻量，函数式 API | | **Guava RateLimiter** | Java | 令牌桶，单机 | | **Nginx
@@ -3260,7 +3260,7 @@
 > > 少量 key 占据绝大部分流量，**单 key 性能成为瓶颈**。 - Redis Hot Keys (Redis Labs) - CacheCloud 搜狐开源 - 阿里热点 Key 防御实践 - 微博热点架构 - DDIA 第 5 章
 
 ## [多级缓存架构](https://java-px.bot.cd/system-design/06-cache/multi-level)
-> > 从浏览器到数据库，每一层都有自己的缓存。**组合得当才能发挥最大效果**。 - Nginx proxy_cache 文档 - Caffeine: https://github.com/ben-manes/caffeine - Redis maxmemory-policy 文档 - Web Caching (Varnish / Squid 经典) - DDIA 第 5 章 - Caching a
+> > 从浏览器到数据库，每一层都有自己的缓存。**组合得当才能发挥最大效果**。 - Nginx proxy_cache 文档 - Redis maxmemory-policy 文档 - Web Caching (Varnish / Squid 经典) - DDIA 第 5 章 - Caching at Reddit (Reddit 工程博客)
 
 ## [缓存三大问题：雪崩 / 穿透 / 击穿](https://java-px.bot.cd/system-design/06-cache/three-problems)
 > > 缓存系统中三类**会打爆数据库**的故障模式，及对应解决方案。 - Redis Best Practices (Redis Labs) - Bloom Filter (Wikipedia) - 阿里缓存防御实践 - Distributed Caching Patterns - DDIA 第 5 章
@@ -3272,10 +3272,10 @@
 > > 消息可能重复投递。**让重复消息不影响业务结果**。 CREATE TABLE processed_messages ( msg_id VARCHAR(64) PRIMARY KEY, processed_at TIMESTAMP ); 优点：强一致 缺点：每次处理多一次写 enable.idempotence=true（默认开启）： - Producer 自动给消息加 PID + seque
 
 ## [消息可靠性：不丢消息](https://java-px.bot.cd/system-design/07-messaging/not-lost)
-> > 消息队列最基础的承诺：**至少一次投递**。但工程上要付出很大代价。 - Kafka Documentation: Producer Configs + Consumer Configs - RocketMQ 官方文档：消息可靠性 - Kafka: The Definitive Guide (Neha Narkhede, 2017) - Designing Data-Intensive App
+> > 消息队列最基础的承诺：**至少一次投递**。但工程上要付出很大代价。 - RocketMQ 官方文档：消息可靠性 - Designing Data-Intensive Applications 第 11 章 - 阿里 RocketMQ 不丢消息实践
 
 ## [消息顺序性](https://java-px.bot.cd/system-design/07-messaging/order)
-> > 消息队列是**乱序**的，但有些业务必须**有序**。 - Kafka Documentation: Message Ordering - RocketMQ 顺序消息：官方文档 - Message Ordering in Distributed Systems (Microsoft 博客) - DDIA 第 11 章 - 阿里 RocketMQ 顺序消息实战
+> > 消息队列是**乱序**的，但有些业务必须**有序**。 - RocketMQ 顺序消息：官方文档 - Message Ordering in Distributed Systems (Microsoft 博客) - DDIA 第 11 章 - 阿里 RocketMQ 顺序消息实战
 
 ## [集群模式](https://java-px.bot.cd/system-design/08-availability/cluster)
 > > 多节点共同提供同一服务，任何一个挂了不影响整体。**水平扩展、故障转移、负载均衡**。 - "Designing Data-Intensive Applications" (Martin Kleppmann) - Redis Cluster 官方文档 - Apache Kafka KRaft 模式 - Elasticsearch Cluster 文档 - MongoDB Sharding 文档
@@ -3299,7 +3299,7 @@
 > > 两种最常见的 ID 方案，本质差异是"信息 vs 顺序"。**看业务场景选**。 | 维度 | UUID | Snowflake | |---|---|---| | 位数 | 128 | 64 | | 长度 | 36 字符（带-） | 19 字符（最大） | | 类型 | 字符串 | 长整型 | | 有序性 | ❌（v4） | ✅ | | 趋势递增 | ❌ | ✅ | | DB 索引 | 不友
 
 ## [Feed 流系统设计](https://java-px.bot.cd/system-design/10-cases/feed-stream)
-> > 关注、被关注、被推荐的内容聚合流。推模式 vs 拉模式 vs 混合模式。 - TAO: Facebook's Distributed Data Store for the Social Graph (USENIX 2013) - Redis Sorted Set 实现 Feed 流 - Twitter 早期架构博客 - 抖音 / 微博公开演讲 - 美团 Feed 流架构演进 - DDIA 第
+> > 关注、被关注、被推荐的内容聚合流。推模式 vs 拉模式 vs 混合模式。 - Redis Sorted Set 实现 Feed 流 - Twitter 早期架构博客 - 抖音 / 微博公开演讲 - 美团 Feed 流架构演进 - DDIA 第 11 章
 
 ## [抢红包系统设计](https://java-px.bot.cd/system-design/10-cases/grab-redpacket)
 > > 群里发红包，几百人抢。**公平性 + 实时性 + 不超发**。 def split_redpacket(total, count): """二倍均值法""" min_amount = 0.01 max_amount = total / count * 2  # 二倍均值 amounts = [] remaining = total for i in range(count - 1): max_
@@ -4042,7 +4042,7 @@
 ## [runtime 调度器 GMP](https://java-px.bot.cd/go/06-advanced/runtime)
 > **Go runtime = GMP 调度器 + GC + goroutine + channel**——理解它 = 写出高性能 Go。 > **GMP = G (goroutine) + M (machine/OS thread) + P (processor/逻辑 CPU)**。**work-stealing + hand-off 调度算法**。 --- - **G（Goroutine）**：
 
-## [Untitled](https://java-px.bot.cd/go/index)
+## [go 知识图谱](https://java-px.bot.cd/go/index)
 > <ClientOnly> <WhyThisGraph :pain-points="[ "goroutine 调度原理、栈扩容讲不清？", "channel vs sync.Mutex 不知道选哪个？", "Go 错误处理（error / panic / recover）哲学？", "微服务架构、gRPC、Service Mesh 怎么落地？", "K8s operator / controller
 
 ## [客户端连接](https://java-px.bot.cd/clickhouse/01-basics/client)
@@ -4150,7 +4150,7 @@
 ## [大厂 ClickHouse 实战案例](https://java-px.bot.cd/clickhouse/case-study)
 > 12 个真实生产级 ClickHouse 案例：Uber / Cloudflare / 字节 / B 站 / 京东等
 
-## [Untitled](https://java-px.bot.cd/clickhouse/index)
+## [clickhouse 知识图谱](https://java-px.bot.cd/clickhouse/index)
 > <ClientOnly> <WhyThisGraph :pain-points="[ "列存 vs 行存：为什么 OLAP 要用列存？", "MergeTree 引擎家族（Replacing / Summing / Aggregating）怎么选？", "实时数仓（Lambda / Kappa / 湖仓一体）架构怎么选？", "集群扩容、副本、数据分片怎么平衡成本与可用性？", "SQL 优化：O
 
 ## [Abstract Factory 抽象工厂模式](https://java-px.bot.cd/design-pattern/01-gof-creational/abstract-factory)
@@ -4393,5 +4393,5 @@
 ## [SLO 反馈环](https://java-px.bot.cd/chaos/07-observability-for-chaos/slo-feedback-loop)
 > **SLI（Service Level Indicator）**：可度量的指标 - 例：订单成功率、P99 延迟 **SLO（Service Level Objective）**：目标值 - 例：99.5% 成功率、P99 < 1.5s **Error Budget**：可消耗的错误预算 - 例：每月 0.5% 错误预算 **每月 Error Budget 计算**： 例：SLO 99.5% ×
 
-## [Untitled](https://java-px.bot.cd/chaos/index)
+## [chaos 知识图谱](https://java-px.bot.cd/chaos/index)
 > <ClientOnly> <WhyThisGraph :pain-points="[ "Netflix Chaos Monkey 起源：混沌工程到底解决什么问题？", "稳态假设（steady state）怎么定义才不会被实验打破？", "爆炸半径（blast radius）如何控制才安全？", "Chaos Mesh / Litmus / Gremlin / ChaosBlade 工具怎么选？"

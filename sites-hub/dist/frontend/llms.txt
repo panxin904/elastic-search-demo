@@ -2,7 +2,7 @@
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
 > 65 个文档页 · 157,490 字
-> 生成时间：2026-08-16T08:58:46
+> 生成时间：2026-08-16T09:03:50
 
 ## [浏览器渲染原理](https://java-px.bot.cd/frontend/01-foundation/browser)
 > | 进程 | 职责 | |------|------| | Browser | 界面、Tab 管理、子进程协调 | | Renderer | 单个 Tab 的渲染（HTML 解析、布局、绘制） | | GPU | 加速绘制、3D CSS | | Network | 网络请求 | | Plugin | 第三方插件（已废弃） | 每个 Tab 默认一个 Renderer 进程（Site Isolati
@@ -41,7 +41,7 @@
 > React = **声明式 UI + 单向数据流 + 不可变状态** | Hook | 作用 | |------|------| | `useState` | 本地状态 | | `useReducer` | 复杂状态 / reducer 模式 | | `useEffect` | 副作用（数据请求、订阅） | | `useLayoutEffect` | 同步执行，在 DOM 变更后绘制前 | | `
 
 ## [Svelte / Solid](https://java-px.bot.cd/frontend/03-framework/svelte)
-> > 两个"非主流但很香"的现代前端方案。 **Slogan**: *"Write less code"* — 编译时框架，无运行时虚拟 DOM。 - **真小**：运行时 0（编译为原生 DOM 操作 + 响应式指令） - **`$:` 响应式声明块** 类似 Svelte 的杀手锏 - **CSS 作用域默认隔离**：不需要 CSS Modules - **SvelteKit**：类 Next.
+> > 两个"非主流但很香"的现代前端方案。 **Slogan**: *"Write less code"* — 编译时框架，无运行时虚拟 DOM。 - **真小**：运行时 0（编译为原生 DOM 操作 + 响应式指令） - **CSS 作用域默认隔离**：不需要 CSS Modules - **SvelteKit**：类 Next.js 的元框架，支持 SSR/SSG/Edge - 关注性能（移动
 
 ## [Vue 3 组合式 API](https://java-px.bot.cd/frontend/03-framework/vue)
 > Vue = **响应式数据 + 模板编译 + 单向数据流** | API | 作用 | |-----|------| | `ref(value)` | 包装任意值，访问用 `.value` | | `reactive(obj)` | 让对象整体响应式 | | `computed(() => ...)` | 计算属性，自动缓存 | | `watch(source, fn, opts)` | 通用监听
@@ -65,7 +65,7 @@
 > **用 Go 写的极快 bundler / transpiler**。Vite 的预构建 + minify 都靠它。 性能对比（同等任务）： - Webpack：~40s - esbuild：~0.4s（**100x**） esbuild 适合： - 库打包（`tsup`、`unbuild`） - Vite 的依赖预构建 - monorepo 单文件构建 不适合（暂时）： - 复杂 chunk 拆
 
 ## [Monorepo (Turbo/Nx)](https://java-px.bot.cd/frontend/05-build/monorepo)
-> - **增量缓存**（基于文件 hash 的内容缓存） - **任务编排**（`dependsOn: ["^build"]` 先构建依赖） - **远程缓存**（自建或 Vercel） 适合**大型 monorepo**，自带： - 代码生成器（`nx generate @nx/react:app`） - 依赖图可视化（`nx graph`） - 严格的工作区约定 - 受影响的项目分析（`nx a
+> - **增量缓存**（基于文件 hash 的内容缓存） - **远程缓存**（自建或 Vercel） 适合**大型 monorepo**，自带： - 依赖图可视化（`nx graph`） - 严格的工作区约定 - 受影响的项目分析（`nx affected`） | 工具 | 推荐 | |------|------| | npm workspaces | 简单项目 | | yarn workspac
 
 ## [包管理器 (pnpm/yarn)](https://java-px.bot.cd/frontend/05-build/package-manager)
 > | | npm | yarn (classic) | yarn (v4 berry) | pnpm | |--|----|----|----|----| | 安装速度 | 慢 | 中 | 快 | **最快** | | 磁盘占用 | 大 | 大 | 中 | **最小** | | 单仓多包 | workspaces | workspaces | workspaces | workspaces (最快)
@@ -80,7 +80,7 @@
 > 把 CSS 写在 JS / TS 中，通过运行时或编译时生成类名。 虽然不算 CSS-in-JS，但语法上类似——已在 [Tailwind 章节](/06-style/tailwind) 详述。 | | 运行时（styled / Emotion） | 编译时（vanilla-extract / Linaria） | |--|----------------|------------------|
 
 ## [CSS Modules](https://java-px.bot.cd/frontend/06-style/css-modules)
-> 把 CSS 文件 `import` 进 JS 中，并且**类名自动 scope** 的方案。由构建工具（Vite / webpack）支持。 构建后输出： - **作用域隔离**：不会出现全局污染 - **复用纯 CSS**：不依赖任何运行时 - **零运行时开销**：构建期 class 名 hash - **CSS 文件可读**：保持传统 CSS 心智 - 不易跨组件共享样式（除非配合 :glo
+> 把 CSS 文件 `import` 进 JS 中，并且**类名自动 scope** 的方案。由构建工具（Vite / webpack）支持。 构建后输出： - **作用域隔离**：不会出现全局污染 - **复用纯 CSS**：不依赖任何运行时 - **零运行时开销**：构建期 class 名 hash - **CSS 文件可读**：保持传统 CSS 心智 - 动态化不如 CSS-in-JS CSS
 
 ## [设计系统 / 组件库](https://java-px.bot.cd/frontend/06-style/design-system)
 > | 术语 | 含义 | |------|------| | **设计系统** (Design System) | 设计 token + 组件 + 文档 + 规范一整套（设计 + 工程） | | **UI 组件库** (Component Library) | 一套可复用 React/Vue 组件 | | 库 | 特点 | 适合 | |----|------|------| | **Ant Desi
@@ -89,7 +89,7 @@
 > 特性： - **变量** `$var` - **嵌套** `&` - **mixin** `@mixin` / `@include` - **继承** `@extend` - **运算** `+`、`*`、`darken()` | 需求 | 旧（SCSS） | 现在 | |------|-----------|------| | 变量 | `$primary` | `--var-primary`
 
 ## [Tailwind / UnoCSS](https://java-px.bot.cd/frontend/06-style/tailwind)
-> **Utility-first CSS 框架**：在 HTML / JSX 中拼出 class。 - **不用离开 HTML**：无需切换文件 - **约束体积**：自动 purge 未用到的 class - **一致性**：design token 内置（间距、颜色、字号） - **dark mode**：内置 `dark:` 前缀 2024+ 新版本： - **CSS-first 配置**（在
+> **Utility-first CSS 框架**：在 HTML / JSX 中拼出 class。 - **不用离开 HTML**：无需切换文件 - **约束体积**：自动 purge 未用到的 class - **一致性**：design token 内置（间距、颜色、字号） 2024+ 新版本： - **CSS-first 配置**（在 CSS 里写 `@theme`） - 零配置 / 更快的构
 
 ## [React Query / SWR](https://java-px.bot.cd/frontend/07-state/data-fetching)
 > 服务端数据与"本地状态"不同： - **远程**：需要 fetch + loading / error 状态 - **缓存**：避免重复请求 - **失效**：需要 invalidate / 重新拉取 - **乐观更新**：UI 先变，请求失败再回滚 自己写 hook 处理这堆很痛苦，**TanStack Query (React Query) / SWR** 帮你封装好。 | 特性 | 描述 |
@@ -176,7 +176,7 @@
 > > 面试常考的"大型"题：电商 / 内容 / 协作 / 实时。 **关键设计**： - **发号器**：自增 ID / 雪花 / Hash - **Hash 算法**：MD5 → 取前 N 位 / CRC32 - **冲突处理**：追加 1 字符再 Hash - **存储**：MySQL / Redis（缓存）+ 异步落库 - **301 vs 302**：301 永久（缓存到浏览器），302 临
 
 ## [CI/CD](https://java-px.bot.cd/frontend/14-tools/cicd)
-> `.husky/pre-commit` 自动由 husky 生成： `.husky/commit-msg`： 格式：`type(scope?): subject` - feat: 新功能 - fix: 修复 - docs: 文档 - style: 格式 - refactor: 重构 - test: 测试 - chore: 杂项 | 策略 | 描述 | 回滚 | |------|------|---
+> `.husky/pre-commit` 自动由 husky 生成： `.husky/commit-msg`： 格式：`type(scope?): subject` | 策略 | 描述 | 回滚 | |------|------|------| | 蓝绿 | 新旧两套，切换流量 | 切回旧 | | 灰度 | 部分用户访问新版本 | 移除比例 | | 金丝雀 | 小流量验证 | 移除 | | Feat
 
 ## [Lint / Format](https://java-px.bot.cd/frontend/14-tools/lint)
 > 常用 preset： - `eslint-config-airbnb`（严格） - `eslint-config-standard`（折中） - `eslint-config-prettier`（与 Prettier 配合） - `eslint-plugin-react` / `eslint-plugin-react-hooks` - `eslint-plugin-jsx-a11y` 顺序：**P
@@ -190,7 +190,7 @@
 ## [知识图谱](https://java-px.bot.cd/frontend/graph)
 > > 80+ 节点，14 大主题分类，节点可点击跳转到对应章节。鼠标拖动可调整布局，悬停查看节点关联。 <ClientOnly> <KnowledgeGraph :height="820" /> </ClientOnly> | 颜色 | 分类 | 主题数 | |------|------|--------| | 🟠 橙 | 基础层 | 5 | | 🔵 蓝 | 语言层 | 4 | | 🩵 青 | UI
 
-## [Untitled](https://java-px.bot.cd/frontend/index)
+## [frontend 知识图谱](https://java-px.bot.cd/frontend/index)
 > <ClientOnly> <WhyThisGraph :pain-points="[ "HTML / CSS 基础不扎实，遇到复杂布局就懵？", "React / Vue / Angular / Svelte 选哪个？", "浏览器渲染原理、Event Loop 讲不清？", "TypeScript 类型系统、泛型、条件类型卡壳？", "Node 后端怎么写、怎么部署、怎么调优？" ]" :goa
 
 ## [思维导图](https://java-px.bot.cd/frontend/mindmap)

@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>security - Scholar's Atlas</title>
+    <link>https://java-px.bot.cd/security/</link>
+    <atom:link href="https://java-px.bot.cd/security/feed.xml" rel="self" type="application/rss+xml" />
+    <description>security 知识图谱（36 页）</description>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 16 Aug 2026 09:03:50 -0000</lastBuildDate>
+    <item>
+      <title>Security 知识图谱</title>
+      <link>https://java-px.bot.cd/security/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "OWASP Top 10 风险记不全，audit 一个 Web 应用无从下手？", "认证 vs 授权、RBAC vs ABAC 模型区别？", "密码学（对称 / 非对称 / 哈希 / 数字签名）讲不清？", "TLS / HTTPS / 证书体系不熟？", "XSS / CSRF / SQL 注入 / SS</description>
+      <pubDate>Sat, 15 Aug 2026 18:56:48 -0000</pubDate>
+    </item>
+    <item>
+      <title>A06 易受攻击组件</title>
+      <link>https://java-px.bot.cd/security/01-web-top10/a06-vulnerable-component</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/01-web-top10/a06-vulnerable-component</guid>
+      <description>&gt; **A06 = 用了有漏洞的依赖 / 框架 / OS**。**经典：Log4Shell / Spring4Shell / Struts 漏洞**。**防御：SBOM + 依赖扫描 + 及时升级 + 虚拟补丁**。 --- | 漏洞 | 年份 | 影响 | |------|------|------| | **Log4Shell** (CVE-2021-44228) | 2021 | Log4j</description>
+      <pubDate>Mon, 10 Aug 2026 19:14:52 -0000</pubDate>
+    </item>
+    <item>
+      <title>A02 加密机制失效</title>
+      <link>https://java-px.bot.cd/security/01-web-top10/a02-crypto-failure</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/01-web-top10/a02-crypto-failure</guid>
+      <description>&gt; **加密失效 = 数据裸奔**。**典型：明文存密码 / 用 MD5 / HTTP 传输敏感数据 / 弱 TLS 算法**。**防御：TLS 1.3 + bcrypt + 静态加密 + 密钥管理**。 --- A02 涵盖**所有与加密相关的失误**——不是"没用加密"，而是"用错了"或"用得太弱"： | 场景 | 错误 | 风险 | |------|------|------| | 密码存储</description>
+      <pubDate>Mon, 10 Aug 2026 19:14:34 -0000</pubDate>
+    </item>
+    <item>
+      <title>A01 访问控制失效</title>
+      <link>https://java-px.bot.cd/security/01-web-top10/a01-broken-access</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/01-web-top10/a01-broken-access</guid>
+      <description>&gt; **访问控制失效 = 越权访问**。**典型：水平越权（看别人的订单）/ 垂直越权（普通用户拿管理员权限）**。**防御：服务端校验 + 最小权限 + 资源所有权检查**。 --- 访问控制是 Web 应用最基础的安全机制——**谁被允许做什么**。失效意味着： - 用户 A 能访问用户 B 的资源（**水平越权 / IDOR**） - 普通用户能调管理员 API（**垂直越权 / Privi</description>
+      <pubDate>Mon, 10 Aug 2026 19:14:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>零信任落地实践</title>
+      <link>https://java-px.bot.cd/security/06-zero-trust/implementation</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/06-zero-trust/implementation</guid>
+      <description>&gt; **零信任落地 = 5 步走（SSO → 设备清单 → 身份引擎 → 信任分级 → 迁移）**。**核心：身份 + 设备 + 上下文 = 持续访问决策**。**业务结果：取代 VPN + 服务网格默认安全 + SaaS 零信任**。 --- | 层 | 设备要求 | 访问级别 | |----|---------|---------| | **Tier 0** | 公司管理 + 加密 + 最新补</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>SPIFFE / SPIRE</title>
+      <link>https://java-px.bot.cd/security/06-zero-trust/spiffe</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/06-zero-trust/spiffe</guid>
+      <description>&gt; **SPIFFE = 工作负载身份标准**。**SPIRE = SPIFFE Runtime Environment（实现）**。**核心：SVID（X.509 证书 / JWT）+ 自动签发 + 短期**。**服务网格 / 零信任 / mTLS 的身份基座**。 --- - **06-zero-trust/overview**：零信任总览 - **06-zero-trust/implemen</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>容器供应链安全</title>
+      <link>https://java-px.bot.cd/security/05-container/supply-chain</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/05-container/supply-chain</guid>
+      <description>&gt; **供应链 = 镜像 → SBOM → 签名 → 准入 → 审计**。**核心：SBOM（CycloneDX）+ Sigstore（Cosign）+ SLSA L3 框架**。**实战：Trivy 生成 SBOM + Cosign 签名 + Kyverno 准入**。 --- Google SLSA 实践： - **L1**：基础 CI（GitHub Actions）+ 签名 - **L2**</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>容器运行时安全</title>
+      <link>https://java-px.bot.cd/security/05-container/runtime-security</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/05-container/runtime-security</guid>
+      <description>&gt; **运行时安全 = 检测容器内异常行为**。**主流：Falco（syscall 检测）/ Tracee（eBPF）/ Aqua / Sysdig**。**核心：默认 deny + 不可变 + 最小权限 + 异常告警**。 --- | 工具 | 原理 | 资源占用 | 场景 | |------|------|---------|------| | **Falco** | Syscall / 内</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>镜像扫描</title>
+      <link>https://java-px.bot.cd/security/05-container/image-scan</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/05-container/image-scan</guid>
+      <description>&gt; **镜像扫描 = 静态分析镜像 layer 中的 CVE**。**主流工具：Trivy（全能）/ Grype（简洁）/ Clair（API 集成）**。**集成：CI 阻断 + 准入控制 + 持续运行时扫描**。 --- | 工具 | 特性 | 输出格式 | 速度 | |------|------|---------|------| | **Trivy** | 全能（CVE / IaC / S</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>CORS 跨域</title>
+      <link>https://java-px.bot.cd/security/04-network/cors</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/04-network/cors</guid>
+      <description>&gt; **CORS = 浏览器跨域访问控制**。**核心：浏览器 + 服务端 + 预检**。**常见错误：Access-Control-Allow-Origin: * + 凭证 = 灾难**。**实战：明确 origin 白名单 + 按需 allow credentials**。 --- | 类型 | 触发条件 | |------|---------| | **简单请求** | GET / HEAD</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>HSTS / CSP / 安全头</title>
+      <link>https://java-px.bot.cd/security/04-network/hsts-csp</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/04-network/hsts-csp</guid>
+      <description>&gt; **HTTP 安全头 = 浏览器层的最后防线**。**5 大头：HSTS（强制 HTTPS）/ CSP（防 XSS）/ X-Frame-Options（防 clickjacking）/ X-Content-Type-Options（防 MIME 嗅探）/ Referrer-Policy（防 referer 泄漏）**。**不可替代代码层防御，但能加一层皮**。 --- | Header | 作</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>mTLS 双向认证</title>
+      <link>https://java-px.bot.cd/security/04-network/mtls</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/04-network/mtls</guid>
+      <description>&gt; **mTLS = TLS + 客户端也要证书**。**3 大场景：服务网格 / API 网关 / 零信任**。**优势：双向身份 + 防中间人 + 强认证**。**实施：SPIFFE / SPIRE / Istio / Consul**。 --- - **04-network/tls-pki**：TLS 证书体系 - **06-zero-trust/overview**：零信任架构 - **0</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>TLS 1.3 握手</title>
+      <link>https://java-px.bot.cd/security/03-crypto/tls-deep-dive</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/03-crypto/tls-deep-dive</guid>
+      <description>&gt; **TLS 1.3 = 现代安全通信的事实标准**。**1-RTT 握手（比 TLS 1.2 快 1 轮）+ 强制 AEAD + 0-RTT 模式（慎用）**。**核心：ECDHE 密钥交换 + X25519 / Ed25519**。 --- | 维度 | TLS 1.2 | TLS 1.3 | |------|---------|---------| | 握手轮次 | 2-RTT | 1-R</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>数字签名</title>
+      <link>https://java-px.bot.cd/security/03-crypto/signature</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/03-crypto/signature</guid>
+      <description>&gt; **数字签名 = 私钥签名 + 公钥验证**。**核心：身份认证 + 不可否认 + 完整性**。**3 大算法：RSA-PSS / ECDSA / Ed25519**。**应用：JWT / TLS 证书 / 软件签名 / 区块链**。 --- | | 加密 | 签名 | |---|------|------| | **目的** | 保密 | 认证 + 不可否认 | | **公钥** | 加密</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>哈希函数</title>
+      <link>https://java-px.bot.cd/security/03-crypto/hash</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/03-crypto/hash</guid>
+      <description>&gt; **哈希 = 单向映射 + 固定输出**。**3 大类：SHA-256（数据完整性）/ bcrypt（密码）/ HMAC（消息认证）**。**核心：抗碰撞 + 抗前缀 + 抗第二原像**。 --- | 算法 | 输出长度 | 安全性 | 性能 | 用途 | |------|---------|--------|------|------| | **MD5** | 128 bit | 已破 |</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>非对称加密</title>
+      <link>https://java-px.bot.cd/security/03-crypto/asymmetric</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/03-crypto/asymmetric</guid>
+      <description>&gt; **非对称加密 = 公钥加密 + 私钥解密**（或反向签名）。**两大主流：RSA（兼容）/ ECC（现代推荐）**。**实战：密钥 2048 bit RSA 或 256 bit ECC**。 --- | 算法 | 密钥长度 | 安全等效 | 性能 | 现状 | |------|---------|---------|------|------| | **RSA** | 2048 bit |</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>对称加密</title>
+      <link>https://java-px.bot.cd/security/03-crypto/symmetric</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/03-crypto/symmetric</guid>
+      <description>&gt; **对称加密 = 加解密用同一密钥**。**两大主流：AES-256-GCM（标准）/ ChaCha20-Poly1300（移动 ARM）**。**实战必备：nonce/IV 唯一 + Authenticated Encryption（AEAD）**。 --- | 算法 | 块/流 | 密钥长度 | 性能 | 场景 | |------|-------|---------|------|----</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>MFA 多因素认证</title>
+      <link>https://java-px.bot.cd/security/02-auth/mfa</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/02-auth/mfa</guid>
+      <description>&gt; **MFA = 多因素认证**（密码 + 第二个因子）**。**3 因子：知识（密码）/ 持有（手机）/ 物理特征（指纹）**。**3 种实现：TOTP（短信/Authenticator）/ WebAuthn（FIDO2 硬件密钥）/ Push（Auth0 Guardian）**。**强 MFA = 99.9% 防账号接管**。 --- | 因子 | 例子 | |------|------|</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>Session 攻击</title>
+      <link>https://java-px.bot.cd/security/02-auth/session-attack</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/02-auth/session-attack</guid>
+      <description>&gt; **Session = 服务端识别用户身份**。**4 大攻击：Session 固定 / 劫持 / 伪造 / CSRF**。**防御：HttpOnly + Secure + SameSite + 短 TTL + 重新生成**。 --- | 措施 | 落地 | |------|------| | HttpOnly | 防 XSS | | Secure | 仅 HTTPS | | SameSite</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>SAML 2.0</title>
+      <link>https://java-px.bot.cd/security/02-auth/saml</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/02-auth/saml</guid>
+      <description>&gt; **SAML = Security Assertion Markup Language**。**基于 XML 的企业 SSO 标准**。**核心：SP（应用）+ IdP（身份提供商）+ SAML Assertion（XML 签名断言）**。**现代被 OIDC 取代，但企业 / 政府仍广泛使用**。 --- | 角色 | 例子 | |------|------| | **User** | 员工</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>JWT 详解</title>
+      <link>https://java-px.bot.cd/security/02-auth/jwt</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/02-auth/jwt</guid>
+      <description>&gt; **JWT = 自包含的令牌**（Header + Payload + Signature）**。**3 类算法：HS256（对称）/ RS256（非对称）/ ES256（椭圆曲线）**。**优势：无状态 / 跨域 / 可携信息**。**陷阱：注销难 / 体积大 / 不能放敏感数据**。 --- | 算法 | 密钥 | 性能 | 场景 | |------|------|------|-----</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>OpenID Connect（OIDC）详解</title>
+      <link>https://java-px.bot.cd/security/02-auth/oidc</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/02-auth/oidc</guid>
+      <description>&gt; **OIDC = OAuth 2.0 + 身份层**。**核心：ID Token（JWT 格式身份断言）+ UserInfo Endpoint**。**3 个流派：Auth0 / Keycloak / Spring Authorization Server**。**现代 SSO / SaaS 标配**。 --- | 维度 | OAuth 2.0 | OIDC | |------|-------</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>OAuth 2.0 详解</title>
+      <link>https://java-px.bot.cd/security/02-auth/oauth2</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/02-auth/oauth2</guid>
+      <description>&gt; **OAuth 2.0 = 授权框架**（不是认证）。**核心：让第三方应用代表用户访问资源**。**4 种 flow：authorization code（最常用）/ client credentials / implicit（废弃）/ password（遗留）**。**PKCE 强制要求**。 --- | 角色 | 例子 | |------|------| | **Resource Own</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>A10 SSRF 服务端请求伪造</title>
+      <link>https://java-px.bot.cd/security/01-web-top10/a10-ssrf</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/01-web-top10/a10-ssrf</guid>
+      <description>&gt; **SSRF = 让服务器替你请求**。**典型：图片代理 fetches 任意 URL / Webhook 验证可控 / 云元数据 169.254.169.254**。**防御：URL 白名单 + DNS 解析校验 + 禁用内网 IP + 隔离网络**。 --- 服务端接受用户输入的 URL，然后**服务端**去请求这个 URL。攻击者利用它： - 访问内网（数据库 / Redis / Ad</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>A09 日志与监控失效</title>
+      <link>https://java-px.bot.cd/security/01-web-top10/a09-logging-failure</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/01-web-top10/a09-logging-failure</guid>
+      <description>&gt; **A09 = 攻击者来了你不知道**。**典型：登录失败不记录 / 告警缺位 / 日志被攻击者清除 / 审计日志不可追溯**。**防御：完整审计日志 + 实时告警 + 不可篡改的日志存储**。 --- | 失效 | 后果 | |------|------| | 登录失败不记录 | 暴力破解无人知 | | 关键操作不审计 | 数据泄漏无法追溯 | | 日志只存本地 | 攻击者 rm -rf |</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>A08 软件数据完整性</title>
+      <link>https://java-px.bot.cd/security/01-web-top10/a08-software-data-integrity</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/01-web-top10/a08-software-data-integrity</guid>
+      <description>&gt; **A08 = 软件更新 / 数据不可信**。**典型：自动更新无签名 / CI/CD 凭证泄漏 / 不安全反序列化**。**防御：签名验证 + SLSA 框架 + 不可变基础设施 + CSP 严格模式**。 --- | 失效 | 危害 | |------|------| | 自动更新无签名 | 攻击者替换升级包 | | CI/CD 凭证泄漏 | 供应链投毒 | | npm install 任</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>A07 认证失效</title>
+      <link>https://java-px.bot.cd/security/01-web-top10/a07-auth-failure</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/01-web-top10/a07-auth-failure</guid>
+      <description>&gt; **A07 = 身份认证机制被突破**。**典型：弱密码 / 明文凭证 / Session ID 暴露 / 登录端点 brute force**。**防御：强密码策略 + MFA + 限流 + 安全的 Session 管理**。 --- | 失效点 | 危害 | |--------|------| | 允许弱密码（如 `123456`） | 字典攻击秒破 | | 密码明文传输 | 中间人窃取</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>A05 安全配置错误</title>
+      <link>https://java-px.bot.cd/security/01-web-top10/a05-misconfig</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/01-web-top10/a05-misconfig</guid>
+      <description>&gt; **A05 = 默认 / 调试 / 错误配置**。**典型：默认密码 admin/admin / .git 暴露 / 堆栈信息泄漏 / debug 模式 / 卸载的组件残留**。**防御：硬化清单 + 持续审计 + IaC**。 --- | 错误 | 危害 | |------|------| | 默认密码 admin/admin | 攻击者常用字典直接打 | | 暴露 `.git` / `.e</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>A04 不安全设计</title>
+      <link>https://java-px.bot.cd/security/01-web-top10/a04-insecure-design</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/01-web-top10/a04-insecure-design</guid>
+      <description>&gt; **A04 = 设计阶段的安全缺失**。**不是 bug，是 architecturally flawed**。**核心：威胁建模（STRIDE / PASTA） + 安全设计模式 + 限流 / 幂等 / 状态机**。 --- A04 是 2025 新独立的类别——**有些问题无法通过代码修复，只能重设计**： | 错误的设计 | 危害 | |----------|------| | 密码重置</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>A03 注入攻击</title>
+      <link>https://java-px.bot.cd/security/01-web-top10/a03-injection</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/01-web-top10/a03-injection</guid>
+      <description>&gt; **注入 = 把代码当数据执行**。**SQL 注入 / NoSQL 注入 / 命令注入 / LDAP 注入 / XSS（HTML 注入）**。**核心防御：参数化查询 / ORMs / 输入校验 + 输出转义**。 --- | 类型 | 攻击向量 | 防御 | |------|---------|------| | **SQL 注入** | `' OR 1=1 --` | 参数化查询 | |</description>
+      <pubDate>Mon, 10 Aug 2026 19:13:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>零信任架构总览</title>
+      <link>https://java-px.bot.cd/security/06-zero-trust/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/06-zero-trust/overview</guid>
+      <description>&gt; **零信任 = "Never Trust, Always Verify"**。**核心三原则：默认拒绝所有（默认 deny）/ 最小权限（least privilege）/ 持续验证（continuous verification）**。**关键技术：mTLS / SPIFFE / SDP / BeyondCorp**。**业务结果：取代 VPN，服务网格标配**。 --- | 原则 | 含义</description>
+      <pubDate>Mon, 10 Aug 2026 19:04:43 -0000</pubDate>
+    </item>
+    <item>
+      <title>容器安全总览</title>
+      <link>https://java-px.bot.cd/security/05-container/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/05-container/overview</guid>
+      <description>&gt; **容器安全 = 镜像 + 运行时 + 供应链 + 编排**。**镜像扫描（Trivy / Clair）+ 运行时检测（Falco / Tracee）+ SBOM 软件物料清单 + Sigstore 签名 + 容器逃逸加固**。**K8s 时代容器安全是零信任的最后一公里**。 --- | 工具 | 语言 | 特性 | 速度 | |------|------|------|------| |</description>
+      <pubDate>Mon, 10 Aug 2026 19:04:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>TLS PKI 体系</title>
+      <link>https://java-px.bot.cd/security/04-network/tls-pki</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/04-network/tls-pki</guid>
+      <description>&gt; **TLS PKI = 公钥基础设施（公钥 + 身份 + CA 签名）**。**核心组件：CA（证书颁发机构）/ CSR（证书签名请求）/ 证书链 / OCSP（吊销检查）**。**Let's Encrypt 让 HTTPS 平民化**，**mTLS 服务网格 + SPIFFE 让零信任落地**。 --- 对称加密有"密钥分发"难题——怎么把同一个密钥安全地给 Alice 和 Bob？非对称加</description>
+      <pubDate>Mon, 10 Aug 2026 19:04:11 -0000</pubDate>
+    </item>
+    <item>
+      <title>密码学总览</title>
+      <link>https://java-px.bot.cd/security/03-crypto/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/03-crypto/overview</guid>
+      <description>&gt; **密码学 = 数学算法 + 协议工程**。**三类原语：对称加密（AES / ChaCha20）/ 非对称加密（RSA / ECC）/ 哈希（SHA-256 / bcrypt）**。**应用层协议：TLS 1.3 / JWT / 数字签名**。**核心原则：永远用主流库，不要自己发明**。 --- | 类别 | 作用 | 主流算法 | 典型场景 | |------|------|------</description>
+      <pubDate>Mon, 10 Aug 2026 19:03:54 -0000</pubDate>
+    </item>
+    <item>
+      <title>认证与授权协议总览</title>
+      <link>https://java-px.bot.cd/security/02-auth/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/02-auth/overview</guid>
+      <description>&gt; **认证 = 你是谁**（Authentication）**授权 = 你能做什么**（Authorization）**。**协议族：OAuth 2.0（授权）/ OIDC（身份层）/ JWT（令牌格式）/ SAML（XML SSO）/ Cookie Session（传统 Web）。**本章逐一拆解原理、流图、攻击面、防御**。 --- | 术语 | 英文 | 解决 | 协议 | |------</description>
+      <pubDate>Mon, 10 Aug 2026 19:03:38 -0000</pubDate>
+    </item>
+    <item>
+      <title>OWASP Top 10 2025 概览</title>
+      <link>https://java-px.bot.cd/security/01-web-top10/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/01-web-top10/overview</guid>
+      <description>&gt; **OWASP Top 10 = 业界权威 Web 安全风险清单**。**2025 版涵盖访问控制失效、注入、不安全设计、SSRF 等 10 大类**。**每条都给出"原理 + 危害 + 防御 + 实战代码"**。 --- **OWASP**（Open Worldwide Application Security Project）是一个**非营利组织**，专注于改善软件安全。自 2003 年起</description>
+      <pubDate>Mon, 10 Aug 2026 19:03:23 -0000</pubDate>
+    </item>
+  </channel>
+</rss>

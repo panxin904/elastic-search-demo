@@ -20,6 +20,9 @@ import re
 import json
 import subprocess
 from pathlib import Path
+
+from email.utils import format_datetime
+
 from datetime import datetime
 from xml.sax.saxutils import escape
 
@@ -57,12 +60,19 @@ def parse_frontmatter(text: str) -> tuple[dict, str]:
             fm[k.strip()] = v.strip().strip('"\'')
     return fm, m.group(2)
 
-def get_title(text: str, fm: dict) -> str:
-    """从 frontmatter title 或正文首个 h1"""
+def get_title(text: str, fm: dict, site: str = '', is_index: bool = False) -> str:
+    """从 frontmatter title / hero.name / 正文 h1 提取"""
     if 'title' in fm:
         return fm['title']
+    # index.md 特殊：从 hero.name 取
+    if is_index:
+        m = re.search(r'^\s*name:\s*["\']?([^"\'\s]+)\s*$', text, re.MULTILINE)
+        if m:
+            return m.group(1).strip()
+        if site:
+            return f'{site} 知识图谱'
     m = re.search(r'^#\s+(.+?)$', text, re.MULTILINE)
-    return m.group(1).strip() if m else 'Untitled'
+    return m.group(1).strip() if m else (f'{site} 页面' if site else 'Untitled')
 
 def get_summary(text: str, max_chars: int = 200) -> str:
     """正文前 max_chars 字符作为摘要（跳过代码块）"""
@@ -74,6 +84,9 @@ def get_summary(text: str, max_chars: int = 200) -> str:
             in_code = not in_code
             continue
         if in_code or not s or s.startswith('#'):
+            continue
+        # 跳过 YAML 列表残留（features: 下的 - icon: / - title:）
+        if s.startswith('- ') and ':' in s:
             continue
         out.append(s)
         if sum(len(x) for x in out) > max_chars:
@@ -98,10 +111,11 @@ def scan_site(site: str) -> list[dict]:
         except Exception:
             continue
         fm, body = parse_frontmatter(text)
+        is_index = md_path.name == 'index.md'
         pages.append({
             'site': site,
             'path': url_path,
-            'title': get_title(body, fm),
+            'title': get_title(body, fm, site, is_index),
             'summary': get_summary(body),
             'description': fm.get('description', ''),
             'date': fm.get('date', ''),
@@ -156,6 +170,43 @@ def build_llms_txt(pages: list[dict], site: str | None = None, full: bool = Fals
             out.append('')
     return '\n'.join(out)
 
+
+def build_rss_xml(pages: list[dict], title: str, link: str, description: str) -> str:
+    """生成 RSS 2.0 feed"""
+    # 按 date 降序排序（最新在前）
+    sorted_pages = sorted(pages, key=lambda p: (p.get('date') or '', p.get('mtime', '')), reverse=True)
+    lines = ['<?xml version="1.0" encoding="UTF-8"?>']
+    lines.append('<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">')
+    lines.append('  <channel>')
+    lines.append(f'    <title>{escape(title)}</title>')
+    lines.append(f'    <link>{escape(link)}</link>')
+    lines.append(f'    <atom:link href="{escape(link)}feed.xml" rel="self" type="application/rss+xml" />')
+    lines.append(f'    <description>{escape(description)}</description>')
+    lines.append('    <language>zh-cn</language>')
+    lines.append(f'    <lastBuildDate>{format_datetime(datetime.now())}</lastBuildDate>')
+    for p in sorted_pages:
+        # item link 用 page 自己的 site（portal feed 包含所有站，每条 link 不同）
+        if p['path'] == '/index' or p['path'] == '/':
+            url = f"{BASE_URL}/{p['site']}/"
+        else:
+            url = f"{BASE_URL}/{p['site']}{p['path']}"
+        # pubDate
+        try:
+            dt = datetime.fromisoformat(p['date']) if p['date'] else datetime.fromisoformat(p['mtime'][:19])
+            pub_date = format_datetime(dt)
+        except Exception:
+            pub_date = format_datetime(datetime.now())
+        lines.append('    <item>')
+        lines.append(f'      <title>{escape(p["title"])}</title>')
+        lines.append(f'      <link>{escape(url)}</link>')
+        lines.append(f'      <guid isPermaLink="true">{escape(url)}</guid>')
+        lines.append(f'      <description>{escape(p["description"] or p["summary"])}</description>')
+        lines.append(f'      <pubDate>{pub_date}</pubDate>')
+        lines.append('    </item>')
+    lines.append('  </channel>')
+    lines.append('</rss>')
+    return '\n'.join(lines) + '\n'
+
 def main():
     sites = load_sites()
     print(f'扫描 {len(sites)} 个子站...')
@@ -190,6 +241,28 @@ def main():
     print(f'✓ 主门户 sitemap.xml ({len(all_pages)} URL)')
     print(f'✓ 主门户 llms.txt ({len(all_pages)} 摘要)')
     print(f'✓ 主门户 llms-full.txt ({len(all_pages)} 全文 / {total_words:,} 字 / {len((WWW_DIR / "llms-full.txt").read_text()):,} 字节)')
+    # 3. RSS feed（每个子站 + 主门户聚合）
+    for site, pages in site_pages.items():
+        site_dist = DIST_DIR / site
+        site_dist.mkdir(parents=True, exist_ok=True)
+        rss = build_rss_xml(
+            pages,
+            title=f"{site} - Scholar's Atlas",
+            link=f"{BASE_URL}/{site}/",
+            description=f"{site} 知识图谱（{len(pages)} 页）"
+        )
+        (site_dist / 'feed.xml').write_text(rss)
+    # 主门户聚合：所有子站最近 50 条
+    portal_pages = sorted(all_pages, key=lambda p: (p.get('date') or '', p.get('mtime', '')), reverse=True)[:50]
+    portal_rss = build_rss_xml(
+        portal_pages,
+        title="Scholar's Atlas 跨站知识图谱",
+        link=f"{BASE_URL}/",
+        description=f"28 子站 / {len(all_pages)} 页 / 聚合最近 {len(portal_pages)} 条更新"
+    )
+    (WWW_DIR / 'feed.xml').write_text(portal_rss)
+    print(f'✓ 28 子站 feed.xml + 主门户聚合 feed.xml (top {len(portal_pages)})')
+
 
 if __name__ == '__main__':
     main()

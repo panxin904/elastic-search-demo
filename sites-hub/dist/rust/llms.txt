@@ -2,7 +2,7 @@
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
 > 35 个文档页 · 119,136 字
-> 生成时间：2026-08-16T08:58:46
+> 生成时间：2026-08-16T09:03:50
 
 ## [借用 Borrowing](https://java-px.bot.cd/rust/01-basics/borrowing)
 > 借用允许"使用值而不获取所有权"。通过 `&` 和 `&mut` 两种引用实现，编译期防止数据竞争。 > **借用 = 不获取所有权的引用**。**两大规则：不可变借用可多个、可变借用独占、不可变与可变不可共存**。**编译期消灭数据竞争**。 --- - **01-basics/ownership**：所有权基础 - **01-basics/lifetimes**：生命周期标注 - **04-c

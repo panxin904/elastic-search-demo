@@ -2,7 +2,7 @@
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
 > 32 个文档页 · 114,605 字
-> 生成时间：2026-08-16T08:58:46
+> 生成时间：2026-08-16T09:03:50
 
 ## [爆炸半径](https://java-px.bot.cd/chaos/01-foundations/blast-radius)
 > 爆炸半径（Blast Radius）是「实验失败时的最大影响范围」。分级管理： | 级别 | 流量 | 实例 | 区域 | 时长 | 适用 | |---|---|---|---|---|---| | L1 · 单测 | 0% | 1 Pod | 单 AZ | 5s | 首次实验 | | L2 · 金丝雀 | 1% | 10% Pods | 单 AZ | 30s | 灰度验证 | | L3 · 灰度
@@ -97,5 +97,5 @@
 ## [SLO 反馈环](https://java-px.bot.cd/chaos/07-observability-for-chaos/slo-feedback-loop)
 > **SLI（Service Level Indicator）**：可度量的指标 - 例：订单成功率、P99 延迟 **SLO（Service Level Objective）**：目标值 - 例：99.5% 成功率、P99 < 1.5s **Error Budget**：可消耗的错误预算 - 例：每月 0.5% 错误预算 **每月 Error Budget 计算**： 例：SLO 99.5% ×
 
-## [Untitled](https://java-px.bot.cd/chaos/index)
+## [chaos 知识图谱](https://java-px.bot.cd/chaos/index)
 > <ClientOnly> <WhyThisGraph :pain-points="[ "Netflix Chaos Monkey 起源：混沌工程到底解决什么问题？", "稳态假设（steady state）怎么定义才不会被实验打破？", "爆炸半径（blast radius）如何控制才安全？", "Chaos Mesh / Litmus / Gremlin / ChaosBlade 工具怎么选？"

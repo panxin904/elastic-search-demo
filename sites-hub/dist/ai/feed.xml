@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ai - Scholar's Atlas</title>
+    <link>https://java-px.bot.cd/ai/</link>
+    <atom:link href="https://java-px.bot.cd/ai/feed.xml" rel="self" type="application/rss+xml" />
+    <description>ai 知识图谱（57 页）</description>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 16 Aug 2026 09:03:50 -0000</lastBuildDate>
+    <item>
+      <title>ai 知识图谱</title>
+      <link>https://java-px.bot.cd/ai/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/</guid>
+      <description>features: title: 大模型与推理 details: Claude / GPT / Gemini / DeepSeek / Llama / Mistral / 选型 link: /01-models/claude linkText: 开始看模型 → title: AI 编程工具 details: Claude Code / Cursor / Copilot / Continue / A</description>
+      <pubDate>Sun, 16 Aug 2026 08:56:12 -0000</pubDate>
+    </item>
+    <item>
+      <title>MCP 核心概念</title>
+      <link>https://java-px.bot.cd/ai/06-mcp/core</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/06-mcp/core</guid>
+      <description>&gt; **M**odel **C**context **P**rotocol。Anthropic 2024 年提出的**开放标准**，让 LLM 标准化连接外部数据源 / 工具。 | 角色 | 是什么 | |------|--------| | **Host** | 跑 LLM 的应用（Claude Code / Cursor） | | **Client** | 嵌在 host 里的 MCP 客户端</description>
+      <pubDate>Sat, 15 Aug 2026 18:23:25 -0000</pubDate>
+    </item>
+    <item>
+      <title>API Key 管理</title>
+      <link>https://java-px.bot.cd/ai/13-security/api-keys</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/13-security/api-keys</guid>
+      <description>&gt; 密钥泄露 = 钱被刷光 + 数据被爬。**必须**规范化管理。 OpenAI 团队版支持。Anthropic Console 支持 org + workspace + 角色。 - [Guardrails / Content Safety](/13-security/guardrails) - [成本控制 / Token](/13-security/cost) - [Secret 管理（k8s）</description>
+      <pubDate>Tue, 28 Jul 2026 20:08:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>学习路径</title>
+      <link>https://java-px.bot.cd/ai/14-interview/path</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/14-interview/path</guid>
+      <description>&gt; 6 条路径，按角色和目标选。 适合**刚开始 / 想做 AI 应用**的开发者。 1. [Claude 模型家族](/01-models/claude) — 最强闭源 2. [OpenAI SDK](/03-sdks/openai-sdk) — 主流接入 3. [OpenAI SDK](/03-sdks/openai-sdk) — 多家切换 4. [Claude Code / OpenCode</description>
+      <pubDate>Tue, 28 Jul 2026 20:07:10 -0000</pubDate>
+    </item>
+    <item>
+      <title>项目案例</title>
+      <link>https://java-px.bot.cd/ai/14-interview/cases</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/14-interview/cases</guid>
+      <description>&gt; 面试中能讲的项目：实现细节 + 难点 + 优化 + 数字。 某 SaaS 公司客服中心，每天 5000 通对话，60% 重复问题。 - 解决率：65% → 90% - 平均响应：8s → 1.5s - 客服人力：30 → 12 人 - 月度成本：$3000（DeepSeek 推理） 1. **文档更新延迟**：每天 1000+ 文档 → 增量 embedding 2. **多语言**：中英混合</description>
+      <pubDate>Tue, 28 Jul 2026 20:06:54 -0000</pubDate>
+    </item>
+    <item>
+      <title>高频面试题</title>
+      <link>https://java-px.bot.cd/ai/14-interview/questions</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/14-interview/questions</guid>
+      <description>&gt; 真实面试 + 笔试常见题汇总。 每步： 1. 把输入 X 投影成 Q、K、V 2. Q 和 K.T 算相似度 → softmax → 注意力分数 3. 用分数加权 V → 输出 **Self** = Q K V 都来自**同一个**输入。 把文本 / 图 / 音 → 固定维度向量（e.g. 1536 维）。**语义相似 = 向量接近**。 **不是单词的 hash，而是语义的几何**。 让 L</description>
+      <pubDate>Tue, 28 Jul 2026 20:06:28 -0000</pubDate>
+    </item>
+    <item>
+      <title>成本控制 / Token 管理</title>
+      <link>https://java-px.bot.cd/ai/13-security/cost</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/13-security/cost</guid>
+      <description>&gt; LLM 应用烧钱的方式："一个 prompt 没限制 size 给我打了一个 8000 token 的 conversation → 调一次 5 美元 → 一天 100 万次 = 500 万美元"。 | 任务 | 选 | |------|-----| | 简单分类 / 提取 | gpt-4o-mini ($0.15/Mtok) | | 日常 Chat | gpt-4o ($2.5) / Son</description>
+      <pubDate>Tue, 28 Jul 2026 20:05:59 -0000</pubDate>
+    </item>
+    <item>
+      <title>Guardrails / Content Safety</title>
+      <link>https://java-px.bot.cd/ai/13-security/guardrails</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/13-security/guardrails</guid>
+      <description>&gt; **G**uard**R**ails = LLM 输入 / 输出 **校验 + 过滤 + 重写**。**生产 LLM 应用必备**。 | 工具 | 类型 | 特点 | |------|------|------| | **NeMo Guardrails (NVIDIA)** | 框架 | Colang DSL，主流 | | **Guardrails AI** | 框架 | Python，开源</description>
+      <pubDate>Tue, 28 Jul 2026 19:49:25 -0000</pubDate>
+    </item>
+    <item>
+      <title>CUDA / GPU 环境</title>
+      <link>https://java-px.bot.cd/ai/12-install/cuda-gpu</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/12-install/cuda-gpu</guid>
+      <description>&gt; 微调 / 推理的 GPU 环境配置。**CUDA + cuDNN + PyTorch + 驱动**对齐。 | 场景 | 推荐 | |------|------| | 个人 / 学习 | RTX 4090 (24GB) / RTX 3090 | | 推理（70B INT4） | A100 80GB × 1 | | 推理（70B FP16） | H100 80GB × 2 | | LoRA 微调</description>
+      <pubDate>Tue, 28 Jul 2026 19:47:37 -0000</pubDate>
+    </item>
+    <item>
+      <title>Docker 一键部署</title>
+      <link>https://java-px.bot.cd/ai/12-install/docker</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/12-install/docker</guid>
+      <description>&gt; Ollama / vLLM / Dify / Open WebUI 等**都有官方 Docker 镜像**。一行命令起。 - [pip / brew / npm 安装](/12-install/package-managers) - [CUDA / GPU 环境](/12-install/cuda-gpu) - [Ollama 本地推理](/10-deploy/ollama)</description>
+      <pubDate>Tue, 28 Jul 2026 19:47:17 -0000</pubDate>
+    </item>
+    <item>
+      <title>pip / brew / npm 安装</title>
+      <link>https://java-px.bot.cd/ai/12-install/package-managers</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/12-install/package-managers</guid>
+      <description>&gt; 装 AI SDK / 工具集。**最常用**：pip（Python）/ brew（macOS）/ npm（Node.js）。 | | pip | pipx | venv | |--|-----|-------|------| | 系统装库 | ✅ | ❌ | ✅ | | CLI 工具 | ⚠ 污染系统 | ✅ 隔离 | ❌ | | 跨项目 | 全局 | 全局 | per-project | |</description>
+      <pubDate>Tue, 28 Jul 2026 19:47:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>Structured Output</title>
+      <link>https://java-px.bot.cd/ai/11-tools/structured-output</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/11-tools/structured-output</guid>
+      <description>&gt; 让 LLM 输出**符合 JSON Schema** 的可靠数据，**不是** JSON 字符串。 | | json_schema | json mode | tool use | |--|-------------|-----------|----------| | 模式 | 严格 | 严格 | 调用函数 | | 强制 schema | ✅ | ❌（仅 JSON） | ✅ | | 用法 |</description>
+      <pubDate>Tue, 28 Jul 2026 19:46:44 -0000</pubDate>
+    </item>
+    <item>
+      <title>Tool Use 模式</title>
+      <link>https://java-px.bot.cd/ai/11-tools/tool-use</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/11-tools/tool-use</guid>
+      <description>&gt; 让 LLM **自主决定**调什么工具、按什么顺序、直到目标完成。**Function Calling 是基础，Tool Use 是流程**。 | | 单次 Function Calling | Agent Tool Use | |--|------------------------|------------------| | 步骤 | 1 步 | 多步链式 | | 错误恢复 | ❌ 应用做</description>
+      <pubDate>Tue, 28 Jul 2026 19:46:22 -0000</pubDate>
+    </item>
+    <item>
+      <title>Function Calling</title>
+      <link>https://java-px.bot.cd/ai/11-tools/function-calling</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/11-tools/function-calling</guid>
+      <description>&gt; 让 LLM **调用外部 API / 函数**。**Agent 的基础**。 | | Tool calling | JSON mode | |--|--------------|------------| | 用途 | 调函数 | 输出结构化 JSON | | 多次调用 | ✅ 链式 | 单次 | | 应用执行 | ✅ 需要 | ❌ | | | Function Calling | MCP |</description>
+      <pubDate>Tue, 28 Jul 2026 19:46:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>API 托管</title>
+      <link>https://java-px.bot.cd/ai/10-deploy/hosted</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/10-deploy/hosted</guid>
+      <description>&gt; 不自己跑模型？用云厂商的 API。**起步快 / 弹性 / 免运维**。 | 平台 | 模型 | 价格 (in/out $/MTok) | 特点 | |------|------|---------------------|------| | **OpenAI** | GPT-5 / GPT-4o | 5/20 / 2.5/10 | 行业标准 | | **Anthropic** | Claud</description>
+      <pubDate>Tue, 28 Jul 2026 19:45:38 -0000</pubDate>
+    </item>
+    <item>
+      <title>vLLM / TGI 服务</title>
+      <link>https://java-px.bot.cd/ai/10-deploy/vllm-tgi</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/10-deploy/vllm-tgi</guid>
+      <description>&gt; **生产首选**。vLLM 用 **PagedAttention**（类 OS 虚拟内存），吞吐量比 HF transformers 高 14-24x。 | 模型 | 框架 | 吞吐（tokens/s/GPU） | |------|------|---------------------| | Llama 70B | HF Transformers | ~1500 | | Llama 70B</description>
+      <pubDate>Tue, 28 Jul 2026 19:45:16 -0000</pubDate>
+    </item>
+    <item>
+      <title>Ollama 本地推理</title>
+      <link>https://java-px.bot.cd/ai/10-deploy/ollama</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/10-deploy/ollama</guid>
+      <description>&gt; **最简单**的本地推理工具。装好 = 拉模型 = 跑。Mac / Linux / Windows 都支持。 Ollama 默认**自动量化**： | tag | 量化 | 模型大小 | 适合 | |-----|------|---------|------| | `:7b-q4_K_M` | 4-bit | ~4GB | 显存 6GB+ | | `:7b-q8_0` | 8-bit | ~7</description>
+      <pubDate>Tue, 28 Jul 2026 19:44:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>RLHF / DPO - 对齐</title>
+      <link>https://java-px.bot.cd/ai/09-eval/alignment</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/09-eval/alignment</guid>
+      <description>&gt; **R**einforcement **L**earning from **H**uman **F**eedback / **D**irect **P**reference **O**ptimization。**让 LLM 输出更有用 / 更安全 / 更符合人类偏好**。 **D**irect **P**reference **O**ptimization：跳过 RM，**直接用偏好数据训**</description>
+      <pubDate>Tue, 28 Jul 2026 19:44:32 -0000</pubDate>
+    </item>
+    <item>
+      <title>Benchmark 与指标</title>
+      <link>https://java-px.bot.cd/ai/09-eval/benchmark</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/09-eval/benchmark</guid>
+      <description>&gt; 模型对比看 benchmark 排行榜。**不要只看一个，要看多个**。 | Benchmark | 测什么 | 看什么 | |-----------|--------|--------| | **MMLU** | 57 个学科 | 综合知识 | | **MMLU-Pro** | MMLU 增强版（推理） | 复杂知识 | | **HumanEval / HumanEval+** | 编程题</description>
+      <pubDate>Tue, 28 Jul 2026 19:44:11 -0000</pubDate>
+    </item>
+    <item>
+      <title>Eval 框架</title>
+      <link>https://java-px.bot.cd/ai/09-eval/frameworks</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/09-eval/frameworks</guid>
+      <description>&gt; LLM 输出**不唯一**——你怎么知道新模型比旧的好？需要**评测**。 | 框架 | 适合 | 特点 | |------|------|------| | **promptfoo** | prompt 对比 | YAML 配置 / 简单 | | **deepeval** | G-Eval / 各种指标 | 综合 | | **Ragas** | RAG | 检索 / 答案质量 | | **O</description>
+      <pubDate>Mon, 27 Jul 2026 20:06:52 -0000</pubDate>
+    </item>
+    <item>
+      <title>量化 GGUF / GPTQ / AWQ</title>
+      <link>https://java-px.bot.cd/ai/08-finetuning/quantization</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/08-finetuning/quantization</guid>
+      <description>&gt; 把 FP16 模型压缩到 INT4 / INT8。**模型大小 / 显存 / 推理速度**减半或更多，**质量**略降。 | | FP16 | INT8 | INT4 | |--|------|------|------| | 模型大小 | 100% | ~50% | ~25% | | 显存 | 100% | ~50% | ~25% | | 速度 | 1x | 0.9-1.5x | 1.5-3</description>
+      <pubDate>Mon, 27 Jul 2026 20:06:30 -0000</pubDate>
+    </item>
+    <item>
+      <title>数据准备</title>
+      <link>https://java-px.bot.cd/ai/08-finetuning/data</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/08-finetuning/data</guid>
+      <description>&gt; **数据质量 &gt; 数据量**。10 万条高质量 &gt; 100 万条低质量。 | 类型 | 用途 | 例子 | |------|------|------| | **Instruct（指令）** | SFT / 对齐 | "问题 → 回答" | | **Preference（偏好）** | DPO / PPO | "回答 A &gt; 回答 B" | | **CPT（继续预训练）** | 领域适配 |</description>
+      <pubDate>Mon, 27 Jul 2026 20:05:53 -0000</pubDate>
+    </item>
+    <item>
+      <title>全量微调</title>
+      <link>https://java-px.bot.cd/ai/08-finetuning/full</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/08-finetuning/full</guid>
+      <description>&gt; 解冻**所有**参数训练。LoRA 不够 / 重要场景（行业大模型）才用。 `device_map="auto"` 自动把模型分到 8 张卡。 | 模型 | 优化器 | 精度 | 显存（训练） | |------|--------|------|---------------| | 7B  | AdamW | FP16 | ~120 GB | | 7B  | AdamW | BF16 | ~8</description>
+      <pubDate>Mon, 27 Jul 2026 20:05:26 -0000</pubDate>
+    </item>
+    <item>
+      <title>LoRA / QLoRA</title>
+      <link>https://java-px.bot.cd/ai/08-finetuning/lora</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/08-finetuning/lora</guid>
+      <description>&gt; 全量微调 70B 模型需要 1.4 TB 显存。**LoRA / QLoRA 把成本降到 1/100**。 **2x 速度，-50% 显存**。 | 参数 | 推荐 | |------|------| | r (rank) | 8-64（越大越接近全量，显存更多） | | lora_alpha | r × 2（常用 32 / 64） | | lora_dropout | 0-0.1 | | t</description>
+      <pubDate>Mon, 27 Jul 2026 20:05:07 -0000</pubDate>
+    </item>
+    <item>
+      <title>Few-shot / Multi-shot</title>
+      <link>https://java-px.bot.cd/ai/07-prompt/few-shot</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/07-prompt/few-shot</guid>
+      <description>&gt; 在 prompt 里给几个**示例**，让模型"照葫芦画瓢"。 LLM **对最后示例的注意最强**（recency bias）。 | 任务 | 推荐示例数 | |------|----------| | 简单分类 | 1-3 | | 输出格式约束 | 3-5 | | 复杂推理 | 5-10（含 CoT） | | 边缘 case | 覆盖所有典型 edge | **不要太多**：token 成</description>
+      <pubDate>Mon, 27 Jul 2026 20:04:44 -0000</pubDate>
+    </item>
+    <item>
+      <title>结构化 Prompt</title>
+      <link>https://java-px.bot.cd/ai/07-prompt/structured</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/07-prompt/structured</guid>
+      <description>&gt; 写好 prompt 是 LLM 应用的第一步。**结构化、明确、可控**。 | | 系统 prompt | Few-shot | |--|-------------|-----------| | 作用 | 角色 / 规则 | 演示输出格式 | | 长度 | 短到长 | 短（2-5 示例） | | 优化 | Claude 缓存 | token 成本高 | | 适合 | 几乎所有任务 | 输出格式</description>
+      <pubDate>Mon, 27 Jul 2026 20:04:26 -0000</pubDate>
+    </item>
+    <item>
+      <title>Chain-of-Thought</title>
+      <link>https://java-px.bot.cd/ai/07-prompt/cot</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/07-prompt/cot</guid>
+      <description>&gt; 让 LLM **一步一步想**，而不是直接出答案。显著提升推理 / 数学 / 代码。 CoT 强迫模型"展示过程"，避免跳到错误结论。 加上 "Let's think step by step" 即可，比不加大幅提升。 给几个示例，让模型学会"想"。 **多次采样 + 投票**，消除单次 CoT 的随机性。 LangGraph 实现： ReAct = CoT + Tool use。**Agen</description>
+      <pubDate>Mon, 27 Jul 2026 20:04:05 -0000</pubDate>
+    </item>
+    <item>
+      <title>Codex MCP 集成</title>
+      <link>https://java-px.bot.cd/ai/06-mcp/codex-integration</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/06-mcp/codex-integration</guid>
+      <description>&gt; OpenAI 的 Codex CLI（Codex CLI 是 `npm i -g @openai/codex`）支持 MCP，能用 Anthropic 同一套 server。 | | Codex CLI | Claude Code | |--|-----------|--------------| | 模型 | OpenAI (o3, gpt-4o) | Claude (4.5) | | MC</description>
+      <pubDate>Mon, 27 Jul 2026 20:03:44 -0000</pubDate>
+    </item>
+    <item>
+      <title>MCP Server / Client 开发</title>
+      <link>https://java-px.bot.cd/ai/06-mcp/dev</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/06-mcp/dev</guid>
+      <description>&gt; 自己写一个 MCP server，让任何 LLM agent 都能用。 | | 自己 Tool Use | MCP Server | |--|-------------|-----------| | 跨应用复用 | ❌ 每个应用接一次 | ✅ 一次实现 | | 鉴权 | 自己 | 标准 OAuth | | 工具市场 | ❌ | ✅ 几百个现成 | | 学习曲线 | 低 | 中 | **MCP</description>
+      <pubDate>Mon, 27 Jul 2026 20:03:34 -0000</pubDate>
+    </item>
+    <item>
+      <title>嵌入模型 Embedding</title>
+      <link>https://java-px.bot.cd/ai/05-rag/embedding</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/05-rag/embedding</guid>
+      <description>&gt; 把文本 / 图 / 音 / 视频 → 数值向量（dense vector）。**语义检索的基础**。 | 模型 | 维度 | 上下文 | 价格 ($/MTok) | 特点 | |------|------|--------|---------------|------| | **OpenAI text-embedding-3-small** | 1536 | 8K | 0.02 | 性价比首选</description>
+      <pubDate>Mon, 27 Jul 2026 20:02:44 -0000</pubDate>
+    </item>
+    <item>
+      <title>向量数据库</title>
+      <link>https://java-px.bot.cd/ai/05-rag/vector-db</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/05-rag/vector-db</guid>
+      <description>&gt; 存 **embedding 向量** + 快速 **相似度检索**（ANN）。RAG 的核心存储。 | 库 | 类型 | 性能 | 特点 | |----|------|------|------| | **Pinecone** | 托管 SaaS | 极强 | 不用运维 / 贵 | | **Chroma** | 嵌入式 | 中 | 轻量 / 适合 demo / 本地 | | **Weaviat</description>
+      <pubDate>Mon, 27 Jul 2026 20:02:23 -0000</pubDate>
+    </item>
+    <item>
+      <title>RAG 模式详解</title>
+      <link>https://java-px.bot.cd/ai/05-rag/patterns</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/05-rag/patterns</guid>
+      <description>&gt; **R**etrieval-**A**ugmented **G**eneration。**让 LLM 回答自己不知道的（私有 / 实时）数据**。 | | RAG | Fine-tuning | |--|-----|-------------| | 适合 | 知识更新 / 私有 | 学模型"风格" / 任务 | | 数据量 | 文档 | 问答对 | | 成本 | 低（仅 embedding +</description>
+      <pubDate>Mon, 27 Jul 2026 20:02:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>Dify / Coze</title>
+      <link>https://java-px.bot.cd/ai/04-agents/dify-coze</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/04-agents/dify-coze</guid>
+      <description>&gt; 两个**图形化** AI Agent 平台。**不用写代码**也能搭 agent / RAG / 工作流。 &gt; Dify = 字节系（虽然不是字节）开源的 LLMOps 平台。**生成式 AI 应用 + 可视化工作流**。 - **聊天 / Completion**：简单 LLM 应用 - **Agent**：ReAct / Function calling 拖拽搭建 - **Workflow</description>
+      <pubDate>Mon, 27 Jul 2026 20:01:42 -0000</pubDate>
+    </item>
+    <item>
+      <title>AutoGen / Semantic Kernel</title>
+      <link>https://java-px.bot.cd/ai/04-agents/autogen</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/04-agents/autogen</guid>
+      <description>&gt; 两个 Microsoft 出品的 Agent 框架。 AutoGen 核心：**多 agent 对话**。 - **多 agent 对话**（像群聊） - **人类参与**（Human-in-the-loop） - **代码执行**（Docker sandbox） - **Magentic-One**（多 agent + planner） Microsoft 的**企业级** LLM 框架。*</description>
+      <pubDate>Mon, 27 Jul 2026 20:01:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>CrewAI</title>
+      <link>https://java-px.bot.cd/ai/04-agents/crewai</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/04-agents/crewai</guid>
+      <description>&gt; 多 Agent 协作框架。**基于角色 + 任务**（crew = 团队）。快速搭 demo。 | | CrewAI | LangGraph | |--|---------|-----------| | 学习曲线 | 低 | 中 | | 多 agent 协作 | 简单角色卡 | 自己编排 | | 持久化 | 内存 | **完整**（Redis/PG） | | 工具 | 集成 | 任意 | |</description>
+      <pubDate>Mon, 27 Jul 2026 20:01:12 -0000</pubDate>
+    </item>
+    <item>
+      <title>LangGraph</title>
+      <link>https://java-px.bot.cd/ai/04-agents/langgraph</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/04-agents/langgraph</guid>
+      <description>&gt; LangChain 团队出的 **Agent 框架**。把 agent 表达成**有状态图**（StateGraph）。**生产首选**。 | | LangGraph | CrewAI | AutoGen | |--|-----------|--------|---------| | 强项 | 复杂状态 / 生产 | 简单多 agent | 研究 / 对话 | | 学习曲线 | 中 | 低 |</description>
+      <pubDate>Mon, 27 Jul 2026 20:00:57 -0000</pubDate>
+    </item>
+    <item>
+      <title>LlamaIndex</title>
+      <link>https://java-px.bot.cd/ai/03-sdks/llamaindex</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/03-sdks/llamaindex</guid>
+      <description>&gt; 专注 **RAG（检索增强生成）** 的框架。和 LangChain 互补 — LangChain 全能，LlamaIndex 在 RAG 做得更精。 | | LangChain | LlamaIndex | |--|-----------|------------| | 强项 | 全能 / Agent | **RAG** | | 上手 | 中 | 易（RAG 模板多） | | 灵活性 | 高</description>
+      <pubDate>Mon, 27 Jul 2026 19:51:46 -0000</pubDate>
+    </item>
+    <item>
+      <title>LangChain</title>
+      <link>https://java-px.bot.cd/ai/03-sdks/langchain</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/03-sdks/langchain</guid>
+      <description>&gt; 主流 LLM 应用框架。**LCEL（LangChain Expression Language）** 把链 / agent / RAG 用 `|` 串起来。 | | LangChain LCEL | LangGraph | |--|-----------------|-----------| | 适合 | 简单链 / RAG | **复杂 agent / 循环 / 状态** | | 风格 |</description>
+      <pubDate>Mon, 27 Jul 2026 19:51:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>Gemini / Vertex AI SDK</title>
+      <link>https://java-px.bot.cd/ai/03-sdks/gemini-sdk</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/03-sdks/gemini-sdk</guid>
+      <description>&gt; Google 官方 SDK。两个入口： &gt; - **Google AI Studio**（个人，免费层） &gt; - **Vertex AI**（企业 / GCP） Gemini 独有：**双向流式**（音 / 视频 / 文字实时交互）。 Gemini 1M-2M tokens，**整本 PDF / 长视频**直接传： | | Gemini | GPT-4o | Claude | |--|----</description>
+      <pubDate>Mon, 27 Jul 2026 19:51:12 -0000</pubDate>
+    </item>
+    <item>
+      <title>OpenAI SDK</title>
+      <link>https://java-px.bot.cd/ai/03-sdks/openai-sdk</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/03-sdks/openai-sdk</guid>
+      <description>&gt; 官方 SDK + **生态最大**（LangChain / LlamaIndex / vLLM 等都走 OpenAI 兼容 API）。 | | OpenAI | Anthropic | |--|---------|------------| | `messages.create` | ✅ | ✅ | | `messages.stream` | ✅ | ✅ | | Tool use | `too</description>
+      <pubDate>Mon, 27 Jul 2026 19:50:59 -0000</pubDate>
+    </item>
+    <item>
+      <title>Claude SDK / Anthropic</title>
+      <link>https://java-px.bot.cd/ai/03-sdks/claude-sdk</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/03-sdks/claude-sdk</guid>
+      <description>&gt; 官方 SDK：Python / Node.js / Go / Java / Ruby / C#。OpenAI 兼容 API 也有。 - [OpenAI SDK](/03-sdks/openai-sdk) - [LangChain](/03-sdks/langchain) - [Tool Use 模式](/11-tools/tool-use) - [Function Calling](/11-t</description>
+      <pubDate>Mon, 27 Jul 2026 19:50:46 -0000</pubDate>
+    </item>
+    <item>
+      <title>命令行速查</title>
+      <link>https://java-px.bot.cd/ai/02-coding-tools/commands</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/02-coding-tools/commands</guid>
+      <description>&gt; 30+ 高频命令速查。 - [Claude Code / OpenCode](/02-coding-tools/claude-code) - [Claude SDK / Anthropic](/03-sdks/claude-sdk) - [OpenAI SDK](/03-sdks/openai-sdk) - [Ollama 本地推理](/10-deploy/ollama)</description>
+      <pubDate>Mon, 27 Jul 2026 19:50:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>Aider</title>
+      <link>https://java-px.bot.cd/ai/02-coding-tools/aider</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/02-coding-tools/aider</guid>
+      <description>&gt; 终端里的 **AI 结对编程 + git**。每改完自动 commit，适合 CLI 党。 | | Aider | Cursor | Claude Code | |--|-------|--------|--------------| | 形态 | CLI | IDE | CLI | | 自动 commit | **✅** | ❌ | ❌ | | 自动 lint | **✅** | ❌ | ❌</description>
+      <pubDate>Mon, 27 Jul 2026 19:50:14 -0000</pubDate>
+    </item>
+    <item>
+      <title>Continue / Cody / Aider</title>
+      <link>https://java-px.bot.cd/ai/02-coding-tools/continue-cody</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/02-coding-tools/continue-cody</guid>
+      <description>&gt; 三个流行的**开源 / 跨编辑器** AI 编程工具。 Continue 是开源的 AI 编程助手，**完全可自托管**（配 Ollama / vLLM）。 Cody = Sourcegraph 的 AI 助手，**强在跨仓库代码搜索**（Code Graph）。 Cody 能理解 monorepo 多仓库上下文，答"这个函数在哪些地方被调用"。 Aider = 终端里的 AI 结对编程 +</description>
+      <pubDate>Mon, 27 Jul 2026 19:50:02 -0000</pubDate>
+    </item>
+    <item>
+      <title>GitHub Copilot</title>
+      <link>https://java-px.bot.cd/ai/02-coding-tools/copilot</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/02-coding-tools/copilot</guid>
+      <description>&gt; GitHub + OpenAI 出品的 AI 编程助手。生态最大，VSCode / JetBrains / Neovim 全部支持。 键入时灰字提示，按 `Tab` 接受。 `Ctrl+I`（VSCode）：自然语言交互 多文件改：让 Copilot 跨多个文件重构 / 加功能。 | | Copilot | Cursor | |--|---------|--------| | 出品 | Git</description>
+      <pubDate>Mon, 27 Jul 2026 19:49:48 -0000</pubDate>
+    </item>
+    <item>
+      <title>Cursor IDE</title>
+      <link>https://java-px.bot.cd/ai/02-coding-tools/cursor</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/02-coding-tools/cursor</guid>
+      <description>&gt; 基于 VSCode 的 AI-first IDE。"Cmd+K 让 AI 改代码"是最常用的功能。 类似 Copilot：键入时建议多行。Cursor 强在**多文件上下文**。 | | Cursor IDE | Claude Code | |--|-------------|--------------| | 形式 | IDE（图形） | CLI（终端） | | 模型 | 多家 | Clau</description>
+      <pubDate>Mon, 27 Jul 2026 19:49:36 -0000</pubDate>
+    </item>
+    <item>
+      <title>Claude Code / OpenCode</title>
+      <link>https://java-px.bot.cd/ai/02-coding-tools/claude-code</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/02-coding-tools/claude-code</guid>
+      <description>&gt; Anthropic 官方的 **CLI Agent**。在终端里直接配 Claude 改代码 / 跑命令 / 看文件。是**最值得装**的 AI 编程工具之一。 | 命令 | 作用 | |------|------| | Edit files | 多文件编辑 | | Run commands | bash / 装包 / 跑测试 | | Search | ripgrep 风格搜索 | | Web</description>
+      <pubDate>Mon, 27 Jul 2026 19:49:23 -0000</pubDate>
+    </item>
+    <item>
+      <title>模型对比与选型</title>
+      <link>https://java-px.bot.cd/ai/01-models/compare</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/01-models/compare</guid>
+      <description>&gt; 闭源旗舰 + 开源强模型，**按场景选**。 | 维度 | Claude 4.5 Sonnet | GPT-5 / GPT-4o | Gemini 2.5 Pro | DeepSeek V3 | |------|-------------------|------------------|----------------|---------------| | 厂商 | Anthropic |</description>
+      <pubDate>Mon, 27 Jul 2026 19:49:08 -0000</pubDate>
+    </item>
+    <item>
+      <title>开源模型 Llama / Mistral / Qwen</title>
+      <link>https://java-px.bot.cd/ai/01-models/open-source</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/01-models/open-source</guid>
+      <description>&gt; 自部署、微调、离线 / 隐私场景**首选**。代表：Meta Llama、Mistral、阿里 Qwen、DeepSeek。 | 模型 | 出品 | 上下文 | 参数 | 特点 | |------|------|--------|------|------| | **Llama 3.3 70B** | Meta | 128K | 70B | 当前最强开源通用 | | Llama 3.2 1B/</description>
+      <pubDate>Mon, 27 Jul 2026 19:48:54 -0000</pubDate>
+    </item>
+    <item>
+      <title>DeepSeek</title>
+      <link>https://java-px.bot.cd/ai/01-models/deepseek</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/01-models/deepseek</guid>
+      <description>&gt; 中国最火的**开源 MoE（Mixture of Experts）大模型**。性能对齐 GPT-4 / Claude，**价格只要 1/50**。 | 模型 | 类型 | 上下文 | 何时用 | |------|------|--------|--------| | **DeepSeek-V3.2** | MoE 671B (37B active) | 128K | 推理 / 通用对话 | |</description>
+      <pubDate>Mon, 27 Jul 2026 19:48:38 -0000</pubDate>
+    </item>
+    <item>
+      <title>Gemini</title>
+      <link>https://java-px.bot.cd/ai/01-models/gemini</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/01-models/gemini</guid>
+      <description>&gt; Google DeepMind 出品。**长上下文（1M-2M tokens）+ 多模态（图/音/视）+ 工具调用**。 | 模型 | 上下文 | 定位 | |------|--------|------| | **Gemini 2.5 Pro** | 1M-2M | 旗舰 · 推理强 · 多模态 | | **Gemini 2.5 Flash** | 1M | 性价比主力 | | **Gemi</description>
+      <pubDate>Mon, 27 Jul 2026 19:48:24 -0000</pubDate>
+    </item>
+    <item>
+      <title>GPT / OpenAI</title>
+      <link>https://java-px.bot.cd/ai/01-models/gpt</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/01-models/gpt</guid>
+      <description>&gt; OpenAI 出品的旗舰闭源模型。**生态最广 / 文档最全 / 工具链最丰富**。 | 模型 | 上下文 | 定位 | 何时用 | |------|--------|------|--------| | **GPT-5** | 200K | 旗舰（推理强） | 复杂任务 / 多步 Agent | | **GPT-4o** | 128K | 多模态主力 | 日常 / 视觉 / 语音 | | *</description>
+      <pubDate>Mon, 27 Jul 2026 19:48:14 -0000</pubDate>
+    </item>
+    <item>
+      <title>Claude 模型家族</title>
+      <link>https://java-px.bot.cd/ai/01-models/claude</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/01-models/claude</guid>
+      <description>&gt; Anthropic 公司出品的闭源大模型，以 **Constitutional AI**（宪法 AI）和 **长上下文**（200K）著称。 | 模型 | 上下文 | 定位 | 何时用 | |------|--------|------|--------| | **Claude Opus 4.5** | 200K | 最强推理 | 复杂代码 / 研究 / 多步分析 | | **Claude S</description>
+      <pubDate>Mon, 27 Jul 2026 19:48:02 -0000</pubDate>
+    </item>
+    <item>
+      <title>命令速查</title>
+      <link>https://java-px.bot.cd/ai/cheatsheet</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/cheatsheet</guid>
+      <description>&gt; 30+ 高频命令，分组速查。 - [Claude Code / OpenCode](/02-coding-tools/claude-code) - [Claude SDK / Anthropic](/03-sdks/claude-sdk) - [OpenAI SDK](/03-sdks/openai-sdk) - [LangGraph](/04-agents/langgraph) - [Oll</description>
+      <pubDate>Mon, 27 Jul 2026 19:47:43 -0000</pubDate>
+    </item>
+    <item>
+      <title>学习路径</title>
+      <link>https://java-px.bot.cd/ai/path</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/path</guid>
+      <description>&gt; 根据你的角色选择对应路径。 适合**没碰过大模型**的开发者。 1. [Claude 模型家族](/01-models/claude) — 当前最强闭源模型 2. [模型对比与选型](/01-models/compare) — 决定用哪个 3. [Claude Code / OpenCode](/02-coding-tools/claude-code) — AI 编程工具入门 4. [Open</description>
+      <pubDate>Mon, 27 Jul 2026 19:47:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>思维导图</title>
+      <link>https://java-px.bot.cd/ai/mindmap</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/mindmap</guid>
+      <description>&gt; 树形结构总览全部知识，可展开/收起节点，点击叶子节点跳转。 &lt;ClientOnly&gt; &lt;MindMap :height="940" /&gt; &lt;/ClientOnly&gt; - 全部展开 / 收起：顶部按钮控制 - 点击叶子节点：跳转到对应章节 - 重置视图：恢复初始展开状态</description>
+      <pubDate>Mon, 27 Jul 2026 19:47:05 -0000</pubDate>
+    </item>
+    <item>
+      <title>知识图谱</title>
+      <link>https://java-px.bot.cd/ai/graph</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/graph</guid>
+      <description>&gt; 80+ 节点，14 大主题分类，节点可点击跳转到对应章节。 &lt;ClientOnly&gt; &lt;KnowledgeGraph :height="820" /&gt; &lt;/ClientOnly&gt; | 颜色 | 分类 | 主题数 | |------|------|--------| | 🟣 紫 | 大模型与推理 | 6 | | 🩵 青 | AI 编程工具 | 6 | | 🟨 黄 | SDK 接入 | 5 | |</description>
+      <pubDate>Mon, 27 Jul 2026 19:47:00 -0000</pubDate>
+    </item>
+  </channel>
+</rss>

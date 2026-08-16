@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Scholar's Atlas 跨站知识图谱</title>
+    <link>https://java-px.bot.cd/</link>
+    <atom:link href="https://java-px.bot.cd/feed.xml" rel="self" type="application/rss+xml" />
+    <description>28 子站 / 1464 页 / 聚合最近 50 条更新</description>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 16 Aug 2026 09:03:50 -0000</lastBuildDate>
+    <item>
+      <title>ai 知识图谱</title>
+      <link>https://java-px.bot.cd/ai/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/</guid>
+      <description>features: title: 大模型与推理 details: Claude / GPT / Gemini / DeepSeek / Llama / Mistral / 选型 link: /01-models/claude linkText: 开始看模型 → title: AI 编程工具 details: Claude Code / Cursor / Copilot / Continue / A</description>
+      <pubDate>Sun, 16 Aug 2026 08:56:12 -0000</pubDate>
+    </item>
+    <item>
+      <title>chaos 知识图谱</title>
+      <link>https://java-px.bot.cd/chaos/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "Netflix Chaos Monkey 起源：混沌工程到底解决什么问题？", "稳态假设（steady state）怎么定义才不会被实验打破？", "爆炸半径（blast radius）如何控制才安全？", "Chaos Mesh / Litmus / Gremlin / ChaosBlade 工具怎么选？"</description>
+      <pubDate>Sat, 15 Aug 2026 19:04:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>Observability 知识图谱</title>
+      <link>https://java-px.bot.cd/observability/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "单体时代（CPU/内存/磁盘）vs 微服务时代（调用链/性能瓶颈）监控差异？", "Metrics / Logs / Traces 三件套怎么选型（Prometheus / Loki / Jaeger）？", "OpenTelemetry（OTel） Collector / SDK / Exporter 怎么部</description>
+      <pubDate>Sat, 15 Aug 2026 18:56:48 -0000</pubDate>
+    </item>
+    <item>
+      <title>MySQL 知识图谱</title>
+      <link>https://java-px.bot.cd/mysql/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "知识点碎片化，不知道先后顺序（11 大主题怎么学？）", "InnoDB 引擎原理（MVCC / Buffer Pool / Redo Log）讲不清？", "索引（B+Tree / Hash / 全文）怎么建才高效？", "SQL 优化（EXPLAIN / 慢查询 / 索引失效）？", "主从复制 / 读写分</description>
+      <pubDate>Sat, 15 Aug 2026 18:56:48 -0000</pubDate>
+    </item>
+    <item>
+      <title>视频处理知识库</title>
+      <link>https://java-px.bot.cd/video/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/video/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "像素 / 色彩 / 帧率 / 容器格式基础概念混？", "帧内 / 帧间 / DCT / 熵编码 原理讲不清？", "H.264 / H.265 / AV1 / VP9 选哪个？", "RTMP / HLS / DASH 流媒体协议区别？", "FFmpeg 命令太多记不住？" ]" :goals="[ "视频</description>
+      <pubDate>Sat, 15 Aug 2026 18:56:48 -0000</pubDate>
+    </item>
+    <item>
+      <title>计算机网络知识库</title>
+      <link>https://java-px.bot.cd/network/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/network/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "TCP/IP 协议栈（IP / TCP / UDP / HTTP）讲不清？", "三次握手 / 四次挥手 / TIME_WAIT 太多怎么排查？", "HTTPS / TLS 1.3 / HTTP/2 / HTTP/3 关系？", "DNS 解析过程、CDN 调度、负载均衡策略？", "网络排查工具（tcpdu</description>
+      <pubDate>Sat, 15 Aug 2026 18:56:48 -0000</pubDate>
+    </item>
+    <item>
+      <title>文件系统 / 文件服务 / 存储全栈</title>
+      <link>https://java-px.bot.cd/filesystem/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "从单块磁盘的 inode 到跨数据中心的对象存储，怎么系统学？", "POSIX 权限 / ACL / Capabilities 到底有什么区别？", "本地 FS（ext4 / xfs / btrfs / zfs）怎么选？", "网络 FS（NFS / SMB / CIFS）vs 分布式 FS（Ceph /</description>
+      <pubDate>Sat, 15 Aug 2026 18:56:48 -0000</pubDate>
+    </item>
+    <item>
+      <title>Spring Cloud Alibaba 知识图谱</title>
+      <link>https://java-px.bot.cd/cloud/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "微服务架构选型：Spring Cloud Alibaba vs Spring Cloud Netflix vs Istio？", "Gateway / Nacos / Sentinel / Seata 组件怎么用？", "服务注册发现、配置中心、负载均衡、熔断限流怎么串联？", "分布式事务（Seata AT</description>
+      <pubDate>Sat, 15 Aug 2026 18:56:48 -0000</pubDate>
+    </item>
+    <item>
+      <title>Security 知识图谱</title>
+      <link>https://java-px.bot.cd/security/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/security/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "OWASP Top 10 风险记不全，audit 一个 Web 应用无从下手？", "认证 vs 授权、RBAC vs ABAC 模型区别？", "密码学（对称 / 非对称 / 哈希 / 数字签名）讲不清？", "TLS / HTTPS / 证书体系不熟？", "XSS / CSRF / SQL 注入 / SS</description>
+      <pubDate>Sat, 15 Aug 2026 18:56:48 -0000</pubDate>
+    </item>
+    <item>
+      <title>DevOps 知识图谱</title>
+      <link>https://java-px.bot.cd/devops/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "CI/CD 工具太多（Jenkins / GitLab CI / GitHub Actions / Argo），怎么选？", "Pipeline as Code 怎么写才不会变成 YAML 屎山？", "Terraform / Pulumi / Ansible 三大 IaC 工具怎么选？", "ArgoCD /</description>
+      <pubDate>Sat, 15 Aug 2026 18:56:48 -0000</pubDate>
+    </item>
+    <item>
+      <title>设计模式 / GoF 23 式 / 反模式</title>
+      <link>https://java-px.bot.cd/design-pattern/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/design-pattern/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "GoF 23 式记不全，面试问到「装饰器 vs 代理」讲不清？", "创建型 / 结构型 / 行为型 分类背后的设计原则（开闭 / 里氏 / 依赖倒置）？", "现代模式（DI / Repository / Specification）跟 GoF 的关系？", "架构模式（CQRS / Event Sourci</description>
+      <pubDate>Sat, 15 Aug 2026 18:51:02 -0000</pubDate>
+    </item>
+    <item>
+      <title>tools 知识图谱</title>
+      <link>https://java-px.bot.cd/tools/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/tools/</guid>
+      <description>&lt;div id="all-tools"&gt;&lt;/div&gt; &lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "日常 JSON 格式化 / 压缩 / 校验每次都开在线工具？", "时间戳 / 时区 / ISO 8601 转换容易出错？", "URL 编解码 / Base64 / UUID / JWT 解码手算不来？", "正则表达式每次都要查语法？", "在线工具有数</description>
+      <pubDate>Sat, 15 Aug 2026 18:49:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>Java Web Dev Manual</title>
+      <link>https://java-px.bot.cd/java/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "Java 知识图谱太广（基础 / JVM / 并发 / 框架 / 中间件）怎么系统学？", "JVM 内存模型（堆 / 栈 / Metaspace / 直接内存）？", "并发编程（synchronized / Lock / JUC / 线程池）？", "Spring / Spring Boot / MyBat</description>
+      <pubDate>Sat, 15 Aug 2026 18:49:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>ES Knowledge Atlas</title>
+      <link>https://java-px.bot.cd/es/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/es/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "倒排索引原理（分词 / 词典 / Posting List）讲不清？", "ES 集群架构（Master / Data / Coordinating 节点）怎么设计？", "Mapping / Analyzer / 分词器怎么配置才高效？", "查询性能调优（Query DSL / Profile / 慢查询）</description>
+      <pubDate>Sat, 15 Aug 2026 18:49:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>System Design 知识图谱</title>
+      <link>https://java-px.bot.cd/system-design/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "会写 CRUD 却讲不清 CAP", "调过 Redis 却说不出 cache-aside 的失效边界", "用过 Kafka 但说不清「不丢消息」需要哪几道防线", "设计过系统但写不出「短链」的短码生成选型", "读过 Raft 论文但没自己推导过选举超时" ]" :goals="[ "一致性模型谱 + C</description>
+      <pubDate>Sat, 15 Aug 2026 18:44:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>redis 知识图谱</title>
+      <link>https://java-px.bot.cd/redis/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/redis/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "只会简单 SET / GET，不懂底层数据结构（SDS / Dict / SkipList）", "不了解 RDB / AOF 的差异与混合持久化", "集群模式分不清主从 / 哨兵 / Cluster / Gossip", "用过 Jedis 但不知道 Lettuce 是怎么 NIO 异步的", "做过分布式</description>
+      <pubDate>Sat, 15 Aug 2026 18:44:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>python 知识图谱</title>
+      <link>https://java-px.bot.cd/python/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "只懂基础语法，不了解底层原理（解释器 / 字节码 / 对象模型）", "用过 requests / pandas 但不知道内部实现", "写 GIL 多线程却不知道为什么慢", "爬虫写完就封 IP，不知道反爬怎么破", "LLM 应用只会调 API，不知道 prompt 怎么写" ]" :goals="[ "</description>
+      <pubDate>Sat, 15 Aug 2026 18:44:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>PostgreSQL 知识图谱</title>
+      <link>https://java-px.bot.cd/postgresql/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "MVCC 原理：为什么 PG 的读不阻塞写？", "事务隔离级别（RC / RR / Serializable）选哪个？", "索引类型（B-tree / Hash / GIN / BRIN / GiST）怎么选？", "主从复制延迟、逻辑复制、FDW 怎么用？", "慢查询、锁等待、checkpoint 怎么</description>
+      <pubDate>Sat, 15 Aug 2026 18:44:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>clickhouse 知识图谱</title>
+      <link>https://java-px.bot.cd/clickhouse/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "列存 vs 行存：为什么 OLAP 要用列存？", "MergeTree 引擎家族（Replacing / Summing / Aggregating）怎么选？", "实时数仓（Lambda / Kappa / 湖仓一体）架构怎么选？", "集群扩容、副本、数据分片怎么平衡成本与可用性？", "SQL 优化：O</description>
+      <pubDate>Sat, 15 Aug 2026 18:44:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Rust 知识图谱</title>
+      <link>https://java-px.bot.cd/rust/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/rust/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "所有权 / 借用 / 生命周期推导卡壳？", "异步编程（async-await / Tokio）复杂？", "Trait / 泛型 / 高级类型（新类型 / PhantomData）难理解？", "宏系统（声明宏 / 过程宏）门槛高？", "生态相对小、生产案例少？" ]" :goals="[ "基础与所有权</description>
+      <pubDate>Sat, 15 Aug 2026 18:41:26 -0000</pubDate>
+    </item>
+    <item>
+      <title>linux 知识图谱</title>
+      <link>https://java-px.bot.cd/linux/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/linux/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "常用命令（ls / find / grep / awk）记不牢？", "Shell 脚本（bash / zsh）写不出来？", "systemd / 服务管理一团乱？", "iptables / nftables 防火墙不会配？", "内核参数调优（sysctl / cgroup）无从下手？" ]" :goal</description>
+      <pubDate>Sat, 15 Aug 2026 18:41:26 -0000</pubDate>
+    </item>
+    <item>
+      <title>kafka 知识图谱</title>
+      <link>https://java-px.bot.cd/kafka/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "分区副本机制、Leader 选举讲不清？", "Exactly-Once 语义怎么实现？", "消费者组位移提交策略选哪个？", "Kafka 性能调优参数（broker / producer / consumer）？", "Kafka + Flink / Spark 流处理集成怎么做？" ]" :goals=</description>
+      <pubDate>Sat, 15 Aug 2026 18:41:26 -0000</pubDate>
+    </item>
+    <item>
+      <title>go 知识图谱</title>
+      <link>https://java-px.bot.cd/go/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/go/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "goroutine 调度原理、栈扩容讲不清？", "channel vs sync.Mutex 不知道选哪个？", "Go 错误处理（error / panic / recover）哲学？", "微服务架构、gRPC、Service Mesh 怎么落地？", "K8s operator / controller</description>
+      <pubDate>Sat, 15 Aug 2026 18:41:26 -0000</pubDate>
+    </item>
+    <item>
+      <title>frontend 知识图谱</title>
+      <link>https://java-px.bot.cd/frontend/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/frontend/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "HTML / CSS 基础不扎实，遇到复杂布局就懵？", "React / Vue / Angular / Svelte 选哪个？", "浏览器渲染原理、Event Loop 讲不清？", "TypeScript 类型系统、泛型、条件类型卡壳？", "Node 后端怎么写、怎么部署、怎么调优？" ]" :goa</description>
+      <pubDate>Sat, 15 Aug 2026 18:41:26 -0000</pubDate>
+    </item>
+    <item>
+      <title>java-language 知识图谱</title>
+      <link>https://java-px.bot.cd/java-language/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java-language/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "会用 HashMap 但不理解红黑树和 Hash 冲突", "写了 Spring 但不理解 IoC 容器如何工作", "遇到 GC 停顿只会调 Xmx", "用了线程池但不理解核心参数", "面试问 JVM 只知道「堆栈方法区」" ]" :goals="[ "系统化讲清 Java 基础 → 集合 → 并发 →</description>
+      <pubDate>Sat, 15 Aug 2026 18:30:02 -0000</pubDate>
+    </item>
+    <item>
+      <title>cloud-native 知识图谱</title>
+      <link>https://java-px.bot.cd/cloud-native/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/</guid>
+      <description>features: title: Docker 容器 details: Docker 基础 · 镜像 · 容器 · 网络 · 卷 · Compose link: /01-docker/intro linkText: 开始 Docker → title: k8s 架构 details: 控制面 / Node / kubectl / etcd · 集群全貌 link: /02-k8s-arch/ove</description>
+      <pubDate>Sat, 15 Aug 2026 18:30:02 -0000</pubDate>
+    </item>
+    <item>
+      <title>bigdata 知识图谱</title>
+      <link>https://java-px.bot.cd/bigdata/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/bigdata/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "Hadoop / Spark / Flink / Hive / Kafka 各自独立文档", "数据仓库 vs 数据湖 vs Lakehouse 怎么选", "离线数仓 vs 实时数仓 怎么统一", "ClickHouse / Doris / StarRocks 怎么选", "模型设计 Inmon vs Kim</description>
+      <pubDate>Sat, 15 Aug 2026 18:30:02 -0000</pubDate>
+    </item>
+    <item>
+      <title>企业级架构知识图谱</title>
+      <link>https://java-px.bot.cd/architecture/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "会写 CRUD 却讲不清 CAP 定理", "知道消息队列但说不清幂等性设计", "调过限流却不懂令牌桶 vs 滑动窗口的区别", "用了 Seata 却不知道 AT 模式的 undo_log 怎么工作", "部署过微服务但没读过 DDD" ]" :goals="[ "JMM / happens-before</description>
+      <pubDate>Sat, 15 Aug 2026 18:30:02 -0000</pubDate>
+    </item>
+    <item>
+      <title>BASE / 最终一致性</title>
+      <link>https://java-px.bot.cd/architecture/03-ha-theory/base</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/03-ha-theory/base</guid>
+      <description>Eric Brewer 提出，CAP 的 AP 选择方案： - **B**asically **A**available（基本可用） - **S**oft state（软状态，状态可以暂时不一致） - **E**ventually consistent（最终一致） **核心思想**：放弃强一致，换可用性 + 最终一致。 | ACID（传统数据库） | BASE（分布式） | |----------</description>
+      <pubDate>Sat, 15 Aug 2026 18:23:25 -0000</pubDate>
+    </item>
+    <item>
+      <title>MCP 核心概念</title>
+      <link>https://java-px.bot.cd/ai/06-mcp/core</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/06-mcp/core</guid>
+      <description>&gt; **M**odel **C**context **P**rotocol。Anthropic 2024 年提出的**开放标准**，让 LLM 标准化连接外部数据源 / 工具。 | 角色 | 是什么 | |------|--------| | **Host** | 跑 LLM 的应用（Claude Code / Cursor） | | **Client** | 嵌在 host 里的 MCP 客户端</description>
+      <pubDate>Sat, 15 Aug 2026 18:23:25 -0000</pubDate>
+    </item>
+    <item>
+      <title>调试与陷阱</title>
+      <link>https://java-px.bot.cd/linux/11-shell/debug</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/linux/11-shell/debug</guid>
+      <description>&gt; shell 的"沉默失败"特性是最大杀手，这章讲怎么调试 + 常见坑。 输出： `PS4` 控制 trace 前缀： `-x` 更常用。 **生产脚本默认就开**。 | 选项 | 作用 | |------|------| | `-e` | 命令返回非 0 立即退出 | | `-u` | 用未定义变量报错 | | `-o pipefail` | 管道失败检测 | | `-x` | 打印每条命令</description>
+      <pubDate>Sat, 15 Aug 2026 18:23:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>Builder 建造者模式</title>
+      <link>https://java-px.bot.cd/design-pattern/01-gof-creational/builder</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/design-pattern/01-gof-creational/builder</guid>
+      <description>多参数对象构造 + Java Lombok @Builder + Go Functional Options + TypeScript chainable</description>
+      <pubDate>Sat, 15 Aug 2026 18:23:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>反模式（应避免的反面案例）</title>
+      <link>https://java-px.bot.cd/design-pattern/06-anti-patterns/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/design-pattern/06-anti-patterns/overview</guid>
+      <description>&gt; 反模式（Anti-Pattern）是「表面看起来是解决方案，实际上会让代码/系统变得更糟」的常见做法。每个反模式都附「症状-病因-药方」清单，可以直接用作 code review checklist。 学习设计模式是学「**怎么做好**」，学习反模式是学「**怎么识别坏**」。code review 中 80% 的问题都是反模式的重复出现： - 「这个类 5000 行」→ 上帝对象 - 「Se</description>
+      <pubDate>Sat, 15 Aug 2026 16:51:48 -0000</pubDate>
+    </item>
+    <item>
+      <title>架构模式（微服务 / 分层 / 事件溯源等）</title>
+      <link>https://java-px.bot.cd/design-pattern/05-architectural-patterns/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/design-pattern/05-architectural-patterns/overview</guid>
+      <description>&gt; 微服务时代的「系统级设计模式」。它们不再是单个类与对象的组合，而是**跨服务、跨进程、跨节点**的协作模式。每个架构模式都是一组 GoF 模式的「架构升级版」，并对应一套成熟的开源实现。 单体应用时代，业务逻辑放在同一个进程内，类与类的协作靠 OOP 设计模式就能搞定。但微服务时代，每个服务都是独立部署的进程，业务逻辑必须跨网络协作： 1. **数据一致性**：订单服务扣款 + 库存服务扣货，</description>
+      <pubDate>Sat, 15 Aug 2026 16:51:48 -0000</pubDate>
+    </item>
+    <item>
+      <title>现代模式（响应式 / 事件驱动 / 六边形等）</title>
+      <link>https://java-px.bot.cd/design-pattern/04-modern-patterns/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/design-pattern/04-modern-patterns/overview</guid>
+      <description>&gt; 云原生时代涌现的「新一代设计模式」。它们不是 GoF 23 模式的标准成员，但在主流框架（Spring Boot / Go Wire / NestJS / .NET Core）中已成为不可替代的核心抽象。理解这些模式能帮你看清框架源码的设计哲学。 GoF 1994 年的 23 模式针对的是 OOP 语言的**类与对象**，但 2020 年后的软件工程发生了根本变化： 1. **依赖管理从硬编码</description>
+      <pubDate>Sat, 15 Aug 2026 16:51:48 -0000</pubDate>
+    </item>
+    <item>
+      <title>行为型模式总览</title>
+      <link>https://java-px.bot.cd/design-pattern/03-gof-behavioral/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/design-pattern/03-gof-behavioral/overview</guid>
+      <description>&gt; GoF 23 模式中专门解决「对象间职责分配与通信」问题的 11 个模式。行为型模式既关注类之间的算法/职责流转（Template Method / Strategy / State），也关注对象间的消息传递（Observer / Mediator / Command）和状态管理（Memento）。 结构型模式回答「**用什么**」和行为型模式回答「**怎么做**」。当业务复杂度提升后，最难的</description>
+      <pubDate>Sat, 15 Aug 2026 16:51:48 -0000</pubDate>
+    </item>
+    <item>
+      <title>结构型模式总览</title>
+      <link>https://java-px.bot.cd/design-pattern/02-gof-structural/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/design-pattern/02-gof-structural/overview</guid>
+      <description>&gt; GoF 23 模式中专门解决「类与对象如何组合」问题的 7 个模式。结构型模式通过**继承或组合**，让接口/实现分离、对象组合灵活、性能开销可控。 继承是 OOP 的核心武器，但「过度继承」会让类层次爆炸、接口污染。结构型模式回答三个问题： 1. **如何适配不兼容的接口？** → Adapter / Bridge 2. **如何让对象组合替代继承？** → Composite / Deco</description>
+      <pubDate>Sat, 15 Aug 2026 16:51:48 -0000</pubDate>
+    </item>
+    <item>
+      <title>创建型模式总览</title>
+      <link>https://java-px.bot.cd/design-pattern/01-gof-creational/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/design-pattern/01-gof-creational/overview</guid>
+      <description>&gt; GoF 23 模式中专门解决「对象创建」问题的 5 个模式。它们把 `new` 这个动作从客户端代码中抽离出来，根据场景选择不同的创建策略：单实例、工厂、抽象工厂、建造者、原型。 业务代码里最常见的耦合是「客户端直接 `new` 具体类」。例如： 这样做有三个问题： 1. **编译期耦合**：改个实现就要改所有客户端 2. **无法 mock**：单测时没法替换成测试替身 3. **生命周期混</description>
+      <pubDate>Sat, 15 Aug 2026 16:51:48 -0000</pubDate>
+    </item>
+    <item>
+      <title>学习路径</title>
+      <link>https://java-px.bot.cd/filesystem/path</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/path</guid>
+      <description>根据不同角色与目标，规划差异化学习路线。 1. [inode 与 dentry](/01-basics/inode-dentry) — 理解文件的本质（不是文件名，是 inode） 2. [VFS 虚拟文件系统](/01-basics/vfs) — Linux 如何用统一接口抽象不同 FS 3. [文件描述符](/01-basics/file-descriptor) — open/read/wri</description>
+      <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>思维导图</title>
+      <link>https://java-px.bot.cd/filesystem/mindmap</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/mindmap</guid>
+      <description>树形结构浏览所有节点。点击 ▶ 展开 / 收起子节点。 &lt;ClientOnly&gt; &lt;MindMap :height="760" /&gt; &lt;/ClientOnly&gt; | # | 章节 | 节点数 | 重点 | |---|------|--------|------| | 1 | 文件系统基础 | 7 | inode / VFS / Page Cache 等核心抽象 | | 2 | 本地盘 FS | 7</description>
+      <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>知识图谱</title>
+      <link>https://java-px.bot.cd/filesystem/graph</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/graph</guid>
+      <description>按章节组织的 76 个核心节点关系图。点击节点跳转对应文档。 &lt;ClientOnly&gt; &lt;KnowledgeGraph :height="880" /&gt; &lt;/ClientOnly&gt; 13 种颜色对应 13 个章节，节点大小表示该知识点的重要性/复杂度。边表示节点间的依赖或衍生关系（如「日志」概念应用于 ext4 / XFS / NTFS 等多个本地盘 FS）。 - 鼠标拖拽节点重新布局 - 滚轮缩</description>
+      <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>速记卡</title>
+      <link>https://java-px.bot.cd/filesystem/cheatsheet</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/cheatsheet</guid>
+      <description>一页速查 — 关键概念、命令、对比表。 - **inode** = 文件元数据（权限/大小/时间戳/数据块指针） - **dentry** = 目录项缓存（文件名 → inode 映射） - **file** = 进程打开后的"打开文件表"项 | 场景 | 推荐 | 原因 | |------|------|------| | Linux 默认 | ext4 | 稳定/广泛支持 | | 大文件顺序写</description>
+      <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>HDFS 大数据基石</title>
+      <link>https://java-px.bot.cd/filesystem/03-distributed/hdfs</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/03-distributed/hdfs</guid>
+      <description>&lt;span class="kg-badge kg-badge-distributed"&gt;分布式&lt;/span&gt; Hadoop Distributed File System——PB 级顺序写优化的经典分布式 FS。 HDFS 采用**主从架构**： - **内存中维护整个 FS 树**：文件名 → block → DataNode 列表 - 接收客户端元数据操作（mkdir、ls、rm） - 接收</description>
+      <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>CephFS 统一存储</title>
+      <link>https://java-px.bot.cd/filesystem/03-distributed/cephfs</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/03-distributed/cephfs</guid>
+      <description>&lt;span class="kg-badge kg-badge-distributed"&gt;分布式&lt;/span&gt; Ceph 的 POSIX 文件系统——统一块/对象/文件三种接口的存储平台。 Ceph 提供三种存储接口： **核心**：所有接口共享底层 **RADOS**（可靠自主分布式对象存储）。 - **MDS**：把元数据树切分（dirfrag）分给不同 MDS - **客户端**：直接和 OS</description>
+      <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>ZFS 企业级</title>
+      <link>https://java-px.bot.cd/filesystem/02-disk-fs/zfs</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/02-disk-fs/zfs</guid>
+      <description>&lt;span class="kg-badge kg-badge-disk-fs"&gt;本地盘&lt;/span&gt; 终极文件系统的代表——128-bit 地址空间、内置 RAID-Z、自愈校验、ARC 缓存。 ZFS 由 Sun Microsystems 在 2005 年发布，因 CDDL 许可证与 GPL 不兼容，未能并入 Linux 内核。Linux 上通过 **OpenZFS** 项目独立提供（作为内核模</description>
+      <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>XFS 高性能日志</title>
+      <link>https://java-px.bot.cd/filesystem/02-disk-fs/xfs</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/02-disk-fs/xfs</guid>
+      <description>&lt;span class="kg-badge kg-badge-disk-fs"&gt;本地盘&lt;/span&gt; SGI 血统，分配组 + B+ tree，为大文件和大容量而生。 SGI 在 1990 年代为 IRIX 开发 XFS，2001 年开源，2002 年并入 Linux 2.5。RHEL/CentOS 7+ 默认 XFS。 XFS 把磁盘分成多个独立管理的 AG（默认几百个），每个 AG 有自己的：</description>
+      <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>NTFS / FAT / exFAT</title>
+      <link>https://java-px.bot.cd/filesystem/02-disk-fs/windows-fs</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/02-disk-fs/windows-fs</guid>
+      <description>&lt;span class="kg-badge kg-badge-disk-fs"&gt;本地盘&lt;/span&gt; Windows 世界的文件系统——从软盘到现代 SSD。 **File Allocation Table 32**——最简单的 FS 之一。 - 簇（cluster）：最小分配单位 - FAT 表：每个簇一个 entry，记录"下一个簇号"或"EOF" | 限制 | 值 | |------|---</description>
+      <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>ext4 经典之选</title>
+      <link>https://java-px.bot.cd/filesystem/02-disk-fs/ext4</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/02-disk-fs/ext4</guid>
+      <description>&lt;span class="kg-badge kg-badge-disk-fs"&gt;本地盘&lt;/span&gt; Linux 的默认文件系统——ext2/3/4 家族的集大成者。 - **ext2** (1993)：最早的可扩展 FS，无日志 - **ext3** (2001)：加日志，兼容 ext2 - **ext4** (2008)：extent、B+ tree、延迟分配、大文件支持 ext3 用**直接</description>
+      <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>横向对比与选型</title>
+      <link>https://java-px.bot.cd/filesystem/02-disk-fs/compare</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/02-disk-fs/compare</guid>
+      <description>&lt;span class="kg-badge kg-badge-disk-fs"&gt;本地盘&lt;/span&gt; 7 种主流本地文件系统——一张表选型。 | FS | 平台 | 一致性 | 快照 | 校验和 | 加密 | 默认 | |----|------|--------|------|--------|------|------| | **ext4** | Linux | journal | ❌ | ⚠️</description>
+      <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>Btrfs COW与快照</title>
+      <link>https://java-px.bot.cd/filesystem/02-disk-fs/btrfs</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/02-disk-fs/btrfs</guid>
+      <description>&lt;span class="kg-badge kg-badge-disk-fs"&gt;本地盘&lt;/span&gt; B-tree FS——为快照、校验、子卷而生的现代 FS。 Btrfs 全称 **B-tree File System**，核心思想： - 所有元数据用 B-tree - **写时复制（COW）**：写新位置，原子切指针 - 内置快照 / 子卷 / 校验和 **优势**： - 写过程 crash-</description>
+      <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
+    </item>
+  </channel>
+</rss>

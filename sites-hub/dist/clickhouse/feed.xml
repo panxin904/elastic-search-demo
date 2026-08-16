@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>clickhouse - Scholar's Atlas</title>
+    <link>https://java-px.bot.cd/clickhouse/</link>
+    <atom:link href="https://java-px.bot.cd/clickhouse/feed.xml" rel="self" type="application/rss+xml" />
+    <description>clickhouse 知识图谱（36 页）</description>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 16 Aug 2026 09:03:50 -0000</lastBuildDate>
+    <item>
+      <title>clickhouse 知识图谱</title>
+      <link>https://java-px.bot.cd/clickhouse/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "列存 vs 行存：为什么 OLAP 要用列存？", "MergeTree 引擎家族（Replacing / Summing / Aggregating）怎么选？", "实时数仓（Lambda / Kappa / 湖仓一体）架构怎么选？", "集群扩容、副本、数据分片怎么平衡成本与可用性？", "SQL 优化：O</description>
+      <pubDate>Sat, 15 Aug 2026 18:44:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Prometheus remote_write</title>
+      <link>https://java-px.bot.cd/clickhouse/05-ecosystem/prometheus</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/05-ecosystem/prometheus</guid>
+      <description>ClickHouse 作为 Prometheus 长期存储：bridge 工具 + 实战</description>
+      <pubDate>Sat, 15 Aug 2026 11:59:50 -0000</pubDate>
+    </item>
+    <item>
+      <title>指标 TSDB 存储</title>
+      <link>https://java-px.bot.cd/clickhouse/04-olap-scenarios/metrics-storage</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/04-olap-scenarios/metrics-storage</guid>
+      <description>用 ClickHouse 做 Prometheus / Grafana 的后端存储：remote_write / 指标标签 / PromQL</description>
+      <pubDate>Sat, 15 Aug 2026 11:59:50 -0000</pubDate>
+    </item>
+    <item>
+      <title>实时数仓</title>
+      <link>https://java-px.bot.cd/clickhouse/04-olap-scenarios/realtime-warehouse</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/04-olap-scenarios/realtime-warehouse</guid>
+      <description>Kafka + MV 链式分层：DWD / DWS / ADS 三层实时数仓完整架构</description>
+      <pubDate>Sat, 15 Aug 2026 11:59:50 -0000</pubDate>
+    </item>
+    <item>
+      <title>用户埋点分析</title>
+      <link>https://java-px.bot.cd/clickhouse/04-olap-scenarios/user-tracking</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/04-olap-scenarios/user-tracking</guid>
+      <description>抖音 / B 站级埋点场景：Kafka + RoaringBitmap + 留存 / 漏斗 / 路径分析</description>
+      <pubDate>Sat, 15 Aug 2026 11:59:50 -0000</pubDate>
+    </item>
+    <item>
+      <title>vs StarRocks</title>
+      <link>https://java-px.bot.cd/clickhouse/06-compare/vs-starrocks</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/06-compare/vs-starrocks</guid>
+      <description>ClickHouse vs StarRocks：两大列存 OLAP 引擎的全面对比</description>
+      <pubDate>Sat, 15 Aug 2026 11:59:50 -0000</pubDate>
+    </item>
+    <item>
+      <title>vs MySQL / PostgreSQL</title>
+      <link>https://java-px.bot.cd/clickhouse/06-compare/vs-mysql-pg</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/06-compare/vs-mysql-pg</guid>
+      <description>ClickHouse vs MySQL vs PostgreSQL 完整对比：数据模型 / 性能 / 适用场景</description>
+      <pubDate>Sat, 15 Aug 2026 11:59:50 -0000</pubDate>
+    </item>
+    <item>
+      <title>vs TiDB</title>
+      <link>https://java-px.bot.cd/clickhouse/06-compare/vs-tidb</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/06-compare/vs-tidb</guid>
+      <description>ClickHouse vs TiDB HTAP：OLAP 专精 vs OLTP + OLAP 一体化</description>
+      <pubDate>Sat, 15 Aug 2026 11:59:50 -0000</pubDate>
+    </item>
+    <item>
+      <title>Log / TinyLog / StripeLog 引擎</title>
+      <link>https://java-px.bot.cd/clickhouse/03-table-engine/log-engine</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/03-table-engine/log-engine</guid>
+      <description>小数据量场景的简单日志引擎，性能差但写入极简</description>
+      <pubDate>Tue, 11 Aug 2026 21:42:20 -0000</pubDate>
+    </item>
+    <item>
+      <title>vs Doris / StarRocks</title>
+      <link>https://java-px.bot.cd/clickhouse/06-compare/vs-doris</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/06-compare/vs-doris</guid>
+      <description>ClickHouse vs Doris vs StarRocks 三大 OLAP 引擎详细对比</description>
+      <pubDate>Tue, 11 Aug 2026 21:42:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>dbt + Airbyte 集成</title>
+      <link>https://java-px.bot.cd/clickhouse/05-ecosystem/dbt-airbyte</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/05-ecosystem/dbt-airbyte</guid>
+      <description>ETL 编排：dbt-clickhouse 模型转换 + Airbyte CDC 同步</description>
+      <pubDate>Tue, 11 Aug 2026 21:42:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>Go 客户端实战</title>
+      <link>https://java-px.bot.cd/clickhouse/05-ecosystem/go-client</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/05-ecosystem/go-client</guid>
+      <description>ch-go（Cloudflare 自研）+ clickhouse-go v2 完整实战</description>
+      <pubDate>Tue, 11 Aug 2026 21:42:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>Grafana 集成</title>
+      <link>https://java-px.bot.cd/clickhouse/05-ecosystem/grafana</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/05-ecosystem/grafana</guid>
+      <description>ClickHouse 作为 Grafana 数据源：原生插件 + Dashboard 实战</description>
+      <pubDate>Tue, 11 Aug 2026 21:42:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>Kafka 集成实战</title>
+      <link>https://java-px.bot.cd/clickhouse/05-ecosystem/kafka-integration</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/05-ecosystem/kafka-integration</guid>
+      <description>ClickHouse Kafka 表引擎 + MaterializedView 完整实战 + 多 topic 流</description>
+      <pubDate>Tue, 11 Aug 2026 21:42:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>高基数 UV 统计</title>
+      <link>https://java-px.bot.cd/clickhouse/04-olap-scenarios/bitmap</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/04-olap-scenarios/bitmap</guid>
+      <description>RoaringBitmap + groupBitmap 实战：精确 UV / 留存 / 多维去重</description>
+      <pubDate>Tue, 11 Aug 2026 21:42:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>日志分析</title>
+      <link>https://java-px.bot.cd/clickhouse/04-olap-scenarios/log-analysis</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/04-olap-scenarios/log-analysis</guid>
+      <description>Uber / Cloudflare / GitHub 都在用：ClickHouse 替代 Elasticsearch 做日志分析</description>
+      <pubDate>Tue, 11 Aug 2026 21:42:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>MaterializedView 物化视图</title>
+      <link>https://java-px.bot.cd/clickhouse/03-table-engine/materialized-view</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/03-table-engine/materialized-view</guid>
+      <description>ClickHouse 实时数仓核心：增量更新 / 自动触发 / 多链路组合</description>
+      <pubDate>Tue, 11 Aug 2026 21:42:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>Distributed 表引擎</title>
+      <link>https://java-px.bot.cd/clickhouse/03-table-engine/distributed</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/03-table-engine/distributed</guid>
+      <description>多分片集群查询 / 写入的核心：本地表 + 分布式表 scatter-gather 模型</description>
+      <pubDate>Tue, 11 Aug 2026 21:42:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>Kafka 表引擎</title>
+      <link>https://java-px.bot.cd/clickhouse/03-table-engine/kafka-engine</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/03-table-engine/kafka-engine</guid>
+      <description>直接消费 Kafka topic，配合物化视图实现秒级实时数仓</description>
+      <pubDate>Tue, 11 Aug 2026 21:42:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>MergeTree 表引擎家族</title>
+      <link>https://java-px.bot.cd/clickhouse/03-table-engine/mergetree-family</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/03-table-engine/mergetree-family</guid>
+      <description>MergeTree / ReplacingMergeTree / AggregatingMergeTree / CollapsingMergeTree / VersionedCollapsingMergeTree / SummingMergeTree 完整对比</description>
+      <pubDate>Tue, 11 Aug 2026 21:42:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>Dictionary 字典</title>
+      <link>https://java-px.bot.cd/clickhouse/02-sql/dictionary</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/02-sql/dictionary</guid>
+      <description>ClickHouse Dictionary 完整指南：原理 / 创建 / 维护 / 实战</description>
+      <pubDate>Tue, 11 Aug 2026 21:42:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>窗口函数</title>
+      <link>https://java-px.bot.cd/clickhouse/02-sql/window-functions</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/02-sql/window-functions</guid>
+      <description>ClickHouse 窗口函数全集 + 用户留存 / 漏斗 / 排名实战</description>
+      <pubDate>Tue, 11 Aug 2026 21:42:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>ClickHouse 独有函数</title>
+      <link>https://java-px.bot.cd/clickhouse/02-sql/functions</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/02-sql/functions</guid>
+      <description>ClickHouse 独有 + 高频函数全集：array / map / tuple / JSON / URL / 时间 / 字符串</description>
+      <pubDate>Tue, 11 Aug 2026 21:42:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>JOIN 类型</title>
+      <link>https://java-px.bot.cd/clickhouse/02-sql/join</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/02-sql/join</guid>
+      <description>ClickHouse 各种 JOIN 类型 + ASOF JOIN 实战 + JOIN 性能优化</description>
+      <pubDate>Tue, 11 Aug 2026 21:42:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>SELECT 与聚合查询</title>
+      <link>https://java-px.bot.cd/clickhouse/02-sql/select-aggregate</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/02-sql/select-aggregate</guid>
+      <description>ClickHouse 聚合函数全集 + TOP 20 / 分位数 / 高基数 UV 实战</description>
+      <pubDate>Tue, 11 Aug 2026 21:42:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>数据类型</title>
+      <link>https://java-px.bot.cd/clickhouse/01-basics/data-types</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/01-basics/data-types</guid>
+      <description>ClickHouse 完整数据类型系统：基础 / 数值 / 字符串 / 时间 / 复合 / 特殊类型</description>
+      <pubDate>Tue, 11 Aug 2026 21:42:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>客户端连接</title>
+      <link>https://java-px.bot.cd/clickhouse/01-basics/client</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/01-basics/client</guid>
+      <description>clickhouse-client / HTTP / JDBC / Go / Python / Node.js 客户端完整对比</description>
+      <pubDate>Tue, 11 Aug 2026 21:42:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>安装部署</title>
+      <link>https://java-px.bot.cd/clickhouse/01-basics/installation</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/01-basics/installation</guid>
+      <description>ClickHouse 单机 / 集群 / Docker / Kubernetes / 云服务全模式安装指南</description>
+      <pubDate>Tue, 11 Aug 2026 21:42:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>ClickHouse 简史与生态</title>
+      <link>https://java-px.bot.cd/clickhouse/01-basics/history</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/01-basics/history</guid>
+      <description>从 2009 年 Yandex.Metrica 内部项目到 2026 年全球 OLAP 事实标准的演进历程</description>
+      <pubDate>Tue, 11 Aug 2026 21:42:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>大厂 ClickHouse 实战案例</title>
+      <link>https://java-px.bot.cd/clickhouse/case-study</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/case-study</guid>
+      <description>12 个真实生产级 ClickHouse 案例：Uber / Cloudflare / 字节 / B 站 / 京东等</description>
+      <pubDate>Tue, 11 Aug 2026 21:35:48 -0000</pubDate>
+    </item>
+    <item>
+      <title>对比选型总览</title>
+      <link>https://java-px.bot.cd/clickhouse/06-compare/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/06-compare/overview</guid>
+      <description>ClickHouse vs MySQL vs PostgreSQL vs Doris vs StarRocks vs TiDB 选型决策树</description>
+      <pubDate>Tue, 11 Aug 2026 21:35:17 -0000</pubDate>
+    </item>
+    <item>
+      <title>生态工具链</title>
+      <link>https://java-px.bot.cd/clickhouse/05-ecosystem/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/05-ecosystem/overview</guid>
+      <description>**ClickHouse 不是孤岛**——与 Kafka / Grafana / Prometheus / Go / Python / dbt / Airbyte 深度集成。 &gt; **ClickHouse 生态 = Kafka 引擎 + Grafana 可视化 + Prometheus remote_write + 多语言客户端 + dbt / Airbyte 集成**。**整个现代数据栈的中枢*</description>
+      <pubDate>Tue, 11 Aug 2026 21:34:06 -0000</pubDate>
+    </item>
+    <item>
+      <title>OLAP 实战场景</title>
+      <link>https://java-px.bot.cd/clickhouse/04-olap-scenarios/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/04-olap-scenarios/overview</guid>
+      <description>**ClickHouse 的核心价值在 6 大实战场景**——用户行为 / 日志 / 指标 / 实时数仓 / Bitmap 去重。 &gt; **ClickHouse 6 大场景 = 埋点 + 日志 + 指标 + 实时数仓 + Bitmap 去重 + 业务 OLAP**。**每个场景都有大厂真实案例可参考**。 --- **场景**：电商 / 短视频 / 社交 App 每天 10 亿+ 埋点事件。 **</description>
+      <pubDate>Tue, 11 Aug 2026 21:33:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>表引擎总览</title>
+      <link>https://java-px.bot.cd/clickhouse/03-table-engine/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/03-table-engine/overview</guid>
+      <description>**ClickHouse 表引擎 = 数据如何存储 + 索引 + 复制**——选错引擎性能差 100x。 &gt; **表引擎 = 数据生命周期**。**MergeTree 家族是 99% 场景的选择**。**Kafka/Distributed/MaterializedView 是生态基础**。 --- **关键概念**： - **PARTITION BY**：目录分区（`202608/`, `2026</description>
+      <pubDate>Tue, 11 Aug 2026 21:32:51 -0000</pubDate>
+    </item>
+    <item>
+      <title>SQL 实战总览</title>
+      <link>https://java-px.bot.cd/clickhouse/02-sql/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/02-sql/overview</guid>
+      <description>**ClickHouse SQL = 标准 SQL + 向量化扩展**——MySQL/PG 工程师 30 分钟上手。 &gt; **ClickHouse SQL ≈ SQL92 + 数组/map/JSON 复杂类型 + 强类型聚合 + Lambda 函数**。**与 MySQL 90% 兼容，10% 差异需注意**。 --- | 维度 | MySQL | PostgreSQL | ClickHouse</description>
+      <pubDate>Tue, 11 Aug 2026 21:32:21 -0000</pubDate>
+    </item>
+    <item>
+      <title>ClickHouse 总览</title>
+      <link>https://java-px.bot.cd/clickhouse/01-basics/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/01-basics/overview</guid>
+      <description>**ClickHouse = Yandex 开源的高性能列式 OLAP 数据库**——亿级数据秒级聚合，被 Uber / Cloudflare / GitHub 用来做实时数仓。 &gt; **ClickHouse = 列式存储 + MergeTree 引擎 + 向量化执行 + 分布式 MPP**。**OLAP 场景的事实标准（2020 年后）**。 --- 传统 OLTP 数据库（MySQL / PG</description>
+      <pubDate>Tue, 11 Aug 2026 21:31:50 -0000</pubDate>
+    </item>
+  </channel>
+</rss>

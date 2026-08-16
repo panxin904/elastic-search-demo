@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>devops - Scholar's Atlas</title>
+    <link>https://java-px.bot.cd/devops/</link>
+    <atom:link href="https://java-px.bot.cd/devops/feed.xml" rel="self" type="application/rss+xml" />
+    <description>devops 知识图谱（30 页）</description>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 16 Aug 2026 09:03:50 -0000</lastBuildDate>
+    <item>
+      <title>DevOps 知识图谱</title>
+      <link>https://java-px.bot.cd/devops/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/</guid>
+      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="[ "CI/CD 工具太多（Jenkins / GitLab CI / GitHub Actions / Argo），怎么选？", "Pipeline as Code 怎么写才不会变成 YAML 屎山？", "Terraform / Pulumi / Ansible 三大 IaC 工具怎么选？", "ArgoCD /</description>
+      <pubDate>Sat, 15 Aug 2026 18:56:48 -0000</pubDate>
+    </item>
+    <item>
+      <title>GitLab CI</title>
+      <link>https://java-px.bot.cd/devops/01-pipeline/gitlab-ci</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/01-pipeline/gitlab-ci</guid>
+      <description>GitLab 内置 CI/CD，业界最完整的一体化方案：SCM + CI + CD + Container Registry + Security 全部内置。 &gt; **GitLab CI = DevSecOps 一体化**。**优势：一体化 / 内置 security / 多 runner 池**。**劣势：自托管运维成本高、UI 较 GitHub Actions 复杂**。 --- - **01</description>
+      <pubDate>Mon, 10 Aug 2026 19:52:38 -0000</pubDate>
+    </item>
+    <item>
+      <title>OIDC 联邦</title>
+      <link>https://java-px.bot.cd/devops/06-best-practices/oidc-federation</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/06-best-practices/oidc-federation</guid>
+      <description>OIDC 联邦让 CI/CD Pipeline（GitHub / GitLab）无需 long-lived Secret 就能访问云厂商（AWS / GCP / Azure），是现代 Secret 管理的最佳实践。 &gt; **OIDC 联邦 = 无长期凭证的云访问**。**核心：JWT Token 交换临时 STS**。**优势：消除长期 Secret / 自动过期 / 细粒度权限**。 --- -</description>
+      <pubDate>Mon, 10 Aug 2026 19:52:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>Secret 管理</title>
+      <link>https://java-px.bot.cd/devops/06-best-practices/secrets-management</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/06-best-practices/secrets-management</guid>
+      <description>Secret（密钥 / 凭证 / Token）是 Pipeline 中最敏感的资源。本章梳理 Secret 全生命周期管理。 &gt; **Secret 管理 = Vault 化 + OIDC 化 + 轮换化**。**核心：避免明文 + 最小权限 + 自动轮换 + 审计追溯**。 --- | 类型 | 推荐方案 | |------|----------| | **数据库密码** | HashiCorp</description>
+      <pubDate>Mon, 10 Aug 2026 19:52:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>安全 Pipeline</title>
+      <link>https://java-px.bot.cd/devops/06-best-practices/secure-pipeline</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/06-best-practices/secure-pipeline</guid>
+      <description>CI/CD Pipeline 本身是攻击面最大的目标之一（拥有生产部署权限）。本章梳理 Pipeline 全链路的 8 大安全措施。 &gt; **Pipeline 安全 = SLSA + 最小权限 + 可审计**。**核心：Secret 管理 / OIDC 联邦 / SBOM / 镜像签名 / 制品完整性**。 --- - **06-best-practices/secrets-management*</description>
+      <pubDate>Mon, 10 Aug 2026 19:52:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>CI 缓存策略</title>
+      <link>https://java-px.bot.cd/devops/06-best-practices/caching</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/06-best-practices/caching</guid>
+      <description>缓存是 Pipeline 优化的"第一性原理"——同样的输入，不应该重复劳动。本章梳理跨工具的缓存策略。 &gt; **CI 缓存 = 时间换时间**。**核心：依赖缓存 + 构建缓存 + 测试结果缓存**。**目标：cache hit rate &gt; 85%、duration 降低 50%+**。 --- | 缓存类型 | 内容 | 命中率目标 | |----------|------|--------</description>
+      <pubDate>Mon, 10 Aug 2026 19:52:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>流水线监控</title>
+      <link>https://java-px.bot.cd/devops/05-cicd-observability/pipeline-monitoring</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/05-cicd-observability/pipeline-monitoring</guid>
+      <description>CI/CD Pipeline 本身的运行状态监控：duration / success rate / queue time / cache hit rate。 &gt; **Pipeline 监控 = Pipeline 自身的 SRE**。**核心指标：duration / success rate / queue time / cache hit rate**。**价值：发现瓶颈 + SLA 保障 +</description>
+      <pubDate>Mon, 10 Aug 2026 19:52:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>Flaky Test</title>
+      <link>https://java-px.bot.cd/devops/05-cicd-observability/flaky-test</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/05-cicd-observability/flaky-test</guid>
+      <description>Flaky Test（不稳定测试）= 同一份代码、同一个测试，有时通过有时失败。这是研发团队的"隐形税"。 &gt; **Flaky Test = 团队的隐形杀手**。**影响：CI 时间翻倍 + 信任崩溃 + 真 bug 被掩盖**。**治理：分类 + 修复 + quarantine + 根因分析**。 --- - **05-cicd-observability/overview**：流水线可观测性总</description>
+      <pubDate>Mon, 10 Aug 2026 19:52:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>DORA Metrics</title>
+      <link>https://java-px.bot.cd/devops/05-cicd-observability/dora-metrics</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/05-cicd-observability/dora-metrics</guid>
+      <description>DORA（DevOps Research &amp; Assessment）是 Google 与 DORA 团队发布的研发效能度量框架，4 个核心指标被业界广泛采用。 &gt; **DORA = 研发效能的事实标准**。**4 大指标：部署频率 / 变更前置时间 / 变更失败率 / 恢复时间**。**价值：跨团队对比 + 识别瓶颈 + 行业 benchmark**。 --- - **05-cicd-observ</description>
+      <pubDate>Mon, 10 Aug 2026 19:52:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>回滚机制</title>
+      <link>https://java-px.bot.cd/devops/04-release/rollback</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/04-release/rollback</guid>
+      <description>发布失败的快速恢复能力，决定 MTTR（Mean Time To Recover）。本章梳理回滚的 4 大要素与最佳实践。 &gt; **回滚 = 流量切换 + DB 回退 + 配置回退 + 通知**。**目标：MTTR &lt; 5 分钟（生产事故标准）**。**反模式：靠手工人肉回滚**。 --- - **04-release/overview**：发布策略总览 - **04-release/blue-g</description>
+      <pubDate>Mon, 10 Aug 2026 19:52:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>Feature Flag</title>
+      <link>https://java-px.bot.cd/devops/04-release/feature-flag</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/04-release/feature-flag</guid>
+      <description>Feature Flag 是代码内的开关，通过配置中心动态启用 / 关闭 / 灰度功能，不需要重新部署。 &gt; **Feature Flag = 配置驱动的代码开关**。**核心：代码内置 + 配置中心 + 用户分群**。**适用：新功能试用 / 多变体 / Kill Switch**。**挑战：Flag 治理（清理过期 Flag）**。 --- | 方案 | 特点 | |------|------</description>
+      <pubDate>Mon, 10 Aug 2026 19:52:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>金丝雀发布</title>
+      <link>https://java-px.bot.cd/devops/04-release/canary</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/04-release/canary</guid>
+      <description>金丝雀发布源自矿井的金丝雀比喻：新版本先接小比例流量（5%），观察无异常后逐步扩大（25% → 50% → 100%）。 &gt; **金丝雀 = 渐进式放量**。**核心：小流量试错 + 监控驱动 + 自动回滚**。**适用：算法更新 / 性能优化 / 用户可感知的变更**。**代价：需要 Service Mesh / Ingress 支持按权重路由**。 --- - **04-release/ove</description>
+      <pubDate>Mon, 10 Aug 2026 19:52:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>蓝绿部署</title>
+      <link>https://java-px.bot.cd/devops/04-release/blue-green</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/04-release/blue-green</guid>
+      <description>蓝绿部署是经典的零停机发布策略，同时维护两套环境（旧=blue，新=green），通过切换流量实现秒级回滚。 &gt; **蓝绿 = 流量切换 + 秒级回滚**。**核心：两套等价环境 + Router/LB 切换**。**适用：大版本 / 数据库 schema 变更 / 风险敏感**。**代价：资源 2 倍**。 --- - **04-release/overview**：5 大发布策略对比 - **</description>
+      <pubDate>Mon, 10 Aug 2026 19:52:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>渐进式发布</title>
+      <link>https://java-px.bot.cd/devops/03-gitops/progressive-delivery</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/03-gitops/progressive-delivery</guid>
+      <description>渐进式发布（Progressive Delivery）= 金丝雀 + 蓝绿 + A/B 测试的自动化实现。本章梳理主流工具 Flagger 与 Argo Rollouts。 &gt; **渐进式发布 = 自动化的金丝雀/蓝绿/A/B**。**核心工具：Flagger（Flux 生态）+ Argo Rollouts（ArgoCD 生态）**。**价值：发布自动化 + 自动回滚 + 度量驱动决策**。 --</description>
+      <pubDate>Mon, 10 Aug 2026 19:52:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>Flux</title>
+      <link>https://java-px.bot.cd/devops/03-gitops/flux</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/03-gitops/flux</guid>
+      <description>Flux 是 CNCF 毕业项目，GitOps 工具集，采用微服务架构（多个 Controller 协同工作）。 &gt; **Flux = GitOps-native 框架**。**核心：GitOps Toolkit（多个 CRD Controller）**。**强项：云原生 / GitOps 原则贯彻 / 与 ArgoCD 互补**。**弱项：UI 弱（需 CLI 或外部）/ 多租户需要自己实现**</description>
+      <pubDate>Mon, 10 Aug 2026 19:52:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>ArgoCD</title>
+      <link>https://java-px.bot.cd/devops/03-gitops/argocd</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/03-gitops/argocd</guid>
+      <description>ArgoCD 是 CNCF 毕业项目，GitOps 领域的标志性工具，自动同步 Git Repo 与 K8s 集群状态。 &gt; **ArgoCD = GitOps 事实标准**。**核心：Application CRD + 调和循环 + Web UI**。**强项：UI / 多租户 / 多集群**。**弱项：单点（HA 需要 Workaround）**。 --- - **03-gitops/over</description>
+      <pubDate>Mon, 10 Aug 2026 19:52:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>Terraform vs Pulumi</title>
+      <link>https://java-px.bot.cd/devops/02-iac/terraform-vs-pulumi</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/02-iac/terraform-vs-pulumi</guid>
+      <description>两个 IaC 工具的详细对比，帮团队选择合适的方案。 &gt; **Terraform = 生态成熟 / HCL DSL**；**Pulumi = 编程语言 / 测试友好**。**决策点：团队编程能力 + 生态需求 + 测试要求**。 --- | 维度 | Terraform | Pulumi | 推荐场景 | |------|-----------|--------|----------| | **语</description>
+      <pubDate>Mon, 10 Aug 2026 19:52:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>Ansible</title>
+      <link>https://java-px.bot.cd/devops/02-iac/ansible</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/02-iac/ansible</guid>
+      <description>Ansible 是 Red Hat 推出的配置管理工具，使用 YAML（Playbook）定义任务，agentless 架构（SSH 执行）。 &gt; **Ansible = 配置管理 + 轻量部署**。**核心：Playbook（YAML）+ Inventory（主机列表）+ Module（执行单元）**。**强项：agentless / 简单易学 / 适合运维场景**。**弱项：编排能力弱 / 大</description>
+      <pubDate>Mon, 10 Aug 2026 19:52:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>Pulumi</title>
+      <link>https://java-px.bot.cd/devops/02-iac/pulumi</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/02-iac/pulumi</guid>
+      <description>Pulumi 是 IaC 的现代化方案：用 TypeScript / Python / Go 等通用编程语言定义基础设施。 &gt; **Pulumi = 编程语言 IaC**。**核心：通用语言 + 强类型 + 标准工具链（IDE / 测试 / 包管理）**。**强项：编程能力（循环 / 条件 / 函数）/ 测试友好**。**弱项：学习曲线 / 社区生态小于 Terraform**。 --- | 维度</description>
+      <pubDate>Mon, 10 Aug 2026 19:52:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>Terraform</title>
+      <link>https://java-px.bot.cd/devops/02-iac/terraform</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/02-iac/terraform</guid>
+      <description>HashiCorp 推出的 IaC 工具，使用 HCL（HashiCorp Configuration Language）声明基础设施。是 IaC 行业事实标准。 &gt; **Terraform = IaC 事实标准**。**核心：HCL + Provider 生态 + State 管理**。**强项：多云 / 模块化 / State 协作**。**弱项：HCL 不通用 / 状态管理复杂 / 商业化后</description>
+      <pubDate>Mon, 10 Aug 2026 19:52:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>CI/CD Pipeline 最佳实践</title>
+      <link>https://java-px.bot.cd/devops/01-pipeline/best-practices</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/01-pipeline/best-practices</guid>
+      <description>跨工具通用的 Pipeline 设计原则，让团队从"能跑"到"跑得快、跑得稳"。 &gt; **Pipeline 最佳实践 = 4 大原则：缓存 / 并行 / 分层 / 反馈**。**目标：提交到反馈 &lt; 10 分钟、cache hit &gt; 80%、success rate &gt; 95%**。 --- - **01-pipeline/github-actions**：GitHub Actions 缓存 -</description>
+      <pubDate>Mon, 10 Aug 2026 19:52:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>Tekton</title>
+      <link>https://java-px.bot.cd/devops/01-pipeline/tekton</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/01-pipeline/tekton</guid>
+      <description>Tekton 是 CNCF 毕业项目，云原生的 CI/CD 框架，基于 K8s CRD 定义 Pipeline，与 K8s 生态深度集成。 &gt; **Tekton = K8s 原生 CI/CD 框架**。**核心 CRD：Task / TaskRun / Pipeline / PipelineRun**。**强项：K8s 集成 / 复用 Pipeline / 跨集群**。**弱项：学习曲线 / 缺少</description>
+      <pubDate>Mon, 10 Aug 2026 19:52:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>Jenkins</title>
+      <link>https://java-px.bot.cd/devops/01-pipeline/jenkins</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/01-pipeline/jenkins</guid>
+      <description>Jenkins 是 CI/CD 工具的鼻祖（2004 年 Hudson 衍生），功能最全面但运维最重。本章梳理 Jenkins 核心架构与现代化用法。 &gt; **Jenkins = 经典 CI/CD 工具**。**强项：插件生态最丰富 / Pipeline as Code / 分布式 Master-Agent**。**弱项：运维重 / UI 老旧 / 配置漂移（解决：Configuration as</description>
+      <pubDate>Mon, 10 Aug 2026 19:52:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>GitHub Actions</title>
+      <link>https://java-px.bot.cd/devops/01-pipeline/github-actions</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/01-pipeline/github-actions</guid>
+      <description>GitHub 内置的 CI/CD 平台，与 GitHub Repo 深度集成，无需外部服务即可完成 build / test / deploy。 &gt; **GitHub Actions = GitHub 原生 CI/CD**。**YAML 写在 .github/workflows/**，**核心：workflow → job → step → action（复用 marketplace）**。 --</description>
+      <pubDate>Mon, 10 Aug 2026 19:52:27 -0000</pubDate>
+    </item>
+    <item>
+      <title>DevOps 案例研究</title>
+      <link>https://java-px.bot.cd/devops/06-best-practices/case-study</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/06-best-practices/case-study</guid>
+      <description>5 个真实场景的工程决策剖析：电商大促、AI 推理发布、传统企业迁移、开源项目治理、金融强合规。 **背景**：双 11 大促，新版本推荐算法需要上线，但算法可能引入性能 regression。 **方案**： **结果**：算法版本成功发布，CTR +3.2%，P99 延迟无变化，回滚预案就绪。 **背景**：LLM 推理服务从 GPT-3.5 迁移到自研模型，需要对比响应质量。 **挑战**：</description>
+      <pubDate>Mon, 10 Aug 2026 19:29:36 -0000</pubDate>
+    </item>
+    <item>
+      <title>发布策略总览</title>
+      <link>https://java-px.bot.cd/devops/04-release/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/04-release/overview</guid>
+      <description>发布策略决定"新版本如何从 0% 流量到 100% 流量"。选错策略会导致服务中断、用户体验下降、回滚困难。本章梳理 5 种主流策略的原理与适用场景。 | 策略 | 风险 | 回滚速度 | 资源成本 | 适用场景 | |------|------|----------|----------|----------| | **蓝绿 (Blue-Green)** | 低 | 秒级 | 2x 资源 | 大</description>
+      <pubDate>Mon, 10 Aug 2026 19:29:36 -0000</pubDate>
+    </item>
+    <item>
+      <title>流水线可观测性 总览</title>
+      <link>https://java-px.bot.cd/devops/05-cicd-observability/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/05-cicd-observability/overview</guid>
+      <description>CI/CD 流水线本身的"运行状态 / 性能 / 失败率"决定研发效能。本章梳理 4 大度量体系：DORA / Flow / Flaky Test / Pipeline 监控。 | 数据源 | 采集方式 | 关键指标 | |--------|----------|----------| | **GitHub Actions** | gh API + Actions Insights API | w</description>
+      <pubDate>Mon, 10 Aug 2026 19:29:36 -0000</pubDate>
+    </item>
+    <item>
+      <title>GitOps 总览</title>
+      <link>https://java-px.bot.cd/devops/03-gitops/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/03-gitops/overview</guid>
+      <description>GitOps 用 Git 作为"基础设施与应用的唯一真相源"，任何变更都必须通过 PR/MR 走 Git 流程。本章梳理 GitOps 范式与两大主流工具。 | 维度 | ArgoCD | Flux | |------|--------|------| | **架构** | 单体应用 + UI | 微服务（Source Controller / Kustomize Controller / Hel</description>
+      <pubDate>Mon, 10 Aug 2026 19:29:36 -0000</pubDate>
+    </item>
+    <item>
+      <title>CI/CD Pipeline 总览</title>
+      <link>https://java-px.bot.cd/devops/01-pipeline/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/01-pipeline/overview</guid>
+      <description>Pipeline as Code 是 DevOps 的核心范式。本章梳理 4 大主流 CI/CD 工具的设计取舍与工程实践。 传统 CI/CD 把构建脚本写在 Jenkinsfile / .gitlab-ci.yml / GitHub Actions YAML 里，本质都是 **"用 DSL 描述流水线阶段"**。演进趋势： | 维度 | GitHub Actions | GitLab CI |</description>
+      <pubDate>Mon, 10 Aug 2026 19:29:36 -0000</pubDate>
+    </item>
+    <item>
+      <title>IaC 基础设施即代码 总览</title>
+      <link>https://java-px.bot.cd/devops/02-iac/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/02-iac/overview</guid>
+      <description>Infrastructure as Code 把"服务器 / 网络 / 数据库"从手工操作变成可版本化、可审计、可复用的代码。本章对比 4 大 IaC 工具的设计取舍。 | 维度 | Terraform | Pulumi | Ansible | CloudFormation | |------|-----------|--------|---------|----------------| | *</description>
+      <pubDate>Mon, 10 Aug 2026 19:29:36 -0000</pubDate>
+    </item>
+  </channel>
+</rss>

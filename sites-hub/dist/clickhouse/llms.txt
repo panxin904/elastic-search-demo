@@ -2,7 +2,7 @@
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
 > 36 个文档页 · 196,161 字
-> 生成时间：2026-08-16T08:58:46
+> 生成时间：2026-08-16T09:03:50
 
 ## [客户端连接](https://java-px.bot.cd/clickhouse/01-basics/client)
 > clickhouse-client / HTTP / JDBC / Go / Python / Node.js 客户端完整对比
@@ -109,5 +109,5 @@
 ## [大厂 ClickHouse 实战案例](https://java-px.bot.cd/clickhouse/case-study)
 > 12 个真实生产级 ClickHouse 案例：Uber / Cloudflare / 字节 / B 站 / 京东等
 
-## [Untitled](https://java-px.bot.cd/clickhouse/index)
+## [clickhouse 知识图谱](https://java-px.bot.cd/clickhouse/index)
 > <ClientOnly> <WhyThisGraph :pain-points="[ "列存 vs 行存：为什么 OLAP 要用列存？", "MergeTree 引擎家族（Replacing / Summing / Aggregating）怎么选？", "实时数仓（Lambda / Kappa / 湖仓一体）架构怎么选？", "集群扩容、副本、数据分片怎么平衡成本与可用性？", "SQL 优化：O

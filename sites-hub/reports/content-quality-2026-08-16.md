@@ -262,10 +262,10 @@
 ⚠️ VitePress 默认在 `.vitepress/theme/components/` 找自定义组件，md 引用了组件但本地无 .vue 文件会导致 build 失败。
 
 - `design-pattern/repository.md <Order> (本地无 design-pattern-html/.vitepress/theme/components/Order.vue)`
-- `filesystem/webdav.md <VirtualHost> (本地无 filesystem-html/.vitepress/theme/components/VirtualHost.vue)`
 - `filesystem/webdav.md <Directory> (本地无 filesystem-html/.vitepress/theme/components/Directory.vue)`
-- `frontend/redux.md <Provider> (本地无 frontend-html/.vitepress/theme/components/Provider.vue)`
+- `filesystem/webdav.md <VirtualHost> (本地无 filesystem-html/.vitepress/theme/components/VirtualHost.vue)`
 - `frontend/redux.md <App> (本地无 frontend-html/.vitepress/theme/components/App.vue)`
+- `frontend/redux.md <Provider> (本地无 frontend-html/.vitepress/theme/components/Provider.vue)`
 - `frontend/data-fetching.md <QueryClientProvider> (本地无 frontend-html/.vitepress/theme/components/QueryClientProvider.vue)`
 - `frontend/data-fetching.md <UserList> (本地无 frontend-html/.vitepress/theme/components/UserList.vue)`
 - `frontend/design-system.md <Button> (本地无 frontend-html/.vitepress/theme/components/Button.vue)`
@@ -275,11 +275,11 @@
 - `frontend/remix.md <Route> (本地无 frontend-html/.vitepress/theme/components/Route.vue)`
 - `frontend/remix.md <Post> (本地无 frontend-html/.vitepress/theme/components/Post.vue)`
 - `frontend/remix.md <Home> (本地无 frontend-html/.vitepress/theme/components/Home.vue)`
-- `frontend/rtl.md <Page> (本地无 frontend-html/.vitepress/theme/components/Page.vue)`
 - `frontend/rtl.md <Counter> (本地无 frontend-html/.vitepress/theme/components/Counter.vue)`
+- `frontend/rtl.md <Page> (本地无 frontend-html/.vitepress/theme/components/Page.vue)`
 - `frontend/storybook.md <Story> (本地无 frontend-html/.vitepress/theme/components/Story.vue)`
-- `frontend/monitor.md <ErrorPage> (本地无 frontend-html/.vitepress/theme/components/ErrorPage.vue)`
 - `frontend/monitor.md <App> (本地无 frontend-html/.vitepress/theme/components/App.vue)`
+- `frontend/monitor.md <ErrorPage> (本地无 frontend-html/.vitepress/theme/components/ErrorPage.vue)`
 - `frontend/loading.md <Spinner> (本地无 frontend-html/.vitepress/theme/components/Spinner.vue)`
 - ... 及其他 30 处
 

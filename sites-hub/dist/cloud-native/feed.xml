@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cloud-native - Scholar's Atlas</title>
+    <link>https://java-px.bot.cd/cloud-native/</link>
+    <atom:link href="https://java-px.bot.cd/cloud-native/feed.xml" rel="self" type="application/rss+xml" />
+    <description>cloud-native 知识图谱（55 页）</description>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 16 Aug 2026 09:03:50 -0000</lastBuildDate>
+    <item>
+      <title>cloud-native 知识图谱</title>
+      <link>https://java-px.bot.cd/cloud-native/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/</guid>
+      <description>features: title: Docker 容器 details: Docker 基础 · 镜像 · 容器 · 网络 · 卷 · Compose link: /01-docker/intro linkText: 开始 Docker → title: k8s 架构 details: 控制面 / Node / kubectl / etcd · 集群全貌 link: /02-k8s-arch/ove</description>
+      <pubDate>Sat, 15 Aug 2026 18:30:02 -0000</pubDate>
+    </item>
+    <item>
+      <title>Deployment</title>
+      <link>https://java-px.bot.cd/cloud-native/03-k8s-workload/deployment</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/03-k8s-workload/deployment</guid>
+      <description>&gt; Deployment 是无状态 Pod 的"工厂"，管副本 + 滚动升级 + 回滚。 适合：单实例 / 不能双版本共存。 详见 `horizontalpodautoscaler`（CKA 常考）。 `kubectl get rs` 列出 ReplicaSet（每个 revision 一个）。 - [Pod 最小单元](/03-k8s-workload/pod) - [StatefulSet](</description>
+      <pubDate>Sun, 26 Jul 2026 20:58:33 -0000</pubDate>
+    </item>
+    <item>
+      <title>Chart 结构</title>
+      <link>https://java-px.bot.cd/cloud-native/06-helm/chart</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/06-helm/chart</guid>
+      <description>&gt; Helm = k8s 包管理。Chart = 一组打好的 k8s manifest 模板。 | 函数 | 作用 | |------|------| | `\{\{- .Values.x \}\}` | 渲染 value | | `\{\{- .Chart.Name \}\}` | Chart 名 | | `\{\{- .Release.Name \}\}` | Release 名 | | `\</description>
+      <pubDate>Sun, 26 Jul 2026 20:57:38 -0000</pubDate>
+    </item>
+    <item>
+      <title>高频面试题</title>
+      <link>https://java-px.bot.cd/cloud-native/14-interview/questions</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/14-interview/questions</guid>
+      <description>&gt; 真实面试 + 笔试常见题汇总。 | | Deployment | StatefulSet | |--|------------|--------------| | 身份 | 随机 | 固定 ordinal | | 存储 | 共享 | 每 Pod 独立 PVC | | 适合 | 无状态 | DB / MQ | - **ClusterIP**（默认）：集群内 - **NodePort**：每 No</description>
+      <pubDate>Sun, 26 Jul 2026 15:12:44 -0000</pubDate>
+    </item>
+    <item>
+      <title>CKS 安全加固</title>
+      <link>https://java-px.bot.cd/cloud-native/14-interview/cks</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/14-interview/cks</guid>
+      <description>&gt; **C**ertified **K**ubernetes **S**ecurity **S**pecialist = CKA 升级版（加安全）。 | 项 | 详情 | |----|------| | 前提 | CKA 有效 | | 时长 | 2 小时 | | 题目 | ~15-20 道 | | 费用 | ~$395 | | 通过 | 67% | | 通过 CKA 自动 50% off CKS</description>
+      <pubDate>Sun, 26 Jul 2026 15:12:24 -0000</pubDate>
+    </item>
+    <item>
+      <title>CKA 考试要点</title>
+      <link>https://java-px.bot.cd/cloud-native/14-interview/cka</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/14-interview/cka</guid>
+      <description>&gt; **C**ertified **K**ubernetes **A**dministrator = CNCF 官方 k8s 管理员认证。 | 项 | 详情 | |----|------| | 主办 | CNCF + Linux Foundation | | 时长 | 2 小时 | | 题目 | 15-20 道实操 | | 费用 | ~$395（含一次重考） | | 通过 | 66% | | 形式</description>
+      <pubDate>Sun, 26 Jul 2026 15:12:08 -0000</pubDate>
+    </item>
+    <item>
+      <title>网络 / DNS 排错</title>
+      <link>https://java-px.bot.cd/cloud-native/13-troubleshooting/network</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/13-troubleshooting/network</guid>
+      <description>&gt; k8s 网络 80% 问题 = DNS / iptables / CNI / Service 配错。 先缩小范围。 **关键**：NP 是白名单模式，**没列出的全拒绝**。 **必须**有"放行 DNS + 同 ns 通信"的规则，否则全阻断。 - [kubectl debug](/13-troubleshooting/debug) - [Pod 卡死 / 排错套路](/13-trouble</description>
+      <pubDate>Sun, 26 Jul 2026 15:11:50 -0000</pubDate>
+    </item>
+    <item>
+      <title>Pod 卡死 / 排错套路</title>
+      <link>https://java-px.bot.cd/cloud-native/13-troubleshooting/pod-trouble</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/13-troubleshooting/pod-trouble</guid>
+      <description>&gt; 90% 的生产问题都能用一套固定套路定位。 | 状态 | 含义 | |------|------| | `Running` | 至少一个容器跑着 ✅ | | `Pending` | 没调度到 Node（资源 / 选择器 / 镜像） | | `ContainerCreating` | 在拉镜像 / 挂卷 | | `CrashLoopBackOff` | 容器反复崩 | | `ImagePullB</description>
+      <pubDate>Sun, 26 Jul 2026 15:11:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>kubectl debug</title>
+      <link>https://java-px.bot.cd/cloud-native/13-troubleshooting/debug</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/13-troubleshooting/debug</guid>
+      <description>&gt; k8s 1.30+ 内置的 `kubectl debug` —— **不重启 / 不改镜像**就能进容器内部排查。 适合：镜像没工具 / 想看原容器 FS。 适合：原容器**未崩溃**，但你想看它跑什么。 适合：CrashLoopBackOff 排查。 - [Pod 卡死 / 排错套路](/13-troubleshooting/pod-trouble) - [网络 / DNS 排错](/13-</description>
+      <pubDate>Sun, 26 Jul 2026 15:11:11 -0000</pubDate>
+    </item>
+    <item>
+      <title>AWS Lambda / GCP Cloud Run</title>
+      <link>https://java-px.bot.cd/cloud-native/12-serverless/managed</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/12-serverless/managed</guid>
+      <description>&gt; 不用自己运维 K8s + Knative。直接用云厂商的 FaaS / 容器服务。 &gt; 事件驱动的 Function as a Service。 | 触发 | 用途 | |------|------| | API Gateway / ALB | HTTP | | S3 | 文件上传 | | SNS / EventBridge | 事件总线 | | SQS | 队列 | | DynamoDB S</description>
+      <pubDate>Sun, 26 Jul 2026 15:10:53 -0000</pubDate>
+    </item>
+    <item>
+      <title>Knative Serving</title>
+      <link>https://java-px.bot.cd/cloud-native/12-serverless/knative</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/12-serverless/knative</guid>
+      <description>&gt; Knative = k8s 之上的 serverless / event 层。由 Google + Pivotal + Red Hat 等发起。 | 资源 | 作用 | |------|------| | **Service (KSVC)** | 用户面向的抽象（类似 Deployment + Service） | | **Configuration** | 最新版本的 spec | | **</description>
+      <pubDate>Sun, 26 Jul 2026 15:10:37 -0000</pubDate>
+    </item>
+    <item>
+      <title>Falco 运行时检测</title>
+      <link>https://java-px.bot.cd/cloud-native/11-security/falco</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/11-security/falco</guid>
+      <description>&gt; Falco = CNCF 毕业项目，**容器运行时异常检测**。内核层监听 syscalls，发现可疑行为立刻告警。 | 组件 | 作用 | |------|------| | **Falco** | 引擎，监听 syscalls | | **Falcosidekick** | 事件分发（推到多种后端） | | **Rules** | YAML 规则（开源 + 自定义） | | **Drive</description>
+      <pubDate>Sun, 26 Jul 2026 15:10:18 -0000</pubDate>
+    </item>
+    <item>
+      <title>NetworkPolicy + PodSecurity</title>
+      <link>https://java-px.bot.cd/cloud-native/11-security/policy</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/11-security/policy</guid>
+      <description>&gt; 默认 k8s 集群内所有 Pod 互通 + 所有容器权限大。生产必须纵深防御。 详见 [NetworkPolicy](/04-k8s-service/network-policy)。要点： ⚠️ **必须装支持 NP 的 CNI**（Calico / Cilium / Weave）。k8s 自带只定义，不实现。 | Profile | 含义 | |---------|------| | `pr</description>
+      <pubDate>Sun, 26 Jul 2026 15:10:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>Secret 管理</title>
+      <link>https://java-px.bot.cd/cloud-native/11-security/secret</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/11-security/secret</guid>
+      <description>&gt; k8s Secret 默认**只 base64**，不加密。生产需要：加密、轮换、外部存储。 生产推荐：Secret 不进 etcd。 | 工具 | 特点 | |------|------| | **HashiCorp Vault** | 业界标准，动态密钥、租约 | | **AWS Secrets Manager** | AWS 集成 | | **GCP Secret Manager** |</description>
+      <pubDate>Sun, 26 Jul 2026 15:09:41 -0000</pubDate>
+    </item>
+    <item>
+      <title>RBAC 权限</title>
+      <link>https://java-px.bot.cd/cloud-native/11-security/rbac</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/11-security/rbac</guid>
+      <description>&gt; 谁（用户 / ServiceAccount）能对什么资源做什么动作。k8s 的"权限系统"。 | 概念 | 作用 | |------|------| | **Subject** | User / Group / ServiceAccount | | **Role** | 命名空间内权限 | | **ClusterRole** | 集群范围权限 | | **RoleBinding** | 把 R</description>
+      <pubDate>Sun, 26 Jul 2026 15:09:25 -0000</pubDate>
+    </item>
+    <item>
+      <title>Helmfile / Kustomize</title>
+      <link>https://java-px.bot.cd/cloud-native/10-iac/helmfile</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/10-iac/helmfile</guid>
+      <description>&gt; 不创建新格式，而是**对已有 helm chart 叠加配置**。Kustomize 内置 kubectl；Helmfile 声明式 release。 | | Kustomize | Helmfile | Helm | |--|-----------|----------|------| | 哲学 | patch / 合并 | 多 release 声明 | 模板渲染 | | 内置 | kube</description>
+      <pubDate>Sun, 26 Jul 2026 15:09:09 -0000</pubDate>
+    </item>
+    <item>
+      <title>Pulumi</title>
+      <link>https://java-px.bot.cd/cloud-native/10-iac/pulumi</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/10-iac/pulumi</guid>
+      <description>&gt; Pulumi = 用 **真实编程语言**（TS / Python / Go）写 IaC。比 Terraform 更灵活，状态更可控。 | 概念 | 含义 | |------|------| | **Stack** | 一组资源的集合（一个环境） | | **Resource** | 单个资源（aws.s3.Bucket） | | **Output** | 导出值（IP / Endpoint）</description>
+      <pubDate>Sun, 26 Jul 2026 15:08:53 -0000</pubDate>
+    </item>
+    <item>
+      <title>Terraform</title>
+      <link>https://java-px.bot.cd/cloud-native/10-iac/terraform</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/10-iac/terraform</guid>
+      <description>&gt; HashiCorp 出品，**IaC 事实标准**。声明式描述基础设施 → 计划 → apply。 | 概念 | 含义 | |------|------| | **Resource** | 声明资源（aws_instance / kubernetes_pod） | | **Provider** | 调哪个 API（AWS / K8s / GitHub） | | **State** | 当前实际</description>
+      <pubDate>Sun, 26 Jul 2026 15:08:35 -0000</pubDate>
+    </item>
+    <item>
+      <title>Tekton / JenkinsX</title>
+      <link>https://java-px.bot.cd/cloud-native/09-cicd/tekton</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/09-cicd/tekton</guid>
+      <description>&gt; Tekton = k8s 原生 CI/CD 框架（基础）。Jenkins X = Jenkins + Tekton + GitOps（包装）。 | CRD | 含义 | |-----|------| | **Task** | 步骤的模板（"git clone" / "mvn test" / "docker build"） | | **TaskRun** | 跑一次 Task → 一个 Pod</description>
+      <pubDate>Sun, 26 Jul 2026 15:08:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>ArgoCD</title>
+      <link>https://java-px.bot.cd/cloud-native/09-cicd/argocd</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/09-cicd/argocd</guid>
+      <description>&gt; ArgoCD = k8s 原生 GitOps 工具。UI 强、与 Helm / Kustomize / Jsonnet 无缝集成。 | 组件 | 作用 | |------|------| | **argocd-server** | API + Web UI | | **argocd-application-controller** | 持续 reconcile | | **argocd-rep</description>
+      <pubDate>Sun, 26 Jul 2026 15:07:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>GitOps 思想</title>
+      <link>https://java-px.bot.cd/cloud-native/09-cicd/gitops</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/09-cicd/gitops</guid>
+      <description>&gt; **Git = 唯一事实源**。集群状态、配置、变更全部从 Git 仓库里读，集群 = Git 仓库的"反映"。 - **Git 仓库** = manifest + 配置文件 + helm values + kustomize - **CI** = 测试 + 构建镜像 - **GitOps Controller** = 持续同步 Git → 集群（ArgoCD / Flux） | | Push</description>
+      <pubDate>Sun, 26 Jul 2026 15:07:36 -0000</pubDate>
+    </item>
+    <item>
+      <title>流量管理</title>
+      <link>https://java-px.bot.cd/cloud-native/08-service-mesh/traffic</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/08-service-mesh/traffic</guid>
+      <description>&gt; 蓝绿 / 金丝雀 / A/B 测试 / 熔断 — 不用改应用代码，纯声明式配置。 | CRD | 作用 | |-----|------| | **VirtualService** | 路由规则（按 header / path / 权重） | | **DestinationRule** | 目标规则（subset / 负载均衡 / 熔断） | | **Gateway** | 入口网关（与 Ing</description>
+      <pubDate>Sun, 26 Jul 2026 10:36:11 -0000</pubDate>
+    </item>
+    <item>
+      <title>Sidecar 模式</title>
+      <link>https://java-px.bot.cd/cloud-native/08-service-mesh/sidecar</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/08-service-mesh/sidecar</guid>
+      <description>&gt; Sidecar = 把"基础设施"放进业务 Pod 的"副驾"，让业务代码 0 改动获得各种能力。 优势： - ✅ 业务代码 0 改动 - ✅ 跨语言一致 - ✅ 基础设施升级不重启业务 每个 Pod 注入 1 个 Envoy sidecar（用 initContainer 把流量劫持到 Envoy）： **好处**：配置变化（路由 / 限流）实时下发，业务 Pod 不用重启。 控制 side</description>
+      <pubDate>Sun, 26 Jul 2026 10:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Istio 核心</title>
+      <link>https://java-px.bot.cd/cloud-native/08-service-mesh/istio</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/08-service-mesh/istio</guid>
+      <description>&gt; Istio = 主流 **Service Mesh** 实现。把服务间通讯（流量 / 安全 / 可观测）从应用层抽到基础设施层。 | 组件 | 作用 | |------|------| | **Envoy (Sidecar)** | 数据面：拦截所有进出流量 | | **istiod** | 控制面：配置分发 / 证书 / 服务发现 | 每个 Pod 注入 1 个 Envoy 容器（在原 Po</description>
+      <pubDate>Sun, 26 Jul 2026 10:35:38 -0000</pubDate>
+    </item>
+    <item>
+      <title>Alertmanager</title>
+      <link>https://java-px.bot.cd/cloud-native/07-observability/alertmanager</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/07-observability/alertmanager</guid>
+      <description>&gt; Alertmanager = Prometheus 的"邮件 / Slack / 钉钉"中转站。 `kube-prometheus-stack` 已经默认装好 Alertmanager。 | 变量 | 含义 | |------|------| | `.Alerts` | 当前告警组 | | `.CommonLabels` | 公共标签 | | `.CommonAnnotations` | 公共</description>
+      <pubDate>Sun, 26 Jul 2026 10:35:22 -0000</pubDate>
+    </item>
+    <item>
+      <title>Loki 日志聚合</title>
+      <link>https://java-px.bot.cd/cloud-native/07-observability/loki</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/07-observability/loki</guid>
+      <description>&gt; Loki = Prometheus 思路的日志系统（标签 + 拉模式 + 不索引全文）。Grafana 同公司出品。 | 组件 | 作用 | |------|------| | **Loki** | 日志存储 + 查询（LogQL） | | **promtail** | 采集 agent（推送到 Loki） | | **grafana-agent / alloy** | 替代 promtail</description>
+      <pubDate>Sun, 26 Jul 2026 10:35:04 -0000</pubDate>
+    </item>
+    <item>
+      <title>Grafana 仪表板</title>
+      <link>https://java-px.bot.cd/cloud-native/07-observability/grafana</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/07-observability/grafana</guid>
+      <description>&gt; Grafana = 指标 / 日志 / Trace 可视化的事实标准。 支持几十种数据源（Prometheus / Loki / InfluxDB / ES / CloudWatch ...）。 - 左 sidebar → "+" → Import - 输入 dashboard ID（如 6417 是经典 k8s 集群） - 或上传 JSON | ID | 名称 | |----|------|</description>
+      <pubDate>Sun, 26 Jul 2026 10:34:46 -0000</pubDate>
+    </item>
+    <item>
+      <title>Prometheus</title>
+      <link>https://java-px.bot.cd/cloud-native/07-observability/prometheus</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/07-observability/prometheus</guid>
+      <description>&gt; Prometheus = CNCF 毕业项目，**云原生事实标准**的指标采集与监控系统。 | 组件 | 作用 | |------|------| | **Prometheus server** | 抓取 / 存储 / 查询 | | **Pushgateway** | 短任务推数据 | | **Alertmanager** | 告警分发 | | **Exporters** | 各种数据源适配（</description>
+      <pubDate>Sun, 26 Jul 2026 10:34:30 -0000</pubDate>
+    </item>
+    <item>
+      <title>Chart 仓库</title>
+      <link>https://java-px.bot.cd/cloud-native/06-helm/repository</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/06-helm/repository</guid>
+      <description>&gt; Chart 仓库 = 集中分发 Helm Chart 的地方。类似 Docker Hub for images。 | 仓库 | 特点 | |------|------| | **Artifact Hub** | CNCF 官方聚合（k8s 旗下） | | **Bitnami Charts** | 老牌，chart 数量最多 | | **Helm Stable** | Helm 官方仓库（已并入</description>
+      <pubDate>Sun, 26 Jul 2026 10:34:13 -0000</pubDate>
+    </item>
+    <item>
+      <title>template / values</title>
+      <link>https://java-px.bot.cd/cloud-native/06-helm/template</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/06-helm/template</guid>
+      <description>&gt; 模板 + values = 同一份 Chart 部署到任意环境。 | 对象 | 含义 | |------|------| | `.Values` | values.yaml | | `.Chart` | Chart.yaml | | `.Release` | 当前 release（name / namespace / revision / service） | | `.Files` | Cha</description>
+      <pubDate>Sun, 26 Jul 2026 10:33:57 -0000</pubDate>
+    </item>
+    <item>
+      <title>ConfigMap / Secret</title>
+      <link>https://java-px.bot.cd/cloud-native/05-k8s-storage/configmap-secret</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/05-k8s-storage/configmap-secret</guid>
+      <description>&gt; 配置文件 / 密钥 不要硬编码到镜像。ConfigMap + Secret 让"代码"和"配置"分离。 更新 ConfigMap：文件**不会自动热加载**（需要 reload Pod 或用 Reloader）。 | type | 用途 | |------|------| | `Opaque` | 通用 | | `kubernetes.io/tls` | TLS 证书 | | `kuberne</description>
+      <pubDate>Sun, 26 Jul 2026 10:33:24 -0000</pubDate>
+    </item>
+    <item>
+      <title>StorageClass / CSI</title>
+      <link>https://java-px.bot.cd/cloud-native/05-k8s-storage/storageclass</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/05-k8s-storage/storageclass</guid>
+      <description>&gt; StorageClass = 存储的"模板" + provisioner。CSI = Container Storage Interface（标准接口）。 | 字段 | 选项 / 说明 | |------|------------| | `provisioner` | 哪个 driver 负责（CSI 名） | | `reclaimPolicy` | `Retain`（保留数据）/ `Dele</description>
+      <pubDate>Sun, 26 Jul 2026 10:33:09 -0000</pubDate>
+    </item>
+    <item>
+      <title>PV / PVC</title>
+      <link>https://java-px.bot.cd/cloud-native/05-k8s-storage/pv-pvc</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/05-k8s-storage/pv-pvc</guid>
+      <description>&gt; Pod 是短命的，数据要"长"在 Pod 之外。PersistentVolume（PV）+ PersistentVolumeClaim（PVC）= k8s 的存储抽象。 | 资源 | 谁创建 | 含义 | |------|--------|------| | **PV** | 管理员（手动）/ 动态 provisioner | 一段实际存储 | | **PVC** | 用户（应用） | "我需</description>
+      <pubDate>Sun, 26 Jul 2026 10:32:52 -0000</pubDate>
+    </item>
+    <item>
+      <title>NetworkPolicy</title>
+      <link>https://java-px.bot.cd/cloud-native/04-k8s-service/network-policy</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/04-k8s-service/network-policy</guid>
+      <description>&gt; 默认 k8s 集群内所有 Pod 互通。NetworkPolicy = 集群内的"防火墙"。 | 类型 | 含义 | |------|------| | `IngressPolicy` | 入口流量（谁可以访问我） | | `EgressPolicy` | 出口流量（我可以访问谁） | | 行为 | 含义 | |------|------| | 默认 allow | 没有匹配 NP 规则 →</description>
+      <pubDate>Sun, 26 Jul 2026 10:32:34 -0000</pubDate>
+    </item>
+    <item>
+      <title>Ingress 入口</title>
+      <link>https://java-px.bot.cd/cloud-native/04-k8s-service/ingress</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/04-k8s-service/ingress</guid>
+      <description>&gt; Ingress = 集群对外的 HTTP / HTTPS 网关。Service 是 4 层，Ingress 是 7 层（懂 HTTP 头 / 路径 / 主机名）。 **关键**：Ingress = 资源对象 + 控制器实现。要装一个 Ingress Controller（k8s 自带不包含）。 | Controller | 特点 | |------------|------| | **ngin</description>
+      <pubDate>Sun, 26 Jul 2026 10:32:20 -0000</pubDate>
+    </item>
+    <item>
+      <title>Service 三种类型</title>
+      <link>https://java-px.bot.cd/cloud-native/04-k8s-service/service</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/04-k8s-service/service</guid>
+      <description>&gt; Pod 不稳定（会换 Node / 重建 IP 变）。Service = Pod 集合的"固定 IP"。 适合：集群内服务间调用（API → DB）。 - 主机 30080 端口 → 转发到 Pod 8080 - 适合：开发 / 演示 / 简单公网访问 - 自动创建云 LB（AWS ELB / GCP LB / 阿里 SLB） - 适合：生产公网访问 无 clusterIP — DNS 直接解</description>
+      <pubDate>Sun, 26 Jul 2026 10:32:04 -0000</pubDate>
+    </item>
+    <item>
+      <title>Job / CronJob</title>
+      <link>https://java-px.bot.cd/cloud-native/03-k8s-workload/job</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/03-k8s-workload/job</guid>
+      <description>&gt; Deployment 管"常驻服务"，Job 管"跑完就结束"的任务。 `completions: 1` 跑一次就完。 | 字段 | 作用 | |------|------| | `completions` | 完成次数 | | `parallelism` | 并行 Pod 数 | | `backoffLimit` | 重试次数 | | `activeDeadlineSeconds` | 超时</description>
+      <pubDate>Sun, 26 Jul 2026 10:31:51 -0000</pubDate>
+    </item>
+    <item>
+      <title>DaemonSet</title>
+      <link>https://java-px.bot.cd/cloud-native/03-k8s-workload/daemonset</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/03-k8s-workload/daemonset</guid>
+      <description>&gt; DaemonSet = 确保**所有 / 部分 Node 都跑一个 Pod**。典型：日志、监控、网络插件。 | 字段 | 用途 | |------|------| | `hostNetwork: true` | 共享宿主机网络命名空间 | | `hostPID: true` | 共享 PID 命名空间 | | `hostPort` | 宿主机端口直接暴露 | | `hostPath` | 挂</description>
+      <pubDate>Sun, 26 Jul 2026 10:31:36 -0000</pubDate>
+    </item>
+    <item>
+      <title>StatefulSet</title>
+      <link>https://java-px.bot.cd/cloud-native/03-k8s-workload/statefulset</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/03-k8s-workload/statefulset</guid>
+      <description>&gt; StatefulSet = 有**稳定身份** + **持久存储**的 Pod。适合 DB、MQ、ZK 等。 1. **稳定的 hostname**：`web-0`, `web-1`, `web-2`（不变） 2. **稳定的网络身份**：headless Service（DNS 解析到具体 Pod IP） 3. **稳定的存储**：`pvcName-web-0` / `pvcName-web</description>
+      <pubDate>Sun, 26 Jul 2026 10:31:24 -0000</pubDate>
+    </item>
+    <item>
+      <title>Pod 最小单元</title>
+      <link>https://java-px.bot.cd/cloud-native/03-k8s-workload/pod</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/03-k8s-workload/pod</guid>
+      <description>&gt; Pod = 1+ 共享网络 / 存储的容器。**不是容器**。 不通过 startup → liveness / readiness 不跑（避免启动慢被误杀）。 | 资源 | 单位 | 超过后果 | |------|------|----------| | CPU | 1 = 1 核 | throttle（不杀） | | memory | 字节 | OOM kill | **始终设 reque</description>
+      <pubDate>Sun, 26 Jul 2026 10:30:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>etcd 存储</title>
+      <link>https://java-px.bot.cd/cloud-native/02-k8s-arch/etcd</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/02-k8s-arch/etcd</guid>
+      <description>&gt; k8s 所有状态存在 etcd — 分布式 KV、强一致、RAFT。 etcd = **etcd distributed**（不是 etc）+ **d**istributed。 - 强一致 KV 存储 - 基于 **RAFT** 共识算法 - 写半数以上节点才提交 - 默认 2379（客户端）/ 2380（peer） - 单一 etcd 集群存所有 k8s 状态 - 集群通常 **3 或 5</description>
+      <pubDate>Sun, 26 Jul 2026 10:30:38 -0000</pubDate>
+    </item>
+    <item>
+      <title>kubectl 命令行</title>
+      <link>https://java-px.bot.cd/cloud-native/02-k8s-arch/kubectl</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/02-k8s-arch/kubectl</guid>
+      <description>&gt; 与 k8s API Server 交互的瑞士军刀。掌握 80% 的日常运维。 `config` 包含： - cluster（API server 地址 + ca） - user（证书 / token） - context（cluster + user + namespace） - [k8s 是什么](/02-k8s-arch/overview) - [Pod 最小单元](/03-k8s-wor</description>
+      <pubDate>Sun, 26 Jul 2026 10:30:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>工作节点 Node</title>
+      <link>https://java-px.bot.cd/cloud-native/02-k8s-arch/node</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/02-k8s-arch/node</guid>
+      <description>&gt; Node = 跑 Pod 的机器。k8s 集群里除控制面外都是 Node。 **Node 代理**，k8s 在每个 Node 上的"客户端"。 职责： - 接收 API Server 的 Pod spec - 通过 CRI（Container Runtime Interface）启动容器 - 挂载卷 - 健康检查（liveness / readiness） - 报告 Pod / Node 状态</description>
+      <pubDate>Sun, 26 Jul 2026 10:30:00 -0000</pubDate>
+    </item>
+    <item>
+      <title>控制面 Control Plane</title>
+      <link>https://java-px.bot.cd/cloud-native/02-k8s-arch/control-plane</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/02-k8s-arch/control-plane</guid>
+      <description>&gt; k8s 集群的"大脑" — 接收请求、调度、维护期望状态。 **所有交互的唯一入口**。 特点： - **无状态**（可水平扩） - **唯一与 etcd 通讯的组件** - **所有 list/watch 都走它** **决定 Pod 放哪个 Node**。 自定义调度器也可（Volcano / scheduler-plugins）。 **状态控制循环**。 每个 Controller 的核</description>
+      <pubDate>Sun, 26 Jul 2026 10:29:43 -0000</pubDate>
+    </item>
+    <item>
+      <title>k8s 是什么</title>
+      <link>https://java-px.bot.cd/cloud-native/02-k8s-arch/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/02-k8s-arch/overview</guid>
+      <description>&gt; **K8s** = 自动部署、扩缩、运维容器化应用的**容器编排平台**。Google 2014 年开源，源自内部 Borg。 | 组件 | 作用 | |------|------| | **API Server** | REST API 入口，所有组件通讯都走它 | | **Scheduler** | 决定 Pod 放哪个 Node | | **Controller Manager** |</description>
+      <pubDate>Sun, 26 Jul 2026 10:29:24 -0000</pubDate>
+    </item>
+    <item>
+      <title>Docker Compose</title>
+      <link>https://java-px.bot.cd/cloud-native/01-docker/compose</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/01-docker/compose</guid>
+      <description>&gt; 多容器应用一键编排。最适合本地开发 / 单机测试 / 小规模部署。 | 字段 | 作用 | |------|------| | `image` | 用镜像 | | `build` | 构建（路径 / Dockerfile 名） | | `command` | 覆盖 CMD | | `entrypoint` | 覆盖 ENTRYPOINT | | `environment` | 环境变量 | |</description>
+      <pubDate>Sun, 26 Jul 2026 10:29:10 -0000</pubDate>
+    </item>
+    <item>
+      <title>Docker 存储 / 卷</title>
+      <link>https://java-px.bot.cd/cloud-native/01-docker/volume</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/01-docker/volume</guid>
+      <description>&gt; 容器是 ephemeral（短命）的，文件改动默认随容器删除消失。要保留数据：用卷。 | | named volume | bind mount | |--|------------|------------| | 位置 | /var/lib/docker/volumes/ | 主机任意路径 | | 性能 | 一般（默认） | 略好（直接 IO） | | 备份 | `docker volume</description>
+      <pubDate>Sun, 26 Jul 2026 10:28:57 -0000</pubDate>
+    </item>
+    <item>
+      <title>Docker 网络</title>
+      <link>https://java-px.bot.cd/cloud-native/01-docker/network</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/01-docker/network</guid>
+      <description>&gt; 容器之间、容器与外部之间如何通信。 | 驱动 | 用途 | |------|------| | `bridge` | 默认。单主机容器互联 | | `host` | 共享主机网络（无隔离） | | `none` | 关闭网络（仅 lo） | | `overlay` | 多主机容器互联（Swarm） | | `macvlan` | 容器像独立设备（有 MAC） | | `ipvlan` | 类似</description>
+      <pubDate>Sat, 25 Jul 2026 21:03:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>容器 container</title>
+      <link>https://java-px.bot.cd/cloud-native/01-docker/container</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/01-docker/container</guid>
+      <description>&gt; 容器 = 镜像的运行实例。每个容器有独立的进程树 / 文件系统 / 网络栈。 | 选项 | 简写 | 作用 | |------|------|------| | `--detach` | `-d` | 后台运行 | | `--interactive` | `-i` | 保持 STDIN | | `--tty` | `-t` | 分配伪终端 | | `--rm` | | 容器退出后自动删除 |</description>
+      <pubDate>Sat, 25 Jul 2026 21:03:14 -0000</pubDate>
+    </item>
+    <item>
+      <title>镜像 image</title>
+      <link>https://java-px.bot.cd/cloud-native/01-docker/image</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/01-docker/image</guid>
+      <description>&gt; 镜像是只读模板 — 类与实例的"类"。 - **只读层**：共享，复用率高 - **可写层**：容器运行时产生，commit 后变成新镜像层 - 存储驱动：overlay2 / btrfs / zfs（默认 overlay2） | 指令 | 作用 | |------|------| | `FROM` | 基础镜像 | | `RUN` | 跑命令（创建新层） | | `COPY` / `ADD`</description>
+      <pubDate>Sat, 25 Jul 2026 21:02:57 -0000</pubDate>
+    </item>
+    <item>
+      <title>Docker 基础</title>
+      <link>https://java-px.bot.cd/cloud-native/01-docker/intro</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/01-docker/intro</guid>
+      <description>&gt; Docker = 操作系统级虚拟化（容器），比 VM 轻量。 | | 容器 | 虚拟机 | |--|------|--------| | 启动 | 毫秒 | 秒 ~ 分钟 | | 体积 | MB | GB | | 性能 | 接近原生 | 有损耗（虚拟化层） | | 隔离 | 进程级（共享内核） | 硬件级 | | 镜像 | Docker Hub | ISO / OVF | | 启动密度 | 千</description>
+      <pubDate>Sat, 25 Jul 2026 21:02:42 -0000</pubDate>
+    </item>
+    <item>
+      <title>学习路径</title>
+      <link>https://java-px.bot.cd/cloud-native/path</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/path</guid>
+      <description>&gt; 根据你的角色选择对应路径，每条路径推荐了核心阅读顺序。 适合**没碰过 Docker / k8s** 的开发者。 1. [Docker 基础](/01-docker/intro) — 容器是什么 2. [镜像 image](/01-docker/image) — docker build / pull 3. [容器 container](/01-docker/container) — dock</description>
+      <pubDate>Sat, 25 Jul 2026 21:02:21 -0000</pubDate>
+    </item>
+    <item>
+      <title>命令速查</title>
+      <link>https://java-px.bot.cd/cloud-native/cheatsheet</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/cheatsheet</guid>
+      <description>&gt; 30+ 高频命令，分组速查。直接复制运行。 - [Docker 基础](/01-docker/intro) - [k8s 架构](/02-k8s-arch/overview) - [kubectl 命令行](/02-k8s-arch/kubectl) - [排错](/13-troubleshooting/debug)</description>
+      <pubDate>Sat, 25 Jul 2026 21:02:07 -0000</pubDate>
+    </item>
+    <item>
+      <title>思维导图</title>
+      <link>https://java-px.bot.cd/cloud-native/mindmap</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/mindmap</guid>
+      <description>&gt; 树形结构总览全部知识，可展开/收起节点，点击叶子节点跳转。 &lt;ClientOnly&gt; &lt;MindMap :height="940" /&gt; &lt;/ClientOnly&gt; - **全部展开 / 收起**：顶部按钮控制 - **点击叶子节点**：跳转到对应章节 - **重置视图**：恢复初始展开状态</description>
+      <pubDate>Sat, 25 Jul 2026 21:01:49 -0000</pubDate>
+    </item>
+    <item>
+      <title>知识图谱</title>
+      <link>https://java-px.bot.cd/cloud-native/graph</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/graph</guid>
+      <description>&gt; 80+ 节点，14 大主题分类，节点可点击跳转到对应章节。鼠标拖动可调整布局，悬停查看节点关联。 &lt;ClientOnly&gt; &lt;KnowledgeGraph :height="820" /&gt; &lt;/ClientOnly&gt; | 颜色 | 分类 | 主题数 | |------|------|--------| | 🔵 蓝 | Docker 容器 | 6 | | 🟦 深蓝 | k8s 架构 | 5 |</description>
+      <pubDate>Sat, 25 Jul 2026 21:01:44 -0000</pubDate>
+    </item>
+  </channel>
+</rss>

@@ -2,139 +2,139 @@
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
 > 55 个文档页 · 34,458 字
-> 生成时间：2026-08-16T08:58:46
+> 生成时间：2026-08-16T09:03:50
 
 ## [数据类型 / 包装类](https://java-px.bot.cd/java-language/01-basics/datatypes)
 > | 类型 | 字节 | 范围 | 包装类 | |------|------|------|--------| | byte | 1 | -128~127 | Byte | | short | 2 | -32k~32k | Short | | int | 4 | -2B~2B | Integer | | long | 8 | -9e18~9e18 | Long | | float | 4 | 6-7
 
 ## [异常处理](https://java-px.bot.cd/java-language/01-basics/exceptions)
-> - Checked (IOException/SQLException) vs Unchecked (RuntimeException) - try-with-resources (AutoCloseable) for auto cleanup - Custom exceptions: extend RuntimeException for unchecked, Exception for che
+> - Checked (IOException/SQLException) vs Unchecked (RuntimeException) - try-with-resources (AutoCloseable) for auto cleanup - finally always runs (except System.exit)
 
 ## [泛型 / 注解 / 反射](https://java-px.bot.cd/java-language/01-basics/generics)
-> - Type erasure: generics exist only at compile time, `&#60;T>` becomes Object at runtime - PECS principle: Producer Extends, Consumer Super - @Override, @FunctionalInterface, @Deprecated, @SuppressWar
+> - @Override, @FunctionalInterface, @Deprecated, @SuppressWarnings
 
 ## [JDK 17-21 新特性](https://java-px.bot.cd/java-language/01-basics/new-features)
-> - JDK 17 (LTS): Sealed classes, Pattern matching for switch, Text blocks finalized, Records - JDK 21 (LTS): Virtual Threads, Record Patterns, Pattern Matching for switch finalized, String Templates (p
+> (暂无摘要)
 
 ## [OOP / 类与对象](https://java-px.bot.cd/java-language/01-basics/oop)
 > Java 单继承，多实现。 | | Abstract Class | Interface | |--|----------------|-----------| | 构造器 | ✅ | ❌ | | 实例变量 | ✅ | ❌（仅 static final） | | 默认实现 | ✅ | ✅（default method） | | 多继承 | ❌ | ✅ | | 访问修饰 | 任意 | public（
 
 ## [并发集合](https://java-px.bot.cd/java-language/02-collections/concurrent)
-> - ConcurrentHashMap: segment lock (Java 7) → CAS + synchronized (Java 8+) - CopyOnWriteArrayList: copy entire array on write, read-only snapshot - BlockingQueue: ArrayBlockingQueue (bounded), LinkedBl
+> (暂无摘要)
 
 ## [ArrayList / LinkedList](https://java-px.bot.cd/java-language/02-collections/list)
-> - ArrayList: dynamic array, O(1) get, O(n) insert/remove, grows 1.5x - LinkedList: doubly-linked, O(1) insert/remove at ends, O(n) get - fail-fast: ConcurrentModificationException when iterating while
+> - Use ArrayList for random access, LinkedList for queue/deque
 
 ## [HashMap 原理](https://java-px.bot.cd/java-language/02-collections/map)
-> - Array + linked list + red-black tree (Java 8+) - Default capacity 16, load factor 0.75 (resize when size > capacity * loadFactor) - Hash collision: linked list, convert to red-black tree when list l
+> - Array + linked list + red-black tree (Java 8+) - Default capacity 16, load factor 0.75 (resize when size > capacity * loadFactor)
 
 ## [Set / TreeSet](https://java-px.bot.cd/java-language/02-collections/set)
-> - HashSet backed by HashMap (value is a dummy PRESENT object) - TreeSet: Red-Black Tree, sorted order, O(log n) - LinkedHashSet: insertion order, doubly-linked list + HashSet
+> - HashSet backed by HashMap (value is a dummy PRESENT object)
 
 ## [Stream API](https://java-px.bot.cd/java-language/02-collections/stream)
-> - Intermediate: filter, map, flatMap, distinct, sorted, peek, limit, skip - Terminal: collect, forEach, reduce, count, findFirst, anyMatch, allMatch - collect(Collectors.toList/toMap/toSet/groupingBy/
+> - collect(Collectors.toList/toMap/toSet/groupingBy/partitioningBy/joining)
 
 ## [CompletableFuture](https://java-px.bot.cd/java-language/03-concurrency/future)
 > - thenApply (sync map), thenApplyAsync (async) - thenCompose (flatMap), thenCombine (zip two futures) - allOf (wait all), anyOf (first done) - exceptionally (handle error), handle (map + error)
 
 ## [JUC 工具](https://java-px.bot.cd/java-language/03-concurrency/juc)
-> - CountDownLatch: wait for N tasks to complete - CyclicBarrier: N threads wait for each other at barrier - Semaphore: permits counter, acquire/release - Phaser: flexible barrier for phases - Exchanger
+> (暂无摘要)
 
 ## [synchronized / AQS](https://java-px.bot.cd/java-language/03-concurrency/locks)
-> - synchronized upgrades: biased → lightweight → heavyweight (irreversible) - ReentrantLock: tryLock(timeout), lockInterruptibly, fair mode - AQS (AbstractQueuedSynchronizer): CLH queue, CAS state, tem
+> (暂无摘要)
 
 ## [线程 / 线程池](https://java-px.bot.cd/java-language/03-concurrency/thread-pool)
-> - ThreadPoolExecutor params: corePoolSize, maxPoolSize, keepAliveTime, workQueue, threadFactory, rejectHandler - 4 reject policies: AbortPolicy(default), CallerRunsPolicy, DiscardPolicy, DiscardOldest
+> (暂无摘要)
 
 ## [虚拟线程 (Loom)](https://java-px.bot.cd/java-language/03-concurrency/virtual-threads)
-> - JDK 21: java.lang.VirtualThread, lightweight threads managed by JVM - Platform thread: OS thread (1:1), expensive - Virtual thread: JVM-managed, cheap (millions possible), works with synchronized (p
+> - For IO-bound tasks, don't pool virtual threads
 
 ## [字节码 / 指令](https://java-px.bot.cd/java-language/04-jvm/bytecode)
-> - javap -c classFile: disassemble - Invocation: invokespecial (`<init>`/private/super), invokevirtual (instance), invokestatic (static), invokeinterface (interface), invokedynamic (lambda)
+> (暂无摘要)
 
 ## [类加载机制](https://java-px.bot.cd/java-language/04-jvm/classloading)
-> - Bootstrap ClassLoader (JVM built-in, loads rt.jar) - Extension/Platform ClassLoader (jre/lib/ext, Java 9+ Platform) - Application ClassLoader (classpath) - Parent delegation: child asks parent first
+> - Bootstrap ClassLoader (JVM built-in, loads rt.jar) - Extension/Platform ClassLoader (jre/lib/ext, Java 9+ Platform) - Application ClassLoader (classpath)
 
 ## [对象创建 / OOM](https://java-px.bot.cd/java-language/04-jvm/oom)
-> - java.lang.OutOfMemoryError: Java heap space → -Xmx too small / memory leak - OOM: GC overhead limit → GC spends >98% time reclaiming <2% heap - OOM: Metaspace → too many classes loaded - OOM: Direct
+> (暂无摘要)
 
 ## [JVM 运行时数据区](https://java-px.bot.cd/java-language/04-jvm/runtime)
-> - Heap: Young (Eden+S0+S1), Old, shared by all threads - Method Area / Metaspace: class metadata, constants, static vars (Java 8+ Metaspace in native memory) - VM Stack: each thread has one, stores st
+> (暂无摘要)
 
 ## [GC 算法](https://java-px.bot.cd/java-language/05-gc/algorithms)
-> - Mark-Sweep: mark reachable, sweep unreachable → fragmentation - Copying: Eden → Survivor, compact → used in Young Gen - Mark-Compact: mark then compact → Old Gen - Generational: weak generational hy
+> (暂无摘要)
 
 ## [G1 / ZGC / Shenandoah](https://java-px.bot.cd/java-language/05-gc/collectors)
 > | Collector | Young | Old | Pause | Target | |-----------|-------|-----|-------|--------| | Serial | Serial | Serial Old | long | single CPU | | Parallel | Parallel Scavenge | Parallel Old | medium |
 
 ## [GC 日志 / 调优](https://java-px.bot.cd/java-language/05-gc/tuning)
-> - Goals: throughput >98%, pause <200ms, full GC rare - Tuning: adjust Young/Old ratio, survivor ratio, promotion threshold - G1: -XX:MaxGCPauseMillis=200, -XX:G1HeapRegionSize - ZGC: almost no tuning
+> (暂无摘要)
 
 ## [Spring Boot 自动配置](https://java-px.bot.cd/java-language/06-spring/boot)
-> - @SpringBootApplication = @Configuration + @EnableAutoConfiguration + @ComponentScan - Auto-configuration: spring.factories → @ConditionalOnClass/@ConditionalOnMissingBean - application.yml > applica
+> - @SpringBootApplication = @Configuration + @EnableAutoConfiguration + @ComponentScan - application.yml > application.properties > command line args > env vars
 
 ## [IoC / DI / AOP](https://java-px.bot.cd/java-language/06-spring/ioc-aop)
-> - IoC: container manages bean lifecycle, not you - DI: constructor injection (recommended), field injection (@Autowired), setter injection - AOP: JDK dynamic proxy (interface-based) vs CGLIB proxy (cl
+> (暂无摘要)
 
 ## [Spring MVC](https://java-px.bot.cd/java-language/06-spring/mvc)
-> - DispatcherServlet flow: HandlerMapping → HandlerAdapter → Handler → ModelAndView → ViewResolver - @RestController = @Controller + @ResponseBody - @ExceptionHandler, @ControllerAdvice for global erro
+> - @RestController = @Controller + @ResponseBody - @ExceptionHandler, @ControllerAdvice for global error handling
 
 ## [声明式事务](https://java-px.bot.cd/java-language/06-spring/transaction)
-> - Propagation: REQUIRED (default), REQUIRES_NEW, NESTED - Isolation: DEFAULT, READ_COMMITTED, REPEATABLE_READ, SERIALIZABLE - rollbackFor: default only RuntimeException, add Exception.class for checke
+> (暂无摘要)
 
 ## [Gateway / Sentinel](https://java-px.bot.cd/java-language/07-spring-cloud/gateway)
-> - Route: id + uri + predicates + filters - Predicates: Path, Host, Method, Header, Query, Weight - Filters: AddRequestHeader, StripPrefix, RequestRateLimiter, CircuitBreaker - Sentinel: flow control,
+> (暂无摘要)
 
 ## [Nacos 注册/配置中心](https://java-px.bot.cd/java-language/07-spring-cloud/nacos)
-> - Service discovery: CP (Raft) for registry, AP (Distro) for instances - Config center: namespace/group/dataId, dynamic refresh (@RefreshScope)
+> (暂无摘要)
 
 ## [Seata 分布式事务](https://java-px.bot.cd/java-language/07-spring-cloud/seata)
-> - AT mode: auto, undo_log table for rollback, global lock - TCC mode: Try/Confirm/Cancel, manual implementation - Saga mode: forward + backward compensation
+> (暂无摘要)
 
 ## [JDBC / HikariCP](https://java-px.bot.cd/java-language/08-database/jdbc)
-> - JDBC: DriverManager → DataSource (connection pooling) - PreparedStatement: prevent SQL injection, pre-compiled - HikariCP: fastest pool, defaults: pool-size=10, idle-timeout=600s, max-lifetime=1800s
+> (暂无摘要)
 
 ## [JPA / Hibernate](https://java-px.bot.cd/java-language/08-database/jpa)
-> - Spring Data JPA: findByXxx, @Query, @Modifying for DML - N+1 problem: LAZY loading + loop → 1 + N queries. Fix: @EntityGraph, @Query with JOIN FETCH - Lock: @Lock(LockModeType.PESSIMISTIC_WRITE) for
+> (暂无摘要)
 
 ## [MyBatis / MyBatis-Plus](https://java-px.bot.cd/java-language/08-database/mybatis)
-> - MyBatis: mapper XML with #{param} (PreparedStatement) vs ${param} (string concat, SQL injection risk) - MyBatis-Plus: BaseMapper`<T>`, QueryWrapper, LambdaQueryWrapper, auto pagination
+> (暂无摘要)
 
 ## [Netty 框架](https://java-px.bot.cd/java-language/09-io/netty)
-> - EventLoopGroup: boss (accept) + worker (IO) - ChannelPipeline: chain of ChannelHandlers - ChannelHandler: ChannelInboundHandler (read) / ChannelOutboundHandler (write) - ByteBuf: pooled memory, refe
+> (暂无摘要)
 
 ## [BIO / NIO / AIO](https://java-px.bot.cd/java-language/09-io/nio)
-> - BIO: blocking I/O, one thread per connection - NIO: non-blocking, Buffer (position/limit/capacity), Channel (FileChannel/SocketChannel), Selector (multiplex) - AIO: asynchronous, callback or Future
+> (暂无摘要)
 
 ## [序列化 / JSON / ProtoBuf](https://java-px.bot.cd/java-language/09-io/serialize)
-> - Serializable: writeObject/readObject, serialVersionUID, transient fields - Jackson: @JsonProperty, @JsonIgnore, @JsonFormat, ObjectMapper - ProtoBuf: binary, schema-first, smaller/faster than JSON -
+> (暂无摘要)
 
 ## [Arthas 诊断](https://java-px.bot.cd/java-language/10-performance/arthas)
-> - dashboard: real-time CPU/memory/GC (like htop for JVM) - thread -n 3: top 3 CPU threads - thread -b: find deadlock - watch: observe method invocation args, return, exception - trace: method call tre
+> (暂无摘要)
 
 ## [jstack / jmap / jstat](https://java-px.bot.cd/java-language/10-performance/jvm-tools)
-> - jps -l: list Java processes - jstack pid: thread dump, find deadlocks - jmap -histo:live pid | head: top objects by count - jmap -dump:live,file=dump.hprof pid: heap dump - jstat -gc pid 1000 5: GC
+> - jcmd pid GC.heap_dump /tmp/dump.hprof
 
 ## [JVM 调优参数](https://java-px.bot.cd/java-language/10-performance/jvm-tuning)
-> - -Xms512m -Xmx2g (heap), -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=256m - GC: -XX:+UseG1GC -XX:MaxGCPauseMillis=200 - Dump: -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/dump.hprof - Thread
+> (暂无摘要)
 
 ## [行为型设计模式](https://java-px.bot.cd/java-language/11-design/behavioral)
-> - Strategy: interchangeable algorithms (Comparator) - Observer: publish/subscribe (EventListener) - Chain of Responsibility: pass request along chain (Servlet Filters) - Template Method: define skelet
+> (暂无摘要)
 
 ## [创建型设计模式](https://java-px.bot.cd/java-language/11-design/creational)
-> - Singleton: DCL + volatile, enum, static inner class holder - Factory Method: define interface, subclasses decide class - Builder: fluent API for complex object construction (Lombok @Builder) - Proto
+> (暂无摘要)
 
 ## [结构型设计模式](https://java-px.bot.cd/java-language/11-design/structural)
-> - Proxy: static (compile-time), dynamic (JDK Proxy), CGLIB (subclass) - Decorator: wrap object to add behavior (InputStream hierarchy) - Adapter: convert interface (class adapter vs object adapter) -
+> (暂无摘要)
 
 ## [Maven / Gradle](https://java-px.bot.cd/java-language/12-tools/build)
-> - Maven lifecycle: validate → compile → test → package → verify → install → deploy - Dependency scope: compile (default), provided, runtime, test, system, import - Gradle: Groovy/Kotlin DSL, increment
+> (暂无摘要)
 
 ## [常用命令速查](https://java-px.bot.cd/java-language/12-tools/commands)
 > (暂无摘要)
 
 ## [Lombok / MapStruct](https://java-px.bot.cd/java-language/12-tools/lombok)
-> - @Data = @Getter + @Setter + @ToString + @EqualsAndHashCode + @RequiredArgsConstructor - @Builder: fluent builder pattern - @Slf4j: private static final Logger log - MapStruct: compile-time bean mapp
+> - @Data = @Getter + @Setter + @ToString + @EqualsAndHashCode + @RequiredArgsConstructor
 
 ## [JUnit5](https://java-px.bot.cd/java-language/13-testing/junit5)
 > - @Test/@BeforeEach/@AfterEach/@BeforeAll (static) - @ParameterizedTest + @CsvSource/@MethodSource - assertThrows, assertTimeout, assertAll (group assertions) - @Nested for hierarchical tests, @Tag fo
@@ -143,13 +143,13 @@
 > - @Mock create mock, @InjectMocks inject mocks into target - when().thenReturn() stub, verify() check invocation - ArgumentCaptor capture arguments, @Spy partial mock
 
 ## [Spring Boot Test](https://java-px.bot.cd/java-language/13-testing/spring-test)
-> - @SpringBootTest: full context, slow - @WebMvcTest(UserController.class): slice test for controllers - @DataJpaTest: slice test for JPA repositories - TestContainers: real DB in Docker, @Container +
+> (暂无摘要)
 
 ## [手写代码](https://java-px.bot.cd/java-language/14-interview/coding)
 > 1. 线程安全单例（DCL+volatile, static inner class, enum） 2. 生产者-消费者（BlockingQueue, wait/notify, Lock+Condition） 3. 死锁（两线程互相等待对方锁） 4. LRU缓存（LinkedHashMap accessOrder，或 HashMap+双向链表） 5. 两个线程交替打印奇偶数 6. 限流器（令牌桶/
 
 ## [学习路径](https://java-px.bot.cd/java-language/14-interview/path)
-> - Junior (1-2yr): Core Java, Collections, basic concurrency, Spring Boot CRUD, SQL - Mid (3-5yr): JVM tuning, JUC, microservices (Spring Cloud), design patterns, testing - Senior (5-8yr): JVM internal
+> 速查：[OOP](/01-basics/oop) → [集合](/02-collections/list) → [并发](/03-concurrency/thread-pool) → [JVM](/04-jvm/runtime) → [GC](/05-gc/algorithms) → [Spring](/06-spring/ioc-aop) → [Cloud](/07-spring-cloud/n
 
 ## [高频面试题](https://java-px.bot.cd/java-language/14-interview/questions)
 > 1. HashMap 原理？数组+链表/红黑树，hash冲突，扩容，loadFactor 0.75 2. ConcurrentHashMap 怎么保证线程安全？Java 7 Segment锁，Java 8 CAS+synchronized 3. synchronized vs Lock？JVM内置 vs API，自动释放 vs finally unlock，condition等待通知 4. vol
@@ -160,7 +160,7 @@
 ## [知识图谱](https://java-px.bot.cd/java-language/graph)
 > > 50+ 节点，14 大主题分类，节点可点击跳转。 <ClientOnly><KnowledgeGraph :height="820" /></ClientOnly> | 颜色 | 分类 | 节点数 | |------|------|--------| | 🔴 红 | 基础语法 | 5 | | 🔵 蓝 | 集合框架 | 5 | | 🟣 紫 | 并发编程 | 5 | | 🟧 橙 | JVM 内存模
 
-## [Untitled](https://java-px.bot.cd/java-language/index)
+## [java-language 知识图谱](https://java-px.bot.cd/java-language/index)
 > <ClientOnly> <WhyThisGraph :pain-points="[ "会用 HashMap 但不理解红黑树和 Hash 冲突", "写了 Spring 但不理解 IoC 容器如何工作", "遇到 GC 停顿只会调 Xmx", "用了线程池但不理解核心参数", "面试问 JVM 只知道「堆栈方法区」" ]" :goals="[ "系统化讲清 Java 基础 → 集合 → 并发 →
 
 ## [思维导图](https://java-px.bot.cd/java-language/mindmap)

@@ -2,7 +2,7 @@
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
 > 60 个文档页 · 433,216 字
-> 生成时间：2026-08-16T08:58:46
+> 生成时间：2026-08-16T09:03:50
 
 ## [控制流](https://java-px.bot.cd/python/01-basics/control-flow)
 > > Python 控制流包括**条件分支（if/elif/else）、循环（for/while）、异常处理（try/except）**。Python 用**缩进**表示代码块，简洁优雅。 <ClientOnly> <PythonPlayground /> </ClientOnly> 试试在 Playground 里运行控制流代码： **Python 控制流核心要点**： - ✅ 缩进表示代码块（4
@@ -17,7 +17,7 @@
 > > **Python** 是一种**高级、解释型、动态类型、多范式**的通用编程语言。以**简洁优雅**的语法和**强大的生态**著称。 | 维度 | Python | Java | JavaScript | C++ | |------|--------|------|------------|-----| | 语法 | 简洁 | 啰嗦 | 中等 | 复杂 | | 类型 | 动态 | 静态 | 动
 
 ## [基础语法](https://java-px.bot.cd/python/01-basics/syntax)
-> > Python 的语法以**简洁优雅**著称。本章覆盖**变量、运算符、字符串、输入输出**等基础语法。 <ClientOnly> <PythonPlayground /> </ClientOnly> 试试在 Playground 里运行 Python 代码： **Python 基础语法核心要点**： - ✅ 动态类型，无需声明 - ✅ 简洁优雅（接近自然语言） - ✅ 字符串切片 `s[sta
+> > Python 的语法以**简洁优雅**著称。本章覆盖**变量、运算符、字符串、输入输出**等基础语法。 <ClientOnly> <PythonPlayground /> </ClientOnly> 试试在 Playground 里运行 Python 代码： **Python 基础语法核心要点**： - ✅ 动态类型，无需声明 - ✅ 简洁优雅（接近自然语言） - ✅ f-string 格式化
 
 ## [字节码与执行](https://java-px.bot.cd/python/02-principles/bytecode)
 > > Python 字节码是 **CPython 解释器执行的中间表示**。理解字节码有助于**性能优化、问题排查、深入 Python**。 输出： | 指令 | 含义 | 操作数 | |------|------|--------| | LOAD_FAST | 加载局部变量 | 变量索引 | | STORE_FAST | 存储局部变量 | 变量索引 | | LOAD_GLOBAL | 加载全局变量
@@ -38,7 +38,7 @@
 > > Python 中**一切皆对象**。理解 PyObject 底层结构是掌握 Python 内存管理和性能优化的基础。 **Python 对象模型核心要点**： - ✅ 一切皆对象（int、str、func、class 都是对象） - ✅ PyObject 包含 ob_refcnt 和 ob_type - ✅ 不可变对象：int、float、str、tuple - ✅ 可变对象：list、dic
 
 ## [性能剖析](https://java-px.bot.cd/python/02-principles/profiling)
-> > **性能剖析（Profiling）**是定位 Python 性能瓶颈的关键手段。本章介绍常用工具和最佳实践。 字段说明： - `ncalls`：调用次数 - `tottime`：函数自身耗时（不含子函数） - `percall`：平均每次调用耗时 - `cumtime`：累计耗时（含子函数） - `filename:lineno(function)`：函数位置 输出： 输出： 输出（CPU +
+> > **性能剖析（Profiling）**是定位 Python 性能瓶颈的关键手段。本章介绍常用工具和最佳实践。 字段说明： - `ncalls`：调用次数 - `tottime`：函数自身耗时（不含子函数） - `percall`：平均每次调用耗时 - `cumtime`：累计耗时（含子函数） 输出： 输出： 输出（CPU + GPU + 内存）： **Python 性能剖析核心要点**： -
 
 ## [BeautifulSoup](https://java-px.bot.cd/python/03-libraries/beautifulsoup)
 > > **BeautifulSoup** 是 Python **最流行的 HTML/XML 解析库**。配合 requests 是爬虫的经典组合。 | 解析器 | 速度 | 容错 | 依赖 | |--------|------|------|------| | html.parser | 中 | 中 | 标准库 | | **lxml** | **快** | 好 | 需安装 | | html5lib
@@ -175,7 +175,7 @@
 ## [知识图谱](https://java-px.bot.cd/python/graph)
 > > 62 节点，9 大主题分类，节点可点击跳转到对应章节。鼠标拖动可调整布局，悬停查看节点关联。 <ClientOnly> <KnowledgeGraph :height="820" /> </ClientOnly> | 颜色 | 分类 | 节点数 | |------|------|--------| | 🔵 蓝 | Python 入门 | 5 | | 🟠 橙 | 底层原理 | 7 | | 🟢 绿
 
-## [Untitled](https://java-px.bot.cd/python/index)
+## [python 知识图谱](https://java-px.bot.cd/python/index)
 > <ClientOnly> <WhyThisGraph :pain-points="[ "只懂基础语法，不了解底层原理（解释器 / 字节码 / 对象模型）", "用过 requests / pandas 但不知道内部实现", "写 GIL 多线程却不知道为什么慢", "爬虫写完就封 IP，不知道反爬怎么破", "LLM 应用只会调 API，不知道 prompt 怎么写" ]" :goals="[ "
 
 ## [思维导图](https://java-px.bot.cd/python/mindmap)
