@@ -1319,3 +1319,78 @@ npx vitepress preview
 - ✅ 27 站引用 shared 模板（C7 + C1 双轨完成）
 
 效果：27 站下次 build 部署后立即获得 C7 阅读体验增强（中英间距 / 暗色 AA / 阅读进度条 / 代码块优化）。
+
+### 8.25 C6 Giscus 评论 + Issue 模板 + CONTRIBUTING（2026-08-16 第十八次）
+
+承接 C 任务线，本节做 C6 Giscus 评论系统 + Issue 模板 + CONTRIBUTING.md。
+
+**新增组件**：`shared-assets/vitepress-template/theme/components/GiscusComment.vue`（80 行）
+
+```vue
+<script setup lang="ts">
+interface Props {
+  repo?: string       // 'Scholar-s-Atlas/comments'
+  repoId?: string     // 'R_PLACEHOLDER_REPLACE_ME'
+  category?: string   // 'General'
+  categoryId?: string // 'DIC_PLACEHOLDER_REPLACE_ME'
+  mapping?: 'pathname' | 'url' | 'title' | ...
+  theme?: string      // 'preferred_color_scheme'
+  lang?: string       // 'zh-CN'
+}
+</script>
+```
+
+**关键设计**：
+
+- **共享一个 repo**：所有 28 站评论统一到 `Scholar-s-Atlas/comments`
+- **pathname 映射**：每个 .md 路径 → 一个独立 Discussion，天然按页隔离
+- **自动暗色**：theme = `preferred_color_scheme`，跟随系统暗色模式
+- **SSR 安全**：用 `<ClientOnly>` 包裹 `<script>`，build 时跳过
+- **样式**：顶部 3px 边框 + 💬 前缀
+
+**28 站组件就位**：所有 28 站 theme/components/GiscusComment.vue 已就位，等用户填真实 ID 后即可启用。
+
+**Issue 模板**（4 个文件）：
+
+| 模板 | 用途 |
+|------|------|
+| `bug_report.md` | Bug 报告（站点问题 / 技术故障 / 链接失效） |
+| `content_feedback.md` | 内容反馈（错别字 / 过时 / 表达不清） |
+| `feature_request.md` | 功能请求（新站 / 新组件 / 新工具） |
+| `config.yml` | 禁用空白 issue + 链接到评论区 |
+
+每个模板有 YAML frontmatter（labels / assignees）+ 结构化字段（站点路径 / 复现步骤 / 环境信息等）。
+
+**CONTRIBUTING.md**（144 行）：
+
+- 快速开始（3 种 issue 入口 + 本地开发命令）
+- 仓库结构图（28 子站 + shared-assets + sites-hub 三层）
+- **Giscus 配置 SOP**（管理员一次性操作 + 用户按页启用）
+- 内容规范（frontmatter / glossary / spell-check / audit）
+- DO-NOT 列表（禁止事项）
+
+**ai-html pilot**（验证用）：
+
+- theme/index.ts 注册 `GiscusComment`
+- docs/index.md 末尾加 demo 块（带 HTML 注释说明「PILOT」字样，方便验证后删除）
+
+**部署前必读**：用户需要：
+
+1. 访问 https://giscus.app/zh-CN 配置仓库
+2. 获取 `data-repo-id` + `data-category-id`
+3. 填到 `GiscusComment.vue` 的 props 默认值
+4. 删除 ai-html demo 块的注释（或保留作为永久启用）
+5. 在需要评论的页面末尾加 `<ClientOnly><GiscusComment /></ClientOnly>`
+
+**为什么不全 28 站批量启用**：
+
+- giscus.app 配置需要人工操作（GitHub OAuth 授权）
+- 每个子站的页面应该有选择性启用（不是每页都需要评论）
+- C6 应该是「可用状态」而非「全量启用」—— 用户按需启用更符合务实落地原则
+
+**audit 数字**：words +40（demo block），其它不变。
+
+**后续工作**（可选）：
+
+- §8.26：用户填真实 ID 后，批量给 27 站 theme/index.ts 注册 GiscusComment
+- §8.27：在 glossary 加每页评论数统计（基于 Giscus API）
