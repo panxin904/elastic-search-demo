@@ -223,13 +223,15 @@ jobs:
           test -f /tmp/release/sites-hub-static.tar.gz || { echo "missing tarball"; exit 1; }
           echo "Artifact size: $(du -h /tmp/release/sites-hub-static.tar.gz | cut -f1)"
 
-      - name: SCP tarball to VPS (using GitHub runner's scp, not container)
+      - name: SCP tarball + deploy-release.sh to VPS (using GitHub runner's scp, not container)
         run: |
           set -euo pipefail
           mkdir -p ~/.ssh
           printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -H "$VPS_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
+          echo "==> SCP deploy-release.sh to VPS"
+          scp -i ~/.ssh/deploy_key -P "${VPS_PORT:-22}" sites-hub/scripts/deploy-release.sh "$VPS_USER@$VPS_HOST:/tmp/deploy-release.sh"
           echo "==> SCP tarball to VPS"
           scp -i ~/.ssh/deploy_key -P "${VPS_PORT:-22}" /tmp/release/sites-hub-static.tar.gz "$VPS_USER@$VPS_HOST:/tmp/sites-hub-static.tar.gz"
           echo "SCP done"
@@ -252,7 +254,7 @@ jobs:
             echo "==> Pre-deploy: previous release"
             ls -la /var/www/sites-hub/current 2>&1 | head -2 || echo "no previous release"
             echo "==> Running deploy-release.sh"
-            sudo /var/www/sites-hub/scripts/deploy-release.sh /tmp/sites-hub-static.tar.gz
+            sudo /tmp/deploy-release.sh /tmp/sites-hub-static.tar.gz
             echo "==> Post-deploy: verify"
             curl -fsS http://localhost/healthz || { echo "healthz failed"; exit 1; }
             echo "==> Cleanup"
