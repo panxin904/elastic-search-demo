@@ -1245,3 +1245,77 @@ vue_bug: 0  vue_missing: 50 (50 known React/Apache false positives)
 **视觉表现**：固定在浏览器顶部 3px 高的进度条，颜色从品牌色渐变到 pink，宽度 = 已读百分比。
 
 **audit 数字**：CSS + JS 改动，不影响 .md 文件，所有数字不变。
+
+### 8.24 C7 全 27 站规模化迁移（2026-08-16 第十七次）
+
+承接 §8.22/§8.23（C7 CSS + 阅读进度条 JS 已就绪），本节规模化迁移到所有站。
+
+**§8.24 part 1**：10 简单站（无本地组件）创建 theme/index.ts + style.css：
+
+| 站 | 改动 |
+|----|------|
+| chaos / clickhouse / design-pattern / devops / go / observability / postgresql / rust / security / system-design | + theme/index.ts + style.css（含 @import shared）|
+
+**§8.24 part 2**：12 多组件站（已有 index.ts + style.css）补 setup + import：
+
+| 站 | 改动 |
+|----|------|
+| es / frontend / kafka / linux / mysql / network / python / redis / video / java-web-manual / filesystem / tools | 头部 + composable import + setup() 块 |
+
+**关键发现**：VitePress 1.x 自动从 `theme/components/*.vue` 按文件名注册组件，所以 10 多组件站无需在 enhanceApp 中显式注册 WhyThisGraph（自动生效）。
+
+**C7 完整覆盖**（28 站 → 27 站，cloud-html 废弃）：
+
+| 类别 | 数量 | 站 |
+|------|----:|----|
+| ✅ 早期 5 站（§8.22/§8.23） | 5 | ai / architecture / bigdata / cloud-native / java-language |
+| ✅ §8.24 part 1 新建 | 10 | chaos / clickhouse / design-pattern / devops / go / observability / postgresql / rust / security / system-design |
+| ✅ §8.24 part 2 修补 | 12 | es / frontend / kafka / linux / mysql / network / python / redis / video / java-web-manual / filesystem / tools |
+| 🚫 废弃 | 1 | cloud-html |
+
+**27/27 站现在都获得**：
+
+- shared-assets style.css（暗色 AA / 中英间距 / 行距 1.75 / 代码块优化）
+- setupReadingProgress() composable（顶部 3px 阅读进度条）
+- WhyThisGraph.vue 组件（C2 跨站关联 §8.10~§8.21）
+
+**index.ts 模板（10 简单站）**：
+
+```typescript
+import DefaultTheme from 'vitepress/theme'
+import WhyThisGraph from './components/WhyThisGraph.vue'
+import { setupReadingProgress } from '../../../../shared-assets/vitepress-template/theme/composables/readingProgress'
+import './style.css'
+
+export default {
+  setup() {
+    setupReadingProgress()
+  },
+  extends: DefaultTheme,
+  enhanceApp({ app }) {
+    app.component('WhyThisGraph', WhyThisGraph)
+  }
+}
+```
+
+**deploy 验证 SOP**（任选 1 站）：
+
+```bash
+cd ai-html  # 或任一站
+npm install
+npm run docs:build
+npx vitepress preview
+# 浏览器打开 http://localhost:4173
+# 滚动看顶部进度条；切暗色看对比度；中英段落看间距
+```
+
+**audit 数字**：CSS + JS 改动，audit 不变。
+
+**C1 模板统一推进状态**：
+
+- ✅ shared-assets/vitepress-template/theme/style.css（288 行）
+- ✅ shared-assets/vitepress-template/theme/composables/readingProgress.ts（64 行）
+- ✅ shared-assets/vitepress-template/theme/components/{WhyThisGraph,SiteFooter,SitePortalLink}.vue
+- ✅ 27 站引用 shared 模板（C7 + C1 双轨完成）
+
+效果：27 站下次 build 部署后立即获得 C7 阅读体验增强（中英间距 / 暗色 AA / 阅读进度条 / 代码块优化）。
