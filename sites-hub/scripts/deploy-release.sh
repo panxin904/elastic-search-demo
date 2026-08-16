@@ -88,6 +88,9 @@ echo "==> Verifying nginx config..."
 # conf/nginx.conf 引用 ${CURRENT_LINK}/www，临时 symlink 让 nginx -t 找到路径
 TMP_CURRENT="$RELEASE_DIR/_current_for_validation"
 ln -sfn "$RELEASE_DIR" "$TMP_CURRENT"
+# nginx -p 需要 prefix/logs/nginx.pid 存在（即使空文件也行）
+mkdir -p "$TMP_CURRENT/logs"
+touch "$TMP_CURRENT/logs/nginx.pid"
 if ! nginx -t -c "$RELEASE_DIR/conf/nginx.conf" -p "$TMP_CURRENT/" 2>&1 | tail -5; then
   echo "ERROR: nginx config validation failed" >&2
   rm -rf "$RELEASE_DIR"
