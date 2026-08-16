@@ -166,7 +166,7 @@ Sitemap: https://java-px.bot.cd/sitemap.xml
 EOF
 
 rm -f "$ARCHIVE"
-tar -C "$RELEASE_DIR" -czf "$ARCHIVE" sites-hub
+tar -C "$RELEASE_DIR/sites-hub" -czf "$ARCHIVE" .
 
 echo
 echo "==> Release archive created: $ARCHIVE"
