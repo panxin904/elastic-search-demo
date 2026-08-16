@@ -184,6 +184,13 @@ jobs:
           done
           echo "All 28 site dists extracted"
 
+      - name: Patch macOS → Linux paths in conf/
+        run: |
+          if grep -rq "/opt/homebrew/etc/nginx" sites-hub/conf/; then
+            find sites-hub/conf -type f -name "*.conf" -exec sed -i "s|/opt/homebrew/etc/nginx/|/etc/nginx/|g" {} +
+            echo "Patched macOS paths in conf/"
+          fi
+
       - name: Build static release (MOCK_BUILD=1 reuses dists)
         run: MOCK_BUILD=1 bash sites-hub/build-release.sh
 
