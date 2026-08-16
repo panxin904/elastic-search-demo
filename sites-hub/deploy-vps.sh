@@ -242,14 +242,35 @@ server {
     error_page 500 502 503 504 /50x.html;
 
     # T6：长缓存 VitePress 哈希资源（assets/ 下的 js/css/woff2/svg/...）
-    location ~* "^/[^/]+/assets/.*\.(js|css|woff2|svg|png|webp|avif|ico)$" {
-        add_header Cache-Control "public, max-age=31536000, immutable";
+    # P0 fix: assets 必须公开（auth_basic off）
+    # 原因：VitePress 客户端 hydrate 用 ES module dynamic import，
+    # 浏览器对子模块 fetch 在某些场景不传 Authorization header，
+    # 导致 assets 401 → JS 不执行 → 用户看到纯 SSR 裸文字
+    # 主体内容（HTML）仍需 auth，公开 assets 不泄露内容（只是样式/JS）
+    location ~* "^/[^/]+/assets/.*\.(js|css|woff2|woff|ttf|otf|svg|png|webp|avif|ico)$" {
+        auth_basic off;
         access_log off;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+        try_files \$uri =404;
+    }
+    location ~* "^/[^/]+/assets/chunks/.*$" {
+        auth_basic off;
+        access_log off;
+        add_header Cache-Control "public, max-age=31536000, immutable";
         try_files \$uri =404;
     }
 
     # ===== 子站 location（由 sites.sh 驱动，勿手动改）=====
 ${location_blocks}
+
+    # 门户 www/fonts 自托管字体（公开，避免 CSP font-src 限制）
+    location ^~ /www/fonts/ {
+        auth_basic off;
+        access_log off;
+        alias /var/www/sites-hub/www/fonts/;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+        expires 365d;
+    }
 
     # ===== 门户首页 =====
     location / {
