@@ -1394,3 +1394,79 @@ interface Props {
 
 - §8.26：用户填真实 ID 后，批量给 27 站 theme/index.ts 注册 GiscusComment
 - §8.27：在 glossary 加每页评论数统计（基于 Giscus API）
+
+### 8.26 C12 sitemap.xml + llms.txt 生成（2026-08-16 第十九次）
+
+C12 任务：sitemap 完整化 + AI 索引友好。
+
+**新增脚本**：`sites-hub/scripts/build-sitemap-and-llms.py`（195 行）
+
+```python
+# 读取 sites.sh SITES 列表（唯一真相源）
+# 扫描每个子站 docs/**/*.md
+# 解析 frontmatter (title / description / date)
+# 提取 200 字摘要（跳过代码块 / 标题 / HTML）
+# 输出 sitemap.xml + llms.txt + llms-full.txt
+```
+
+**生成结果**：
+
+| 文件 | 数量 | 单文件大小 | 总计 |
+|------|----:|--------:|----:|
+| `www/sitemap.xml` | 1 | 169KB | 1464 URL |
+| `www/llms.txt` | 1 | 527KB | 1464 摘要 |
+| `www/llms-full.txt` | 1 | 8.2MB | 1464 全文（6.2M 字）|
+| `dist/<site>/sitemap.xml` | 28 | 5-10KB | ~250KB |
+| `dist/<site>/llms.txt` | 28 | 15-30KB | ~600KB |
+
+**URL 格式**：`https://java-px.bot.cd/<site>/<path>`（与站点实际部署一致）
+
+**lastmod 来源**：优先用 frontmatter `date:`，fallback 到文件 mtime
+
+**llms.txt 规范**（llmstxt.org）：
+
+```markdown
+# Site Title
+
+> Metadata header (count, words, generated-at)
+
+## [Page Title](URL)
+> Page description / summary
+
+（每页一段）
+```
+
+**已知限制 / 后续优化**：
+
+1. **HTML 标签残留**：summary 提取时没剥 `<span class="kg-badge ...">` 等内联 HTML，llms.txt 显示原始 HTML。需加 strip_tags 或在 get_summary 中跳过含 HTML 的行（不影响功能，cosmetic）
+2. **build 自动化**：当前脚本手动跑，后续应接入 CI（每次 .md 变更自动重新生成）
+3. **部署路径**：脚本输出到 `dist/<site>/`，需要部署脚本 cp 到 nginx 站点目录（`/var/www/sites-hub/<site>/`）
+4. **CI 集成**：当 git push 后自动跑 → 写 dist/ → commit（避免 8MB diff）
+
+**deploy SOP**（manual）：
+
+```bash
+# 1. 重新生成（每月或重要内容变更后）
+python3 sites-hub/scripts/build-sitemap-and-llms.py
+
+# 2. 部署到 nginx
+scp -r www/sitemap.xml www/llms.txt www/llms-full.txt vps:/var/www/sites-hub/
+scp -r sites-hub/dist/* vps:/var/www/sites-hub/<site>/
+
+# 3. 验证
+curl -s https://java-px.bot.cd/sitemap.xml | head -5
+curl -s https://java-px.bot.cd/llms.txt | head -5
+```
+
+**自动化建议**（§8.27 计划）：
+
+- 加 `dist/` 到 CI workflow（`.github/workflows/sites-hub-ci.yml` 已存在但未跑）
+- 每次 push 触发：build → sitemap → llms → deploy
+
+**audit 数字**：脚本生成静态文件，不影响 .md 内容统计。
+
+**C12 完整收官**：
+- ✅ sitemap.xml（28 子站 + 主门户）
+- ✅ llms.txt（28 子站 + 主门户）
+- ✅ llms-full.txt（主门户聚合 6.2M 字）
+- ✅ llmstxt.org 规范兼容（AI 爬虫友好）
