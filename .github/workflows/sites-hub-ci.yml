@@ -108,7 +108,7 @@ jobs:
           node-version: 20
           cache: npm
 
-      - name: Build ${{ matrix.site }} + Pagefind
+      - name: Build site + Pagefind
         run: |
           source sites-hub/scripts/sites.sh
           proj=$(site_to_project "${{ matrix.site }}")
@@ -117,8 +117,14 @@ jobs:
           npm install --no-audit --no-fund  # 允许 lockfile 与 package.json 略不同步
           npm run docs:build
           npx pagefind --site .vitepress/dist
-          tar czf /tmp/dist-${{ matrix.site }}.tar.gz .vitepress/dist
-          echo "Built $proj → /tmp/dist-${{ matrix.site }}.tar.gz"
+
+      - name: Tar dist (preserve proj path)
+        run: |
+          source sites-hub/scripts/sites.sh
+          proj=$(site_to_project "${{ matrix.site }}")
+          # 切到 proj 父目录，tar proj/.vitepress/dist 保留完整路径
+          tar czf /tmp/dist-${{ matrix.site }}.tar.gz -C "$(dirname "$proj")" "$(basename "$proj")/.vitepress/dist"
+          ls -lh /tmp/dist-${{ matrix.site }}.tar.gz
 
       - name: Upload site dist artifact
         uses: actions/upload-artifact@v4
@@ -126,6 +132,7 @@ jobs:
           name: dist-${{ matrix.site }}
           path: /tmp/dist-${{ matrix.site }}.tar.gz
           if-no-files-found: error
+
 
   release:
     needs: [check, build-all]
