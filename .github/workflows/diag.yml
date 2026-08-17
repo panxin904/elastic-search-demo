@@ -11,11 +11,16 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
             set +e
-            echo "=== /etc/nginx/sites-enabled/sites-hub.conf (sitemap/llms/feed 段) ==="
-            grep -B 1 -A 3 "sitemap\|llms\|feed" /etc/nginx/sites-enabled/sites-hub.conf /etc/nginx/conf.d/sites-hub.conf 2>&1
-            echo ""
-            echo "=== auth_basic 段 ==="
-            grep -B 1 -A 3 "auth_basic" /etc/nginx/sites-enabled/sites-hub.conf /etc/nginx/conf.d/sites-hub.conf 2>&1
-            echo ""
-            echo "=== sitemap.xml 和 .gz 文件 size + mtime ==="
-            ls -la /var/www/sites-hub/current/www/sitemap.xml /var/www/sites-hub/current/www/sitemap.xml.gz 2>&1
+            echo "=== /var/www/sites-hub/www 存在？==="
+            ls -la /var/www/sites-hub/www 2>&1 | head -3
+            echo "---"
+            echo "=== sitemap.xml.gz HTTP (curl -v 看 exact 响应) ==="
+            curl -sv https://java-px.bot.cd/sitemap.xml.gz 2>&1 | grep -E "HTTP/|Location|WWW-Auth|Content-|^<|^>" | head -15
+            echo "---"
+            echo "=== location 优先级 (alias 路径错会 fallthrough 到 location /) ==="
+            echo "如果 curl 返回 401，说明 location / 接住（fallthrough），"
+            echo "意味着 alias /var/www/sites-hub/www/sitemap.xml.gz 失败（路径不存在）"
+            echo "---"
+            echo "=== 检查 alias 路径 ==="
+            test -e /var/www/sites-hub/www/sitemap.xml.gz && echo "EXISTS" || echo "NOT EXISTS"
+            test -e /var/www/sites-hub/current/www/sitemap.xml.gz && echo "current EXISTS" || echo "current NOT EXISTS"
