@@ -1,7 +1,7 @@
-name: VPS mime check
+name: VPS mime
 on: workflow_dispatch
 jobs:
-  check:
+  c:
     runs-on: ubuntu-22.04
     steps:
       - uses: appleboy/ssh-action@v1
@@ -10,8 +10,8 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            echo "=== mime.types 里的 gz 类型 ==="
-            grep -E "\.gz|gzip" /etc/nginx/mime.types /etc/nginx/conf.d/mime-types-extra.conf 2>&1
+            echo "=== mime.types 全部 ==="
+            cat /etc/nginx/mime.types
             echo "---"
-            echo "=== /etc/nginx/nginx.conf mime.types include ==="
-            grep -B 1 -A 2 "mime.types" /etc/nginx/nginx.conf | head -10
+            echo "=== conf.d/ 全部 ==="
+            ls /etc/nginx/conf.d/
