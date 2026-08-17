@@ -683,8 +683,8 @@ VPS `authorized_keys` 加 CI 的 public key。
 | 🔲 P3 | nginx gzip_static 启用 | 服务 .gz 版本（sitemap.xml.gz / llms-full.txt.gz）|
 | 🔲 P3 | GitHub Environment `production` | 加 reviewer approval gate |
 | 🔲 P3 | SSH key 自动 rotate | 当前手动 |
-| 🔲 P3 | Branch protection rules | API 配置 |
-| 🔲 P3 | CODEOWNERS | 自动 assign reviewer |
+| ⚠️ P3 | Branch protection rules | **受限**：private free repo GitHub API 返回 403；需转 public 或升 Pro 才能启用（CODEOWNERS 已就位等待启用）|
+| ✅ P3 | CODEOWNERS | 已完成（commit `d82251a`）— 单 owner 仓库 assign 作用有限，主要为未来扩展性 |
 | 🔲 P3 | Dependabot | 自动依赖更新 |
 
 ---
