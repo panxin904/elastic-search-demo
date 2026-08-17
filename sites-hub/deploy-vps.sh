@@ -160,6 +160,9 @@ server {
 
     # T13：gzip 补全
     gzip on;
+    gzip_static on;
+    gzip_proxied any;
+    gzip_vary on;
     gzip_min_length 1024;
     gzip_types text/plain text/css text/javascript text/xml
                application/javascript application/json application/xml
@@ -237,6 +240,19 @@ server {
         access_log /var/log/nginx/csp-report.log combined buffer=32k flush=5s;
         return 204;
     }
+
+    # P3: 公开元数据（sitemap + llms + feed + manifest）— SEO 友好，无 auth
+    location = /sitemap.xml       { auth_basic off; access_log off; alias ${WEB_ROOT}/current/www/sitemap.xml; }
+    location = /sitemap.xml.gz   { auth_basic off; access_log off; alias ${WEB_ROOT}/current/www/sitemap.xml.gz; default_type application/gzip; }
+    location = /llms.txt         { auth_basic off; access_log off; alias ${WEB_ROOT}/current/www/llms.txt; }
+    location = /llms.txt.gz      { auth_basic off; access_log off; alias ${WEB_ROOT}/current/www/llms.txt.gz; default_type application/gzip; }
+    location = /llms-full.txt    { auth_basic off; access_log off; alias ${WEB_ROOT}/current/www/llms-full.txt; }
+    location = /llms-full.txt.gz { auth_basic off; access_log off; alias ${WEB_ROOT}/current/www/llms-full.txt.gz; default_type application/gzip; }
+    location = /feed.xml         { auth_basic off; access_log off; alias ${WEB_ROOT}/current/www/feed.xml; }
+    location = /feed.xml.gz      { auth_basic off; access_log off; alias ${WEB_ROOT}/current/www/feed.xml.gz; default_type application/gzip; }
+    location = /robots.txt       { auth_basic off; access_log off; alias ${WEB_ROOT}/current/www/robots.txt; }
+    location = /manifest.webmanifest { auth_basic off; access_log off; alias ${WEB_ROOT}/current/www/manifest.webmanifest; }
+    location = /ld.json          { auth_basic off; access_log off; alias ${WEB_ROOT}/current/www/ld.json; }
 
     # T6：自定义错误页
     error_page 404 /404.html;
