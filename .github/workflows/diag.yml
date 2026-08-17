@@ -11,11 +11,11 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
             set +e
-            echo "=== 4 个 .gz 文件 ==="
-            ls -la /var/www/sites-hub/current/www/*.gz 2>&1
+            echo "=== /etc/nginx/sites-enabled/sites-hub.conf (sitemap/llms/feed 段) ==="
+            grep -B 1 -A 3 "sitemap\|llms\|feed" /etc/nginx/sites-enabled/sites-hub.conf /etc/nginx/conf.d/sites-hub.conf 2>&1
             echo ""
-            echo "=== HTTP /sitemap.xml.gz (Vary + Content-Length) ==="
-            curl -sI https://java-px.bot.cd/sitemap.xml.gz 2>&1 | head -10
+            echo "=== auth_basic 段 ==="
+            grep -B 1 -A 3 "auth_basic" /etc/nginx/sites-enabled/sites-hub.conf /etc/nginx/conf.d/sites-hub.conf 2>&1
             echo ""
-            echo "=== HTTP /sitemap.xml (正常未压缩) ==="
-            curl -sI https://java-px.bot.cd/sitemap.xml 2>&1 | head -8
+            echo "=== sitemap.xml 和 .gz 文件 size + mtime ==="
+            ls -la /var/www/sites-hub/current/www/sitemap.xml /var/www/sites-hub/current/www/sitemap.xml.gz 2>&1
