@@ -2041,7 +2041,7 @@ bash build-release.sh
 | 新文件 | 0 |
 | 修改文件 | 1 (build-release.sh) |
 
-### 8.33 Mermaid SSR 集成（C 任务清单外，27 站铺路）（2026-08-16 第二十六次）
+### 8.33 Mermaid 集成（27 站铺路，文档误称 SSR；真相见 §8.39）（2026-08-16 第二十六次）
 
 **目标**：27 站 config.mts 接入 `vitepress-plugin-mermaid`，mermaid 代码块 SSR 渲染为 SVG
 
@@ -2132,6 +2132,8 @@ Could not resolve "../../../../shared-assets/vitepress-template/theme/composable
 2. .vitepress/theme/index.ts 用绝对路径或 vite.config alias 替代 `../../../../shared-assets/...`
 
 修复后跑 `npm run docs:build` 应能 build，并通过 Pagefind 索引部署。
+
+> ⚠️ **本节标题「SSR」是误判**，vitepress-plugin-mermaid v2 实际是 CSR（客户端 onMounted 渲染）。完整真相见 [§8.39](#839-mermaid-ssr-真实验证3-张-svg-全部成功csr--浏览器异步渲染)。
 
 ### 8.34 基础 build 修复（P0：VitePress 路径 + VPHero 多行 props）（2026-08-16 第二十七次）
 

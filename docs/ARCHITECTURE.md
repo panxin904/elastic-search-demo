@@ -680,7 +680,6 @@ VPS `authorized_keys` 加 CI 的 public key。
 | 优先级 | 任务 | 原因 |
 |:---:|------|------|
 | ⊘ P2 | 共享组件同步脚本 | **跳过** — `sites-hub/shared-assets/` 不存在；无共享 theme 需要同步；按需新建 |
-| 🔲 P2 | 验证 Mermaid SSR | §8.33 文档与实际不符（实际 CSR）|
 | 🔲 P3 | nginx gzip_static 启用 | 服务 .gz 版本（sitemap.xml.gz / llms-full.txt.gz）|
 | 🔲 P3 | GitHub Environment `production` | 加 reviewer approval gate |
 | 🔲 P3 | SSH key 自动 rotate | 当前手动 |
