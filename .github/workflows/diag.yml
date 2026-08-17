@@ -1,4 +1,4 @@
-name: VPS fix final
+name: VPS fix gz
 on: workflow_dispatch
 jobs:
   c:
@@ -10,12 +10,14 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            # 在每个 .gz location 后加 default_type application/gzip;
-            sed -i 's|location = /sitemap.xml.gz { auth_basic off; access_log off; alias /var/www/sites-hub/current/www/sitemap.xml.gz; }|location = /sitemap.xml.gz { auth_basic off; access_log off; alias /var/www/sites-hub/current/www/sitemap.xml.gz; default_type application/gzip; }|' /etc/nginx/sites-enabled/sites-hub.conf
-            sed -i 's|location = /llms-full.txt.gz.*|&\ndefault_type application/gzip;|' /etc/nginx/sites-enabled/sites-hub.conf
-            # 在 [sitemap.xml.gz] location 块验证 default_type 已加
-            grep -A 1 "sitemap.xml.gz {" /etc/nginx/sites-enabled/sites-hub.conf
+            # 替换所有 .gz alias 加上 default_type
+            sed -i -E 's|alias (/var/www/sites-hub/current/www/[^ ]+\.gz);|alias \1; default_type application/gzip;|g' /etc/nginx/sites-enabled/sites-hub.conf
+            echo "=== 修改后的 .gz alias ==="
+            grep "alias.*\.gz" /etc/nginx/sites-enabled/sites-hub.conf
             sudo nginx -t 2>&1 | head -3
             sudo nginx -s reload
             echo "---"
-            curl -sI https://java-px.bot.cd/sitemap.xml.gz 2>&1 | grep -i content-type
+            for f in sitemap.xml.gz llms.txt.gz llms-full.txt.gz feed.xml.gz; do
+              echo -n "$f: "
+              curl -sI https://java-px.bot.cd/$f 2>&1 | head -1
+            done
