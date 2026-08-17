@@ -1,4 +1,4 @@
-name: VPS mime
+name: VPS mime2
 on: workflow_dispatch
 jobs:
   c:
@@ -10,8 +10,13 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            echo "=== mime.types 全部 ==="
-            cat /etc/nginx/mime.types
+            echo "=== /etc/nginx/conf.d/mime-types-extra.conf ==="
+            cat /etc/nginx/conf.d/mime-types-extra.conf
             echo "---"
-            echo "=== conf.d/ 全部 ==="
-            ls /etc/nginx/conf.d/
+            echo "=== Add application/gzip gz ==="
+            echo 'types { application/gzip gz; }' | sudo tee -a /etc/nginx/conf.d/mime-types-extra.conf
+            sudo nginx -t 2>&1 | head -3
+            sudo nginx -s reload
+            echo "---"
+            echo "=== Verify Content-Type ==="
+            curl -sI https://java-px.bot.cd/sitemap.xml.gz 2>&1 | grep -i content-type
