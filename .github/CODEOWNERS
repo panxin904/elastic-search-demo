@@ -1,0 +1,78 @@
+# CODEOWNERS — 自动给 PR assign reviewer
+# 详细：https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+#
+# 本仓库单人维护（@panxin904），CODEOWNERS 主要作用：
+#   1. 文档化路径 → 责任区域，方便未来加 collaborator 自动按区域 assign
+#   2. 配合未来 branch protection 启用后实现 "Require review from Code Owners"
+#
+# 注意：private 仓库 free plan 无法启用 branch protection，
+#       所以现在 CODEOWNERS 仅起 assign 作用，不强制 review。
+
+# === 默认 owner（所有未匹配路径）===
+* @panxin904
+
+# === 关键基础设施（review 时重点看）===
+
+# CI/CD workflow
+/.github/workflows/           @panxin904
+
+# 部署脚本（蓝绿切换 / certbot / fail2ban）
+/sites-hub/scripts/           @panxin904
+/sites-hub/deploy-vps.sh      @panxin904
+/sites-hub/build-release.sh   @panxin904
+
+# nginx 配置（VPS 主配置 + 28 站 vhost fragments）
+/sites-hub/conf/              @panxin904
+
+# GitHub Secrets 文档（公开哪些 secret 名）
+/docs/SECRETS.md              @panxin904
+
+# === 站点内容（按主题分组；未来可分给不同 reviewer）===
+
+# 系统基础（Java/Linux/Go/Network/Filesystem/Java-Language）
+/es-html/                     @panxin904
+/java-html/                   @panxin904
+/go-html/                     @panxin904
+/linux-html/                  @panxin904
+/network-html/                @panxin904
+/filesystem-html/             @panxin904
+/java-language-html/          @panxin904
+
+# 数据栈（MySQL/PostgreSQL/Redis/Kafka/Clickhouse/Bigdata）
+/mysql-html/                  @panxin904
+/postgresql-html/             @panxin904
+/redis-html/                   @panxin904
+/kafka-html/                  @panxin904
+/clickhouse-html/             @panxin904
+/bigdata-html/                @panxin904
+
+# 云原生 + 架构
+/cloud-html/                  @panxin904
+/cloud-native-html/           @panxin904
+/architecture-html/           @panxin904
+/system-design-html/          @panxin904
+/springcloud-html/            @panxin904
+
+# DevOps + 观测
+/devops-html/                 @panxin904
+/observability-html/          @panxin904
+/security-html/               @panxin904
+/chaos-html/                  @panxin904
+
+# 应用层
+/frontend-html/               @panxin904
+/python-html/                 @panxin904
+/rust-html/                   @panxin904
+/ai-html/                     @panxin904
+/tools-html/                  @panxin904
+/design-pattern-html/         @panxin904
+/video-html/                  @panxin904
+
+# === 主门户 + 文档 ===
+/sites-hub/www/               @panxin904
+/sites-hub/OPTIMIZATION*.md   @panxin904
+/sites-hub/SOP-ADD-SITE.md    @panxin904
+/docs/                        @panxin904
+
+# === 必须最后一行（GitHub 按从上到下顺序匹配）===
+# 任何 /docs/ 路径都已被上面 /docs/ 捕获，无需再加
