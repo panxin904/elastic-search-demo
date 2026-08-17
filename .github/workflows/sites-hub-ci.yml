@@ -149,7 +149,7 @@ jobs:
   release:
     needs: [check, build-all]
     # build-all skipped 时（skip_build=true）release 也要跑（用 MOCK_BUILD 复用已有 dist）
-    if: always() && needs.check.result == 'success' && (needs.build-all.result == 'success' || needs.build-all.result == 'skipped')
+    if: "always() && needs.check.result == 'success' && (needs.build-all.result == 'success' || needs.build-all.result == 'skipped')"
     runs-on: ubuntu-22.04
     # push 自动；workflow_dispatch 也跑（build-all 的 if 已决定要不要重建）
     if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
