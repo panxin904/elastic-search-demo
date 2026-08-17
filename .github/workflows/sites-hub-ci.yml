@@ -147,7 +147,7 @@ jobs:
 
 
   release:
-    needs: [check, build-all]
+    needs: [check]  # 不依赖 build-all：skip_build=true 时 build-all 跳过，release 仍需跑 MOCK_BUILD 打包
     runs-on: ubuntu-22.04
     # push 自动；workflow_dispatch 也跑（build-all 的 if 已决定要不要重建）
     if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
