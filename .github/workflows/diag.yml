@@ -1,4 +1,4 @@
-name: VPS mime2
+name: VPS fix final
 on: workflow_dispatch
 jobs:
   c:
@@ -10,13 +10,12 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            echo "=== /etc/nginx/conf.d/mime-types-extra.conf ==="
-            cat /etc/nginx/conf.d/mime-types-extra.conf
-            echo "---"
-            echo "=== Add application/gzip gz ==="
-            echo 'types { application/gzip gz; }' | sudo tee -a /etc/nginx/conf.d/mime-types-extra.conf
+            # 在每个 .gz location 后加 default_type application/gzip;
+            sed -i 's|location = /sitemap.xml.gz { auth_basic off; access_log off; alias /var/www/sites-hub/current/www/sitemap.xml.gz; }|location = /sitemap.xml.gz { auth_basic off; access_log off; alias /var/www/sites-hub/current/www/sitemap.xml.gz; default_type application/gzip; }|' /etc/nginx/sites-enabled/sites-hub.conf
+            sed -i 's|location = /llms-full.txt.gz.*|&\ndefault_type application/gzip;|' /etc/nginx/sites-enabled/sites-hub.conf
+            # 在 [sitemap.xml.gz] location 块验证 default_type 已加
+            grep -A 1 "sitemap.xml.gz {" /etc/nginx/sites-enabled/sites-hub.conf
             sudo nginx -t 2>&1 | head -3
             sudo nginx -s reload
             echo "---"
-            echo "=== Verify Content-Type ==="
             curl -sI https://java-px.bot.cd/sitemap.xml.gz 2>&1 | grep -i content-type
