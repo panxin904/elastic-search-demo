@@ -148,11 +148,10 @@ jobs:
 
   release:
     needs: [check, build-all]
-    # build-all skipped 时（skip_build=true）release 也要跑（用 MOCK_BUILD 复用已有 dist）
-    if: success()  # needs.build-all skipped 也算 success（skip_build=true 场景）
     runs-on: ubuntu-22.04
     # push 自动；workflow_dispatch 也跑（build-all 的 if 已决定要不要重建）
-    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    # success() 让 build-all skipped 也算 success（skip_build=true 场景）
+    if: "(github.event_name == 'push' || github.event_name == 'workflow_dispatch') && success()" 
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
