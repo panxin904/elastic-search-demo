@@ -1,4 +1,4 @@
-name: VPS fix
+name: VPS verify
 on: workflow_dispatch
 jobs:
   check:
@@ -10,19 +10,8 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            set +e
-            echo "=== /etc/nginx/sites-enabled/sites-hub.conf 完整 P1 段 ==="
-            grep -B 2 -A 3 "P1.*公开元数据" /etc/nginx/sites-enabled/sites-hub.conf
-            echo ""
-            echo "=== 替换 alias 路径为 current/www ==="
-            sed -i 's|alias /var/www/sites-hub/www/sitemap.xml;|alias /var/www/sites-hub/current/www/sitemap.xml;|; s|alias /var/www/sites-hub/www/sitemap.xml.gz;|alias /var/www/sites-hub/current/www/sitemap.xml.gz;|; s|alias /var/www/sites-hub/www/llms.txt;|alias /var/www/sites-hub/current/www/llms.txt;|; s|alias /var/www/sites-hub/www/llms-full.txt;|alias /var/www/sites-hub/current/www/llms-full.txt;|; s|alias /var/www/sites-hub/www/feed.xml;|alias /var/www/sites-hub/current/www/feed.xml;|; s|alias /var/www/sites-hub/www/robots.txt;|alias /var/www/sites-hub/current/www/robots.txt;|; s|alias /var/www/sites-hub/www/manifest.webmanifest;|alias /var/www/sites-hub/current/www/manifest.webmanifest;|; s|alias /var/www/sites-hub/www/ld.json;|alias /var/www/sites-hub/current/www/ld.json;|' /etc/nginx/sites-enabled/sites-hub.conf
-            echo "替换完成"
-            echo ""
-            echo "=== nginx -t ==="
-            nginx -t 2>&1
-            echo ""
-            echo "=== reload nginx ==="
-            nginx -s reload 2>&1
-            echo ""
-            echo "=== 验证 ==="
-            curl -sI https://java-px.bot.cd/sitemap.xml.gz 2>&1 | head -8
+            echo "=== sed 后的 sitemap.xml.gz alias ==="
+            grep -A 1 "sitemap.xml.gz" /etc/nginx/sites-enabled/sites-hub.conf
+            echo "---"
+            echo "=== HTTP 验证（带 Host header）==="
+            curl -sI -H 'Host: java-px.bot.cd' https://localhost/sitemap.xml.gz 2>&1 | head -8
