@@ -1,4 +1,4 @@
-name: VPS verify
+name: VPS mime check
 on: workflow_dispatch
 jobs:
   check:
@@ -10,8 +10,8 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            echo "=== sed 后的 sitemap.xml.gz alias ==="
-            grep -A 1 "sitemap.xml.gz" /etc/nginx/sites-enabled/sites-hub.conf
+            echo "=== mime.types 里的 gz 类型 ==="
+            grep -E "\.gz|gzip" /etc/nginx/mime.types /etc/nginx/conf.d/mime-types-extra.conf 2>&1
             echo "---"
-            echo "=== HTTP 验证（带 Host header）==="
-            curl -sI -H 'Host: java-px.bot.cd' https://localhost/sitemap.xml.gz 2>&1 | head -8
+            echo "=== /etc/nginx/nginx.conf mime.types include ==="
+            grep -B 1 -A 2 "mime.types" /etc/nginx/nginx.conf | head -10
