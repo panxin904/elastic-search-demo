@@ -168,6 +168,21 @@ Allow: /
 Sitemap: https://java-px.bot.cd/sitemap.xml
 EOF
 
+# P3：预压缩元数据文件（nginx gzip_static 用）
+# - sitemap.xml / llms.txt / llms-full.txt / feed.xml
+# - -k 保留原文件；-9 最高压缩；-n 跳过文件名/时间戳（gzip_static 不需要 mtime 变化）
+echo "==> Pre-compressing metadata files for nginx gzip_static..."
+for f in sitemap.xml llms.txt llms-full.txt feed.xml; do
+    src="$STAGE_DIR/www/$f"
+    if [[ -f "$src" ]]; then
+        gzip -kf9 -n "$src"
+        # gzip 产物名为 $f.gz；size 输出
+        printf '    %-20s %s -> %s\n' "$f"             "$(du -h "$src" | cut -f1)"             "$(du -h "${src}.gz" | cut -f1)"
+    else
+        echo "    WARN: $f not found, skip"
+    fi
+done
+
 rm -f "$ARCHIVE"
 tar -C "$RELEASE_DIR/sites-hub" -czf "$ARCHIVE" .
 

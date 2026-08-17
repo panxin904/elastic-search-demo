@@ -66,7 +66,8 @@ AUTH_FILE="/etc/nginx/.sites-hub.htpasswd"
 install_dependencies() {
   if command -v apt-get >/dev/null; then
     apt-get update
-    apt-get install -y nginx apache2-utils certbot
+    # P3: 用 nginx-full 替换默认 nginx-core，提供 gzip_static / limit_req / stub_status 等模块
+apt-get install -y nginx-full apache2-utils certbot
   elif command -v dnf >/dev/null; then
     dnf install -y nginx httpd-tools certbot
   elif command -v yum >/dev/null; then

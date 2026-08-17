@@ -66,6 +66,7 @@ jobs:
       - name: Verify nginx config guards
         run: |
           grep -q gzip_types sites-hub/conf/nginx.conf
+          grep -q "gzip_static on" sites-hub/conf/nginx.conf
           grep -q stub_status sites-hub/conf/nginx.conf
           grep -q "limit_req_zone.*zone=auth" sites-hub/conf/nginx.conf
           grep -q "location = /healthz" sites-hub/conf/nginx.conf
