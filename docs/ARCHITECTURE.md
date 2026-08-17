@@ -680,7 +680,7 @@ VPS `authorized_keys` 加 CI 的 public key。
 | 优先级 | 任务 | 原因 |
 |:---:|------|------|
 | ⊘ P2 | 共享组件同步脚本 | **跳过** — `sites-hub/shared-assets/` 不存在；无共享 theme 需要同步；按需新建 |
-| 🔲 P3 | nginx gzip_static 启用 | 服务 .gz 版本（sitemap.xml.gz / llms-full.txt.gz）|
+| ⚠️ P3 | nginx gzip_static 启用 | **partial**：render-nginx-conf.sh 已含 8 个公开元数据 location（commit 待 push）；VPS `/etc/nginx/sites-enabled/sites-hub.conf` 仍只 `sitemap.xml.gz`，缺 `llms.txt.gz / llms-full.txt.gz / feed.xml.gz`（需手动 `nginx -s reload` 或 SSH 跑 sed）。**架构 gap**：deploy-release.sh 不更新 sites-hub.conf，需后续重构让 deploy 自动同步 |
 | 🔲 P3 | GitHub Environment `production` | 加 reviewer approval gate |
 | 🔲 P3 | SSH key 自动 rotate | 当前手动 |
 | ⚠️ P3 | Branch protection rules | **受限**：private free repo GitHub API 返回 403；需转 public 或升 Pro 才能启用（CODEOWNERS 已就位等待启用）|
