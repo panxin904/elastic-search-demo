@@ -1,5 +1,6 @@
-name: VPS list gz
-on: workflow_dispatch
+name: VPS add gz locations
+on:
+  workflow_dispatch:
 jobs:
   c:
     runs-on: ubuntu-22.04
@@ -10,5 +11,19 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
+            # 1. 修正 sitemap.xml.gz 的 default_type 重复
+            sed -i 's|default_type application/gzip; default_type application/gzip;|default_type application/gzip;|g' /etc/nginx/sites-enabled/sites-hub.conf
+            # 2. 在 sitemap.xml.gz 那行后追加缺失的 .gz location
+            sed -i '/location = \/sitemap.xml.gz.*alias.*sitemap.xml.gz/a\
+    location = /llms.txt.gz { auth_basic off; access_log off; alias /var/www/sites-hub/current/www/llms.txt.gz; default_type application/gzip; }\
+    location = /llms-full.txt.gz { auth_basic off; access_log off; alias /var/www/sites-hub/current/www/llms-full.txt.gz; default_type application/gzip; }\
+    location = /feed.xml.gz { auth_basic off; access_log off; alias /var/www/sites-hub/current/www/feed.xml.gz; default_type application/gzip; }' /etc/nginx/sites-enabled/sites-hub.conf
             echo "=== current .gz locations ==="
             grep -n "location = /.*\.gz" /etc/nginx/sites-enabled/sites-hub.conf
+            sudo nginx -t 2>&1 | tail -3
+            sudo nginx -s reload
+            echo "---"
+            for f in sitemap.xml.gz llms.txt.gz llms-full.txt.gz feed.xml.gz; do
+              echo -n "$f: "
+              curl -sI https://java-px.bot.cd/$f 2>&1 | head -1
+            done
