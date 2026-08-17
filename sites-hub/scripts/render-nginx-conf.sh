@@ -37,6 +37,9 @@ http {
 
     # T13：gzip 补全
     gzip  on;
+    gzip_static on;            # 预压缩 .gz 文件（sitemap.xml.gz / llms-full.txt.gz）
+    gzip_proxied any;          # 给 CDN/proxy 返回的响应也压
+    gzip_vary on;              # 加 Vary: Accept-Encoding
     gzip_min_length 1024;
     gzip_types text/plain text/css text/javascript text/xml
                application/javascript application/json application/xml
