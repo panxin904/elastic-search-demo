@@ -81,6 +81,12 @@ apt-get install -y nginx-full apache2-utils certbot
 configure_path() {
   if [[ -d /etc/nginx/sites-available ]]; then
     CONFIG_PATH="/etc/nginx/sites-available/sites-hub.conf"
+    # P18 加固：idempotent symlink 修复（防止历史部署残留独立文件导致 nginx -t 报 duplicate directive）
+    if [[ -e /etc/nginx/sites-enabled/sites-hub.conf ]] && [[ ! -L /etc/nginx/sites-enabled/sites-hub.conf ]]; then
+      echo "WARN: /etc/nginx/sites-enabled/sites-hub.conf 是独立文件（非 symlink），自动替换为 symlink"
+      cp -p /etc/nginx/sites-enabled/sites-hub.conf "$CONFIG_PATH.bak.orphan.$(date +%Y%m%d%H%M%S)" 2>/dev/null || true
+      rm -f /etc/nginx/sites-enabled/sites-hub.conf
+    fi
     ln -sfn "$CONFIG_PATH" /etc/nginx/sites-enabled/sites-hub.conf
     # This VPS is dedicated to the sites hub; otherwise the distribution's
     # default server can answer IP requests instead of this virtual host.
