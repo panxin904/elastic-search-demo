@@ -461,6 +461,15 @@ jobs:
 
 之前串行 build 16min，**提速 5×**。
 
+**本地 build-release.sh 并行化**（commit `6b2cf20`）：
+
+| 场景 | 串行 | 并行 PARALLEL=4 | 备注 |
+|------|-----:|------:|------|
+| MOCK_BUILD=1（reuse dists）| ~10s | **~11s** | 几乎全部时间在 cp + 渲染元数据，build 阶段不是瓶颈 |
+| 实际 build（npm ci + docs:build × 28）| ~14min | **~3-4min** | bash 3.2+ 兼容，默认 PARALLEL=4，可 `PARALLEL=8 bash build-release.sh` 调整 |
+
+CI 端 `build-all` 已用 matrix 28 并行（每个站独立 runner job），不受影响。本地并行化主要服务于手动部署 / CI 故障回退场景。
+
 ### 7.3 触发条件速查
 
 | 触发 | check | build-all | release | deploy |
@@ -479,6 +488,7 @@ jobs:
 3. **`test -d` 检查文件**永远 false（`-d` 查目录，pagefind.js 是文件）→ 用 `-d dir -a -f file` 双验证
 4. **`actions/upload-artifact` glob `*/.vitepress/dist` 失败** → tar 打包
 5. **`actions/download-artifact` `pattern: dist-*`** 批量下载，保留 artifact 名作为子目录
+6. **bash 3.2 没有 `wait -n`**：本地并行化 build 时不能用 `wait -n` 等任意一个完成；改用 `wait PID` 阻塞最早启动的（最早启动的通常最先完成）
 
 ---
 
