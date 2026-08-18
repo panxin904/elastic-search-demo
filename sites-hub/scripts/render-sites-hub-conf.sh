@@ -189,7 +189,13 @@ server {
     location = /llms-full.txt.gz { auth_basic off; access_log off; alias ${WEB_ROOT}/current/www/llms-full.txt.gz; default_type application/gzip; }
     location = /feed.xml         { auth_basic off; access_log off; alias ${WEB_ROOT}/current/www/feed.xml; }
     location = /feed.xml.gz      { auth_basic off; access_log off; alias ${WEB_ROOT}/current/www/feed.xml.gz; default_type application/gzip; }
-    location = /robots.txt       { auth_basic off; access_log off; alias ${WEB_ROOT}/current/www/robots.txt; }
+    # P19: robots.txt 直接由 nginx 返回（不依赖 release 产物，避免 missing file 导致 401）
+    location = /robots.txt {
+        auth_basic off;
+        access_log off;
+        default_type text/plain;
+        return 200 "User-agent: *\nAllow: /\nSitemap: https://${SERVER_NAME}/sitemap.xml\n";
+    }
     location = /manifest.webmanifest { auth_basic off; access_log off; alias ${WEB_ROOT}/current/www/manifest.webmanifest; }
     location = /ld.json          { auth_basic off; access_log off; alias ${WEB_ROOT}/current/www/ld.json; }
 
