@@ -755,6 +755,8 @@ location = /stats.html {
 
 ## 11. 已知 TODO（未来优化）
 
+> CI/CD 完整流程专题见 [`docs/CICD-PIPELINE.md`](./CICD-PIPELINE.md)（652 行，含 0-step failure 排查过程 + 手动 deploy fallback）。
+
 > 完整列表见 [`sites-hub/OPTIMIZATION-CONTENT.md` §8.40](../sites-hub/OPTIMIZATION-CONTENT.md)
 
 | 优先级 | 任务 | 原因 |
