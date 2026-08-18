@@ -490,6 +490,36 @@ CI 端 `build-all` 已用 matrix 28 并行（每个站独立 runner job），不
 5. **`actions/download-artifact` `pattern: dist-*`** 批量下载，保留 artifact 名作为子目录
 6. **bash 3.2 没有 `wait -n`**：本地并行化 build 时不能用 `wait -n` 等任意一个完成；改用 `wait PID` 阻塞最早启动的（最早启动的通常最先完成）
 
+### 7.5 GitHub Actions 0-step Failure 排查（2026-08-18）
+
+**症状**：自 12:15 UTC 后所有 `sites-hub-ci.yml` run 都以 0-step failure 结束（job 创建 2-5 秒后即 `conclusion=failure`，`runner_id=0`，`steps=[]`）。
+
+**根因（已确认）**：GitHub 后端 active incident "Intermittent failures in runner group and runner-related permissions pages"（started 07:40 UTC, impact minor, status monitoring）。GitHub 于 11:24 UTC 发布 mitigation 更新但**实测仍 100% 0-step fail**——包括最小化 `hello world` workflow + ubuntu-22.04/ubuntu-latest/ubuntu-24.04 三种 runner image 全失败。
+
+**与本项目无关的证据**：
+1. 失败 run 只有 4 jobs（check + release + build-all + deploy），build-all 的 matrix 28 个 site 不展开 → 调度器在 runner pool 取不到 worker
+2. workflow 文件 GitHub 端 sha 与本地一致（`761452eb`），yq 解析无错
+3. 手动 `workflow_dispatch`（绕过 webhook）也 4-5 秒内 fail
+4. 12:10 之前的 run 正常 31 jobs 全 success → workflow 文件中途未损坏
+
+**应急措施**：
+- §6.6 manual deploy fallback（`scp tarball + ssh deploy-release.sh`）已就位，可绕过 CI
+- 私仓无并发配额限制（并发 ≤ 5 jobs），单次 deploy ~3min
+- 等 GitHub 完全恢复后，CI 重新可用；不要修改 workflow 内容（无效）
+
+**排查脚本**（用于将来类似事件）：
+```bash
+# 1. 看最新 run + jobs
+gh run list --workflow=sites-hub-ci.yml --limit=3 --json databaseId,createdAt,updatedAt,conclusion
+gh api repos/OWNER/REPO/actions/runs/$ID/jobs | jq '.jobs[] | {name, runner_name, steps: (.steps|length)}'
+
+# 2. 看 GitHub status 是否有 incident
+curl -s https://www.githubstatus.com/api/v2/incidents.json | jq '.incidents[] | select(.name | contains("runner")) | {name, status, incident_updates: [.incident_updates[0].body]}'
+
+# 3. workflow_dispatch 触发一次确认（vs push 排除 webhook 问题）
+gh workflow run sites-hub-ci.yml --ref main
+```
+
 ---
 
 ## 8. VPS 部署
