@@ -62,54 +62,125 @@ if [[ -d "$SCRIPT_DIR/www/fonts" ]]; then
   done
 fi
 
-# 构建循环：完全由 SITES 驱动
+# 并行构建循环（bash 3.2+ 兼容）：PARALLEL 默认 4，可环境变量覆盖
+# 设计：
+#   - 抽 build_one_site() 函数到后台进程跑（每站一个 log file）
+#   - 主循环启动后台 + wait oldest（PARALLEL 满了等最早启动的完成）
+#   - 完成后按 SITES 顺序排序 built_sites（保持 ld.json 输出顺序稳定）
+#   - bash 3.2 没有 'wait -n'，用 wait PID（阻塞指定 PID）
+PARALLEL="${PARALLEL:-4}"
 declare -a built_sites=()
 declare -a failed_sites=()
-for s in "${SITES[@]}"; do
+declare -a running_pids=()
+declare -a running_sites=()
+TMPDIR_BUILD="$(mktemp -d)"
+trap 'rm -rf "$TMPDIR_BUILD"' EXIT
+
+build_one_site() {
+  local s="$1"
+  local log_file="$2"
+  local project project_dir target_dir
   project="$(site_to_project "$s")"
   project_dir="$PROJECT_ROOT/$project"
   target_dir="$STAGE_DIR/$s"
 
-  if [[ ! -d "$project_dir" ]]; then
-    echo "WARN: project dir missing for site '$s' -> $project_dir (skipping)" >&2
-    failed_sites+=("$s")
-    continue
-  fi
-
-  if [[ "$MOCK_BUILD" == "1" ]]; then
-    if [[ ! -d "$project_dir/.vitepress/dist" ]]; then
-      echo "WARN: $s ($project) has no .vitepress/dist, MOCK_BUILD cannot use it (skipping)" >&2
-      failed_sites+=("$s")
-      continue
+  {
+    if [[ ! -d "$project_dir" ]]; then
+      echo "WARN: project dir missing for site '$s' -> $project_dir (skipping)" >&2
+      echo "FAIL:$s"
+      return 0
     fi
-    echo "==> [MOCK] Reusing dist for $s ($project)"
-  else
-    echo "==> Building $s ($project)"
-    if ! (
-      cd "$project_dir"
-      # package-lock.json is committed for every site; npm ci keeps builds reproducible.
-      npm ci
-      npm run docs:build
-    ); then
-      echo "WARN: build failed for $s ($project)" >&2
-      failed_sites+=("$s")
-      continue
+
+    if [[ "$MOCK_BUILD" == "1" ]]; then
+      if [[ ! -d "$project_dir/.vitepress/dist" ]]; then
+        echo "WARN: $s ($project) has no .vitepress/dist, MOCK_BUILD cannot use it (skipping)" >&2
+        echo "FAIL:$s"
+        return 0
+      fi
+      echo "==> [MOCK] Reusing dist for $s ($project)"
+    else
+      echo "==> Building $s ($project)"
+      if ! (
+        cd "$project_dir"
+        # package-lock.json is committed for every site; npm ci keeps builds reproducible.
+        npm ci
+        npm run docs:build
+      ); then
+        echo "WARN: build failed for $s ($project)" >&2
+        echo "FAIL:$s"
+        return 0
+      fi
     fi
+
+    # Postbuild: copy public/ contents to dist/ (VitePress 1.6.4 doesn'"'"'t do this on macOS).
+    # This is a known bug — affects favicon.ico / apple-touch-icon.png etc.
+    if [ -d "$project_dir/.vitepress/public" ]; then
+      cp -R "$project_dir/.vitepress/public/." "$project_dir/.vitepress/dist/" 2>/dev/null || true
+    fi
+
+    # 清理 macOS tar 残留的 ._* 元数据文件
+    find "$project_dir/.vitepress/dist" -name '"'"'._*'"'"' -delete 2>/dev/null || true
+
+    mkdir -p "$target_dir"
+    cp -R "$project_dir/.vitepress/dist/." "$target_dir/"
+    echo "OK:$s"
+  } > "$log_file" 2>&1
+}
+
+# 主调度循环
+echo "==> Parallel build (PARALLEL=$PARALLEL, sites=${#SITES[@]})..."
+for s in "${SITES[@]}"; do
+  log_file="$TMPDIR_BUILD/$s.log"
+  build_one_site "$s" "$log_file" &
+  pid=$!
+  running_pids+=("$pid")
+  running_sites+=("$s")
+
+  if [[ ${#running_pids[@]} -ge $PARALLEL ]]; then
+    # 阻塞等最早启动的完成（最早启动的 PID 通常最先完成）
+    wait "${running_pids[0]}"
+    finished_site="${running_sites[0]}"
+    finished_log="$TMPDIR_BUILD/$finished_site.log"
+
+    if grep -q "^OK:" "$finished_log" 2>/dev/null; then
+      built_sites+=("$finished_site")
+      printf "    [OK] %s\n" "$finished_site"
+    else
+      failed_sites+=("$finished_site")
+      printf "    [FAIL] %s (log: %s)\n" "$finished_site" "$finished_log"
+    fi
+
+    # 从队列移除最早启动的（保持顺序）
+    running_pids=("${running_pids[@]:1}")
+    running_sites=("${running_sites[@]:1}")
   fi
-
-  # Postbuild: copy public/ contents to dist/ (VitePress 1.6.4 doesn't do this on macOS).
-  # This is a known bug — affects favicon.ico / apple-touch-icon.png etc.
-  if [ -d "$project_dir/.vitepress/public" ]; then
-    cp -R "$project_dir/.vitepress/public/." "$project_dir/.vitepress/dist/" 2>/dev/null || true
-  fi
-
-  # 清理 macOS tar 残留的 ._* 元数据文件
-  find "$project_dir/.vitepress/dist" -name '._*' -delete 2>/dev/null || true
-
-  mkdir -p "$target_dir"
-  cp -R "$project_dir/.vitepress/dist/." "$target_dir/"
-  built_sites+=("$s")
 done
+
+# 等待剩余的
+for i in "${!running_pids[@]}"; do
+  wait "${running_pids[$i]}"
+  finished_site="${running_sites[$i]}"
+  finished_log="$TMPDIR_BUILD/$finished_site.log"
+
+  if grep -q "^OK:" "$finished_log" 2>/dev/null; then
+    built_sites+=("$finished_site")
+    printf "    [OK] %s\n" "$finished_site"
+  else
+    failed_sites+=("$finished_site")
+    printf "    [FAIL] %s (log: %s)\n" "$finished_site" "$finished_log"
+  fi
+done
+
+# 按 SITES 顺序排序 built_sites（保持 ld.json / sitemap 输出顺序稳定）
+declare -a _ordered=()
+for s in "${SITES[@]}"; do
+  for b in "${built_sites[@]}"; do
+    [[ "$s" == "$b" ]] && { _ordered+=("$s"); break; }
+  done
+done
+built_sites=("${_ordered[@]}")
+
+echo "==> Build phase done: ${#built_sites[@]} built, ${#failed_sites[@]} failed"
 
 # 同步 deploy 脚本
 cp "$SCRIPT_DIR/deploy-vps.sh" "$STAGE_DIR/deploy-vps.sh"
