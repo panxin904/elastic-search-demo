@@ -578,6 +578,36 @@ bash scripts/setup-goaccess.sh   # 访问统计
 
 VPS `authorized_keys` 加 CI 的 public key。
 
+### 8.x GoAccess 流量监控（**轻量、零依赖**）
+
+[VPS 端部署后立即可用] `https://java-px.bot.cd/stats.html`
+
+| 组件 | 路径 | 说明 |
+|------|------|------|
+| **二进制** | `/usr/bin/goaccess` | apt 包，单文件 ~5MB |
+| **访问日志** | `/var/log/nginx/access.log` | COMBINED 格式（nginx 默认） |
+| **持久化 DB** | `/var/lib/goaccess/` | 增量模式必须 |
+| **输出** | `/var/www/sites-hub/www/stats.html` | nginx 直接 alias 公开 |
+| **Generator** | `/usr/local/bin/goaccess-generate-stats.sh` | `--persist --keep-last=30` 增量模式 |
+| **Cron** | `/etc/cron.d/goaccess-stats` | 每日 0:00 触发 |
+| **日志** | `/var/log/goaccess-generate.log` | 每次跑 append 时间戳 |
+
+**安装**：`sites-hub/scripts/setup-goaccess.sh` 由 `deploy-vps.sh` 自动调用（首次部署），幂等可重跑。
+
+**公开访问**：在 `render-sites-hub-conf.sh` 里硬编码（不依赖 SITES 数组）：
+```nginx
+location = /stats.html {
+    auth_basic off;
+    access_log off;
+    add_header Cache-Control "no-cache, must-revalidate";
+    alias /var/www/sites-hub/www/stats.html;
+}
+```
+
+**为什么选 GoAccess 而不是 Plausible SaaS**：零账号、零外部请求、VPS 自托管零成本。代价是只看 nginx access log（无 JS 埋点、无法区分 SPA 路由）。
+
+**资源占用**：单次跑 ~30s，CPU spike ~5%，RAM ~30MB，stats.html ~300KB，DB ~5MB（30 天）。对比 Plausible Docker 自托管需 ~500MB+ RAM。
+
 ---
 
 ## 9. 关键脚本清单
@@ -680,7 +710,7 @@ VPS `authorized_keys` 加 CI 的 public key。
 | 优先级 | 任务 | 原因 |
 |:---:|------|------|
 | ⊘ P2 | 共享组件同步脚本 | **跳过** — `sites-hub/shared-assets/` 不存在；无共享 theme 需要同步；按需新建 |
-| ⚠️ P3 | nginx gzip_static 启用 | **partial**：render-nginx-conf.sh 已含 8 个公开元数据 location（commit 待 push）；VPS `/etc/nginx/sites-enabled/sites-hub.conf` 仍只 `sitemap.xml.gz`，缺 `llms.txt.gz / llms-full.txt.gz / feed.xml.gz`（需手动 `nginx -s reload` 或 SSH 跑 sed）。**架构 gap**：deploy-release.sh 不更新 sites-hub.conf，需后续重构让 deploy 自动同步 |
+| ✅ P3 | nginx gzip_static + 架构 gap | render-nginx-conf.sh 加 8 个公开元数据 location（commit `192cc58`）；新 `scripts/render-sites-hub-conf.sh` 抽离 deploy-vps.sh 的 HTTPS 写配置函数（含 stats.html / robots.txt / manifest.webmanifest / ld.json 共 11 个 P3 location），deploy-vps.sh + deploy-release.sh 共用，**每次 deploy 自动重写 sites-hub.conf + reload，消除手动修复 nginx 复现路径** |
 | 🔲 P3 | GitHub Environment `production` | 加 reviewer approval gate |
 | 🔲 P3 | SSH key 自动 rotate | 当前手动 |
 | ⚠️ P3 | Branch protection rules | **受限**：private free repo GitHub API 返回 403；需转 public 或升 Pro 才能启用（CODEOWNERS 已就位等待启用）|

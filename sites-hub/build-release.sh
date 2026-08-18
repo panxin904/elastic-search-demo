@@ -119,7 +119,8 @@ chmod +x "$STAGE_DIR/deploy-vps.sh"
 # (deploy-vps.sh on VPS does `source $SCRIPT_DIR/scripts/sites.sh`;
 #  setup-fail2ban.sh on VPS copies filter + jail into /etc/fail2ban/)
 mkdir -p "$STAGE_DIR/scripts"
-for f in sites.sh check-sites.sh render-nginx-conf.sh          setup-fail2ban.sh fail2ban-nginx-auth.conf fail2ban-nginx-auth-filter.conf          setup-goaccess.sh          inject-stats.py          deploy-release.sh; do
+# P18: render-sites-hub-conf.sh 加入 stage 同步列表（deploy-vps.sh + deploy-release.sh 共同依赖）
+for f in sites.sh check-sites.sh render-nginx-conf.sh render-sites-hub-conf.sh          setup-fail2ban.sh fail2ban-nginx-auth.conf fail2ban-nginx-auth-filter.conf          setup-goaccess.sh          inject-stats.py          deploy-release.sh; do
   if [[ -f "$SCRIPT_DIR/scripts/$f" ]]; then
     cp "$SCRIPT_DIR/scripts/$f" "$STAGE_DIR/scripts/$f"
     chmod +x "$STAGE_DIR/scripts/$f"

@@ -103,6 +103,31 @@ echo "==> Atomic symlink switch: $CURRENT_LINK → $RELEASE_DIR"
 ln -sfn "$RELEASE_DIR" "$CURRENT_LINK.new"
 mv -Tf "$CURRENT_LINK.new" "$CURRENT_LINK"
 
+echo "==> Re-rendering /etc/nginx/sites-enabled/sites-hub.conf (idempotent)..."
+# 渲染 VPS nginx 配置（含 P3 公开元数据 + stats.html + GoAccess），消除手动 SSH 修 nginx 复现路径
+SITES_HUB_CONF_PATH="$SCRIPT_DIR/scripts/render-sites-hub-conf.sh"
+if [[ ! -f "$SITES_HUB_CONF_PATH" ]]; then
+  echo "WARN: render-sites-hub-conf.sh not found at $SITES_HUB_CONF_PATH; skipping re-render" >&2
+else
+  (
+    # 子 shell：临时设置 env vars（不污染当前 shell）
+    export SERVER_NAME
+    SERVER_NAME="$(grep -m1 server_name "$RELEASE_DIR/conf/nginx.conf" 2>/dev/null | awk '{print $2}' | tr -d ';')"
+    export WEB_ROOT="$WEB_ROOT"
+    export CURRENT_LINK="$CURRENT_LINK"
+    export ACME_ROOT="$ACME_ROOT"
+    export AUTH_FILE="$AUTH_FILE"
+    if [[ -d /etc/nginx/sites-available ]]; then
+      export CONFIG_PATH="/etc/nginx/sites-available/sites-hub.conf"
+    else
+      export CONFIG_PATH="/etc/nginx/conf.d/sites-hub.conf"
+    fi
+    export MODE=https
+    bash "$SITES_HUB_CONF_PATH"
+  )
+  echo "    Rendered: $CONFIG_PATH"
+fi
+
 echo "==> Reloading nginx..."
 if ! nginx -s reload 2>&1; then
   echo "ERROR: nginx reload failed (release is now active but nginx uses old workers)" >&2
