@@ -32,17 +32,17 @@
 | 编号 | 任务 | 优先级 | 工作量 | 依赖 | 状态 |
 |------|------|--------|--------|------|------|
 | C1 | 子站结构统一化（VitePress 模板 + nav/sidebar/homepage 模板） | **P0** | 3-5d | — | todo |
-| C2 | 跨站内容关联（X-Linking + 相关站点推荐） | P0 | 2-3d | C1 | todo |
-| C3 | 内容质量审计（拼写/过期/薄页/死链/重复） | **P0** | 1d + 持续 | — | todo |
-| C4 | 全文搜索升级（Pagefind + 跨站聚合） | P1 | 1-2d | C1 | todo |
-| C5 | RSS feed + 聚合订阅 | P1 | 0.5d | C1 | todo |
-| C6 | 评论/反馈（Giscus + Issue 模板） | P1 | 0.5d | — | todo |
-| C7 | 阅读体验（行距/代码块/暗色对比度/中英间距） | P1 | 1d | — | todo |
-| C8 | 多语言支持（中英术语表 + 首页切换） | P2 | 2-3d | C1 | todo |
-| C9 | 数据驱动（Plausible + 首页实时数 + git log 自动生成 Updates） | P2 | 1-2d | — | todo |
-| C10 | 内容运营流程（CONTRIBUTING.md + PR 模板 + 月度 review） | P2 | 1d | — | todo |
-| C11 | 图片/图表优化（PNG→WebP + Mermaid SSR + lazy load） | P2 | 1-2d | C1 | todo |
-| C12 | sitemap 完整化 + llms.txt（AI 索引友好） | P2 | 0.5d | C1 | todo |
+| C2 | 跨站内容关联（X-Linking + 相关站点推荐） | P0 | 2-3d | C1 | wip（§8.16-§8.18 :related-sites 完成；X-Linking 文本链接待续）|
+| C3 | 内容质量审计（拼写/过期/薄页/死链/重复） | **P0** | 1d + 持续 | — | wip（§8.19-§8.21 工具就位 + 部分修完；持续跑待续）|
+| C4 | 全文搜索升级（Pagefind + 跨站聚合） | P1 | 1-2d | C1 | ✅ done（§8.28 Pagefind 全文搜索）|
+| C5 | RSS feed + 聚合订阅 | P1 | 0.5d | C1 | ✅ done（§8.27 RSS 2.0 feed.xml × 28 + 聚合）|
+| C6 | 评论/反馈（Giscus + Issue 模板） | P1 | 0.5d | — | ✅ done（§8.25 Giscus + Issue 模板 + CONTRIBUTING）|
+| C7 | 阅读体验（行距/代码块/暗色对比度/中英间距） | P1 | 1d | — | ✅ done（§8.22-§8.24 行距/暗色/27 站规模化迁移）|
+| C8 | 多语言支持（中英术语表 + 首页切换） | P2 | 2-3d | C1 | ✅ done（§8.30 glossary EN 列；首页 EN 切换未做）|
+| C9 | 数据驱动（Plausible + 首页实时数 + git log 自动生成 Updates） | P2 | 1-2d | — | ✅ done（§8.31 Plausible + Updates + §8.32 build-release 集成）|
+| C10 | 内容运营流程（CONTRIBUTING.md + PR 模板 + 月度 review） | P2 | 1d | — | ✅ done（§8.25 CONTRIBUTING + §8.36 PR review checklist）|
+| C11 | 图片/图表优化（PNG→WebP + Mermaid SSR + lazy load） | P2 | 1-2d | C1 | 🟡 partial（PNG→WebP + lazy load 部分完成；§8.33-§8.39 Mermaid 集成为 CSR，SSR 推迟）|
+| C12 | sitemap 完整化 + llms.txt（AI 索引友好） | P2 | 0.5d | C1 | ✅ done（§8.26 sitemap + llms.txt）|
 
 > 状态图例：todo 待开始 / wip 进行中 / done 完成
 

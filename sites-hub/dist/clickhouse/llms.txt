@@ -2,7 +2,7 @@
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
 > 36 个文档页 · 196,356 字
-> 生成时间：2026-08-16T17:50:25
+> 生成时间：2026-08-18T19:27:30
 
 ## [客户端连接](https://java-px.bot.cd/clickhouse/01-basics/client)
 > clickhouse-client / HTTP / JDBC / Go / Python / Node.js 客户端完整对比

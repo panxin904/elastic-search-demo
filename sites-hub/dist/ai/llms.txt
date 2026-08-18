@@ -2,7 +2,7 @@
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
 > 57 个文档页 · 212,169 字
-> 生成时间：2026-08-16T17:50:25
+> 生成时间：2026-08-18T19:27:30
 
 ## [Claude 模型家族](https://java-px.bot.cd/ai/01-models/claude)
 > > Anthropic 公司出品的闭源大模型，以 **Constitutional AI**（宪法 AI）和 **长上下文**（200K）著称。 | 模型 | 上下文 | 定位 | 何时用 | |------|--------|------|--------| | **Claude Opus 4.5** | 200K | 最强推理 | 复杂代码 / 研究 / 多步分析 | | **Claude S

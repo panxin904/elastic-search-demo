@@ -2,7 +2,7 @@
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
 > 52 个文档页 · 244,121 字
-> 生成时间：2026-08-16T17:50:25
+> 生成时间：2026-08-18T19:27:30
 
 ## [CAP 定理](https://java-px.bot.cd/system-design/01-theory/cap)
 > > Eric Brewer 2000 年提出，2002 年 Gilbert & Lynch 给出形式化证明。 > **在异步网络模型下，一个分布式系统不可能同时满足以下三项中的超过两项**： > - **C**onsistency（一致性）：所有节点看到同一份数据 > - **A**vailability（可用性）：每个请求都能收到非错误响应 > - **P**artition tolerance
