@@ -608,6 +608,16 @@ location = /stats.html {
 
 **资源占用**：单次跑 ~30s，CPU spike ~5%，RAM ~30MB，stats.html ~300KB，DB ~5MB（30 天）。对比 Plausible Docker 自托管需 ~500MB+ RAM。
 
+### 8.y HTTPS 部署专题
+
+完整 HTTPS 配置（证书 / nginx 渲染 / 部署同步 / 故障排查）见 [HTTPS-DEPLOY.md](./HTTPS-DEPLOY.md)。
+
+**关键点速览**：
+- 证书：certbot webroot + HTTP-only 临时 conf 两阶段
+- 配置生成：`render-sites-hub-conf.sh`（deploy-vps.sh + deploy-release.sh 共用，**消除手动 SSH 修 nginx**）
+- 部署同步：每次 deploy 末尾 idempotent 重写 `/etc/nginx/sites-available/sites-hub.conf`
+- P3 公开元数据：11 个 `auth_basic off` location（sitemap / llms / feed / robots / manifest / ld.json / stats.html）
+
 ---
 
 ## 9. 关键脚本清单
