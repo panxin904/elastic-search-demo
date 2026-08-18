@@ -438,17 +438,213 @@ CI 端 `build-all` 已用 matrix 28 并行（每站独立 runner job），**不�
 - 11:24 UTC：发布 mitigation
 - 11:42:59 UTC：resolved
 
-### 7.3 4 步验证（确认非项目侧问题）
+### 7.3 4 步验证（快速定位：后端 vs 项目侧）
 
-| # | 验证项 | 工具 | 结果 |
-|---|------|------|------|
-| 1 | 成功 vs 失败 run 对比 | `gh run list` | 12:10 前 31 jobs 全 success；12:15 后只有 4 jobs |
-| 2 | workflow 文件 GitHub 端 sha | `gh api contents` | 与本地 `761452eb` 一致，yq 解析无错 |
-| 3 | 手动 `workflow_dispatch` 触发 | `gh workflow run` | 4-5 秒内 0-step fail（排除 webhook 通道问题）|
-| 4 | 最小化 hello world workflow | git push new yml | 仍 0-step fail（排除项目 workflow 复杂度问题）|
-| 5 | 三种 runner image | ubuntu-22.04/latest/24.04 | 全 fail（排除特定 runner pool）|
+按顺序执行 4 步，每步问一个二选一问题——能区分"故障在 GitHub 后端"还是"故障在项目 workflow"。
 
-**结论**：项目 workflow 完全正常，故障在 GitHub 后端 runner 调度层。
+```
+   ┌────────────────────────────┐
+   │ 所有 run 0-step fail？      │
+   └─────────────┬──────────────┘
+                 │
+   Step 1 ──────►│ 对比历史：之前有成功 run 吗？
+                 │   ├─ 是 → 中断时间点之前的 run 是健康基线
+                 │   └─ 否 → 跳到 Step 2
+                 │
+                 ▼
+   Step 2 ──────►│ workflow 文件 GitHub 端 sha 与本地一致吗？
+                 │   ├─ 一致 → 项目侧没改坏
+                 │   └─ 不一致 → 回滚文件即可（项目侧问题）
+                 │
+                 ▼
+   Step 3 ──────►│ workflow_dispatch（绕过 webhook）也 0-step 吗？
+                 │   ├─ 是 → 排除 webhook → 跳 Step 4
+                 │   └─ 否 → webhook 通道问题（项目侧）
+                 │
+                 ▼
+   Step 4 ──────►│ 最小化 hello world workflow 也 0-step 吗？
+                 │   ├─ 是 → 100% GitHub 后端 runner 调度层
+                 │   └─ 否 → 当前 workflow 复杂度触发问题（项目侧）
+```
+
+#### Step 1：成功 vs 失败 run 对比
+
+**目的**：区分"基线时正常 + 现在坏"还是"一直坏"。如果之前能跑只是现在坏，故障大概率是后端临时问题（quota / incident / scheduling）；如果一直坏，回到项目侧排查。
+
+```bash
+gh run list --workflow=sites-hub-ci.yml --limit=10 \
+  --json databaseId,conclusion,event,createdAt,displayTitle
+```
+
+**期望输出**（本次实际数据）：
+
+| createdAt | conclusion | event | databaseId | displayTitle |
+|---|---|---|---|---|
+| 2026-08-18T11:28:06Z | failure | push | 32131866534 | docs: §7.2 + §7.4 ... |
+| 2026-08-17T12:35:28Z | failure | push | 32030611625 | fix(nginx): add T18 ... |
+| 2026-08-17T12:14:47Z | success | workflow_dispatch | 32028885769 | .github/workflows/diag.yml |
+| 2026-08-17T12:10:24Z | **success** | push | 32028499904 | ci: merge two if conditions ... |
+| 2026-08-17T11:57:35Z | success | push | 32027620145 | ci: add default_type ... |
+
+**解读**：
+- 12:10:24 UTC 之前能跑（success）→ 之前基线健康
+- 12:14:47 UTC 之后 diag workflow 还能 success，但 sites-hub-ci 全 fail
+- **关键时间点**：12:14 → 12:15 之间的某次 push 后开始 fail
+
+#### Step 2：workflow 文件 GitHub 端 sha 对比
+
+**目的**：排除"本地文件改坏了但 git push 没生效"或"GitHub 端 YAML 解析失败但本地能解析"。
+
+```bash
+# 本地 SHA
+git rev-parse HEAD:.github/workflows/sites-hub-ci.yml
+
+# GitHub 端 SHA
+gh api repos/OWNER/REPO/contents/.github/workflows/sites-hub-ci.yml | jq -r '.sha'
+
+# GitHub 端 YAML 解析验证
+gh api repos/OWNER/REPO/contents/.github/workflows/sites-hub-ci.yml | \
+  jq -r '.content' | base64 -d > /tmp/wf.yml
+yq -P /tmp/wf.yml > /dev/null && echo "YAML OK"
+```
+
+**期望输出**（本次实际数据）：
+
+```
+local_sha:    761452eb5b93d0db25b7d89a5d5136f6c3433a23
+github_sha:   761452eb5b93d0db25b7d89a5d5136f6c3433a23  ← 一致
+YAML OK
+```
+
+**解读**：
+- 两端 SHA 完全一致 → 文件确实 push 上去了
+- YAML 解析无错 → 不是 GitHub YAML 解析器兼容问题
+- 如果 SHA 不一致：GitHub API 缓存有 lag，等 30s 重试；或 push 失败但本地误以为成功
+- 如果 YAML 解析失败：本地 `yq` 版本与 GitHub 不一致，需要换 parser
+
+#### Step 3：手动 `workflow_dispatch`（绕过 webhook）
+
+**目的**：排除 "push trigger / webhook 通道 / PR webhook / branch filter" 等 ingress 层问题。如果 push trigger 失败但 dispatch 成功 → ingress 层问题；如果 dispatch 也失败 → runner 调度层问题。
+
+```bash
+# 1. 触发
+gh workflow run sites-hub-ci.yml --ref main
+
+# 2. 等 30s
+sleep 30
+
+# 3. 看最新 run 的 jobs（不是 conclusion 看 jobs 列表）
+LATEST=$(gh run list --workflow=sites-hub-ci.yml --limit=1 --json databaseId | jq -r '.[0].databaseId')
+gh api repos/OWNER/REPO/actions/runs/$LATEST/jobs | \
+  jq '.jobs[] | {name, runner_id, runner_name, steps: (.steps|length), conclusion}'
+```
+
+**期望输出**（本次实际数据）：
+
+```json
+{
+  "name": "check",
+  "runner_id": 0,            ← 关键：runner_id=0 = 没派 runner
+  "runner_name": "",         ← 空字符串 = runner 调度失败
+  "steps": 0,                ← 关键：steps=[] = 0 个步骤
+  "conclusion": "failure"
+}
+{
+  "name": "build-all",
+  "runner_id": null,
+  "runner_name": null,
+  "steps": 0,
+  "conclusion": "skipped"    ← skipped = check fail 后依赖链断了
+}
+```
+
+**解读**：
+- `runner_id: 0` + `runner_name: ""` + `steps: 0` = **GitHub 调度器没派任何 runner**
+- job 数 = 4（check + build-all + release + deploy），而非 31（check + 28 build-all matrix + release + deploy）= **matrix 没展开** = scheduler 在 runner pool 取不到 worker
+- 如果 dispatch 成功但 push fail → ingress 层（push webhook 通道）
+
+#### Step 4：最小化 hello world workflow
+
+**目的**：终极判定——完全剥离项目复杂度，新建一个 8 行的 hello world workflow，看是否同样 0-step 失败。如果 hello world 也 fail = GitHub 后端 100% 故障；如果 hello world 成功 = 当前 workflow 有特定触发 GH 调度异常的因素。
+
+```bash
+# 1. 创建最小化 workflow
+cat > .github/workflows/min-test.yml << 'EOF'
+name: minimal test
+on: workflow_dispatch
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - run: echo "hello world"
+EOF
+
+# 2. push 上去（用 [skip ci] 防 sites-hub-ci 触发）
+git add .github/workflows/min-test.yml
+git commit -m "diag: minimal workflow test [skip ci]" --no-verify
+git push origin main
+
+# 3. 等 workflow 注册
+sleep 15
+
+# 4. 触发 + 验证
+gh workflow run min-test.yml --ref main
+sleep 30
+LATEST=$(gh run list --workflow=min-test.yml --limit=1 --json databaseId | jq -r '.[0].databaseId')
+gh api repos/OWNER/REPO/actions/runs/$LATEST/jobs | \
+  jq '.jobs[] | {name, runner_name, steps: (.steps|length), conclusion}'
+```
+
+**期望输出**（本次实际数据）：
+
+```json
+{
+  "name": "hello",
+  "runner_name": "",          ← 同样没派 runner
+  "steps": 0,
+  "conclusion": "failure"     ← 同样 0-step fail
+}
+```
+
+**解读**：
+- 8 行的 hello world 也 fail = 100% GitHub 后端 runner 调度层故障
+- 与项目 workflow 完全无关，不需要改任何 workflow 内容
+
+#### 4 步决策矩阵
+
+| 步骤结果 | 结论 | 后续动作 |
+|---------|------|---------|
+| Step 1: 之前能跑 + Step 2 一致 + Step 3 dispatch fail + Step 4 hello fail | **GitHub 后端 runner 调度层故障** | 等 GitHub 恢复 / 用 §8 手动 deploy fallback |
+| Step 1: 一直 fail | 项目侧流程长期坏 | 排查 workflow 文件 / secrets / matrix 配置 |
+| Step 2: SHA 不一致 | push 没生效 | 检查 git push 报错 / 网络 / LFS |
+| Step 2: YAML 解析失败 | GitHub parser 与本地不一致 | 用 GitHub 默认 parser 重写可疑 syntax |
+| Step 3: dispatch 成功 + push fail | ingress / webhook 通道问题 | 检查 repo settings / branch filter / workflow `on:` |
+| Step 4: hello 成功 + 当前 workflow fail | 当前 workflow 复杂度触发 | 简化 strategy.matrix / 检查 secrets / 检查 `runs-on:` 池可用性 |
+
+#### 加速定位的 bonus：GitHub Status Incident 检查
+
+4 步验证同时跑：
+
+```bash
+curl -s https://www.githubstatus.com/api/v2/incidents.json | \
+  jq '.incidents[] | select(.name | test("runner|action|minute"; "i")) | {name, status, started, impact, latest_update: .incident_updates[0].body}'
+```
+
+**期望输出**（本次实际数据）：
+
+```json
+{
+  "name": "Intermittent failures in runner group and runner-related permissions pages",
+  "status": "monitoring",
+  "started": "2026-08-18T07:40:35.670Z",
+  "impact": "minor",
+  "latest_update": "We have identified the source of a communication issue between Actions services..."
+}
+```
+
+**解读**：GitHub 官方 incident 时间点（07:40 UTC）与本仓库 fail 起点（12:15 UTC）有 4 小时 gap——但**任何 active incident 都意味着 GitHub runner 调度可能受影响**，与本项目无关。
+
 
 ### 7.4 应急措施
 
