@@ -27,9 +27,11 @@ PROJECT_ROOT = SCRIPT_DIR.parent.parent.parent
 # 从 sites.sh 提取 SITES 顺序
 SITES_SH = PROJECT_ROOT / "sites-hub" / "scripts" / "sites.sh"
 SITES_ORDER = []
+PROJECT_DIR_MAP = {}  # site_id -> site_dir（特殊映射：cloud:springcloud-html;java:java-web-manual）
 if SITES_SH.exists():
+    sh_text = SITES_SH.read_text(encoding="utf-8")
     in_sites = False
-    for line in SITES_SH.read_text(encoding="utf-8").splitlines():
+    for line in sh_text.splitlines():
         if line.strip().startswith("SITES=("):
             in_sites = True
             continue
@@ -39,6 +41,24 @@ if SITES_SH.exists():
             for w in line.split():
                 if w and not w.startswith("#"):
                     SITES_ORDER.append(w)
+    # 解析 PROJECT_DIR_MAP="cloud:springcloud-html;java:java-web-manual"
+    m = re.search(r'PROJECT_DIR_MAP=["\']([^"\']+)["\']', sh_text)
+    if m:
+        for pair in m.group(1).split(";"):
+            pair = pair.strip()
+            if not pair or ":" not in pair:
+                continue
+            k, v = pair.split(":", 1)
+            PROJECT_DIR_MAP[k.strip()] = v.strip()
+
+# 默认 site_id -> site_dir 映射（特殊项被 PROJECT_DIR_MAP 覆盖）
+_DEFAULT_DIR = {sid: f"{sid}-html" for sid in SITES_ORDER}
+_DEFAULT_DIR.update(PROJECT_DIR_MAP)
+
+
+def site_to_dir(site_id: str) -> str:
+    """site_id -> site_dir（处理 cloud -> springcloud-html 映射）"""
+    return _DEFAULT_DIR.get(site_id, f"{site_id}-html")
 
 # 中文站名映射（dropdown 显示用）
 SITE_NAMES = {
@@ -86,9 +106,13 @@ def render_one(site_dir: str, site_id: str = "") -> Path:
         print(f"ERROR: {site_dir_path}/.vitepress/config.mts not found", file=sys.stderr)
         sys.exit(1)
     if not site_id:
-        site_id = site_dir.replace("-html", "")
-    if site_id == "java-html" or site_dir == "java-web-manual":
-        site_id = "java"
+        # 从 site_dir 推导 site_id（处理 springcloud-html → cloud 映射）
+        for k, v in PROJECT_DIR_MAP.items():
+            if v == site_dir:
+                site_id = k
+                break
+        if not site_id:
+            site_id = site_dir.replace("-html", "")
 
     src = (site_dir_path / ".vitepress" / "config.mts").read_text(encoding="utf-8")
 
@@ -97,9 +121,10 @@ def render_one(site_dir: str, site_id: str = "") -> Path:
     title = extract(src, r"siteTitle:\s*['\"]([^'\"]+)['\"]") or extract(src, r"title:\s*['\"]([^'\"]+)['\"]", site_id)
     desc = extract(src, r"description:\s*['\"]([^'\"]+)['\"]", "")
     accent = extract(src, r"theme-color.*content:\s*['\"]?(#[a-fA-F0-9]+)", "#8b5cf6")
-    # footer.message 可能含 } (HTML 标签)，用更稳健的字符串扫描
+    # footer.message 可能含 } (HTML 标签) 或 \\' （转义引号）
+    # 用 (?:\\.|(?!\1).)*? 跳过转义字符 + 非 \1 引号
     footer_message = ""
-    fm = re.search(r"footer:\s*\{[^}]*?message:\s*(['\"])(.+?)\1", src, re.S)
+    fm = re.search(r"footer:\s*\{[^}]*?message:\s*(['\"])((?:\\.|(?!\1).)*?)\1", src, re.S)
     if fm:
         footer_message = fm.group(2).strip()
     if not footer_message:
@@ -153,11 +178,7 @@ def main():
 
     if args.all:
         for site_id in SITES_ORDER:
-            # 处理 java-html / java-web-manual 映射
-            if site_id == "java":
-                site_dir = "java-web-manual"
-            else:
-                site_dir = f"{site_id}-html"
+            site_dir = site_to_dir(site_id)
             if not (PROJECT_ROOT / site_dir / ".vitepress" / "config.mts").exists():
                 print(f"SKIP: {site_dir} no config.mts", file=sys.stderr)
                 continue

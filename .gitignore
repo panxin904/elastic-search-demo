@@ -68,3 +68,4 @@ hc-test.conf
 # C1 迁移临时备份（render-config.py 生成的原版备份）
 # ========================================
 **/.vitepress/config.mts.bak.original
+**/.vitepress/config.mts.rendered
