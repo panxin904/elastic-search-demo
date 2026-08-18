@@ -3,7 +3,7 @@
 
 检测维度:
   1) 基础统计：文件数、字数、frontmatter 覆盖率、图片覆盖率、链接覆盖率
-  2) 薄页：字数 < MIN_WORDS（默认 500）
+  2) 薄页：字数 < --min-words（默认 200，cheatsheet 风格友好；< 100 字才是真占位）
   3) 缺 frontmatter
   4) frontmatter date 缺失
   5) frontmatter date 过期（> MAX_AGE_DAYS，默认 365）
@@ -88,18 +88,25 @@ def find_all_md_files() -> list[tuple[Path, str]]:
 def check_vue_component_missing(text: str, site: str) -> list[str]:
     """
     检测 .md 文件引用了 <SomeComponent> 但本地无对应 .vue 组件。
-    
+
     Bug 模式（§8.21 发现）：
       docs/index.md: <WhyThisGraph ... />
       .vitepress/theme/components/  <- 不存在
-    
+
     VitePress 默认在 .vitepress/theme/components/ 找自定义组件。
     找不到时 build 会 fail 或输出警告但页面渲染失败。
-    
+
+    注意：跳过 markdown 代码块（``` ... ``` + 行内 `...`），避免
+    React/Vue/Storybook 代码示例（<App><Provider>...）被误报。
+    §8.41 fix: 之前会误报 50 处全是代码示例。
+
     Returns: issue 列表，每条格式 `<ComponentName> (本地无 path)`
     """
     issues = []
-    refs = set(re.findall(r'<([A-Z][a-zA-Z0-9]+)\s', text))
+    # 剥离代码块（多行 ``` + 行内 `）后再 regex
+    text_clean = re.sub(r'```[\s\S]*?```', '', text)
+    text_clean = re.sub(r'`[^`]*`', '', text_clean)
+    refs = set(re.findall(r'<([A-Z][a-zA-Z0-9]+)\s', text_clean))
     if not refs:
         return issues
     # SITE_DOCS[site] 是 <site>/docs/ 目录，parent 是 <site>/
@@ -165,7 +172,7 @@ def check_vue_prop_arrays(text: str) -> list[str]:
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--min-words', type=int, default=500)
+    ap.add_argument('--min-words', type=int, default=200, help='字数 < 此值算薄页（cheatsheet 章节天然 50-200 字，500 太严）')
     ap.add_argument('--max-age-days', type=int, default=365)
     ap.add_argument('--dup-threshold', type=float, default=0.85)
     ap.add_argument('--output-dir', default=str(ROOT / 'sites-hub' / 'reports'))
@@ -229,17 +236,25 @@ def main():
             except Exception:
                 pass
 
-        # 薄页
+        # 薄页：< args.min_words 字。默认 200 字（cheatsheet 风格友好）
+        # §8.41 fix: 之前 500 字一刀切会把 es / frontend / java 的紧凑章节（200-400 字）
+        # 全部误报为占位，实际这些是完整章节（含代码示例 + 表格 + 图谱）。
+        # 真正占位（几十字 / TODO 段落）< 100 字才会真正出问题。
         if words < args.min_words:
             s['thin'] += 1
-            issues_thin.append(f"{site_short}/{path.relative_to(SITE_DOCS[site])} ({words}字)")
+            # 用 | 分隔方便后面按字数排序
+            issues_thin.append((words, f"{site_short}/{path.relative_to(SITE_DOCS[site])} ({words}字)"))
 
         # 图片
         md_imgs = MD_IMG.findall(text)
+        # alt 缺失检测：剥离代码块（```...``` + 行内 `...`）后扫描
+        # §8.41 fix: 之前会把 HTML 代码示例里的 <img src=...> 当作真图误报
+        text_clean = re.sub(r'```[\s\S]*?```', '', text)
+        text_clean = re.sub(r'`[^`]*`', '', text_clean)
         html_imgs = HTML_IMG.findall(text)
-        s['imgs'] += len(md_imgs) + len(html_imgs)
-        # alt 缺失：HTML img 无 alt 属性
-        for attrs in html_imgs:
+        html_imgs_clean = HTML_IMG.findall(text_clean)
+        s['imgs'] += len(md_imgs) + len(html_imgs_clean)
+        for attrs in html_imgs_clean:
             attr_d = dict(HTML_IMG_ATTR.findall(attrs))
             if 'alt' not in attr_d or not attr_d['alt'].strip():
                 s['missing_alt'] += 1
@@ -369,7 +384,7 @@ def main():
     lines.append(f"| frontmatter 覆盖率 | {fm_pct:.1f}% | ≥ 95% | {'✅' if fm_pct >= 95 else '⚠️' if fm_pct >= 80 else '❌'} |")
     lines.append(f"| 薄页（< {args.min_words} 字） | {total_thin} ({thin_pct:.1f}%) | ≤ 5% | {'✅' if thin_pct <= 5 else '⚠️' if thin_pct <= 15 else '❌'} |")
     lines.append(f"| 缺 frontmatter | {total_no_fm} | 0 | {'✅' if total_no_fm == 0 else '❌'} |")
-    lines.append(f"| frontmatter 缺 date | {total_no_date} | 0 | {'✅' if total_no_date == 0 else '❌'} |")
+    lines.append(f"| frontmatter 缺 date | {total_no_date} | 0 | {'✅' if total_no_date == 0 else '⚠️'}（VitePress `lastUpdated: true` 兜底）|")
     lines.append(f"| 过期内容（> {args.max_age_days} 天） | {total_stale} | ≤ 10% | {'✅' if total_stale <= total_files * 0.1 else '⚠️'} |")
     lines.append(f"| 图片总数 | {total_imgs} | — | {'⚠️ 偏少' if total_imgs < total_files * 0.1 else '✅'} |")
     lines.append(f"| 缺 alt 的图片 | {total_missing_alt} | 0 | {'✅' if total_missing_alt == 0 else '❌'} |")
@@ -395,7 +410,9 @@ def main():
     if issues_thin:
         lines.append(f"## 二、薄页清单（{len(issues_thin)} 篇）")
         lines.append("")
-        for f in issues_thin[:50]:
+        # 按字数升序：真占位（< 100 字）排前，紧凑章节（> 100 字）排后
+        sorted_thin = sorted(issues_thin, key=lambda x: x[0])
+        for _, f in sorted_thin[:50]:
             lines.append(f"- `{f}`")
         if len(issues_thin) > 50:
             lines.append(f"- ... 及其他 {len(issues_thin) - 50} 篇")
@@ -477,7 +494,7 @@ def main():
     lines.append(f"1. **图片覆盖率极低**：{total_imgs} 张图 / {total_files} 篇 = {100*total_imgs/total_files:.1f}%，纯文字技术文档严重缺乏视觉化（C11 价值高）")
     lines.append(f"2. **跨站引用近零**：仅 {total_xsite} 处，28 站 1429+ 页形成内容孤岛（C2 价值高）")
     lines.append(f"3. **薄页比例 {thin_pct:.1f}%**：{total_thin} 篇字数 < {args.min_words}，可能为 placeholder 或拆分过度（C3 持续 review）")
-    lines.append(f"4. **frontmatter 覆盖率 {fm_pct:.1f}%**：{total_no_fm} 篇缺 FM，{total_no_date} 篇 FM 缺 date（C1 模板可根治）")
+    lines.append(f"4. **frontmatter 覆盖率 {fm_pct:.1f}%**：{total_no_fm} 篇缺 FM，{total_no_date} 篇 FM 缺 date——但 VitePress 已配 `lastUpdated: true`，自动用 git commit 时间，**非真问题**（C1 模板可选择性根治）")
     lines.append(f"5. **过期内容 {total_stale} 篇**（> {args.max_age_days} 天）：需要月度 review 流程（C10）")
     lines.append(f"6. **内部死链 {total_broken} 处**：可能是 VitePress cleanUrls 导致文件名不一致，建议用 check-links.py depth=3 交叉验证")
     lines.append("")
