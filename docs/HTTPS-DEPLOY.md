@@ -337,6 +337,41 @@ sudo nginx -t && sudo nginx -s reload
 
 绕过：commit message 加 `[skip ci]` 跳过 push trigger，workflow_dispatch 仍可用（但也会 0-step）。
 
+### 6.6 手动部署回退（CI 不可用时）
+
+VPS `/var/www/sites-hub/` **不是 git 仓库**（tarball 解压目录），新脚本不能 `git pull`，必须 scp。
+
+**本地 macOS 终端跑**（不在 Codex sandbox）：
+
+```bash
+# 1. scp 新脚本到 VPS scripts/
+scp ~/work_space/elastic-search-demo/sites-hub/scripts/render-sites-hub-conf.sh     root@38.207.171.83:/var/www/sites-hub/scripts/
+
+# 2. 验证脚本到位 + syntax ok
+ssh root@38.207.171.83 'bash -n /var/www/sites-hub/scripts/render-sites-hub-conf.sh && echo "syntax ok"'
+
+# 3. 触发一次同步（重写 sites-hub.conf + reload）
+ssh root@38.207.171.83 'sudo bash /var/www/sites-hub/scripts/render-sites-hub-conf.sh &&     sudo nginx -t && sudo nginx -s reload'
+
+# 4. 验证 11 个 P3 URL 全部 200
+for u in /sitemap.xml /sitemap.xml.gz /llms.txt /llms-full.txt          /feed.xml /robots.txt /manifest.webmanifest /ld.json /stats.html; do
+  curl -sI "https://java-px.bot.cd$u" | head -1
+done
+```
+
+**或者完整手动 deploy**（替代 CI deploy）：
+
+```bash
+# 本地：重新构建 tarball
+cd ~/work_space/elastic-search-demo
+bash sites-hub/build-release.sh
+
+# 本地：scp tarball + 跑 deploy-release
+scp release/sites-hub-static.tar.gz root@38.207.171.83:/tmp/
+ssh root@38.207.171.83 'sudo bash /var/www/sites-hub/scripts/deploy-release.sh /tmp/sites-hub-static.tar.gz'
+# deploy-release.sh 末尾会自动调 render-sites-hub-conf.sh（如果 scripts/ 里有这个文件）
+```
+
 ---
 
 ## 7. 相关脚本清单
