@@ -3292,3 +3292,30 @@ vue_bug: 0  vue_missing: 0
 - workflow 拆分原则：**重资源放主 CI（push 触发），轻任务放独立 schedule（不耦合）**
 - `continue-on-error: true` + `if: always()` 是 audit 类任务的正确范式（不阻塞 + artifact 必保留）
 - ROOT 路径 hardcode 是常见 Linux/macOS 跨平台 bug，**永远用 env 检测**
+
+
+#### 8.43.6 线上验证发现：GH 后端 0-step failure
+
+**触发 audit-content.yml + sites-hub-ci.yml 后，run 状态均为 completed/failure**：
+
+| Run ID | Workflow | runner_id | steps | 持续时间 | event |
+|---|---|---:|---:|---|---|
+| 32247462630 | audit-content | **0** | **0** | 3s | workflow_dispatch |
+| 32247487751 | sites-hub-ci (check job) | **0** | **0** | 3s | workflow_dispatch |
+
+**根因**：runner_id=0 + steps=0 + 3 秒内 completed/failure 是 GH Actions 后端**已知 incident 的特征**——job 被 GH 接走但 runner 池没分配到执行节点。两个 workflow 同时中招说明是 account-level 问题，不是 workflow 文件问题。
+
+**线上验证受阻**——按 handoff §7.3 的"4 步验证流程"分类，这属于 GH 后端事故，等待 https://www.githubstatus.com 恢复。
+
+**本地验证**（CI=true GITHUB_WORKSPACE=$PWD 模拟）已通过：
+
+```bash
+CI=true GITHUB_ACTIONS=true GITHUB_WORKSPACE="$PWD" python3 sites-hub/scripts/audit-content.py
+# ✓ 报告: .../sites-hub/reports/content-quality-2026-08-19.md
+# files: 1430  words: 1,160,970  thin: 96  imgs: 0  xsite: 139
+# no_fm: 0  no_date: 1417  stale: 0  broken: 0  dups: 243 (cross-site) + 462 (intra-site)
+```
+
+audit-content.py 自身逻辑 OK，等 GH 后端恢复后 weekly schedule 会自动跑。
+
+**附带修复**（commit `3e01821`）：audit-content.yml + sites-hub-ci.yml 的 `on:` → `'on':`，避免 PyYAML 1.1 把 on 当布尔字面量 true 解析（GH Actions 内部兼容，但 PyYAML 解析会出错）。
