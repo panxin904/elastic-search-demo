@@ -3077,3 +3077,125 @@ export default {
 
 **关键学习**：audit 检测逻辑容易"假阳性"——检测**代码块里的语法**（React 标签、HTML img、Apache 配置）会被误报为"真项目问题"。下次写 audit 工具默认先剥离代码块。
 
+
+### 8.42 C1 子站结构统一化 Phase 1 + 2 + 3（2026-08-17~18 第三十五次）
+
+**目标**：消除 28 个子站 config.mts 各自维护的样板代码（nav / head / 跨站 dropdown），统一为单一模板 `config.mts.tpl`，降低后续维护成本。
+
+#### 8.42.1 Phase 划分
+
+| Phase | Commit | 内容 | 站数 |
+|---|---|---|---|
+| 1 | `0351b29` | cloud-native + ai 两个 pilot 站迁移 | 2 |
+| 2 | `889d538` | 余下 27 站 + springcloud + java-web-manual 全量迁移 | 27 |
+| 3 | (本节) | 28 站 build-release.sh 全量 build 验证 + 文档收尾 | 28 |
+
+合计 28/28（100%）迁移 + 28/28（100%）build 通过。
+
+#### 8.42.2 模板设计：`shared-assets/vitepress-template/config.mts.tpl`
+
+**占位符**（无末尾 `@` 避免替换残留）：
+
+| 占位符 | 来源 | 例子 |
+|---|---|---|
+| `@SITE_ID` | site_to_dir 反查 / 默认 site_dir 去掉 `-html` | `es` / `cloud`（springcloud-html） |
+| `@SITE_BASE` | 原 config.mts `base:` | `/es/` / `/cloud/` |
+| `@SITE_TITLE` | 原 config.mts `siteTitle:` 或 `title:` | `ElasticSearch 知识图谱` |
+| `@SITE_DESC` | 原 config.mts `description:` | `面向开发者的 ES 全栈手册` |
+| `@SITE_ACCENT` | 原 config.mts `theme-color` 的 hex | `#8b5cf6` |
+| `@SITE_LANG` | 写死 `zh-CN` | `zh-CN` |
+| `@FOOTER_MESSAGE` | 单独正则提取（支持转义引号 + 内嵌 HTML 标签） | `Scholar's Atlas 子站` |
+| `@SOCIAL_GITHUB` | `socialLinks` 整个数组 | `[{ icon: 'github', link: '...' }]` |
+| `@CROSS_SITES` | 跨站 dropdown 27 项（按 SITES 顺序跳过自己） | 27 行 |
+| `@SIDEBAR` | 原 sidebar 整个对象（`{ }` 平衡提取） | 多行 |
+
+**模板 head 完整化**（标准化三件套）：
+- `viewport`（`width=device-width, initial-scale=1`）
+- `og:site_name`（站点名）
+- `twitter:card`（`summary_large_image`）
+
+保留各站：`theme-color` / `og:locale` / `og:type` / favicon links。
+
+**跨站 dropdown 排序**：从 `sites-hub/scripts/sites.sh` 的 `SITES=(...)` 数组读顺序 → 渲染时跳过自己 → 中文名映射（`SITE_NAMES` 字典）。
+
+#### 8.42.3 渲染器：`scripts/render-config.py`
+
+**用法**：
+
+```bash
+python3 render-config.py <site-dir> [site-id]    # 单站（preview 到 .rendered）
+python3 render-config.py --all                    # 28 站全跑
+python3 render-config.py --all --apply            # 全跑 + 直接覆盖 config.mts
+```
+
+**关键函数**：
+
+| 函数 | 作用 |
+|---|---|
+| `extract(text, pattern, default)` | 单值正则提取 |
+| `extract_block(text, key)` | `key: { ... }` 整个块（`{ }` 深度计数平衡） |
+| `site_to_dir(site_id)` | site_id → site_dir（处理 `cloud → springcloud-html` 映射） |
+| `render_one(site_dir, site_id)` | 单站渲染，输出 `.rendered` preview 文件 |
+
+**Bug 修复（Phase 2 中）**：
+
+`PROJECT_DIR_MAP` 和 `site_to_dir()` 之前被错误放在 `main()` 函数里（局部作用域），单站模式调用 `python3 render-config.py springcloud-html` 时报 `NameError: name 'PROJECT_DIR_MAP' is not defined`。
+
+**修复**：把 `PROJECT_DIR_MAP` 解析（从 `sites.sh` 读 `cloud:springcloud-html;java:java-web-manual`）+ `_DEFAULT_DIR` 字典构造 + `site_to_dir()` 函数全部移到模块级（与 `SITES_ORDER` 平级）。
+
+**根因**：Phase 1 写 render-config.py 时把 `site_to_dir()` 内联到 `main()` 的 `--all` 分支，没意识到后续会被 `render_one()` 单站模式复用。预防：所有 helper 函数必须在模块级定义 + `if __name__ == "__main__"` 只放 CLI 入口。
+
+#### 8.42.4 关键技术点
+
+| 问题 | 解决方案 |
+|---|---|
+| footer.message 含 `}`（HTML 标签）或 `\'`（转义引号）| 用稳健正则 `(?:\\.|(?!\1).)*?` 跳过转义字符 + 非 \1 引号 |
+| sidebar 嵌套 `}` 容易截断 | `extract_block()` 用 `{` `}` 深度计数平衡 |
+| postgresql 的 `Scholar\'s Atlas` | 上面 regex 同时处理 |
+| socialLinks 含嵌套 `]` 字符？| 当前用 `\[([^\]]*)\]` 假设不含 `]`，安全（实际 28 站均通过）|
+| 备份原 config.mts | 每个站 `.bak.original`（`.gitignore` 已加 `**/.vitepress/config.mts.bak.original`）|
+| preview 文件不入仓 | `.rendered` 加入 `.gitignore`（`**/.vitepress/config.mts.rendered`）|
+| `cloud → springcloud-html` 映射 | `PROJECT_DIR_MAP` 解析，与 `sites.sh` 单一真相源对齐 |
+| `java → java-web-manual` 映射 | 同上 |
+| 跨站 dropdown 显示中文名 | `SITE_NAMES` 字典（27 项）|
+
+#### 8.42.5 Phase 3 验收数据（2026-08-18 build-release.sh）
+
+```
+==> Build phase done: 28 built, 0 failed
+✓ check-sites: all consistency checks passed
+  - SITES array has 28 sites
+  - SITES count == cards count (28)
+  - SITES count == nginx count (28)
+  - SITES and cards match exactly
+  - SITES and nginx match exactly
+  - All 28 project directories exist
+[inject-stats] SITES=28 PAGES=1496 NODES=0 WIDGETS=254 BUILT=28
+```
+
+| 维度 | 数据 |
+|---|---|
+| 28 站 build 全通过 | ✅ |
+| 总页面数 | 1496 html |
+| 总 widget 数 | 254 |
+| tarball 大小 | 53 MB |
+| VitePress warning | 仅默认 chunk size 提示（> 500 kB），非阻塞 |
+| 真实 error / fail | **0** |
+
+**单站 build 时间参考**（es 站人工验证）：6.28s（28 站并行 PARALLEL=4，总耗时 ~30s）。
+
+#### 8.42.6 C1 收益
+
+1. **修改单点**：改 nav 模板 → 全 28 站统一生效（之前要改 28 个文件）
+2. **新增子站成本**：复制 1 行 `SITES=(...)` + 1 行首页卡片 + 1 个项目目录 + 1 行 `render-config.py --all` 即生成完整 config.mts（之前要复制粘贴 ~300 行）
+3. **跨站 dropdown 自动同步**：SITES 顺序改了 → 重 render → 全站 dropdown 自动跟齐
+4. **head 三件套统一**：viewport / og:site_name / twitter:card 全站一致，对 SEO / 社交分享卡片渲染有正向影响
+5. **备份可恢复**：每个站 `.bak.original` 保留原 config.mts（gitignore 不入仓，本地可恢复）
+
+#### 8.42.7 后续工作
+
+- **C1 Phase 4**：把 template 也应用到 `<head>` 中的 `customBlocks`（adsense / analytics） → 需先 audit 各站差异
+- **C1 跨子站重复标题 245 → ?**：C1 模板未直接治理；需要 C3 audit-content.py 持续跟踪 + 内容侧统一标题规范
+- **render-config.py 单元测试**：当前未写 pytest，下次改动前补（`test_extract_block` / `test_site_to_dir` / `test_render_one_springcloud`）
+
+**关键学习**：模板化必须用**唯一真相源**（`sites.sh` 的 `SITES=(...)` + `PROJECT_DIR_MAP`），render-config.py 只读取不硬编码 28 站列表 — 否则下次新增站要改两处。
