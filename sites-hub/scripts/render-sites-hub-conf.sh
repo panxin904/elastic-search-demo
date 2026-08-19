@@ -173,6 +173,13 @@ server {
         alias /var/www/sites-hub/www/stats.html;
     }
 
+    # C3: 内容质量趋势 Dashboard — public
+    location = /audit-dashboard.html {
+        auth_basic off;
+        access_log off;
+        alias ${WEB_ROOT}/current/www/audit-dashboard.html;
+    }
+
     # T15：CSP violation report（写日志，可接 ELK）
     location = /csp-report {
         auth_basic off;

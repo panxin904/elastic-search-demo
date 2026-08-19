@@ -3722,3 +3722,95 @@ shared-assets/favicon-16.png → shared-assets/favicon-16.webp
 2. 透明图较多时，评估 `AVIF` fallback（WebP 为主、AVIF 探测后加载）
 3. 图表存在浅色/深色两套配色时，增加暗色版本与媒体查询策略
 4. 自动化图片审计增加“未声明 width/height / 缺失 alt / 重复尺寸”规则
+
+### 8.47 C3 内容质量趋势 Dashboard（2026-08-19 第四十次）
+
+**目标**：把 C3 每周 Markdown 审计结果从一次性报告变成可观察的时间序列，公开查看内容规模、健康风险和跨站指标的漂移。
+
+#### 8.47.1 采用方案
+
+采用“静态 HTML + inline SVG”：
+
+```text
+content-quality-*.md
+        │
+        ▼
+build-audit-dashboard.py
+  ├── 文件名日期排序 / 最近 12 份截断
+  ├── Summary 表指标解析
+  ├── 最新值卡片 + 较前次 Delta
+  └── HTML + 内联 SVG 趋势线
+        │
+        ▼
+release/sites-hub/www/audit-dashboard.html
+```
+
+不采用 Chart.js / ECharts，不新增 npm 包；页面可以被 nginx 直接静态托管，VPS 只承担 HTML 和少量 SVG 的磁盘读取。
+
+#### 8.47.2 数据与指标
+
+当前本地有 4 份历史报告：`2026-08-15`、`2026-08-16`、`2026-08-18`、`2026-08-19`。Dashboard 默认只展示最近 12 份，少于 2 份时显示最新值但不伪造趋势。
+
+| 页面卡片 | 来源字段 | 说明 |
+|---|---|---|
+| 文件数 | `总文件数` | 内容规模 |
+| 总字数 | `总字数（中英混合）` | 中英混合计数 |
+| 薄页 | `薄页（<…）` | 结构豁免后的真实薄页口径 |
+| 缺 frontmatter | `缺 frontmatter` | 基础结构健康 |
+| 内部死链 | `内部死链` | 链接健康 |
+| 跨站引用 | `跨站引用` | C2 内容关联规模 |
+| 重复标题 | `跨子站重复标题` | 当前主要内容质量风险 |
+
+最新基线还显示缺 `date`、过期内容和图片总数，避免把百分比健康状态误画成普通数值。
+
+#### 8.47.3 自动生成与发布
+
+`build-release.sh` 在复制门户 `www` 后调用：
+
+```bash
+python3 sites-hub/scripts/build-audit-dashboard.py \
+  --reports-dir sites-hub/reports \
+  --output release/sites-hub/www/audit-dashboard.html \
+  --max-weeks 12
+```
+
+生成器也同步进入 release 的 `scripts/`，后续可在归档环境复现。`render-sites-hub-conf.sh` 增加：
+
+```nginx
+location = /audit-dashboard.html {
+    auth_basic off;
+    access_log off;
+    alias /var/www/sites-hub/current/www/audit-dashboard.html;
+}
+```
+
+门户 footer 新增“内容趋势”入口，保留原“访问统计”入口；两者分别对应内容质量和 GoAccess 流量数据。
+
+#### 8.47.4 当前基线
+
+```text
+reports: 4
+latest: 2026-08-19
+files: 1430
+words: 1,160,970
+thin: 71（5.0%，含豁免规则后）
+no_fm: 0
+broken: 0
+xsite: 139
+dups: 234
+no_date: 1417（VitePress lastUpdated 兜底，设计选择）
+imgs: 0
+```
+
+#### 8.47.5 验证结果
+
+- 临时契约测试：报告日期排序、指标解析、SVG 趋势、Delta 卡片通过。
+- 真实报告 smoke test：4 份报告成功生成 Dashboard，薄页解析为 71 而非豁免行 42，重复标题解析为 234。
+- `build-audit-dashboard.py` Python 编译通过，生成文件约 12KB。
+- `build-release.sh` 接入后由 MOCK_BUILD 复现生成，不要求额外 npm 安装。
+- Dashboard 不读取 GitHub artifact、不依赖 GH billing；billing 只影响每周新报告何时产生，不影响本地已有报告展示。
+
+**后续按需**：
+
+1. 12 周后数据足够时，增加趋势阈值提示（例如薄页 >5%、死链 >0、重复标题 >20）。
+2. 若需要按站点拆分，再增加“各子站趋势”视图；当前先保持全站总览，避免首版过度复杂。

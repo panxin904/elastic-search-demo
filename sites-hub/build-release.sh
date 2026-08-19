@@ -52,6 +52,18 @@ fi
 
 cp -R "$SCRIPT_DIR/www" "$STAGE_DIR/www"
 
+if [[ -f "$SCRIPT_DIR/scripts/build-audit-dashboard.py" ]]; then
+  echo "==> Generating C3 content quality trend dashboard..."
+  python3 "$SCRIPT_DIR/scripts/build-audit-dashboard.py" \
+    --reports-dir "$SCRIPT_DIR/reports" \
+    --output "$STAGE_DIR/www/audit-dashboard.html" \
+    --max-weeks 12 || {
+    echo "WARN: audit dashboard generation failed; release keeps previous dashboard if present" >&2
+  }
+else
+  echo "WARN: scripts/build-audit-dashboard.py not found; skipping dashboard generation" >&2
+fi
+
 # VPS 渲染 nginx 配置需要 conf/（nginx.conf + 子站 vhost fragments）
 cp -R "$SCRIPT_DIR/conf" "$STAGE_DIR/conf"
 # T7: 自托管字体 (Latin subset woff2)
@@ -215,7 +227,7 @@ chmod +x "$STAGE_DIR/deploy-vps.sh"
 #  setup-fail2ban.sh on VPS copies filter + jail into /etc/fail2ban/)
 mkdir -p "$STAGE_DIR/scripts"
 # P18: render-sites-hub-conf.sh 加入 stage 同步列表（deploy-vps.sh + deploy-release.sh 共同依赖）
-for f in sites.sh check-sites.sh render-nginx-conf.sh render-sites-hub-conf.sh          setup-fail2ban.sh fail2ban-nginx-auth.conf fail2ban-nginx-auth-filter.conf          setup-goaccess.sh          inject-stats.py          deploy-release.sh; do
+for f in sites.sh check-sites.sh render-nginx-conf.sh render-sites-hub-conf.sh          setup-fail2ban.sh fail2ban-nginx-auth.conf fail2ban-nginx-auth-filter.conf          setup-goaccess.sh          inject-stats.py          build-audit-dashboard.py          deploy-release.sh; do
   if [[ -f "$SCRIPT_DIR/scripts/$f" ]]; then
     cp "$SCRIPT_DIR/scripts/$f" "$STAGE_DIR/scripts/$f"
     chmod +x "$STAGE_DIR/scripts/$f"
