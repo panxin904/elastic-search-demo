@@ -1,6 +1,6 @@
 name: audit-content (C3 weekly)
 
-on:
+'on':
   # C3: 每周一 UTC 02:00 = 北京时间 10:00 跑 content audit
   # 跑 baseline 漂移检测（薄页新增 / 重复标题新增 / 死链新增）
   schedule:
