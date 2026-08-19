@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://java-px.bot.cd/sitemap.xml

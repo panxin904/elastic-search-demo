@@ -2,7 +2,7 @@
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
 > 73 个文档页 · 573,534 字
-> 生成时间：2026-08-18T19:27:30
+> 生成时间：2026-08-18T20:58:15
 
 ## [核心概念](https://java-px.bot.cd/kafka/01-basics/concepts)
 > > Kafka 的术语多但不难。理解 **Broker / Topic / Partition / Producer / Consumer / Consumer Group / Offset** 这 7 个核心概念就够了。 | 概念 | 数量 | 作用 | 比喻 | |------|------|------|------| | Cluster | 1 个 | 整体服务 | 公司 | | Brok

@@ -6,7 +6,14 @@
     <atom:link href="https://java-px.bot.cd/feed.xml" rel="self" type="application/rss+xml" />
     <description>28 子站 / 1464 页 / 聚合最近 50 条更新</description>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 18 Aug 2026 19:27:30 -0000</lastBuildDate>
+    <lastBuildDate>Tue, 18 Aug 2026 20:58:15 -0000</lastBuildDate>
+    <item>
+      <title>数据血缘</title>
+      <link>https://java-px.bot.cd/bigdata/11-elt-pipeline/lineage</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/bigdata/11-elt-pipeline/lineage</guid>
+      <description>数据血缘（Data Lineage）追踪数据从源系统经过 ETL/ELT 到下游消费的全链路流转关系，是数据治理与可观测性的核心。 - **故障定位**：下游数据异常时，快速定位上游哪个任务/源表出问题 - **影响分析**：上游表 schema 变更时，识别所有受影响的下游任务和报表 - **合规审计**：满足 GDPR / 数据安全法规对"谁的数据流向哪里"的追溯要求 - **数据资产盘点**</description>
+      <pubDate>Tue, 18 Aug 2026 20:34:09 -0000</pubDate>
+    </item>
     <item>
       <title>视频处理知识库</title>
       <link>https://java-px.bot.cd/video/</link>
@@ -348,13 +355,6 @@
       <link>https://java-px.bot.cd/filesystem/02-disk-fs/compare</link>
       <guid isPermaLink="true">https://java-px.bot.cd/filesystem/02-disk-fs/compare</guid>
       <description>&lt;span class="kg-badge kg-badge-disk-fs"&gt;本地盘&lt;/span&gt; 7 种主流本地文件系统——一张表选型。 | FS | 平台 | 一致性 | 快照 | 校验和 | 加密 | 默认 | |----|------|--------|------|--------|------|------| | **ext4** | Linux | journal | ❌ | ⚠️</description>
-      <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
-    </item>
-    <item>
-      <title>Btrfs COW与快照</title>
-      <link>https://java-px.bot.cd/filesystem/02-disk-fs/btrfs</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/02-disk-fs/btrfs</guid>
-      <description>&lt;span class="kg-badge kg-badge-disk-fs"&gt;本地盘&lt;/span&gt; B-tree FS——为快照、校验、子卷而生的现代 FS。 Btrfs 全称 **B-tree File System**，核心思想： - 所有元数据用 B-tree - **写时复制（COW）**：写新位置，原子切指针 - 内置快照 / 子卷 / 校验和 **优势**： - 写过程 crash-</description>
       <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
     </item>
   </channel>

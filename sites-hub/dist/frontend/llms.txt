@@ -2,7 +2,7 @@
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
 > 65 个文档页 · 157,685 字
-> 生成时间：2026-08-18T19:27:30
+> 生成时间：2026-08-18T20:58:15
 
 ## [浏览器渲染原理](https://java-px.bot.cd/frontend/01-foundation/browser)
 > | 进程 | 职责 | |------|------| | Browser | 界面、Tab 管理、子进程协调 | | Renderer | 单个 Tab 的渲染（HTML 解析、布局、绘制） | | GPU | 加速绘制、3D CSS | | Network | 网络请求 | | Plugin | 第三方插件（已废弃） | 每个 Tab 默认一个 Renderer 进程（Site Isolati
