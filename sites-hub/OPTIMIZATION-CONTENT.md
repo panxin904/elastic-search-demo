@@ -31,8 +31,8 @@
 
 | 编号 | 任务 | 优先级 | 工作量 | 依赖 | 状态 |
 |------|------|--------|--------|------|------|
-| C1 | 子站结构统一化（VitePress 模板 + nav/sidebar/homepage 模板） | **P0** | 3-5d | — | todo |
-| C2 | 跨站内容关联（X-Linking + 相关站点推荐） | P0 | 2-3d | C1 | wip（§8.16-§8.18 :related-sites 完成；X-Linking 文本链接待续）|
+| C1 | 子站结构统一化（VitePress 模板 + nav/sidebar/homepage 模板） | **P0** | 3-5d | — | ✅ done（§8.42 Phase 1+2+3；模板覆盖 head/nav/dropdown）|
+| C2 | 跨站内容关联（X-Linking + 相关站点推荐） | P0 | 2-3d | C1 | ✅ done（§8.18 C2 完整闭环；xsite 139, glossary 125 词条, :related-sites 100%）|
 | C3 | 内容质量审计（拼写/过期/薄页/死链/重复） | **P0** | 1d + 持续 | — | wip（§8.19-§8.21 工具就位 + 部分修完；持续跑待续）|
 | C4 | 全文搜索升级（Pagefind + 跨站聚合） | P1 | 1-2d | C1 | ✅ done（§8.28 Pagefind 全文搜索）|
 | C5 | RSS feed + 聚合订阅 | P1 | 0.5d | C1 | ✅ done（§8.27 RSS 2.0 feed.xml × 28 + 聚合）|

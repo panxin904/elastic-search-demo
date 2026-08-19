@@ -1,0 +1,101 @@
+name: audit-content (C3 weekly)
+
+on:
+  # C3: 每周一 UTC 02:00 = 北京时间 10:00 跑 content audit
+  # 跑 baseline 漂移检测（薄页新增 / 重复标题新增 / 死链新增）
+  schedule:
+    - cron: '0 2 * * 1'
+  # 手动触发：weekly review / 修改 audit 逻辑后验证
+  workflow_dispatch:
+
+# audit 是只读检查，不并发互斥（多个 run 可并行）
+concurrency:
+  group: audit-content
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      # 如需在 issue 里贴差异，可加 issues: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # 完整历史：baseline diff 需要看上次 audit 报告
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Show previous report (baseline diff)
+        run: |
+          if git log --all --oneline -- sites-hub/reports/ 2>/dev/null | head -5; then
+            PREV=$(ls -t sites-hub/reports/content-quality-*.md 2>/dev/null | head -2 | tail -1)
+            if [[ -n "$PREV" && -f "$PREV" ]]; then
+              echo "===== Previous report: $PREV ====="
+              head -60 "$PREV"
+            else
+              echo "No previous report found (first run)"
+            fi
+          fi
+
+      - name: Run audit-content.py
+        # 故意不 fail：audit 检测是建议性指标，不阻塞其他 workflow
+        # 趋势跟踪靠每周的 artifact 串成时间序列
+        run: python3 sites-hub/scripts/audit-content.py
+        continue-on-error: true
+
+      - name: Verify report generated
+        run: |
+          TODAY=$(date -u +%F)
+          REPORT="sites-hub/reports/content-quality-${TODAY}.md"
+          if [[ -f "$REPORT" ]]; then
+            echo "✓ Report: $REPORT ($(wc -l < "$REPORT") lines)"
+            head -20 "$REPORT"
+          else
+            echo "::error::Expected report not found: $REPORT"
+            exit 1
+          fi
+
+      - name: Diff vs previous baseline (key metrics)
+        id: diff
+        run: |
+          TODAY=$(date -u +%F)
+          REPORT="sites-hub/reports/content-quality-${TODAY}.md"
+          # 取上次 report 做对比（git history 里的最后一个）
+          PREV=$(git log --diff-filter=A --name-only --pretty=format: -- sites-hub/reports/content-quality-*.md 2>/dev/null | grep -v "^$" | head -1)
+          if [[ -n "$PREV" && -f "$PREV" ]]; then
+            echo "===== Baseline diff vs $PREV ====="
+            # 提取 summary line（"files: ... words: ..."）做对比
+            CUR_SUM=$(grep -E "^  files:" "$REPORT" | head -1 || true)
+            PREV_SUM=$(grep -E "^  files:" "$PREV" | head -1 || true)
+            echo "current:  $CUR_SUM"
+            echo "previous: $PREV_SUM"
+            echo "diff_metrics=computed" >> "$GITHUB_OUTPUT"
+          else
+            echo "No previous baseline (first audit)"
+            echo "diff_metrics=baseline" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upload audit report (always)
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: audit-report-${{ github.run_id }}
+          path: sites-hub/reports/content-quality-*.md
+          retention-days: 90
+
+      - name: Annotate regression (warn-only)
+        if: always()
+        run: |
+          TODAY=$(date -u +%F)
+          REPORT="sites-hub/reports/content-quality-${TODAY}.md"
+          # 提取 baseline 关键指标
+          if [[ -f "$REPORT" ]]; then
+            echo "### Audit baseline (C3 weekly)" >> "$GITHUB_STEP_SUMMARY"
+            grep -E "^  files:|^  words:|^  thin:|^  no_fm:|^  broken:|^  dups:" "$REPORT" >> "$GITHUB_STEP_SUMMARY" || true
+          fi

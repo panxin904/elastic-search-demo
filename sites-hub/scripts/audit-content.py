@@ -22,7 +22,12 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from difflib import SequenceMatcher
 
-ROOT = Path('/Users/a1111/work_space/elastic-search-demo')
+# ROOT: 本地开发用绝对路径；CI 环境（GitHub Actions）自动用 cwd（仓库根）
+import os
+if os.environ.get('CI') or os.environ.get('GITHUB_ACTIONS'):
+    ROOT = Path(os.environ.get('GITHUB_WORKSPACE', Path.cwd())).resolve()
+else:
+    ROOT = Path('/Users/a1111/work_space/elastic-search-demo')
 SITES_DIRS = [
     'ai-html', 'architecture-html', 'bigdata-html', 'chaos-html', 'clickhouse-html',
     'cloud-html', 'cloud-native-html', 'design-pattern-html', 'devops-html',
