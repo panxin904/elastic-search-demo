@@ -127,8 +127,56 @@ build_one_site() {
   } > "$log_file" 2>&1
 }
 
-# 主调度循环
-echo "==> Parallel build (PARALLEL=$PARALLEL, sites=${#SITES[@]})..."
+# 主调度循环（§8.45 优化：wait_any 替代 head-of-line blocking）
+# 原算法：等最早启动的 PID 完成 → 假定最早启动的最先完成 → 实际不一定
+#   npm ci 时间差异大（10-30s），build 时间差异更大（5-30s），等最早启动会卡住
+# 新算法：扫所有 running_pids，找到任意一个已完成的 PID 处理 + 立即启动新站
+#   维持恒定 PARALLEL 并发，避免 head-of-line blocking
+#   bash 3.2 兼容：kill -0 检测 + sleep 0.05 防 busy-wait（替代 bash 4.3+ wait -n）
+process_log() {
+  # process_log <pid> <site>
+  local pid="$1" site="$2"
+  local finished_log="$TMPDIR_BUILD/$site.log"
+  if grep -q "^OK:" "$finished_log" 2>/dev/null; then
+    built_sites+=("$site")
+    printf "    [OK] %s\n" "$site"
+  else
+    failed_sites+=("$site")
+    printf "    [FAIL] %s (log: %s)\n" "$site" "$finished_log"
+  fi
+}
+
+wait_any() {
+  # 扫 running_pids，找到第一个已完成的 PID，处理日志，从队列移除
+  # 返回 0（找到了完成的 PID）
+  while :; do
+    for i in "${!running_pids[@]:-}"; do
+      local pid="${running_pids[$i]}"
+      # kill -0 不发信号，仅检测 process 是否存活（返回 0 = 存活，1 = 已死）
+      if ! kill -0 "$pid" 2>/dev/null; then
+        # 已死 → wait 回收（不阻塞，因为 process 已死）
+        wait "$pid" 2>/dev/null || true
+        process_log "$pid" "${running_sites[$i]}"
+        # 从队列移除（用临时数组避免 splice 错位）
+        unset 'running_pids[i]' 'running_sites[i]'
+        # bash 3.2 兼容：空数组 + set -u → ${arr[@]} 报 unbound variable
+        # 用 ${arr[@]+"${arr[@]}"} 展开式：数组存在（即使空）才展开
+        if [[ ${#running_pids[@]} -gt 0 ]]; then
+          running_pids=("${running_pids[@]}")
+          running_sites=("${running_sites[@]}")
+        else
+          running_pids=()
+          running_sites=()
+        fi
+        return 0
+      fi
+    done
+    # 短暂 sleep 防止 busy-wait（28 站场景下检查频率 ~10ms/次，开销可忽略）
+    sleep 0.05
+  done
+}
+
+echo "==> Parallel build (PARALLEL=$PARALLEL, sites=${#SITES[@]}, mode=wait_any)..."
 for s in "${SITES[@]}"; do
   log_file="$TMPDIR_BUILD/$s.log"
   build_one_site "$s" "$log_file" &
@@ -136,39 +184,15 @@ for s in "${SITES[@]}"; do
   running_pids+=("$pid")
   running_sites+=("$s")
 
+  # 满了就 wait_any（任意 PID 完成就处理 + 启动下一个）
   if [[ ${#running_pids[@]} -ge $PARALLEL ]]; then
-    # 阻塞等最早启动的完成（最早启动的 PID 通常最先完成）
-    wait "${running_pids[0]}"
-    finished_site="${running_sites[0]}"
-    finished_log="$TMPDIR_BUILD/$finished_site.log"
-
-    if grep -q "^OK:" "$finished_log" 2>/dev/null; then
-      built_sites+=("$finished_site")
-      printf "    [OK] %s\n" "$finished_site"
-    else
-      failed_sites+=("$finished_site")
-      printf "    [FAIL] %s (log: %s)\n" "$finished_site" "$finished_log"
-    fi
-
-    # 从队列移除最早启动的（保持顺序）
-    running_pids=("${running_pids[@]:1}")
-    running_sites=("${running_sites[@]:1}")
+    wait_any
   fi
 done
 
 # 等待剩余的
-for i in "${!running_pids[@]}"; do
-  wait "${running_pids[$i]}"
-  finished_site="${running_sites[$i]}"
-  finished_log="$TMPDIR_BUILD/$finished_site.log"
-
-  if grep -q "^OK:" "$finished_log" 2>/dev/null; then
-    built_sites+=("$finished_site")
-    printf "    [OK] %s\n" "$finished_site"
-  else
-    failed_sites+=("$finished_site")
-    printf "    [FAIL] %s (log: %s)\n" "$finished_site" "$finished_log"
-  fi
+while [[ ${#running_pids[@]} -gt 0 ]]; do
+  wait_any
 done
 
 # 按 SITES 顺序排序 built_sites（保持 ld.json / sitemap 输出顺序稳定）
