@@ -41,7 +41,7 @@
 | C8 | 多语言支持（中英术语表 + 首页切换） | P2 | 2-3d | C1 | ✅ done（§8.30 glossary EN 列；首页 EN 切换未做）|
 | C9 | 数据驱动（Plausible + 首页实时数 + git log 自动生成 Updates） | P2 | 1-2d | — | ✅ done（§8.31 Plausible + Updates + §8.32 build-release 集成）|
 | C10 | 内容运营流程（CONTRIBUTING.md + PR 模板 + 月度 review） | P2 | 1d | — | ✅ done（§8.25 CONTRIBUTING + §8.36 PR review checklist）|
-| C11 | 图片/图表优化（PNG→WebP + Mermaid SSR + lazy load） | P2 | 1-2d | C1 | 🟡 partial（PNG→WebP + lazy load 部分完成；§8.33-§8.39 Mermaid 集成为 CSR，SSR 推迟）|
+| C11 | 图片/图表优化（PNG→WebP + Mermaid 跨站主题 + lazy load） | P2 | 1-2d | C1 | ✅ done（§8.46：无真实图片、工具已就位；Mermaid 采用 CSR 主题统一，SSR 不适用）|
 | C12 | sitemap 完整化 + llms.txt（AI 索引友好） | P2 | 0.5d | C1 | ✅ done（§8.26 sitemap + llms.txt）|
 
 > 状态图例：todo 待开始 / wip 进行中 / done 完成
@@ -369,16 +369,16 @@
 
 ### C11 · 图片 / 图表优化
 
-**修复**：
-- 所有 PNG 转 WebP（`shared-assets/build-images.sh` 批量）
-- Mermaid SSR 渲染（`vitepress-plugin-mermaid`）
-- 所有 `<img>` 加 `loading="lazy"` + `decoding="async"`
-- 暗色模式图适配（`<picture>` + `<source media="(prefers-color-scheme: dark)">`）
+**已完成范围**（详见 §8.46）：
+- 删除未引用的 PNG 遗留资产；新增 `shared-assets/build-images.py`，支持 PNG/JPG → WebP、懒加载 snippet、dry-run 与递归目录
+- 两个 Mermaid 内容站统一品牌色、字体、字号和基础安全配置；保持 `vitepress-plugin-mermaid` v2 的 CSR 渲染方式
+- 暗色模式由 Mermaid plugin 的 `MutationObserver` 自动切换 `theme`，不额外增加构建期 SSR 依赖
+- 内容审计确认 `imgs: 0`，没有真实线上图片需要强行改写 `loading="lazy"`；教学代码中的示例保持原样
 
 **验收**：
-- 所有图 < 200KB
-- Lighthouse LCP < 2.5s
-- 暗色模式图清晰可见
+- 两站 VitePress build exit 0；浏览器端 Mermaid SVG 主题色验证通过
+- WebP 工具可保留 alpha 通道，输出 `loading="lazy"` 与 `decoding="async"`
+- 内容图片数量仍为 0；不存在“所有图 < 200KB”的人工验收目标
 
 ---
 
@@ -3414,7 +3414,7 @@ vue_bug: 0  vue_missing: 0
 |---|---:|---|
 | 跨站重复标题 | 234 | C1 模板化只能部分缓解（footer/hero 统一了，section 标题还需手动） |
 | frontmatter 缺 date | 1417 | VitePress `lastUpdated: true` 自动兜底 |
-| 图片总数 | 0 | 内容站无图，C11 范畴 |
+| 图片总数 | 0 | C11 已收尾：审计确认内容站无真实图片 |
 
 ### 8.45 build-all wait_any 优化（head-of-line blocking 修复）（2026-08-19 第三十八次）
 
@@ -3562,3 +3562,163 @@ done
 - **build log 按完成顺序输出是好事** — 让运维能快速看到"哪些站慢"
 
 **收益**：调度正确性 + 5-10% 提速 + 代码更易扩展（每站完成时立即处理）。
+
+### 8.46 C11 图片/图表优化收尾（Mermaid 跨站配置 + WebP 工具）（2026-08-19 第三十九次）
+
+**目标**：在不引入新构建依赖的前提下，统一两个 Mermaid 内容站的视觉配置，并建立后续新增图片时可复用的 WebP 处理入口。内容质量审计的 `imgs: 0` 不人为制造图片资产。
+
+#### 8.46.1 C11 摸底
+
+| 项目 | 状态 | 结论 |
+|---|---:|---|
+| 内容站数量 | 28 | 统一 VitePress / Pagefind 构建链 |
+| 真实文章图片 | 0 | `audit-content.py` baseline 为 `imgs: 0` |
+| Mermaid 内容站 | 2 | `springcloud-html`、`system-design-html` |
+| 站点 Mermaid 图 | 2 | 另有 `notebooklm_architecture.md` 1 处仓库文档 |
+| Mermaid 渲染方式 | CSR | `vitepress-plugin-mermaid` v2 在浏览器 `onMounted` 后异步渲染 |
+
+§8.29 已删除 Elasticsearch 站 10 张未引用 PNG 及其 WebP 副本，当前无内容图片需要强行加 `loading="lazy"`。本次不为满足形式统一而虚构图片，只补齐工具链。
+
+#### 8.46.2 根因：Vite alias 不参与 Node 配置加载
+
+`vitepress-plugin-mermaid` 的配置由 Node 在加载 `config.mts` 时读取，并序列化到 `virtual:mermaid-config`：
+
+```mermaid
+flowchart LR
+    A["config.mts"] --> B["Node ESM 加载"]
+    B --> C["vitepress-plugin-mermaid 序列化 mermaid 字段"]
+    C --> D["virtual:mermaid-config"]
+    D --> E["Mermaid.vue 浏览器端渲染"]
+```
+
+仓库已有：
+
+```ts
+vite.resolve.alias: [{ find: '@shared', replacement: SHARED_ASSETS }]
+```
+
+该 alias 只属于 Vite/Rollup 插件。Node 的 ESM resolver 不读取 Vite alias，所以把 `mermaidBase` / `mermaidTheme` 改为以下 import 形式会在配置加载阶段失败：
+
+```ts
+import { mermaidBase, mermaidTheme } from '@shared/mermaid-config'
+```
+
+**方案对比**：
+
+| 方案 | 优点 | 风险 | 结论 |
+|---|---|---|---|
+| 固定相对路径 import `../../shared-assets/...` | 减少重复 | 构建器版本升级后仍受 `fs.allow` / ESM 规则影响 | 暂不采用 |
+| 在 `defineConfig` 外 import JSON | 单一数据源 | `mermaid` 字段何时被读取仍受同一配置加载链路约束 | 可作为后续实验 |
+| 在 `config.mts.tpl` 内联函数 | 不依赖 alias、跨 OS 稳定 | 修改共享字段需同步 3 个文件 | **当前采用** |
+
+#### 8.46.3 三层同步机制
+
+C11 使用“共享参考 + 模板注入 + 两个站点落地”三层结构：
+
+1. `shared-assets/mermaid-config/base.ts`
+   - 保留 `mermaidBase` 与 `mermaidTheme` 的可读同步源
+   - 明示不直接从 `config.mts` import，避免 Node ESM alias 陷阱
+2. `shared-assets/vitepress-template/config.mts.tpl`
+   - 渲染时把 `mermaidBase('@SITE_ACCENT')` 内联到 `defineConfig`
+   - 后续新站从模板生成即可得到统一基础配置
+3. 两个已有 Mermaid 站点
+   - `springcloud-html`：品牌色 `#6DB33F`
+   - `system-design-html`：品牌色 `#0891b2`
+
+统一字段：
+
+```ts
+const mermaidBase = {
+  securityLevel: 'loose',
+  startOnLoad: false,
+  theme: 'base',
+  fontFamily: '"Inter", "PingFang SC", "Microsoft YaHei", system-ui, -apple-system, sans-serif',
+}
+
+const mermaidTheme = {
+  primaryColor: brand,
+  primaryTextColor: '#1f2937',
+  primaryBorderColor: brand,
+  lineColor: '#94a3b8',
+  secondaryColor: lightenHex(brand, 0.85),
+  tertiaryColor: '#fafafa',
+  fontSize: '14px',
+}
+```
+
+暗色模式继续交给 `vitepress-plugin-mermaid` v2：组件通过 `MutationObserver` 检测 `<html>.dark` 并自动切到 `theme: 'dark'`，`themeVariables` 保持站点品牌色。`base.ts` 不额外传 `theme: 'dark'`，避免覆盖插件的暗色模式切换。
+
+#### 8.46.4 真实验证
+
+**构建验证**：
+
+| 站点 | 构建耗时 | 结果 |
+|---|---:|---|
+| `springcloud-html` | 6.87s | exit 0 |
+| `system-design-html` | 5.21s | exit 0 |
+
+**浏览器 SVG 验证**（Chrome headless，`virtual-time-budget=10000`）：
+
+| 站点 | `primaryColor` | 派生背景色 | 文本色 | 连线色 |
+|---|---|---|---|---|
+| Spring Cloud | `#6DB33F` | `#e9f4e2` | `#1f2937` | `#94a3b8` |
+| System Design | `#0891b2` | SVG 主路径未使用 `secondaryColor` | `#1f2937` | `#94a3b8` |
+
+`system-design-html` 当前实际 SVG 使用 `primaryColor`、`primaryTextColor`、`lineColor`；`secondaryColor` 是主题变量兜底，不要求每个图必须出现。Spring Cloud 额外验证了派生背景色 `#e9f4e2`。
+
+**结论**：两站主题变量已实际进入浏览器端渲染，不只是配置文件字符串替换。Mermaid 是 CSR/SPA 异步渲染，部署后的首屏 HTML 不应按 SSR 思路寻找最终 SVG。
+
+#### 8.46.5 `build-images.py` 工具
+
+新增 `shared-assets/build-images.py`，统一完成：
+
+- PNG / JPG / JPEG → WebP（同尺寸，默认 quality=85）
+- 保留透明通道；非透明图片转 RGB
+- 生成 `<img loading="lazy" decoding="async">` VitePress HTML snippet
+- `src` 按执行命令时的 `cwd` 计算相对路径
+- 支持 dry-run、递归目录、单独禁用 snippet、质量范围校验（0–100）
+
+用法：
+
+```bash
+# 单文件
+python3 shared-assets/build-images.py images/diagram.png --alt "Nacos 原理"
+
+# 批量
+python3 shared-assets/build-images.py images/ --recursive --alt-suffix " 图"
+
+# 只预览，不写文件
+python3 shared-assets/build-images.py images/ --recursive --dry-run
+
+# 只转码
+python3 shared-assets/build-images.py diagram.png --no-snippet -q 80
+```
+
+**依赖决策**：不依赖 macOS 默认不存在的 `cwebp` / ImageMagick；Pillow 在当前环境可用，并直接支持 WebP 编码。AVIF 暂不加入，避免把 Pillow 扩展编译问题带进低资源发布流程。
+
+**实测**：
+
+```text
+shared-assets/favicon-16.png → shared-assets/favicon-16.webp
+303B → 250B（-17%）
+<img src="shared-assets/favicon-16.webp" alt="Scholar's Atlas favicon" loading="lazy" decoding="async" />
+```
+
+测试产物 `shared-assets/favicon-16.webp` 已清理，不进入仓库。
+
+#### 8.46.6 关键学习与后续
+
+**关键学习**：
+
+- Vite alias 不是 Node ESM alias；判断路径解析必须区分两个执行阶段
+- `virtual:mermaid-config` 的序列化发生在浏览器渲染前，配置字段必须是最終可序列化值
+- Mermaid 主题变量要在浏览器 SVG 上验证，不能只看构建日志
+- 零图片站点应先审计引用关系，再决定是否启用懒加载；教学代码中的 `<img>` 示例不等于线上资产
+- 工具文档必须描述真实能力；本工具当前同尺寸转码，不生成 2x Retina 图片
+
+**后续按需执行**（不阻塞本次 C11）：
+
+1. 新增超过 1600px 的展示图时，增加 480/960/1920 多尺寸与 `srcset`
+2. 透明图较多时，评估 `AVIF` fallback（WebP 为主、AVIF 探测后加载）
+3. 图表存在浅色/深色两套配色时，增加暗色版本与媒体查询策略
+4. 自动化图片审计增加“未声明 width/height / 缺失 alt / 重复尺寸”规则

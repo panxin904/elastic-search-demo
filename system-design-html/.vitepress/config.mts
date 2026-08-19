@@ -19,6 +19,42 @@ import { fileURLToPath, URL } from 'node:url'
 // P0: VitePress/rollup 默认 fs.allow 限制 cwd 外 import。用 vite alias 解决相对路径。
 const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.url))
 
+// C11: Mermaid 跨站共享配置（inline 而非 import，避免 vite alias 在 Node 加载 config.mts 阶段不生效的问题）
+// 同步源：shared-assets/mermaid-config/base.ts（修改时请同步更新此处）
+// 见 §8.46
+const mermaidBase = {
+  securityLevel: 'loose',
+  startOnLoad: false,
+  theme: 'base',
+  fontFamily: '"Inter", "PingFang SC", "Microsoft YaHei", system-ui, -apple-system, sans-serif',
+} as const
+
+function lightenHex(hex: string, ratio: number): string {
+  const m = hex.replace('#', '').match(/^([0-9a-f]{6})$/i)
+  if (!m) return hex
+  const r = parseInt(m[1].slice(0, 2), 16)
+  const g = parseInt(m[1].slice(2, 4), 16)
+  const b = parseInt(m[1].slice(4, 6), 16)
+  const mix = (c: number) => Math.round(c + (255 - c) * ratio)
+  return '#' + [mix(r), mix(g), mix(b)].map(c => c.toString(16).padStart(2, '0')).join('')
+}
+
+function mermaidTheme(brand: string) {
+  const soft = lightenHex(brand, 0.85)
+  const ink = '#1f2937'
+  const line = '#94a3b8'
+  return {
+    primaryColor: brand,
+    primaryTextColor: ink,
+    primaryBorderColor: brand,
+    lineColor: line,
+    secondaryColor: soft,
+    tertiaryColor: '#fafafa',
+    fontFamily: mermaidBase.fontFamily,
+    fontSize: '14px',
+  }
+}
+
 export default withMermaid(defineConfig({
   vite: {
     resolve: {
@@ -27,7 +63,10 @@ export default withMermaid(defineConfig({
       ],
     },
   },
-  mermaid: { theme: 'default' },
+  mermaid: {
+    ...mermaidBase,
+    themeVariables: mermaidTheme('#0891b2'),
+  },
   base: '/system-design/',
   title: 'System Design',
   description: '系统化学习分布式系统理论与经典系统设计题 - 10 大类 · 60+ 节点 · 60+ 内容页',
