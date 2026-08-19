@@ -42,6 +42,10 @@ SITE_DOCS['java-html'] = ROOT / 'java-web-manual' / 'docs'
 
 EXCLUDE_DIRS = {'node_modules', '.vitepress', 'release', '.git', 'dist', 'public'}
 
+# §8.44 薄页豁免：mindmap / graph / cheatsheet 天然字数少（设计上是图谱/速查表）
+# 这 3 种文件名按结构预期就是 < 200 字，豁免后 audit baseline 数字才反映真实问题
+THIN_EXCLUDE_NAMES = {'mindmap.md', 'graph.md', 'cheatsheet.md'}
+
 CN_CHAR = re.compile(r'[\u4e00-\u9fff]')
 EN_WORD = re.compile(r'\b[a-zA-Z]+\b')
 LINK = re.compile(r'\[[^\]]+\]\(([^)]+)\)')
@@ -178,6 +182,8 @@ def check_vue_prop_arrays(text: str) -> list[str]:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--min-words', type=int, default=200, help='字数 < 此值算薄页（cheatsheet 章节天然 50-200 字，500 太严）')
+    ap.add_argument('--exclude-thin-name', nargs='*', default=sorted(THIN_EXCLUDE_NAMES),
+                    help='按文件名豁免薄页检测（默认 mindmap.md graph.md cheatsheet.md）')
     ap.add_argument('--max-age-days', type=int, default=365)
     ap.add_argument('--dup-threshold', type=float, default=0.85)
     ap.add_argument('--output-dir', default=str(ROOT / 'sites-hub' / 'reports'))
@@ -190,7 +196,7 @@ def main():
 
     files = find_all_md_files()
     site_stats = defaultdict(lambda: {'files': 0, 'words': 0, 'fm': 0, 'imgs': 0, 'links': 0,
-                                       'thin': 0, 'no_fm': 0, 'no_date': 0, 'stale': 0, 'missing_alt': 0,
+                                       'thin': 0, 'thin_excluded': 0, 'no_fm': 0, 'no_date': 0, 'stale': 0, 'missing_alt': 0,
                                        'broken_links': 0, 'xsite_links': 0, 'vue_prop_issues': 0, 'vue_missing_comp': 0})
     all_titles: list[tuple[str, str, Path]] = []  # (title, site, file)
     issues_thin: list[str] = []
@@ -245,6 +251,10 @@ def main():
         # §8.41 fix: 之前 500 字一刀切会把 es / frontend / java 的紧凑章节（200-400 字）
         # 全部误报为占位，实际这些是完整章节（含代码示例 + 表格 + 图谱）。
         # 真正占位（几十字 / TODO 段落）< 100 字才会真正出问题。
+        # §8.44 豁免：mindmap.md / graph.md / cheatsheet.md 按结构预期字数少，跳过
+        if path.name in args.exclude_thin_name:
+            s['thin_excluded'] += 1  # 用于报告展示，不计入薄页统计
+            continue
         if words < args.min_words:
             s['thin'] += 1
             # 用 | 分隔方便后面按字数排序
@@ -362,6 +372,7 @@ def main():
     total_files = sum(s['files'] for s in site_stats.values())
     total_words = sum(s['words'] for s in site_stats.values())
     total_thin = sum(s['thin'] for s in site_stats.values())
+    total_thin_excluded = sum(s['thin_excluded'] for s in site_stats.values())
     total_no_fm = sum(s['no_fm'] for s in site_stats.values())
     total_no_date = sum(s['no_date'] for s in site_stats.values())
     total_stale = sum(s['stale'] for s in site_stats.values())
@@ -387,7 +398,8 @@ def main():
     lines.append(f"| 总文件数 | {total_files} | — | — |")
     lines.append(f"| 总字数（中英混合） | {total_words:,} | — | — |")
     lines.append(f"| frontmatter 覆盖率 | {fm_pct:.1f}% | ≥ 95% | {'✅' if fm_pct >= 95 else '⚠️' if fm_pct >= 80 else '❌'} |")
-    lines.append(f"| 薄页（< {args.min_words} 字） | {total_thin} ({thin_pct:.1f}%) | ≤ 5% | {'✅' if thin_pct <= 5 else '⚠️' if thin_pct <= 15 else '❌'} |")
+    lines.append(f"| 薄页豁免（{', '.join(args.exclude_thin_name)}） | {total_thin_excluded} | — | 结构预期字数少，不计入薄页 |")
+    lines.append(f"| 薄页（< {args.min_words} 字，扣除豁免） | {total_thin} ({thin_pct:.1f}%) | ≤ 5% | {'✅' if thin_pct <= 5 else '⚠️' if thin_pct <= 15 else '❌'} |")
     lines.append(f"| 缺 frontmatter | {total_no_fm} | 0 | {'✅' if total_no_fm == 0 else '❌'} |")
     lines.append(f"| frontmatter 缺 date | {total_no_date} | 0 | {'✅' if total_no_date == 0 else '⚠️'}（VitePress `lastUpdated: true` 兜底）|")
     lines.append(f"| 过期内容（> {args.max_age_days} 天） | {total_stale} | ≤ 10% | {'✅' if total_stale <= total_files * 0.1 else '⚠️'} |")
@@ -402,14 +414,14 @@ def main():
 
     lines.append("## 一、各子站统计")
     lines.append("")
-    lines.append("| 子站 | 文件 | 字数 | FM | 薄页 | 缺FM | 过期 | 图片 | 死链 | 跨站 | VueBug | 缺组件 |")
+    lines.append("| 子站 | 文件 | 字数 | FM | 薄页 | 豁免 | 缺FM | 过期 | 图片 | 死链 | 跨站 | VueBug | 缺组件 |")
     lines.append("|------|-----:|-----:|---:|-----:|-----:|-----:|-----:|-----:|-----:|")
     for site in sorted(site_stats):
         s = site_stats[site]
         if s['files'] == 0:
             continue
         short = site.replace('-html', '').replace('java-web-manual', 'java')
-        lines.append(f"| {short} | {s['files']} | {s['words']:,} | {s['fm']} | {s['thin']} | {s['no_fm']} | {s['stale']} | {s['imgs']} | {s['broken_links']} | {s['xsite_links']} | {s['vue_prop_issues']} | {s['vue_missing_comp']} |")
+        lines.append(f"| {short} | {s['files']} | {s['words']:,} | {s['fm']} | {s['thin']} | {s['thin_excluded']} | {s['no_fm']} | {s['stale']} | {s['imgs']} | {s['broken_links']} | {s['xsite_links']} | {s['vue_prop_issues']} | {s['vue_missing_comp']} |")
     lines.append("")
 
     if issues_thin:
