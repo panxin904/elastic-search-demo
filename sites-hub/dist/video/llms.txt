@@ -2,7 +2,7 @@
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
 > 67 个文档页 · 293,919 字
-> 生成时间：2026-08-18T20:58:15
+> 生成时间：2026-08-19T20:00:49
 
 ## [编解码概览](https://java-px.bot.cd/video/01-basics/codec-overview)
 > <span class="kg-badge kg-badge-basics">基础</span> <span class="kg-badge kg-badge-codec">原理</span> 视频编解码（CODEC = COder + DECoder）= 视频的"压缩与解压"。 **同一帧内**相邻像素相似 → **帧内预测** + DCT **相邻帧**之间高度相似 → **运动估计 + 运动

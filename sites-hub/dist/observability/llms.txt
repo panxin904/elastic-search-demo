@@ -2,7 +2,7 @@
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
 > 50 个文档页 · 246,491 字
-> 生成时间：2026-08-18T20:58:15
+> 生成时间：2026-08-19T20:00:49
 
 ## [可观测性四大支柱](https://java-px.bot.cd/observability/01-foundations/four-pillars)
 > Metrics / Logs / Traces / Events 信号体系

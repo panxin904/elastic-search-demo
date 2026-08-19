@@ -2,7 +2,7 @@
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
 > 71 个文档页 · 243,799 字
-> 生成时间：2026-08-18T20:58:15
+> 生成时间：2026-08-19T20:00:49
 
 ## [发行版选择](https://java-px.bot.cd/linux/01-foundation/distros)
 > > 同一个内核 + 不同软件 = 不同发行版（Distribution）。选哪个不是信仰问题，是工程问题。 | 发行版 | 包管理 | 适合 | 备注 | |--------|--------|------|------| | **Ubuntu Server LTS** | apt / deb | 服务器 / 云 / 新手 | 文档最多，社区最大 | | **Debian** | apt / de

@@ -2,7 +2,7 @@
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
 > 51 个文档页 · 145,698 字
-> 生成时间：2026-08-18T20:58:15
+> 生成时间：2026-08-19T20:00:49
 
 ## [CAS / Lock-Free](https://java-px.bot.cd/architecture/01-concurrency-theory/cas)
 > **Compare-And-Swap**（比较并交换），CPU 硬件原语： **乐观锁**：不断重试直到成功。 **解决**：版本号（AtomicStampedReference）或加锁。 高竞争下 CAS 反复失败 → CPU 空转。**解决**：自适应自旋 / Exponential Backoff / 让出 CPU。 CAS 只能保护**一个**变量。多变量一致性需要**事务 / 锁**。

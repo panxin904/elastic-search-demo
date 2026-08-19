@@ -2,7 +2,7 @@
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
 > 32 个文档页 · 114,800 字
-> 生成时间：2026-08-18T20:58:15
+> 生成时间：2026-08-19T20:00:49
 
 ## [爆炸半径](https://java-px.bot.cd/chaos/01-foundations/blast-radius)
 > 爆炸半径（Blast Radius）是「实验失败时的最大影响范围」。分级管理： | 级别 | 流量 | 实例 | 区域 | 时长 | 适用 | |---|---|---|---|---|---| | L1 · 单测 | 0% | 1 Pod | 单 AZ | 5s | 首次实验 | | L2 · 金丝雀 | 1% | 10% Pods | 单 AZ | 30s | 灰度验证 | | L3 · 灰度

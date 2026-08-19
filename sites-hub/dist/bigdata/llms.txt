@@ -2,7 +2,7 @@
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
 > 51 个文档页 · 183,585 字
-> 生成时间：2026-08-18T20:58:15
+> 生成时间：2026-08-19T20:00:49
 
 ## [大数据 4V 特征](https://java-px.bot.cd/bigdata/01-basics/4v)
 > 大数据（Big Data）= 无法用传统数据库工具在合理时间内处理的数据集。 | | 传统 DB | 大数据 | |------|--------|--------| | 数据量 | GB-TB | PB-EB | | 速度 | 实时 | 实时 + 批 | | 多样性 | 结构化 | 半/非结构化 | | 价值 | 报表 | 洞察 + ML | | 工具 | Oracle / MySQL | Ha

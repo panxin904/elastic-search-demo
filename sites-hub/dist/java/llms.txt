@@ -2,7 +2,7 @@
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
 > 53 个文档页 · 76,753 字
-> 生成时间：2026-08-18T20:58:15
+> 生成时间：2026-08-19T20:00:49
 
 ## [接口设计](https://java-px.bot.cd/java/01-process/api-design)
 > 接口是前后端协作的契约，设计好坏直接影响开发效率和系统质量。 <div class="kg-note"> <strong>规范</strong>：URL 用名词复数、小写、短横线分隔；资源嵌套不超过两层。 </div> | 范围 | 含义 | 示例 | |---|---|---| | 0 | 成功 | | | 1xxx | 参数错误 | 1001-参数缺失, 1002-参数格式错误 | | 2xx
