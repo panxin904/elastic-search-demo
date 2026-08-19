@@ -33,7 +33,7 @@
 |------|------|--------|--------|------|------|
 | C1 | 子站结构统一化（VitePress 模板 + nav/sidebar/homepage 模板） | **P0** | 3-5d | — | ✅ done（§8.42 Phase 1+2+3；模板覆盖 head/nav/dropdown）|
 | C2 | 跨站内容关联（X-Linking + 相关站点推荐） | P0 | 2-3d | C1 | ✅ done（§8.18 C2 完整闭环；xsite 139, glossary 125 词条, :related-sites 100%）|
-| C3 | 内容质量审计（拼写/过期/薄页/死链/重复） | **P0** | 1d + 持续 | — | wip（§8.19-§8.21 工具就位 + 部分修完；持续跑待续）|
+| C3 | 内容质量审计（拼写/过期/薄页/死链/重复） | **P0** | 1d + 持续 | — | ✅ done（§8.41 工具+修复；§8.43 weekly CI 持续跑）|
 | C4 | 全文搜索升级（Pagefind + 跨站聚合） | P1 | 1-2d | C1 | ✅ done（§8.28 Pagefind 全文搜索）|
 | C5 | RSS feed + 聚合订阅 | P1 | 0.5d | C1 | ✅ done（§8.27 RSS 2.0 feed.xml × 28 + 聚合）|
 | C6 | 评论/反馈（Giscus + Issue 模板） | P1 | 0.5d | — | ✅ done（§8.25 Giscus + Issue 模板 + CONTRIBUTING）|
@@ -3199,3 +3199,96 @@ python3 render-config.py --all --apply            # 全跑 + 直接覆盖 config
 - **render-config.py 单元测试**：当前未写 pytest，下次改动前补（`test_extract_block` / `test_site_to_dir` / `test_render_one_springcloud`）
 
 **关键学习**：模板化必须用**唯一真相源**（`sites.sh` 的 `SITES=(...)` + `PROJECT_DIR_MAP`），render-config.py 只读取不硬编码 28 站列表 — 否则下次新增站要改两处。
+
+
+### 8.43 C3 weekly audit-content CI workflow + ROOT 兼容性（2026-08-19 第三十六次）
+
+**目标**：让 audit-content.py 持续跑（每周一北京时间 10:00 自动 baseline 漂移检测），不阻塞主 build pipeline。
+
+#### 8.43.1 拆分 audit 到独立 workflow
+
+**原因**：直接在 `sites-hub-ci.yml` 加 `schedule:` 会导致 schedule 触发也跑 check / build-all / release / deploy（28 站 build 浪费 CI 资源）。
+
+**方案**：新建 `.github/workflows/audit-content.yml`，独立触发器 + 独立 job：
+
+| 维度 | sites-hub-ci.yml | audit-content.yml（新）|
+|---|---|---|
+| 触发器 | push / PR / workflow_dispatch | schedule (cron) / workflow_dispatch |
+| Jobs | check / build-all / release / deploy | audit |
+| 资源 | 重（28 站 npm build + release + deploy）| 轻（单 Python 脚本）|
+| 失败策略 | 严格（fail = 不 deploy）| 宽松（continue-on-error + warn）|
+
+#### 8.43.2 audit-content.yml 设计
+
+```yaml
+on:
+  schedule:
+    - cron: '0 2 * * 1'  # UTC 02:00 周一 = 北京 10:00
+  workflow_dispatch:
+
+concurrency:
+  group: audit-content
+  cancel-in-progress: false  # 多 run 不互斥（保留所有 artifact）
+
+jobs:
+  audit:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+      - checkout (fetch-depth: 0 → 看历史 reports)
+      - setup-python 3.11
+      - 展示前次 baseline（git history 里最新 report）
+      - python3 sites-hub/scripts/audit-content.py (continue-on-error: true)
+      - 验证 report 生成
+      - diff vs previous baseline（files/words/thin/broken/dups 5 个关键指标）
+      - upload-artifact（retention 90d）
+      - 写 GITHUB_STEP_SUMMARY（run 页面直接看到 baseline）
+```
+
+#### 8.43.3 audit-content.py ROOT 兼容性
+
+**Bug**：原脚本 `ROOT = Path('/Users/a1111/work_space/elastic-search-demo')` hardcoded macOS 路径，CI 跑会报 `FileNotFoundError`。
+
+**修复**：检测环境变量区分本地 / CI：
+
+```python
+import os
+if os.environ.get('CI') or os.environ.get('GITHUB_ACTIONS'):
+    ROOT = Path(os.environ.get('GITHUB_WORKSPACE', Path.cwd())).resolve()
+else:
+    ROOT = Path('/Users/a1111/work_space/elastic-search-demo')
+```
+
+**验证**：本地（无 env）+ CI（`CI=true GITHUB_WORKSPACE=$PWD`）两种模式输出完全一致。
+
+#### 8.43.4 2026-08-19 首次 baseline
+
+```
+files: 1430  words: 1,160,970  thin: 96  imgs: 0  xsite: 139
+no_fm: 0  no_date: 1417  stale: 0  broken: 0  dups: 243 (cross-site) + 462 (intra-site)
+vue_bug: 0  vue_missing: 0
+```
+
+| 指标 | 值 | 趋势方向 |
+|---|---:|---|
+| 总文件数 | 1430 | 周一报告后开始追踪 |
+| 总字数 | 1,160,970 | 缓慢增长（每周 commit）|
+| 薄页 | 96 (6.7%) | 应随每周内容扩充降低 |
+| 缺 FM | 0 | ✅ 100% |
+| 内部死链 | 0 | ✅ 应持续 0 |
+| 跨站引用 | 139 | 应随 C2 巩固稳定 |
+
+#### 8.43.5 后续工作（C3 剩余 P2）
+
+1. **薄页豁免规则**：把 `mindmap.md` / `graph.md` / `cheatsheet.md` 加入豁免列表（这三种页面结构上字数少是合理的）
+2. **跨站重复标题 243**：C1 模板化只能部分缓解（footer/hero 重复统一了，section 标题重复还需手动治理）
+3. **趋势 dashboard**：把 12 周 audit artifact 汇总成趋势图（GH Pages / Plausible 自定义事件）
+4. **audit-content.py 加新检测**：
+   - Mermaid ` ```mermaid ` 块未闭合
+   - Vue prop 数组缺逗号（§8.14 教训）
+   - 章节顺序断裂（h2 直接跳 h4）
+
+**关键学习**：
+- workflow 拆分原则：**重资源放主 CI（push 触发），轻任务放独立 schedule（不耦合）**
+- `continue-on-error: true` + `if: always()` 是 audit 类任务的正确范式（不阻塞 + artifact 必保留）
+- ROOT 路径 hardcode 是常见 Linux/macOS 跨平台 bug，**永远用 env 检测**
