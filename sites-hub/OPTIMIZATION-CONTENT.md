@@ -3294,28 +3294,57 @@ vue_bug: 0  vue_missing: 0
 - ROOT 路径 hardcode 是常见 Linux/macOS 跨平台 bug，**永远用 env 检测**
 
 
-#### 8.43.6 线上验证发现：GH 后端 0-step failure
+#### 8.43.6 线上验证发现：GH 账户 billing 限制
 
-**触发 audit-content.yml + sites-hub-ci.yml 后，run 状态均为 completed/failure**：
+**触发所有 workflow（audit-content + sites-hub-ci）的 0-step failure 后，GitHub UI 报错**：
 
-| Run ID | Workflow | runner_id | steps | 持续时间 | event |
-|---|---|---:|---:|---|---|
-| 32247462630 | audit-content | **0** | **0** | 3s | workflow_dispatch |
-| 32247487751 | sites-hub-ci (check job) | **0** | **0** | 3s | workflow_dispatch |
+> The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings
 
-**根因**：runner_id=0 + steps=0 + 3 秒内 completed/failure 是 GH Actions 后端**已知 incident 的特征**——job 被 GH 接走但 runner 池没分配到执行节点。两个 workflow 同时中招说明是 account-level 问题，不是 workflow 文件问题。
+**根因**（不是 workflow 文件 bug，也非 GH 后端 incident）：
 
-**线上验证受阻**——按 handoff §7.3 的"4 步验证流程"分类，这属于 GH 后端事故，等待 https://www.githubstatus.com 恢复。
+- GitHub Actions 账户账单/支出限制
+- GH 拒绝分配 runner → runner_id=0 + steps=[] + 数秒内 completed/failure
+- 同时影响 push + workflow_dispatch 两种触发器
 
-**本地验证**（CI=true GITHUB_WORKSPACE=$PWD 模拟）已通过：
+**真实证据**（push 触发 + workflow_dispatch 触发各采样）：
 
-```bash
-CI=true GITHUB_ACTIONS=true GITHUB_WORKSPACE="$PWD" python3 sites-hub/scripts/audit-content.py
-# ✓ 报告: .../sites-hub/reports/content-quality-2026-08-19.md
-# files: 1430  words: 1,160,970  thin: 96  imgs: 0  xsite: 139
-# no_fm: 0  no_date: 1417  stale: 0  broken: 0  dups: 243 (cross-site) + 462 (intra-site)
-```
+| Run ID | Workflow | 触发 | 持续 | 真实错误 |
+|---|---|---|---:|---|
+| 32247526055 | sites-hub-ci | push | 132s | billing 限制（GH 自动重试）|
+| 32247487751 | sites-hub-ci | workflow_dispatch | 6s | billing 限制 |
+| 32247462630 | audit-content | workflow_dispatch | 4s | billing 限制 |
 
-audit-content.py 自身逻辑 OK，等 GH 后端恢复后 weekly schedule 会自动跑。
+push 触发的 run 持续 132 秒是 GH 自动重试机制，第一次失败后短暂重试。
 
-**附带修复**（commit `3e01821`）：audit-content.yml + sites-hub-ci.yml 的 `on:` → `'on':`，避免 PyYAML 1.1 把 on 当布尔字面量 true 解析（GH Actions 内部兼容，但 PyYAML 解析会出错）。
+**解决方案**（按推荐度排序）：
+
+1. **充值 / 提高 spending limit**（最直接）：
+   - 进入 https://github.com/settings/billing
+   - "Payment information" 补卡 / "Spending limit" 调整
+   - 立即生效，无需重新触发 workflow
+
+2. **等下月重置**（如果超免费额度 2000 min/月）：
+   - GitHub Actions 免费账户每月 2000 分钟
+   - 28 站 build + npm ci 估计一次 30-60 min × 4 jobs = 120-240 min/次
+   - 频繁 push 容易超限
+
+3. **用自托管 runner**（避开 GH 配额）：
+   - VPS 38.207.171.83 已有 ubuntu，可装 actions-runner
+   - workflow 加 `runs-on: self-hosted`
+   - 0 配额消耗，但需维护 runner
+
+4. **减少 build 频率**：
+   - sites-hub-ci.yml 加路径过滤（只 docs/** 改动触发 build）
+   - audit-content 用 schedule 已最低频率
+
+**当前状态**：
+
+- audit-content.yml + sites-hub-ci.yml workflow 文件本身正确（YAML 修已 commit `3e01821`）
+- audit-content.py 逻辑本地 CI=true 模拟已验证通过
+- 等 billing 解决后：
+  - weekly schedule（每周一 UTC 02:00）自动恢复
+  - push main 也恢复 build + deploy
+
+**预防**：
+- §7.3 4 步验证流程：第 1 步「成功 run 对比」加上 billing 状态检查（`gh billing` 或 repo settings）
+- 不要凭 runner_id=0 + steps=0 直接判后端 incident — 先看 GH UI 报错
