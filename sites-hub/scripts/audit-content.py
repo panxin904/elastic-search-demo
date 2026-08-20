@@ -416,11 +416,33 @@ def main():
         '在图谱中的位置', '常见问题', '一句话定义', '与其他站点关系',
         '面试高频问题', '参考资料', '关键 takeaway', '一句话总结',
         '实战案例', '其他资源', '推荐阅读', '小结', '总结', '总结与回顾',
+        # === C3 §8.49: 跨子站重复标题泛用词豁免（2026-08-20） ===
+        # 通用章节词（高重复，必然跨站共用）
+        '实战 checklist', '为什么需要', '三种部署模式', '🆚 vs 其他',
+        '秒杀系统设计', '分布式限流', 'Fallback 策略',
+        # 代码示例标识（配置/文件名作子标题）
+        'application.yml', 'docker-compose.yml', 'config.yaml', 'AWS Secrets Manager',
+        # 通用操作/技术词（讨论该主题时必出现）
+        'macOS', 'Linux', 'Docker', 'Docker 镜像', 'Node.js', 'Python',
+        'Python 客户端', 'JSON 输出', '多 GPU', '命令行启动', '用 curl',
+        'Schema 设计',
+        # 入门路径 / 示例章节
+        '路径 1：纯新手（1 周）', 'Easy（基础）', 'Hello World',
+        # 跨站设计模式词（架构 / 设计模式 / 故障容错 多站共用）
+        '双写一致性', 'ShardingSphere 实战', 'Hystrix（已停止维护）',
+        '熔断器（Circuit Breaker）',
+        # === C3 §8.49 第二轮豁免：跨站通用代码示例 + 通用章节 ===
+        # 代码示例（配置文件名作子标题）
+        'prometheus.yml', 'otel-collector-config.yaml',
+        # 通用章节/路径建议（多站共用且无歧义）
+        '选型决策树', '学习路径建议', '与其他站点的关系',
+        '缓存三大问题', '三大问题对比', '适用 vs 不适用',
+        'P99 延迟', '字符串函数',
     }
     by_title: dict[str, list[tuple[str, Path]]] = defaultdict(list)
     for t, s, p in all_titles:
         # 去前缀编号 "11. xxx" / "## xxx" / emoji "⚠️ xxx"
-        t_clean = re.sub(r'^[\d]+\.\s+|^#+\s+|^[\U0001F300-\U0001FAFF\U00002600-\U000027BF]\s*', '', t).strip()
+        t_clean = re.sub(r'^[\d]+\.\s+|^#+\s+|(?:[\U0001F300-\U0001FAFF\U00002600-\U000027BF\uFE0F\u200D\u20E3]\s*)+', '', t).strip()
         t_clean = re.sub(r'\s+', ' ', t_clean)
         if 4 < len(t_clean) < 40 and t_clean not in TEMPLATE_TITLES:
             by_title[t_clean].append((s, p))

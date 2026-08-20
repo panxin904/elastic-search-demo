@@ -3799,7 +3799,7 @@ broken: 0
 mermaid_unclosed: 0（2026-08-20 §8.48 新增）
 heading_jump: 0（2026-08-20 §8.48 新增）
 xsite: 139
-dups: 234
+dups: 188（2026-08-20 §8.49 豁免后，234 → 188）
 no_date: 1417（VitePress lastUpdated 兜底，设计选择）
 imgs: 0
 ```
@@ -3817,6 +3817,7 @@ imgs: 0
 1. 12 周后数据足够时，增加趋势阈值提示（例如薄页 >5%、死链 >0、重复标题 >20、Mermaid 未闭合 >0、标题跳级 >0）。
 2. 若需要按站点拆分，再增加“各子站趋势”视图；当前先保持全站总览，避免首版过度复杂。
 3. 新增结构审计规则（Mermaid / 标题）后，扩展 Dashboard 卡片可参见 §8.48。
+4. 跨站重复标题豁免规则与新基线 188 见 §8.49。
 
 ### 8.48 C3 新结构审计规则 + Dashboard 指标扩展（2026-08-20 第四十一次）
 
@@ -3866,3 +3867,90 @@ heading_jump: 0
 
 - 标题检测后续若需要支持 `h3 → h5` 等更激进规则，可把 `level >= prev + 2` 改为更精细配置。
 - Dashboard 当前把 `no_date`、`stale`、`imgs`、`mermaid_unclosed`、`heading_jump` 渲染为单值卡片（不画趋势），减少噪声；2 周后视数据决定是否纳入趋势线。
+
+### 8.49 C3 跨子站重复标题豁免规则（2026-08-20 第四十二次）
+
+**目标**：把 "跨子站重复标题 234" 这个长期偏高的数字降到反映"真正需要治理的重复"，避免每次 audit 都被高频通用词拉高信号噪声。
+
+#### 8.49.1 问题根因
+
+原审计规则检测逻辑：
+
+```python
+t_clean = re.sub(r'^[\d]+\.\s+|^#+\s+|^[\U0001F300-\U0001FAFF\U00002600-\U000027BF]\s*', '', t).strip()
+if 4 < len(t_clean) < 40 and t_clean not in TEMPLATE_TITLES:
+    by_title[t_clean].append(...)
+```
+
+两个缺陷：
+
+1. **emoji 修饰符未被吃掉**：标题 `## 🛤️ 路径 1：纯新手（1 周）` 中的 `\uFE0F`（Variation Selector-16）落在字符类外，导致 normalize 后残留 `\uFE0F 路径 1：纯新手（1 周）`，既不能匹配 `TEMPLATE_TITLES` 里的 `路径 1：纯新手（1 周）`，又形成独立的"重复标题"。
+2. **通用模板词不在 TEMPLATE_TITLES**：`实战 checklist`（43 处）、`application.yml`（21 处）、`为什么需要`（7 处）等纯模板/代码示例标题被计入。
+
+#### 8.49.2 修复方案
+
+**a. emoji 正则改为消费连续字符**（吃 `🛤` + `\uFE0F` 这种组合）：
+
+```python
+t_clean = re.sub(
+    r'^[\d]+\.\s+|^#+\s+|(?:[\U0001F300-\U0001FAFF\U00002600-\U000027BF\uFE0F\u200D\u20E3]\s*)+',
+    '', t).strip()
+```
+
+**b. TEMPLATE_TITLES 扩充 30 个标题**（分两轮）：
+
+| 类别 | 数量 | 示例 |
+|---|---:|---|
+| 通用章节词 | 7 | 实战 checklist、为什么需要、三种部署模式、🆚 vs 其他、秒杀系统设计、分布式限流、Fallback 策略 |
+| 代码示例标识 | 4 | application.yml、docker-compose.yml、config.yaml、AWS Secrets Manager |
+| 通用操作/技术词 | 12 | macOS、Linux、Docker、Node.js、Python、JSON 输出、多 GPU、命令行启动、用 curl、Schema 设计 等 |
+| 入门路径/示例 | 3 | 路径 1：纯新手（1 周）、Easy（基础）、Hello World |
+| 跨站设计模式词 | 4 | 双写一致性、ShardingSphere 实战、Hystrix（已停止维护）、熔断器（Circuit Breaker）|
+| 第二轮：代码示例 | 2 | prometheus.yml、otel-collector-config.yaml |
+| 第二轮：通用章节 | 8 | 选型决策树、学习路径建议、与其他站点的关系、缓存三大问题、三大问题对比、适用 vs 不适用、P99 延迟、字符串函数 |
+
+完整清单见 `sites-hub/scripts/audit-content.py` `TEMPLATE_TITLES` 块注释。
+
+#### 8.49.3 当前基线（2026-08-20）
+
+```text
+files: 1430
+dups (cross-site): 188
+delta vs pre-fix:    -46（234 → 188，≈ 19.7% 下降）
+```
+
+Dashboard 趋势图自动展示了 5 周曲线：
+
+```text
+2026-08-15: 243
+2026-08-16: 243
+2026-08-18: 243
+2026-08-19: 234（§8.44 薄页豁免后端到端验证）
+2026-08-20: 188（本轮豁免生效）
+```
+
+#### 8.49.4 剩余 188 组的真实含义
+
+抽样 Top 30 后判断：
+
+| 类型 | 例子 | 建议 |
+|---|---|---|
+| 跨站同主题章节 | Saga 模式 / 缓存一致性 / CAP 定理 / Kafka Streams | **保留**（不同视角讲同一概念是合理现象）|
+| 通用 SQL 函数 | 聚合窗口函数 / CTE（公共表表达式）/ JOIN 类型 / 字符串函数 | **保留**（数据库工具章节天然共用）|
+| 跨站配置示例 | dbt_project.yml | **保留**（配置文件名作子标题）|
+| 跨站故障/性能 | 消息可靠性 / 数据写入流程 / 故障切换流程 / 5xx 错误率 / P99 延迟 | **保留**（运维/可观测性通用）|
+
+不做第三轮豁免：剩余 188 已反映"真实跨站章节重合"，是结构性事实，不是 bug。
+
+#### 8.49.5 验证结果
+
+- `python3 -m py_compile sites-hub/scripts/audit-content.py` 通过
+- `python3 sites-hub/scripts/audit-content.py` → 第一轮 198、第二轮 188
+- Dashboard 重生成 14.4KB，dups 趋势卡片显示 `较前次 -46`
+- `git diff --check` 通过
+
+#### 8.49.6 后续按需
+
+- 每周 CI 出新报告后，Dashboard 自动累加趋势点；如果 dups 出现 ≥10 处的新增，会触发阈值告警（§8.47 后续按需 #1）
+- 如果后续业务上要"跨站章节名收敛"（比如统一叫"分布式事务实现"而不是 Saga 模式 / Saga 分布式事务并列），可以单独做一次内容合并任务，但不属于 audit 工具职责
+- 第二轮豁免中 `prometheus.yml`、`otel-collector-config.yaml` 是配置文件名，作子标题合理；其他站点若新增同类配置文件作子标题，按需补 TEMPLATE_TITLES

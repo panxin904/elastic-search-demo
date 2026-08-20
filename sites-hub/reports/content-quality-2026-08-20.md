@@ -23,7 +23,7 @@
 | Vue 组件缺失（md 引用无 .vue） | 0 | 0 | ✅ |
 | Mermaid 代码块未闭合 | 0 | 0 | ✅ |
 | 标题层级跳级 | 0 | 0 | ✅ |
-| 跨子站重复标题 | 234 | ≤ 20 | ⚠️ |
+| 跨子站重复标题 | 188 | ≤ 20 | ⚠️ |
 
 ## 一、各子站统计
 
@@ -112,138 +112,116 @@
 - `filesystem/10-security/README.md (151字)`
 - ... 及其他 21 篇
 
-## 七、跨子站重复标题（234 组 — 候选合并/跨站引用）
+## 七、跨子站重复标题（188 组 — 候选合并/跨站引用）
 
 模板 词已在检测中过滤（在图谱中的位置 / 一句话定义 / 关键 takeaway 等）
 
-- **'️ 路径 1：纯新手（1 周）'** (3 处)
-  - `ai/path.md`
-  - `cloud-native/path.md`
-  - `linux/path.md`
-- **'🆚 vs 其他'** (3 处)
-  - `ai/gemini.md`
-  - `cloud-native/falco.md`
-  - `cloud-native/istio.md`
-- **'多 GPU'** (3 处)
-  - `ai/cuda-gpu.md`
-  - `ai/vllm-tgi.md`
-  - `video/gpu-cuda.md`
-- **'Docker 镜像'** (2 处)
-  - `ai/package-managers.md`
-  - `cloud-native/image.md`
-- **'Node.js'** (5 处)
-  - `ai/openai-sdk.md`
-  - `ai/openai-sdk.md`
-  - `ai/claude-sdk.md`
-  - `clickhouse/client.md`
-  - `frontend/basic.md`
-- **'Python'** (4 处)
-  - `ai/claude-sdk.md`
-  - `ai/vllm-tgi.md`
-  - `observability/otlp.md`
-  - `security/a06-vulnerable-component.md`
-- **'JSON 输出'** (3 处)
-  - `ai/few-shot.md`
-  - `es/cat-api.md`
-  - `video/mediainfo.md`
-- **'AWS Secrets Manager'** (2 处)
-  - `ai/api-keys.md`
-  - `devops/secrets-management.md`
-- **'config.yaml'** (2 处)
-  - `ai/cost.md`
-  - `bigdata/log-platform.md`
-- **'Easy（基础）'** (2 处)
-  - `ai/questions.md`
-  - `cloud-native/questions.md`
-- **'Python 客户端'** (2 处)
-  - `ai/vector-db.md`
-  - `clickhouse/client.md`
-- **'docker-compose.yml'** (10 处)
-  - `ai/vllm-tgi.md`
-  - `clickhouse/grafana.md`
-  - `cloud-native/network.md`
-  - `cloud-native/compose.md`
-  - `kafka/install.md`
-  - ... 等 5 处
-- **'命令行启动'** (2 处)
-  - `ai/vllm-tgi.md`
-  - `redis/sentinel.md`
-- **'macOS'** (9 处)
-  - `ai/ollama.md`
-  - `ai/cursor.md`
-  - `cloud-native/helmfile.md`
-  - `filesystem/restic.md`
-  - `go/hello-world.md`
-  - ... 等 4 处
-- **'Linux'** (9 处)
-  - `ai/ollama.md`
-  - `cloud-native/helmfile.md`
-  - `filesystem/restic.md`
-  - `go/hello-world.md`
-  - `network/wifi.md`
-  - ... 等 4 处
-- **'用 curl'** (2 处)
-  - `ai/ollama.md`
-  - `filesystem/webdav.md`
-- **'Docker'** (3 处)
-  - `ai/ollama.md`
-  - `java/docker.md`
-  - `video/inpainting.md`
-- **'为什么需要'** (7 处)
-  - `ai/function-calling.md`
-  - `ai/structured-output.md`
-  - `cloud-native/falco.md`
-  - `cloud-native/policy.md`
-  - `cloud-native/debug.md`
-  - ... 等 2 处
-- **'Schema 设计'** (4 处)
-  - `ai/function-calling.md`
-  - `clickhouse/user-tracking.md`
-  - `clickhouse/log-analysis.md`
-  - `clickhouse/realtime-warehouse.md`
-- **'Hello World'** (2 处)
-  - `ai/crewai.md`
-  - `rust/overview.md`
-- **'分布式限流'** (3 处)
-  - `architecture/distributed.md`
-  - `redis/distributed-ratelimit.md`
-  - `system-design/rate-limiter.md`
-- **'双写一致性'** (2 处)
-  - `architecture/routing.md`
-  - `redis/cache-consistency.md`
-- **'application.yml'** (21 处)
-  - `architecture/strategy.md`
-  - `architecture/config.md`
-  - `architecture/discovery.md`
-  - `architecture/three-pillars.md`
-  - `architecture/otel.md`
-  - ... 等 16 处
-- **'ShardingSphere 实战'** (2 处)
-  - `architecture/strategy.md`
-  - `mysql/shardingsphere.md`
-- **'三种部署模式'** (2 处)
-  - `architecture/multi-region.md`
-  - `observability/collector.md`
-- **'实战 checklist'** (43 处)
-  - `architecture/multi-region.md`
+- **'Saga 分布式事务'** (2 处)
+  - `architecture/saga.md`
+  - `design-pattern/saga.md`
+- **'Sidecar 模式'** (3 处)
+  - `architecture/sidecar.md`
+  - `cloud-native/sidecar.md`
+  - `cloud-native/sidecar.md`
+- **'Saga 模式'** (2 处)
+  - `architecture/saga.md`
+  - `system-design/saga.md`
+- **'消息可靠性'** (2 处)
+  - `architecture/compare.md`
+  - `java/message-queue.md`
+- **'多级缓存架构'** (4 处)
   - `architecture/architecture.md`
-  - `architecture/breakdown.md`
-  - `architecture/split.md`
-  - `architecture/event-storming.md`
-  - ... 等 38 处
-- **'秒杀系统设计'** (2 处)
-  - `architecture/flash-sale.md`
-  - `system-design/seckill.md`
-- **'Fallback 策略'** (2 处)
-  - `architecture/fallback.md`
-  - `design-pattern/circuit-breaker.md`
-- **'Hystrix（已停止维护）'** (2 处)
-  - `architecture/impl.md`
-  - `design-pattern/circuit-breaker.md`
-- **'熔断器（Circuit Breaker）'** (2 处)
-  - `architecture/states.md`
+  - `architecture/architecture.md`
+  - `system-design/multi-level.md`
+  - `system-design/multi-level.md`
+- **'缓存一致性'** (3 处)
+  - `architecture/consistency.md`
+  - `redis/cache-consistency.md`
+  - `system-design/consistency.md`
+- **'Raft 共识算法'** (2 处)
+  - `architecture/raft.md`
+  - `system-design/raft.md`
+- **'Paxos vs Raft'** (2 处)
+  - `architecture/raft.md`
+  - `system-design/paxos.md`
+- **'角色与状态'** (2 处)
+  - `architecture/raft.md`
+  - `system-design/raft.md`
+- **'CAP 定理'** (2 处)
+  - `architecture/cap.md`
+  - `system-design/cap.md`
+- **'可观测性三大支柱'** (2 处)
+  - `architecture/three-pillars.md`
+  - `python/logging.md`
+- **'Kafka Streams'** (2 处)
+  - `bigdata/streams.md`
+  - `kafka/streams.md`
+- **'dbt_project.yml'** (2 处)
+  - `bigdata/airflow-dbt.md`
+  - `clickhouse/overview.md`
+- **'数据写入流程'** (2 处)
+  - `bigdata/architecture.md`
+  - `kafka/overview.md`
+- **'故障切换流程'** (2 处)
+  - `bigdata/ha.md`
+  - `postgresql/patroni.md`
+- **'三大核心组件'** (2 处)
+  - `chaos/architecture.md`
+  - `cloud-native/control-plane.md`
+- **'5xx 错误率'** (2 处)
   - `chaos/overview.md`
-- ... 及其他 204 组
+  - `observability/logql.md`
+- **'聚合窗口函数'** (2 处)
+  - `clickhouse/window-functions.md`
+  - `postgresql/window.md`
+- **'CTE（公共表表达式）'** (2 处)
+  - `clickhouse/window-functions.md`
+  - `mysql/functions.md`
+- **'JOIN 类型'** (2 处)
+  - `clickhouse/join.md`
+  - `postgresql/planner.md`
+- **'JOIN 性能优化'** (2 处)
+  - `clickhouse/join.md`
+  - `mysql/join.md`
+- **'Grafana 数据源'** (2 处)
+  - `clickhouse/log-analysis.md`
+  - `observability/tempo.md`
+- **'Grafana 集成'** (5 处)
+  - `clickhouse/log-analysis.md`
+  - `clickhouse/grafana.md`
+  - `cloud-native/loki.md`
+  - `observability/pyroscope.md`
+  - `observability/tempo.md`
+- **'监控与告警'** (5 处)
+  - `clickhouse/realtime-warehouse.md`
+  - `clickhouse/dbt-airbyte.md`
+  - `kafka/recovery.md`
+  - `system-design/not-lost.md`
+  - `system-design/backlog.md`
+- **'Prometheus 配置'** (3 处)
+  - `clickhouse/metrics-storage.md`
+  - `kafka/backlog.md`
+  - `mysql/prometheus.md`
+- **'字符串类型'** (3 处)
+  - `clickhouse/data-types.md`
+  - `mysql/data-types.md`
+  - `postgresql/built-in.md`
+- **'验证集群状态'** (2 处)
+  - `clickhouse/installation.md`
+  - `kafka/install.md`
+- **'备份到 S3'** (2 处)
+  - `clickhouse/installation.md`
+  - `mysql/mysqldump.md`
+- **'Kubernetes 部署'** (5 处)
+  - `clickhouse/installation.md`
+  - `design-pattern/sidecar.md`
+  - `observability/collector.md`
+  - `observability/jaeger.md`
+  - `python/docker.md`
+- **'客户端连接'** (2 处)
+  - `clickhouse/client.md`
+  - `redis/install.md`
+- ... 及其他 158 组
 
 ## 八、关键发现与建议
 
