@@ -179,6 +179,60 @@ def check_vue_prop_arrays(text: str) -> list[str]:
     return issues
 
 
+def check_mermaid_fences(text: str) -> list[str]:
+    """检查 Mermaid fenced code block 是否缺少结束标记。"""
+    fence_char = None
+    fence_length = 0
+    fence_start = 0
+    for line_number, line in enumerate(text.splitlines(), 1):
+        match = re.match(r'^\s*(`{3,}|~{3,})(.*)$', line)
+        if not match:
+            continue
+        marker, info = match.groups()
+        language = info.strip().split()[0] if info.strip() else ''
+        if fence_char is None:
+            if language == 'mermaid':
+                fence_char = marker[0]
+                fence_length = len(marker)
+                fence_start = line_number
+        elif marker[0] == fence_char and len(marker) >= fence_length:
+            fence_char = None
+    if fence_char is not None:
+        return [f'Mermaid 代码块未闭合（起始于第 {fence_start} 行）']
+    return []
+
+
+def check_heading_order(text: str) -> list[str]:
+    """检查正文 Markdown 标题是否从低层级直接跳到更高层级。"""
+    issues = []
+    previous_level = None
+    fence_char = None
+    fence_length = 0
+    for line_number, line in enumerate(text.splitlines(), 1):
+        fence = re.match(r'^\s*(`{3,}|~{3,})', line)
+        if fence:
+            marker = fence.group(1)
+            if fence_char is None:
+                fence_char = marker[0]
+                fence_length = len(marker)
+            elif marker[0] == fence_char and len(marker) >= fence_length:
+                fence_char = None
+            continue
+        if fence_char is not None:
+            continue
+        heading = re.match(r'^\s*(#{1,6})\s+', line)
+        if not heading:
+            continue
+        level = len(heading.group(1))
+        if level == 1:
+            previous_level = level
+            continue
+        if previous_level is not None and previous_level >= 2 and level > previous_level + 1:
+            issues.append(f'标题层级从 h{previous_level} 跳到 h{level}（第 {line_number} 行）')
+        previous_level = level
+    return issues
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--min-words', type=int, default=200, help='字数 < 此值算薄页（cheatsheet 章节天然 50-200 字，500 太严）')
@@ -197,7 +251,8 @@ def main():
     files = find_all_md_files()
     site_stats = defaultdict(lambda: {'files': 0, 'words': 0, 'fm': 0, 'imgs': 0, 'links': 0,
                                        'thin': 0, 'thin_excluded': 0, 'no_fm': 0, 'no_date': 0, 'stale': 0, 'missing_alt': 0,
-                                       'broken_links': 0, 'xsite_links': 0, 'vue_prop_issues': 0, 'vue_missing_comp': 0})
+                                       'broken_links': 0, 'xsite_links': 0, 'vue_prop_issues': 0, 'vue_missing_comp': 0,
+                                       'mermaid_unclosed': 0, 'heading_jump': 0})
     all_titles: list[tuple[str, str, Path]] = []  # (title, site, file)
     issues_thin: list[str] = []
     issues_no_fm: list[str] = []
@@ -206,6 +261,8 @@ def main():
     broken_links: list[str] = []
     issues_vue_props: list[str] = []
     issues_vue_missing: list[str] = []
+    issues_mermaid: list[str] = []
+    issues_heading: list[str] = []
 
     now = datetime.date.today()
 
@@ -246,6 +303,18 @@ def main():
                     issues_stale.append(f"{site_short}/{path.relative_to(SITE_DOCS[site])} ({date_str}, {age}d)")
             except Exception:
                 pass
+
+        mermaid_issues = check_mermaid_fences(text)
+        if mermaid_issues:
+            s['mermaid_unclosed'] += len(mermaid_issues)
+            for issue in mermaid_issues:
+                issues_mermaid.append(f"{site_short}/{path.relative_to(SITE_DOCS[site])} {issue}")
+
+        heading_issues = check_heading_order(body)
+        if heading_issues:
+            s['heading_jump'] += len(heading_issues)
+            for issue in heading_issues:
+                issues_heading.append(f"{site_short}/{path.relative_to(SITE_DOCS[site])} {issue}")
 
         # 薄页：< args.min_words 字。默认 200 字（cheatsheet 风格友好）
         # §8.41 fix: 之前 500 字一刀切会把 es / frontend / java 的紧凑章节（200-400 字）
@@ -382,6 +451,8 @@ def main():
     total_xsite = sum(s['xsite_links'] for s in site_stats.values())
     total_vue_prop_issues = sum(s['vue_prop_issues'] for s in site_stats.values())
     total_vue_missing = sum(s['vue_missing_comp'] for s in site_stats.values())
+    total_mermaid_unclosed = sum(s['mermaid_unclosed'] for s in site_stats.values())
+    total_heading_jump = sum(s['heading_jump'] for s in site_stats.values())
 
     lines = []
     lines.append(f"# 内容质量审计报告 — {today}")
@@ -409,19 +480,21 @@ def main():
     lines.append(f"| 跨站引用 | {total_xsite} | ≥ 100 | {'⚠️ 偏少' if total_xsite < 100 else '✅'} |")
     lines.append(f"| Vue prop 数组缺逗号 | {total_vue_prop_issues} | 0 | {'✅' if total_vue_prop_issues == 0 else '❌'} |")
     lines.append(f"| Vue 组件缺失（md 引用无 .vue） | {total_vue_missing} | 0 | {'✅' if total_vue_missing == 0 else '❌'} |")
+    lines.append(f"| Mermaid 代码块未闭合 | {total_mermaid_unclosed} | 0 | {'✅' if total_mermaid_unclosed == 0 else '❌'} |")
+    lines.append(f"| 标题层级跳级 | {total_heading_jump} | 0 | {'✅' if total_heading_jump == 0 else '❌'} |")
     lines.append(f"| 跨子站重复标题 | {len(cross_dups)} | ≤ 20 | {'✅' if len(cross_dups) <= 20 else '⚠️'} |")
     lines.append("")
 
     lines.append("## 一、各子站统计")
     lines.append("")
-    lines.append("| 子站 | 文件 | 字数 | FM | 薄页 | 豁免 | 缺FM | 过期 | 图片 | 死链 | 跨站 | VueBug | 缺组件 |")
-    lines.append("|------|-----:|-----:|---:|-----:|-----:|-----:|-----:|-----:|-----:|")
+    lines.append("| 子站 | 文件 | 字数 | FM | 薄页 | 豁免 | 缺FM | 过期 | 图片 | 死链 | 跨站 | VueBug | 缺组件 | Mermaid | 标题跳级 |")
+    lines.append("|------|-----:|-----:|---:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|------:|-----:|---------:|")
     for site in sorted(site_stats):
         s = site_stats[site]
         if s['files'] == 0:
             continue
         short = site.replace('-html', '').replace('java-web-manual', 'java')
-        lines.append(f"| {short} | {s['files']} | {s['words']:,} | {s['fm']} | {s['thin']} | {s['thin_excluded']} | {s['no_fm']} | {s['stale']} | {s['imgs']} | {s['broken_links']} | {s['xsite_links']} | {s['vue_prop_issues']} | {s['vue_missing_comp']} |")
+        lines.append(f"| {short} | {s['files']} | {s['words']:,} | {s['fm']} | {s['thin']} | {s['thin_excluded']} | {s['no_fm']} | {s['stale']} | {s['imgs']} | {s['broken_links']} | {s['xsite_links']} | {s['vue_prop_issues']} | {s['vue_missing_comp']} | {s['mermaid_unclosed']} | {s['heading_jump']} |")
     lines.append("")
 
     if issues_thin:
@@ -506,6 +579,28 @@ def main():
             lines.append(f"- ... 及其他 {len(issues_vue_missing) - 20} 处")
         lines.append("")
 
+    if issues_mermaid:
+        lines.append(f"## 十一、Mermaid 代码块未闭合（{len(issues_mermaid)} 处）")
+        lines.append("")
+        lines.append("⚠️ `mermaid` fenced code block 缺少结束标记，Mermaid 图表可能无法渲染。")
+        lines.append("")
+        for f in issues_mermaid[:20]:
+            lines.append(f"- `{f}`")
+        if len(issues_mermaid) > 20:
+            lines.append(f"- ... 及其他 {len(issues_mermaid) - 20} 处")
+        lines.append("")
+
+    if issues_heading:
+        lines.append(f"## 十二、标题层级跳级（{len(issues_heading)} 处）")
+        lines.append("")
+        lines.append("⚠️ 标题从 h1 跳到 h3、h2 跳到 h4（或更大层级）会削弱文档目录结构。")
+        lines.append("")
+        for f in issues_heading[:20]:
+            lines.append(f"- `{f}`")
+        if len(issues_heading) > 20:
+            lines.append(f"- ... 及其他 {len(issues_heading) - 20} 处")
+        lines.append("")
+
     lines.append("## 八、关键发现与建议")
     lines.append("")
     lines.append(f"1. **图片覆盖率极低**：{total_imgs} 张图 / {total_files} 篇 = {100*total_imgs/total_files:.1f}%，纯文字技术文档严重缺乏视觉化（C11 价值高）")
@@ -520,7 +615,7 @@ def main():
     out_file.write_text('\n'.join(lines))
     print(f"✓ 报告: {out_file}")
     print(f"  files: {total_files}  words: {total_words:,}  thin: {total_thin}  imgs: {total_imgs}  xsite: {total_xsite}")
-    print(f"  no_fm: {total_no_fm}  no_date: {total_no_date}  stale: {total_stale}  broken: {total_broken}  dups: {len(cross_dups)} (cross-site) + {len(intra_dups)} (intra-site)  vue_bug: {total_vue_prop_issues}  vue_missing: {total_vue_missing}")
+    print(f"  no_fm: {total_no_fm}  no_date: {total_no_date}  stale: {total_stale}  broken: {total_broken}  dups: {len(cross_dups)} (cross-site) + {len(intra_dups)} (intra-site)  vue_bug: {total_vue_prop_issues}  vue_missing: {total_vue_missing}  mermaid_unclosed: {total_mermaid_unclosed}  heading_jump: {total_heading_jump}")
 
 if __name__ == '__main__':
     main()

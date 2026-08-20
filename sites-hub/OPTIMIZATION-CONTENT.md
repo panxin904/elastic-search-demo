@@ -3749,7 +3749,7 @@ release/sites-hub/www/audit-dashboard.html
 
 #### 8.47.2 数据与指标
 
-当前本地有 4 份历史报告：`2026-08-15`、`2026-08-16`、`2026-08-18`、`2026-08-19`。Dashboard 默认只展示最近 12 份，少于 2 份时显示最新值但不伪造趋势。
+当前本地有 5 份历史报告：`2026-08-15`、`2026-08-16`、`2026-08-18`、`2026-08-19`、`2026-08-20`。Dashboard 默认只展示最近 12 份，少于 2 份时显示最新值但不伪造趋势。
 
 | 页面卡片 | 来源字段 | 说明 |
 |---|---|---|
@@ -3789,13 +3789,15 @@ location = /audit-dashboard.html {
 #### 8.47.4 当前基线
 
 ```text
-reports: 4
-latest: 2026-08-19
+reports: 5
+latest: 2026-08-20
 files: 1430
 words: 1,160,970
 thin: 71（5.0%，含豁免规则后）
 no_fm: 0
 broken: 0
+mermaid_unclosed: 0（2026-08-20 §8.48 新增）
+heading_jump: 0（2026-08-20 §8.48 新增）
 xsite: 139
 dups: 234
 no_date: 1417（VitePress lastUpdated 兜底，设计选择）
@@ -3805,12 +3807,62 @@ imgs: 0
 #### 8.47.5 验证结果
 
 - 临时契约测试：报告日期排序、指标解析、SVG 趋势、Delta 卡片通过。
-- 真实报告 smoke test：4 份报告成功生成 Dashboard，薄页解析为 71 而非豁免行 42，重复标题解析为 234。
+- 真实报告 smoke test：5 份报告成功生成 Dashboard，薄页解析为 71 而非豁免行 42，重复标题解析为 234。
 - `build-audit-dashboard.py` Python 编译通过，生成文件约 12KB。
 - `build-release.sh` 接入后由 MOCK_BUILD 复现生成，不要求额外 npm 安装。
 - Dashboard 不读取 GitHub artifact、不依赖 GH billing；billing 只影响每周新报告何时产生，不影响本地已有报告展示。
 
 **后续按需**：
 
-1. 12 周后数据足够时，增加趋势阈值提示（例如薄页 >5%、死链 >0、重复标题 >20）。
+1. 12 周后数据足够时，增加趋势阈值提示（例如薄页 >5%、死链 >0、重复标题 >20、Mermaid 未闭合 >0、标题跳级 >0）。
 2. 若需要按站点拆分，再增加“各子站趋势”视图；当前先保持全站总览，避免首版过度复杂。
+3. 新增结构审计规则（Mermaid / 标题）后，扩展 Dashboard 卡片可参见 §8.48。
+
+### 8.48 C3 新结构审计规则 + Dashboard 指标扩展（2026-08-20 第四十一次）
+
+**目标**：把"内容结构质量"纳入 C3 审计趋势，覆盖 Mermaid 代码块未闭合与 h2 跳级到 h4+ 的标题层级异常，避免只统计"字数 / 死链 / 重复标题"导致结构性 bug 长期潜伏。
+
+#### 8.48.1 触发原因
+
+- Mermaid 图在 §8.33 / §8.46 已铺到 27 站，但 `mermaid` 围栏未闭合会让整页无法渲染且首页难发现，必须有自动化哨兵。
+- 标题跳级（例如 h2 直接到 h4）会让侧边栏与目录错位，且对 VitePress / VPHero 等组件 props 解析产生副作用，需要轻量级检测而不依赖外部 lint。
+- Dashboard §8.47 已具备 SVG 趋势能力，新增指标可直接复用，无需额外 npm。
+
+#### 8.48.2 规则设计
+
+| 规则 | 触发条件 | 边界 |
+|---|---|---|
+| `check_mermaid_fences` | `mermaid` 起始行未遇到同字符 `` 终止行 | 兼容 `` 与 `~~~` 围栏；普通代码块不触发 |
+| `check_heading_order` | 当前文档存在 h2，上一级 h2 后直接出现 h4 / h5 / h6 | h1 → h3 不报警（视为正常目录结构）；fenced code block 内的标题不检测 |
+
+两个函数均为纯函数，调用顺序在薄页豁免分支**之前**，确保 `mindmap.md`、`graph.md`、`cheatsheet.md` 也走结构检查。
+
+#### 8.48.3 实施步骤
+
+1. `audit-content.py` 新增两个函数、Summary 行、子站表两列、控制台输出。
+2. `build-audit-dashboard.py` 把两个指标加入 `METRIC_DEFS` 与 `CARD_KEYS`，复用现有 SVG 趋势渲染。
+3. `.github/workflows/audit-content.yml` 的 `Annotate regression` 摘要同步 grep 这两个字段。
+4. 临时契约测试 `/tmp/test_c3_audit_rules.py` 覆盖闭合/未闭合 Mermaid、h2→h4、h1→h3、代码块内标题四个场景。
+5. 生成 `reports/content-quality-2026-08-20.md` 作为新 baseline，5 份报告驱动 Dashboard 趋势图。
+
+#### 8.48.4 当前基线（2026-08-20）
+
+```text
+files: 1430
+mermaid_unclosed: 0
+heading_jump: 0
+```
+
+零基线是预期的：新指标上线时全站不存在历史问题；如果将来出现正样本，可以反查对应提交看是引入方。
+
+#### 8.48.5 验证结果
+
+- 临时契约测试通过（4 个场景全绿）。
+- 全量审计 `python3 sites-hub/scripts/audit-content.py` 在 1430 文件下输出 `mermaid_unclosed: 0` 与 `heading_jump: 0`。
+- `python3 sites-hub/scripts/build-audit-dashboard.py` 解析新报告生成 5 卡 + 2 趋势图。
+- Dashboard 在只有 1 份新指标时显示"至少需要两份报告"空趋势状态，符合预期；下一周 CI 跑完后才会出趋势。
+
+#### 8.48.6 后续按需
+
+- 标题检测后续若需要支持 `h3 → h5` 等更激进规则，可把 `level >= prev + 2` 改为更精细配置。
+- Dashboard 当前把 `no_date`、`stale`、`imgs`、`mermaid_unclosed`、`heading_jump` 渲染为单值卡片（不画趋势），减少噪声；2 周后视数据决定是否纳入趋势线。

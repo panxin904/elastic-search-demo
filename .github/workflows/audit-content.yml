@@ -97,5 +97,5 @@ jobs:
           # 提取 baseline 关键指标
           if [[ -f "$REPORT" ]]; then
             echo "### Audit baseline (C3 weekly)" >> "$GITHUB_STEP_SUMMARY"
-            grep -E "^  files:|^  words:|^  thin:|^  no_fm:|^  broken:|^  dups:" "$REPORT" >> "$GITHUB_STEP_SUMMARY" || true
+            grep -E "^  files:|^  words:|^  thin:|^  no_fm:|^  broken:|^  dups:|^  mermaid_unclosed:|^  heading_jump:" "$REPORT" >> "$GITHUB_STEP_SUMMARY" || true
           fi

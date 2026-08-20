@@ -24,6 +24,8 @@ METRICS = (
     ("broken", r"^内部死链$", "内部死链", "#dc2626"),
     ("xsite", r"^跨站引用$", "跨站引用", "#059669"),
     ("dups", r"^跨子站重复标题$", "重复标题", "#db2777"),
+    ("mermaid_unclosed", r"^Mermaid 代码块未闭合$", "Mermaid 未闭合", "#d97706"),
+    ("heading_jump", r"^标题层级跳级$", "标题跳级", "#7c3aed"),
 )
 TREND_METRICS = (
     ("files", "文件数", "#2563eb"),
@@ -33,6 +35,8 @@ TREND_METRICS = (
     ("broken", "内部死链", "#dc2626"),
     ("xsite", "跨站引用", "#059669"),
     ("dups", "跨子站重复标题", "#db2777"),
+    ("mermaid_unclosed", "Mermaid 未闭合", "#d97706"),
+    ("heading_jump", "标题跳级", "#7c3aed"),
 )
 
 
@@ -193,7 +197,7 @@ def render_dashboard(records: list[dict[str, Any]]) -> str:
         )
     auxiliary = []
     for key, _, label, _ in METRICS:
-        if key in {"no_date", "stale", "imgs"} and key in latest:
+        if key in {"no_date", "stale", "imgs", "mermaid_unclosed", "heading_jump"} and key in latest:
             auxiliary.append(f"<li><span>{html.escape(label)}</span><strong>{format_number(latest[key])}</strong></li>")
     charts = "".join(
         f'<section class="chart-card"><h2>{html.escape(label)}</h2>{render_svg(records, key, label, color)}</section>'
