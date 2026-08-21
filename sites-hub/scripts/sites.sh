@@ -17,7 +17,7 @@ SITES=(
   es mysql redis cloud python kafka java tools frontend linux
   cloud-native ai bigdata network video filesystem java-language
   architecture system-design postgresql observability security
-  devops rust go clickhouse design-pattern chaos iot
+  devops rust go clickhouse design-pattern chaos iot android
 )
 
 # 项目目录覆盖映射：site:project_dir;site:project_dir;...

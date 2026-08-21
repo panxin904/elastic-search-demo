@@ -3790,17 +3790,17 @@ location = /audit-dashboard.html {
 
 ```text
 reports: 6
-latest: 2026-08-21（iot 站接入）
-files: 1436（+6，iot 站）
-words: 1,165,053（+4,083）
+latest: 2026-08-21（iot + android 站接入）
+files: 1442（+12，iot +6 / android +6）
+words: 1,168,455（+7,485，iot +4,083 / android +3,402）
 thin: 71（5.0%，含豁免规则后）
 no_fm: 0
 broken: 0
 mermaid_unclosed: 0（§8.48）
 heading_jump: 0（§8.48）
-xsite: 145（+6，iot 站）
-dups: 188（§8.49 豁免后）
-no_date: 1423（+6，VitePress lastUpdated 兜底）
+xsite: 153（+14，iot +6 / android +8）
+dups: 189（§8.49 豁免后 +1，android 的"一句话总结" 与 cheatsheet 同名）
+no_date: 1429（+12，VitePress lastUpdated 兜底）
 imgs: 0
 ```
 
@@ -3819,6 +3819,7 @@ imgs: 0
 3. 新增结构审计规则（Mermaid / 标题）后，扩展 Dashboard 卡片可参见 §8.48。
 4. 跨站重复标题豁免规则与新基线 188 见 §8.49。
 5. 新增站点接入流程（SOP + 单 commit 模板）见 §8.50。
+6. 同一批次接入两个新站（iot + android）见 §8.51。
 
 ### 8.48 C3 新结构审计规则 + Dashboard 指标扩展（2026-08-20 第四十一次）
 
@@ -4054,3 +4055,92 @@ footer.message: ClickHouse ...  → 物联网 IoT ...
 - "SITES 数组长度 == 28" → "SITES 数组长度（当前 29，含 iot 站）"
 - "含 28 个 location + 6 个安全头" → "含 29 个 location + 6 个安全头"
 - "28 站全部 build" → "29 站全部 build"
+
+### 8.51 C13 同一批次接入 android 站（2026-08-21 第四十四次）
+
+**目标**：沿用 §8.50 的 SOP 流程，再接入第 30 个子站 `android`，覆盖 Android 移动开发全栈知识。iot + android 同一天接入，audit / dashboard 一次更新。
+
+#### 8.51.1 接入清单（8 处）
+
+1. `sites-hub/scripts/sites.sh` — SITES 末尾追加 `android`
+2. `sites-hub/scripts/audit-content.py` — SITES_DIRS 追加 `'android-html'`
+3. `shared-assets/vitepress-template/scripts/render-config.py` — SITE_NAMES 加 `'android': '安卓'`
+4. `sites-hub/www/index.html` — cnt-all 29→30、cnt-frontend 3→4、添加 android 卡片
+5. `sites-hub/conf/nginx.conf` — render-nginx-conf.sh 自动重生 30 个 location
+6. `sites-hub/SOP-ADD-SITE.md` — 29→30 数字同步
+7. `android-html/` — 新建项目（cp iot-html 后改 config.mts / package.json）
+8. `android-html/docs/*.md` — 6 个骨架页（总字数 2,375 中文字 + 1,156 英文词）
+
+#### 8.51.2 配置决策
+
+| 项 | 值 | 备注 |
+|---|---|---|
+| URL 路径 | `/android/` | 与 SITES 元素对应 |
+| 项目目录 | `android-html/` | 不需 PROJECT_DIR_MAP |
+| 中文名 | 安卓 | dropdown 显示 |
+| 分类 | frontend（前端·工具） | Android 应用层本质是客户端开发；与 frontend / tools / linux 同类 |
+| 主题色 | #3DDC84（Android 经典绿） | 与 frontend #06b6d4、iot #0891b2 区分 |
+| 首页图标 | 🤖 | Android 机器人 |
+
+#### 8.51.3 首版内容
+
+android 站采用与 iot 一致的 6 骨架页模板：
+
+| 页面 | 用途 |
+|---|---|
+| `docs/index.md` | VPHero + 6 features + WhyThisGraph |
+| `docs/mindmap.md` | Mermaid mindmap 6 大类 30 节点 |
+| `docs/path.md` | 3 条路径（应用 3 周 / 系统性能 4 周 / 跨端 2 周） |
+| `docs/questions.md` | 9 题面试问答（Easy / Medium / Hard 各 3） |
+| `docs/cheatsheet.md` | Gradle / Manifest / ADB / 协程 / 启动模式 / API 版本速查 |
+| `docs/README.md` | 在 30 站图谱中的位置 |
+
+#### 8.51.4 当前基线（2026-08-21，iot + android 同步后）
+
+```text
+files: 1442（+12，iot +6 / android +6）
+words: 1,168,455（+7,485，iot +4,083 / android +3,402）
+xsite: 153（+14，iot +6 / android +8）
+dups: 189（§8.49 豁免后 +1，android 的"一句话总结" 与 cheatsheet 同名）
+thin: 71（不变）
+mermaid_unclosed: 0
+heading_jump: 0
+```
+
+Dashboard 6 个趋势点的 delta：
+
+- 文件数：+12
+- 总字数：+7,485
+- 跨站引用：+14
+- 跨子站重复标题：+1
+
+#### 8.51.5 验证结果
+
+- `bash sites-hub/scripts/check-sites.sh` ✓ 30/30/30/30
+- `bash sites-hub/scripts/render-nginx-conf.sh` ✓ 渲染 30 个 location
+- `python3 -m py_compile sites-hub/scripts/audit-content.py` ✓
+- `python3 sites-hub/scripts/audit-content.py` ✓ 输出包含 android 子站表
+- `python3 sites-hub/scripts/build-audit-dashboard.py` ✓ 生成 16.9KB Dashboard
+- `git diff --check` ✓
+
+#### 8.51.6 cp iot-html 复用经验
+
+android 项目从 iot-html 拷贝而来（cp -R iot-html android-html），清掉 scripts/ / package-lock.json / dist 残留，然后批量替换关键字段：
+
+```text
+base:           '/iot/'       → '/android/'
+title:          'IoT'         → 'Android'
+siteTitle:      'IoT'         → 'Android'
+theme-color:    '#0891b2'     → '#3DDC84'
+description:    IoT 长描述     → Android 长描述
+footer.message: IoT ...       → Android ...
+sidebar:        iot 3 个分组   → android 3 个分组（标题/图标改 emoji）
+```
+
+**比 §8.50 第一次接入快 ~30%**：不再需要清掉 clickhouse 残留，复用 iot 已干净的 baseline。
+
+#### 8.51.7 后续按需
+
+- android 内容深化（按 mindmap 6 大类填充章节页）
+- iOS 站是否要接入？目前没规划；如果接入将是 31 站
+- iot + android 都用 6 骨架页的 SOP 模板 → 可以考虑把 6 骨架页生成脚本化（`init-site.sh <name> <zh-name> <color>` 一键生成）
