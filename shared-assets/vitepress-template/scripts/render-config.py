@@ -73,6 +73,7 @@ SITE_NAMES = {
     'observability': '可观测性', 'security': '安全', 'devops': 'DevOps',
     'rust': 'Rust', 'go': 'Go', 'clickhouse': 'ClickHouse',
     'design-pattern': '设计模式', 'chaos': '混沌工程',
+    'iot': '物联网',
 }
 
 

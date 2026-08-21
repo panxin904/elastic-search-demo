@@ -3789,18 +3789,18 @@ location = /audit-dashboard.html {
 #### 8.47.4 当前基线
 
 ```text
-reports: 5
-latest: 2026-08-20
-files: 1430
-words: 1,160,970
+reports: 6
+latest: 2026-08-21（iot 站接入）
+files: 1436（+6，iot 站）
+words: 1,165,053（+4,083）
 thin: 71（5.0%，含豁免规则后）
 no_fm: 0
 broken: 0
-mermaid_unclosed: 0（2026-08-20 §8.48 新增）
-heading_jump: 0（2026-08-20 §8.48 新增）
-xsite: 139
-dups: 188（2026-08-20 §8.49 豁免后，234 → 188）
-no_date: 1417（VitePress lastUpdated 兜底，设计选择）
+mermaid_unclosed: 0（§8.48）
+heading_jump: 0（§8.48）
+xsite: 145（+6，iot 站）
+dups: 188（§8.49 豁免后）
+no_date: 1423（+6，VitePress lastUpdated 兜底）
 imgs: 0
 ```
 
@@ -3818,6 +3818,7 @@ imgs: 0
 2. 若需要按站点拆分，再增加“各子站趋势”视图；当前先保持全站总览，避免首版过度复杂。
 3. 新增结构审计规则（Mermaid / 标题）后，扩展 Dashboard 卡片可参见 §8.48。
 4. 跨站重复标题豁免规则与新基线 188 见 §8.49。
+5. 新增站点接入流程（SOP + 单 commit 模板）见 §8.50。
 
 ### 8.48 C3 新结构审计规则 + Dashboard 指标扩展（2026-08-20 第四十一次）
 
@@ -3954,3 +3955,102 @@ Dashboard 趋势图自动展示了 5 周曲线：
 - 每周 CI 出新报告后，Dashboard 自动累加趋势点；如果 dups 出现 ≥10 处的新增，会触发阈值告警（§8.47 后续按需 #1）
 - 如果后续业务上要"跨站章节名收敛"（比如统一叫"分布式事务实现"而不是 Saga 模式 / Saga 分布式事务并列），可以单独做一次内容合并任务，但不属于 audit 工具职责
 - 第二轮豁免中 `prometheus.yml`、`otel-collector-config.yaml` 是配置文件名，作子标题合理；其他站点若新增同类配置文件作子标题，按需补 TEMPLATE_TITLES
+
+### 8.50 C13 新增 iot 物联网站点（2026-08-21 第四十三次）
+
+**目标**：按 SOP-ADD-SITE.md 流程接入第 29 个子站 `iot`，覆盖物联网（IoT）全栈知识。
+
+#### 8.50.1 接入清单
+
+| # | 文件 | 改动 |
+|---|------|------|
+| 1 | `sites-hub/scripts/sites.sh` | SITES 末尾追加 `iot` |
+| 2 | `sites-hub/scripts/audit-content.py` | SITES_DIRS 追加 `'iot-html'` |
+| 3 | `shared-assets/vitepress-template/scripts/render-config.py` | SITE_NAMES 加 `'iot': '物联网'` |
+| 4 | `sites-hub/www/index.html` | cnt-all 28→29、cnt-infra 4→5、添加 iot 卡片 |
+| 5 | `sites-hub/conf/nginx.conf` | 自动重生（render-nginx-conf.sh），加 /iot/ location |
+| 6 | `sites-hub/SOP-ADD-SITE.md` | 文档数字 28→29 |
+| 7 | `iot-html/` | 新建项目（package.json + .vitepress + theme + docs） |
+| 8 | `iot-html/docs/*.md` | 6 个骨架页（index / mindmap / path / questions / cheatsheet / README） |
+
+#### 8.50.2 配置决策
+
+| 项 | 值 | 备注 |
+|---|---|---|
+| URL 路径 | `/iot/` | 与 SITES 元素对应 |
+| 项目目录 | `iot-html/` | 不需 PROJECT_DIR_MAP |
+| 中文名 | 物联网 | dropdown 显示 |
+| 分类 | infra（基础设施） | 与 cloud-native / bigdata / network / filesystem 同类 |
+| 主题色 | `#0891b2`（青色） | 与 network 的 `#0ea5e9` 区分，物联网通用色 |
+| 首页图标 | 📡 | 卫星天线 |
+| 卡标签 | IoT · 6 pages | 首版只放骨架页 |
+
+#### 8.50.3 首版内容
+
+iot 站采用 §8.42 C1 子站结构统一化的 6 骨架页模板：
+
+| 页面 | 用途 |
+|---|---|
+| `docs/index.md` | VPHero + 6 features + WhyThisGraph |
+| `docs/mindmap.md` | Mermaid mindmap 6 大类 30 节点结构图 |
+| `docs/path.md` | 3 条学习路径（新手 1 周 / 后端 2 周 / 嵌入式 3 周） |
+| `docs/questions.md` | 9 题面试问答（Easy 3 / Medium 3 / Hard 3） |
+| `docs/cheatsheet.md` | 协议矩阵 / MQTT 参数 / Topic 模板 / 时序库对比 |
+| `docs/README.md` | 在 29 站图谱中的位置 + 关键 takeaway |
+
+#### 8.50.4 当前基线（2026-08-21）
+
+iot 站接入后 audit / dashboard 自动纳入：
+
+```text
+files: 1436（+6，iot 站 6 个文件）
+words: 1,165,053（+4,083）
+xsite: 145（+6，README 里链到 6 个其他站）
+thin: 71（不变，6 个文件全部 > 200 字或豁免）
+dups: 188（不变，iot 首版没与其他站重复标题）
+mermaid_unclosed: 0
+heading_jump: 0
+```
+
+Dashboard 自动累加第 6 个趋势点（2026-08-21），文件数 +6、总字数 +4,083、跨站引用 +6 三个卡片显示"较前次"正向 delta。
+
+#### 8.50.5 验证结果
+
+- `bash sites-hub/scripts/check-sites.sh` ✓ all consistency checks passed
+- `bash sites-hub/scripts/render-nginx-conf.sh` ✓ 渲染 29 个 location
+- `python3 -m py_compile sites-hub/scripts/audit-content.py` ✓
+- `python3 sites-hub/scripts/audit-content.py` ✓ 输出包含 iot 子站表
+- `python3 sites-hub/scripts/build-audit-dashboard.py` ✓ 生成 14.5KB Dashboard 含 6 个趋势点
+- `git diff --check` ✓
+
+#### 8.50.6 config.mts 复用 clickhouse 的经验
+
+iot 项目目录从 `clickhouse-html` 拷贝而来，所以 `config.mts` 初始是 clickhouse 内容。手工替换关键字段：
+
+```text
+base:           '/clickhouse/'  → '/iot/'
+title:          'ClickHouse'    → 'IoT'
+siteTitle:      'ClickHouse'    → 'IoT'
+theme-color:    '#FFCC01'       → '#0891b2'
+description:    OLAP 长描述      → 物联网 IoT 长描述
+footer.message: ClickHouse ...  → 物联网 IoT ...
+```
+
+同时整体替换 sidebar（clickhouse 7 个章节组 → iot 3 个分组：总览 / 结构图 / 学习）。nav dropdown 由 render-config.py 自动按 SITES 顺序生成，iot 自身条目已自动包含在第 27 位。
+
+**遗留模板注释**：模板头部 `* @SITE_ID ... e.g. "ai", "java", "clickhouse"` 是占位注释，不影响运行；如果嫌噪声，可在 render-config.py 加一个清理步骤。
+
+#### 8.50.7 后续按需
+
+- 第 7 张骨架页 `graph.md`（节点关系图，类似 clickhouse）可在内容扩容时再加
+- 章节化内容（01-protocols / 02-devices / 03-edge / 04-platform / 05-timeseries / 06-industry）按需增量填充，不阻塞当前接入
+- 等 giscus ID 拿到（见 §8.25 修复计划），iot 站作为 29 站一起接入评论
+- 如果新增站点频率提升（>1/月），可考虑把 iot 的配置参数化进 render-config.py 的 SITE_CONFIG 字典（当前缺失，每次都手工替换）
+
+#### 8.50.8 SOP 数字同步
+
+`SOP-ADD-SITE.md` 已同步更新：
+
+- "SITES 数组长度 == 28" → "SITES 数组长度（当前 29，含 iot 站）"
+- "含 28 个 location + 6 个安全头" → "含 29 个 location + 6 个安全头"
+- "28 站全部 build" → "29 站全部 build"

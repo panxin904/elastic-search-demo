@@ -35,6 +35,7 @@ SITES_DIRS = [
     'java-language-html', 'kafka-html', 'linux-html', 'mysql-html', 'network-html',
     'observability-html', 'postgresql-html', 'python-html', 'redis-html',
     'rust-html', 'security-html', 'system-design-html', 'tools-html', 'video-html',
+    'iot-html',
 ]
 # java-html 没有 docs/，用 java-web-manual
 SITE_DOCS = {s: ROOT / s / 'docs' for s in SITES_DIRS}
