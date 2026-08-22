@@ -112,6 +112,9 @@ jobs:
         - clickhouse
         - design-pattern
         - chaos
+        - iot
+        - android
+        - game
     steps:
       - uses: actions/checkout@v4
 
@@ -178,13 +181,13 @@ jobs:
             proj=$(site_to_project "$s")
             test -d "$proj/.vitepress/dist/pagefind" -a -f "$proj/.vitepress/dist/pagefind/pagefind.js" || { echo "MISSING $proj"; exit 1; }
           done
-          echo "All 28 site dists verified with pagefind index" 
+          echo "All 31 site dists verified with pagefind index" 
           source sites-hub/scripts/sites.sh
           for s in "${SITES[@]}"; do
             proj=$(site_to_project "$s")
             test -d "$proj/.vitepress/dist" || { echo "MISSING $proj"; exit 1; }
           done
-          echo "All 28 site dists extracted"
+          echo "All 31 site dists extracted"
 
       - name: Patch macOS → Linux paths in conf/
         run: |
