@@ -3789,18 +3789,18 @@ location = /audit-dashboard.html {
 #### 8.47.4 当前基线
 
 ```text
-reports: 6
-latest: 2026-08-21（iot + android 站接入）
-files: 1442（+12，iot +6 / android +6）
-words: 1,168,455（+7,485，iot +4,083 / android +3,402）
-thin: 71（5.0%，含豁免规则后）
+reports: 7
+latest: 2026-08-22（game 站接入）
+files: 1448（+6，game +6）
+words: 1,173,661（+5,206，game 站贡献）
+thin: 71（4.9%，含豁免规则后；game 6 文件全部 > 200 字或豁免）
 no_fm: 0
 broken: 0
 mermaid_unclosed: 0（§8.48）
 heading_jump: 0（§8.48）
-xsite: 153（+14，iot +6 / android +8）
-dups: 189（§8.49 豁免后 +1，android 的"一句话总结" 与 cheatsheet 同名）
-no_date: 1429（+12，VitePress lastUpdated 兜底）
+xsite: 158（+5，game README 链到 5 个其他站）
+dups: 189（不变，game 站标题与其他站无新冲突）
+no_date: 1435（+6，VitePress lastUpdated 兜底）
 imgs: 0
 ```
 
@@ -4144,3 +4144,102 @@ sidebar:        iot 3 个分组   → android 3 个分组（标题/图标改 emo
 - android 内容深化（按 mindmap 6 大类填充章节页）
 - iOS 站是否要接入？目前没规划；如果接入将是 31 站
 - iot + android 都用 6 骨架页的 SOP 模板 → 可以考虑把 6 骨架页生成脚本化（`init-site.sh <name> <zh-name> <color>` 一键生成）
+
+### 8.52 C13 同一批次接入 game 站（2026-08-22 第四十五次）
+
+**目标**：沿用 §8.50 / §8.51 的 SOP 流程，再接入第 31 个子站 `game`，覆盖游戏开发（Game Development）全栈知识：引擎选型、渲染管线、物理、AI、网络、音频、工具链。game 站作为 frontend 客户端开发的"高阶延伸"。
+
+#### 8.52.1 接入清单（8 处）
+
+1. `sites-hub/scripts/sites.sh` — SITES 末尾追加 `game`
+2. `sites-hub/scripts/audit-content.py` — SITES_DIRS 追加 `'game-html'`
+3. `shared-assets/vitepress-template/scripts/render-config.py` — SITE_NAMES 加 `'game': '游戏开发'`
+4. `sites-hub/www/index.html` — cnt-all 30→31、cnt-frontend 4→5、添加 game 卡片
+5. `sites-hub/conf/nginx.conf` — render-nginx-conf.sh 自动重生 31 个 location，含 `/game/`
+6. `sites-hub/SOP-ADD-SITE.md` — 30→31 数字同步（SITES 长度 / location 数 / build 数）
+7. `game-html/` — 新建项目（cp android-html 后改 config.mts / package.json）
+8. `game-html/docs/*.md` — 6 个骨架页（总 702 行，比 Android 多 ~14%）
+
+#### 8.52.2 配置决策
+
+| 项 | 值 | 备注 |
+|---|---|---|
+| URL 路径 | `/game/` | 与 SITES 元素对应 |
+| 项目目录 | `game-html/` | 不需 PROJECT_DIR_MAP |
+| 中文名 | 游戏开发 | dropdown 显示 |
+| 分类 | frontend（前端·工具） | 游戏客户端工程师本质是"客户端开发的高阶形态"；与 frontend / android / tools 同类 |
+| 主题色 | `#9146FF`（Twitch 紫） | 区别 frontend `#06b6d4` 浅蓝、android `#3DDC84` 绿、iot `#0891b2` 青 |
+| 首页图标 | 🎮 | 游戏手柄 |
+
+#### 8.52.3 首版内容
+
+game 站沿用 §8.50 / §8.51 的 6 骨架页 SOP，但 mindmap 主题从"Android 全栈"改为"游戏开发全栈"：
+
+| 页面 | 内容主题 | 行数 |
+|---|---|---:|
+| `docs/index.md` | VPHero + 6 features + WhyThisGraph | 改写（已存在） |
+| `docs/mindmap.md` | Mermaid mindmap 8 大类 50 节点：引擎层 / 渲染 / 物理 / AI / 网络 / 音频 / 工具链 / 性能与上线 | 141 |
+| `docs/path.md` | 3 条路径：引擎使用者 4 周 / 图形程序员 6 周 / 联机+AI 程序员 5 周 | 63 |
+| `docs/questions.md` | 9 题：Unity vs Unreal 选型 / Draw Call 优化 / Game Loop / 状态同步 vs 帧同步 / 客户端预测 / A* vs NavMesh / 前向 vs 延迟渲染 / 内存与 GC 排查 / 高一致性联机设计 | 222 |
+| `docs/cheatsheet.md` | 引擎版本 / 数学公式（向量·矩阵·坐标系）/ Shader 关键字 / 寻路算法复杂度 / 物理参数 / 网络协议对比 / 性能指标 / 常用命令 / 调试快捷键 / 资产导入设置 | 195 |
+| `docs/README.md` | 在 31 站图谱中的位置 + 上下游关系 + 谁需要读 | 81 |
+
+#### 8.52.4 当前基线（2026-08-22，game 站接入后）
+
+```text
+files: 1448（+6，game 站 6 个文件）
+words: 1,173,661（+5,206，game 站贡献）
+xsite: 158（+5，game README 链到 frontend / android / rust / ai / network / observability 共 6 个，统计按 audit 实际抽出 5 个有效跨站链接）
+dups: 189（不变，game 站标题与其他站无新冲突）
+thin: 71（不变，game 6 文件全部 > 200 字或豁免）
+mermaid_unclosed: 0
+heading_jump: 0
+no_fm: 0
+broken: 0
+imgs: 0
+```
+
+Dashboard 第 7 个趋势点（2026-08-22）累加：
+
+- 文件数：+6
+- 总字数：+5,206
+- 跨站引用：+5
+- 跨子站重复标题：0（不变）
+
+#### 8.52.5 验证结果
+
+- `bash sites-hub/scripts/check-sites.sh` ✓ 31/31/31/31
+- `bash sites-hub/scripts/render-nginx-conf.sh` ✓ 渲染 31 个 location 含 /game/
+- `python3 -m py_compile sites-hub/scripts/audit-content.py` ✓
+- `python3 sites-hub/scripts/audit-content.py` ✓ 输出 1448 文件 / 1,173,661 字 / game 子站表行
+- `python3 sites-hub/scripts/build-audit-dashboard.py` ✓ 生成 18.3KB Dashboard 含 7 个趋势点
+- `git diff --check` ✓
+
+#### 8.52.6 cp android-html 复用经验（第三次）
+
+game 项目从 android-html 拷贝而来（cp -R android-html game-html），残留清理后批量替换：
+
+```text
+base:           '/android/'    → '/game/'
+title:          'Android'      → 'Game'
+siteTitle:      'Android'      → 'Game'
+theme-color:    '#3DDC84'      → '#9146FF'
+description:    Android 长描述  → Game Development 长描述
+og:site_name:   Android        → Game
+nav 自指项:     Android        → Game
+sidebar:        android 3 个分组 → game 3 个分组（标题/图标改 emoji：总览 / 结构图 / 学习）
+footer.message: Android ...    → Game ...
+```
+
+**比 §8.51 第二次接入又快 ~10%**：不再需要清理 android 残留，复用 android 已干净的 baseline；唯一新增的工作量是 sidebar 分组标题 / 图标手动改（暂时未脚本化）。
+
+**遗留模板注释**：模板头部 `* @SITE_ID ... e.g. "ai", "java", "clickhouse"` 仍是占位注释（render-config.py 模板生成的固定占位），不影响运行；已在 §8.50.6 / §8.51.6 记录。
+
+#### 8.52.7 后续按需
+
+- game 内容深化（按 mindmap 8 大类填充章节页：渲染管线下沉到具体算法 / 物理模拟加入示例代码 / 联机同步补完整工程）
+- 模板脚本化：`init-site.sh <name> <zh-name> <color> <icon>` 一键生成 6 骨架页（§8.51.7 提议），等接入站点频率提升再做
+- 是否再接入 iOS 站（32 站）？目前无规划；如果接入将是 32 站，与 game 站形成移动端双生子
+- 渲染 / AI / 网络等子领域可考虑独立拆站（`rendering` / `game-ai` / `game-net`），但当前 game 站容量足够
+- 实际开发中想尝试加入 Godot 子专题（开源免费 / 2D 强项），作为 game 站第 9 大类
+- 等 giscus ID 拿到（见 §8.25 修复计划），game 站作为 31 站一起接入评论

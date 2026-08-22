@@ -24,7 +24,7 @@ bash sites-hub/scripts/check-sites.sh
 
 校验内容（12 项）：
 
-- SITES 数组长度（当前 30，含 iot / android 站）
+- SITES 数组长度（当前 31，含 iot / android / game 站）
 - `www/index.html` 卡片数 == SITES 长度
 - `conf/nginx.conf` location 块数 == SITES 长度
 - `deploy-vps.sh` source 了 `sites.sh` 且使用 `${SITES[@]}`
@@ -36,7 +36,7 @@ bash sites-hub/scripts/check-sites.sh
 ## 3. 本地预览（可选）
 
 ```bash
-# 渲染 nginx 配置（含 30 个 location + 6 个安全头）
+# 渲染 nginx 配置（含 31 个 location + 6 个安全头）
 bash sites-hub/scripts/render-nginx-conf.sh
 
 # 启动 nginx + 本地预览
@@ -47,7 +47,7 @@ bash sites-hub/start.sh            # 优先用 nginx（端口 8081），失败�
 ## 4. 发布到 VPS
 
 ```bash
-# 1. 本地构建（30 站全部 build；MOCK_BUILD=1 复用已有 dist 仅用于 dry-run）
+# 1. 本地构建（31 站全部 build；MOCK_BUILD=1 复用已有 dist 仅用于 dry-run）
 cd ~/work_space/elastic-search-demo
 bash sites-hub/build-release.sh
 

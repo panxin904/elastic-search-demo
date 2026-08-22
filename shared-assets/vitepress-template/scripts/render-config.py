@@ -75,6 +75,7 @@ SITE_NAMES = {
     'design-pattern': '设计模式', 'chaos': '混沌工程',
     'iot': '物联网',
     'android': '安卓',
+    'game': '游戏开发',
 }
 
 
