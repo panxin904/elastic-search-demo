@@ -69,7 +69,7 @@ export default withMermaid(defineConfig({
   },
   base: '/iot/',
   title: 'IoT',
-  description: '物联网 IoT 全栈知识图谱 - 通信协议 / 边缘计算 / 设备管理 / 时序数据 / 云平台 / 行业落地 · MQTT · CoAP · LoRaWAN · TDengine · 6 大类 · 30 节点',
+  description: '物联网 IoT 全栈知识图谱 - 通信协议 / 边缘计算 / 设备管理 / 时序数据 / 云平台 / 行业落地 · MQTT · CoAP · LoRaWAN · TDengine · 6 大类 · 93 节点',
   lang: 'zh-CN',
   lastUpdated: true,
   srcDir: 'docs',
@@ -94,7 +94,7 @@ export default withMermaid(defineConfig({
     nav: [
       { text: '🏠 门户', link: 'https://java-px.bot.cd/', target: '_blank' },
       { text: '首页', link: '/' },
-      { text: '知识图谱', link: '/graph' },
+      { text: '知识图谱', link: '/README' },
       { text: '思维导图', link: '/mindmap' },
       { text: '命令速查', link: '/cheatsheet' },
       { text: '学习路径', link: '/path' },

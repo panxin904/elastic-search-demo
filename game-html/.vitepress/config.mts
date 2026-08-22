@@ -69,7 +69,7 @@ export default withMermaid(defineConfig({
   },
   base: '/game/',
   title: 'Game',
-  description: '游戏开发全栈知识图谱 - Unity / Unreal / Godot / 渲染 / 物理 / AI / 网络 · 6 大类 · 30 节点',
+  description: '游戏开发全栈知识图谱 - Unity / Unreal / Godot / 渲染 / 物理 / AI / 网络 · 8 大类 · 110 节点',
   lang: 'zh-CN',
   lastUpdated: true,
   srcDir: 'docs',
@@ -94,7 +94,7 @@ export default withMermaid(defineConfig({
     nav: [
       { text: '🏠 门户', link: 'https://java-px.bot.cd/', target: '_blank' },
       { text: '首页', link: '/' },
-      { text: '知识图谱', link: '/graph' },
+      { text: '知识图谱', link: '/README' },
       { text: '思维导图', link: '/mindmap' },
       { text: '命令速查', link: '/cheatsheet' },
       { text: '学习路径', link: '/path' },
