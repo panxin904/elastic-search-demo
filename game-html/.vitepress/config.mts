@@ -162,42 +162,6 @@ export default withMermaid(defineConfig({
         }
       ]
     },
-        {
-          text: '🗺️ 结构图',
-          collapsed: false,
-          items: [
-            { text: '思维导图', link: '/mindmap' },
-          ]
-        },
-        {
-          text: '🚶 学习',
-          collapsed: false,
-          items: [
-            { text: '学习路径', link: '/path' },
-            { text: '常见问题', link: '/questions' },
-            { text: '速查表', link: '/cheatsheet' },
-          ]
-        }
-      ]
-    },
-        {
-          text: '🗺️ 结构图',
-          collapsed: false,
-          items: [
-            { text: '思维导图', link: '/mindmap' },
-          ]
-        },
-        {
-          text: '🚶 学习',
-          collapsed: false,
-          items: [
-            { text: '学习路径', link: '/path' },
-            { text: '常见问题', link: '/questions' },
-            { text: '速查表', link: '/cheatsheet' },
-          ]
-        }
-      ]
-    },
 
     socialLinks: [],
 
