@@ -4243,3 +4243,183 @@ footer.message: Android ...    → Game ...
 - 渲染 / AI / 网络等子领域可考虑独立拆站（`rendering` / `game-ai` / `game-net`），但当前 game 站容量足够
 - 实际开发中想尝试加入 Godot 子专题（开源免费 / 2D 强项），作为 game 站第 9 大类
 - 等 giscus ID 拿到（见 §8.25 修复计划），game 站作为 31 站一起接入评论
+
+### 8.53 CI 失败排查留底 — game 接入期间 3 个 run（2026-08-23 第四十六次）
+
+**目标**：把 game 站接入后 CI 失败的 3 个 run 的根因 / 证据 / 后续修法沉淀下来，避免下次同类故障重复排查。
+
+**前置背景**：billing 限制已部分恢复（之前 §8.43.6 报 0-step failure，现在能进 job 但内容失败），所以是真实构建错误而非后端 incident。
+
+#### 8.53.1 3 个失败 run 的根因
+
+| Run | Commit | 失败 job | 失败 step | 真实错误 |
+|---|---|---|---|---|
+| `32547315162` | `80b9241` | release | Extract 28 site dists | `MISSING iot-html` |
+| `32547845808` | `4a629ab` | build-all (android) | Build site + Pagefind | `config.mts:165:8: Expected identifier but found "{"` |
+| `32548116132` | `920ca17` | build-all (game) | Build site + Pagefind | `docs/questions.md: Element is missing end tag` |
+
+#### 8.53.2 根因 #1：build-all matrix 与 sites.sh 不一致
+
+**现象**：release job 下载 `dist-*` 只拿 28 个，但 SITES=31，pagefind 校验循环到 iot 时 `MISSING iot-html` → exit 1。
+
+**根因**：`.github/workflows/sites-hub-ci.yml` 的 `build-all.matrix.site` 手写 31 个站名（含 game），但当 `sites-hub/scripts/sites.sh` 的 SITES 数组扩大时，matrix 没同步更新（之前 android / iot / game 接入时 iot / android / game 漏加）。
+
+**修复 commit**：`4a629ab fix(ci): sites-hub-ci.yml build-all matrix 补 iot / android / game（28 → 31 站）`，+5/-2 行。
+
+**预防建议**：
+
+1. **让 matrix 从 sites.sh 自动生成**（避免两边手维护）。当前 workflow 269 行全部手写站名，是脆弱点：
+   ```yaml
+   - name: Sync SITES from sites.sh
+     run: |
+       source sites-hub/scripts/sites.sh
+       printf '%s\n' "${SITES[@]}" > /tmp/sites.txt
+   - name: Build matrix
+     uses: actions/glob-matrix-action@v1
+     with:
+       files: /tmp/sites.txt
+   ```
+2. **release 步骤加数量断言**（提早暴露不一致）：
+   ```bash
+   cnt=$(ls -1 /tmp/dists/dist-* 2>/dev/null | wc -l)
+   source sites-hub/scripts/sites.sh
+   [ "$cnt" -eq "${#SITES[@]}" ] || { echo "MISMATCH: dists=$cnt sites=${#SITES[@]}"; exit 1; }
+   ```
+3. **聚合失败而非立即退出**（避免一次只暴露一个站点）：
+   ```bash
+   missing=()
+   for s in "${SITES[@]}"; do
+     proj=$(site_to_project "$s")
+     if [ ! -f "$proj/.vitepress/dist/pagefind/pagefind.js" ]; then
+       missing+=("$proj")
+     fi
+   done
+   if [ "${#missing[@]}" -gt 0 ]; then
+     printf 'MISSING: %s\n' "${missing[@]}"
+     exit 1
+   fi
+   ```
+
+#### 8.53.3 根因 #2：cp 模板未清理 sidebar 残留
+
+**现象**：android / game 站 vitepress build 时 esbuild 抛 `config.mts:165:8: Expected identifier but found "{"`。
+
+**根因**：
+
+- android 站从 iot cp 时（commit `309f8b2`）：iot 上一版 cp 自 clickhouse 时残留了「🗺️ 结构图 + 🚶 学习」block（共 18 行）。这个 block 当时没清理，导致 sidebar 已闭合后多出独立 `{`，esbuild 报"对象字面量没被 array 包裹"。
+- game 站从 android cp 时（commit `eece8ce`）：android 上一版的残留也被 cp 过来，多出 2 段同样的 block（共 36 行），同样问题。
+
+**修复 commit**：`920ca17 fix(config): 清理 android / game 站 .vitepress/config.mts 残留 sidebar block`，删 54 行。
+
+**SOP 补强**：§8.50.6 / §8.51.6 已记录"cp 模板有残留"问题，本节正式升级为 SOP：
+
+```bash
+# cp -R <source>-html <new>-html 后，必须跑这 3 步：
+grep -cE "text: '🗺️ 结构图'" new-html/.vitepress/config.mts   # 应=1
+grep -cE "text: '🚶 学习'"  new-html/.vitepress/config.mts    # 应=1
+# 任一>1 即需要删重复 sidebar block（参考 §8.53.3 修复示例）
+```
+
+#### 8.53.4 根因 #3：inline code 中的 `<T>` 被 vue compiler 当 HTML 标签
+
+**现象**：game 站 build 时 `[plugin vite:vue] docs/questions.md (264:20): Element is missing end tag`。文件实际只有 222 行，264:20 是 vue 编译后的虚拟位置。
+
+**根因**：
+
+`docs/questions.md` 第 167/178/181 行有 3 个 `<T>` 在 markdown inline code 中：
+
+```markdown
+- 静态集合未清理（`static List<T>`）
+- 用对象池（ObjectPool<T>）复用
+- 用 `ArrayPool<T>` 复用数组
+```
+
+markdown 解析器对此处理不一致：某些实现把 `<T>` 当 HTML 标签开始（因为 `<T` 是合法标签名开头），需要等 `</T>` 闭合，但 T 没有显式 `</T>`，于是报"missing end tag"。
+
+**验证**：
+
+```bash
+$ python3 -c "import re; t=open('/.../questions.md').read(); \
+              print('开标签:', len(re.findall(r'<T>', t)), \
+                    '闭标签:', len(re.findall(r'</T>', t)))"
+开标签: 3  闭标签: 0   # 风险信号
+```
+
+**修复方案**（待实施，未 commit）：
+
+转义 `<` 为 `&lt;` 或加 zero-width space：
+
+```markdown
+- 静态集合未清理（\`static List&lt;T>\`）
+# 或
+- 静态集合未清理（\`static List<T>\`）  # 加 zero-width space: List<\u200BT>
+```
+
+audit 脚本（§8.41）目前不查这种 markdown 边缘 case，**需在 §8.49.2 类似位置补一条规则**：
+
+```python
+def check_inline_code_html(text):
+    """检测 inline code 中含未转义的 <TAG> 模式（vue compiler 容易误判）"""
+    in_code = False
+    issues = []
+    for ln, line in enumerate(text.split('\n'), 1):
+        # 跳过 fenced code block
+        if re.match(r'^```', line):
+            in_code = not in_code
+            continue
+        if in_code:
+            continue
+        # 抓 inline code：`(?:.+?)`
+        for m in re.finditer(r'`([^`]+)`', line):
+            inner = m.group(1)
+            if re.search(r'<[a-zA-Z][a-zA-Z0-9]*>', inner):
+                issues.append((ln, m.group(1)[:50]))
+    return issues
+```
+
+#### 8.53.5 CI 文件结构现状（2026-08-23）
+
+```
+.github/
+├── workflows/
+│   ├── sites-hub-ci.yml      269 行  主 CI（check + 31 build-all + release + deploy）
+│   └── audit-content.yml     101 行  周一 UTC 02:00 周报 audit
+├── CODEOWNERS                  
+├── ISSUE_TEMPLATE/             bug / feature / content_feedback
+└── PULL_REQUEST_TEMPLATE.md
+```
+
+#### 8.53.6 GH 仓库 CI 设置
+
+| 项 | 值 |
+|---|---|
+| Self-hosted runners | 0（全部用 GitHub-hosted `ubuntu-22.04`）|
+| Default workflow permissions | `read`（无法 write issue/PR）|
+| Actions public key id | `3380204578043523366`|
+| 最近 30 次 sites-hub CI run 统计 | 0成功 / 29失败 / 1 cancelled |
+
+#### 8.53.7 当前修复落地状态
+
+| 修复 | commit | 已落地？ | 备注 |
+|---|---|---|---|
+| matrix 补 iot/android/game | `4a629ab` | ✓ 已 push | origin 上有 |
+| android/game sidebar 残留清理 | `920ca17` | ✓ 已 push | origin 上有 |
+| questions.md `<T>` 转义 | — | ✗ 未做 | §8.53.4 待实施 |
+| matrix 自动生成（防再发） | — | ✗ 未做 | §8.53.2 预防 #1 |
+| release 数量断言 | — | ✗ 未做 | §8.53.2 预防 #2 |
+| SOP cp 模板校验脚本 | — | ✗ 未做 | §8.53.3 |
+
+#### 8.53.8 关键教训
+
+1. **手维护多处站点列表是高风险**。`SITES=31` 在 4 个地方出现（sites.sh / render-config.py / SOP / matrix），任一漏改都引发连锁失败。
+2. **cp -R 模板不是洁净基线**。clickhouse / iot / android / game 的 sidebar 都有残留教训，下次接入前先跑 §8.53.3 的 3 步校验。
+3. **inline code 里的 HTML-like 字符需转义**。markdown → vue 模板转换对 `<TAG>` 模式敏感，C#/Java/C++ 等用泛型的文档特别容易踩。
+4. **0-step failure ≠ 内容失败**。billing 限制与真实构建错误的排查路径完全不同：先看 GH UI 报错（§8.43.6）→ 再看 job steps 是否有内容 → 最后才看 build log。
+
+#### 8.53.9 后续按需
+
+- 等 billing 完全恢复 + questions.md `<T>` 转义后，3 个修复 commit 重 push 验证
+- 实施 §8.53.2 预防 #1（matrix 自动生成）→ 长期避免 31 → 32 时再忘改
+- 把 §8.53.3 的 3 步校验脚本化进 `sites-hub/scripts/check-sites.sh`（cp 模板后自动跑）
+- audit-content.py 加 §8.53.4 的 inline-code-html 检测规则
+- audit-content weekly schedule 恢复后看 baseline 是否能跑通
