@@ -20,7 +20,7 @@
 | 内部死链 | 0 | 0 | ✅ |
 | 跨站引用 | 163 | ≥ 100 | ✅ |
 | Vue prop 数组缺逗号 | 0 | 0 | ✅ |
-| Vue 组件缺失（md 引用无 .vue） | 1 | 0 | ❌ |
+| Vue 组件缺失（md 引用无 .vue） | 0 | 0 | ✅ |
 | Mermaid 代码块未闭合 | 0 | 0 | ✅ |
 | 标题层级跳级 | 0 | 0 | ✅ |
 | 跨子站重复标题 | 194 | ≤ 20 | ⚠️ |
@@ -35,7 +35,7 @@
 | bigdata | 51 | 36,007 | 51 | 0 | 3 | 0 | 0 | 0 | 0 | 5 | 0 | 0 | 0 | 0 |
 | chaos | 32 | 27,617 | 32 | 0 | 0 | 0 | 0 | 0 | 0 | 5 | 0 | 0 | 0 | 0 |
 | clickhouse | 36 | 33,122 | 36 | 0 | 0 | 0 | 0 | 0 | 0 | 5 | 0 | 0 | 0 | 0 |
-| cloud | 35 | 40,972 | 35 | 0 | 3 | 0 | 0 | 0 | 0 | 5 | 0 | 1 | 0 | 0 |
+| cloud | 35 | 40,972 | 35 | 0 | 3 | 0 | 0 | 0 | 0 | 5 | 0 | 0 | 0 | 0 |
 | cloud-native | 55 | 37,166 | 55 | 0 | 3 | 0 | 0 | 0 | 0 | 4 | 0 | 0 | 0 | 0 |
 | design-pattern | 49 | 55,679 | 49 | 0 | 0 | 0 | 0 | 0 | 0 | 5 | 0 | 0 | 0 | 0 |
 | devops | 30 | 17,872 | 30 | 0 | 0 | 0 | 0 | 0 | 0 | 5 | 0 | 0 | 0 | 0 |
@@ -226,12 +226,6 @@
   - `observability/jaeger.md`
   - `python/docker.md`
 - ... 及其他 164 组
-
-## 十、Vue 组件缺失（md 引用但本地无 .vue，1 处）
-
-⚠️ VitePress 默认在 `.vitepress/theme/components/` 找自定义组件，md 引用了组件但本地无 .vue 文件会导致 build 失败。
-
-- `cloud/index.md <WhyThisGraph> (本地无 springcloud-html/.vitepress/theme/components/WhyThisGraph.vue)`
 
 ## 八、关键发现与建议
 
