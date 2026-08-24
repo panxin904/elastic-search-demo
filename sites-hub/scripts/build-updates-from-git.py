@@ -94,16 +94,16 @@ def categorize(site: str) -> str:
         "es": "data", "redis": "data", "kafka": "data",
         "mysql": "data", "postgresql": "data", "clickhouse": "data",
         "bigdata": "data",
-        "java": "backend", "java-language": "backend", "springcloud": "backend",
+        "java": "backend", "java-language": "backend",
         "go": "backend", "rust": "backend", "python": "backend",
         "design-pattern": "backend", "system-design": "backend", "chaos": "backend",
-        "frontend": "frontend", "tools": "frontend",
         "filesystem": "infra", "linux": "infra", "network": "infra", "cloud": "infra",
-        "cloud-native": "infra", "devops": "infra",
+        "cloud-native": "infra", "devops": "infra", "iot": "infra",
         "security": "security",
         "architecture": "arch",
         "observability": "ops",
         "ai": "ai", "video": "ai",
+        "frontend": "frontend", "tools": "frontend", "android": "frontend", "game": "frontend",
     }
     return cat_map.get(site, "arch")  # portal 级 → arch 类目
 

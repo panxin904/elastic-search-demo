@@ -40,6 +40,8 @@ SITES_DIRS = [
 # java-html 没有 docs/，用 java-web-manual
 SITE_DOCS = {s: ROOT / s / 'docs' for s in SITES_DIRS}
 SITE_DOCS['java-html'] = ROOT / 'java-web-manual' / 'docs'
+# cloud 站 URL 是 /cloud/ 但实际目录是 springcloud-html（沿用 §8.0 接入命名）
+SITE_DOCS['cloud-html'] = ROOT / 'springcloud-html' / 'docs'
 
 EXCLUDE_DIRS = {'node_modules', '.vitepress', 'release', '.git', 'dist', 'public'}
 
