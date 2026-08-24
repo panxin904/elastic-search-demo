@@ -4705,3 +4705,101 @@ files: 1482  words: 1,216,173  thin: 0  imgs: 0  xsite: 159
 - audit 规则升级（按需）：加 `content_completeness_score` 检测（≥ 1 个 code block / table / Vue 组件 → 完整文档豁免），避免下次同类问题
 - check-sites.sh 加 CI 门禁：audit baseline `thin 率 ≤ 5%`（已实现，§8.55 后所有 commit 都应满足）
 - 任何新接入站都要先过 audit baseline 0% 薄页率（否则 §8.54.5 SOP 校验失败）
+
+# §8.57 iot 站章节化（C-4 子站结构统一化 · 第一站）
+
+> 日期：2026-08-24 · 第五十次 · 工作量：1.5h
+> 模式：复用模板先行站（iot），推广到 android / game
+
+## 8.57.1 背景与目标
+
+iot 站原 6 骨架页（首版）字数仅 4k，按 §8.41 audit baseline（< 200 字算薄页）会触发 6 个 thin 警告。
+
+**目标**：把 iot 站按 mindmap 8 大类中的核心 6 类（已能成章节的）拆成 6 子目录 + 每章 3-4 子文档，达到 audit 0 thin + 阅读体验顺畅。
+
+**复用价值**：本节留底作为后续 android / game / 其他"骨架页 → 章节化"站的模板。
+
+## 8.57.2 章节结构
+
+```text
+iot-html/docs/
+├── README.md                 # 总览 + 章节导航
+├── index.md                  # 首页（hero + 8 大类卡片）
+├── mindmap.md                # 8 大类结构图（保留）
+├── path.md                   # 学习路径
+├── questions.md              # 面试题
+├── cheatsheet.md             # 速查表
+├── 01-protocol/              # 协议层（MQTT / CoAP / Modbus / LPWAN）
+├── 02-device/                # 设备硬件（MCU / RTOS / Sensor / Gateway）
+├── 03-edge/                  # 边缘计算（EdgeX / K8s 边缘 / AI 边缘 / 离线）
+├── 04-management/            # 设备管理（影子 / OTA / 安全）
+├── 05-timeseries/            # 时序数据（数据库 / 处理 / 集成 / Schema）
+└── 06-platform/              # IoT 平台（公有云 / IIoT / 智能家居 / 自建）
+```
+
+每章结构：
+
+- `README.md`（章节目录表 + 选型决策 + 学习路径，~150-250 字）
+- 3-4 个子文档（核心要点 + 实战代码示例 + 相关链接，~200-300 字）
+
+## 8.57.3 实施步骤
+
+1. **模板确定**：参考 cloud-native / kafka 等成熟站点的章节化结构
+2. **生成器脚本**：写 `/tmp/gen_iot_chapters.py`，Python heredoc + 模板字符串批量生成 29 个 md
+3. **sidebar 修复**：iot 站 config.mts sidebar 改为 7 分组（总览 + 结构图 + 6 章节 + 学习）
+4. **补薄页**：每章 README 写"选型三问"+"学习路径"两段；子文档加"实战示例 + 小贴士"
+5. **删除残余**：lifecycle.md（生成时 syntax error）→ 删除 + 同步 04-management/README.md 的目录表
+6. **bracket 校验**：`python3 /tmp/check_syntax.py` 校验 sidebar 括号闭合
+
+## 8.57.4 验证结果
+
+```text
+iot 站 baseline 变化：
+- 文件：6 → 35（+29）
+- 字数：4k → 10,263（+6,263）
+- 薄页：6 → 0
+- audit 状态：✅ thin 0
+```
+
+audit 全局：
+
+```text
+files: 1511  words: 1,222,353  thin: 0
+```
+
+**全部 31 站薄页率 0%！**延续 §8.56 状态。
+
+## 8.57.5 复用模板（android / game 推广）
+
+C-5（android） / C-6（game） 章节化可直接复用：
+
+| 步骤 | iot 站做法 | android / game 复用 |
+|---|---|---|
+| 章节数 | 6（08 mindmap 中能成章节的）| 看 mindmap.md 实际分支数 |
+| 生成器 | `/tmp/gen_iot_chapters.py` | `cp` 后改章节配置 |
+| sidebar 分组 | 总览 + 结构图 + N 章节 + 学习 | 同 |
+| README 模板 | 章节目录表 + 选型决策 + 学习路径 | 同 |
+| 子文档模板 | 核心要点 + 实战代码 + 相关链接 + 小贴士 | 同 |
+| 薄页补救 | "小贴士"加一行（5-10 字） | 同 |
+
+## 8.57.6 关键避坑（推广时必看）
+
+1. **Python heredoc 嵌套单引号**：JSON 字符串里的 `'` 必须用 `\'` 或用三引号包，否则 syntax error（lifecycle.md 因此被跳过 + 后续删除）
+2. **删除章节同步 sidebar**：删除章节时同步改 sidebar + 章节目录 README 引用，避免死链
+3. **薄页补救要保留风格**：不要硬塞大段代码，加"小贴士"或"学习路径"小段最自然
+4. **bracket 校验必跑**：sidebar 改后必须跑 `python3 /tmp/check_syntax.py`，否则 build 报 unexpected token
+
+## 8.57.7 与之前章节关系
+
+- §8.41 定义 audit baseline（thin < 5%）
+- §8.54 新站接入 SOP（含 audit 校验）
+- §8.55 站点级豁免机制（处理真短文合集）
+- §8.56 全局薄页清零（C-7 收尾）
+- **§8.57 iot 章节化**：把"骨架页 → 章节化"模式跑通，作为新任务 C-1 子站结构统一化第一站
+
+## 8.57.8 后续按需
+
+- **C-5 android 章节化**：1-2h，6 大类（应用层 / UI / 系统 / 跨平台 / 工具链 / 性能安全）
+- **C-6 game 章节化**：1.5-2h，8 大类（引擎 / 渲染 / 物理 / AI / 网络 / 音频 / 工具链 / 性能上线）
+- §8.55 audit 工具升级（按需）：加 `content_completeness_score` 检测（≥ 1 个 code block / table / Vue 组件 → 完整文档豁免）
+- check-sites.sh CI 门禁（已实现 thin ≤ 5%）：保持 baseline
