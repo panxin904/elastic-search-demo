@@ -4423,3 +4423,98 @@ def check_inline_code_html(text):
 - 把 §8.53.3 的 3 步校验脚本化进 `sites-hub/scripts/check-sites.sh`（cp 模板后自动跑）
 - audit-content.py 加 §8.53.4 的 inline-code-html 检测规则
 - audit-content weekly schedule 恢复后看 baseline 是否能跑通
+
+### 8.54 C3 cloud-html 残站治理（2026-08-24 第四十七次）
+
+**目标**：清理 `cloud-html/` 残站（1 文件 k8s/deployment.md，无 build 配置），让 31 站结构保持一致。
+
+#### 8.54.1 残站现状（治理前）
+
+```text
+cloud-html/                        实际是个孤儿残站
+├── docs/
+│   └── 03-k8s-workload/
+│       └── deployment.md         230 行 / 4.5KB K8s 教学
+├── node_modules/                  （npm install 残留，未 .gitignore）
+└── .vitepress/                    ← 不存在！无法 build
+```
+
+**核心问题**：
+
+- 1 文件 230 行 K8s Deployment 教学，但**无 `package.json` / `.vitepress/` 配置**
+- 不会被 `build-release.sh` 识别（sites.sh SITES=cloud 映射到 springcloud-html）
+- 不被 `audit-content.py` 识别（SITES_DIRS 默认找 `cloud-html/docs` → 实际是空的）
+- 不参与 build、不参与 deploy、不在 31 站图谱里
+
+#### 8.54.2 治理方案选择
+
+| 方案 | 工作量 | 价值 | 风险 |
+|---|---|---|---|
+| A. 补全为 32 站 k8s 专题 | 大（6 骨架页 + 6-8 章节 ×5-10 文件）| 独立 K8s 站 | 31 → 32 站；SITES / SOP / render-config / matrix 全部要改 |
+| **B. 删除残站 + 内容归档**（采用）| 中（git mv 1 文件 + 写 §8.54）| 保留内容留底，避免 31→32 | 无 |
+| C. 归档 + 复用为 springcloud 子章节 | 中 | 内容归位 | springcloud 主题不匹配（微服务 ≠ K8s） |
+
+**选择 B 的理由**：
+
+1. cloud-native-html 已有完整 K8s 章节（55 文件 / 37k 字），含 `03-k8s-workload/deployment.md`（181 行，比 cloud-html 版 230 行只少注释）
+2. 31 站是当前平衡点，扩 32 站需要 SITES / SOP / matrix 4 处改动
+3. 内容保留在 `archive/cloud-html-k8s-fragment/` 作为追溯证据
+
+#### 8.54.3 治理操作
+
+```bash
+# 1. 创建 archive 目录，把孤儿残站内容归档
+mkdir -p archive/cloud-html-k8s-fragment/03-k8s-workload
+mv cloud-html/docs/03-k8s-workload/deployment.md \
+   archive/cloud-html-k8s-fragment/03-k8s-workload/
+
+# 2. git 删除跟踪
+git rm cloud-html/docs/03-k8s-workload/deployment.md
+
+# 3. 清理工作区空目录 + node_modules
+rm -rf cloud-html/  # 含 node_modules（git 不跟踪）
+
+# 4. 重新跑 audit 验证 cloud 站 baseline 不变（仍是 springcloud 35 文件）
+python3 sites-hub/scripts/audit-content.py
+```
+
+#### 8.54.4 验证结果
+
+| 指标 | 治理前 | 治理后 | 差值 |
+|---|---:|---:|---:|
+| 工作区 `cloud-html/` | 1 文件 + node_modules | 0 | -1 文件 / -node_modules |
+| archive 内容 | 0 | 1 文件 | +1 文件 |
+| audit cloud 站 baseline | 35 文件 / 40,972 字 | 35 文件 / 40,972 字 | 不变 ✓ |
+| 全局 files | 1482 | 1482 | 不变 ✓ |
+| 全局 words | 1,214,024 | 1,214,024 | 不变 ✓ |
+| SITES 数组长度 | 31 | 31 | 不变（保持 31 站）|
+| git 跟踪文件数 | 1482 个文件 + 1 orphan | 1481 个文件 + 1 archive | 净 -1 个 |
+
+#### 8.54.5 SOP 补强
+
+**问题根因**（§8.50.6 / §8.51.6 提到的"cp 模板不洁"是同源问题）：
+
+当初创建 cloud-html 时只写了 1 个 K8s 教学文件，未补 `package.json` / `.vitepress/config.mts`，也没正式接入 SITES 数组。后来接入 springcloud 时另起炉灶，导致 cloud-html 留下孤儿。
+
+**SOP-ADD-SITE.md 加一条校验**（§8.53.3 已记录 cp 校验，本节补归档校验）：
+
+```bash
+# cp 模板或新建站点后，必须验证 6 项齐全：
+test -f $site/.vitepress/config.mts
+test -f $site/package.json
+test -f $site/docs/index.md
+test -f $site/docs/mindmap.md
+test -f $site/docs/README.md
+test -d $site/.vitepress/theme/components/WhyThisGraph.vue 2>/dev/null \
+  || test -d $site/.vitepress/theme/components/ComponentCheatsheet.vue
+# 任一缺失 → 站点不完整，不能 commit
+```
+
+#### 8.54.6 后续按需
+
+- archive/cloud-html-k8s-fragment/ 是临时目录，后续 §8.x 整理时可考虑：
+  - 直接删除（内容冗余于 cloud-native）
+  - 或迁移到 cloud-native 的 `14-interview/` 作"对比历史"参考
+- SOP-ADD-SITE.md 加 §8.54.5 的 6 项校验（脚本化）
+- check-sites.sh 加一条 "工作区有 cloud-html/ 但 SITES 里没有 cloud → 警告"
+- 接入新站时如果发现类似孤儿残站，按本节流程处理
