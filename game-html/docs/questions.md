@@ -164,7 +164,7 @@ while (running) {
 1. **Profiler 抓快照**：Unity Profiler / Unreal Memory Insights
 2. **对比基线**：场景切换前后内存不下降 → 泄漏
 3. **常见泄漏点**：
-   - 静态集合未清理（`static List<T>`）
+   - 静态集合未清理（`static List&lt;T>`）
    - 事件订阅未解绑（C# event -= handler）
    - Unity Resources / AssetBundle 未 Unload
    - 单例持有 DontDestroyOnLoad 对象引用
@@ -175,10 +175,10 @@ while (running) {
 2. **定位大对象分配**：`>1KB` 的数组、字符串拼接
 3. **优化方法**：
    - 用 `StringBuilder` 替代 `+`
-   - 用对象池（ObjectPool<T>）复用
+   - 用对象池（`ObjectPool&lt;T>`）复用
    - 用 `struct` / `值类型` 替代小 class
    - 避免 LINQ（隐式装箱）
-   - 用 `ArrayPool<T>` 复用数组
+   - 用 `ArrayPool&lt;T>` 复用数组
    - 用 `unsafe` / `NativeArray` 绕过 GC
 
 **Unreal**：UObject 自动 GC，但 UPROPERTY 标记的对象不会被回收（类似引用计数）；用 `obj list` 命令查看活跃对象。
