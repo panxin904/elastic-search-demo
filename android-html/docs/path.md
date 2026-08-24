@@ -74,3 +74,14 @@ Android = **基于 Linux Kernel 的移动设备操作系统**：应用层用 Kot
 - **Compose 是未来**：Google 全力推 Compose，View 体系只维护不开发
 - **包大小是生死线**：APK 每涨 5MB，安装转化率掉 2%；R8 + ABI split 必须做
 - **跨平台 ROI 看团队**：纯 Android 团队上 Flutter 收益高；iOS+Android 团队 RN/KMP 更划算
+
+## 📑 章节快速索引
+
+按章节速查（详细文档在 6 大类子目录）：
+
+- [01 · 应用层](./01-app/)：Kotlin / Jetpack / 协程
+- [02 · UI 体系](./02-ui/)：视图系统 / Compose / 资源
+- [03 · 系统层](./03-system/)：启动 / IPC / ART / 框架服务
+- [04 · 跨平台](./04-cross/)：Flutter / RN / KMP / 选型
+- [05 · 工具链](./05-toolchain/)：Gradle / IDE / 发布
+- [06 · 性能与安全](./06-perf/)：启动优化 / 内存 / 权限 / Keystore

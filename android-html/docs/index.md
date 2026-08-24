@@ -17,30 +17,32 @@ hero:
       link: /mindmap
 
 features:
-  - title: 🧱 Kotlin 与 Jetpack
-    details: Kotlin 协程（Coroutine / Flow / Channel）/ ViewModel / LiveData / Lifecycle / Navigation / Room / DataStore / Hilt 依赖注入 / Jetpack Compose 声明式 UI。
-    link: /path
-    linkText: 应用层基础
-  - title: 🎨 UI 与 Compose
-    details: Compose 状态管理（remember / StateFlow）/ Material 3 / 自定义 Modifier / 主题切换 / 列表懒加载 / 动画 / 嵌套滚动。
-    link: /path
-    linkText: UI 体系
-  - title: ⚙️ 系统层原理
-    details: Android 架构（Linux Kernel / HAL / Native Services / Framework / SystemServer / Zygote）/ Binder IPC / ART 运行时 / Dex2oat / ClassLoader。
-    link: /path
-    linkText: 系统源码
+  - title: 🧱 应用层
+    details: Kotlin 协程 / Jetpack ViewModel + Hilt + Room + WorkManager / Flow 响应式数据流 / Compose 声明式 UI。
+    link: /01-app/
+    linkText: 进入章节
+  - title: 🎨 UI 体系
+    details: View 体系（Activity / Fragment / RecyclerView）/ Compose 状态管理 + Material 3 / 主题切换 + 屏幕适配。
+    link: /02-ui/
+    linkText: 进入章节
+  - title: ⚙️ 系统层
+    details: 启动流程（Boot → Zygote → SystemServer）/ Binder IPC / ART 运行时 / AMS WMS PMS IMS 框架服务。
+    link: /03-system/
+    linkText: 进入章节
   - title: 🌐 跨平台
-    details: Flutter / React Native / Kotlin Multiplatform（KMP）/ Compose Multiplatform / 跨端架构选型（性能 / 一致性 / 包大小）。
-    link: /path
-    linkText: 跨端方案
-  - title: 🛠️ 工具链与工程
-    details: Gradle（KTS / Plugin / BuildSrc）/ Android Studio Profiler / Layout Inspector / APK Analyzer / App Bundle / Play Console / Firebase。
-    link: /path
-    linkText: 工程实践
+    details: Flutter / React Native / Kotlin Multiplatform / Compose Multiplatform / 选型决策（性能 vs 一致性）。
+    link: /04-cross/
+    linkText: 进入章节
+  - title: 🛠️ 工具链
+    details: Gradle KTS + AGP + Build Variants / Android Studio Profiler + Layout Inspector / APK Analyzer / App Bundle。
+    link: /05-toolchain/
+    linkText: 进入章节
   - title: 🚀 性能与安全
-    details: 启动优化（Baseline Profile / Macrobenchmark）/ 内存泄漏与 OOM / ANR / 卡顿监控 / 包大小优化 / 权限模型 / Scoped Storage / Network Security Config。
-    link: /path
-    linkText: 性能与安全
+    details: 启动优化 + Baseline Profile + Macrobenchmark / 内存泄漏 + OOM / ANR / 包大小 / 权限 + Keystore + 证书钉扎。
+    link: /06-perf/
+    linkText: 进入章节
+
+
 ---
 
 <script setup>

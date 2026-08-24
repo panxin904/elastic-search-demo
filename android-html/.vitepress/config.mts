@@ -152,6 +152,65 @@ export default withMermaid(defineConfig({
           ]
         },
         {
+          text: '🧩 应用层',
+          collapsed: false,
+          items: [
+            { text: '章节目录', link: '/01-app/' },
+            { text: 'Kotlin / Java / NDK', link: '/01-app/language' },
+            { text: 'Jetpack 套件', link: '/01-app/jetpack' },
+            { text: 'Kotlin 协程', link: '/01-app/coroutine' },
+          ]
+        },
+        {
+          text: '🎨 UI 体系',
+          collapsed: false,
+          items: [
+            { text: '章节目录', link: '/02-ui/' },
+            { text: '视图系统', link: '/02-ui/view-system' },
+            { text: 'Jetpack Compose', link: '/02-ui/compose' },
+            { text: '资源与适配', link: '/02-ui/resource' },
+          ]
+        },
+        {
+          text: '⚙️ 系统层',
+          collapsed: false,
+          items: [
+            { text: '章节目录', link: '/03-system/' },
+            { text: '启动流程', link: '/03-system/startup' },
+            { text: 'IPC 机制', link: '/03-system/ipc' },
+            { text: 'ART 运行时', link: '/03-system/runtime' },
+            { text: '框架服务', link: '/03-system/services' },
+          ]
+        },
+        {
+          text: '🌐 跨平台',
+          collapsed: false,
+          items: [
+            { text: '章节目录', link: '/04-cross/' },
+            { text: '跨平台框架', link: '/04-cross/frameworks' },
+            { text: '选型决策', link: '/04-cross/decision' },
+          ]
+        },
+        {
+          text: '🛠️ 工具链',
+          collapsed: false,
+          items: [
+            { text: '章节目录', link: '/05-toolchain/' },
+            { text: '构建系统', link: '/05-toolchain/gradle' },
+            { text: 'Android Studio', link: '/05-toolchain/ide' },
+            { text: '发布与上架', link: '/05-toolchain/publish' },
+          ]
+        },
+        {
+          text: '📈 性能与安全',
+          collapsed: false,
+          items: [
+            { text: '章节目录', link: '/06-perf/' },
+            { text: '性能优化', link: '/06-perf/performance' },
+            { text: '安全机制', link: '/06-perf/security' },
+          ]
+        },
+        {
           text: '🚶 学习',
           collapsed: false,
           items: [
