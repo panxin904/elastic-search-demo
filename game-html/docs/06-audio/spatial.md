@@ -1,0 +1,51 @@
+---
+title: 空间音频
+---
+
+# 空间音频
+
+> 空间音频：HRTF 头相关传输函数 + 3D 距离衰减 + 声障遮挡。
+
+## 🎯 核心要点
+
+- HRTF：头相关传输函数，模拟人耳定位（耳机 3D）
+- 3D 衰减：距离 / 方向（双声道 / 环绕声）
+- 声障遮挡：射线检测 + 衰减
+- 引擎：Unity Audio / Wwise / FMOD 都支持
+
+## 🛠️ 实战示例
+
+```csharp
+// Unity 3D 音源
+var source = gameObject.AddComponent<AudioSource>();
+source.clip = shootClip;
+source.spatialBlend = 1f;  // 3D 音频
+source.rolloffMode = AudioRolloffMode.Linear;
+source.minDistance = 1f; source.maxDistance = 50f;
+```
+
+## 🔗 相关链接
+
+- [动态混音](./mix)
+- [音频引擎](./engine)
+- [← 返回 音频 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[音频引擎](./engine)
+
+## 🛠️ 实战提示
+
+HRTF 需要双声道立体声耳机才能展现效果。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+- **实战提示**：从引擎默认配置入手，按需自定义。
+- **官方文档**：参考 Unity / Unreal / Godot 最新 LTS 版本。
