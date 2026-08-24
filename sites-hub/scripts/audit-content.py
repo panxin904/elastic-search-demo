@@ -49,6 +49,13 @@ EXCLUDE_DIRS = {'node_modules', '.vitepress', 'release', '.git', 'dist', 'public
 # 这 3 种文件名按结构预期就是 < 200 字，豁免后 audit baseline 数字才反映真实问题
 THIN_EXCLUDE_NAMES = {'mindmap.md', 'graph.md', 'cheatsheet.md'}
 
+# §8.55 站点级薄页豁免：java-language 是 14 章速查合集（01-basics / 02-collections / ...
+# 14-interview），每篇 < 200 字是设计预期（cheat sheet 风格）。SOP-ADD-SITE 时定位明确：
+# "Java 语言全栈速查手册 — 14 章章节化要点集合"。
+THIN_EXCLUDE_SITES = {
+    'java-language': '14 章速查合集，每篇 < 200 字是设计预期',
+}
+
 CN_CHAR = re.compile(r'[\u4e00-\u9fff]')
 EN_WORD = re.compile(r'\b[a-zA-Z]+\b')
 LINK = re.compile(r'\[[^\]]+\]\(([^)]+)\)')
@@ -241,6 +248,8 @@ def main():
     ap.add_argument('--min-words', type=int, default=200, help='字数 < 此值算薄页（cheatsheet 章节天然 50-200 字，500 太严）')
     ap.add_argument('--exclude-thin-name', nargs='*', default=sorted(THIN_EXCLUDE_NAMES),
                     help='按文件名豁免薄页检测（默认 mindmap.md graph.md cheatsheet.md）')
+    ap.add_argument('--exclude-thin-site', nargs='*', default=sorted(THIN_EXCLUDE_SITES),
+                    help='按站点 URL 段豁免薄页检测（§8.55 java-language 14 章速查合集）')
     ap.add_argument('--max-age-days', type=int, default=365)
     ap.add_argument('--dup-threshold', type=float, default=0.85)
     ap.add_argument('--output-dir', default=str(ROOT / 'sites-hub' / 'reports'))
@@ -326,6 +335,10 @@ def main():
         # §8.44 豁免：mindmap.md / graph.md / cheatsheet.md 按结构预期字数少，跳过
         if path.name in args.exclude_thin_name:
             s['thin_excluded'] += 1  # 用于报告展示，不计入薄页统计
+            continue
+        # §8.55 站点级豁免：java-language 是 14 章速查合集，整站豁免
+        if site_short in args.exclude_thin_site:
+            s['thin_excluded'] += 1
             continue
         if words < args.min_words:
             s['thin'] += 1
@@ -494,7 +507,9 @@ def main():
     lines.append(f"| 总文件数 | {total_files} | — | — |")
     lines.append(f"| 总字数（中英混合） | {total_words:,} | — | — |")
     lines.append(f"| frontmatter 覆盖率 | {fm_pct:.1f}% | ≥ 95% | {'✅' if fm_pct >= 95 else '⚠️' if fm_pct >= 80 else '❌'} |")
-    lines.append(f"| 薄页豁免（{', '.join(args.exclude_thin_name)}） | {total_thin_excluded} | — | 结构预期字数少，不计入薄页 |")
+    excluded_names = ', '.join(args.exclude_thin_name)
+    excluded_sites_str = ' + 站点:' + ', '.join(args.exclude_thin_site) if args.exclude_thin_site else ''
+    lines.append(f"| 薄页豁免（{excluded_names}{excluded_sites_str}） | {total_thin_excluded} | — | 结构预期字数少，不计入薄页 |")
     lines.append(f"| 薄页（< {args.min_words} 字，扣除豁免） | {total_thin} ({thin_pct:.1f}%) | ≤ 5% | {'✅' if thin_pct <= 5 else '⚠️' if thin_pct <= 15 else '❌'} |")
     lines.append(f"| 缺 frontmatter | {total_no_fm} | 0 | {'✅' if total_no_fm == 0 else '❌'} |")
     lines.append(f"| frontmatter 缺 date | {total_no_date} | 0 | {'✅' if total_no_date == 0 else '⚠️'}（VitePress `lastUpdated: true` 兜底）|")

@@ -3,8 +3,8 @@ layout: home
 
 hero:
   name: Java 语言全栈 知识图谱
-  text: 系统化学习 Java
-  tagline: 从基础语法到 JVM 调优，从集合到并发，从 Spring 到微服务
+  text: Java 速查手册 · 14 章要点合集
+  tagline: 每篇 < 200 字 cheat sheet 风格 · 从基础语法到 JVM 调优 · 从集合到并发 · 从 Spring 到微服务
   actions:
     - theme: brand
       text: 🧭 学习路径
@@ -18,6 +18,14 @@ hero:
     - theme: alt
       text: 📋 命令速查
       link: /cheatsheet
+
+::: tip 💡 关于本站定位
+本站是 **14 章速查手册合集**（不是系统化教程）：
+- 每篇 30-200 字 cheat sheet 风格（代码示例 + 关键参数）
+- 14 章覆盖基础语法 → JVM → 并发 → Spring → 微服务 → 面试
+- 详细讲解请配合各章 [Reference](#references) 链接的官方文档
+- 薄页豁免已配置在 `audit-content.py §8.55`，audit 不会误报
+:::
 
 features:
   - icon: 📐

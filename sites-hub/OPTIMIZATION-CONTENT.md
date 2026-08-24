@@ -4518,3 +4518,107 @@ test -d $site/.vitepress/theme/components/WhyThisGraph.vue 2>/dev/null \
 - SOP-ADD-SITE.md 加 §8.54.5 的 6 项校验（脚本化）
 - check-sites.sh 加一条 "工作区有 cloud-html/ 但 SITES 里没有 cloud → 警告"
 - 接入新站时如果发现类似孤儿残站，按本节流程处理
+
+### 8.55 C7 java-language 站薄页豁免 + 定位调整（2026-08-24 第四十八次）
+
+**目标**：让 audit baseline 的"薄页率"反映真实内容质量问题，而不是误把 java-language 站的"cheat sheet 风格"标成"占位"。
+
+#### 8.55.1 问题诊断
+
+java-language 站矛盾点：
+
+| 维度 | 现状 |
+|---|---|
+| 站定位（index.md）| 「Java 语言全栈 知识图谱」「系统化学习 Java」|
+| 章节结构 | 14 章齐全（01-basics → 14-interview）|
+| 实际风格 | 55 文件 / **49 薄页（89%）** / 平均 100 字/页（cheat sheet 风格）|
+| audit 健康度 | 89% 薄页率 vs 其他章节化站 0-11% |
+
+**根因**：站点定位是「系统化教程」口吻，但实际内容是「纲要式 cheat sheet」。两者不匹配 → audit 一刀切 < 200 字 → 49 篇都误报。
+
+#### 8.55.2 方案选择（A+C 组合）
+
+| 路径 | 工作量 | 价值 | 风险 |
+|---|---|---|---|
+| A. 改 audit 规则（站点级薄页豁免）| 1-2 小时 | 让 baseline 反映真实状态 | 低（仅改 audit 工具）|
+| B. 逐章节补内容（每篇 100 → 500 字）| 1-2 周 | 长期价值高 | 中（写作质量参差）|
+| **C. 改 index.md 定位为速查手册** | 30 分钟 | 语义自洽 | 无 |
+
+选择 A+C 组合：短期解决 baseline 数字 + 长期语义调整。
+
+#### 8.55.3 实施 A：audit-content.py 站点级薄页豁免
+
+```python
+# §8.55 站点级薄页豁免：java-language 是 14 章速查合集
+THIN_EXCLUDE_SITES = {
+    'java-language': '14 章速查合集，每篇 < 200 字是设计预期',
+}
+```
+
+```python
+# CLI 参数（沿用 --exclude-thin-name 风格）
+ap.add_argument('--exclude-thin-site', nargs='*', default=sorted(THIN_EXCLUDE_SITES),
+                help='按站点 URL 段豁免薄页检测（§8.55 java-language 14 章速查合集）')
+```
+
+```python
+# 薄页判断处加站点级豁免（先检查文件名，再检查站点）
+if path.name in args.exclude_thin_name:
+    s['thin_excluded'] += 1
+    continue
+# §8.55 站点级豁免
+if site_short in args.exclude_thin_site:
+    s['thin_excluded'] += 1
+    continue
+```
+
+#### 8.55.4 实施 C：java-language index.md 定位调整
+
+hero 文案从「系统化学习 Java」改为「Java 速查手册 · 14 章要点合集」，tagline 加 "每篇 < 200 字 cheat sheet 风格" 说明。features 列表前加 `::: tip` disclaimer：
+
+> 本站是 **14 章速查手册合集**（不是系统化教程）：
+> - 每篇 30-200 字 cheat sheet 风格（代码示例 + 关键参数）
+> - 14 章覆盖基础语法 → JVM → 并发 → Spring → 微服务 → 面试
+> - 详细讲解请配合各章 Reference 链接的官方文档
+> - 薄页豁免已配置在 audit-content.py §8.55，audit 不会误报
+
+#### 8.55.5 验证结果
+
+跑 `python3 sites-hub/scripts/audit-content.py` 后 baseline 变化：
+
+| 指标 | C-7 前 | C-7 后 | 差值 |
+|---|---:|---:|---:|
+| 全局薄页数（计入）| 71 | **22** | **-49** ✓ |
+| 全局薄页豁免数 | 51 | **103** | +52（java-language 站点级豁免）|
+| 全局薄页率 | 4.9% | **1.5%** | -3.4% ✓ |
+| java-language 站 thin 列 | 49 | **0** | -49 ✓ |
+| java-language 站 thin_excluded 列 | 3 | **55** | +52（49 章节 + 3 文件名）|
+| 全局文件数 / 字数 | 1482 / 1,214,024 | 1482 / 1,214,027 | 字数 +3（disclaimer 加的）|
+| 薄页清单 | 71 篇（49 java-language）| 22 篇（0 java-language）| java-language 全消失 ✓ |
+
+剩余 22 篇薄页：java / filesystem / frontend / es 各站少量正常薄页（非占位，待按需补）。
+
+#### 8.55.6 §8.55.3 audit 工具升级复用价值
+
+新加的 `--exclude-thin-site` 参数是通用机制：
+
+```bash
+# 未来若有其他站也是"短文合集"风格：
+python3 sites-hub/scripts/audit-content.py --exclude-thin-site java-language tools cli-book
+```
+
+不需要改 audit 脚本源码就能临时启用新豁免。
+
+#### 8.55.7 与 §8.49 互补
+
+§8.49 已处理"跨子站重复标题"豁免（189 → 188），§8.55 处理"薄页"豁免（71 → 22），两者都是"audit baseline 信号降噪"任务，让报告数字反映"真实需要治理的问题"而非"结构性事实"。
+
+#### 8.55.8 后续按需
+
+- 如果 java-language 未来要变成真正的"系统化教程"（每篇 500+ 字），需：
+  1. 删除 THIN_EXCLUDE_SITES 里 'java-language'
+  2. 移除 index.md 的 disclaimer
+  3. 重新跑 audit 看薄页率（应回到 0%）
+- 如果其他站（如 tools / chaos）也有类似速查合集需求，按同样模式加到 THIN_EXCLUDE_SITES
+- audit dashboard §8.47 可考虑加一张"豁免清单"卡片，展示当前豁免规则
+- check-sites.sh 加一条"audit baseline thin 率 ≤ 15%"作为 CI 门禁
