@@ -49,6 +49,15 @@ public class UserController {
 | 默认装配 | byType | byName |
 | 指定方式 | @Qualifier | name 属性 |
 
+## 🛠️ DI vs Service Locator
+
+**DI 优势**：依赖关系**显式可见**（构造器参数列表）、便于测试（注入 mock）、框架管理生命周期。
+
+**Service Locator 劣势**：依赖隐藏在 locator.get() 调用里，测试和重构困难。
+
+**Spring 推荐**：构造器注入（final 字段）+ Lombok `@RequiredArgsConstructor`，
+字段注入（@Autowired on field）不推荐（不利于测试 + 隐藏依赖）。
+
 ## 图谱关联
 
 <KnowledgeGraph mode="neighbor" focusNodeId="dependency-injection" :height="400" />

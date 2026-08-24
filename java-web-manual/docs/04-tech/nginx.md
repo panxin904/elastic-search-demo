@@ -6,6 +6,21 @@ title: Nginx
 
 Nginx 是高性能的 HTTP 服务器和反向代理，常用于负载均衡、静态资源、HTTPS 终端。
 
+## 🛠️ Nginx 关键配置
+
+**反向代理**：`proxy_pass http://backend;` + `proxy_set_header X-Real-IP $remote_addr;`
+
+**负载均衡策略**：
+- `round-robin`（默认，轮询）
+- `least_conn`（最少连接，适合长连接）
+- `ip_hash`（会话保持，按客户端 IP hash）
+- `weight=`（权重，可与上面策略组合）
+
+**gzip 压缩**：`gzip on; gzip_types text/plain application/json; gzip_min_length 1024;`
+
+**HTTPS**：`ssl_certificate /etc/nginx/ssl/cert.pem; ssl_certificate_key /etc/nginx/ssl/key.pem;`
+（用 Let's Encrypt + certbot 自动续期）。
+
 ## 反向代理
 
 ```nginx

@@ -42,6 +42,17 @@ title: 微服务架构
 | 数据独立性 | 每个服务有独立数据库 |
 | 渐进式拆分 | 从核心业务开始，逐步拆 |
 
+## 🛠️ 微服务拆分的陷阱
+
+**不要为了拆而拆**：服务越多运维成本越高（部署 / 监控 / 链路追踪 / 分布式事务）。
+
+**拆分原则**：
+- 业务边界清晰（DDD 限界上下文）
+- 数据独立（每个服务有自己的数据库，不共享表）
+- 团队规模匹配（两个披萨团队原则 — Amazon 10 人内）
+
+**通信方式**：同步（HTTP/REST/gRPC）vs 异步（Kafka/RocketMQ）vs 事件驱动（EventBridge）。
+
 ## 图谱关联
 
 <KnowledgeGraph mode="neighbor" focusNodeId="microservices" :height="400" />

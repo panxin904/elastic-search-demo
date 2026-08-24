@@ -55,6 +55,17 @@ public class UserController {
 | 能获取请求体 | 否（只能 request/response） | 是（HandlerMethod） |
 | 使用场景 | 编码、跨域、安全 | 鉴权、日志、性能统计 |
 
+## 🛠️ Spring MVC 关键注解
+
+- `@RestController` = `@Controller` + `@ResponseBody`（返回 JSON）
+- `@RequestMapping` 父注解 + `@GetMapping/@PostMapping` 子注解
+- `@PathVariable` 路径参数 / `@RequestParam` 查询参数 / `@RequestBody` 请求体
+- `@Valid` 触发参数校验（搭配 `@NotNull/@Min/@Max` 等）
+- `@ControllerAdvice` + `@ExceptionHandler` 全局异常处理
+
+**性能调优**：异步 MVC（`@Async` + `WebMvcConfigurer` 配置 ThreadPoolTaskExecutor）
+可释放 Servlet 线程，适合 IO 密集型接口。
+
 ## 图谱关联
 
 <KnowledgeGraph mode="neighbor" focusNodeId="mvc-pattern" :height="400" />

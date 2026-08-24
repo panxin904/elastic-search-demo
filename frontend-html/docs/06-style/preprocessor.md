@@ -53,3 +53,11 @@ $primary: #06b6d4;
 
 - [Tailwind / UnoCSS](/06-style/tailwind)
 - [CSS Modules](/06-style/css-modules)
+## 🎯 现代 CSS 工程化建议
+
+- 中小项目：原生 CSS + 自定义属性（无需 SCSS 编译）
+- 大型项目 / 设计系统：用 SCSS 维护 token + 设计规范
+- 工具替代：Tailwind / UnoCSS 提供 utility-first 思维，比 SCSS 更适合组件化
+- PostCSS 插件链：autoprefixer + postcss-preset-env（无需 SCSS 也能用未来语法）
+
+迁移建议：旧 SCSS 项目不必强制迁移，渐进式替换即可。

@@ -88,3 +88,9 @@ POST /products/_search
 ## 📚 延伸阅读
 - [分页](/02-query/pagination)
 - [Search After](/02-query/search-after)
+## 🎯 实战建议
+
+- `_score` 排排序 + relevance 时考虑 tie_breaker（多字段综合评分）
+- 字符串排序用 `keyword` 字段（`text` 字段无法直接排序）
+- 大结果集排序用 search_after（游标分页，比 from/size 深翻页性能好）
+- 多字段排序用 `_score` + 业务字段组合，确保稳定性

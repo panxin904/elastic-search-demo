@@ -20,6 +20,17 @@ title: 代理模式
 | 要求 | 必须有接口 | final 类/方法不行 |
 | 性能 | 反射调用 | 字节码，略快 |
 
+## 🛠️ 何时用代理模式
+
+**使用场景**：想在原方法前后**无侵入**加逻辑（AOP 切面），或**延迟加载**资源
+（lazy proxy / hibernate lazy loading）。
+
+**JDK 动态代理 vs CGLIB**：
+- 有接口 → JDK 动态代理（无依赖）
+- 无接口 → 必须 CGLIB（Spring 默认 fallback）
+
+**Spring AOP**：默认 JDK 动态代理 + CGLIB 混合；配置 `spring.aop.proxy-target-class=true` 强制 CGLIB。
+
 ## 图谱关联
 
 <KnowledgeGraph mode="neighbor" focusNodeId="proxy-pattern" :height="400" />

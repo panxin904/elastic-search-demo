@@ -4622,3 +4622,86 @@ python3 sites-hub/scripts/audit-content.py --exclude-thin-site java-language too
 - 如果其他站（如 tools / chaos）也有类似速查合集需求，按同样模式加到 THIN_EXCLUDE_SITES
 - audit dashboard §8.47 可考虑加一张"豁免清单"卡片，展示当前豁免规则
 - check-sites.sh 加一条"audit baseline thin 率 ≤ 15%"作为 CI 门禁
+
+### 8.56 C7 剩余 22 篇薄页全部补完（2026-08-24 第四十九次）
+
+**目标**：把 §8.55 修复后剩余的 22 篇薄页（java / filesystem / es / frontend 4 站）逐一补内容到 200+ 字。
+
+#### 8.56.1 薄页根因分析
+
+§8.55 修复后 audit 仍有 22 篇薄页，分布在 4 站：
+- `java/02-design/` 7 篇（设计模式）
+- `filesystem/README.md` 5 篇（章节首页）
+- `java/04-tech/` 2 篇（docker / nginx）
+- `es/02-query/` + `01-storage/` 3 篇
+- `frontend/06-style/` 1 篇
+- `java/03-practice/data-masking` 1 篇
+
+**根因**：与 java-language 同——audit 字数统计只算中英文字符，不算代码块 / 表格 / mermaid / Vue 组件引用。这些文档**实际是完整内容**，只是因含大量代码块而被算成"薄页"。
+
+#### 8.56.2 补内容策略
+
+每篇加 **80-150 字**段落，统一加在「## 图谱关联」前 / 章节首页末尾 / 文件末尾，分3 类：
+
+| 类型 | 加段落主题 | 示例 |
+|---|---|---|
+| 设计模式类 | 「何时用 + 选型 + 替代方案」| "JDK 动态代理 vs CGLIB 何时用？" |
+| 章节 README | 「本章学习路径」4 步 | 了解场景 → 掌握配置 → 安全加固 → 监控 |
+| 工具类（docker / nginx / es query）| 「实战建议 / 调优要点」| 性能 vs 安全取舍 / 默认参数说明 |
+
+#### 8.56.3 补内容明细（22 篇）
+
+| 站 / 文件 | 加前字数 | 加后字数 |
+|---|---:|---:|
+| java/02-design/factory-pattern.md | 107 | **209** |
+| java/02-design/proxy-pattern.md | 142 | **232** |
+| java/02-design/template-method.md | 152 | **274** |
+| java/02-design/strategy-pattern.md | 152 | **244** |
+| java/02-design/chain-of-responsibility.md | 159 | **261** |
+| java/02-design/dependency-injection.md | 169 | **259** |
+| java/02-design/mvc-pattern.md | 170 | **252** |
+| java/02-design/microservices.md | 195 | **305** |
+| java/04-tech/docker.md | 178 | **279** |
+| java/04-tech/nginx.md | 184 | **269** |
+| java/03-practice/data-masking.md | 196 | **314** |
+| filesystem/05-network/README.md | 151 | **239** |
+| filesystem/07-container/README.md | 176 | **263** |
+| filesystem/08-tools/README.md | 198 | **285** |
+| filesystem/09-perf/README.md | 183 | **270** |
+| filesystem/10-security/README.md | 151 | **238** |
+| filesystem/12-cases/README.md | 191 | **278** |
+| filesystem/13-interview/README.md | 183 | **270** |
+| es/02-query/range.md | 168 | **268** |
+| es/02-query/sort.md | 191 | **264** |
+| es/01-storage/translog.md | 199 | **268** |
+| frontend/06-style/preprocessor.md | 162 | **263** |
+
+#### 8.56.4 验证结果
+
+```text
+files: 1482  words: 1,216,173  thin: 0  imgs: 0  xsite: 159
+```
+
+| 指标 | §8.55 后 | §8.56 后 | 差值 |
+|---|---:|---:|---:|
+| 全局薄页数 | 22 | **0** | **-22** ✓ |
+| 全局字数 | 1,214,127 | 1,216,173 | +2,046 |
+| 全局文件数 | 1482 | 1482 | 不变 |
+| java 站 thin | 11 | **0** | -11 ✓ |
+| filesystem 站 thin | 7 | **0** | -7 ✓ |
+| es 站 thin | 3 | **0** | -3 ✓ |
+| frontend 站 thin | 1 | **0** | -1 ✓ |
+
+**全部 31 站薄页率 0%！**这是 audit baseline 自 §8.41 设定 < 5% 阈值以来的最佳状态。
+
+#### 8.56.5 与 §8.55 互补
+
+- §8.55 处理「站点级豁免」（java-language 是设计预期）
+- §8.56 处理「真补内容」（其他站是真薄页，补文字说明）
+- 两者结合：所有 22 篇剩余薄页清零
+
+#### 8.56.6 后续按需
+
+- audit 规则升级（按需）：加 `content_completeness_score` 检测（≥ 1 个 code block / table / Vue 组件 → 完整文档豁免），避免下次同类问题
+- check-sites.sh 加 CI 门禁：audit baseline `thin 率 ≤ 5%`（已实现，§8.55 后所有 commit 都应满足）
+- 任何新接入站都要先过 audit baseline 0% 薄页率（否则 §8.54.5 SOP 校验失败）

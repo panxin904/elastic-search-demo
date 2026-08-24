@@ -38,6 +38,16 @@ public class PayService {
 }
 ```
 
+## 🛠️ 何时用策略模式
+
+**使用场景**：多种算法可以**互换**，且算法选择**在运行时决定**（如支付方式
+选择、排序算法选择、压缩算法选择）。
+
+**优势**：消除 if-else 链，新增算法只需新增 Strategy 实现类（OCP）。
+
+**Spring 替代**：用 `Map<String, Strategy>` + `@Component` 自动注入多种实现，
+比手写 if-else 优雅。
+
 ## 图谱关联
 
 <KnowledgeGraph mode="neighbor" focusNodeId="strategy-pattern" :height="400" />

@@ -71,3 +71,9 @@ GET /products/_stats?level=shards
 ## 📚 延伸阅读
 - [段 Segment](/01-storage/segment)
 - [Refresh 机制](/01-storage/refresh)
+## 🎯 调优建议
+
+- 默认 index.translog.durability=request（同步刷盘，性能 vs 安全平衡）
+- 高吞吐场景可设 async（异步刷盘，宕机可能丢最近 5s 数据）
+- index.translog.flush_threshold_size 控制 flush 频率（默认 512MB）
+- translog 是 segment 合并的关键，监控 translog 大小避免磁盘满

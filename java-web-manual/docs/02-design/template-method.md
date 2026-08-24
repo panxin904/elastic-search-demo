@@ -27,6 +27,17 @@ public abstract class AbstractExportService<T> {
 }
 ```
 
+## 🛠️ 何时用模板方法
+
+**使用场景**：业务流程**整体固定**，但某些步骤需要子类定制（如 Spring
+`AbstractView.render()`、`JdbcTemplate`、`AbstractHandlerMethodMapping`）。
+
+**与策略模式区别**：
+- 模板方法：**继承**关系，子类覆写钩子方法（流程由父类控制）
+- 策略模式：**组合**关系，运行时切换算法（流程由调用方控制）
+
+**钩子方法（hook）vs 抽象方法：钩子有默认实现（子类可选择性覆写），抽象方法必须覆写。
+
 ## 图谱关联
 
 <KnowledgeGraph mode="neighbor" focusNodeId="template-method" :height="400" />

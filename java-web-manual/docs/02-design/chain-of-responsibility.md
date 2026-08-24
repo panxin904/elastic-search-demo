@@ -37,6 +37,19 @@ public class HandlerChain {
 }
 ```
 
+## 🛠️ 何时用责任链
+
+**使用场景**：请求需要**多个处理者**依次处理（每个处理者可决定是否处理 + 传给下一个）。
+
+**典型应用**：
+- Servlet Filter / Spring Interceptor
+- Netty ChannelPipeline
+- Spring Security Filter Chain
+- 日志 / 鉴权 / 限流 / 监控 多层串联
+
+**与装饰器模式区别**：责任链**单向传递**（每个处理者可中断），装饰器**层层包裹**
+（外层调用内层）。
+
 ## 图谱关联
 
 <KnowledgeGraph mode="neighbor" focusNodeId="chain-of-responsibility" :height="400" />

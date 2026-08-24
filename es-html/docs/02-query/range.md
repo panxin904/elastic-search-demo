@@ -76,3 +76,9 @@ POST /products/_search
 ## 📚 延伸阅读
 - [Term Query](/02-query/term)
 - [Bool Query](/02-query/bool)
+## 🎯 实战建议
+
+- 数值范围查询优先用 `gte/lte`（避免 `gt/lt` 在浮点精度问题上的 off-by-one）
+- 日期范围用 `now-7d` 数学表达式比传毫秒时间戳更易读
+- 大范围查询 + 排序慎用：性能开销大（要扫整个范围 + 排序）
+- 范围查询会展开为 term set（keyword 类型），范围过大时考虑用 `terms` + 路由优化

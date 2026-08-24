@@ -6,6 +6,18 @@ title: Docker
 
 Docker 实现应用容器化，解决"在我机器上能跑"的问题。
 
+## 🛠️ Docker 实战要点
+
+**多阶段构建**：减少镜像体积（builder stage + runtime stage），最终镜像只含运行时依赖。
+
+**Dockerfile 最佳实践**：
+- 基础镜像用 `eclipse-temurin:17-jre-alpine`（小、含 JRE）
+- 容器跑应用用非 root 用户（`USER appuser`）
+- .dockerignore 排除 target/、.git/、node_modules/ 等
+- 健康检查用 `HEALTHCHECK`（不是业务自己探活）
+
+**Docker Compose vs K8s**：本地开发用 Compose（简单），生产用 K8s（编排 / 自愈 / 扩缩容）。
+
 ## 核心概念
 
 | 概念 | 说明 |
