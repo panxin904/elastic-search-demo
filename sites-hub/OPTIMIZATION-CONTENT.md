@@ -5207,3 +5207,53 @@ dups: 199 (跨站重复标题待后续治理)
 - §8.61 修复 bug + 加密度检测，让 audit baseline 数字真实可信
 
 **教训**：豁免机制应用"条件累加"而非 `continue`，否则会跳过所有后续检测。
+
+# §8.62 C10 PR review 流程收尾 · CHANGELOG 自动生成
+
+> 日期：2026-08-25 · 第五十五次 · 工作量：30 分钟
+> 范围：C10 流程文档最后一块拼图
+
+## 8.62.1 现状（已就位 3 件套）
+
+- `CONTRIBUTING.md`（215 行）：完整 PR 提交流程 + commit 规范 + branch 命名
+- `docs/PR-REVIEW-CHECKLIST.md`（127 行）：技术合规 / 内容质量 / 提交规范 / 数据层 / 脚本配置 / 文档同步 / 审核者责任 / Merge 后
+- `.github/CODEOWNERS`（65 行）：按路径自动 assign reviewer（单人项目目前都是 @panxin904）
+
+## 8.62.2 缺失环节
+
+之前缺：**changelog 自动生成**。用户/贡献者无法一眼看到「最近改了啥」。
+
+## 8.62.3 实施
+
+写 `sites-hub/scripts/build-changelog.sh`：
+
+- 从 git log 自动解析 Conventional Commits（feat / fix / docs / refactor / chore / perf）
+- 按 type 分组输出 7 个 section
+- 默认 since=首个 commit（无 tag 兜底）
+- 支持 `bash build-changelog.sh <since-tag>` 指定范围
+
+## 8.62.4 生成结果
+
+```text
+CHANGELOG.md（首版）:
+- 总 commit: 172
+- ✨ Features: 44
+- 🐛 Bug Fixes: 23
+- ⚡ Performance: 0
+- ♻️ Refactor: 4
+- 📚 Documentation: 28
+- 🔧 Chore: 14
+- 📦 Other (ci/build/style/test): ~59
+```
+
+## 8.62.5 复用与维护
+
+- 新增 commit：直接 `bash sites-hub/scripts/build-changelog.sh` 重生成
+- release tag：建议 `git tag v1.0` 后 `build-changelog.sh v1.0..HEAD` 输出增量
+- CI 集成：可加到 `release` job（生成后打包到 release artifact）
+
+## 8.62.6 后续按需
+
+- `CHANGELOG.md` 长期维护（每次 release 前更新）
+- 与 `Updates` 列表（首页）协同：首页只展示 feat/fix/refactor；CHANGELOG 全展示
+- 可考虑加 `scripts/release.sh`：自动 bump version + 打 tag + 生成 CHANGELOG + push
