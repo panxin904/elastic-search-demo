@@ -27,6 +27,33 @@ description: Metrics / Logs / Traces / Events 信号体系
 
 > Profiles（剖析）有时作为第五支柱。它回答"**CPU / 内存具体花在哪些函数上**"，是性能调优的核武器。
 
+## 三大信号关系图（Mermaid 版）
+
+```mermaid
+graph LR
+    App["☁️ 应用 / 服务"]
+    
+    App -->|暴露 Pull| M["📊 Metrics<br/>时序聚合"]
+    App -->|打印 stdout| L["📝 Logs<br/>离散事件"]
+    App -->|Span 上报| T["🔗 Traces<br/>调用链路"]
+    
+    M --> Prom["Prometheus<br/>VictoriaMetrics<br/>Mimir"]
+    L --> Loki["Loki<br/>ELK<br/>ClickHouse"]
+    T --> Tempo["Jaeger<br/>Tempo<br/>Zipkin"]
+    
+    Prom --> Query["📈 Grafana / 查询层"]
+    Loki --> Query
+    Tempo --> Query
+    
+    style App fill:#1e293b,color:#fff
+    style M fill:#3b82f6,color:#fff
+    style L fill:#10b981,color:#fff
+    style T fill:#f59e0b,color:#fff
+    style Query fill:#8b5cf6,color:#fff
+```
+
+> 三大信号（Metrics / Logs / Traces）在生产环境通过 Grafana 等查询层关联，构成完整的"可观测性"视图。
+
 ## Metrics · 指标
 
 **是什么**：数值型时间序列，每个数据点是一个 (timestamp, value, labels) 三元组。

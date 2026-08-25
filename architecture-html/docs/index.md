@@ -126,6 +126,52 @@ const relatedSites = [
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
+
+## 🏛️ 分层架构对比（DDD / Clean / Hexagonal）
+
+```mermaid
+graph TB
+    subgraph Traditional["传统三层架构（贫血模型）"]
+        T1["Controller<br/>表现层"] --> T2["Service<br/>业务层"] --> T3["DAO<br/>数据访问层"]
+        T3 --> T4[("数据库")]
+        T1 --> T2
+    end
+    
+    subgraph DDD["DDD 四层架构（充血模型）"]
+        D1["Interface<br/>用户接口层"]
+        D2["Application<br/>应用层"]
+        D3["Domain<br/>领域层（含聚合根/实体/值对象）"]
+        D4["Infrastructure<br/>基础设施层"]
+        D1 --> D2 --> D3
+        D4 -.实现.-> D3
+        D2 -.调用.-> D4
+    end
+    
+    subgraph Hexagonal["六边形 / Clean（端口适配器）"]
+        H1["Inbound Adapter<br/>（REST/MQ/CLI）"]
+        H2["Application Service<br/>业务用例编排"]
+        H3["Domain Model<br/>纯领域逻辑"]
+        H4["Outbound Adapter<br/>（DB/Cache/RPC）"]
+        H1 --> H2 --> H3
+        H4 -.实现 Port.-> H3
+        H2 --> H4
+    end
+    
+    style T1 fill:#cbd5e1
+    style T2 fill:#cbd5e1
+    style T3 fill:#cbd5e1
+    style D1 fill:#3b82f6,color:#fff
+    style D2 fill:#10b981,color:#fff
+    style D3 fill:#f59e0b,color:#fff
+    style D4 fill:#8b5cf6,color:#fff
+    style H1 fill:#3b82f6,color:#fff
+    style H2 fill:#10b981,color:#fff
+    style H3 fill:#f59e0b,color:#fff
+    style H4 fill:#8b5cf6,color:#fff
+```
+
+> **核心区别**：传统三层 = 依赖从上往下贯穿（业务被数据库绑架）；DDD / Clean / 六边形 = 依赖倒置，**领域层不依赖任何外部**，只定义 Port 接口，基础设施层实现 Port。三者本质同源，DDD 强调战术建模（聚合 / 限界上下文），Clean 强调"框架无关 / 可测试"，六边形强调"端口-适配器"边界。
+
 ## 🎯 学习路径
 
 ```
