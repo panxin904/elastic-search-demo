@@ -435,7 +435,8 @@
         "path": "/09-id/snowflake",
         "label": "ID 系统设计"
       }
-    ]
+    ],
+    "en": "ID Generation"
   },
   "Snowflake": {
     "sites": [
@@ -490,7 +491,8 @@
         "path": "/01-web-top10/a03-injection",
         "label": "SQL 注入"
       }
-    ]
+    ],
+    "en": "SQL Injection"
   },
   "OWASP": {
     "sites": [
@@ -1169,7 +1171,8 @@
         "path": "/timestamp",
         "label": "时间戳转换"
       }
-    ]
+    ],
+    "en": "Unix Timestamp"
   },
   "URL 编解码": {
     "sites": [
@@ -1178,7 +1181,8 @@
         "path": "/url",
         "label": "URL 编码"
       }
-    ]
+    ],
+    "en": "URL Encoding"
   },
   "时区": {
     "en": "Timezone",
@@ -1211,7 +1215,8 @@
         "path": "/json-diff",
         "label": "JSON diff"
       }
-    ]
+    ],
+    "en": "JSON Diff"
   },
   "相对路径": {
     "en": "Relative Path",

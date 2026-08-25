@@ -5257,3 +5257,75 @@ CHANGELOG.md（首版）:
 - `CHANGELOG.md` 长期维护（每次 release 前更新）
 - 与 `Updates` 列表（首页）协同：首页只展示 feat/fix/refactor；CHANGELOG 全展示
 - 可考虑加 `scripts/release.sh`：自动 bump version + 打 tag + 生成 CHANGELOG + push
+
+# §8.63 C8 多语言 glossary EN 列补完
+
+> 日期：2026-08-25 · 第五十六次 · 工作量：30 分钟
+> 范围：补 EN 翻译 + 生成双语对照表
+
+## 8.63.1 现状
+
+`shared-assets/glossary/keywords.json`：
+- 总术语 161
+- 已有 en 字段 34 个（21.1%）
+- 待补 127 个
+
+之前 34 个全部是中文术语，剩下 127 个是英文原词（JVM/K8s/Redis 等）无需翻译。
+
+## 8.63.2 实施
+
+1. 写 `sites-hub/scripts/build-glossary-table.py`：
+   - 读 keywords.json，输出双语 markdown（terms.md）
+   - 智能识别英文原词（all ASCII）vs 中文术语
+   - 英文原词建议 en = term（无需翻译）
+   - 中文术语列出待人工补
+
+2. 批量补 5 个中文术语的 EN：
+
+| 中文 | English |
+|------|---------|
+| ID 生成 | ID Generation |
+| SQL 注入 | SQL Injection |
+| Unix 时间戳 | Unix Timestamp |
+| URL 编解码 | URL Encoding |
+| JSON 差异 | JSON Diff |
+
+## 8.63.3 生成结果
+
+```text
+shared-assets/glossary/terms.md（首版）:
+- 161 个术语
+- 39 有 EN（24.2%）—— 34 原有 + 5 新增
+- 122 待补（全部是英文原词，建议 en=term）
+```
+
+双语对照表（按跨站引用数排序）：
+- 4 跨站：~15 个（如 TCP/IP、VPC、SPIFFE 等）
+- 3 跨站：~40 个
+- 2 跨站：~50 个
+- 1 跨站：~56 个
+
+## 8.63.4 复用与维护
+
+- 新增术语：直接编辑 keywords.json 加 en 字段
+- 重生成：`python3 sites-hub/scripts/build-glossary-table.py`
+- EN 翻译约定：
+  - 英文原词 → en = term（无需翻译）
+  - 中文术语 → 标准英文翻译（Title Case）
+  - 复合术语 → Title Case（"流处理" → "Stream Processing"）
+
+## 8.63.5 与 C8 范围关系
+
+C8 多语言任务的实际范围：
+- ❌ vue-i18n 完整国际化（VitePress 31 站改造工作量极大）
+- ✅ glossary 双语对照（已完成）
+- 🔲 关键页面 EN 切换（如主页 hero）（按需）
+- 🔲 关键文档 EN 版本（如各站 index.md）（按需）
+
+**判断**：当前受众以中文为主，C8 的核心价值已通过 glossary 双语实现。完整 i18n 推迟到有英文用户增长时再做。
+
+## 8.63.6 后续按需
+
+- 翻译其他语言版本（按需：日语 / 西语等）
+- 关键页面 EN 切换（hero 加 language switcher）
+- 各站 index.md 加 EN 摘要（用 glossary 自动生成）
