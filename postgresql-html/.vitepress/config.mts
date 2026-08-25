@@ -15,13 +15,12 @@
     ]   e.g. '[{ icon: "github", link: "https://github.com" }]'
  */
 import { defineConfig } from 'vitepress'
-import { withMermaid } from 'vitepress-plugin-mermaid'
 import { fileURLToPath, URL } from 'node:url'
 
 // P0: VitePress/rollup 默认 fs.allow 限制 cwd 外 import。用 vite alias 解决相对路径。
 const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.url))
 
-export default withMermaid(defineConfig({
+export default defineConfig({
   vite: {
     resolve: {
       alias: [
@@ -29,7 +28,6 @@ export default withMermaid(defineConfig({
       ],
     },
   },
-  mermaid: { theme: 'default' },
   base: '/postgresql/',
   title: 'PostgreSQL',
   description: '现代关系型数据库深度图谱 - JSONB · PostGIS · pgvector · MVCC · CTE · 11 大类 · 60+ 节点',
@@ -91,6 +89,9 @@ export default withMermaid(defineConfig({
         { text: "ClickHouse", link: "https://java-px.bot.cd/clickhouse/" },
         { text: "设计模式", link: "https://java-px.bot.cd/design-pattern/" },
         { text: "混沌工程", link: "https://java-px.bot.cd/chaos/" },
+        { text: "物联网", link: "https://java-px.bot.cd/iot/" },
+        { text: "安卓", link: "https://java-px.bot.cd/android/" },
+        { text: "游戏开发", link: "https://java-px.bot.cd/game/" },
         ]
       }
     ],
@@ -98,79 +99,81 @@ export default withMermaid(defineConfig({
     // === 各站独立 sidebar（render-config.py 保留原值）===
     sidebar: {
     
-              '/': [
-                { text: '📖 基础入门', items: [
-                  { text: 'PostgreSQL 概述', link: '/01-basics/overview' },
-                  { text: '进程架构', link: '/01-basics/architecture' },
-                  { text: '关键配置参数', link: '/01-basics/config' }
-                ]},
-                { text: '🔢 数据类型', items: [
-                  { text: '内置类型', link: '/02-data-types/built-in' },
-                  { text: '数组类型', link: '/02-data-types/array' },
-                  { text: 'JSONB 类型', link: '/02-data-types/jsonb' },
-                  { text: 'range 类型', link: '/02-data-types/range' },
-                  { text: '自定义类型', link: '/02-data-types/custom' }
-                ]},
-                { text: '📊 表与索引', items: [
-                  { text: '表与分区', link: '/03-tables-and-indexes/table' },
-                  { text: 'B-Tree 索引', link: '/03-tables-and-indexes/btree' },
-                  { text: 'Hash 索引', link: '/03-tables-and-indexes/hash' },
-                  { text: 'GIN 索引', link: '/03-tables-and-indexes/gin' },
-                  { text: 'GiST 索引', link: '/03-tables-and-indexes/gist' },
-                  { text: 'BRIN 索引', link: '/03-tables-and-indexes/brin' },
-                  { text: 'SP-GiST 索引', link: '/03-tables-and-indexes/spgist' }
-                ]},
-                { text: '🔍 查询优化', items: [
-                  { text: 'EXPLAIN 详解', link: '/04-query/explain' },
-                  { text: '查询规划器', link: '/04-query/planner' },
-                  { text: 'CTE 公用表', link: '/04-query/cte' },
-                  { text: '窗口函数', link: '/04-query/window' },
-                  { text: '递归查询', link: '/04-query/recursive' },
-                  { text: '全文检索', link: '/04-query/fulltext-search' }
-                ]},
-                { text: '🔄 事务与并发', items: [
-                  { text: 'MVCC 多版本', link: '/05-transaction/mvcc' },
-                  { text: '隔离级别', link: '/05-transaction/isolation' },
-                  { text: '锁机制', link: '/05-transaction/lock' },
-                  { text: '死锁排查', link: '/05-transaction/deadlock' }
-                ]},
-                { text: '⚙️ 高级特性', items: [
-                  { text: '视图与物化视图', link: '/06-advanced/view' },
-                  { text: '触发器', link: '/06-advanced/trigger' },
-                  { text: '存储过程', link: '/06-advanced/function' },
-                  { text: 'UPSERT', link: '/06-advanced/upsert' },
-                  { text: '生成列', link: '/06-advanced/generated' }
-                ]},
-                { text: '🛠️ 运维管理', items: [
-                  { text: 'Vacuum 与 autovacuum', link: '/07-operations/vacuum' },
-                  { text: 'pg_stat_* 视图', link: '/07-operations/stats' },
-                  { text: '慢查询分析', link: '/07-operations/slow-query' },
-                  { text: '备份与恢复', link: '/07-operations/backup' },
-                  { text: '大版本升级', link: '/07-operations/upgrade' }
-                ]},
-                { text: '📡 复制与高可用', items: [
-                  { text: '流复制', link: '/08-replication/streaming' },
-                  { text: '逻辑复制', link: '/08-replication/logical' },
-                  { text: '热备读写分离', link: '/08-replication/hot-standby' },
-                  { text: 'Patroni HA', link: '/08-replication/patroni' }
-                ]},
-                { text: '🔌 客户端与连接', items: [
-                  { text: 'PgBouncer 连接池', link: '/09-connection/pgbouncer' },
-                  { text: 'libpq C 接口', link: '/09-connection/libpq' },
-                  { text: 'psycopg Python', link: '/09-connection/psycopg' },
-                  { text: 'JDBC', link: '/09-connection/jdbc' }
-                ]},
-                { text: '🧩 扩展生态', items: [
-                  { text: 'PostGIS 空间', link: '/10-extensions/postgis' },
-                  { text: 'pgvector 向量', link: '/10-extensions/pgvector' },
-                  { text: 'pg_trgm 模糊', link: '/10-extensions/pg_trgm' },
-                  { text: 'TimescaleDB 时序', link: '/10-extensions/timescaledb' },
-                  { text: 'Citus 分布式', link: '/10-extensions/citus' }
-                ]},
-                { text: '⚖️ 横向对比', items: [
-                  { text: 'MySQL vs PostgreSQL', link: '/11-compare/mysql-vs-postgresql' }
-                ]}
-              ]
+        
+            
+                              '/': [
+                                { text: '📖 基础入门', items: [
+                                  { text: 'PostgreSQL 概述', link: '/01-basics/overview' },
+                                  { text: '进程架构', link: '/01-basics/architecture' },
+                                  { text: '关键配置参数', link: '/01-basics/config' }
+                                ]},
+                                { text: '🔢 数据类型', items: [
+                                  { text: '内置类型', link: '/02-data-types/built-in' },
+                                  { text: '数组类型', link: '/02-data-types/array' },
+                                  { text: 'JSONB 类型', link: '/02-data-types/jsonb' },
+                                  { text: 'range 类型', link: '/02-data-types/range' },
+                                  { text: '自定义类型', link: '/02-data-types/custom' }
+                                ]},
+                                { text: '📊 表与索引', items: [
+                                  { text: '表与分区', link: '/03-tables-and-indexes/table' },
+                                  { text: 'B-Tree 索引', link: '/03-tables-and-indexes/btree' },
+                                  { text: 'Hash 索引', link: '/03-tables-and-indexes/hash' },
+                                  { text: 'GIN 索引', link: '/03-tables-and-indexes/gin' },
+                                  { text: 'GiST 索引', link: '/03-tables-and-indexes/gist' },
+                                  { text: 'BRIN 索引', link: '/03-tables-and-indexes/brin' },
+                                  { text: 'SP-GiST 索引', link: '/03-tables-and-indexes/spgist' }
+                                ]},
+                                { text: '🔍 查询优化', items: [
+                                  { text: 'EXPLAIN 详解', link: '/04-query/explain' },
+                                  { text: '查询规划器', link: '/04-query/planner' },
+                                  { text: 'CTE 公用表', link: '/04-query/cte' },
+                                  { text: '窗口函数', link: '/04-query/window' },
+                                  { text: '递归查询', link: '/04-query/recursive' },
+                                  { text: '全文检索', link: '/04-query/fulltext-search' }
+                                ]},
+                                { text: '🔄 事务与并发', items: [
+                                  { text: 'MVCC 多版本', link: '/05-transaction/mvcc' },
+                                  { text: '隔离级别', link: '/05-transaction/isolation' },
+                                  { text: '锁机制', link: '/05-transaction/lock' },
+                                  { text: '死锁排查', link: '/05-transaction/deadlock' }
+                                ]},
+                                { text: '⚙️ 高级特性', items: [
+                                  { text: '视图与物化视图', link: '/06-advanced/view' },
+                                  { text: '触发器', link: '/06-advanced/trigger' },
+                                  { text: '存储过程', link: '/06-advanced/function' },
+                                  { text: 'UPSERT', link: '/06-advanced/upsert' },
+                                  { text: '生成列', link: '/06-advanced/generated' }
+                                ]},
+                                { text: '🛠️ 运维管理', items: [
+                                  { text: 'Vacuum 与 autovacuum', link: '/07-operations/vacuum' },
+                                  { text: 'pg_stat_* 视图', link: '/07-operations/stats' },
+                                  { text: '慢查询分析', link: '/07-operations/slow-query' },
+                                  { text: '备份与恢复', link: '/07-operations/backup' },
+                                  { text: '大版本升级', link: '/07-operations/upgrade' }
+                                ]},
+                                { text: '📡 复制与高可用', items: [
+                                  { text: '流复制', link: '/08-replication/streaming' },
+                                  { text: '逻辑复制', link: '/08-replication/logical' },
+                                  { text: '热备读写分离', link: '/08-replication/hot-standby' },
+                                  { text: 'Patroni HA', link: '/08-replication/patroni' }
+                                ]},
+                                { text: '🔌 客户端与连接', items: [
+                                  { text: 'PgBouncer 连接池', link: '/09-connection/pgbouncer' },
+                                  { text: 'libpq C 接口', link: '/09-connection/libpq' },
+                                  { text: 'psycopg Python', link: '/09-connection/psycopg' },
+                                  { text: 'JDBC', link: '/09-connection/jdbc' }
+                                ]},
+                                { text: '🧩 扩展生态', items: [
+                                  { text: 'PostGIS 空间', link: '/10-extensions/postgis' },
+                                  { text: 'pgvector 向量', link: '/10-extensions/pgvector' },
+                                  { text: 'pg_trgm 模糊', link: '/10-extensions/pg_trgm' },
+                                  { text: 'TimescaleDB 时序', link: '/10-extensions/timescaledb' },
+                                  { text: 'Citus 分布式', link: '/10-extensions/citus' }
+                                ]},
+                                { text: '⚖️ 横向对比', items: [
+                                  { text: 'MySQL vs PostgreSQL', link: '/11-compare/mysql-vs-postgresql' }
+                                ]}
+                              ]
     },
 
     socialLinks: [
@@ -186,4 +189,4 @@ export default withMermaid(defineConfig({
       copyright: 'MIT License'
     },
   }
-}))
+})

@@ -15,13 +15,12 @@
     ]   e.g. '[{ icon: "github", link: "https://github.com" }]'
  */
 import { defineConfig } from 'vitepress'
-import { withMermaid } from 'vitepress-plugin-mermaid'
 import { fileURLToPath, URL } from 'node:url'
 
 // P0: VitePress/rollup 默认 fs.allow 限制 cwd 外 import。用 vite alias 解决相对路径。
 const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.url))
 
-export default withMermaid(defineConfig({
+export default defineConfig({
   vite: {
     resolve: {
       alias: [
@@ -29,7 +28,6 @@ export default withMermaid(defineConfig({
       ],
     },
   },
-  mermaid: { theme: 'default' },
   base: '/tools/',
   title: '在线常用工具',
   description: 'JSON 格式化 / 时间戳转换 / URL 编解码 / UUID 生成 等日常在线工具',
@@ -91,6 +89,9 @@ export default withMermaid(defineConfig({
         { text: "ClickHouse", link: "https://java-px.bot.cd/clickhouse/" },
         { text: "设计模式", link: "https://java-px.bot.cd/design-pattern/" },
         { text: "混沌工程", link: "https://java-px.bot.cd/chaos/" },
+        { text: "物联网", link: "https://java-px.bot.cd/iot/" },
+        { text: "安卓", link: "https://java-px.bot.cd/android/" },
+        { text: "游戏开发", link: "https://java-px.bot.cd/game/" },
         ]
       }
     ],
@@ -98,35 +99,37 @@ export default withMermaid(defineConfig({
     // === 各站独立 sidebar（render-config.py 保留原值）===
     sidebar: {
     
-              '/': [
-                {
-                  text: 'JSON 系列',
-                  items: [
-                    { text: 'JSON 格式化 / 校验', link: '/json' },
-                    { text: 'JSON ↔ YAML', link: '/json-yaml' },
-                    { text: 'JSON ↔ CSV', link: '/json-csv' },
-                    { text: 'JSON Diff 对比', link: '/json-diff' }
-                  ]
-                },
-                {
-                  text: '时间系列',
-                  items: [
-                    { text: '时间戳 ↔ 日期', link: '/timestamp' },
-                    { text: 'ISO / RFC 格式化', link: '/iso' },
-                    { text: '时区转换', link: '/timezone' },
-                    { text: '相对时间', link: '/relative' }
-                  ]
-                },
-                {
-                  text: '编码 / 生成',
-                  items: [
-                    { text: 'URL 编解码', link: '/url' },
-                    { text: 'Base64 编解码', link: '/base64' },
-                    { text: 'UUID 生成器', link: '/uuid' },
-                    { text: 'Cron 表达式', link: '/cron' }
-                  ]
-                }
-              ]
+        
+            
+                              '/': [
+                                {
+                                  text: 'JSON 系列',
+                                  items: [
+                                    { text: 'JSON 格式化 / 校验', link: '/json' },
+                                    { text: 'JSON ↔ YAML', link: '/json-yaml' },
+                                    { text: 'JSON ↔ CSV', link: '/json-csv' },
+                                    { text: 'JSON Diff 对比', link: '/json-diff' }
+                                  ]
+                                },
+                                {
+                                  text: '时间系列',
+                                  items: [
+                                    { text: '时间戳 ↔ 日期', link: '/timestamp' },
+                                    { text: 'ISO / RFC 格式化', link: '/iso' },
+                                    { text: '时区转换', link: '/timezone' },
+                                    { text: '相对时间', link: '/relative' }
+                                  ]
+                                },
+                                {
+                                  text: '编码 / 生成',
+                                  items: [
+                                    { text: 'URL 编解码', link: '/url' },
+                                    { text: 'Base64 编解码', link: '/base64' },
+                                    { text: 'UUID 生成器', link: '/uuid' },
+                                    { text: 'Cron 表达式', link: '/cron' }
+                                  ]
+                                }
+                              ]
     },
 
     socialLinks: [
@@ -142,4 +145,4 @@ export default withMermaid(defineConfig({
       copyright: 'MIT License'
     },
   }
-}))
+})

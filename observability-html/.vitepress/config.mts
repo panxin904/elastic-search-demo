@@ -19,7 +19,43 @@ import { fileURLToPath, URL } from 'node:url'
 // P0: VitePress/rollup 默认 fs.allow 限制 cwd 外 import。用 vite alias 解决相对路径。
 const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.url))
 
-export default withMermaid(defineConfig({
+// C11: Mermaid 跨站共享配置（inline 而非 import，避免 vite alias 在 Node 加载 config.mts 阶段不生效的问题）
+// 同步源：shared-assets/mermaid-config/base.ts（修改时请同步更新此处）
+// 见 §8.46
+const mermaidBase = {
+  securityLevel: 'loose',
+  startOnLoad: false,
+  theme: 'base',
+  fontFamily: '"Inter", "PingFang SC", "Microsoft YaHei", system-ui, -apple-system, sans-serif',
+} as const
+
+function lightenHex(hex: string, ratio: number): string {
+  const m = hex.replace('#', '').match(/^([0-9a-f]{6})$/i)
+  if (!m) return hex
+  const r = parseInt(m[1].slice(0, 2), 16)
+  const g = parseInt(m[1].slice(2, 4), 16)
+  const b = parseInt(m[1].slice(4, 6), 16)
+  const mix = (c: number) => Math.round(c + (255 - c) * ratio)
+  return '#' + [mix(r), mix(g), mix(b)].map(c => c.toString(16).padStart(2, '0')).join('')
+}
+
+function mermaidTheme(brand: string) {
+  const soft = lightenHex(brand, 0.85)
+  const ink = '#1f2937'
+  const line = '#94a3b8'
+  return {
+    primaryColor: brand,
+    primaryTextColor: ink,
+    primaryBorderColor: brand,
+    lineColor: line,
+    secondaryColor: soft,
+    tertiaryColor: '#fafafa',
+    fontFamily: mermaidBase.fontFamily,
+    fontSize: '14px',
+  }
+}
+
+export default withMermaid( defineConfig({
   vite: {
     resolve: {
       alias: [
@@ -27,8 +63,11 @@ export default withMermaid(defineConfig({
       ],
     },
   },
-  mermaid: { theme: 'default' },
-  base: '/observability/',
+    mermaid: {
+    ...mermaidBase,
+    themeVariables: mermaidTheme('#14b8a6'),
+  },
+    base: '/observability/',
   title: 'Observability',
   description: '现代可观测性深度图谱 - Metrics · Logs · Traces · Profiling · OpenTelemetry · Prometheus · Grafana · SRE 三件套 · 11 大类 · 47 节点',
   lang: 'zh-CN',
@@ -89,6 +128,9 @@ export default withMermaid(defineConfig({
         { text: "ClickHouse", link: "https://java-px.bot.cd/clickhouse/" },
         { text: "设计模式", link: "https://java-px.bot.cd/design-pattern/" },
         { text: "混沌工程", link: "https://java-px.bot.cd/chaos/" },
+        { text: "物联网", link: "https://java-px.bot.cd/iot/" },
+        { text: "安卓", link: "https://java-px.bot.cd/android/" },
+        { text: "游戏开发", link: "https://java-px.bot.cd/game/" },
         ]
       }
     ],
@@ -96,101 +138,104 @@ export default withMermaid(defineConfig({
     // === 各站独立 sidebar（render-config.py 保留原值）===
     sidebar: {
     
-              '/': [
-                {
-                  text: '🏛️ 可观测性基础', collapsed: false, items: [
-                    { text: '什么是可观测性', link: '/01-foundations/observability-vs-monitoring' },
-                    { text: '四大支柱', link: '/01-foundations/four-pillars' },
-                    { text: '信号类型', link: '/01-foundations/signals' },
-                    { text: 'SLI / SLO / Error Budget', link: '/01-foundations/sli-slo' }
-                  ]
-                },
-                {
-                  text: '🌐 OpenTelemetry', collapsed: false, items: [
-                    { text: 'OTel 概览', link: '/02-opentelemetry/overview' },
-                    { text: '各语言 SDK', link: '/02-opentelemetry/sdk' },
-                    { text: 'OTLP 协议', link: '/02-opentelemetry/otlp' },
-                    { text: 'OTel Collector', link: '/02-opentelemetry/collector' },
-                    { text: '自动埋点', link: '/02-opentelemetry/auto-instrumentation' }
-                  ]
-                },
-                {
-                  text: '📈 Prometheus', collapsed: false, items: [
-                    { text: 'Prometheus 架构', link: '/03-prometheus/overview' },
-                    { text: '数据模型与 Labels', link: '/03-prometheus/data-model' },
-                    { text: 'PromQL 详解', link: '/03-prometheus/promql' },
-                    { text: 'Exporter 生态', link: '/03-prometheus/exporter' },
-                    { text: '告警规则', link: '/03-prometheus/alert' }
-                  ]
-                },
-                {
-                  text: '📊 Grafana', collapsed: false, items: [
-                    { text: 'Grafana 安装与数据源', link: '/04-grafana/overview' },
-                    { text: 'Dashboard 设计', link: '/04-grafana/dashboard' },
-                    { text: '模板变量', link: '/04-grafana/variables' },
-                    { text: 'Grafana Alerting', link: '/04-grafana/alerting' },
-                    { text: 'Annotation 与联动', link: '/04-grafana/annotation' }
-                  ]
-                },
-                {
-                  text: '📜 Loki', collapsed: false, items: [
-                    { text: 'Loki 架构', link: '/05-loki/overview' },
-                    { text: 'LogQL 查询', link: '/05-loki/logql' },
-                    { text: 'Pipeline 配置', link: '/05-loki/pipeline' },
-                    { text: '最佳实践', link: '/05-loki/best-practice' }
-                  ]
-                },
-                {
-                  text: '🔗 链路追踪', collapsed: false, items: [
-                    { text: 'Trace / Span 概念', link: '/06-tracing/concepts' },
-                    { text: 'Jaeger', link: '/06-tracing/jaeger' },
-                    { text: 'Grafana Tempo', link: '/06-tracing/tempo' },
-                    { text: 'Zipkin', link: '/06-tracing/zipkin' },
-                    { text: '协议对比', link: '/06-tracing/protocol-compare' }
-                  ]
-                },
-                {
-                  text: '🌲 ELK / EFK', collapsed: false, items: [
-                    { text: 'ES 作日志存储', link: '/07-elk-efk/elasticsearch-logs' },
-                    { text: 'Fluentd 采集', link: '/07-elk-efk/fluentd' },
-                    { text: 'Filebeat 轻量采集', link: '/07-elk-efk/filebeat' },
-                    { text: 'Kibana 可视化', link: '/07-elk-efk/kibana' }
-                  ]
-                },
-                {
-                  text: '🚨 告警与值班', collapsed: false, items: [
-                    { text: 'Alertmanager', link: '/08-alerting/alertmanager' },
-                    { text: '告警分级 P0/P1/P2', link: '/08-alerting/severity' },
-                    { text: '静默 / 抑制 / 分组', link: '/08-alerting/silence' },
-                    { text: 'On-call 与故障复盘', link: '/08-alerting/oncall' }
-                  ]
-                },
-                {
-                  text: '🧪 应用埋点', collapsed: false, items: [
-                    { text: 'RED 方法', link: '/09-app-instrumentation/red-method' },
-                    { text: 'USE 方法', link: '/09-app-instrumentation/use-method' },
-                    { text: 'JVM 埋点 Micrometer', link: '/09-app-instrumentation/jvm-metrics' },
-                    { text: 'K8s 容器监控', link: '/09-app-instrumentation/k8s-metrics' },
-                    { text: '业务指标设计', link: '/09-app-instrumentation/business-metrics' }
-                  ]
-                },
-                {
-                  text: '🔥 持续剖析', collapsed: false, items: [
-                    { text: 'Continuous Profiling', link: '/10-profiling/continuous-profiling' },
-                    { text: 'Go pprof', link: '/10-profiling/pprof' },
-                    { text: 'Java async-profiler', link: '/10-profiling/async-profiler' },
-                    { text: 'Pyroscope 平台', link: '/10-profiling/pyroscope' }
-                  ]
-                },
-                {
-                  text: '🌍 实战场景', collapsed: false, items: [
-                    { text: 'K8s 全栈监控', link: '/11-scenarios/k8s-monitor' },
-                    { text: '数据库监控', link: '/11-scenarios/database-monitor' },
-                    { text: '微服务全链路', link: '/11-scenarios/microservice-trace' },
-                    { text: '成本优化', link: '/11-scenarios/cost-optimization' }
-                  ]
-                }
-              ]
+        
+            
+                
+                                      '/': [
+                                        {
+                                          text: '🏛️ 可观测性基础', collapsed: false, items: [
+                                            { text: '什么是可观测性', link: '/01-foundations/observability-vs-monitoring' },
+                                            { text: '四大支柱', link: '/01-foundations/four-pillars' },
+                                            { text: '信号类型', link: '/01-foundations/signals' },
+                                            { text: 'SLI / SLO / Error Budget', link: '/01-foundations/sli-slo' }
+                                          ]
+                                        },
+                                        {
+                                          text: '🌐 OpenTelemetry', collapsed: false, items: [
+                                            { text: 'OTel 概览', link: '/02-opentelemetry/overview' },
+                                            { text: '各语言 SDK', link: '/02-opentelemetry/sdk' },
+                                            { text: 'OTLP 协议', link: '/02-opentelemetry/otlp' },
+                                            { text: 'OTel Collector', link: '/02-opentelemetry/collector' },
+                                            { text: '自动埋点', link: '/02-opentelemetry/auto-instrumentation' }
+                                          ]
+                                        },
+                                        {
+                                          text: '📈 Prometheus', collapsed: false, items: [
+                                            { text: 'Prometheus 架构', link: '/03-prometheus/overview' },
+                                            { text: '数据模型与 Labels', link: '/03-prometheus/data-model' },
+                                            { text: 'PromQL 详解', link: '/03-prometheus/promql' },
+                                            { text: 'Exporter 生态', link: '/03-prometheus/exporter' },
+                                            { text: '告警规则', link: '/03-prometheus/alert' }
+                                          ]
+                                        },
+                                        {
+                                          text: '📊 Grafana', collapsed: false, items: [
+                                            { text: 'Grafana 安装与数据源', link: '/04-grafana/overview' },
+                                            { text: 'Dashboard 设计', link: '/04-grafana/dashboard' },
+                                            { text: '模板变量', link: '/04-grafana/variables' },
+                                            { text: 'Grafana Alerting', link: '/04-grafana/alerting' },
+                                            { text: 'Annotation 与联动', link: '/04-grafana/annotation' }
+                                          ]
+                                        },
+                                        {
+                                          text: '📜 Loki', collapsed: false, items: [
+                                            { text: 'Loki 架构', link: '/05-loki/overview' },
+                                            { text: 'LogQL 查询', link: '/05-loki/logql' },
+                                            { text: 'Pipeline 配置', link: '/05-loki/pipeline' },
+                                            { text: '最佳实践', link: '/05-loki/best-practice' }
+                                          ]
+                                        },
+                                        {
+                                          text: '🔗 链路追踪', collapsed: false, items: [
+                                            { text: 'Trace / Span 概念', link: '/06-tracing/concepts' },
+                                            { text: 'Jaeger', link: '/06-tracing/jaeger' },
+                                            { text: 'Grafana Tempo', link: '/06-tracing/tempo' },
+                                            { text: 'Zipkin', link: '/06-tracing/zipkin' },
+                                            { text: '协议对比', link: '/06-tracing/protocol-compare' }
+                                          ]
+                                        },
+                                        {
+                                          text: '🌲 ELK / EFK', collapsed: false, items: [
+                                            { text: 'ES 作日志存储', link: '/07-elk-efk/elasticsearch-logs' },
+                                            { text: 'Fluentd 采集', link: '/07-elk-efk/fluentd' },
+                                            { text: 'Filebeat 轻量采集', link: '/07-elk-efk/filebeat' },
+                                            { text: 'Kibana 可视化', link: '/07-elk-efk/kibana' }
+                                          ]
+                                        },
+                                        {
+                                          text: '🚨 告警与值班', collapsed: false, items: [
+                                            { text: 'Alertmanager', link: '/08-alerting/alertmanager' },
+                                            { text: '告警分级 P0/P1/P2', link: '/08-alerting/severity' },
+                                            { text: '静默 / 抑制 / 分组', link: '/08-alerting/silence' },
+                                            { text: 'On-call 与故障复盘', link: '/08-alerting/oncall' }
+                                          ]
+                                        },
+                                        {
+                                          text: '🧪 应用埋点', collapsed: false, items: [
+                                            { text: 'RED 方法', link: '/09-app-instrumentation/red-method' },
+                                            { text: 'USE 方法', link: '/09-app-instrumentation/use-method' },
+                                            { text: 'JVM 埋点 Micrometer', link: '/09-app-instrumentation/jvm-metrics' },
+                                            { text: 'K8s 容器监控', link: '/09-app-instrumentation/k8s-metrics' },
+                                            { text: '业务指标设计', link: '/09-app-instrumentation/business-metrics' }
+                                          ]
+                                        },
+                                        {
+                                          text: '🔥 持续剖析', collapsed: false, items: [
+                                            { text: 'Continuous Profiling', link: '/10-profiling/continuous-profiling' },
+                                            { text: 'Go pprof', link: '/10-profiling/pprof' },
+                                            { text: 'Java async-profiler', link: '/10-profiling/async-profiler' },
+                                            { text: 'Pyroscope 平台', link: '/10-profiling/pyroscope' }
+                                          ]
+                                        },
+                                        {
+                                          text: '🌍 实战场景', collapsed: false, items: [
+                                            { text: 'K8s 全栈监控', link: '/11-scenarios/k8s-monitor' },
+                                            { text: '数据库监控', link: '/11-scenarios/database-monitor' },
+                                            { text: '微服务全链路', link: '/11-scenarios/microservice-trace' },
+                                            { text: '成本优化', link: '/11-scenarios/cost-optimization' }
+                                          ]
+                                        }
+                                      ]
     },
 
     socialLinks: [],

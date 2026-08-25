@@ -13,13 +13,12 @@
  *   []   e.g. '[{ icon: "github", link: "https://github.com" }]'
  */
 import { defineConfig } from 'vitepress'
-import { withMermaid } from 'vitepress-plugin-mermaid'
 import { fileURLToPath, URL } from 'node:url'
 
 // P0: VitePress/rollup 默认 fs.allow 限制 cwd 外 import。用 vite alias 解决相对路径。
 const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.url))
 
-export default withMermaid(defineConfig({
+export default defineConfig({
   vite: {
     resolve: {
       alias: [
@@ -27,7 +26,6 @@ export default withMermaid(defineConfig({
       ],
     },
   },
-  mermaid: { theme: 'default' },
   base: '/rust/',
   title: 'Rust',
   description: '系统编程与高性能服务深度图谱 - 所有权 / 借用 / 生命周期 · 类型系统 / Trait · Cargo / crates.io · async-await / Tokio · unsafe / FFI / WASM · 6 大类 · 35 节点',
@@ -89,6 +87,9 @@ export default withMermaid(defineConfig({
         { text: "ClickHouse", link: "https://java-px.bot.cd/clickhouse/" },
         { text: "设计模式", link: "https://java-px.bot.cd/design-pattern/" },
         { text: "混沌工程", link: "https://java-px.bot.cd/chaos/" },
+        { text: "物联网", link: "https://java-px.bot.cd/iot/" },
+        { text: "安卓", link: "https://java-px.bot.cd/android/" },
+        { text: "游戏开发", link: "https://java-px.bot.cd/game/" },
         ]
       }
     ],
@@ -96,66 +97,68 @@ export default withMermaid(defineConfig({
     // === 各站独立 sidebar（render-config.py 保留原值）===
     sidebar: {
     
-              '/': [
-                {
-                  text: '🦀 Rust 基础', collapsed: false, items: [
-                    { text: 'Rust 总览', link: '/01-basics/overview' },
-                    { text: '所有权 Ownership', link: '/01-basics/ownership' },
-                    { text: '借用 Borrowing', link: '/01-basics/borrowing' },
-                    { text: '生命周期 Lifetimes', link: '/01-basics/lifetimes' },
-                    { text: '语法基础', link: '/01-basics/syntax-fundamentals' },
-                    { text: 'Hello World 实战', link: '/01-basics/hello-world' }
-                  ]
-                },
-                {
-                  text: '🏷️ 类型系统与 Trait', collapsed: false, items: [
-                    { text: '类型系统总览', link: '/02-types-traits/overview' },
-                    { text: '枚举与模式匹配', link: '/02-types-traits/enum-and-pattern' },
-                    { text: '泛型 Generics', link: '/02-types-traits/generics' },
-                    { text: 'Trait', link: '/02-types-traits/trait' },
-                    { text: '高级类型', link: '/02-types-traits/advanced-types' },
-                    { text: 'Trait 对象与动态分发', link: '/02-types-traits/trait-objects' }
-                  ]
-                },
-                {
-                  text: '📦 生态与工具链', collapsed: false, items: [
-                    { text: '生态总览', link: '/03-ecosystem/overview' },
-                    { text: 'Cargo', link: '/03-ecosystem/cargo' },
-                    { text: 'crates.io', link: '/03-ecosystem/crates-io' },
-                    { text: '标准库', link: '/03-ecosystem/std-lib' },
-                    { text: '测试与工具链', link: '/03-ecosystem/tooling' }
-                  ]
-                },
-                {
-                  text: '⚡ 并发与异步', collapsed: false, items: [
-                    { text: '并发总览', link: '/04-concurrency/overview' },
-                    { text: '线程与 Thread', link: '/04-concurrency/threads' },
-                    { text: 'async / await', link: '/04-concurrency/async-await' },
-                    { text: 'Tokio 运行时', link: '/04-concurrency/tokio' },
-                    { text: 'Channel 与共享状态', link: '/04-concurrency/channels' }
-                  ]
-                },
-                {
-                  text: '⚙️ 系统编程', collapsed: false, items: [
-                    { text: '系统编程总览', link: '/05-systems/overview' },
-                    { text: 'unsafe Rust', link: '/05-systems/unsafe' },
-                    { text: 'FFI 与 C 互操作', link: '/05-systems/ffi' },
-                    { text: '嵌入式 Rust', link: '/05-systems/embedded' },
-                    { text: 'WebAssembly', link: '/05-systems/wasm' },
-                    { text: '性能优化', link: '/05-systems/performance' }
-                  ]
-                },
-                {
-                  text: '🚀 进阶与实战', collapsed: false, items: [
-                    { text: '宏 Macro', link: '/06-advanced/macro' },
-                    { text: '闭包与迭代器', link: '/06-advanced/closure-and-iterator' },
-                    { text: '智能指针', link: '/06-advanced/smart-pointer' },
-                    { text: '错误处理', link: '/06-advanced/error-handling' },
-                    { text: '异步生态对比', link: '/06-advanced/async-ecosystem' },
-                    { text: '案例研究', link: '/06-advanced/case-study' }
-                  ]
-                }
-              ]
+        
+            
+                              '/': [
+                                {
+                                  text: '🦀 Rust 基础', collapsed: false, items: [
+                                    { text: 'Rust 总览', link: '/01-basics/overview' },
+                                    { text: '所有权 Ownership', link: '/01-basics/ownership' },
+                                    { text: '借用 Borrowing', link: '/01-basics/borrowing' },
+                                    { text: '生命周期 Lifetimes', link: '/01-basics/lifetimes' },
+                                    { text: '语法基础', link: '/01-basics/syntax-fundamentals' },
+                                    { text: 'Hello World 实战', link: '/01-basics/hello-world' }
+                                  ]
+                                },
+                                {
+                                  text: '🏷️ 类型系统与 Trait', collapsed: false, items: [
+                                    { text: '类型系统总览', link: '/02-types-traits/overview' },
+                                    { text: '枚举与模式匹配', link: '/02-types-traits/enum-and-pattern' },
+                                    { text: '泛型 Generics', link: '/02-types-traits/generics' },
+                                    { text: 'Trait', link: '/02-types-traits/trait' },
+                                    { text: '高级类型', link: '/02-types-traits/advanced-types' },
+                                    { text: 'Trait 对象与动态分发', link: '/02-types-traits/trait-objects' }
+                                  ]
+                                },
+                                {
+                                  text: '📦 生态与工具链', collapsed: false, items: [
+                                    { text: '生态总览', link: '/03-ecosystem/overview' },
+                                    { text: 'Cargo', link: '/03-ecosystem/cargo' },
+                                    { text: 'crates.io', link: '/03-ecosystem/crates-io' },
+                                    { text: '标准库', link: '/03-ecosystem/std-lib' },
+                                    { text: '测试与工具链', link: '/03-ecosystem/tooling' }
+                                  ]
+                                },
+                                {
+                                  text: '⚡ 并发与异步', collapsed: false, items: [
+                                    { text: '并发总览', link: '/04-concurrency/overview' },
+                                    { text: '线程与 Thread', link: '/04-concurrency/threads' },
+                                    { text: 'async / await', link: '/04-concurrency/async-await' },
+                                    { text: 'Tokio 运行时', link: '/04-concurrency/tokio' },
+                                    { text: 'Channel 与共享状态', link: '/04-concurrency/channels' }
+                                  ]
+                                },
+                                {
+                                  text: '⚙️ 系统编程', collapsed: false, items: [
+                                    { text: '系统编程总览', link: '/05-systems/overview' },
+                                    { text: 'unsafe Rust', link: '/05-systems/unsafe' },
+                                    { text: 'FFI 与 C 互操作', link: '/05-systems/ffi' },
+                                    { text: '嵌入式 Rust', link: '/05-systems/embedded' },
+                                    { text: 'WebAssembly', link: '/05-systems/wasm' },
+                                    { text: '性能优化', link: '/05-systems/performance' }
+                                  ]
+                                },
+                                {
+                                  text: '🚀 进阶与实战', collapsed: false, items: [
+                                    { text: '宏 Macro', link: '/06-advanced/macro' },
+                                    { text: '闭包与迭代器', link: '/06-advanced/closure-and-iterator' },
+                                    { text: '智能指针', link: '/06-advanced/smart-pointer' },
+                                    { text: '错误处理', link: '/06-advanced/error-handling' },
+                                    { text: '异步生态对比', link: '/06-advanced/async-ecosystem' },
+                                    { text: '案例研究', link: '/06-advanced/case-study' }
+                                  ]
+                                }
+                              ]
     },
 
     socialLinks: [],
@@ -169,4 +172,4 @@ export default withMermaid(defineConfig({
       copyright: 'MIT License'
     },
   }
-}))
+})

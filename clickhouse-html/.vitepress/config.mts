@@ -13,13 +13,12 @@
  *   []   e.g. '[{ icon: "github", link: "https://github.com" }]'
  */
 import { defineConfig } from 'vitepress'
-import { withMermaid } from 'vitepress-plugin-mermaid'
 import { fileURLToPath, URL } from 'node:url'
 
 // P0: VitePress/rollup 默认 fs.allow 限制 cwd 外 import。用 vite alias 解决相对路径。
 const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.url))
 
-export default withMermaid(defineConfig({
+export default defineConfig({
   vite: {
     resolve: {
       alias: [
@@ -27,7 +26,6 @@ export default withMermaid(defineConfig({
       ],
     },
   },
-  mermaid: { theme: 'default' },
   base: '/clickhouse/',
   title: 'ClickHouse',
   description: 'OLAP 列式数据库深度图谱 - MergeTree / 主键索引 / 数据分区 / 向量化执行 / 实时数仓 · Kafka 引擎 / Grafana / Prometheus · vs Doris / StarRocks / TiDB / Snowflake · 6 大类 · 35 节点',
@@ -89,6 +87,9 @@ export default withMermaid(defineConfig({
         { text: "Go", link: "https://java-px.bot.cd/go/" },
         { text: "设计模式", link: "https://java-px.bot.cd/design-pattern/" },
         { text: "混沌工程", link: "https://java-px.bot.cd/chaos/" },
+        { text: "物联网", link: "https://java-px.bot.cd/iot/" },
+        { text: "安卓", link: "https://java-px.bot.cd/android/" },
+        { text: "游戏开发", link: "https://java-px.bot.cd/game/" },
         ]
       }
     ],
@@ -96,71 +97,73 @@ export default withMermaid(defineConfig({
     // === 各站独立 sidebar（render-config.py 保留原值）===
     sidebar: {
     
-              '/': [
-                {
-                  text: '🟡 ClickHouse 基础', collapsed: false, items: [
-                    { text: 'ClickHouse 总览', link: '/01-basics/overview' },
-                    { text: '历史与特点', link: '/01-basics/history' },
-                    { text: '安装部署', link: '/01-basics/installation' },
-                    { text: '客户端与连接', link: '/01-basics/client' },
-                    { text: '数据类型', link: '/01-basics/data-types' }
-                  ]
-                },
-                {
-                  text: '🔍 SQL 实战', collapsed: false, items: [
-                    { text: 'SQL 总览', link: '/02-sql/overview' },
-                    { text: 'SELECT 与聚合', link: '/02-sql/select-aggregate' },
-                    { text: 'JOIN 用法', link: '/02-sql/join' },
-                    { text: '常用函数', link: '/02-sql/functions' },
-                    { text: '窗口函数', link: '/02-sql/window-functions' },
-                    { text: '字典 Dictionary', link: '/02-sql/dictionary' }
-                  ]
-                },
-                {
-                  text: '⚙️ 表引擎', collapsed: false, items: [
-                    { text: '表引擎总览', link: '/03-table-engine/overview' },
-                    { text: 'MergeTree 家族', link: '/03-table-engine/mergetree-family' },
-                    { text: 'Log 引擎', link: '/03-table-engine/log-engine' },
-                    { text: 'Kafka 引擎', link: '/03-table-engine/kafka-engine' },
-                    { text: 'Distributed 表', link: '/03-table-engine/distributed' },
-                    { text: 'MaterializedView', link: '/03-table-engine/materialized-view' }
-                  ]
-                },
-                {
-                  text: '📊 OLAP 实战场景', collapsed: false, items: [
-                    { text: 'OLAP 场景总览', link: '/04-olap-scenarios/overview' },
-                    { text: '用户行为埋点', link: '/04-olap-scenarios/user-tracking' },
-                    { text: '日志分析', link: '/04-olap-scenarios/log-analysis' },
-                    { text: '指标存储', link: '/04-olap-scenarios/metrics-storage' },
-                    { text: '实时数仓', link: '/04-olap-scenarios/realtime-warehouse' },
-                    { text: 'Bitmap 去重', link: '/04-olap-scenarios/bitmap' }
-                  ]
-                },
-                {
-                  text: '🔌 生态工具链', collapsed: false, items: [
-                    { text: '生态总览', link: '/05-ecosystem/overview' },
-                    { text: 'Kafka 实时集成', link: '/05-ecosystem/kafka-integration' },
-                    { text: 'Grafana 可视化', link: '/05-ecosystem/grafana' },
-                    { text: 'Prometheus remote_write', link: '/05-ecosystem/prometheus' },
-                    { text: 'Go 客户端 ch-go', link: '/05-ecosystem/go-client' },
-                    { text: 'dbt + Airbyte 集成', link: '/05-ecosystem/dbt-airbyte' }
-                  ]
-                },
-                {
-                  text: '🆚 对比与选型', collapsed: false, items: [
-                    { text: '选型总览', link: '/06-compare/overview' },
-                    { text: 'vs MySQL / PostgreSQL', link: '/06-compare/vs-mysql-pg' },
-                    { text: 'vs Doris', link: '/06-compare/vs-doris' },
-                    { text: 'vs StarRocks', link: '/06-compare/vs-starrocks' },
-                    { text: 'vs TiDB', link: '/06-compare/vs-tidb' }
-                  ]
-                },
-                {
-                  text: '📖 大厂实战案例', collapsed: false, items: [
-                    { text: '12 个真实案例', link: '/case-study' }
-                  ]
-                }
-              ]
+        
+            
+                              '/': [
+                                {
+                                  text: '🟡 ClickHouse 基础', collapsed: false, items: [
+                                    { text: 'ClickHouse 总览', link: '/01-basics/overview' },
+                                    { text: '历史与特点', link: '/01-basics/history' },
+                                    { text: '安装部署', link: '/01-basics/installation' },
+                                    { text: '客户端与连接', link: '/01-basics/client' },
+                                    { text: '数据类型', link: '/01-basics/data-types' }
+                                  ]
+                                },
+                                {
+                                  text: '🔍 SQL 实战', collapsed: false, items: [
+                                    { text: 'SQL 总览', link: '/02-sql/overview' },
+                                    { text: 'SELECT 与聚合', link: '/02-sql/select-aggregate' },
+                                    { text: 'JOIN 用法', link: '/02-sql/join' },
+                                    { text: '常用函数', link: '/02-sql/functions' },
+                                    { text: '窗口函数', link: '/02-sql/window-functions' },
+                                    { text: '字典 Dictionary', link: '/02-sql/dictionary' }
+                                  ]
+                                },
+                                {
+                                  text: '⚙️ 表引擎', collapsed: false, items: [
+                                    { text: '表引擎总览', link: '/03-table-engine/overview' },
+                                    { text: 'MergeTree 家族', link: '/03-table-engine/mergetree-family' },
+                                    { text: 'Log 引擎', link: '/03-table-engine/log-engine' },
+                                    { text: 'Kafka 引擎', link: '/03-table-engine/kafka-engine' },
+                                    { text: 'Distributed 表', link: '/03-table-engine/distributed' },
+                                    { text: 'MaterializedView', link: '/03-table-engine/materialized-view' }
+                                  ]
+                                },
+                                {
+                                  text: '📊 OLAP 实战场景', collapsed: false, items: [
+                                    { text: 'OLAP 场景总览', link: '/04-olap-scenarios/overview' },
+                                    { text: '用户行为埋点', link: '/04-olap-scenarios/user-tracking' },
+                                    { text: '日志分析', link: '/04-olap-scenarios/log-analysis' },
+                                    { text: '指标存储', link: '/04-olap-scenarios/metrics-storage' },
+                                    { text: '实时数仓', link: '/04-olap-scenarios/realtime-warehouse' },
+                                    { text: 'Bitmap 去重', link: '/04-olap-scenarios/bitmap' }
+                                  ]
+                                },
+                                {
+                                  text: '🔌 生态工具链', collapsed: false, items: [
+                                    { text: '生态总览', link: '/05-ecosystem/overview' },
+                                    { text: 'Kafka 实时集成', link: '/05-ecosystem/kafka-integration' },
+                                    { text: 'Grafana 可视化', link: '/05-ecosystem/grafana' },
+                                    { text: 'Prometheus remote_write', link: '/05-ecosystem/prometheus' },
+                                    { text: 'Go 客户端 ch-go', link: '/05-ecosystem/go-client' },
+                                    { text: 'dbt + Airbyte 集成', link: '/05-ecosystem/dbt-airbyte' }
+                                  ]
+                                },
+                                {
+                                  text: '🆚 对比与选型', collapsed: false, items: [
+                                    { text: '选型总览', link: '/06-compare/overview' },
+                                    { text: 'vs MySQL / PostgreSQL', link: '/06-compare/vs-mysql-pg' },
+                                    { text: 'vs Doris', link: '/06-compare/vs-doris' },
+                                    { text: 'vs StarRocks', link: '/06-compare/vs-starrocks' },
+                                    { text: 'vs TiDB', link: '/06-compare/vs-tidb' }
+                                  ]
+                                },
+                                {
+                                  text: '📖 大厂实战案例', collapsed: false, items: [
+                                    { text: '12 个真实案例', link: '/case-study' }
+                                  ]
+                                }
+                              ]
     },
 
     socialLinks: [],
@@ -174,4 +177,4 @@ export default withMermaid(defineConfig({
       copyright: 'MIT License'
     },
   }
-}))
+})

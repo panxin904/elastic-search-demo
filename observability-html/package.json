@@ -1,7 +1,7 @@
 {
   "name": "observability-html",
   "version": "1.0.0",
-  "description": "可观测性知识图谱 - Metrics · Logs · Traces · Profiling · OpenTelemetry · Prometheus · Grafana · SRE 三件套",
+  "description": "\u53ef\u89c2\u6d4b\u6027\u77e5\u8bc6\u56fe\u8c31 - Metrics \u00b7 Logs \u00b7 Traces \u00b7 Profiling \u00b7 OpenTelemetry \u00b7 Prometheus \u00b7 Grafana \u00b7 SRE \u4e09\u4ef6\u5957",
   "type": "module",
   "private": true,
   "scripts": {
@@ -18,7 +18,6 @@
     "vitepress": "1.6.4",
     "vue": "3.4.0",
     "pagefind": "^1.3.0",
-    "vitepress-plugin-mermaid": "^2.0.17",
     "mermaid": "^11.4.1"
   },
   "dependencies": {

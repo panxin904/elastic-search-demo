@@ -15,13 +15,12 @@
     ]   e.g. '[{ icon: "github", link: "https://github.com" }]'
  */
 import { defineConfig } from 'vitepress'
-import { withMermaid } from 'vitepress-plugin-mermaid'
 import { fileURLToPath, URL } from 'node:url'
 
 // P0: VitePress/rollup 默认 fs.allow 限制 cwd 外 import。用 vite alias 解决相对路径。
 const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.url))
 
-export default withMermaid(defineConfig({
+export default defineConfig({
   vite: {
     resolve: {
       alias: [
@@ -29,7 +28,6 @@ export default withMermaid(defineConfig({
       ],
     },
   },
-  mermaid: { theme: 'default' },
   base: '/mysql/',
   title: 'MySQL 知识图谱',
   description: 'MySQL 系统化学习 - 用知识图谱串联概念与使用方式',
@@ -91,6 +89,9 @@ export default withMermaid(defineConfig({
         { text: "ClickHouse", link: "https://java-px.bot.cd/clickhouse/" },
         { text: "设计模式", link: "https://java-px.bot.cd/design-pattern/" },
         { text: "混沌工程", link: "https://java-px.bot.cd/chaos/" },
+        { text: "物联网", link: "https://java-px.bot.cd/iot/" },
+        { text: "安卓", link: "https://java-px.bot.cd/android/" },
+        { text: "游戏开发", link: "https://java-px.bot.cd/game/" },
         ]
       }
     ],
@@ -98,177 +99,179 @@ export default withMermaid(defineConfig({
     // === 各站独立 sidebar（render-config.py 保留原值）===
     sidebar: {
     
-              '/': [
-                {
-                  text: '🎯 开始',
-                  items: [
-                    { text: '📖 学习路径', link: '/path' }
-                  ]
-                },
-                {
-                  text: '🏛️ 基础层 Foundation',
-                  items: [
-                    { text: '⚙️ 体系结构', link: '/01-foundation/architecture' },
-                    { text: '🔧 存储引擎', link: '/01-foundation/storage-engine' },
-                    { text: '📊 数据类型', link: '/01-foundation/data-types' },
-                    { text: '🌐 字符集与排序规则', link: '/01-foundation/charset' }
-                  ]
-                },
-                {
-                  text: '🌲 索引 Index',
-                  items: [
-                    { text: '🌳 B+Tree 原理', link: '/02-index/btree' },
-                    { text: '📑 聚簇索引 vs 二级索引', link: '/02-index/clustered' },
-                    { text: '✅ 覆盖索引与最左前缀', link: '/02-index/covering' },
-                    { text: '🔍 索引下推 ICP', link: '/02-index/icp' }
-                  ]
-                },
-                {
-                  text: '📝 SQL 实战',
-                  items: [
-                    { text: '✏️ CRUD 与 DDL', link: '/03-sql/crud' },
-                    { text: '🔗 JOIN 七种用法', link: '/03-sql/join' },
-                    { text: '🪟 窗口函数', link: '/03-sql/window-functions' },
-                    { text: '📚 常用函数与 CTE', link: '/03-sql/functions' }
-                  ]
-                },
-                {
-                  text: '🔒 事务与锁',
-                  items: [
-                    { text: '⚖️ ACID 与隔离级别', link: '/04-transaction/isolation' },
-                    { text: '🔐 InnoDB 锁机制', link: '/04-transaction/locks' },
-                    { text: '💀 死锁分析与排查', link: '/04-transaction/deadlock' },
-                    { text: '🔄 MVCC 多版本并发', link: '/04-transaction/mvcc' }
-                  ]
-                },
-                {
-                  text: '🚀 性能优化',
-                  items: [
-                    { text: '📊 EXPLAIN 解读', link: '/05-optimization/explain' },
-                    { text: '🐌 慢查询定位', link: '/05-optimization/slow-query' },
-                    { text: '🎯 索引优化实战', link: '/05-optimization/index-tuning' },
-                    { text: '✍️ SQL 改写 12 招', link: '/05-optimization/sql-rewrite' }
-                  ]
-                },
-                {
-                  text: '🔁 主从复制',
-                  items: [
-                    { text: '📜 binlog 与 relay log', link: '/06-replication/binlog' },
-                    { text: '🔄 主从同步原理', link: '/06-replication/replication' },
-                    { text: '⏱️ 主从延迟排查', link: '/06-replication/lag' },
-                    { text: '📖 读写分离实战', link: '/06-replication/read-write-split' }
-                  ]
-                },
-                {
-                  text: '🛡️ 高可用 HA',
-                  items: [
-                    { text: '🏗️ MHA 故障切换', link: '/07-ha/mha' },
-                    { text: '🌐 MGR 组复制', link: '/07-ha/mgr' },
-                    { text: '🚦 ProxySQL 中间件', link: '/07-ha/proxysql' }
-                  ]
-                },
-                {
-                  text: '💾 备份恢复',
-                  items: [
-                    { text: '📦 mysqldump 逻辑备份', link: '/08-backup/mysqldump' },
-                    { text: '⚡ xtrabackup 热备', link: '/08-backup/xtrabackup' },
-                    { text: '🔙 binlog 时间点恢复', link: '/08-backup/binlog-recovery' }
-                  ]
-                },
-                {
-                  text: '📈 监控诊断',
-                  items: [
-                    { text: '🐢 慢查询日志', link: '/09-monitoring/slow-log' },
-                    { text: '🔬 performance_schema', link: '/09-monitoring/performance-schema' },
-                    { text: '📊 Prometheus + mysqld_exporter', link: '/09-monitoring/prometheus' }
-                  ]
-                },
-                {
-                  text: '🧩 分库分表',
-                  items: [
-                    { text: '📐 垂直拆分 vs 水平拆分', link: '/10-sharding/strategy' },
-                    { text: '🌊 ShardingSphere 实战', link: '/10-sharding/shardingsphere' },
-                    { text: '🐱 MyCat 中间件', link: '/10-sharding/mycat' },
-                    { text: '🔑 一致性 Hash 与分片键', link: '/10-sharding/sharding-key' }
-                  ]
-                },
-                {
-                  text: '🛠️ 工具与速查',
-                  items: [
-                    { text: '💻 mysql client 命令', link: '/11-tools/mysql-client' },
-                    { text: '🔧 pt-toolkit 工具集', link: '/11-tools/pt-toolkit' },
-                    { text: '📋 SQL 速查表', link: '/11-tools/cheatsheet' }
-                  ]
-                },
-                {
-                  text: '☕ MyBatis / MyBatis-Plus',
-                  items: [
-                    { text: '⚙️ MyBatis 快速入门', link: '/12-mybatis/quickstart' },
-                    { text: '🔥 MyBatis 动态 SQL', link: '/12-mybatis/dynamic-sql' },
-                    { text: '🧩 MyBatis 插件机制', link: '/12-mybatis/plugins' },
-                    { text: '⚙️ MyBatis 缓存机制', link: '/12-mybatis/cache' },
-                    { text: '🚀 MyBatis-Plus 实战', link: '/12-mybatis/mybatis-plus' },
-                    { text: '🎨 MyBatis-Plus 代码生成器', link: '/12-mybatis/generator' },
-                    { text: '🚀 MyBatis-Plus 高级特性', link: '/12-mybatis/advanced' },
-                    { text: '🎯 MyBatis 性能优化', link: '/12-mybatis/performance' },
-                    { text: '🔧 Spring Boot 集成实战', link: '/12-mybatis/spring-boot' },
-                    { text: '⚠️ MyBatis 常见坑', link: '/12-mybatis/pitfalls' }
-                  ]
-                },
-                {
-                  text: '🔀 多数据源 / 读写分离 / 分片',
-                  items: [
-                    { text: '💧 数据库连接池', link: '/13-multids/connection-pool' },
-                    { text: '🔀 多数据源配置', link: '/13-multids/multi-datasource' },
-                    { text: '⚡ 动态数据源', link: '/13-multids/dynamic-datasource' },
-                    { text: '🔁 读写分离实战', link: '/13-multids/read-write-split' },
-                    { text: '🌊 ShardingSphere-JDBC 实战', link: '/13-multids/sharding-jdbc' },
-                    { text: '🎯 分片策略与扩容', link: '/13-multids/sharding-strategy' },
-                    { text: '🔄 分布式事务', link: '/13-multids/transaction' }
-                  ]
-                },
-                {
-                  text: '☁️ 微服务数据库实战',
-                  items: [
-                    { text: '☕ 微服务数据库模式', link: '/14-microservice/db-pattern' },
-                    { text: '🆔 分布式 ID 生成', link: '/14-microservice/distributed-id' },
-                    { text: '🔄 数据一致性', link: '/14-microservice/data-consistency' },
-                    { text: '🌀 Saga 模式详解', link: '/14-microservice/saga-pattern' }
-                  ]
-                }
-              ],
-              '/graph': [
-                {
-                  text: '🎯 知识图谱',
-                  items: [
-                    { text: '🌐 全局知识图谱', link: '/graph' }
-                  ]
-                }
-              ],
-              '/mindmap': [
-                {
-                  text: '🎯 思维导图',
-                  items: [
-                    { text: '🧭 MySQL 思维导图', link: '/mindmap' }
-                  ]
-                }
-              ],
-              '/cheatsheet': [
-                {
-                  text: '🎯 SQL 速查',
-                  items: [
-                    { text: '📋 常用 SQL 速查', link: '/cheatsheet' }
-                  ]
-                }
-              ],
-              '/path': [
-                {
-                  text: '🎯 学习路径',
-                  items: [
-                    { text: '📖 MySQL 学习路径', link: '/path' }
-                  ]
-                }
-              ]
+        
+            
+                              '/': [
+                                {
+                                  text: '🎯 开始',
+                                  items: [
+                                    { text: '📖 学习路径', link: '/path' }
+                                  ]
+                                },
+                                {
+                                  text: '🏛️ 基础层 Foundation',
+                                  items: [
+                                    { text: '⚙️ 体系结构', link: '/01-foundation/architecture' },
+                                    { text: '🔧 存储引擎', link: '/01-foundation/storage-engine' },
+                                    { text: '📊 数据类型', link: '/01-foundation/data-types' },
+                                    { text: '🌐 字符集与排序规则', link: '/01-foundation/charset' }
+                                  ]
+                                },
+                                {
+                                  text: '🌲 索引 Index',
+                                  items: [
+                                    { text: '🌳 B+Tree 原理', link: '/02-index/btree' },
+                                    { text: '📑 聚簇索引 vs 二级索引', link: '/02-index/clustered' },
+                                    { text: '✅ 覆盖索引与最左前缀', link: '/02-index/covering' },
+                                    { text: '🔍 索引下推 ICP', link: '/02-index/icp' }
+                                  ]
+                                },
+                                {
+                                  text: '📝 SQL 实战',
+                                  items: [
+                                    { text: '✏️ CRUD 与 DDL', link: '/03-sql/crud' },
+                                    { text: '🔗 JOIN 七种用法', link: '/03-sql/join' },
+                                    { text: '🪟 窗口函数', link: '/03-sql/window-functions' },
+                                    { text: '📚 常用函数与 CTE', link: '/03-sql/functions' }
+                                  ]
+                                },
+                                {
+                                  text: '🔒 事务与锁',
+                                  items: [
+                                    { text: '⚖️ ACID 与隔离级别', link: '/04-transaction/isolation' },
+                                    { text: '🔐 InnoDB 锁机制', link: '/04-transaction/locks' },
+                                    { text: '💀 死锁分析与排查', link: '/04-transaction/deadlock' },
+                                    { text: '🔄 MVCC 多版本并发', link: '/04-transaction/mvcc' }
+                                  ]
+                                },
+                                {
+                                  text: '🚀 性能优化',
+                                  items: [
+                                    { text: '📊 EXPLAIN 解读', link: '/05-optimization/explain' },
+                                    { text: '🐌 慢查询定位', link: '/05-optimization/slow-query' },
+                                    { text: '🎯 索引优化实战', link: '/05-optimization/index-tuning' },
+                                    { text: '✍️ SQL 改写 12 招', link: '/05-optimization/sql-rewrite' }
+                                  ]
+                                },
+                                {
+                                  text: '🔁 主从复制',
+                                  items: [
+                                    { text: '📜 binlog 与 relay log', link: '/06-replication/binlog' },
+                                    { text: '🔄 主从同步原理', link: '/06-replication/replication' },
+                                    { text: '⏱️ 主从延迟排查', link: '/06-replication/lag' },
+                                    { text: '📖 读写分离实战', link: '/06-replication/read-write-split' }
+                                  ]
+                                },
+                                {
+                                  text: '🛡️ 高可用 HA',
+                                  items: [
+                                    { text: '🏗️ MHA 故障切换', link: '/07-ha/mha' },
+                                    { text: '🌐 MGR 组复制', link: '/07-ha/mgr' },
+                                    { text: '🚦 ProxySQL 中间件', link: '/07-ha/proxysql' }
+                                  ]
+                                },
+                                {
+                                  text: '💾 备份恢复',
+                                  items: [
+                                    { text: '📦 mysqldump 逻辑备份', link: '/08-backup/mysqldump' },
+                                    { text: '⚡ xtrabackup 热备', link: '/08-backup/xtrabackup' },
+                                    { text: '🔙 binlog 时间点恢复', link: '/08-backup/binlog-recovery' }
+                                  ]
+                                },
+                                {
+                                  text: '📈 监控诊断',
+                                  items: [
+                                    { text: '🐢 慢查询日志', link: '/09-monitoring/slow-log' },
+                                    { text: '🔬 performance_schema', link: '/09-monitoring/performance-schema' },
+                                    { text: '📊 Prometheus + mysqld_exporter', link: '/09-monitoring/prometheus' }
+                                  ]
+                                },
+                                {
+                                  text: '🧩 分库分表',
+                                  items: [
+                                    { text: '📐 垂直拆分 vs 水平拆分', link: '/10-sharding/strategy' },
+                                    { text: '🌊 ShardingSphere 实战', link: '/10-sharding/shardingsphere' },
+                                    { text: '🐱 MyCat 中间件', link: '/10-sharding/mycat' },
+                                    { text: '🔑 一致性 Hash 与分片键', link: '/10-sharding/sharding-key' }
+                                  ]
+                                },
+                                {
+                                  text: '🛠️ 工具与速查',
+                                  items: [
+                                    { text: '💻 mysql client 命令', link: '/11-tools/mysql-client' },
+                                    { text: '🔧 pt-toolkit 工具集', link: '/11-tools/pt-toolkit' },
+                                    { text: '📋 SQL 速查表', link: '/11-tools/cheatsheet' }
+                                  ]
+                                },
+                                {
+                                  text: '☕ MyBatis / MyBatis-Plus',
+                                  items: [
+                                    { text: '⚙️ MyBatis 快速入门', link: '/12-mybatis/quickstart' },
+                                    { text: '🔥 MyBatis 动态 SQL', link: '/12-mybatis/dynamic-sql' },
+                                    { text: '🧩 MyBatis 插件机制', link: '/12-mybatis/plugins' },
+                                    { text: '⚙️ MyBatis 缓存机制', link: '/12-mybatis/cache' },
+                                    { text: '🚀 MyBatis-Plus 实战', link: '/12-mybatis/mybatis-plus' },
+                                    { text: '🎨 MyBatis-Plus 代码生成器', link: '/12-mybatis/generator' },
+                                    { text: '🚀 MyBatis-Plus 高级特性', link: '/12-mybatis/advanced' },
+                                    { text: '🎯 MyBatis 性能优化', link: '/12-mybatis/performance' },
+                                    { text: '🔧 Spring Boot 集成实战', link: '/12-mybatis/spring-boot' },
+                                    { text: '⚠️ MyBatis 常见坑', link: '/12-mybatis/pitfalls' }
+                                  ]
+                                },
+                                {
+                                  text: '🔀 多数据源 / 读写分离 / 分片',
+                                  items: [
+                                    { text: '💧 数据库连接池', link: '/13-multids/connection-pool' },
+                                    { text: '🔀 多数据源配置', link: '/13-multids/multi-datasource' },
+                                    { text: '⚡ 动态数据源', link: '/13-multids/dynamic-datasource' },
+                                    { text: '🔁 读写分离实战', link: '/13-multids/read-write-split' },
+                                    { text: '🌊 ShardingSphere-JDBC 实战', link: '/13-multids/sharding-jdbc' },
+                                    { text: '🎯 分片策略与扩容', link: '/13-multids/sharding-strategy' },
+                                    { text: '🔄 分布式事务', link: '/13-multids/transaction' }
+                                  ]
+                                },
+                                {
+                                  text: '☁️ 微服务数据库实战',
+                                  items: [
+                                    { text: '☕ 微服务数据库模式', link: '/14-microservice/db-pattern' },
+                                    { text: '🆔 分布式 ID 生成', link: '/14-microservice/distributed-id' },
+                                    { text: '🔄 数据一致性', link: '/14-microservice/data-consistency' },
+                                    { text: '🌀 Saga 模式详解', link: '/14-microservice/saga-pattern' }
+                                  ]
+                                }
+                              ],
+                              '/graph': [
+                                {
+                                  text: '🎯 知识图谱',
+                                  items: [
+                                    { text: '🌐 全局知识图谱', link: '/graph' }
+                                  ]
+                                }
+                              ],
+                              '/mindmap': [
+                                {
+                                  text: '🎯 思维导图',
+                                  items: [
+                                    { text: '🧭 MySQL 思维导图', link: '/mindmap' }
+                                  ]
+                                }
+                              ],
+                              '/cheatsheet': [
+                                {
+                                  text: '🎯 SQL 速查',
+                                  items: [
+                                    { text: '📋 常用 SQL 速查', link: '/cheatsheet' }
+                                  ]
+                                }
+                              ],
+                              '/path': [
+                                {
+                                  text: '🎯 学习路径',
+                                  items: [
+                                    { text: '📖 MySQL 学习路径', link: '/path' }
+                                  ]
+                                }
+                              ]
     },
 
     socialLinks: [
@@ -284,4 +287,4 @@ export default withMermaid(defineConfig({
       copyright: 'MIT License'
     },
   }
-}))
+})

@@ -19,7 +19,43 @@ import { fileURLToPath, URL } from 'node:url'
 // P0: VitePress/rollup 默认 fs.allow 限制 cwd 外 import。用 vite alias 解决相对路径。
 const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.url))
 
-export default withMermaid(defineConfig({
+// C11: Mermaid 跨站共享配置（inline 而非 import，避免 vite alias 在 Node 加载 config.mts 阶段不生效的问题）
+// 同步源：shared-assets/mermaid-config/base.ts（修改时请同步更新此处）
+// 见 §8.46
+const mermaidBase = {
+  securityLevel: 'loose',
+  startOnLoad: false,
+  theme: 'base',
+  fontFamily: '"Inter", "PingFang SC", "Microsoft YaHei", system-ui, -apple-system, sans-serif',
+} as const
+
+function lightenHex(hex: string, ratio: number): string {
+  const m = hex.replace('#', '').match(/^([0-9a-f]{6})$/i)
+  if (!m) return hex
+  const r = parseInt(m[1].slice(0, 2), 16)
+  const g = parseInt(m[1].slice(2, 4), 16)
+  const b = parseInt(m[1].slice(4, 6), 16)
+  const mix = (c: number) => Math.round(c + (255 - c) * ratio)
+  return '#' + [mix(r), mix(g), mix(b)].map(c => c.toString(16).padStart(2, '0')).join('')
+}
+
+function mermaidTheme(brand: string) {
+  const soft = lightenHex(brand, 0.85)
+  const ink = '#1f2937'
+  const line = '#94a3b8'
+  return {
+    primaryColor: brand,
+    primaryTextColor: ink,
+    primaryBorderColor: brand,
+    lineColor: line,
+    secondaryColor: soft,
+    tertiaryColor: '#fafafa',
+    fontFamily: mermaidBase.fontFamily,
+    fontSize: '14px',
+  }
+}
+
+export default withMermaid( defineConfig({
   vite: {
     resolve: {
       alias: [
@@ -27,8 +63,11 @@ export default withMermaid(defineConfig({
       ],
     },
   },
-  mermaid: { theme: 'default' },
-  base: '/design-pattern/',
+    mermaid: {
+    ...mermaidBase,
+    themeVariables: mermaidTheme('#7c3aed'),
+  },
+    base: '/design-pattern/',
   title: '设计模式',
   description: 'GoF 23 模式 + 现代架构模式 + 反模式自查表 - 创建型 / 结构型 / 行为型 · 依赖注入 · CQRS · Event Sourcing · Saga · 6 大类 · 36 节点 · Java + Go + TypeScript 多语言实现',
   lang: 'zh-CN',
@@ -89,6 +128,9 @@ export default withMermaid(defineConfig({
         { text: "Go", link: "https://java-px.bot.cd/go/" },
         { text: "ClickHouse", link: "https://java-px.bot.cd/clickhouse/" },
         { text: "混沌工程", link: "https://java-px.bot.cd/chaos/" },
+        { text: "物联网", link: "https://java-px.bot.cd/iot/" },
+        { text: "安卓", link: "https://java-px.bot.cd/android/" },
+        { text: "游戏开发", link: "https://java-px.bot.cd/game/" },
         ]
       }
     ],
@@ -96,80 +138,83 @@ export default withMermaid(defineConfig({
     // === 各站独立 sidebar（render-config.py 保留原值）===
     sidebar: {
     
-              '/': [
-                {
-                  text: '🏗️ GoF 创建型模式', collapsed: false, items: [
-                    { text: '创建型总览', link: '/01-gof-creational/overview' },
-                    { text: 'Singleton 单例', link: '/01-gof-creational/singleton' },
-                    { text: 'Factory Method 工厂方法', link: '/01-gof-creational/factory-method' },
-                    { text: 'Abstract Factory 抽象工厂', link: '/01-gof-creational/abstract-factory' },
-                    { text: 'Builder 建造者', link: '/01-gof-creational/builder' },
-                    { text: 'Prototype 原型', link: '/01-gof-creational/prototype' }
-                  ]
-                },
-                {
-                  text: '🧩 GoF 结构型模式', collapsed: false, items: [
-                    { text: '结构型总览', link: '/02-gof-structural/overview' },
-                    { text: 'Adapter 适配器', link: '/02-gof-structural/adapter' },
-                    { text: 'Bridge 桥接', link: '/02-gof-structural/bridge' },
-                    { text: 'Composite 组合', link: '/02-gof-structural/composite' },
-                    { text: 'Decorator 装饰器', link: '/02-gof-structural/decorator' },
-                    { text: 'Facade 外观', link: '/02-gof-structural/facade' },
-                    { text: 'Flyweight 享元', link: '/02-gof-structural/flyweight' },
-                    { text: 'Proxy 代理', link: '/02-gof-structural/proxy' }
-                  ]
-                },
-                {
-                  text: '🎭 GoF 行为型模式', collapsed: false, items: [
-                    { text: '行为型总览', link: '/03-gof-behavioral/overview' },
-                    { text: 'Chain of Responsibility 责任链', link: '/03-gof-behavioral/chain-of-responsibility' },
-                    { text: 'Command 命令', link: '/03-gof-behavioral/command' },
-                    { text: 'Iterator 迭代器', link: '/03-gof-behavioral/iterator' },
-                    { text: 'Mediator 中介者', link: '/03-gof-behavioral/mediator' },
-                    { text: 'Memento 备忘录', link: '/03-gof-behavioral/memento' },
-                    { text: 'Observer 观察者', link: '/03-gof-behavioral/observer' },
-                    { text: 'State 状态', link: '/03-gof-behavioral/state' },
-                    { text: 'Strategy 策略', link: '/03-gof-behavioral/strategy' },
-                    { text: 'Template Method 模板方法', link: '/03-gof-behavioral/template-method' },
-                    { text: 'Visitor 访问者', link: '/03-gof-behavioral/visitor' },
-                    { text: 'Interpreter 解释器', link: '/03-gof-behavioral/interpreter' }
-                  ]
-                },
-                {
-                  text: '✨ 现代模式', collapsed: false, items: [
-                    { text: '现代模式总览', link: '/04-modern-patterns/overview' },
-                    { text: '依赖注入 DI', link: '/04-modern-patterns/dependency-injection' },
-                    { text: 'Repository 仓储', link: '/04-modern-patterns/repository' },
-                    { text: 'Specification 规格', link: '/04-modern-patterns/specification' },
-                    { text: 'Null Object 空对象', link: '/04-modern-patterns/null-object' }
-                  ]
-                },
-                {
-                  text: '🌐 架构模式', collapsed: false, items: [
-                    { text: '架构模式总览', link: '/05-architectural-patterns/overview' },
-                    { text: 'CQRS 命令查询分离', link: '/05-architectural-patterns/cqrs' },
-                    { text: 'Event Sourcing 事件溯源', link: '/05-architectural-patterns/event-sourcing' },
-                    { text: 'Saga 分布式事务', link: '/05-architectural-patterns/saga' },
-                    { text: 'Sidecar 边车', link: '/05-architectural-patterns/sidecar' },
-                    { text: 'Circuit Breaker 熔断', link: '/05-architectural-patterns/circuit-breaker' },
-                    { text: 'Bulkhead 舱壁隔离', link: '/05-architectural-patterns/bulkhead' },
-                    { text: 'Strangler Fig 绞杀者', link: '/05-architectural-patterns/strangler-fig' },
-                    { text: 'Outbox 事务性发件箱', link: '/05-architectural-patterns/outbox' }
-                  ]
-                },
-                {
-                  text: '🚫 反模式', collapsed: false, items: [
-                    { text: '反模式总览', link: '/06-anti-patterns/overview' },
-                    { text: 'God Object 上帝对象', link: '/06-anti-patterns/god-object' },
-                    { text: 'Anemic Model 贫血模型', link: '/06-anti-patterns/anemic-model' },
-                    { text: 'Big Ball of Mud 大泥球', link: '/06-anti-patterns/big-ball-of-mud' },
-                    { text: 'Callback Hell 回调地狱', link: '/06-anti-patterns/callback-hell' },
-                    { text: 'Circular Dependency 循环依赖', link: '/06-anti-patterns/circular-dependency' },
-                    { text: 'Magic Number 魔数', link: '/06-anti-patterns/magic-number' },
-                    { text: 'Premature Optimization 提前优化', link: '/06-anti-patterns/premature-optimization' }
-                  ]
-                }
-              ]
+        
+            
+                
+                                      '/': [
+                                        {
+                                          text: '🏗️ GoF 创建型模式', collapsed: false, items: [
+                                            { text: '创建型总览', link: '/01-gof-creational/overview' },
+                                            { text: 'Singleton 单例', link: '/01-gof-creational/singleton' },
+                                            { text: 'Factory Method 工厂方法', link: '/01-gof-creational/factory-method' },
+                                            { text: 'Abstract Factory 抽象工厂', link: '/01-gof-creational/abstract-factory' },
+                                            { text: 'Builder 建造者', link: '/01-gof-creational/builder' },
+                                            { text: 'Prototype 原型', link: '/01-gof-creational/prototype' }
+                                          ]
+                                        },
+                                        {
+                                          text: '🧩 GoF 结构型模式', collapsed: false, items: [
+                                            { text: '结构型总览', link: '/02-gof-structural/overview' },
+                                            { text: 'Adapter 适配器', link: '/02-gof-structural/adapter' },
+                                            { text: 'Bridge 桥接', link: '/02-gof-structural/bridge' },
+                                            { text: 'Composite 组合', link: '/02-gof-structural/composite' },
+                                            { text: 'Decorator 装饰器', link: '/02-gof-structural/decorator' },
+                                            { text: 'Facade 外观', link: '/02-gof-structural/facade' },
+                                            { text: 'Flyweight 享元', link: '/02-gof-structural/flyweight' },
+                                            { text: 'Proxy 代理', link: '/02-gof-structural/proxy' }
+                                          ]
+                                        },
+                                        {
+                                          text: '🎭 GoF 行为型模式', collapsed: false, items: [
+                                            { text: '行为型总览', link: '/03-gof-behavioral/overview' },
+                                            { text: 'Chain of Responsibility 责任链', link: '/03-gof-behavioral/chain-of-responsibility' },
+                                            { text: 'Command 命令', link: '/03-gof-behavioral/command' },
+                                            { text: 'Iterator 迭代器', link: '/03-gof-behavioral/iterator' },
+                                            { text: 'Mediator 中介者', link: '/03-gof-behavioral/mediator' },
+                                            { text: 'Memento 备忘录', link: '/03-gof-behavioral/memento' },
+                                            { text: 'Observer 观察者', link: '/03-gof-behavioral/observer' },
+                                            { text: 'State 状态', link: '/03-gof-behavioral/state' },
+                                            { text: 'Strategy 策略', link: '/03-gof-behavioral/strategy' },
+                                            { text: 'Template Method 模板方法', link: '/03-gof-behavioral/template-method' },
+                                            { text: 'Visitor 访问者', link: '/03-gof-behavioral/visitor' },
+                                            { text: 'Interpreter 解释器', link: '/03-gof-behavioral/interpreter' }
+                                          ]
+                                        },
+                                        {
+                                          text: '✨ 现代模式', collapsed: false, items: [
+                                            { text: '现代模式总览', link: '/04-modern-patterns/overview' },
+                                            { text: '依赖注入 DI', link: '/04-modern-patterns/dependency-injection' },
+                                            { text: 'Repository 仓储', link: '/04-modern-patterns/repository' },
+                                            { text: 'Specification 规格', link: '/04-modern-patterns/specification' },
+                                            { text: 'Null Object 空对象', link: '/04-modern-patterns/null-object' }
+                                          ]
+                                        },
+                                        {
+                                          text: '🌐 架构模式', collapsed: false, items: [
+                                            { text: '架构模式总览', link: '/05-architectural-patterns/overview' },
+                                            { text: 'CQRS 命令查询分离', link: '/05-architectural-patterns/cqrs' },
+                                            { text: 'Event Sourcing 事件溯源', link: '/05-architectural-patterns/event-sourcing' },
+                                            { text: 'Saga 分布式事务', link: '/05-architectural-patterns/saga' },
+                                            { text: 'Sidecar 边车', link: '/05-architectural-patterns/sidecar' },
+                                            { text: 'Circuit Breaker 熔断', link: '/05-architectural-patterns/circuit-breaker' },
+                                            { text: 'Bulkhead 舱壁隔离', link: '/05-architectural-patterns/bulkhead' },
+                                            { text: 'Strangler Fig 绞杀者', link: '/05-architectural-patterns/strangler-fig' },
+                                            { text: 'Outbox 事务性发件箱', link: '/05-architectural-patterns/outbox' }
+                                          ]
+                                        },
+                                        {
+                                          text: '🚫 反模式', collapsed: false, items: [
+                                            { text: '反模式总览', link: '/06-anti-patterns/overview' },
+                                            { text: 'God Object 上帝对象', link: '/06-anti-patterns/god-object' },
+                                            { text: 'Anemic Model 贫血模型', link: '/06-anti-patterns/anemic-model' },
+                                            { text: 'Big Ball of Mud 大泥球', link: '/06-anti-patterns/big-ball-of-mud' },
+                                            { text: 'Callback Hell 回调地狱', link: '/06-anti-patterns/callback-hell' },
+                                            { text: 'Circular Dependency 循环依赖', link: '/06-anti-patterns/circular-dependency' },
+                                            { text: 'Magic Number 魔数', link: '/06-anti-patterns/magic-number' },
+                                            { text: 'Premature Optimization 提前优化', link: '/06-anti-patterns/premature-optimization' }
+                                          ]
+                                        }
+                                      ]
     },
 
     socialLinks: [],

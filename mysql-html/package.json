@@ -1,7 +1,7 @@
 {
   "name": "mysql-html",
   "version": "1.0.0",
-  "description": "MySQL 系统化学习 - 知识图谱、思维导图、SQL 实战、性能调优",
+  "description": "MySQL \u7cfb\u7edf\u5316\u5b66\u4e60 - \u77e5\u8bc6\u56fe\u8c31\u3001\u601d\u7ef4\u5bfc\u56fe\u3001SQL \u5b9e\u6218\u3001\u6027\u80fd\u8c03\u4f18",
   "type": "module",
   "scripts": {
     "docs:dev": "vitepress dev",
@@ -15,7 +15,6 @@
     "vue": "^3.4.0",
     "echarts": "^5.5.0",
     "pagefind": "^1.3.0",
-    "vitepress-plugin-mermaid": "^2.0.17",
     "mermaid": "^11.4.1"
   },
   "dependencies": {
