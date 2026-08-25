@@ -5113,3 +5113,97 @@ audit 全局 baseline（2026-08-25）：
 - 推荐链接反馈：基于点击数据调整推荐（需要 Plausible 接入，先做数据收集）
 - 自动检测"无 xsite 链接"的孤岛页（> 5 个 md 但 xsite=0 的页）
 - glossary 同步（§C8）：把跨站链接与术语表关联，AI 总结时自动推荐
+
+# §8.61 §8.55 站点豁免 continue bug + xsite_density 检测
+
+> 日期：2026-08-25 · 第五十四次 · 工作量：45 分钟
+> 触发：§8.60 注入后 java-language 仍显示 xsite=0
+
+## 8.61.1 根因（两个串联 bug）
+
+**Bug 1：变量名冲突（§8.60.7）**
+```python
+xsite_urls = re.findall(...)  # 返回 [('url', 'site'), ...]
+xsite = [site for _, site in xsite_urls]  # 错误：site 覆盖外层循环变量
+```
+
+外层 `for path, site in files:` 的 `site` 变量被内层 list comprehension 的 `site` 覆盖，导致解包行为异常。
+
+**Bug 2：§8.55 站点豁免 continue（更严重）**
+```python
+# §8.55 站点级豁免：java-language 是 14 章速查合集，整站豁免
+if site_short in args.exclude_thin_site:
+    s['thin_excluded'] += 1
+    continue  # ❌ 跳过了所有后续检测：xsite / vue / mermaid / heading_jump / dups
+```
+
+后果：
+- java-language 整站的 xsite 链接、Vue 组件、Mermaid、标题层级跳级、重复标题都未被统计
+- audit baseline 数字虚低（少 8 个 xsite、少 N 个 dups）
+
+## 8.61.2 修复
+
+### Bug 1 修复：变量重命名
+
+```python
+xsite = [seg for _, seg in xsite_urls]  # seg = URL 段（站点名），避免覆盖外层 site 变量
+```
+
+### Bug 2 修复：拆分 continue
+
+```python
+# §8.55 站点级豁免：仅豁免薄页计数，其他检测照常进行
+skip_thin = site_short in args.exclude_thin_site
+if skip_thin:
+    s['thin_excluded'] += 1
+else:
+    if words < args.min_words:
+        s['thin'] += 1
+        issues_thin.append(...)
+```
+
+## 8.61.3 新增 xsite_density 检测
+
+在 sub-stats 表加 `密度` 列（每千字跨站链接数）：
+
+```python
+density = (s['xsite_links'] * 1000 / s['words']) if s['words'] else 0.0
+density_str = f"{density:.2f}"
+if density < 1.0 and s['files'] > 0:
+    low_density_sites.append((short, density, s['xsite_links'], s['words']))
+```
+
+报告新增 `〇·a、跨站引用低密度站` 清单：列出每千字 < 1 链接的站。
+
+## 8.61.4 验证结果
+
+```text
+audit baseline 变化（修复前 → 修复后）：
+- xsite: 311 → 319（+8，java-language 之前漏算）
+- dups: 191 → 199（+8，java-language 之前漏算）
+- 低密度站: 29 → 28（java-language 1.40 脱离低密度）
+```
+
+java-language 站从"完全无统计" → "正常统计"：
+
+```text
+java-language: 55 文件 / 5,715 字 / 8 xsite / density 1.40
+```
+
+## 8.61.5 audit 全局 baseline（2026-08-25）
+
+```text
+files: 1567  words: 1,237,176
+thin: 0  no_fm: 0  broken: 0  vue_missing: 0
+xsite: 319（全局）平均密度 0.26 链接/千字
+dups: 199 (跨站重复标题待后续治理)
+```
+
+## 8.61.6 与 §8.55 / §8.60 关系
+
+- §8.55 引入"站点级薄页豁免"机制（java-language 是 14 章速查合集）
+- §8.55 实现用了 `continue`，埋下 §8.61 的 bug
+- §8.60 注入 30 站 +152 xsite 链接，未触发 bug 是因为 java-language 注入前被豁免了
+- §8.61 修复 bug + 加密度检测，让 audit baseline 数字真实可信
+
+**教训**：豁免机制应用"条件累加"而非 `continue`，否则会跳过所有后续检测。

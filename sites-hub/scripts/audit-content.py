@@ -278,6 +278,7 @@ def main():
 
     now = datetime.date.today()
 
+    java_lang_count = 0
     for path, site in files:
         try:
             text = path.read_text(errors='replace')
@@ -336,14 +337,15 @@ def main():
         if path.name in args.exclude_thin_name:
             s['thin_excluded'] += 1  # 用于报告展示，不计入薄页统计
             continue
-        # §8.55 站点级豁免：java-language 是 14 章速查合集，整站豁免
-        if site_short in args.exclude_thin_site:
+        # §8.55 站点级豁免：java-language 是 14 章速查合集，整站豁免（仅豁免薄页计数，§8.60.7 修复：continue 会跳过 xsite 等其他检测）
+        skip_thin = site_short in args.exclude_thin_site
+        if skip_thin:
             s['thin_excluded'] += 1
-            continue
-        if words < args.min_words:
-            s['thin'] += 1
-            # 用 | 分隔方便后面按字数排序
-            issues_thin.append((words, f"{site_short}/{path.relative_to(SITE_DOCS[site])} ({words}字)"))
+        else:
+            if words < args.min_words:
+                s['thin'] += 1
+                issues_thin.append((words, f"{site_short}/{path.relative_to(SITE_DOCS[site])} ({words}字)"))
+        # 薄页计数已整合到 §8.55 exclude 分支
 
         # 图片
         md_imgs = MD_IMG.findall(text)
@@ -412,12 +414,18 @@ def main():
                 issues_vue_missing.append(f"{site_short}/{path.name} {issue}")
 
         # 跨站引用：1) markdown link  2) Vue 组件 prop（:site="xxx" 或 site: "xxx"）
-        xsite = re.findall(r'\[[^\]]+\]\((https?://java-px\.bot\.cd/([^/)]+))/', text)
-        xsite += re.findall(r'(?:site|:href|:link)\s*[:=]\s*["\']([a-z-]+)', text)
+        # §8.60.7：java 链接可能是 java-web-manual 别名
+        _SITE_ALIASES = {'java-web-manual': 'java'}
+        xsite_urls = re.findall(r'\[[^\]]+\]\((https?://java-px\.bot\.cd/([^/)]+))/', text)
+        xsite = [seg for _, seg in xsite_urls]  # seg = URL 段（站点名），避免覆盖外层 site 变量
+        xsite += re.findall(r"(?:site|:href|:link)\s*[:=]\s*[\"']([a-z-]+)", text)
+        # 规范化：把 java-web-manual → java，让 xsite 计数准确
+        xsite = [_SITE_ALIASES.get(s, s) for s in xsite]
         # 过滤已知非站点的字符串
         xsite = [x for x in xsite if x not in ('github', 'mailto', 'tel', 'http', 'https', '_self', '_blank')]
         if xsite:
             s['xsite_links'] += len(xsite)
+        import sys
 
         # 标题收集（用于 dup 检测）
         h1 = TITLE_H1.findall(body)
@@ -527,15 +535,33 @@ def main():
 
     lines.append("## 一、各子站统计")
     lines.append("")
-    lines.append("| 子站 | 文件 | 字数 | FM | 薄页 | 豁免 | 缺FM | 过期 | 图片 | 死链 | 跨站 | VueBug | 缺组件 | Mermaid | 标题跳级 |")
-    lines.append("|------|-----:|-----:|---:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|------:|-----:|---------:|")
+    lines.append("| 子站 | 文件 | 字数 | FM | 薄页 | 豁免 | 缺FM | 过期 | 图片 | 死链 | 跨站 | 密度 | VueBug | 缺组件 | Mermaid | 标题跳级 |")
+    lines.append("|------|-----:|-----:|---:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|------:|-----:|---------:|")
+    low_density_sites = []  # §8.60.6：xsite_density < 1.0 的站
     for site in sorted(site_stats):
         s = site_stats[site]
         if s['files'] == 0:
             continue
         short = site.replace('-html', '').replace('java-web-manual', 'java')
-        lines.append(f"| {short} | {s['files']} | {s['words']:,} | {s['fm']} | {s['thin']} | {s['thin_excluded']} | {s['no_fm']} | {s['stale']} | {s['imgs']} | {s['broken_links']} | {s['xsite_links']} | {s['vue_prop_issues']} | {s['vue_missing_comp']} | {s['mermaid_unclosed']} | {s['heading_jump']} |")
+        # §8.60.6：跨站密度 = xsite 数 * 1000 / 字数（每千字跨站链接数）
+        density = (s['xsite_links'] * 1000 / s['words']) if s['words'] else 0.0
+        density_str = f"{density:.2f}"
+        if density < 1.0 and s['files'] > 0:
+            low_density_sites.append((short, density, s['xsite_links'], s['words']))
+        lines.append(f"| {short} | {s['files']} | {s['words']:,} | {s['fm']} | {s['thin']} | {s['thin_excluded']} | {s['no_fm']} | {s['stale']} | {s['imgs']} | {s['broken_links']} | {s['xsite_links']} | {density_str} | {s['vue_prop_issues']} | {s['vue_missing_comp']} | {s['mermaid_unclosed']} | {s['heading_jump']} |")
     lines.append("")
+
+    # §8.60.6：低密度站清单（每千字跨站链接 < 1.0）
+    if low_density_sites:
+        lines.append(f"### 〇·a、跨站引用低密度站（{len(low_density_sites)} 站，每千字 < 1 链接）")
+        lines.append("")
+        lines.append("| 子站 | 密度（每千字）| xsite 链接 | 字数 |")
+        lines.append("|------|-----:|-----:|-----:|")
+        for site, d, n, w in sorted(low_density_sites, key=lambda x: x[1]):
+            lines.append(f"| {site} | {d:.2f} | {n} | {w:,} |")
+        lines.append("")
+        lines.append("**建议**：这些站当前主要靠 index.md 末尾的 📚 相关阅读 段落带跨站链接，子文档间应互相引用。可参考 §8.60 xlink-injector 注入术语映射。")
+        lines.append("")
 
     if issues_thin:
         lines.append(f"## 二、薄页清单（{len(issues_thin)} 篇）")
@@ -644,7 +670,7 @@ def main():
     lines.append("## 八、关键发现与建议")
     lines.append("")
     lines.append(f"1. **图片覆盖率极低**：{total_imgs} 张图 / {total_files} 篇 = {100*total_imgs/total_files:.1f}%，纯文字技术文档严重缺乏视觉化（C11 价值高）")
-    lines.append(f"2. **跨站引用近零**：仅 {total_xsite} 处，28 站 1429+ 页形成内容孤岛（C2 价值高）")
+    lines.append(f"2. **跨站引用密度**：全局 {total_xsite} 处（§8.60 注入 +152），平均 {(total_xsite * 1000 / total_words):.2f} 链接/千字。详见'〇·a 低密度站清单'补强")
     lines.append(f"3. **薄页比例 {thin_pct:.1f}%**：{total_thin} 篇字数 < {args.min_words}，可能为 placeholder 或拆分过度（C3 持续 review）")
     lines.append(f"4. **frontmatter 覆盖率 {fm_pct:.1f}%**：{total_no_fm} 篇缺 FM，{total_no_date} 篇 FM 缺 date——但 VitePress 已配 `lastUpdated: true`，自动用 git commit 时间，**非真问题**（C1 模板可选择性根治）")
     lines.append(f"5. **过期内容 {total_stale} 篇**（> {args.max_age_days} 天）：需要月度 review 流程（C10）")
