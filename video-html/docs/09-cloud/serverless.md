@@ -327,3 +327,13 @@ def handler(event, context):
 5. **监控告警**：CloudWatch / SLS
 6. **事件解耦**：使用 SQS / 队列缓冲
 7. **大文件分块**：避免单函数超时
+
+## 📚 跨站参考：📊 监控告警
+
+<!-- xlink-dedup:do-not-edit -->
+
+本节在 3 站展开，最权威版本位于 **observability** 站（[https://java-px.bot.cd/observability/](https://java-px.bot.cd/observability/)）。
+
+其他站参考：[kafka](https://java-px.bot.cd/kafka/) / [mysql](https://java-px.bot.cd/mysql/) / [video](https://java-px.bot.cd/video/)
+
+跨站关联由 `xlink-injector.py` + `crosslink-dedup.py` 自动生成（§8.68）。

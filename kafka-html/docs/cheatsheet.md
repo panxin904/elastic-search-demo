@@ -24,3 +24,13 @@ title: 命令速查
 | 分区扩容 | `kafka-reassign-partitions.sh --reassignment-json-file <file> --execute` |
 | 修改 Broker 配置 | `kafka-configs.sh --alter --add-config <key>=<value>` |
 | 查看 ACL | `kafka-acls.sh --list` |
+
+## 📚 跨站参考：🧰 常用场景快速索引
+
+<!-- xlink-dedup:do-not-edit -->
+
+本节在 3 站展开，最权威版本位于 **redis** 站（[https://java-px.bot.cd/redis/](https://java-px.bot.cd/redis/)）。
+
+其他站参考：[kafka](https://java-px.bot.cd/kafka/) / [python](https://java-px.bot.cd/python/)
+
+跨站关联由 `xlink-injector.py` + `crosslink-dedup.py` 自动生成（§8.68）。

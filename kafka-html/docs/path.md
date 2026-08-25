@@ -80,3 +80,13 @@ title: 学习路径
 | 解 Bug | [📦 消息积压](/08-enterprise/backlog) → [☠️ 死信队列](/08-enterprise/dead-letter) |
 | 写方案 | [🏗️ 整体架构](/02-architecture/overview) → [📐 集群规划](/09-ops/capacity) |
 | 深入原理 | [🏗️ 架构原理](/02-architecture/overview) → [👑 Leader 选举](/02-architecture/leader-election) |
+
+## 📚 跨站参考：📊 监控告警
+
+<!-- xlink-dedup:do-not-edit -->
+
+本节在 3 站展开，最权威版本位于 **observability** 站（[https://java-px.bot.cd/observability/](https://java-px.bot.cd/observability/)）。
+
+其他站参考：[kafka](https://java-px.bot.cd/kafka/) / [mysql](https://java-px.bot.cd/mysql/) / [video](https://java-px.bot.cd/video/)
+
+跨站关联由 `xlink-injector.py` + `crosslink-dedup.py` 自动生成（§8.68）。

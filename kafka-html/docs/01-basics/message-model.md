@@ -244,3 +244,13 @@ auto.offset.reset=earliest  # 没有 offset 时从最早开始
 - ✅ 消息持久化 + 可重放（区别于传统 MQ）
 
 **下一步：** [🎯 整体架构](/02-architecture/overview) — 集群拓扑详解
+
+## 📚 跨站参考：📊 监控告警
+
+<!-- xlink-dedup:do-not-edit -->
+
+本节在 3 站展开，最权威版本位于 **observability** 站（[https://java-px.bot.cd/observability/](https://java-px.bot.cd/observability/)）。
+
+其他站参考：[kafka](https://java-px.bot.cd/kafka/) / [mysql](https://java-px.bot.cd/mysql/) / [video](https://java-px.bot.cd/video/)
+
+跨站关联由 `xlink-injector.py` + `crosslink-dedup.py` 自动生成（§8.68）。

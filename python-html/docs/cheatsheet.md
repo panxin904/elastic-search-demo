@@ -26,3 +26,13 @@ title: 速查表
 | HTTP 请求 | `requests.get(url).json()` |
 | 多线程 | `concurrent.futures.ThreadPoolExecutor()` |
 | 异步 | `asyncio.run(main())` |
+
+## 📚 跨站参考：🧰 常用场景快速索引
+
+<!-- xlink-dedup:do-not-edit -->
+
+本节在 3 站展开，最权威版本位于 **redis** 站（[https://java-px.bot.cd/redis/](https://java-px.bot.cd/redis/)）。
+
+其他站参考：[kafka](https://java-px.bot.cd/kafka/) / [python](https://java-px.bot.cd/python/)
+
+跨站关联由 `xlink-injector.py` + `crosslink-dedup.py` 自动生成（§8.68）。

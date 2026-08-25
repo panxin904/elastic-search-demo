@@ -501,6 +501,9 @@ def main():
         # 去前缀编号 "11. xxx" / "## xxx" / emoji "⚠️ xxx"
         t_clean = re.sub(r'^[\d]+\.\s+|^#+\s+|(?:[\U0001F300-\U0001FAFF\U00002600-\U000027BF\uFE0F\u200D\u20E3]\s*)+', '', t).strip()
         t_clean = re.sub(r'\s+', ' ', t_clean)
+        # §8.68：豁免 "📚 跨站参考：xxx" 系列（crosslink-dedup 注入的标记段，后缀因权威站而异）
+        if re.match(r'^跨站参考[：:]', t_clean):
+            continue
         if 4 < len(t_clean) < 40 and t_clean not in TEMPLATE_TITLES:
             by_title[t_clean].append((s, p))
 

@@ -5581,3 +5581,97 @@ dups 变化：
 - P2 高频概念类重复（监控告警 / 常用场景 / 章节索引）加跨站段落
 - P3 低频概念类人工 review + 合并 / 镜像
 - 编号章节豁免可扩展为：`^\d+\.\d+\.\s`（如 "1.1 xxx"）也豁免（H3 中常见）
+
+# §8.68 P2 dups · 高频概念类加跨站参考段落
+
+> 日期：2026-08-25 · 第六十一次 · 工作量：30 分钟
+> 范围：23 个文件加跨站参考段（"📊 监控告警" 20 文件 + "🧰 常用场景快速索引" 3 文件）
+
+## 8.68.1 背景与根因
+
+§8.67 编号章节豁免后 dups 186 → 141。剩余都是真实概念重复（≥2 站）。
+
+按 `dedup-suggestions.md` 报告，**≥3 站高频重复**有 2 组：
+
+| 标题 | 站数 | 文件数 | 建议权威站 |
+|---|---|---|---|
+| 📊 监控告警 | 4 | 20 | observability（专题站） |
+| 🧰 常用场景快速索引 | 3 | 3 | redis（场景索引最全） |
+
+问题：跨站重复讲同一概念，浪费维护成本 + 用户跨站跳转不顺。
+
+## 8.68.2 解决方案
+
+每篇重复文档末尾加「📚 跨站参考：xxx → 权威站」段，把用户引到权威站。
+幂等保护：`<!-- xlink-dedup:do-not-edit -->` marker，重跑不重复加。
+
+## 8.68.3 实施（4 次迭代）
+
+| 版本 | 改动 | 结果 |
+|---|---|---|
+| v1 | 选「主版本」（kafka） | ❌ kafka 不如 observability 权威 |
+| v2 | 改「权威站」概念 | ✅ 思路对 |
+| v3 | title → authority 映射 | ❌ bug：字典 key 带 emoji，title_clean 去 emoji 后匹配不上 |
+| v4 | title_clean 去 emoji 后匹配字典 | ✅ 23 文件成功注入 |
+
+## 8.68.4 TITLE_AUTHORITY 映射
+
+```python
+TITLE_AUTHORITY = {
+    '监控告警': 'observability',
+    '常用场景快速索引': 'redis',
+    '告警规则': 'observability',
+    'Prometheus 告警规则': 'observability',
+}
+```
+
+未命中映射时，fallback 到 PRIORITY_SITES 顺序（observability > kafka > redis > mysql ...）。
+
+## 8.68.5 audit 联动（关键修复）
+
+加了 23 段后 audit 报 `dups 141 → 142`（新增的 H2"📚 跨站参考：xxx"被算 dups）。
+
+**修复**：在 `audit-content.py` 的 `by_title` 聚合前加正则豁免：
+
+```python
+# §8.68：豁免 "📚 跨站参考：xxx" 系列（crosslink-dedup 注入的标记段，后缀因权威站而异）
+if re.match(r'^跨站参考[::]', t_clean):
+    continue
+```
+
+修复后 `dups: 142 → 141`（净效果：与 §8.67 后持平，跨站参考段不被算 dups）。
+
+## 8.68.6 效果
+
+| 指标 | 值 |
+|---|---|
+| 处理文件数 | 23（kafka 11 + mysql 4 + video 4 + python 1 + redis 1 + cheatsheet x3） |
+| marker 段生成 | 23 段 |
+| 幂等保护 | ✅ 重跑 add=0 / skipped=23 |
+| dups 净变化 | 141 → 141（±0，跨站参考段被正则豁免） |
+
+## 8.68.7 复用
+
+跑：
+
+```bash
+python3 sites-hub/scripts/crosslink-dedup.py
+```
+
+加新映射：编辑 `sites-hub/scripts/crosslink-dedup.py` 的 `TITLE_AUTHORITY` 字典（一行映射）。
+
+撤销：用 marker 段清理脚本（已记录在主回复）。
+
+## 8.68.8 与 §8.60 / §8.67 协同
+
+- §8.60：xlink-injector 在 index.md 末尾加「📚 相关阅读」（站级总览）
+- §8.67：编号章节正则豁免（减少模板生成的噪音 dups）
+- §8.68：高频概念类重复加权威站链接（精确治理，按需注入）
+
+三者职责清晰、互不冲突，覆盖 cross-site dups 主要治理路径。
+
+## 8.68.9 后续按需
+
+- 标题数量继续涨（≥3 站）时再扩 TITLE_AUTHORITY
+- 单文件 markdown 直接维护 marker 段即可，脚本不强制每次重写
+- 跨站段落文案若有变化，手改 + marker 重跑只会跳过已存在段，不会污染

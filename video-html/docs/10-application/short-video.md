@@ -391,3 +391,13 @@ similarity = dot(user_vec, video_vec)
 3. **监控告警**：每任务 SLA 监控
 4. **审核分级**：风险内容多级处理
 5. **CDN 预热**：热门内容提前缓存
+
+## 📚 跨站参考：📊 监控告警
+
+<!-- xlink-dedup:do-not-edit -->
+
+本节在 3 站展开，最权威版本位于 **observability** 站（[https://java-px.bot.cd/observability/](https://java-px.bot.cd/observability/)）。
+
+其他站参考：[kafka](https://java-px.bot.cd/kafka/) / [mysql](https://java-px.bot.cd/mysql/) / [video](https://java-px.bot.cd/video/)
+
+跨站关联由 `xlink-injector.py` + `crosslink-dedup.py` 自动生成（§8.68）。

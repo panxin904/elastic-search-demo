@@ -267,3 +267,13 @@ kafka-log-dirs.sh --bootstrap-server localhost:9092 \
 - ⚠️ 删除延迟 60 秒（防止误删）
 
 **下一步：** [📜 刷盘机制](/03-persistence/aof) — 数据安全细节
+
+## 📚 跨站参考：📊 监控告警
+
+<!-- xlink-dedup:do-not-edit -->
+
+本节在 3 站展开，最权威版本位于 **observability** 站（[https://java-px.bot.cd/observability/](https://java-px.bot.cd/observability/)）。
+
+其他站参考：[kafka](https://java-px.bot.cd/kafka/) / [mysql](https://java-px.bot.cd/mysql/) / [video](https://java-px.bot.cd/video/)
+
+跨站关联由 `xlink-injector.py` + `crosslink-dedup.py` 自动生成（§8.68）。

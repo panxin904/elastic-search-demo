@@ -450,3 +450,13 @@ kafka-topics.sh --create --bootstrap-server localhost:9092 \
 - ⚠️ 重置 Offset 有数据丢失风险
 
 **下一步：** [🔌 Kafka Connect](/08-enterprise/connect) — 数据集成
+
+## 📚 跨站参考：📊 监控告警
+
+<!-- xlink-dedup:do-not-edit -->
+
+本节在 3 站展开，最权威版本位于 **observability** 站（[https://java-px.bot.cd/observability/](https://java-px.bot.cd/observability/)）。
+
+其他站参考：[kafka](https://java-px.bot.cd/kafka/) / [mysql](https://java-px.bot.cd/mysql/) / [video](https://java-px.bot.cd/video/)
+
+跨站关联由 `xlink-injector.py` + `crosslink-dedup.py` 自动生成（§8.68）。
