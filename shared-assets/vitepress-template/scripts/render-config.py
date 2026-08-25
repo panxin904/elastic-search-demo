@@ -78,6 +78,12 @@ SITE_NAMES = {
     'game': '游戏开发',
 }
 
+# §8.69：需要 mermaid 渲染的站集合（其他站不注入 plugin，避免 dead config）
+# 来源：docs/ 内 ```mermaid 块数 ≥ 1 的站
+MERMAID_SITES = {'android', 'iot', 'game', 'system-design', 'cloud',
+                   'design-pattern', 'observability', 'architecture'}  # §8.69：补 3 站（加 mermaid 图）
+
+
 
 def extract(text: str, pattern: str, default: str = "") -> str:
     m = re.search(pattern, text)
@@ -163,11 +169,29 @@ def render_one(site_dir: str, site_id: str = "") -> Path:
         .replace("@CROSS_SITES", cross_sites)
         .replace("@SIDEBAR", "    " + sidebar.replace("\n", "\n    ") if sidebar else "    // (no sidebar)"))
 
+    # §8.69：根据 MERMAID_SITES 决定是否注入 mermaid plugin
+    has_mermaid = site_id in MERMAID_SITES
+    if has_mermaid:
+        # 启用：填 wrap + 删 sentinel 注释
+        out = out.replace('@__MERMAID_WRAP__', 'withMermaid(')
+        out = re.sub(r'// __MERMAID_(BLOCK|FUNCS|CFG)_(START|END)__\n', '', out)
+    else:
+        # 不启用：删 3 个块 + wrap 替换为空 + 清理多余空行
+        out = re.sub(r'// __MERMAID_BLOCK_START__.*?// __MERMAID_BLOCK_END__\n', '', out, flags=re.DOTALL)
+        out = re.sub(r'// __MERMAID_FUNCS_START__.*?// __MERMAID_FUNCS_END__\n\n?', '', out, flags=re.DOTALL)
+        out = re.sub(r'  // __MERMAID_CFG_START__\n  mermaid: \{[^}]*\},\n  // __MERMAID_CFG_END__\n', '', out)
+        out = out.replace('@__MERMAID_WRAP__ ', '')
+        # 删 wrap 后，末尾 '}))' 多一个右括号，需要改成 '})'
+        out = out.replace('}))', '})')
+        # 清理连续空行（≥3 个空行 → 2 个）
+        out = re.sub(r'\n\n\n+', '\n\n', out)
+
     out_path = site_dir_path / ".vitepress" / "config.mts.rendered"
     out_path.write_text(out, encoding="utf-8")
     print(f"OK: {out_path.relative_to(PROJECT_ROOT)}")
     print(f"    site_id={site_id}  base={base}  title={title}")
     print(f"    sidebar preserved: {len(sidebar)} chars  socialLinks: {len(social_links)} chars")
+    print(f"    mermaid: {'ON' if has_mermaid else 'OFF'}")
     return out_path
 
 

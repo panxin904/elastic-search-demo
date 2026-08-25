@@ -13,12 +13,15 @@
  *   @SOCIAL_GITHUB   e.g. '[{ icon: "github", link: "https://github.com" }]'
  */
 import { defineConfig } from 'vitepress'
+// __MERMAID_BLOCK_START__
 import { withMermaid } from 'vitepress-plugin-mermaid'
+// __MERMAID_BLOCK_END__
 import { fileURLToPath, URL } from 'node:url'
 
 // P0: VitePress/rollup 默认 fs.allow 限制 cwd 外 import。用 vite alias 解决相对路径。
 const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.url))
 
+// __MERMAID_FUNCS_START__
 // C11: Mermaid 跨站共享配置（inline 而非 import，避免 vite alias 在 Node 加载 config.mts 阶段不生效的问题）
 // 同步源：shared-assets/mermaid-config/base.ts（修改时请同步更新此处）
 // 见 §8.46
@@ -54,8 +57,9 @@ function mermaidTheme(brand: string) {
     fontSize: '14px',
   }
 }
+// __MERMAID_FUNCS_END__
 
-export default withMermaid(defineConfig({
+export default @__MERMAID_WRAP__ defineConfig({
   vite: {
     resolve: {
       alias: [
@@ -63,10 +67,12 @@ export default withMermaid(defineConfig({
       ],
     },
   },
+  // __MERMAID_CFG_START__
   mermaid: {
     ...mermaidBase,
     themeVariables: mermaidTheme('@SITE_ACCENT'),
   },
+  // __MERMAID_CFG_END__
   base: '@SITE_BASE',
   title: '@SITE_TITLE',
   description: '@SITE_DESC',
