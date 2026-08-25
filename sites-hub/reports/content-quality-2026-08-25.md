@@ -96,6 +96,33 @@
 
 **建议**：这些站当前主要靠 index.md 末尾的 📚 相关阅读 段落带跨站链接，子文档间应互相引用。可参考 §8.60 xlink-injector 注入术语映射。
 
+### 〇·b、内容完整度低（295 篇，completeness_score ≤ 3）
+
+| 子站 | 平均分 | 低完整度 / 总数 | 建议 |
+|------|------:|------:|------|
+| tools-html | 2.0 | 13 / 13 | 加代码示例 / 表格 / Vue 组件 |
+| android-html | 2.9 | 25 / 29 | 加代码示例 / 表格 / Vue 组件 |
+| iot-html | 2.9 | 30 / 35 | 加代码示例 / 表格 / Vue 组件 |
+| chaos-html | 3.0 | 25 / 32 | 加代码示例 / 表格 / Vue 组件 |
+| game-html | 3.0 | 34 / 39 | 加代码示例 / 表格 / Vue 组件 |
+| rust-html | 3.0 | 25 / 35 | 加代码示例 / 表格 / Vue 组件 |
+| devops-html | 3.3 | 17 / 30 | 加代码示例 / 表格 / Vue 组件 |
+| system-design-html | 3.5 | 28 / 52 | 加代码示例 / 表格 / Vue 组件 |
+| design-pattern-html | 3.6 | 25 / 49 | 加代码示例 / 表格 / Vue 组件 |
+| go-html | 3.7 | 12 / 36 | 加代码示例 / 表格 / Vue 组件 |
+| filesystem-html | 3.7 | 16 / 94 | 加代码示例 / 表格 / Vue 组件 |
+| postgresql-html | 3.8 | 13 / 53 | 加代码示例 / 表格 / Vue 组件 |
+| security-html | 3.9 | 6 / 36 | 加代码示例 / 表格 / Vue 组件 |
+| network-html | 4.0 | 3 / 66 | 加代码示例 / 表格 / Vue 组件 |
+| java-html | 4.0 | 9 / 53 | 加代码示例 / 表格 / Vue 组件 |
+| frontend-html | 4.2 | 5 / 65 | 加代码示例 / 表格 / Vue 组件 |
+| mysql-html | 4.3 | 1 / 67 | 加代码示例 / 表格 / Vue 组件 |
+| observability-html | 4.4 | 1 / 50 | 加代码示例 / 表格 / Vue 组件 |
+| bigdata-html | 4.5 | 2 / 51 | 加代码示例 / 表格 / Vue 组件 |
+| video-html | 4.5 | 1 / 67 | 加代码示例 / 表格 / Vue 组件 |
+| clickhouse-html | 4.5 | 3 / 36 | 加代码示例 / 表格 / Vue 组件 |
+| cloud-native-html | 4.7 | 1 / 55 | 加代码示例 / 表格 / Vue 组件 |
+
 ## 七、跨子站重复标题（199 组 — 候选合并/跨站引用）
 
 模板 词已在检测中过滤（在图谱中的位置 / 一句话定义 / 关键 takeaway 等）

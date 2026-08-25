@@ -5395,3 +5395,61 @@ feeds/git-log.xml（首版，30 天 / top 20）：
 - feeds/git-log.xml 加 GitHub Discussions / Issues RSS（社区反馈）
 - /feeds/ 目录加 `releases.xml`（按 git tag 自动生成）
 - 用户可订阅的邮件版（Buttondown / Listmonk 自部署）
+
+# §8.65 §8.55 升级 · content_completeness_score 检测
+
+> 日期：2026-08-25 · 第五十八次 · 工作量：45 分钟
+> 范围：audit 工具新增"内容完整度"评分
+
+## 8.65.1 背景与根因
+
+§8.55 引入"薄页豁免"机制解决了 java-language 14 章速查合集的误报，但暴露新问题：
+
+- **薄页**（< 200 字）只是"字数少"，但**真正影响内容质量**的是结构完整度
+- 一些页面 200+ 字但**只有纯文字**（无代码示例 / 表格 / 图谱），对技术文档来说质量低
+- 反之，cheatsheet 表格密度高但字数少，应该被认可
+
+## 8.65.2 completeness_score 评分维度（满分 7）
+
+每页加 1 分（共 7 维度）：
+
+| # | 维度 | 检测 |
+|---|---|---|
+| 1 | 有 frontmatter | `parse_frontmatter` 非空 |
+| 2 | 有代码块 | text 含 ` ``` ` |
+| 3 | 有表格 | 正则 `\\|[\\s-]+\\|` |
+| 4 | 有 Vue 组件 | 正则 `<[A-Z][A-Za-z0-9]+\\s` |
+| 5 | 有 Mermaid 图 | text 含 ` ```mermaid ` |
+| 6 | 有内链 | markdown `[text](path)` 形式 |
+| 7 | 字数 ≥ 500 | `count_words(text) >= 500` |
+
+**阈值**：score ≤ 3 算"低完整度"，列出建议。
+
+## 8.65.3 报告输出
+
+新增 `〇·b、内容完整度低` 段：列出每站低完整度页数 / 总数 + 平均分 + 改进建议。
+
+首版检测结果（2026-08-25）：
+
+```text
+低完整度总计: 295 篇（占 18.8%）
+重点站:
+- tools-html: 13/13 (100%) — 全部是 cheatsheet / md 索引
+- android-html: 25/29 (86%) — 新建站，结构未稳定
+- iot-html: 30/35 (86%) — 章节化首批，结构已优化
+- game-html: 34/39 (87%) — 同上
+- chaos-html: 25/32 (78%) — 较早章节化
+- rust-html: 25/35 (71%)
+```
+
+## 8.65.4 复用与维护
+
+- 阈值 score ≤ 3 是经验值，可调（如 ≤ 4 更严格）
+- cheatsheet / mindmap / graph.md 当前在 THIN_EXCLUDE_NAMES，未来可考虑用 score 替代
+- 集成到 check-sites.sh CI 门禁：`low_completeness_pct ≤ 20%`
+
+## 8.65.5 后续按需
+
+- 自动给低分页生成"改进建议"（基于缺哪些维度）
+- 接入 Dashboard（build-audit-dashboard.py）显示趋势
+- 与 §8.55 站点豁免互补：豁免"字数少"，但分数仍计算（让 audit 数字更准确）

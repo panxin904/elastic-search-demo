@@ -264,7 +264,9 @@ def main():
     site_stats = defaultdict(lambda: {'files': 0, 'words': 0, 'fm': 0, 'imgs': 0, 'links': 0,
                                        'thin': 0, 'thin_excluded': 0, 'no_fm': 0, 'no_date': 0, 'stale': 0, 'missing_alt': 0,
                                        'broken_links': 0, 'xsite_links': 0, 'vue_prop_issues': 0, 'vue_missing_comp': 0,
-                                       'mermaid_unclosed': 0, 'heading_jump': 0})
+                                       'mermaid_unclosed': 0, 'heading_jump': 0,
+                                       # §8.55 升级：content_completeness_score 检测
+                                       'low_completeness': 0, 'completeness_total': 0})
     all_titles: list[tuple[str, str, Path]] = []  # (title, site, file)
     issues_thin: list[str] = []
     issues_no_fm: list[str] = []
@@ -275,6 +277,7 @@ def main():
     issues_vue_missing: list[str] = []
     issues_mermaid: list[str] = []
     issues_heading: list[str] = []
+    issues_completeness: list[str] = []
 
     now = datetime.date.today()
 
@@ -346,6 +349,20 @@ def main():
                 s['thin'] += 1
                 issues_thin.append((words, f"{site_short}/{path.relative_to(SITE_DOCS[site])} ({words}字)"))
         # 薄页计数已整合到 §8.55 exclude 分支
+
+        # §8.55 升级：content_completeness_score（0-7 分）
+        # 满分维度：FM / 代码块 / 表格 / Vue 组件 / Mermaid / 内链 / 字数
+        score = 0
+        if has_fm: score += 1
+        if '```' in text: score += 1
+        if re.search(r'\|[\s-]+\|', text): score += 1
+        if re.search(r'<[A-Z][A-Za-z0-9]+\s', text): score += 1
+        if '```mermaid' in text: score += 1
+        if re.search(r'\]\([^h)][^)]*\)', text): score += 1
+        if words >= 500: score += 1
+        s['completeness_total'] += score
+        if score <= 3 and not skip_thin:
+            s['low_completeness'] += 1
 
         # 图片
         md_imgs = MD_IMG.findall(text)
@@ -606,6 +623,19 @@ def main():
             lines.append(f"- `{f}`")
         if len(broken_links) > 30:
             lines.append(f"- ... 及其他 {len(broken_links) - 30} 处")
+        lines.append("")
+
+    # §8.55 升级：低完整度清单
+    low_complete = [(s['completeness_total'] / s['files'] if s['files'] else 0, short, s['low_completeness'], s['files']) for short, s in site_stats.items() if s['low_completeness'] > 0]
+    low_complete.sort(key=lambda x: x[0])  # 平均分低 → 前
+    total_low = sum(s['low_completeness'] for s in site_stats.values())
+    if total_low > 0:
+        lines.append(f"### 〇·b、内容完整度低（{total_low} 篇，completeness_score ≤ 3）")
+        lines.append("")
+        lines.append("| 子站 | 平均分 | 低完整度 / 总数 | 建议 |")
+        lines.append("|------|------:|------:|------|")
+        for avg, short, n, total in low_complete:
+            lines.append(f"| {short} | {avg:.1f} | {n} / {total} | 加代码示例 / 表格 / Vue 组件 |")
         lines.append("")
 
     if cross_dups:
