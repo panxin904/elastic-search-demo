@@ -5675,3 +5675,134 @@ python3 sites-hub/scripts/crosslink-dedup.py
 - 标题数量继续涨（≥3 站）时再扩 TITLE_AUTHORITY
 - 单文件 markdown 直接维护 marker 段即可，脚本不强制每次重写
 - 跨站段落文案若有变化，手改 + marker 重跑只会跳过已存在段，不会污染
+
+# §8.69 Mermaid 治理 + 3 站加图
+
+> 日期：2026-08-25 · 第六十二次 · 工作量：1.5 小时
+> 范围：清理 26 站 dead plugin + 模板加开关 + 3 站加 mermaid 总图
+
+## 8.69.1 背景与根因
+
+**统计扫描**：31 站装了 `vitepress-plugin-mermaid`，实际有 ```mermaid``` 块的只有 5 站。
+
+- ON（5 站）：android / iot / game / system-design / springcloud
+- OFF（26 站）：ai / architecture / bigdata / chaos / clickhouse / cloud-native / design-pattern / devops / es / filesystem / frontend / go / java-language / kafka / linux / mysql / network / observability / postgresql / python / redis / rust / security / tools / video / java-web-manual
+
+**问题**：
+1. 26 站 dead config：bundle 多挂 Mermaid.vue，build 多跑 markdown transform
+2. 5 站真用 mermaid 的反而没专门"概念总览图"（特别是 design-pattern 23 模式 / observability 三大支柱 / architecture 分层架构这种最适合可视化的主题）
+3. config.mts 是模板生成（`@generated from config.mts.tpl`），不能直接手改，否则下次 render 会覆盖
+
+## 8.69.2 实施（4 阶段）
+
+### 阶段 1：模板加 sentinel（config.mts.tpl）
+
+加 4 个 sentinel + 1 个 wrap 变量：
+
+```typescript
+// __MERMAID_BLOCK_START__
+import { withMermaid } from 'vitepress-plugin-mermaid'
+// __MERMAID_BLOCK_END__
+
+// __MERMAID_FUNCS_START__
+const mermaidBase = { ... } as const
+function lightenHex(...) { ... }
+function mermaidTheme(...) { ... }
+// __MERMAID_FUNCS_END__
+
+export default @__MERMAID_WRAP__ defineConfig({
+  vite: { ... },
+  // __MERMAID_CFG_START__
+  mermaid: { ... },
+  // __MERMAID_CFG_END__
+  ...
+}))
+```
+
+### 阶段 2：render-config.py 加 MERMAID_SITES
+
+```python
+MERMAID_SITES = {'android', 'iot', 'game', 'system-design', 'cloud',  # cloud -> springcloud-html
+                 'design-pattern', 'observability', 'architecture'}    # §8.69 D 任务新加
+```
+
+后处理逻辑：
+- site_id ∈ MERMAID_SITES：删 sentinel 注释，`@__MERMAID_WRAP__` → `withMermaid(`
+- site_id ∉ MERMAID_SITES：删 4 个 sentinel 块，`@__MERMAID_WRAP__` → ``，尾部 `}))` → `})`
+
+### 阶段 3：清理 26 站 dead plugin（+ 同步 5 站 ON）
+
+`render-config.py --all --apply` 重渲染 31 站 config.mts，自动按 MERMAID_SITES 注入或删除 mermaid。
+
+### 阶段 4：3 站加 mermaid 总图
+
+| 站 | 文件 | 图内容 |
+|---|---|---|
+| design-pattern | docs/index.md | GoF 23 模式三大类（创建5 + 结构7 + 行为11） |
+| observability | docs/01-foundations/four-pillars.md | Metrics/Logs/Traces 三大信号流向 + 存储后端 |
+| architecture | docs/index.md | 传统三层 vs DDD 四层 vs 六边形/Clean 对比 |
+
+## 8.69.3 Bug 修复记录
+
+**Bug**：删 `withMermaid(` wrap 后，模板尾部 `}))` 多了一个 `)`，esbuild 报 `Expected ";" but found ")"`。
+
+**根因**：`withMermaid(defineConfig({...}))` 有 2 个开括号 `((`，关闭需要 `}))`。
+删 wrap 后只有 1 个开括号 `(`，需要 `})` 关闭。
+
+**修复**：render-config.py 关闭分支加 `out.replace('}))', '})')`。
+
+**预防**：模板系统如果将来加更多 wrap（如 `@__MERMAID_WRAP__`），注意 wrap 配对：
+- 开：`(`（wrap 函数）
+- 开：`(`（defineConfig）
+- 关：`)`（defineConfig）
+- 关：`)`（wrap 函数）
+
+模板里用 sentinel 表达"开/关"配对，而不是 inline 字符串替换。
+
+## 8.69.4 验证
+
+| 验证项 | 方法 | 结果 |
+|---|---|---|
+| 31 站 config.mts 正确性 | grep withMermaid | 5 ON + 26 OFF ✓ |
+| 26 站 package.json 删干净 | grep vitepress-plugin-mermaid | 5 站残留 ✓ |
+| 5 站 build 不破 | `npx vitepress build` × 3（springcloud/system-design/game） | ✓ |
+| 26 站 build 不破 | `npx vitepress build` × 2（chaos/ai） | ✓ |
+| 3 站新加 mermaid build | `npx vitepress build` × 3（design-pattern/observability/architecture） | ✓ |
+| 3 站 mermaid 容器生成 | grep `<div class="mermaid">` in dist/index.html | design-pattern: 1, observability/four-pillars: 1, architecture: 1 ✓ |
+| Mermaid.vue + chunks 生成 | ls dist/assets/chunks/ \| grep Diagram | 29 个 diagram chunks ✓ |
+
+注：CSR 模式，dist 里**无 SVG**，浏览器 onMounted 才生成。验证手段是看 plugin 模块是否正确注入。
+
+## 8.69.5 复用
+
+### 新站加 mermaid
+
+```bash
+# 1. 站 docs/ 里加 ```mermaid 块
+# 2. 把 site_id 加进 render-config.py 的 MERMAID_SITES
+# 3. 重渲染
+python3 shared-assets/vitepress-template/scripts/render-config.py <dir>-html <site-id> --apply
+# 4. 装依赖（如果 package.json 没装）
+cd <dir>-html && npm install
+# 5. build 验证
+npx vitepress build
+```
+
+### 站不再用 mermaid
+
+```bash
+# 从 MERMAID_SITES 移除 site_id，重渲染即可
+```
+
+## 8.69.6 后续按需
+
+- **真正的 Mermaid SSR**：v2 plugin 不支持 SSR。如需 build-time 渲染 SVG，要升级 plugin v3+ 或上 puppeteer+mermaid-cli（成本高，与低投入原则冲突，跳过）
+- **更多站加 mermaid**：观察哪些站主题"概念关系密集"，候选：es（索引/集群结构）、kafka（partition/replica 流）、mysql（锁/事务状态机）
+- **mermaid 主题色统一**：5 站都用 mermaidBase（theme: base），但 brand 色不同，已通过 mermaidTheme() 注入。可继续扩展（如统一节点圆角/阴影）
+
+## 8.69.7 协同
+
+- §8.46：mermaidBase 共享配置（fontFamily / securityLevel / theme）
+- §8.60：xlink-injector 在 index.md 末尾加"📚 相关阅读"（与 mermaid 图位置互补）
+- §8.68：crosslink-dedup 给高频概念重复文件加跨站参考段
+- §8.69（本文）：模板系统加 mermaid 开关 + 3 站补可视化
