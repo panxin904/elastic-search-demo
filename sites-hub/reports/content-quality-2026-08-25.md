@@ -23,7 +23,7 @@
 | Vue 组件缺失（md 引用无 .vue） | 0 | 0 | ✅ |
 | Mermaid 代码块未闭合 | 0 | 0 | ✅ |
 | 标题层级跳级 | 0 | 0 | ✅ |
-| 跨子站重复标题 | 199 | ≤ 20 | ⚠️ |
+| 跨子站重复标题 | 186 | ≤ 20 | ⚠️ |
 
 ## 一、各子站统计
 
@@ -123,7 +123,7 @@
 | clickhouse-html | 4.5 | 3 / 36 | 加代码示例 / 表格 / Vue 组件 |
 | cloud-native-html | 4.7 | 1 / 55 | 加代码示例 / 表格 / Vue 组件 |
 
-## 七、跨子站重复标题（199 组 — 候选合并/跨站引用）
+## 七、跨子站重复标题（186 组 — 候选合并/跨站引用）
 
 模板 词已在检测中过滤（在图谱中的位置 / 一句话定义 / 关键 takeaway 等）
 
@@ -178,9 +178,6 @@
 - **'Kafka Streams'** (2 处)
   - `bigdata/streams.md`
   - `kafka/streams.md`
-- **'dbt_project.yml'** (2 处)
-  - `bigdata/airflow-dbt.md`
-  - `clickhouse/overview.md`
 - **'数据写入流程'** (2 处)
   - `bigdata/architecture.md`
   - `kafka/overview.md`
@@ -234,7 +231,13 @@
 - **'备份到 S3'** (2 处)
   - `clickhouse/installation.md`
   - `mysql/mysqldump.md`
-- ... 及其他 169 组
+- **'Kubernetes 部署'** (5 处)
+  - `clickhouse/installation.md`
+  - `design-pattern/sidecar.md`
+  - `observability/collector.md`
+  - `observability/jaeger.md`
+  - `python/docker.md`
+- ... 及其他 156 组
 
 ## 八、关键发现与建议
 

@@ -5453,3 +5453,78 @@ feeds/git-log.xml（首版，30 天 / top 20）：
 - 自动给低分页生成"改进建议"（基于缺哪些维度）
 - 接入 Dashboard（build-audit-dashboard.py）显示趋势
 - 与 §8.55 站点豁免互补：豁免"字数少"，但分数仍计算（让 audit 数字更准确）
+
+# §8.66 C3 dups 治理 · dedup-suggest 工具 + 白名单扩展
+
+> 日期：2026-08-25 · 第五十九次 · 工作量：45 分钟
+> 范围：dups 194 → 186（-8 配置类）+ 输出治理建议清单
+
+## 8.66.1 现状
+
+audit baseline 显示 dups = 194（cross-site）/ 454（intra-site）。
+
+之前 §8.49 已加两轮白名单（44 项），本轮扩展到 52 项。
+
+## 8.66.2 实施
+
+写 `sites-hub/scripts/dedup-suggest.py`：
+- 复用 audit 的 dups 检测逻辑
+- 按主题分类（概念 / 配置 / 章节）
+- 输出 `sites-hub/reports/dedup-suggestions.md` 治理建议
+
+```text
+总 dups: 249（H1 + H2）
+- 概念类（需跨站链接 / 合并）：16 组
+- 配置类（建议加白名单）：8 组
+- 章节类（建议加站前缀）：225 组
+```
+
+## 8.66.3 P1 任务：配置类加白名单（已完成）
+
+8 个配置类加入 `TEMPLATE_TITLES`：
+- `/etc/default/grub` / `/etc/sysctl.conf` / `/etc/systemd/system/myapp.service`
+- `alertmanager.yml` / `application-dev.yml` / `application-prod.yml`
+- `application-test.yml` / `dbt_project.yml`
+
+效果：dups 194 → 186（-8）
+
+## 8.66.4 P2 任务：高频概念类重复（待做）
+
+涉及 ≥ 3 站的重复：
+- 📊 监控告警（kafka / mysql / video，4 处）
+- 🧰 常用场景快速索引（kafka / python / redis，3 处）
+- 📑 章节快速索引（android / game，2 处）
+
+治理方法：在每个重复页末尾加"📚 详细见 X 站 Y 页"段落。
+
+## 8.66.5 P3 任务：低频概念类（按站处理）
+
+~10 个 2 站重复：CAP / Raft / Saga / 多级缓存 / 缓存一致性 / 事务隔离级别 等。
+
+治理方法：人工 review，决定哪个是"主版本"哪个是"镜像"。
+
+## 8.66.6 P4 任务：章节类（225 个）
+
+主要是编号章节（"1. 安装" / "2. 配置" / "3. 部署" / "4. 验证"）。多站模板生成的固定标题。
+
+**判断**：这些不应该当作 dups 治理（结构性重复，价值低）。建议加审计规则：编号章节（H1 + "数字."开头）豁免。
+
+## 8.66.7 复用
+
+- 跑：`python3 sites-hub/scripts/dedup-suggest.py` → 生成建议清单
+- 报告：`sites-hub/reports/dedup-suggestions.md`（人工 review 用）
+- 与 audit 互补：audit 报数字，dedup-suggest 给治理建议
+
+## 8.66.8 与 §8.49 / §8.60 / §8.61 协同
+
+- §8.49 引入 dups 检测 + 白名单机制
+- §8.60 注入跨站链接（让重复内容可跳转）
+- §8.61 修复 audit bug（dups 统计准确）
+- §8.66 提供 dedup 建议工具 + 第四轮白名单扩展
+
+## 8.66.9 后续按需
+
+- P2 高频概念类重复加跨站段落（下一步）
+- P3 低频概念类人工 review
+- P4 编号章节智能豁免（regex `^\d+\.` 开头的 H1 不计 dups）
+- dedup 趋势 dashboard（§C3）

@@ -479,6 +479,18 @@ def main():
         '选型决策树', '学习路径建议', '与其他站点的关系',
         '缓存三大问题', '三大问题对比', '适用 vs 不适用',
         'P99 延迟', '字符串函数',
+        # === C3 §8.49 第三轮豁免：路径类配置 + 编号章节 + Windows ===
+        # 系统路径类配置（多站共用做示例）
+        'postgresql.conf', '/etc/fstab', '/etc/ssh/sshd_config',
+        # 操作系统环境
+        'Windows', 'GitHub Actions',
+        # 编号章节（多站模板生成的固定标题）
+        '4. 验证', '3. 配置', '2. 安装', '5. 测试',
+        '安装并启动', '配置示例',
+        # === C3 §8.66 第四轮豁免：配置文件 + 系统路径（多站共用）===
+        '/etc/default/grub', '/etc/sysctl.conf', '/etc/systemd/system/myapp.service',
+        'alertmanager.yml', 'application-dev.yml', 'application-prod.yml',
+        'application-test.yml', 'dbt_project.yml',
     }
     by_title: dict[str, list[tuple[str, Path]]] = defaultdict(list)
     for t, s, p in all_titles:
