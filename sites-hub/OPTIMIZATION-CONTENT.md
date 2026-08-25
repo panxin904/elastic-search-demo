@@ -5329,3 +5329,69 @@ C8 多语言任务的实际范围：
 - 翻译其他语言版本（按需：日语 / 西语等）
 - 关键页面 EN 切换（hero 加 language switcher）
 - 各站 index.md 加 EN 摘要（用 glossary 自动生成）
+
+# §8.64 C5 RSS feed 增强 · git log 驱动版本
+
+> 日期：2026-08-25 · 第五十七次 · 工作量：30 分钟
+> 范围：C5 收尾 + 新增 git log 驱动的 RSS feed
+
+## 8.64.1 现状（§8.27 已完成）
+
+`build-sitemap-and-llms.py` 已生成：
+- 28 站 `feed.xml`（每站）
+- 主门户 `/feed.xml`（聚合 top 50 页面，按页面 date/mtime 排序）
+
+**缺口**：聚合 feed 按"页面创建时间"排序，但页面一旦发布就固定，看不出代码改动（即"哪个 commit 更新了哪个站"）。
+
+## 8.64.2 实施
+
+新增 `sites-hub/scripts/build-feed-from-git.py`：
+
+- 从 `git log --since=N.days` 解析所有 commit
+- 过滤掉 ci / chore / build / style 类型（用户视角无关）
+- 每个 commit → 1 RSS item
+- title: `✨ feat (c8): ...`（emoji + type + scope + desc）
+- link: GitHub commit URL
+- pubDate: commit 时间（RFC 822）
+- description: `Commit <code>xxxx</code> · N 文件`
+
+输出到独立位置：`sites-hub/www/feeds/git-log.xml`（**不覆盖** 现有的 `/feed.xml`，让两个 feed 互补）。
+
+## 8.64.3 两个 feed 的差异
+
+| Feed | URL | 用途 | 数据源 |
+|------|-----|------|--------|
+| 内容更新 | `/feed.xml` | 用户订阅"哪些页面发布了" | page date / mtime |
+| 代码变更 | `/feeds/git-log.xml` | 开发者订阅"哪些 commit 改了啥" | git log |
+
+主页 index.html 已加 `<link rel="alternate" type="application/rss+xml">` 两个声明，RSS 阅读器自动发现。
+
+## 8.64.4 生成结果
+
+```text
+feeds/git-log.xml（首版，30 天 / top 20）：
+- total commits: 40
+- shown: 20 (skip ci/chore/build/style)
+- feat: 11  fix: 7  docs: 2
+```
+
+## 8.64.5 复用与维护
+
+- 跑：`python3 sites-hub/scripts/build-feed-from-git.py [--days 30] [--limit 50]`
+- CI 集成：可加到 release job（CI 跑时自动更新）
+- 与 build-updates-from-git.py 共用 git log 解析逻辑（按 Conventional Commits）
+
+## 8.64.6 与 build-sitemap-and-llms.py 关系
+
+- build-sitemap-and-llms.py：build 时跑（page-based feed.xml + sitemap + llms.txt）
+- build-updates-from-git.py：commit 时跑（Updates HTML 注入主页）
+- build-feed-from-git.py：commit 时跑（git log 驱动的 RSS feed）
+
+**理想**：3 个脚本整合到一个 `build-hub-assets.py`（按需触发），减少 CI 步骤。
+
+## 8.64.7 后续按需
+
+- 整合 3 个 build 脚本到 `build-hub-assets.py`（按需）
+- feeds/git-log.xml 加 GitHub Discussions / Issues RSS（社区反馈）
+- /feeds/ 目录加 `releases.xml`（按 git tag 自动生成）
+- 用户可订阅的邮件版（Buttondown / Listmonk 自部署）

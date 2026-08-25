@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Scholar's Atlas · 最近更新（git log 驱动）</title>
+    <link>https://github.com/panxin904/elastic-search-demo/commits/main</link>
+    <atom:link href="https://java-px.bot.cd/feed.xml" rel="self" type="application/rss+xml" />
+    <description>按 commit 时间倒序 · 最近 20 条功能/修复/重构 · 跳过 ci/chore/build/style</description>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 25 Aug 2026 12:49:46 +0000</lastBuildDate>
+    <item>
+      <title>✨ feat (c8): glossary EN 列补完 + 双语对照表生成（§8.63）</title>
+      <link>https://github.com/panxin904/elastic-search-demo/commit/0c642dd7d633557f7bbaa664f453062c550bf70c</link>
+      <guid isPermaLink="true">https://github.com/panxin904/elastic-search-demo/commit/0c642dd7d633557f7bbaa664f453062c550bf70c</guid>
+      <description>Commit <code>0c642dd</code> · 4 文件
+
+glossary EN 列补完 + 双语对照表生成（§8.63）</description>
+      <pubDate>Tue, 25 Aug 2026 19:28:50 +0800</pubDate>
+    </item>
+    <item>
+      <title>✨ feat (c10): CHANGELOG 自动生成 + C10 流程收尾（§8.62）</title>
+      <link>https://github.com/panxin904/elastic-search-demo/commit/d1c696fb2da5f02cbba2fb621a59455ebfea8d84</link>
+      <guid isPermaLink="true">https://github.com/panxin904/elastic-search-demo/commit/d1c696fb2da5f02cbba2fb621a59455ebfea8d84</guid>
+      <description>Commit <code>d1c696f</code> · 3 文件
+
+CHANGELOG 自动生成 + C10 流程收尾（§8.62）</description>
+      <pubDate>Tue, 25 Aug 2026 19:26:53 +0800</pubDate>
+    </item>
+    <item>
+      <title>🐛 fix (audit): §8.55 continue bug + xsite_density 检测（§8.60.6/8.61）</title>
+      <link>https://github.com/panxin904/elastic-search-demo/commit/fb2c51b31111694ec829a9626415e7f2db491f1d</link>
+      <guid isPermaLink="true">https://github.com/panxin904/elastic-search-demo/commit/fb2c51b31111694ec829a9626415e7f2db491f1d</guid>
+      <description>Commit <code>fb2c51b</code> · 3 文件
+
+§8.55 continue bug + xsite_density 检测（§8.60.6/8.61）</description>
+      <pubDate>Tue, 25 Aug 2026 19:25:11 +0800</pubDate>
+    </item>
+    <item>
+      <title>✨ feat (c2): 跨站内容关联注入 · 30 站 +152 xsite 链接（§8.60）</title>
+      <link>https://github.com/panxin904/elastic-search-demo/commit/e9aaf6bf822ddf5082205b6e1a017bade8751477</link>
+      <guid isPermaLink="true">https://github.com/panxin904/elastic-search-demo/commit/e9aaf6bf822ddf5082205b6e1a017bade8751477</guid>
+      <description>Commit <code>e9aaf6b</code> · 34 文件
+
+跨站内容关联注入 · 30 站 +152 xsite 链接（§8.60）</description>
+      <pubDate>Tue, 25 Aug 2026 19:06:12 +0800</pubDate>
+    </item>
+    <item>
+      <title>✨ feat (game): 子站章节化完成 · 8 章 39 文件 + sidebar 9 分组（C-6 / §8.59）</title>
+      <link>https://github.com/panxin904/elastic-search-demo/commit/2d16e8fffaac5ed81ae2843acdfe328bee86da60</link>
+      <guid isPermaLink="true">https://github.com/panxin904/elastic-search-demo/commit/2d16e8fffaac5ed81ae2843acdfe328bee86da60</guid>
+      <description>Commit <code>2d16e8f</code> · 38 文件
+
+子站章节化完成 · 8 章 39 文件 + sidebar 9 分组（C-6 / §8.59）</description>
+      <pubDate>Mon, 24 Aug 2026 21:21:46 +0800</pubDate>
+    </item>
+    <item>
+      <title>✨ feat (android): 子站章节化完成 · 6 章 29 文件 + sidebar 7 分组（C-5 / §8.58）</title>
+      <link>https://github.com/panxin904/elastic-search-demo/commit/7a2056b16004fc31dd932c8890bec647c5aac469</link>
+      <guid isPermaLink="true">https://github.com/panxin904/elastic-search-demo/commit/7a2056b16004fc31dd932c8890bec647c5aac469</guid>
+      <description>Commit <code>7a2056b</code> · 29 文件
+
+子站章节化完成 · 6 章 29 文件 + sidebar 7 分组（C-5 / §8.58）</description>
+      <pubDate>Mon, 24 Aug 2026 21:17:30 +0800</pubDate>
+    </item>
+    <item>
+      <title>✨ feat (iot): 子站章节化完成 · 6 章 35 文件 + sidebar 7 分组（C-4 / §8.57）</title>
+      <link>https://github.com/panxin904/elastic-search-demo/commit/a8ee7c7df2ea426095cb247d772415a4a2868396</link>
+      <guid isPermaLink="true">https://github.com/panxin904/elastic-search-demo/commit/a8ee7c7df2ea426095cb247d772415a4a2868396</guid>
+      <description>Commit <code>a8ee7c7</code> · 32 文件
+
+子站章节化完成 · 6 章 35 文件 + sidebar 7 分组（C-4 / §8.57）</description>
+      <pubDate>Mon, 24 Aug 2026 21:12:04 +0800</pubDate>
+    </item>
+    <item>
+      <title>🐛 fix (content): 补 22 篇剩余薄页到 200+ 字，audit baseline 薄页数 22 → 0（C-7 收尾 / §8.56）</title>
+      <link>https://github.com/panxin904/elastic-search-demo/commit/d7f5899a053301a411e3b5bf6a4126d26f9ce351</link>
+      <guid isPermaLink="true">https://github.com/panxin904/elastic-search-demo/commit/d7f5899a053301a411e3b5bf6a4126d26f9ce351</guid>
+      <description>Commit <code>d7f5899</code> · 24 文件
+
+补 22 篇剩余薄页到 200+ 字，audit baseline 薄页数 22 → 0（C-7 收尾 / §8.56）</description>
+      <pubDate>Mon, 24 Aug 2026 21:00:48 +0800</pubDate>
+    </item>
+    <item>
+      <title>🐛 fix (audit + java-language): 站点级薄页豁免 + 定位调整为速查手册（C-7 / §8.55）</title>
+      <link>https://github.com/panxin904/elastic-search-demo/commit/2b7a69cfee9f100d23641c442b99f7939506b064</link>
+      <guid isPermaLink="true">https://github.com/panxin904/elastic-search-demo/commit/2b7a69cfee9f100d23641c442b99f7939506b064</guid>
+      <description>Commit <code>2b7a69c</code> · 4 文件
+
+站点级薄页豁免 + 定位调整为速查手册（C-7 / §8.55）</description>
+      <pubDate>Mon, 24 Aug 2026 20:55:57 +0800</pubDate>
+    </item>
+    <item>
+      <title>🐛 fix (game): questions.md 3 处 `&lt;T&gt;` 转义为 `&amp;lt;T&gt;`（C-12 / §8.53.4 解锁 CI）</title>
+      <link>https://github.com/panxin904/elastic-search-demo/commit/cb46025d98971063d4b119092616ade6e9ee2091</link>
+      <guid isPermaLink="true">https://github.com/panxin904/elastic-search-demo/commit/cb46025d98971063d4b119092616ade6e9ee2091</guid>
+      <description>Commit <code>cb46025</code> · 1 文件
+
+questions.md 3 处 `&lt;T&gt;` 转义为 `&amp;lt;T&gt;`（C-12 / §8.53.4 解锁 CI）</description>
+      <pubDate>Mon, 24 Aug 2026 20:52:15 +0800</pubDate>
+    </item>
+    <item>
+      <title>📚 docs (audit): 更新 content-quality-2026-08-24 baseline（cloud 站 vue_missing 1→0）</title>
+      <link>https://github.com/panxin904/elastic-search-demo/commit/3b41561c3e9a7ba22da3e3662a37240a52afbccd</link>
+      <guid isPermaLink="true">https://github.com/panxin904/elastic-search-demo/commit/3b41561c3e9a7ba22da3e3662a37240a52afbccd</guid>
+      <description>Commit <code>3b41561</code> · 1 文件
+
+更新 content-quality-2026-08-24 baseline（cloud 站 vue_missing 1→0）</description>
+      <pubDate>Mon, 24 Aug 2026 20:39:48 +0800</pubDate>
+    </item>
+    <item>
+      <title>🐛 fix (springcloud): 补 WhyThisGraph.vue 组件（C-15 后续按需 → 立即修）</title>
+      <link>https://github.com/panxin904/elastic-search-demo/commit/d49c444e50647935dcf840308b75cebae818156b</link>
+      <guid isPermaLink="true">https://github.com/panxin904/elastic-search-demo/commit/d49c444e50647935dcf840308b75cebae818156b</guid>
+      <description>Commit <code>d49c444</code> · 1 文件
+
+补 WhyThisGraph.vue 组件（C-15 后续按需 → 立即修）</description>
+      <pubDate>Mon, 24 Aug 2026 20:39:40 +0800</pubDate>
+    </item>
+    <item>
+      <title>🐛 fix (audit + updates): C-1 cloud 站 SITES_DIRS 错配 / C-2 cat_map 补 4 站</title>
+      <link>https://github.com/panxin904/elastic-search-demo/commit/87f57cb514359e2f262b348774a3903a8a2dad16</link>
+      <guid isPermaLink="true">https://github.com/panxin904/elastic-search-demo/commit/87f57cb514359e2f262b348774a3903a8a2dad16</guid>
+      <description>Commit <code>87f57cb</code> · 3 文件
+
+C-1 cloud 站 SITES_DIRS 错配 / C-2 cat_map 补 4 站</description>
+      <pubDate>Mon, 24 Aug 2026 19:22:39 +0800</pubDate>
+    </item>
+    <item>
+      <title>📚 docs (§8.53): 留底 game 接入期间 CI 失败排查报告（2026-08-23 第四十六次）</title>
+      <link>https://github.com/panxin904/elastic-search-demo/commit/0e29ef5239d03ca46eec1c02c441ddb83483a354</link>
+      <guid isPermaLink="true">https://github.com/panxin904/elastic-search-demo/commit/0e29ef5239d03ca46eec1c02c441ddb83483a354</guid>
+      <description>Commit <code>0e29ef5</code> · 1 文件
+
+留底 game 接入期间 CI 失败排查报告（2026-08-23 第四十六次）</description>
+      <pubDate>Sun, 23 Aug 2026 14:27:57 +0800</pubDate>
+    </item>
+    <item>
+      <title>🐛 fix (config): 修复 android / iot / game 站 nav /graph broken link + description 节点数</title>
+      <link>https://github.com/panxin904/elastic-search-demo/commit/183a2210b5c1764cc097e2b58ac84cf8247a7151</link>
+      <guid isPermaLink="true">https://github.com/panxin904/elastic-search-demo/commit/183a2210b5c1764cc097e2b58ac84cf8247a7151</guid>
+      <description>Commit <code>183a221</code> · 3 文件
+
+修复 android / iot / game 站 nav /graph broken link + description 节点数</description>
+      <pubDate>Sat, 22 Aug 2026 11:59:50 +0800</pubDate>
+    </item>
+    <item>
+      <title>✨ feat (game): 接入 game 站的全局配置与文档（30 → 31 站）</title>
+      <link>https://github.com/panxin904/elastic-search-demo/commit/32469310d3001143a56a6d900120dc400e0c899c</link>
+      <guid isPermaLink="true">https://github.com/panxin904/elastic-search-demo/commit/32469310d3001143a56a6d900120dc400e0c899c</guid>
+      <description>Commit <code>3246931</code> · 7 文件
+
+接入 game 站的全局配置与文档（30 → 31 站）</description>
+      <pubDate>Sat, 22 Aug 2026 11:35:51 +0800</pubDate>
+    </item>
+    <item>
+      <title>✨ feat (game): 新增游戏开发子站（31 站，首版 6 个骨架页）</title>
+      <link>https://github.com/panxin904/elastic-search-demo/commit/eece8cedb3f9fd9c6b0f18aea7d53ed3e0349b64</link>
+      <guid isPermaLink="true">https://github.com/panxin904/elastic-search-demo/commit/eece8cedb3f9fd9c6b0f18aea7d53ed3e0349b64</guid>
+      <description>Commit <code>eece8ce</code> · 14 文件
+
+新增游戏开发子站（31 站，首版 6 个骨架页）</description>
+      <pubDate>Sat, 22 Aug 2026 10:39:37 +0800</pubDate>
+    </item>
+    <item>
+      <title>✨ feat (android): 接入 android 站的全局配置与文档（29 → 30 站）</title>
+      <link>https://github.com/panxin904/elastic-search-demo/commit/309f8b22d1c2aed52f62baab66282082d41c8a7a</link>
+      <guid isPermaLink="true">https://github.com/panxin904/elastic-search-demo/commit/309f8b22d1c2aed52f62baab66282082d41c8a7a</guid>
+      <description>Commit <code>309f8b2</code> · 8 文件
+
+接入 android 站的全局配置与文档（29 → 30 站）</description>
+      <pubDate>Fri, 21 Aug 2026 20:34:09 +0800</pubDate>
+    </item>
+    <item>
+      <title>✨ feat (android): 新增安卓 Android 子站（30 站，首版 6 个骨架页）</title>
+      <link>https://github.com/panxin904/elastic-search-demo/commit/8c73aff9ecd60562b0296202931f58e406a0566c</link>
+      <guid isPermaLink="true">https://github.com/panxin904/elastic-search-demo/commit/8c73aff9ecd60562b0296202931f58e406a0566c</guid>
+      <description>Commit <code>8c73aff</code> · 13 文件
+
+新增安卓 Android 子站（30 站，首版 6 个骨架页）</description>
+      <pubDate>Fri, 21 Aug 2026 20:34:05 +0800</pubDate>
+    </item>
+    <item>
+      <title>✨ feat (iot): 接入 iot 站的全局配置与文档（28 → 29 站）</title>
+      <link>https://github.com/panxin904/elastic-search-demo/commit/77198bcef5e04acc5bead49befd7e67e66ebb4e9</link>
+      <guid isPermaLink="true">https://github.com/panxin904/elastic-search-demo/commit/77198bcef5e04acc5bead49befd7e67e66ebb4e9</guid>
+      <description>Commit <code>77198bc</code> · 7 文件
+
+接入 iot 站的全局配置与文档（28 → 29 站）</description>
+      <pubDate>Fri, 21 Aug 2026 20:24:51 +0800</pubDate>
+    </item>
+  </channel>
+</rss>
