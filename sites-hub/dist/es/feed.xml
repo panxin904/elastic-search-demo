@@ -6,13 +6,34 @@
     <atom:link href="https://java-px.bot.cd/es/feed.xml" rel="self" type="application/rss+xml" />
     <description>es 知识图谱（63 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 19 Aug 2026 20:00:49 -0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
     <item>
       <title>ES Knowledge Atlas</title>
       <link>https://java-px.bot.cd/es/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/es/</guid>
       <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="painPoints" :goals="goals" :related-sites="relatedSites" title="🎯 为什么写这个图谱？" /&gt; &lt;/ClientOnly&gt; &lt;script setup&gt; // WhyThisGraph 数据从 frontmatter 读不到（YAML 数组太复杂），放这</description>
-      <pubDate>Sun, 16 Aug 2026 09:34:58 -0000</pubDate>
+      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>Translog</title>
+      <link>https://java-px.bot.cd/es/01-storage/translog</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/es/01-storage/translog</guid>
+      <description>&lt;span class="kg-badge kg-badge-storage"&gt;存储层&lt;/span&gt; Translog 是分片级别的**事务日志**，用于节点崩溃后**恢复尚未 flush 到磁盘的数据**。 | 参数 | 取值 | 说明 | |---|---|---| | `durability` | `request`（默认） | 每个请求 fsync，**安全但慢** | | `durabi</description>
+      <pubDate>Mon, 24 Aug 2026 21:00:23 -0000</pubDate>
+    </item>
+    <item>
+      <title>排序</title>
+      <link>https://java-px.bot.cd/es/02-query/sort</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/es/02-query/sort</guid>
+      <description>&lt;span class="kg-badge kg-badge-query"&gt;查询层&lt;/span&gt; ES 默认按 **`_score` 降序**排序，可自定义。 &gt; 💡 排序会**禁用评分计算**（除非显式保留 `_score`）。 `search_after` 必须有**唯一性 tiebreaker**（推荐 `_id` 或带 doc_value 的字段）。 | mode | 行为 | |---|</description>
+      <pubDate>Mon, 24 Aug 2026 21:00:23 -0000</pubDate>
+    </item>
+    <item>
+      <title>Range Query</title>
+      <link>https://java-px.bot.cd/es/02-query/range</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/es/02-query/range</guid>
+      <description>&lt;span class="kg-badge kg-badge-query"&gt;查询层&lt;/span&gt; Range Query 对**数值 / 日期 / 字符串**字段做范围匹配。 | 操作符 | 含义 | |---|---| | `gt`  | &gt; | | `gte` | ≥ | | `lt`  | &lt; | | `lte` | ≤ | 支持的日期数学表达式： - `now` / `now+1d` /</description>
+      <pubDate>Mon, 24 Aug 2026 21:00:23 -0000</pubDate>
     </item>
     <item>
       <title>使用场景与最佳实践</title>
@@ -295,13 +316,6 @@
       <pubDate>Mon, 13 Jul 2026 21:13:31 -0000</pubDate>
     </item>
     <item>
-      <title>排序</title>
-      <link>https://java-px.bot.cd/es/02-query/sort</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/es/02-query/sort</guid>
-      <description>&lt;span class="kg-badge kg-badge-query"&gt;查询层&lt;/span&gt; ES 默认按 **`_score` 降序**排序，可自定义。 &gt; 💡 排序会**禁用评分计算**（除非显式保留 `_score`）。 `search_after` 必须有**唯一性 tiebreaker**（推荐 `_id` 或带 doc_value 的字段）。 | mode | 行为 | |---|</description>
-      <pubDate>Mon, 13 Jul 2026 21:13:25 -0000</pubDate>
-    </item>
-    <item>
       <title>分页</title>
       <link>https://java-px.bot.cd/es/02-query/pagination</link>
       <guid isPermaLink="true">https://java-px.bot.cd/es/02-query/pagination</guid>
@@ -314,13 +328,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/es/02-query/boost</guid>
       <description>&lt;span class="kg-badge kg-badge-query"&gt;查询层&lt;/span&gt; Boost 调整某个查询子句的**评分权重**，从而**影响结果排序**。 `name^3` 表示 `name` 字段命中权重是 `description` 的 **3 倍**。 Boost **只影响评分**，**不决定文档是否匹配**。要让某条件必须满足，用 `must`/`filter`；想提升</description>
       <pubDate>Mon, 13 Jul 2026 21:13:10 -0000</pubDate>
-    </item>
-    <item>
-      <title>Range Query</title>
-      <link>https://java-px.bot.cd/es/02-query/range</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/es/02-query/range</guid>
-      <description>&lt;span class="kg-badge kg-badge-query"&gt;查询层&lt;/span&gt; Range Query 对**数值 / 日期 / 字符串**字段做范围匹配。 | 操作符 | 含义 | |---|---| | `gt`  | &gt; | | `gte` | ≥ | | `lt`  | &lt; | | `lte` | ≤ | 支持的日期数学表达式： - `now` / `now+1d` /</description>
-      <pubDate>Mon, 13 Jul 2026 21:13:04 -0000</pubDate>
     </item>
     <item>
       <title>Bool Query</title>
@@ -363,13 +370,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/es/01-storage/refresh</guid>
       <description>&lt;span class="kg-badge kg-badge-storage"&gt;存储层&lt;/span&gt; Refresh 是 ES 将**内存中的文档**转换为**可搜索的 segment**的过程，是 ES "**准实时 (NRT, Near Real-Time)**" 的核心。 | 维度 | 默认值 | |---|---| | Refresh 间隔 | **1 秒** | | 触发时机 | 定时</description>
       <pubDate>Mon, 13 Jul 2026 21:12:23 -0000</pubDate>
-    </item>
-    <item>
-      <title>Translog</title>
-      <link>https://java-px.bot.cd/es/01-storage/translog</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/es/01-storage/translog</guid>
-      <description>&lt;span class="kg-badge kg-badge-storage"&gt;存储层&lt;/span&gt; Translog 是分片级别的**事务日志**，用于节点崩溃后**恢复尚未 flush 到磁盘的数据**。 | 参数 | 取值 | 说明 | |---|---|---| | `durability` | `request`（默认） | 每个请求 fsync，**安全但慢** | | `durabi</description>
-      <pubDate>Mon, 13 Jul 2026 21:12:16 -0000</pubDate>
     </item>
     <item>
       <title>_source 元数据</title>

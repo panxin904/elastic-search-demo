@@ -1,8 +1,8 @@
 # mysql 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 67 个文档页 · 485,164 字
-> 生成时间：2026-08-19T20:00:49
+> 67 个文档页 · 485,660 字
+> 生成时间：2026-08-25T20:49:52
 
 ## [体系结构](https://java-px.bot.cd/mysql/01-foundation/architecture)
 > > 理解 MySQL 是怎么运行的，是掌握所有高级特性的基础。 负责与客户端建立连接、权限验证、连接管理： **关键配置：** - `max_connections=151`：默认 151，生产建议 1000+ - `wait_timeout=28800`：默认 8 小时 - `thread_cache_size=9`：线程缓存，避免频繁创建销毁 > 💡 **为什么 8.0 删除？** 因为只要表

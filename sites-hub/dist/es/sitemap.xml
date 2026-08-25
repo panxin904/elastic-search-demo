@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/es/01-storage/translog</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-08-24</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/es/02-query/aggregation</loc>
@@ -94,7 +94,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/es/02-query/range</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-08-24</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/es/02-query/rewrite</loc>
@@ -110,7 +110,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/es/02-query/sort</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-08-24</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/es/02-query/term</loc>
@@ -250,6 +250,6 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/es/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
 </urlset>

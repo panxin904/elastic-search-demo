@@ -1,8 +1,8 @@
 # devops 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 30 个文档页 · 88,137 字
-> 生成时间：2026-08-19T20:00:49
+> 30 个文档页 · 88,466 字
+> 生成时间：2026-08-25T20:49:52
 
 ## [CI/CD Pipeline 最佳实践](https://java-px.bot.cd/devops/01-pipeline/best-practices)
 > 跨工具通用的 Pipeline 设计原则，让团队从"能跑"到"跑得快、跑得稳"。 > **Pipeline 最佳实践 = 4 大原则：缓存 / 并行 / 分层 / 反馈**。**目标：提交到反馈 < 10 分钟、cache hit > 80%、success rate > 95%**。 --- - **01-pipeline/github-actions**：GitHub Actions 缓存 -

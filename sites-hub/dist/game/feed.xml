@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>game - Scholar's Atlas</title>
+    <link>https://java-px.bot.cd/game/</link>
+    <atom:link href="https://java-px.bot.cd/game/feed.xml" rel="self" type="application/rss+xml" />
+    <description>game 知识图谱（39 页）</description>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
+    <item>
+      <title>game 知识图谱</title>
+      <link>https://java-px.bot.cd/game/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/</guid>
+      <description>&lt;script setup&gt; const painPoints = [ "引擎选型纠结：Unity / Unreal / Godot 哪个更适合我的项目？", "渲染卡顿 / 帧率不稳：Draw Call 爆炸 / Shader 编译 / GPU 带宽瓶颈？", "物理穿透 / 抖动 / 速度异常：浮点精度 / 碰撞体配置 / 时间步长？", "敌人 AI 太死板：FSM 不够灵活 / 行为树不会</description>
+      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>游戏开发学习路径</title>
+      <link>https://java-px.bot.cd/game/path</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/path</guid>
+      <description>&gt; 三条路径覆盖"引擎使用者 / 图形程序员 / 联机 / AI 程序员"三种角色。按背景选择即可。 适合：应用开发者转游戏 / 想做独立游戏 / 从零入门。 | Day | 主题 | 关键交付 | |---|---|---| | D1 | 引擎选型（Unity / Unreal / Godot 对比） | 选定主攻引擎 + 安装环境 | | D2-3 | 场景搭建（地形 / 灯光 / 摄像机）</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Game 站在知识图谱中的位置</title>
+      <link>https://java-px.bot.cd/game/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/README</guid>
+      <description>**Game = 基于实时渲染 + 物理模拟 + 多人同步的交互式内容工程**：引擎层（Unity / Unreal / Godot）+ 渲染管线（Forward / Deferred / Clustered）+ 物理（碰撞 / 刚体）+ AI（FSM / BT / GOAP）+ 网络（状态同步 / 帧同步）的横切栈。 - **frontend**：客户端通识（窗口 / 输入 / UI / 事件循</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>性能与上线</title>
+      <link>https://java-px.bot.cd/game/08-ship/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/08-ship/README</guid>
+      <description>游戏性能与上线：性能 / 多平台 / 反作弊 / 数据。 | 节点 | 一句话 | |------|--------| | [性能优化](./perf) | Draw Call / GC / 内存池 / 帧率 | | [上线运营](./launch) | 多平台 / 认证 / 反作弊 / 埋点 | - **性能**：先 Profiler 后优化 - **上线**：数据驱动决策 - **合规**：隐</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>构建发布</title>
+      <link>https://java-px.bot.cd/game/07-toolchain/build</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/07-toolchain/build</guid>
+      <description>&gt; 构建发布：多平台构建脚本 + CI/CD（GitHub Actions / Jenkins） + 平台 SDK 接入。 - 平台构建：Unity BuildPipeline / Unreal UAT - CI/CD：GitHub Actions / Jenkins + 缓存 Library/ - Steam：Steamworks SDK + 上架审核 - 主机：Sony / Microsoft</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>资产管线</title>
+      <link>https://java-px.bot.cd/game/07-toolchain/assets</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/07-toolchain/assets</guid>
+      <description>&gt; 资产管线：FBX / glTF 模型 + LOD 生成 + 纹理压缩 + Addressable 加载。 - 模型格式：FBX（DCC 通用） / glTF（开放标准） - LOD（Level of Detail）：远距离用低模 + 减少 Draw Call - 纹理压缩：ASTC（移动）/ BC（PC）/ ETC2（OpenGL ES） - 加载：Addressable（Unity 按需加载</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>工具链</title>
+      <link>https://java-px.bot.cd/game/07-toolchain/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/07-toolchain/README</guid>
+      <description>游戏工具链：资产 / 版本控制 / 构建发布。 | 节点 | 一句话 | |------|--------| | [资产管线](./assets) | FBX / glTF / LOD / Addressable | | [版本控制](./vcs) | Git LFS / Perforce / 分支 | | [构建发布](./build) | 多平台构建 / CI/CD / Steam | - *</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>空间音频</title>
+      <link>https://java-px.bot.cd/game/06-audio/spatial</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/06-audio/spatial</guid>
+      <description>&gt; 空间音频：HRTF 头相关传输函数 + 3D 距离衰减 + 声障遮挡。 - HRTF：头相关传输函数，模拟人耳定位（耳机 3D） - 3D 衰减：距离 / 方向（双声道 / 环绕声） - 声障遮挡：射线检测 + 衰减 - 引擎：Unity Audio / Wwise / FMOD 都支持 - [动态混音](./mix) - [音频引擎](./engine) - [← 返回 音频 目录](./)</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>音频</title>
+      <link>https://java-px.bot.cd/game/06-audio/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/06-audio/README</guid>
+      <description>游戏音频：空间 / 动态混音 / 音频引擎。 | 节点 | 一句话 | |------|--------| | [空间音频](./spatial) | HRTF / 3D 衰减 / 声障 | | [动态混音](./mix) | Snapshot / 实时参数 / 总线 | | [音频引擎](./engine) | Wwise / FMOD / 内置 | - **3A**：Wwise（行业标准） -</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>机器学习 AI</title>
+      <link>https://java-px.bot.cd/game/04-ai/ml</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/04-ai/ml</guid>
+      <description>&gt; 游戏 AI 与机器学习结合：强化学习（RL）/ 神经网络 NPC / 群体模拟 Boids。 - 强化学习（RL）：DQN / PPO 训练 NPC 策略 - 神经网络 NPC：模仿学习 / 决策网络 - Boids：群体行为（鸟群 / 鱼群） - 应用：赛车 AI / RTS 微操 / NPC 对话生成 - [决策系统](./decision) - [联机架构](../05-network/</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>决策系统</title>
+      <link>https://java-px.bot.cd/game/04-ai/decision</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/04-ai/decision</guid>
+      <description>&gt; NPC 决策：FSM（状态机）/ BT（行为树）/ Utility AI / GOAP（目标导向行动规划）。 - FSM：简单状态切换，适合小型 NPC - BT（行为树）：模块化 + 可视化，AAA 标准 - Utility AI：基于效用函数，适合复杂决策 - GOAP：规划式，模拟真实思考过程 - [寻路](./pathfinding) - [机器学习](./ml) - [← 返回 AI</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>AI</title>
+      <link>https://java-px.bot.cd/game/04-ai/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/04-ai/README</guid>
+      <description>游戏 AI：寻路 / 决策 / 机器学习。 | 节点 | 一句话 | |------|--------| | [寻路](./pathfinding) | A* / NavMesh / Flow Field | | [决策系统](./decision) | FSM / 行为树 / 效用 / GOAP | | [机器学习 AI](./ml) | 强化学习 / 神经网络 NPC | - **简单 NPC</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>刚体动力学</title>
+      <link>https://java-px.bot.cd/game/03-physics/rigidbody</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/03-physics/rigidbody</guid>
+      <description>&gt; 刚体模拟：积分（Verlet / Euler）+ 约束求解 + 现成物理引擎（PhysX / Bullet / Havok）。 - Verlet 积分：稳定 + 速度隐式 - Euler 积分：简单但易爆 - 约束求解：PBD（Position Based Dynamics）/ Sequential Impulse - PhysX（NVIDIA）：Unity / Unreal 默认 - Bul</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>物理</title>
+      <link>https://java-px.bot.cd/game/03-physics/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/03-physics/README</guid>
+      <description>游戏物理：碰撞 / 刚体 / 柔体。 | 节点 | 一句话 | |------|--------| | [碰撞检测](./collision) | AABB / GJK / 空间分割 | | [刚体动力学](./rigidbody) | Verlet / 约束 / PhysX | | [柔体模拟](./softbody) | 弹簧质点 / 布料 / 流体 | - **简单碰撞**：引擎内置 Col</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>着色器</title>
+      <link>https://java-px.bot.cd/game/02-render/shader</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/02-render/shader</guid>
+      <description>&gt; HLSL（GLSL/MSL/Slang）+ Shader Graph 可视化 + Compute Shader 通用计算。 - HLSL：DirectX + Xbox + PC，Unity ShaderLab / UE Material 编译为目标 - GLSL：Vulkan / OpenGL，跨平台 - Shader Graph：节点式可视化（Unity / UE 都有），适合美术 - Co</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>后处理</title>
+      <link>https://java-px.bot.cd/game/02-render/postprocess</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/02-render/postprocess</guid>
+      <description>&gt; 屏幕空间后处理：Bloom / DOF / SSAO / TAA / Color Grading，营造氛围。 - Bloom：发光物体光晕 - DOF（Depth of Field）：景深虚化 - SSAO / HBAO：环境光遮蔽 - TAA（Temporal AA）：时序抗锯齿 - Color Grading：色调映射 + LUT - [渲染管线](./pipeline) - [性能优化]</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+    </item>
+    <item>
+      <title>上线运营</title>
+      <link>https://java-px.bot.cd/game/08-ship/launch</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/08-ship/launch</guid>
+      <description>&gt; 游戏上线：多平台适配 / 主机认证 / 反作弊 / 数据埋点 / 运营活动。 - 多平台：PC（Steam / Epic）/ 主机（PS/Xbox/Switch）/ 移动（iOS/Android） - 主机认证：Sony / Microsoft / Nintendo TRC 认证 - 反作弊：EAC / BattlEye + 自研检测 - 数据埋点：玩家行为 + 付费漏斗 + 关卡热度 - [</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>性能优化</title>
+      <link>https://java-px.bot.cd/game/08-ship/perf</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/08-ship/perf</guid>
+      <description>&gt; 游戏性能五大维度：Draw Call / GC / 内存池 / 帧率稳定 / 移动端功耗。 - Draw Call：合批（Batching）+ GPU Instancing + SRP Batcher - GC：避免频繁 new + 对象池 - 内存池：复用对象（子弹 / 粒子） - 帧率稳定：Profiler 找热点（CPU / GPU / IO） - 移动端：降分辨率 + 限制后处理 -</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>版本控制</title>
+      <link>https://java-px.bot.cd/game/07-toolchain/vcs</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/07-toolchain/vcs</guid>
+      <description>&gt; 游戏版本控制：Git LFS（小团队） / Perforce Helix（大团队） + 分支策略。 - Git LFS：大文件（美术资产）扩展，GitHub / GitLab 支持 - Perforce Helix：游戏行业标配，TB 级资产友好 - 分支策略：main / develop / feature/* - 锁定文件：二进制资产（场景 / Prefab）避免冲突 - [资产管线](.</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>音频引擎</title>
+      <link>https://java-px.bot.cd/game/06-audio/engine</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/06-audio/engine</guid>
+      <description>&gt; 游戏音频中间件：Wwise / FMOD / 引擎内置音频（Unity Audio / Unreal Sound）。 - Wwise（Audiokinetic）：行业标准，AAA 主流，按授权收费 - FMOD：轻量 + 集成简单，独立 / 中型项目主流 - 内置：Unity Audio / Unreal Sound，简单场景够用 - 选型：3A → Wwise；中型 → FMOD；休闲 →</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>动态混音</title>
+      <link>https://java-px.bot.cd/game/06-audio/mix</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/06-audio/mix</guid>
+      <description>&gt; 动态混音：Snapshot（场景切换）+ 实时参数（情绪/战斗）+ 音效总线（路由）。 - Snapshot：预设混音状态（探索 / 战斗 / Boss） - 实时参数：根据玩家状态动态调整（低血量增心跳） - 音效总线：Master / Music / SFX / Voice 分层 - 工具：Wwise / FMOD 状态机驱动 - [空间音频](./spatial) - [音频引擎](./</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>联机架构</title>
+      <link>https://java-px.bot.cd/game/05-network/arch</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/05-network/arch</guid>
+      <description>&gt; 联机架构：C/S 房间制 / P2P Host 迁移 / Matchmaker 匹配系统。 - C/S 房间制：MMO / MOBA 主流（大厅 + 房间服务器） - P2P：CS / DotA 早期模式，Host 迁移复杂 - Matchmaker：基于 ELO / MMR 匹配（Open Skill / TrueSkill） - [同步模型](./sync) - [上线运营](../08-</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>反外挂</title>
+      <link>https://java-px.bot.cd/game/05-network/anticheat</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/05-network/anticheat</guid>
+      <description>&gt; 反外挂三支柱：服务器权威 / 加密协议 / 行为检测。 - 服务器权威：关键逻辑放服务器，客户端只渲染 - 加密协议：防协议分析 / 中间人 - 行为检测：机器学习分析异常操作 - 商用：EAC（Easy Anti-Cheat）/ BattlEye / VAC - [一致性](./consistency) - [联机架构](./arch) - [← 返回 网络 目录](./) - [← 返回</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>一致性</title>
+      <link>https://java-px.bot.cd/game/05-network/consistency</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/05-network/consistency</guid>
+      <description>&gt; 网络一致性三大难题：客户端预测 / 服务器仲裁 / 回放录像。 - 客户端预测：本地先响应 + 服务器确认后校正 - 服务器仲裁：服务器是唯一真相源 - 回放录像：记录输入流，任意时刻回放 - 锁步：所有客户端严格按帧同步（确定性） - [同步模型](./sync) - [反外挂](./anticheat) - [← 返回 网络 目录](./) - [← 返回 game 首页](../) [同</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>同步模型</title>
+      <link>https://java-px.bot.cd/game/05-network/sync</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/05-network/sync</guid>
+      <description>&gt; 联机游戏三种同步模型：状态同步 / 帧同步（Lockstep）/ 快照同步。 - 状态同步：服务器权威，发送状态，MOBA 主流 - 帧同步：所有客户端按帧执行相同输入，RTS 主流 - 快照同步：定期发完整快照，FPS 主流 - 选择：MOBA → 状态；RTS → 帧同步；FPS → 快照 - [一致性](./consistency) - [反外挂](./anticheat) - [← 返</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>网络</title>
+      <link>https://java-px.bot.cd/game/05-network/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/05-network/README</guid>
+      <description>游戏网络：同步 / 一致性 / 反外挂 / 联机架构。 | 节点 | 一句话 | |------|--------| | [同步模型](./sync) | 状态 / 帧同步 / 快照 | | [一致性](./consistency) | 客户端预测 / 服务器仲裁 / 回放 | | [反外挂](./anticheat) | 服务器权威 / 加密 / 行为检测 | | [联机架构](./arch)</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>寻路</title>
+      <link>https://java-px.bot.cd/game/04-ai/pathfinding</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/04-ai/pathfinding</guid>
+      <description>&gt; 寻路算法：A* / Dijkstra / NavMesh / Flow Field / D* Lite，NPC 移动核心。 - A*：启发式搜索，最常用 - Dijkstra：无启发式，最短路径 - NavMesh：导航网格，预烘焙 - Flow Field：RTS 大规模寻路 - D* Lite：动态障碍物寻路 - [决策系统](./decision) - [碰撞检测](../03-phys</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>柔体模拟</title>
+      <link>https://java-px.bot.cd/game/03-physics/softbody</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/03-physics/softbody</guid>
+      <description>&gt; 柔体（软体）模拟：弹簧质点 + 布料 + 流体 SPH，常用于角色头发 / 旗帜 / 爆炸。 - 弹簧质点（Mass-Spring）：布料 / 软组织 - PBD（Position Based Dynamics）：稳定 + 实时 - SPH（Smoothed Particle Hydrodynamics）：流体 - XFEM / FEM：精确但昂贵（电影用） - 性能：通常用 GPU + Co</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>碰撞检测</title>
+      <link>https://java-px.bot.cd/game/03-physics/collision</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/03-physics/collision</guid>
+      <description>&gt; 碰撞检测基础：AABB / OBB / GJK / SAT + 空间分割（四叉树 / BVH / NavMesh）。 - AABB：轴对齐包围盒，O(1) 检测，精度低 - OBB：旋转包围盒，更精确 - GJK：凸体碰撞，O(log n) - SAT：分离轴定理 - 空间分割：四叉树（2D）/ 八叉树（3D）/ BVH / NavMesh - [刚体动力学](./rigidbody) - [</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>光照与阴影</title>
+      <link>https://java-px.bot.cd/game/02-render/lighting</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/02-render/lighting</guid>
+      <description>&gt; PBR 物理光照 + IBL 间接光 + 全局光照（GI）+ 阴影算法。 - PBR（Physically Based Rendering）：基于物理的 BRDF（金属 / 粗糙度） - IBL（Image Based Lighting）：环境贴图采样，模拟间接光 - GI（Global Ill）：实时光追（Lumen / RT）/ 烘焙（Lightmap） - 阴影：Shadow Map /</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>渲染管线</title>
+      <link>https://java-px.bot.cd/game/02-render/pipeline</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/02-render/pipeline</guid>
+      <description>&gt; 四大主流渲染管线：前向 / 延迟 / Clustered / 光线追踪，各有适用场景。 - 前向渲染：移动端首选（low power），带宽低 - 延迟渲染：PC / 主机主流，多光源场景好 - Clustered / Tiled：Forward+ / Deferred+，效率与质量兼顾（UE5 默认） - 光线追踪：电影级画质，硬件要求高（RTX / PS5 / XSX） - [光照](./</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>渲染</title>
+      <link>https://java-px.bot.cd/game/02-render/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/02-render/README</guid>
+      <description>游戏渲染：管线 / 光照 / 着色器 / 后处理。 | 节点 | 一句话 | |------|--------| | [渲染管线](./pipeline) | 前向 / 延迟 / Clustered / 光追 | | [光照与阴影](./lighting) | PBR / IBL / GI / 阴影 | | [着色器](./shader) | HLSL / Shader Graph / Compu</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>选型决策</title>
+      <link>https://java-px.bot.cd/game/01-engine/decision</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/01-engine/decision</guid>
+      <description>&gt; 引擎选型四问：平台目标 / 团队规模 / 预算 / 性能需求。 - 平台目标：移动端 → Unity；PC/主机 3A → Unreal；2D 独立 → Godot - 团队规模：&lt; 10 人用现成引擎；50+ 人可考虑自研 - 预算：Unreal 5% 营收分成，Unity 订阅费，Godot 免费 - 性能需求：移动端 Unity；高画质 Unreal；轻量 Godot - [商业引擎](</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>自研引擎架构</title>
+      <link>https://java-px.bot.cd/game/01-engine/custom</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/01-engine/custom</guid>
+      <description>&gt; 自研引擎核心三件套：ECS 架构 + RHI 渲染抽象 + 资源管理。 - ECS（Entity Component System）：数据驱动 + 缓存友好，Unity DOTS / Bevy / 自研常用 - RHI（Render Hardware Interface）：抽象 D3D12 / Vulkan / Metal，让一套代码跨平台 - 资源管理：AssetBundle / Addre</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>商业引擎选型</title>
+      <link>https://java-px.bot.cd/game/01-engine/commercial</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/01-engine/commercial</guid>
+      <description>&gt; Unity / Unreal Engine / Godot 三大商业引擎对比，按场景选最适合的。 - Unity：C# + 庞大生态 + Asset Store + 移动端霸主（Hyper Casual / 中小规模） - Unreal：AAA + 图形（C++ / Nanite / Lumen）+ 主机 + PC 3A - Godot：开源 + 轻量 + 2D 强 + 独立游戏 - 选型：移</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>引擎层</title>
+      <link>https://java-px.bot.cd/game/01-engine/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/01-engine/README</guid>
+      <description>游戏引擎层：商业引擎选型 + 自研引擎架构 + 决策。 | 节点 | 一句话 | |------|--------| | [商业引擎选型](./commercial) | Unity / Unreal / Godot 三选一 | | [自研引擎架构](./custom) | ECS / RHI / 资源管理 | | [选型决策](./decision) | 平台 / 团队 / 预算 / 性能权衡</description>
+      <pubDate>Mon, 24 Aug 2026 21:20:19 -0000</pubDate>
+    </item>
+    <item>
+      <title>游戏开发面试与常见问题</title>
+      <link>https://java-px.bot.cd/game/questions</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/questions</guid>
+      <description>&gt; 分 Easy / Medium / Hard 三档，覆盖引擎、渲染、网络、AI、性能。 **答**： - **Unity（C#）**：移动端 / 中小型游戏 / 跨平台首选，资源商店最全，迭代快 - **Unreal（C++ / Blueprint）**：3A / 主机 / 写实画面首选，光追 + Nanite + Lumen 内置 - **Godot（GDScript / C#）**：开源免</description>
+      <pubDate>Mon, 24 Aug 2026 20:51:39 -0000</pubDate>
+    </item>
+    <item>
+      <title>游戏开发速查表</title>
+      <link>https://java-px.bot.cd/game/cheatsheet</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/cheatsheet</guid>
+      <description>&gt; 引擎版本 / 数学公式 / 寻路算法 / 物理参数 / Shader 关键字 一页速查。 | 引擎 | 当前稳定版 | LTS | 语言 | 包大小 | |---|---|---|---|---| | Unity | 6000.x (Unity 6) | 2022 LTS | C# | ~250MB | | Unreal Engine | 5.4 / 5.5 | 5.3 | C++ / Blu</description>
+      <pubDate>Sat, 22 Aug 2026 10:38:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>游戏开发知识图谱</title>
+      <link>https://java-px.bot.cd/game/mindmap</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/mindmap</guid>
+      <description>&gt; 本页用 Mermaid mindmap 展示游戏开发全栈知识结构。 - **引擎使用者**：从引擎选型 → 渲染管线 → 着色器 入手，掌握一个 DCC 工作流 - **图形程序员**：渲染管线 → 光照 → 着色器 → GPU 优化，最后补 Compute / 光追 - **AI / 网络程序员**：寻路 → 行为树 → 同步模型，重点掌握一致性和反外挂 - **工具链工程师**：资产管线</description>
+      <pubDate>Sat, 22 Aug 2026 10:36:56 -0000</pubDate>
+    </item>
+  </channel>
+</rss>

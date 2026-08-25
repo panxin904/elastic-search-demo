@@ -6,13 +6,13 @@
     <atom:link href="https://java-px.bot.cd/postgresql/feed.xml" rel="self" type="application/rss+xml" />
     <description>postgresql 知识图谱（53 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 19 Aug 2026 20:00:49 -0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
     <item>
       <title>PostgreSQL 知识图谱</title>
       <link>https://java-px.bot.cd/postgresql/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/postgresql/</guid>
       <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "MVCC 原理：为什么 PG 的读不阻塞写？", "事务隔离级别（RC / RR / Serializable）选哪个？", "索引类型（B-tree /</description>
-      <pubDate>Sun, 16 Aug 2026 09:36:38 -0000</pubDate>
+      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
     </item>
     <item>
       <title>Hash 索引</title>

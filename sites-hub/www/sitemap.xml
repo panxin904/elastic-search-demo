@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/es/01-storage/translog</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-08-24</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/es/02-query/aggregation</loc>
@@ -94,7 +94,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/es/02-query/range</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-08-24</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/es/02-query/rewrite</loc>
@@ -110,7 +110,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/es/02-query/sort</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-08-24</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/es/02-query/term</loc>
@@ -250,7 +250,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/es/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/01-foundation/architecture</loc>
@@ -510,7 +510,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/mindmap</loc>
@@ -746,7 +746,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/mindmap</loc>
@@ -1126,7 +1126,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/mindmap</loc>
@@ -1418,7 +1418,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/mindmap</loc>
@@ -1486,7 +1486,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/02-design/chain-of-responsibility</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-24</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/02-design/ddd</loc>
@@ -1494,11 +1494,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/02-design/dependency-injection</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-24</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/02-design/factory-pattern</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-24</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/02-design/layered-architecture</loc>
@@ -1506,11 +1506,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/02-design/microservices</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-24</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/02-design/mvc-pattern</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-24</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/02-design/overview</loc>
@@ -1518,7 +1518,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/02-design/proxy-pattern</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-24</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/02-design/restful-api</loc>
@@ -1526,11 +1526,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/02-design/strategy-pattern</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-24</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/02-design/template-method</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-24</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/03-practice/cache-strategy</loc>
@@ -1546,7 +1546,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/03-practice/data-masking</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-24</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/03-practice/exception-handling</loc>
@@ -1594,7 +1594,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/04-tech/docker</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-24</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/04-tech/message-queue</loc>
@@ -1610,7 +1610,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/04-tech/nginx</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-24</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/04-tech/overview</loc>
@@ -1638,7 +1638,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/tools/base64</loc>
@@ -1650,7 +1650,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/tools/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/tools/iso</loc>
@@ -1802,7 +1802,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/frontend/06-style/preprocessor</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-24</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/frontend/06-style/tailwind</loc>
@@ -1942,7 +1942,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/frontend/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/frontend/mindmap</loc>
@@ -2226,7 +2226,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/mindmap</loc>
@@ -2446,7 +2446,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/mindmap</loc>
@@ -2674,7 +2674,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/ai/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/ai/mindmap</loc>
@@ -2878,7 +2878,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/mindmap</loc>
@@ -3142,7 +3142,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/mindmap</loc>
@@ -3410,7 +3410,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/video/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/video/mindmap</loc>
@@ -3550,7 +3550,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/05-network/README</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-24</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/05-network/ftp-sftp</loc>
@@ -3606,7 +3606,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/07-container/README</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-24</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/07-container/buildkit</loc>
@@ -3630,7 +3630,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/08-tools/README</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-24</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/08-tools/debugfs</loc>
@@ -3662,7 +3662,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/09-perf/README</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-24</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/09-perf/direct-io</loc>
@@ -3690,7 +3690,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/10-security/README</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-24</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/10-security/acl</loc>
@@ -3738,7 +3738,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/12-cases/README</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-24</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/12-cases/cern-eos</loc>
@@ -3762,7 +3762,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/13-interview/README</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-24</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/13-interview/comparison</loc>
@@ -3786,7 +3786,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/mindmap</loc>
@@ -4006,7 +4006,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/java-language/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java-language/mindmap</loc>
@@ -4210,7 +4210,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/mindmap</loc>
@@ -4426,7 +4426,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/01-basics/architecture</loc>
@@ -4638,7 +4638,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/01-foundations/four-pillars</loc>
@@ -4838,7 +4838,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/01-web-top10/a01-broken-access</loc>
@@ -4982,7 +4982,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/01-pipeline/best-practices</loc>
@@ -5102,7 +5102,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/01-basics/borrowing</loc>
@@ -5242,7 +5242,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/01-basics/error-handling</loc>
@@ -5386,7 +5386,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/01-basics/client</loc>
@@ -5530,7 +5530,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/01-gof-creational/abstract-factory</loc>
@@ -5726,7 +5726,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/01-foundations/blast-radius</loc>
@@ -5854,6 +5854,418 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/01-protocol/README</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/01-protocol/coap</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/01-protocol/lpwan</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/01-protocol/modbus</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/01-protocol/mqtt</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/02-device/README</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/02-device/gateway</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/02-device/mcu</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/02-device/rtos</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/02-device/sensor</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/03-edge/README</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/03-edge/ai-edge</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/03-edge/framework</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/03-edge/k8s-edge</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/03-edge/offline</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/04-management/README</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/04-management/ota</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/04-management/security</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/04-management/shadow</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/05-timeseries/README</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/05-timeseries/database</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/05-timeseries/integration</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/05-timeseries/processing</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/05-timeseries/schema</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/06-platform/README</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/06-platform/iiot</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/06-platform/public-cloud</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/06-platform/self-hosted</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/06-platform/smart-home</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/README</loc>
+    <lastmod>2026-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/cheatsheet</loc>
+    <lastmod>2026-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/</loc>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/mindmap</loc>
+    <lastmod>2026-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/path</loc>
+    <lastmod>2026-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/iot/questions</loc>
+    <lastmod>2026-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/01-app/README</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/01-app/coroutine</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/01-app/jetpack</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/01-app/language</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/02-ui/README</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/02-ui/compose</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/02-ui/resource</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/02-ui/view-system</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/03-system/README</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/03-system/ipc</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/03-system/runtime</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/03-system/services</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/03-system/startup</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/04-cross/README</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/04-cross/decision</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/04-cross/frameworks</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/05-toolchain/README</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/05-toolchain/gradle</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/05-toolchain/ide</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/05-toolchain/publish</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/06-perf/README</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/06-perf/performance</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/06-perf/security</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/README</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/cheatsheet</loc>
+    <lastmod>2026-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/</loc>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/mindmap</loc>
+    <lastmod>2026-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/path</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/android/questions</loc>
+    <lastmod>2026-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/01-engine/README</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/01-engine/commercial</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/01-engine/custom</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/01-engine/decision</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/02-render/README</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/02-render/lighting</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/02-render/pipeline</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/02-render/postprocess</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/02-render/shader</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/03-physics/README</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/03-physics/collision</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/03-physics/rigidbody</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/03-physics/softbody</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/04-ai/README</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/04-ai/decision</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/04-ai/ml</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/04-ai/pathfinding</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/05-network/README</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/05-network/anticheat</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/05-network/arch</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/05-network/consistency</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/05-network/sync</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/06-audio/README</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/06-audio/engine</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/06-audio/mix</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/06-audio/spatial</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/07-toolchain/README</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/07-toolchain/assets</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/07-toolchain/build</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/07-toolchain/vcs</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/08-ship/README</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/08-ship/launch</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/08-ship/perf</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/README</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/cheatsheet</loc>
+    <lastmod>2026-08-22</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/</loc>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/mindmap</loc>
+    <lastmod>2026-08-22</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/path</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://java-px.bot.cd/game/questions</loc>
+    <lastmod>2026-08-24</lastmod>
   </url>
 </urlset>

@@ -6,13 +6,13 @@
     <atom:link href="https://java-px.bot.cd/kafka/feed.xml" rel="self" type="application/rss+xml" />
     <description>kafka 知识图谱（73 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 19 Aug 2026 20:00:49 -0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
     <item>
       <title>kafka 知识图谱</title>
       <link>https://java-px.bot.cd/kafka/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/kafka/</guid>
       <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "分区副本机制、Leader 选举讲不清？", "Exactly-Once 语义怎么实现？", "消费者组位移提交策略选哪个？", "Kafka 性能调优参数</description>
-      <pubDate>Sun, 16 Aug 2026 09:36:38 -0000</pubDate>
+      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
     </item>
     <item>
       <title>刷盘机制</title>

@@ -6,13 +6,13 @@
     <atom:link href="https://java-px.bot.cd/python/feed.xml" rel="self" type="application/rss+xml" />
     <description>python 知识图谱（60 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 19 Aug 2026 20:00:49 -0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
     <item>
       <title>python 知识图谱</title>
       <link>https://java-px.bot.cd/python/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/python/</guid>
       <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "只懂基础语法，不了解底层原理（解释器 / 字节码 / 对象模型）", "用过 requests / pandas 但不知道内部实现", "写 GIL 多线程</description>
-      <pubDate>Sun, 16 Aug 2026 09:36:38 -0000</pubDate>
+      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
     </item>
     <item>
       <title>学习路径</title>

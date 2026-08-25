@@ -6,20 +6,20 @@
     <atom:link href="https://java-px.bot.cd/bigdata/feed.xml" rel="self" type="application/rss+xml" />
     <description>bigdata 知识图谱（51 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 19 Aug 2026 20:00:49 -0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
+    <item>
+      <title>bigdata 知识图谱</title>
+      <link>https://java-px.bot.cd/bigdata/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/bigdata/</guid>
+      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Hadoop / Spark / Flink / Hive / Kafka 各自独立文档", "数据仓库 vs 数据湖 vs Lakehouse 怎么选",</description>
+      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+    </item>
     <item>
       <title>数据血缘</title>
       <link>https://java-px.bot.cd/bigdata/11-elt-pipeline/lineage</link>
       <guid isPermaLink="true">https://java-px.bot.cd/bigdata/11-elt-pipeline/lineage</guid>
       <description>数据血缘（Data Lineage）追踪数据从源系统经过 ETL/ELT 到下游消费的全链路流转关系，是数据治理与可观测性的核心。 - **故障定位**：下游数据异常时，快速定位上游哪个任务/源表出问题 - **影响分析**：上游表 schema 变更时，识别所有受影响的下游任务和报表 - **合规审计**：满足 GDPR / 数据安全法规对"谁的数据流向哪里"的追溯要求 - **数据资产盘点**</description>
       <pubDate>Tue, 18 Aug 2026 20:34:09 -0000</pubDate>
-    </item>
-    <item>
-      <title>bigdata 知识图谱</title>
-      <link>https://java-px.bot.cd/bigdata/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/bigdata/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Hadoop / Spark / Flink / Hive / Kafka 各自独立文档", "数据仓库 vs 数据湖 vs Lakehouse 怎么选",</description>
-      <pubDate>Sun, 16 Aug 2026 09:36:38 -0000</pubDate>
     </item>
     <item>
       <title>风控系统</title>

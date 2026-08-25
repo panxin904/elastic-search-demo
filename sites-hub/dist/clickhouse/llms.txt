@@ -1,8 +1,8 @@
 # clickhouse 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 36 个文档页 · 196,356 字
-> 生成时间：2026-08-19T20:00:49
+> 36 个文档页 · 196,693 字
+> 生成时间：2026-08-25T20:49:52
 
 ## [客户端连接](https://java-px.bot.cd/clickhouse/01-basics/client)
 > clickhouse-client / HTTP / JDBC / Go / Python / Node.js 客户端完整对比

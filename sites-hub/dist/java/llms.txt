@@ -1,8 +1,8 @@
 # java 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 53 个文档页 · 76,753 字
-> 生成时间：2026-08-19T20:00:49
+> 53 个文档页 · 80,502 字
+> 生成时间：2026-08-25T20:49:52
 
 ## [接口设计](https://java-px.bot.cd/java/01-process/api-design)
 > 接口是前后端协作的契约，设计好坏直接影响开发效率和系统质量。 <div class="kg-note"> <strong>规范</strong>：URL 用名词复数、小写、短横线分隔；资源嵌套不超过两层。 </div> | 范围 | 含义 | 示例 | |---|---|---| | 0 | 成功 | | | 1xxx | 参数错误 | 1001-参数缺失, 1002-参数格式错误 | | 2xx
@@ -47,16 +47,16 @@
 > AOP（Aspect-Oriented Programming）在不修改原有代码的前提下，通过"切面"横向织入增强逻辑。 | 场景 | 说明 | |---|---| | 日志记录 | 自动记录方法入参、出参、耗时 | | 事务管理 | @Transactional 就是 AOP 实现 | | 权限校验 | 方法执行前校验权限 | | 缓存处理 | 方法结果自动缓存 | | 异常处理 | 统一拦截异
 
 ## [责任链模式](https://java-px.bot.cd/java/02-design/chain-of-responsibility)
-> 将请求沿着处理链传递，每个处理器决定处理或传递给下一个。 - **Servlet Filter 链**：每个 Filter 决定是否放行 - **Spring Interceptor**：preHandle → Controller → postHandle → afterCompletion - **审批流**：组长 → 经理 → 总监 逐级审批 <KnowledgeGraph mode="ne
+> 将请求沿着处理链传递，每个处理器决定处理或传递给下一个。 - **Servlet Filter 链**：每个 Filter 决定是否放行 - **Spring Interceptor**：preHandle → Controller → postHandle → afterCompletion - **审批流**：组长 → 经理 → 总监 逐级审批 **使用场景**：请求需要**多个处理者**依次
 
 ## [领域驱动设计 DDD](https://java-px.bot.cd/java/02-design/ddd)
 > DDD 适用于复杂业务场景，通过领域建模让代码结构与业务逻辑一致。 | 概念 | 说明 | 示例 | |---|---|---| | 实体 Entity | 有唯一标识、可变 | User (有 userId) | | 值对象 VO | 无唯一标识、不可变 | Address, Money | | 聚合根 | 聚合的入口，保证一致性 | Order（聚合根，管理 OrderItem） | | 领域
 
 ## [依赖注入](https://java-px.bot.cd/java/02-design/dependency-injection)
-> Spring 通过 IoC 容器管理对象的创建和依赖关系，开发者只需声明需要什么。 | | @Autowired | @Resource | |---|---|---| | 来源 | Spring | JDK (JSR-250) | | 默认装配 | byType | byName | | 指定方式 | @Qualifier | name 属性 | <KnowledgeGraph mode="ne
+> Spring 通过 IoC 容器管理对象的创建和依赖关系，开发者只需声明需要什么。 | | @Autowired | @Resource | |---|---|---| | 来源 | Spring | JDK (JSR-250) | | 默认装配 | byType | byName | | 指定方式 | @Qualifier | name 属性 | **DI 优势**：依赖关系**显式可见**（构
 
 ## [工厂模式](https://java-px.bot.cd/java/02-design/factory-pattern)
-> 定义创建对象的接口，让子类决定实例化哪个类。 - **Spring BeanFactory**：IoC 容器本身就是巨型工厂 - **SqlSessionFactory**：MyBatis 创建 SqlSession - **ThreadPoolExecutor 工厂**：统一创建线程池 <KnowledgeGraph mode="neighbor" focusNodeId="factory-pa
+> 定义创建对象的接口，让子类决定实例化哪个类。 - **Spring BeanFactory**：IoC 容器本身就是巨型工厂 - **SqlSessionFactory**：MyBatis 创建 SqlSession - **ThreadPoolExecutor 工厂**：统一创建线程池 **使用场景**：创建逻辑较复杂（参数多 / 多种类型 / 需要缓存 / 需要单例管理）， 或者**调用方不想
 
 ## [分层架构](https://java-px.bot.cd/java/02-design/layered-architecture)
 > 分层架构是 Java Web 开发最核心的架构思想，核心原则是**上层依赖下层，下层不感知上层**。 | 规则 | 说明 | |---|---| | Controller 不写业务 | 只做参数校验、调用 Service、返回结果 | | Service 不碰 Request/Response | 参数和返回值用 DTO/VO，不依赖 Web 层 | | Mapper 只做数据操作 | 不包含业务
@@ -77,10 +77,10 @@
 > REST（Representational State Transfer）是一种资源导向的 API 设计风格。 | 原则 | 说明 | |---|---| | 资源导向 | URL 表示资源（名词），而非动作（动词） | | HTTP 方法表达操作 | GET查/POST增/PUT改/DELETE删 | | 无状态 | 服务端不存客户端状态，每次请求自包含 | | 统一接口 | 一致的 URL 格
 
 ## [策略模式](https://java-px.bot.cd/java/02-design/strategy-pattern)
-> 定义一组算法，分别封装，使其可以互相替换。 - **多种支付方式**：微信支付、支付宝、银行卡 - **多种通知渠道**：短信、邮件、App推送 - **多种计费规则**：普通用户、VIP、企业 <KnowledgeGraph mode="neighbor" focusNodeId="strategy-pattern" :height="400" />
+> 定义一组算法，分别封装，使其可以互相替换。 - **多种支付方式**：微信支付、支付宝、银行卡 - **多种通知渠道**：短信、邮件、App推送 - **多种计费规则**：普通用户、VIP、企业 **使用场景**：多种算法可以**互换**，且算法选择**在运行时决定**（如支付方式 选择、排序算法选择、压缩算法选择）。 **优势**：消除 if-else 链，新增算法只需新增 Strategy 实
 
 ## [模板方法模式](https://java-px.bot.cd/java/02-design/template-method)
-> 在父类中定义算法骨架，子类实现具体步骤。 - **BaseService**：通用 CRUD 模板 - **JdbcTemplate / RestTemplate**：连接管理、异常处理已封装 - **数据导出**：查询数据 → 格式化 → 写入文件（子类实现格式化） <KnowledgeGraph mode="neighbor" focusNodeId="template-method" :he
+> 在父类中定义算法骨架，子类实现具体步骤。 - **BaseService**：通用 CRUD 模板 - **JdbcTemplate / RestTemplate**：连接管理、异常处理已封装 - **数据导出**：查询数据 → 格式化 → 写入文件（子类实现格式化） **使用场景**：业务流程**整体固定**，但某些步骤需要子类定制（如 Spring `AbstractView.render()
 
 ## [缓存策略](https://java-px.bot.cd/java/03-practice/cache-strategy)
 > 合理使用缓存能大幅提升系统性能，但缓存引入的复杂性也带来了新挑战。 | 问题 | 原因 | 解决方案 | |---|---|---| | 缓存穿透 | 查不存在的数据，绕过缓存打DB | 布隆过滤器 / 缓存空值 | | 缓存击穿 | 热点key过期，大量请求打DB | 互斥锁 / 永不过期 + 异步更新 | | 缓存雪崩 | 大量key同时过期 | 过期时间加随机值 / 多级缓存 | <Know
@@ -92,7 +92,7 @@
 > 多线程环境下保证数据一致性和线程安全。 | | synchronized | ReentrantLock | |---|---|---| | 实现 | JVM 级，关键字 | JDK 级，API | | 锁释放 | 自动（代码块结束/异常） | 手动（finally unlock） | | 功能 | 单一 | 可中断、超时、公平锁、条件变量 | | 性能 | 优化后差异不大 | 优化后差异不大 |
 
 ## [数据脱敏](https://java-px.bot.cd/java/03-practice/data-masking)
-> 对手机号、身份证、银行卡等敏感信息进行部分遮蔽处理。 | 类型 | 规则 | 示例 | |---|---|---| | 手机号 | 保留前3后4 | 138****1234 | | 身份证 | 保留前4后4 | 3301**********1234 | | 银行卡 | 保留后4 | ****1234 | | 姓名 | 保留姓，名用* | 张** | | 邮箱 | 用户名部分打* | t***@qq
+> 对手机号、身份证、银行卡等敏感信息进行部分遮蔽处理。 **静态脱敏**：DB 导出前就脱敏（备份、日志、BI 报表场景）。优点：调用方无感知。 **动态脱敏**：查询时按用户权限脱敏（金融 / 医疗合规场景）。常用 `@JsonSerialize` + 自定义 Serializer 屏蔽敏感字段。 **常见脱敏规则**： - 手机号 `138****1234` - 身份证 `110101*****
 
 ## [异常处理](https://java-px.bot.cd/java/03-practice/exception-handling)
 > 统一的异常处理是系统稳定的基石，确保错误信息清晰、可追踪、不泄露敏感信息。 | 原则 | 说明 | |---|---| | 不吞异常 | finally 块不要 return，catch 后要记录日志 | | 不暴露细节 | 生产环境不返回堆栈信息给前端 | | 分层处理 | ControllerAdvice 统一拦截，Service 层只管抛 | | 异常转换 | 第三方异常转为业务异常再抛出
@@ -128,7 +128,7 @@
 > 构建工具管理项目的依赖、编译、测试、打包、发布全生命周期。 | 概念 | 说明 | |---|---| | GAV 坐标 | groupId:artifactId:version，唯一标识一个依赖 | | 生命周期 | clean(清理) → compile(编译) → test(测试) → package(打包) → install(安装) → deploy(发布) | | 依赖管理 | 传递依
 
 ## [Docker](https://java-px.bot.cd/java/04-tech/docker)
-> Docker 实现应用容器化，解决"在我机器上能跑"的问题。 | 概念 | 说明 | |---|---| | 镜像 Image | 应用的只读模板 | | 容器 Container | 镜像的运行实例 | | Dockerfile | 镜像构建脚本 | | docker-compose | 多容器编排 | <KnowledgeGraph mode="neighbor" focusNodeId="d
+> Docker 实现应用容器化，解决"在我机器上能跑"的问题。 **多阶段构建**：减少镜像体积（builder stage + runtime stage），最终镜像只含运行时依赖。 **Dockerfile 最佳实践**： - 容器跑应用用非 root 用户（`USER appuser`） - .dockerignore 排除 target/、.git/、node_modules/ 等 - 健康
 
 ## [消息队列 MQ](https://java-px.bot.cd/java/04-tech/message-queue)
 > 消息队列实现异步解耦、削峰填谷、最终一致性。 | | RabbitMQ | Kafka | |---|---|---| | 定位 | 消息代理 | 分布式流平台 | | 吞吐量 | 万级/秒 | 百万级/秒 | | 消息可靠性 | 高（ACK确认） | 高（副本机制） | | 适用场景 | 业务异步解耦 | 日志收集、流处理、大数据 | | 协议 | AMQP | 自定义 | | 场景 | 说明
@@ -140,7 +140,7 @@
 > MySQL 是 Java Web 开发中最常用的关系型数据库。 | 类型 | 说明 | 使用场景 | |---|---|---| | 主键索引 | 唯一、非空、聚簇 | 每表必须有 | | 唯一索引 | 唯一、允许空 | 手机号、用户名 | | 普通索引 | 加速查询 | 高频查询字段 | | 联合索引 | 多列组合 | 多条件查询 | | 全文索引 | 文本搜索 | 文章内容搜索 | 关键字段：
 
 ## [Nginx](https://java-px.bot.cd/java/04-tech/nginx)
-> Nginx 是高性能的 HTTP 服务器和反向代理，常用于负载均衡、静态资源、HTTPS 终端。 <KnowledgeGraph mode="neighbor" focusNodeId="nginx" :height="400" />
+> Nginx 是高性能的 HTTP 服务器和反向代理，常用于负载均衡、静态资源、HTTPS 终端。 **反向代理**：`proxy_pass http://backend;` + `proxy_set_header X-Real-IP $remote_addr;` **负载均衡策略**： - `round-robin`（默认，轮询） - `least_conn`（最少连接，适合长连接） - `ip_
 
 ## [技术栈 总览](https://java-px.bot.cd/java/04-tech/overview)
 > Java Web 开发的核心技术组件，涵盖**框架、数据库、中间件、工具链**。 | 技术 | 定位 | 核心功能 | |---|---|---| | [Spring Boot](/04-tech/spring-boot) | 开发框架 | 自动配置、起步依赖、内嵌容器、Actuator 监控 | | [Spring MVC](/04-tech/spring-mvc) | Web 层框架 | 请求

@@ -1,8 +1,8 @@
 # python 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 60 个文档页 · 433,411 字
-> 生成时间：2026-08-19T20:00:49
+> 60 个文档页 · 433,722 字
+> 生成时间：2026-08-25T20:49:52
 
 ## [控制流](https://java-px.bot.cd/python/01-basics/control-flow)
 > > Python 控制流包括**条件分支（if/elif/else）、循环（for/while）、异常处理（try/except）**。Python 用**缩进**表示代码块，简洁优雅。 <ClientOnly> <PythonPlayground /> </ClientOnly> 试试在 Playground 里运行控制流代码： **Python 控制流核心要点**： - ✅ 缩进表示代码块（4

@@ -6,13 +6,13 @@
     <atom:link href="https://java-px.bot.cd/rust/feed.xml" rel="self" type="application/rss+xml" />
     <description>rust 知识图谱（35 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 19 Aug 2026 20:00:49 -0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
     <item>
       <title>Rust 知识图谱</title>
       <link>https://java-px.bot.cd/rust/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/rust/</guid>
       <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "所有权 / 借用 / 生命周期推导卡壳？", "异步编程（async-await / Tokio）复杂？", "Trait / 泛型 / 高级类型（新类型</description>
-      <pubDate>Sun, 16 Aug 2026 09:36:38 -0000</pubDate>
+      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
     </item>
     <item>
       <title>智能指针</title>

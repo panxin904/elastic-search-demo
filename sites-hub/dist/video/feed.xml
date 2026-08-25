@@ -6,13 +6,13 @@
     <atom:link href="https://java-px.bot.cd/video/feed.xml" rel="self" type="application/rss+xml" />
     <description>video 知识图谱（67 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 19 Aug 2026 20:00:49 -0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
     <item>
       <title>视频处理知识库</title>
       <link>https://java-px.bot.cd/video/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/video/</guid>
       <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "像素 / 色彩 / 帧率 / 容器格式基础概念混？", "帧内 / 帧间 / DCT / 熵编码 原理讲不清？", "H.264 / H.265 / AV1</description>
-      <pubDate>Sun, 16 Aug 2026 09:36:38 -0000</pubDate>
+      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
     </item>
     <item>
       <title>环路滤波</title>

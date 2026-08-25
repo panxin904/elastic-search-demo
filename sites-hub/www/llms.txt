@@ -1,8 +1,8 @@
 # Scholar's Atlas 跨站知识图谱
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 1464 个文档页 · 6,223,507 字
-> 生成时间：2026-08-19T20:00:49
+> 1567 个文档页 · 6,352,823 字
+> 生成时间：2026-08-25T20:49:52
 
 ## [集群 Cluster](https://java-px.bot.cd/es/01-storage/cluster)
 > <span class="kg-badge kg-badge-storage">存储层</span> ES 集群是由**一个或多个节点**组成的、能对外提供统一搜索服务的分布式系统。 - **水平扩展**：突破单机容量与吞吐上限 - **高可用**：节点故障时副本接管 - **并行处理**：查询与索引在多节点并行执行 返回： | 状态 | 含义 | |---|---| | 🟢 green | 所有
@@ -1118,16 +1118,16 @@
 > AOP（Aspect-Oriented Programming）在不修改原有代码的前提下，通过"切面"横向织入增强逻辑。 | 场景 | 说明 | |---|---| | 日志记录 | 自动记录方法入参、出参、耗时 | | 事务管理 | @Transactional 就是 AOP 实现 | | 权限校验 | 方法执行前校验权限 | | 缓存处理 | 方法结果自动缓存 | | 异常处理 | 统一拦截异
 
 ## [责任链模式](https://java-px.bot.cd/java/02-design/chain-of-responsibility)
-> 将请求沿着处理链传递，每个处理器决定处理或传递给下一个。 - **Servlet Filter 链**：每个 Filter 决定是否放行 - **Spring Interceptor**：preHandle → Controller → postHandle → afterCompletion - **审批流**：组长 → 经理 → 总监 逐级审批 <KnowledgeGraph mode="ne
+> 将请求沿着处理链传递，每个处理器决定处理或传递给下一个。 - **Servlet Filter 链**：每个 Filter 决定是否放行 - **Spring Interceptor**：preHandle → Controller → postHandle → afterCompletion - **审批流**：组长 → 经理 → 总监 逐级审批 **使用场景**：请求需要**多个处理者**依次
 
 ## [领域驱动设计 DDD](https://java-px.bot.cd/java/02-design/ddd)
 > DDD 适用于复杂业务场景，通过领域建模让代码结构与业务逻辑一致。 | 概念 | 说明 | 示例 | |---|---|---| | 实体 Entity | 有唯一标识、可变 | User (有 userId) | | 值对象 VO | 无唯一标识、不可变 | Address, Money | | 聚合根 | 聚合的入口，保证一致性 | Order（聚合根，管理 OrderItem） | | 领域
 
 ## [依赖注入](https://java-px.bot.cd/java/02-design/dependency-injection)
-> Spring 通过 IoC 容器管理对象的创建和依赖关系，开发者只需声明需要什么。 | | @Autowired | @Resource | |---|---|---| | 来源 | Spring | JDK (JSR-250) | | 默认装配 | byType | byName | | 指定方式 | @Qualifier | name 属性 | <KnowledgeGraph mode="ne
+> Spring 通过 IoC 容器管理对象的创建和依赖关系，开发者只需声明需要什么。 | | @Autowired | @Resource | |---|---|---| | 来源 | Spring | JDK (JSR-250) | | 默认装配 | byType | byName | | 指定方式 | @Qualifier | name 属性 | **DI 优势**：依赖关系**显式可见**（构
 
 ## [工厂模式](https://java-px.bot.cd/java/02-design/factory-pattern)
-> 定义创建对象的接口，让子类决定实例化哪个类。 - **Spring BeanFactory**：IoC 容器本身就是巨型工厂 - **SqlSessionFactory**：MyBatis 创建 SqlSession - **ThreadPoolExecutor 工厂**：统一创建线程池 <KnowledgeGraph mode="neighbor" focusNodeId="factory-pa
+> 定义创建对象的接口，让子类决定实例化哪个类。 - **Spring BeanFactory**：IoC 容器本身就是巨型工厂 - **SqlSessionFactory**：MyBatis 创建 SqlSession - **ThreadPoolExecutor 工厂**：统一创建线程池 **使用场景**：创建逻辑较复杂（参数多 / 多种类型 / 需要缓存 / 需要单例管理）， 或者**调用方不想
 
 ## [分层架构](https://java-px.bot.cd/java/02-design/layered-architecture)
 > 分层架构是 Java Web 开发最核心的架构思想，核心原则是**上层依赖下层，下层不感知上层**。 | 规则 | 说明 | |---|---| | Controller 不写业务 | 只做参数校验、调用 Service、返回结果 | | Service 不碰 Request/Response | 参数和返回值用 DTO/VO，不依赖 Web 层 | | Mapper 只做数据操作 | 不包含业务
@@ -1148,10 +1148,10 @@
 > REST（Representational State Transfer）是一种资源导向的 API 设计风格。 | 原则 | 说明 | |---|---| | 资源导向 | URL 表示资源（名词），而非动作（动词） | | HTTP 方法表达操作 | GET查/POST增/PUT改/DELETE删 | | 无状态 | 服务端不存客户端状态，每次请求自包含 | | 统一接口 | 一致的 URL 格
 
 ## [策略模式](https://java-px.bot.cd/java/02-design/strategy-pattern)
-> 定义一组算法，分别封装，使其可以互相替换。 - **多种支付方式**：微信支付、支付宝、银行卡 - **多种通知渠道**：短信、邮件、App推送 - **多种计费规则**：普通用户、VIP、企业 <KnowledgeGraph mode="neighbor" focusNodeId="strategy-pattern" :height="400" />
+> 定义一组算法，分别封装，使其可以互相替换。 - **多种支付方式**：微信支付、支付宝、银行卡 - **多种通知渠道**：短信、邮件、App推送 - **多种计费规则**：普通用户、VIP、企业 **使用场景**：多种算法可以**互换**，且算法选择**在运行时决定**（如支付方式 选择、排序算法选择、压缩算法选择）。 **优势**：消除 if-else 链，新增算法只需新增 Strategy 实
 
 ## [模板方法模式](https://java-px.bot.cd/java/02-design/template-method)
-> 在父类中定义算法骨架，子类实现具体步骤。 - **BaseService**：通用 CRUD 模板 - **JdbcTemplate / RestTemplate**：连接管理、异常处理已封装 - **数据导出**：查询数据 → 格式化 → 写入文件（子类实现格式化） <KnowledgeGraph mode="neighbor" focusNodeId="template-method" :he
+> 在父类中定义算法骨架，子类实现具体步骤。 - **BaseService**：通用 CRUD 模板 - **JdbcTemplate / RestTemplate**：连接管理、异常处理已封装 - **数据导出**：查询数据 → 格式化 → 写入文件（子类实现格式化） **使用场景**：业务流程**整体固定**，但某些步骤需要子类定制（如 Spring `AbstractView.render()
 
 ## [缓存策略](https://java-px.bot.cd/java/03-practice/cache-strategy)
 > 合理使用缓存能大幅提升系统性能，但缓存引入的复杂性也带来了新挑战。 | 问题 | 原因 | 解决方案 | |---|---|---| | 缓存穿透 | 查不存在的数据，绕过缓存打DB | 布隆过滤器 / 缓存空值 | | 缓存击穿 | 热点key过期，大量请求打DB | 互斥锁 / 永不过期 + 异步更新 | | 缓存雪崩 | 大量key同时过期 | 过期时间加随机值 / 多级缓存 | <Know
@@ -1163,7 +1163,7 @@
 > 多线程环境下保证数据一致性和线程安全。 | | synchronized | ReentrantLock | |---|---|---| | 实现 | JVM 级，关键字 | JDK 级，API | | 锁释放 | 自动（代码块结束/异常） | 手动（finally unlock） | | 功能 | 单一 | 可中断、超时、公平锁、条件变量 | | 性能 | 优化后差异不大 | 优化后差异不大 |
 
 ## [数据脱敏](https://java-px.bot.cd/java/03-practice/data-masking)
-> 对手机号、身份证、银行卡等敏感信息进行部分遮蔽处理。 | 类型 | 规则 | 示例 | |---|---|---| | 手机号 | 保留前3后4 | 138****1234 | | 身份证 | 保留前4后4 | 3301**********1234 | | 银行卡 | 保留后4 | ****1234 | | 姓名 | 保留姓，名用* | 张** | | 邮箱 | 用户名部分打* | t***@qq
+> 对手机号、身份证、银行卡等敏感信息进行部分遮蔽处理。 **静态脱敏**：DB 导出前就脱敏（备份、日志、BI 报表场景）。优点：调用方无感知。 **动态脱敏**：查询时按用户权限脱敏（金融 / 医疗合规场景）。常用 `@JsonSerialize` + 自定义 Serializer 屏蔽敏感字段。 **常见脱敏规则**： - 手机号 `138****1234` - 身份证 `110101*****
 
 ## [异常处理](https://java-px.bot.cd/java/03-practice/exception-handling)
 > 统一的异常处理是系统稳定的基石，确保错误信息清晰、可追踪、不泄露敏感信息。 | 原则 | 说明 | |---|---| | 不吞异常 | finally 块不要 return，catch 后要记录日志 | | 不暴露细节 | 生产环境不返回堆栈信息给前端 | | 分层处理 | ControllerAdvice 统一拦截，Service 层只管抛 | | 异常转换 | 第三方异常转为业务异常再抛出
@@ -1199,7 +1199,7 @@
 > 构建工具管理项目的依赖、编译、测试、打包、发布全生命周期。 | 概念 | 说明 | |---|---| | GAV 坐标 | groupId:artifactId:version，唯一标识一个依赖 | | 生命周期 | clean(清理) → compile(编译) → test(测试) → package(打包) → install(安装) → deploy(发布) | | 依赖管理 | 传递依
 
 ## [Docker](https://java-px.bot.cd/java/04-tech/docker)
-> Docker 实现应用容器化，解决"在我机器上能跑"的问题。 | 概念 | 说明 | |---|---| | 镜像 Image | 应用的只读模板 | | 容器 Container | 镜像的运行实例 | | Dockerfile | 镜像构建脚本 | | docker-compose | 多容器编排 | <KnowledgeGraph mode="neighbor" focusNodeId="d
+> Docker 实现应用容器化，解决"在我机器上能跑"的问题。 **多阶段构建**：减少镜像体积（builder stage + runtime stage），最终镜像只含运行时依赖。 **Dockerfile 最佳实践**： - 容器跑应用用非 root 用户（`USER appuser`） - .dockerignore 排除 target/、.git/、node_modules/ 等 - 健康
 
 ## [消息队列 MQ](https://java-px.bot.cd/java/04-tech/message-queue)
 > 消息队列实现异步解耦、削峰填谷、最终一致性。 | | RabbitMQ | Kafka | |---|---|---| | 定位 | 消息代理 | 分布式流平台 | | 吞吐量 | 万级/秒 | 百万级/秒 | | 消息可靠性 | 高（ACK确认） | 高（副本机制） | | 适用场景 | 业务异步解耦 | 日志收集、流处理、大数据 | | 协议 | AMQP | 自定义 | | 场景 | 说明
@@ -1211,7 +1211,7 @@
 > MySQL 是 Java Web 开发中最常用的关系型数据库。 | 类型 | 说明 | 使用场景 | |---|---|---| | 主键索引 | 唯一、非空、聚簇 | 每表必须有 | | 唯一索引 | 唯一、允许空 | 手机号、用户名 | | 普通索引 | 加速查询 | 高频查询字段 | | 联合索引 | 多列组合 | 多条件查询 | | 全文索引 | 文本搜索 | 文章内容搜索 | 关键字段：
 
 ## [Nginx](https://java-px.bot.cd/java/04-tech/nginx)
-> Nginx 是高性能的 HTTP 服务器和反向代理，常用于负载均衡、静态资源、HTTPS 终端。 <KnowledgeGraph mode="neighbor" focusNodeId="nginx" :height="400" />
+> Nginx 是高性能的 HTTP 服务器和反向代理，常用于负载均衡、静态资源、HTTPS 终端。 **反向代理**：`proxy_pass http://backend;` + `proxy_set_header X-Real-IP $remote_addr;` **负载均衡策略**： - `round-robin`（默认，轮询） - `least_conn`（最少连接，适合长连接） - `ip_
 
 ## [技术栈 总览](https://java-px.bot.cd/java/04-tech/overview)
 > Java Web 开发的核心技术组件，涵盖**框架、数据库、中间件、工具链**。 | 技术 | 定位 | 核心功能 | |---|---|---| | [Spring Boot](/04-tech/spring-boot) | 开发框架 | 自动配置、起步依赖、内嵌容器、Actuator 监控 | | [Spring MVC](/04-tech/spring-mvc) | Web 层框架 | 请求
@@ -4395,3 +4395,312 @@
 
 ## [chaos 知识图谱](https://java-px.bot.cd/chaos/index)
 > <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Netflix Chaos Monkey 起源：混沌工程到底解决什么问题？", "稳态假设（steady state）怎么定义才不会被实验打破？", "爆炸
+
+## [01 · 通信协议](https://java-px.bot.cd/iot/01-protocol/README)
+> IoT 设备互联的基础协议层。 | 节点 | 一句话 | |------|--------| | [MQTT 5.0](./mqtt) | IoT 事实标准，发布订阅 | | [CoAP](./coap) | 受限设备首选，UDP 上的 RESTful | | [Modbus / OPC-UA](./modbus) | 工业现场总线 | | [LoRaWAN / NB-IoT](./lpwan)
+
+## [CoAP](https://java-px.bot.cd/iot/01-protocol/coap)
+> > 受限应用协议，基于 UDP 的 RESTful 架构。低功耗设备首选，比 HTTP 协议头更小。 - 协议基于 UDP，默认端口 5683 / DTLS 5684 - 方法同 HTTP（GET/POST/PUT/DELETE） - 资源发现（`.well-known/core`） - 观察模式（订阅资源变化，类似 WebSocket） - 适用场景：电池供电设备 / 网络不稳定 / 资源受限
+
+## [LoRaWAN / NB-IoT](https://java-px.bot.cd/iot/01-protocol/lpwan)
+> > 低功耗广域网协议，远距离（数公里）+ 低功耗（电池用数年）+ 低数据量。 - LoRaWAN：免授权频段，1-3km 城市 / 10km+ 郊区，速率 0.3-50 kbps - NB-IoT：运营商授权频段（蜂窝），覆盖更广，模组成本低 - Sigfox：欧洲主导，极低数据量（每天 140 条消息） - 适用场景：智能水电气表 / 农业传感 / 资产追踪 - [MQTT](./mqtt) -
+
+## [Modbus / OPC-UA](https://java-px.bot.cd/iot/01-protocol/modbus)
+> > 工业现场总线协议，Modbus 简单通用，OPC-UA 工业 4.0 标准。 - Modbus RTU（串口） / Modbus TCP（以太网，端口 502） - 寄存器分类：Coil / Discrete Input / Holding Register / Input Register - OPC-UA：二进制协议 + 信息建模 + 安全加密 - 适用场景：PLC / 工业仪表 / SC
+
+## [MQTT 5.0](https://java-px.bot.cd/iot/01-protocol/mqtt)
+> > 消息队列遥测传输协议，IoT 事实标准。轻量、发布订阅、QoS 等级、遗嘱消息。 - 协议基于 TCP，默认端口 1883 / TLS 8883 - 三种 QoS 等级（at most once / at least once / exactly once） - 主题通配符：`+` 单层匹配 / `#` 多层匹配 - 5.0 新增：reason codes / shared subscript
+
+## [02 · 设备与硬件](https://java-px.bot.cd/iot/02-device/README)
+> IoT 终端的硬件选型与嵌入式开发。 | 节点 | 一句话 | |------|--------| | [MCU / SoC](./mcu) | 微控制器与片上系统 | | [FreeRTOS / Zephyr](./rtos) | 嵌入式实时操作系统 | | [传感器](./sensor) | 温湿度 / IMU / 图像 / 气体 | | [网关硬件](./gateway) | 树莓派 / 工
+
+## [网关硬件](https://java-px.bot.cd/iot/02-device/gateway)
+> > 树莓派 / 工业网关 / 边缘网关。对接多种协议 + 本地缓存 + 离线自治。 - 入门：树莓派 4B（4GB / ¥300）/ Orange Pi 5 - 工业：研华 UNO 系列 / 西门子 IOT2050（IP65 防护） - 协议转换：Modbus → MQTT / Zigbee → Wi-Fi - 离线自治：本地缓存 + 网络恢复后批量上云 - [KubeEdge](../03-ed
+
+## [MCU / SoC](https://java-px.bot.cd/iot/02-device/mcu)
+> > 微控制器与片上系统选型。算力 / 内存 / 功耗 / 价格 / 外设的权衡。 - 入门级：ESP32（双核 240MHz / Wi-Fi+BLE / ¥10）/ Arduino - 中端：STM32（ARM Cortex-M，工业级）/ nRF52（BLE 强） - 高端：树莓派 Pico（RP2040 双核 M0）/ Allwinner / Rockchip（Linux） - 选型三问：电池
+
+## [FreeRTOS / Zephyr](https://java-px.bot.cd/iot/02-device/rtos)
+> > 嵌入式实时操作系统，多任务调度 + 同步原语 + 硬件抽象层。 - FreeRTOS：小型内核（4-12KB），MIT 许可，Arduino / ESP-IDF 内置 - Zephyr：Linux 基金会维护，模块化设计，BLE / LoRa / Wi-Fi 驱动丰富 - Riot OS：欧洲学术项目，低内存友好（10KB 即可运行） - 任务间同步：信号量 / 互斥锁 / 队列 / 事件组
+
+## [传感器](https://java-px.bot.cd/iot/02-device/sensor)
+> > 温湿度 / IMU / 图像 / 气体四类常见传感器原理、选型、接口。 - 温湿度：DHT22 / SHT31（I2C）/ DS18B20（1-Wire） - 惯性 IMU：MPU6050（6 轴）/ BMI088（无人机级） - 图像：OV2640（200万像素）/ Arducam 系列 - 气体：BME680（VOC+温湿压）/ MQ-2（烟雾）/ MH-Z19（CO2） - [MCU](
+
+## [03 · 边缘计算](https://java-px.bot.cd/iot/03-edge/README)
+> 云边协同 + 离线自治 + 边缘智能。 | 节点 | 一句话 | |------|--------| | [EdgeX / KubeEdge](./framework) | 边缘计算框架 | | [边缘智能 AI](./ai-edge) | TensorFlow Lite / ONNX / OpenVINO | | [离线自治](./offline) | 本地缓存 + 协议转换 | | [K8s
+
+## [边缘智能 AI](https://java-px.bot.cd/iot/03-edge/ai-edge)
+> > 边缘端推理：TensorFlow Lite / ONNX / OpenVINO。低延迟 + 隐私保护 + 离线可用。 - TensorFlow Lite：Google 主导，跨平台（ARM / x86 / MCU） - ONNX Runtime：跨框架互操作，模型量化工具链完善 - OpenVINO：Intel 优化，x86 CPU / GPU / VPU 加速 - 典型应用：图像分类 / 物
+
+## [EdgeX / KubeEdge](https://java-px.bot.cd/iot/03-edge/framework)
+> > 边缘计算框架，统一设备接入 + 数据处理 + 云边协同。 - EdgeX Foundry：Linux 基金会项目，模块化（Core/Supporting/Application Service） - KubeEdge：Kubernetes 原生，边缘节点管理 + 离线自治 - Azure IoT Edge：微软云生态，容器化部署 - AWS Greengrass：AWS IoT 边缘运行时 -
+
+## [K8s 边缘](https://java-px.bot.cd/iot/03-edge/k8s-edge)
+> > K3s / KubeEdge / OpenYurt 三种 K8s 边缘方案对比与选型。 - K3s：轻量级 K8s（单 binary < 100MB），适合边缘网关 - KubeEdge：完整 K8s 边缘管理，云边协同 + 离线自治 - OpenYurt：阿里云开源，原生 K8s + 边缘单元化 - 选型：单边缘节点 → K3s；多节点协同 → KubeEdge / OpenYurt - [
+
+## [离线自治](https://java-px.bot.cd/iot/03-edge/offline)
+> > 网络中断时边缘设备继续工作：本地缓存 + 协议转换 + 网络恢复后批量上云。 - 本地缓存：SQLite / LevelDB / BadgerDB - 协议转换：Modbus RTU → MQTT（本地完成） - 决策降级：网络断时按本地规则处理，恢复后上报告 - 关键指标：自治时长（电池续航 / 本地存储容量） - [KubeEdge](./framework) - [设备影子](../04
+
+## [04 · 设备管理](https://java-px.bot.cd/iot/04-management/README)
+> 设备全生命周期：注册 → 认证 → 配置 → 命令 → OTA。 | 节点 | 一句话 | |------|--------| | [设备影子 / 物模型](./shadow) | 设备状态云端抽象 | | [固件 OTA](./ota) | 空中升级与签名 | | [设备安全](./security) | X.509 / mTLS / 密钥管理 | 1. 证书（设备身份） 2. mTLS（双向认
+
+## [固件 OTA](https://java-px.bot.cd/iot/04-management/ota)
+> > 空中升级（Firmware Over-The-Air），分块传输 + 签名验证 + 回滚机制。 - 分块传输：A/B 分区或流式写入（避免大文件一次性写入失败） - 签名验证：ECDSA / RSA 签名 + 公钥校验（防止恶意固件） - 回滚机制：升级失败自动回退到上一版本 - 灰度发布：按设备 ID / 区域 / 版本分组升级 - [设备影子](./shadow) - [设备安全](./s
+
+## [设备安全](https://java-px.bot.cd/iot/04-management/security)
+> > X.509 证书 / mTLS / 密钥管理 / OTA 签名四大支柱。 - X.509 证书：设备身份认证（每设备唯一证书） - mTLS：双向 TLS 认证，云端 + 设备互相验证 - 密钥管理：硬件安全模块（HSM）/ TrustZone / SE 芯片 - OTA 签名：固件必须签名才能升级 - [OTA](./ota) - [公有云 IoT](../06-platform/publi
+
+## [设备影子 / 物模型](https://java-px.bot.cd/iot/04-management/shadow)
+> > 设备状态在云端的抽象表示，用于状态同步、命令下发、状态查询。 - 设备影子（Device Shadow）：AWS IoT / Azure IoT 都用此概念 - 物模型（Thing Specification）：阿里云 LinkKit 定义设备属性 / 服务 / 事件 - 数字孪生（Digital Twin）：更复杂的物理模型仿真 - 同步机制：reported vs desired，最终一致
+
+## [05 · 时序数据](https://java-px.bot.cd/iot/05-timeseries/README)
+> IoT 数据的存储 / 处理 / 可视化。 | 节点 | 一句话 | |------|--------| | [时序库选型](./database) | InfluxDB / TDengine / TimescaleDB | | [流处理 / Downsampling](./processing) | 降采样 + 连续查询 | | [Grafana / Kafka](./integration)
+
+## [时序库选型](https://java-px.bot.cd/iot/05-timeseries/database)
+> > InfluxDB / TDengine / TimescaleDB / QuestDB 四大时序库对比与选型。 - InfluxDB：生态最全（Telegraf / Chronograf），2.x 起闭源 - TDengine：国产开源，专为 IoT 设计，性能强（10x InfluxDB） - TimescaleDB：PostgreSQL 扩展，SQL 兼容 - QuestDB：Influx
+
+## [Grafana / Kafka](https://java-px.bot.cd/iot/05-timeseries/integration)
+> > Grafana 可视化 + Kafka 消息集成，时序数据生态对接。 - Grafana：可视化仪表盘，多数据源支持 - Kafka：时序数据通过 Kafka 流转到下游（实时分析 / 备份） - Prometheus remote_write：InfluxDB / TDengine 兼容此协议 - 典型架构：设备 → MQTT → Kafka → InfluxDB → Grafana - [
+
+## [流处理 / Downsampling](https://java-px.bot.cd/iot/05-timeseries/processing)
+> > 数据降采样 + 连续查询 + 边缘流处理，时序数据降本提效。 - Downsampling：1 秒原始数据降为 1 分钟 / 1 小时平均值 - 连续查询（Continuous Query）：自动定时执行聚合 - 边缘流处理：eKuiper（EMQX）/ Flink IoT - 保留策略：原始数据保留 7 天，聚合数据保留 1 年 - [时序库](./database) - [数据模型](./
+
+## [数据模型](https://java-px.bot.cd/iot/05-timeseries/schema)
+> > tag / field / timestamp 三元组是时序数据核心模型。 - tag：维度（设备 ID / 区域 / 类型），可索引 - field：测量值（温度 / 湿度），不可索引 - timestamp：纳秒精度时间戳 - 一设备一表 vs 一类设备一表：写入性能 vs 查询灵活 - [时序库](./database) - [流处理](./processing) - [← 返回 时序数
+
+## [06 · 云平台与行业落地](https://java-px.bot.cd/iot/06-platform/README)
+> 公有云 IoT + 自建平台 + 行业方案。 | 节点 | 一句话 | |------|--------| | [公有云 IoT](./public-cloud) | AWS / Azure / 阿里云 / 华为云 | | [自建 IoT 平台](./self-hosted) | EMQX / ThingsBoard / HiveMQ | | [智能家居 Matter](./smart-home)
+
+## [工业互联网 IIoT](https://java-px.bot.cd/iot/06-platform/iiot)
+> > 工业 4.0 + 边缘计算 + 设备联网，工业场景的 IoT 应用。 - 工业 4.0：智能工厂 + 数字孪生 + 网络物理系统 - 边缘计算：实时控制（毫秒级）不能在云端 - OPC-UA：工业标准协议，与 Modbus / PROFINET 集成 - 行业落地：预测性维护 / 质量检测 / 能源管理 / 安全监控 - [Modbus](../01-protocol/modbus) - [边
+
+## [公有云 IoT](https://java-px.bot.cd/iot/06-platform/public-cloud)
+> > AWS IoT Core / Azure IoT Hub / 阿里云 LinkKit / 华为云 IoTDA 四大公有云对比。 - AWS IoT Core：Device Gateway / Registry / Shadow / Rules Engine - Azure IoT Hub：与 Azure Functions / Digital Twins 集成 - 阿里云 LinkKit：物模
+
+## [自建 IoT 平台](https://java-px.bot.cd/iot/06-platform/self-hosted)
+> > EMQX / ThingsBoard / HiveMQ 三大开源 IoT Broker 与平台对比。 - EMQX：国产开源，百万级 MQTT 连接，性能强 - ThingsBoard：可视化设备管理 + 仪表盘 + 规则引擎 - HiveMQ：商业友好，集群支持完善 - 选型：纯 Broker → EMQX；含设备管理 → ThingsBoard - [公有云](./public-cloud
+
+## [智能家居 Matter](https://java-px.bot.cd/iot/06-platform/smart-home)
+> > Matter 协议（Project CHIP），CSA 标准，跨 Apple / Google / Amazon / 三星。 - Matter 1.0：基于 IPv6 / Wi-Fi / Thread / Ethernet - 多生态互操作：Apple HomeKit / Google Home / Amazon Alexa - 设备发现：mDNS / DNS-SD - 配网：BLE 辅助 /
+
+## [IoT 站在知识图谱中的位置](https://java-px.bot.cd/iot/README)
+> **物联网（IoT）= 把物理世界的设备 / 传感器 / 执行器数字化并接入互联网**。它不是单一技术，而是协议、硬件、边缘、云端、行业落地的**横切层**。 - **IoT 是横切层，不是替代品**：学 IoT 前先补 network / cloud-native / bigdata 三门基础 - **协议不是越多越好**：90% 场景 MQTT 一招鲜；只在工业现场加 OPC-UA / Mod
+
+## [IoT 速查表](https://java-px.bot.cd/iot/cheatsheet)
+> > 协议 / 端口 / 频段 / 数据格式 一页速查。 | 协议 | 传输层 | 端口 | QoS | 适用场景 | |---|---|---|---|---| | MQTT 5.0 | TCP | 8883 (TLS) | 0/1/2 | 通用 IoT、双向消息、设备管理 | | MQTT 3.1.1 | TCP | 1883 / 8883 | 0/1/2 | 旧设备兼容 | | CoAP |
+
+## [iot 知识图谱](https://java-px.bot.cd/iot/index)
+> <script setup> const painPoints = [ "协议栈碎片：MQTT / CoAP / Modbus / OPC-UA / LoRaWAN 各自适合什么场景？", "边缘 vs 云端：哪些计算放边缘、哪些放云端？", "设备影子 vs 物模型：阿里 / 华为 / AWS 三家抽象不一致，迁移成本高？", "时序数据爆炸：百万设备 × 每秒 1 条数据，传统 MySQL 撑
+
+## [IoT 知识图谱](https://java-px.bot.cd/iot/mindmap)
+> > 本页用 Mermaid mindmap 展示 IoT 全栈知识结构。 - **协议入门**：先看 MQTT / CoAP 两节，再看 Modbus 对比 - **设备端**：从 ESP32 + FreeRTOS 入手，进阶到 Linux Embedded - **边缘架构**：先看 EdgeX 整体框架，再深入 KubeEdge - **数据落地**：协议 → 设备 → 边缘 → 云端 → 时
+
+## [IoT 学习路径](https://java-px.bot.cd/iot/path)
+> > 三条路径覆盖"嵌入式开发者 / 后端开发者 / 解决方案架构师"三种角色。按背景选择即可。 适合：从其他方向（前端/后端/算法）转入 IoT，从未接触过嵌入式硬件。 | Day | 主题 | 关键交付 | |---|---|---| | Day 1 | MQTT 协议 5 分钟入门 | 用 EMQX + MQTTX 跑通 pub/sub | | Day 2 | ESP32 + Arduino
+
+## [IoT 面试与常见问题](https://java-px.bot.cd/iot/questions)
+> > 分 Easy / Medium / Hard 三档，覆盖协议、架构、嵌入式、安全。 **答**：MQTT 是发布/订阅模式，专为低带宽、不稳定网络设计： | 维度 | MQTT | HTTP | |---|---|---| | 协议开销 | 2 字节固定头 | 数百字节头 | | 连接模式 | 长连接、心跳保活 | 短连接、请求/响应 | | 网络要求 | 能在 3G / 卫星下工作 | 弱网
+
+## [应用层](https://java-px.bot.cd/android/01-app/README)
+> Android 应用层：语言 + Jetpack + 协程，业务开发核心栈。 | 节点 | 一句话 | |------|--------| | [Kotlin / Java / NDK](./language) | JVM 语言与现代 Android 开发 | | [Jetpack 套件](./jetpack) | ViewModel / LiveData / Room / Hilt / Work
+
+## [Kotlin 协程](https://java-px.bot.cd/android/01-app/coroutine)
+> > Kotlin 协程：轻量级线程（百万级并发）+ 结构化并发 + 取消传播。 - Dispatchers：Main（UI）/ IO（网络磁盘）/ Default（CPU） - Scope 层级：GlobalScope / viewModelScope / lifecycleScope - 异常处理：CoroutineExceptionHandler / SupervisorJob - Chann
+
+## [Jetpack 套件](https://java-px.bot.cd/android/01-app/jetpack)
+> > Google Jetpack 一站式 Android 架构组件，覆盖 UI / 数据 / 生命周期 / 依赖注入。 - ViewModel：UI 数据持有者（屏幕旋转不丢） - LiveData / Flow：响应式数据流 - Room：SQLite ORM - Hilt：编译期 DI - WorkManager：后台任务调度 - DataStore：替代 SharedPreferences
+
+## [Kotlin / Java / NDK](https://java-px.bot.cd/android/01-app/language)
+> > Android 三大语言路径：Kotlin（首选）/ Java（遗留）/ C++ NDK（性能关键 + 跨平台）。 - Kotlin：Google 2019 官方首选，null 安全 + 协程 + 扩展函数，Java 100% 互操作 - Java：遗留代码 + Android 11 以下设备支持 - C++ NDK：游戏 / 音视频 / 加密算法 / OpenGL 等性能敏感场景 - 选型：
+
+## [UI 体系](https://java-px.bot.cd/android/02-ui/README)
+> UI 体系：传统 View + 现代 Compose + 资源系统。 | 节点 | 一句话 | |------|--------| | [视图系统](./view-system) | Activity / Fragment / View 树 / RecyclerView | | [Jetpack Compose](./compose) | 状态 / Modifier / Material 3 /
+
+## [Jetpack Compose](https://java-px.bot.cd/android/02-ui/compose)
+> > 声明式 UI 框架，Kotlin DSL + 状态驱动 + 自动重组（Recomposition）。 - 状态管理：State / MutableState / remember / rememberSaveable - Modifier 链：顺序决定行为（padding 后点击 vs 点击后 padding） - Material 3：动态颜色 / 主题切换 - 重组优化：稳定参数 + La
+
+## [资源与适配](https://java-px.bot.cd/android/02-ui/resource)
+> > Android 资源系统：颜色 / 主题 / 字符串 / Drawable / 多分辨率屏幕适配。 - 主题：Material 3 / DayNight / 自定义 Theme - 颜色：Color tokens（语义化命名） - 国际化：strings.xml 多语言（values-zh / values-en） - 屏幕适配：sw600dp / smallestWidth / 矢量图 /
+
+## [视图系统](https://java-px.bot.cd/android/02-ui/view-system)
+> > 传统 View 体系：Activity / Fragment / View 树 / RecyclerView，掌握底层原理有助于 Compose 优化。 - Activity：单一屏幕入口 + 生命周期 - Fragment：模块化 UI + FragmentManager 栈 - View 树：Measure / Layout / Draw 三阶段 - RecyclerView：ViewHo
+
+## [系统层](https://java-px.bot.cd/android/03-system/README)
+> 系统层：从启动到 IPC 到运行时 + 框架服务。 | 节点 | 一句话 | |------|--------| | [启动流程](./startup) | Boot ROM → Zygote → SystemServer → 第一个 App | | [IPC 机制](./ipc) | Binder / AIDL / Messenger / ContentProvider | | [ART 运行时
+
+## [IPC 机制](https://java-px.bot.cd/android/03-system/ipc)
+> > Android 进程间通信核心机制：Binder（高频）/ AIDL（强类型）/ Messenger（队列）/ ContentProvider（数据共享）。 - Binder：基于 mmap 的 IPC，单次拷贝性能高 - AIDL：定义跨进程接口（编译期生成 Stub/Proxy） - Messenger：Handler + Parcelable 序列化消息 - ContentProvide
+
+## [ART 运行时](https://java-px.bot.cd/android/03-system/runtime)
+> > Android Runtime（替代 Dalvik）：Dex2oat AOT 编译 + GC + ClassLoader。 - AOT（Ahead-of-Time）：安装时编译为本地代码（Android 7+） - JIT（Just-in-Time）：运行时编译（兼顾冷启动 + 热路径） - GC：分代回收 + Concurrent Mark Sweep - ClassLoader：BootC
+
+## [框架服务](https://java-px.bot.cd/android/03-system/services)
+> > SystemServer 启动的核心系统服务：AMS / WMS / PMS / IMS。 - AMS（Activity Manager Service）：管理 Activity 栈 + 进程优先级 - WMS（Window Manager Service）：窗口 Z-Order + Surface 管理 - PMS（Package Manager Service）：APK 安装 / 卸载 /
+
+## [启动流程](https://java-px.bot.cd/android/03-system/startup)
+> > Android 启动链：Boot ROM → Bootloader → Kernel → Init → Zygote → SystemServer → 第一个 App。 - Boot ROM：固化在芯片，初始化 RAM + 引导 Bootloader - Init 进程：PID 1，挂载文件系统 + 启动服务 - Zygote：预加载 framework + 资源（孵化新进程） - Syste
+
+## [跨平台](https://java-px.bot.cd/android/04-cross/README)
+> 跨平台方案：Flutter / React Native / KMP / Compose Multiplatform。 | 节点 | 一句话 | |------|--------| | [跨平台框架](./frameworks) | Flutter / React Native / KMP / Compose Multiplatform | | [选型决策](./decision) | 性能 vs
+
+## [选型决策](https://java-px.bot.cd/android/04-cross/decision)
+> > 跨平台方案选型：性能 vs 一致性 / 包大小 / 团队能力 / 业务场景。 - 性能要求高：原生（Kotlin / Swift） - UI 一致性要求高：Flutter - 团队 JS 强：React Native - 只共享业务逻辑：KMP - 业务场景：短视频/电商（Flutter）/ 中后台工具（RN） - [跨平台框架](./frameworks) - [性能优化](../06-pe
+
+## [跨平台框架](https://java-px.bot.cd/android/04-cross/frameworks)
+> > Android 之外的跨平台方案：Flutter（自绘 UI）/ React Native（JS 桥）/ KMP（共享逻辑）/ Compose Multiplatform（共享 UI）。 - Flutter：Dart + Skia 自绘 UI，跨 Android/iOS/Web/Desktop - React Native：JS 业务 + 原生组件桥接 - KMP：共享 Kotlin 业务逻辑
+
+## [工具链](https://java-px.bot.cd/android/05-toolchain/README)
+> 工具链：构建 + IDE + 发布。 | 节点 | 一句话 | |------|--------| | [构建系统](./gradle) | Gradle KTS / AGP / Build Variants / CI/CD | | [Android Studio](./ide) | Profiler / Layout Inspector / APK Analyzer | | [发布与上架](./
+
+## [构建系统](https://java-px.bot.cd/android/05-toolchain/gradle)
+> > Gradle KTS + AGP（Android Gradle Plugin）：模块化 + Build Variants + CI/CD。 - Gradle KTS：Kotlin DSL（强类型 + IDE 补全） - AGP 8+：编译缓存 + 增量注解处理 - Build Variants：productFlavors（多渠道包） - CI/CD：GitHub Actions / GitL
+
+## [Android Studio](https://java-px.bot.cd/android/05-toolchain/ide)
+> > 官方 IDE：编码 / 调试 / 性能分析一体化工具集。 - Profiler：CPU / Memory / Network / Energy 实时分析 - Layout Inspector：运行时 View 树可视化 - APK Analyzer：APK 包结构 / 资源占用分析 - Database Inspector：SQLite / Room 数据库浏览 - [构建系统](./grad
+
+## [发布与上架](https://java-px.bot.cd/android/05-toolchain/publish)
+> > 从 App Bundle 到 Play Console / 国内应用市场的发布流程。 - App Bundle（.aab）：按设备 ABI / Density 拆分，包体积减 30%+ - Play Console：上传 .aab + 商店信息 + 隐私政策 - 国内应用市场：腾讯 / 华为 / 小米 / OPPO / VIVO 多渠道 - Firebase：Crashlytics / Ana
+
+## [性能与安全](https://java-px.bot.cd/android/06-perf/README)
+> 性能与安全：启动 / 内存 / ANR / 权限 / 加密。 | 节点 | 一句话 | |------|--------| | [性能优化](./performance) | 启动 / Baseline Profile / 内存 / ANR / 包大小 | | [安全机制](./security) | 权限 / Scoped Storage / Network Security / Keystor
+
+## [性能优化](https://java-px.bot.cd/android/06-perf/performance)
+> > Android 性能五大维度：启动 / 内存 / 流畅度 / 包大小 / 电量。 - 启动优化：冷启动 < 1.5s（推荐 < 1s）+ Baseline Profile - 内存：避免 OOM + 内存泄漏（LeakCanary 检测） - 流畅度：Jank < 5%，Choreographer 监控 - ANR：主线程 5s 无响应（Input 2s） - 包大小：APK Analyzer
+
+## [安全机制](https://java-px.bot.cd/android/06-perf/security)
+> > Android 安全栈：权限模型 / Scoped Storage / Network Security / Keystore / 证书钉扎。 - 权限模型：Runtime Permission（Android 6+） - Scoped Storage（Android 10+）：应用沙箱 + MediaStore - Network Security Config：明文 HTTP 禁用 / 证
+
+## [Android 站在知识图谱中的位置](https://java-px.bot.cd/android/README)
+> **Android = 基于 Linux Kernel 的移动设备操作系统**：应用层用 Kotlin + Jetpack Compose / 系统层是 Java + C++ + Binder IPC 的横切栈。 - Android 是横切层：应用层要 frontend + java-language；系统层要 linux + rust - 90% 应用开发者只要掌握 Jetpack + Comp
+
+## [Android 速查表](https://java-px.bot.cd/android/cheatsheet)
+> > Gradle / Manifest / 常用命令 / 关键 API 一页速查。 | 作用域 | 生命周期 | 典型用途 | |---|---|---| | GlobalScope | 整个应用进程 | 慎用 | | MainScope | 手动管理 | 替代 GlobalScope | | lifecycleScope | Activity/Fragment | UI 层业务 | | view
+
+## [android 知识图谱](https://java-px.bot.cd/android/index)
+> <script setup> const painPoints = [ "Activity / Fragment 生命周期混乱：屏幕旋转后 ViewModel 数据丢失？", "协程作用域错位：GlobalScope / viewModelScope / lifecycleScope 该用哪个？", "Compose 与 View 混用：状态同步、重组范围、跨进程通信怎么搞？", "应用卡顿 /
+
+## [Android 知识图谱](https://java-px.bot.cd/android/mindmap)
+> > 本页用 Mermaid mindmap 展示 Android 全栈知识结构。 - **应用开发者**：从 Jetpack → Compose → 协程 入手，再看性能章节 - **系统开发者**：启动流程 → IPC → ART 运行时 → 框架服务 - **跨端架构师**：先看跨平台决策树，再深入某一框架 Android 是 frontend（客户端开发）+ java-language（JV
+
+## [Android 学习路径](https://java-px.bot.cd/android/path)
+> > 三条路径覆盖"应用开发者 / 系统/性能优化者 / 跨端架构师"三种角色。按背景选择即可。 适合：Java 转 Android / 前端转移动端 / 从零入门。 | Day | 主题 | 关键交付 | |---|---|---| | D1 | Kotlin 基础（语法糖 / 空安全 / 扩展函数） | 第一个 Kotlin 工程 | | D2-3 | Activity / Fragment 生
+
+## [Android 面试与常见问题](https://java-px.bot.cd/android/questions)
+> > 分 Easy / Medium / Hard 三档，覆盖应用层、系统层、性能、跨平台。 **答**： Activity 生命周期： - onCreate：初始化（setContentView） - onStart：可见但不可交互 - onResume：可见可交互（位于栈顶） - onPause：失去焦点 - onStop：完全不可见 - onDestroy：销毁 - onRestart：从 S
+
+## [引擎层](https://java-px.bot.cd/game/01-engine/README)
+> 游戏引擎层：商业引擎选型 + 自研引擎架构 + 决策。 | 节点 | 一句话 | |------|--------| | [商业引擎选型](./commercial) | Unity / Unreal / Godot 三选一 | | [自研引擎架构](./custom) | ECS / RHI / 资源管理 | | [选型决策](./decision) | 平台 / 团队 / 预算 / 性能权衡
+
+## [商业引擎选型](https://java-px.bot.cd/game/01-engine/commercial)
+> > Unity / Unreal Engine / Godot 三大商业引擎对比，按场景选最适合的。 - Unity：C# + 庞大生态 + Asset Store + 移动端霸主（Hyper Casual / 中小规模） - Unreal：AAA + 图形（C++ / Nanite / Lumen）+ 主机 + PC 3A - Godot：开源 + 轻量 + 2D 强 + 独立游戏 - 选型：移
+
+## [自研引擎架构](https://java-px.bot.cd/game/01-engine/custom)
+> > 自研引擎核心三件套：ECS 架构 + RHI 渲染抽象 + 资源管理。 - ECS（Entity Component System）：数据驱动 + 缓存友好，Unity DOTS / Bevy / 自研常用 - RHI（Render Hardware Interface）：抽象 D3D12 / Vulkan / Metal，让一套代码跨平台 - 资源管理：AssetBundle / Addre
+
+## [选型决策](https://java-px.bot.cd/game/01-engine/decision)
+> > 引擎选型四问：平台目标 / 团队规模 / 预算 / 性能需求。 - 平台目标：移动端 → Unity；PC/主机 3A → Unreal；2D 独立 → Godot - 团队规模：< 10 人用现成引擎；50+ 人可考虑自研 - 预算：Unreal 5% 营收分成，Unity 订阅费，Godot 免费 - 性能需求：移动端 Unity；高画质 Unreal；轻量 Godot - [商业引擎](
+
+## [渲染](https://java-px.bot.cd/game/02-render/README)
+> 游戏渲染：管线 / 光照 / 着色器 / 后处理。 | 节点 | 一句话 | |------|--------| | [渲染管线](./pipeline) | 前向 / 延迟 / Clustered / 光追 | | [光照与阴影](./lighting) | PBR / IBL / GI / 阴影 | | [着色器](./shader) | HLSL / Shader Graph / Compu
+
+## [光照与阴影](https://java-px.bot.cd/game/02-render/lighting)
+> > PBR 物理光照 + IBL 间接光 + 全局光照（GI）+ 阴影算法。 - PBR（Physically Based Rendering）：基于物理的 BRDF（金属 / 粗糙度） - IBL（Image Based Lighting）：环境贴图采样，模拟间接光 - GI（Global Ill）：实时光追（Lumen / RT）/ 烘焙（Lightmap） - 阴影：Shadow Map /
+
+## [渲染管线](https://java-px.bot.cd/game/02-render/pipeline)
+> > 四大主流渲染管线：前向 / 延迟 / Clustered / 光线追踪，各有适用场景。 - 前向渲染：移动端首选（low power），带宽低 - 延迟渲染：PC / 主机主流，多光源场景好 - Clustered / Tiled：Forward+ / Deferred+，效率与质量兼顾（UE5 默认） - 光线追踪：电影级画质，硬件要求高（RTX / PS5 / XSX） - [光照](./
+
+## [后处理](https://java-px.bot.cd/game/02-render/postprocess)
+> > 屏幕空间后处理：Bloom / DOF / SSAO / TAA / Color Grading，营造氛围。 - Bloom：发光物体光晕 - DOF（Depth of Field）：景深虚化 - SSAO / HBAO：环境光遮蔽 - TAA（Temporal AA）：时序抗锯齿 - Color Grading：色调映射 + LUT - [渲染管线](./pipeline) - [性能优化]
+
+## [着色器](https://java-px.bot.cd/game/02-render/shader)
+> > HLSL（GLSL/MSL/Slang）+ Shader Graph 可视化 + Compute Shader 通用计算。 - HLSL：DirectX + Xbox + PC，Unity ShaderLab / UE Material 编译为目标 - GLSL：Vulkan / OpenGL，跨平台 - Shader Graph：节点式可视化（Unity / UE 都有），适合美术 - Co
+
+## [物理](https://java-px.bot.cd/game/03-physics/README)
+> 游戏物理：碰撞 / 刚体 / 柔体。 | 节点 | 一句话 | |------|--------| | [碰撞检测](./collision) | AABB / GJK / 空间分割 | | [刚体动力学](./rigidbody) | Verlet / 约束 / PhysX | | [柔体模拟](./softbody) | 弹簧质点 / 布料 / 流体 | - **简单碰撞**：引擎内置 Col
+
+## [碰撞检测](https://java-px.bot.cd/game/03-physics/collision)
+> > 碰撞检测基础：AABB / OBB / GJK / SAT + 空间分割（四叉树 / BVH / NavMesh）。 - AABB：轴对齐包围盒，O(1) 检测，精度低 - OBB：旋转包围盒，更精确 - GJK：凸体碰撞，O(log n) - SAT：分离轴定理 - 空间分割：四叉树（2D）/ 八叉树（3D）/ BVH / NavMesh - [刚体动力学](./rigidbody) - [
+
+## [刚体动力学](https://java-px.bot.cd/game/03-physics/rigidbody)
+> > 刚体模拟：积分（Verlet / Euler）+ 约束求解 + 现成物理引擎（PhysX / Bullet / Havok）。 - Verlet 积分：稳定 + 速度隐式 - Euler 积分：简单但易爆 - 约束求解：PBD（Position Based Dynamics）/ Sequential Impulse - PhysX（NVIDIA）：Unity / Unreal 默认 - Bul
+
+## [柔体模拟](https://java-px.bot.cd/game/03-physics/softbody)
+> > 柔体（软体）模拟：弹簧质点 + 布料 + 流体 SPH，常用于角色头发 / 旗帜 / 爆炸。 - 弹簧质点（Mass-Spring）：布料 / 软组织 - PBD（Position Based Dynamics）：稳定 + 实时 - SPH（Smoothed Particle Hydrodynamics）：流体 - XFEM / FEM：精确但昂贵（电影用） - 性能：通常用 GPU + Co
+
+## [AI](https://java-px.bot.cd/game/04-ai/README)
+> 游戏 AI：寻路 / 决策 / 机器学习。 | 节点 | 一句话 | |------|--------| | [寻路](./pathfinding) | A* / NavMesh / Flow Field | | [决策系统](./decision) | FSM / 行为树 / 效用 / GOAP | | [机器学习 AI](./ml) | 强化学习 / 神经网络 NPC | - **简单 NPC
+
+## [决策系统](https://java-px.bot.cd/game/04-ai/decision)
+> > NPC 决策：FSM（状态机）/ BT（行为树）/ Utility AI / GOAP（目标导向行动规划）。 - FSM：简单状态切换，适合小型 NPC - BT（行为树）：模块化 + 可视化，AAA 标准 - Utility AI：基于效用函数，适合复杂决策 - GOAP：规划式，模拟真实思考过程 - [寻路](./pathfinding) - [机器学习](./ml) - [← 返回 AI
+
+## [机器学习 AI](https://java-px.bot.cd/game/04-ai/ml)
+> > 游戏 AI 与机器学习结合：强化学习（RL）/ 神经网络 NPC / 群体模拟 Boids。 - 强化学习（RL）：DQN / PPO 训练 NPC 策略 - 神经网络 NPC：模仿学习 / 决策网络 - Boids：群体行为（鸟群 / 鱼群） - 应用：赛车 AI / RTS 微操 / NPC 对话生成 - [决策系统](./decision) - [联机架构](../05-network/
+
+## [寻路](https://java-px.bot.cd/game/04-ai/pathfinding)
+> > 寻路算法：A* / Dijkstra / NavMesh / Flow Field / D* Lite，NPC 移动核心。 - A*：启发式搜索，最常用 - Dijkstra：无启发式，最短路径 - NavMesh：导航网格，预烘焙 - Flow Field：RTS 大规模寻路 - D* Lite：动态障碍物寻路 - [决策系统](./decision) - [碰撞检测](../03-phys
+
+## [网络](https://java-px.bot.cd/game/05-network/README)
+> 游戏网络：同步 / 一致性 / 反外挂 / 联机架构。 | 节点 | 一句话 | |------|--------| | [同步模型](./sync) | 状态 / 帧同步 / 快照 | | [一致性](./consistency) | 客户端预测 / 服务器仲裁 / 回放 | | [反外挂](./anticheat) | 服务器权威 / 加密 / 行为检测 | | [联机架构](./arch)
+
+## [反外挂](https://java-px.bot.cd/game/05-network/anticheat)
+> > 反外挂三支柱：服务器权威 / 加密协议 / 行为检测。 - 服务器权威：关键逻辑放服务器，客户端只渲染 - 加密协议：防协议分析 / 中间人 - 行为检测：机器学习分析异常操作 - 商用：EAC（Easy Anti-Cheat）/ BattlEye / VAC - [一致性](./consistency) - [联机架构](./arch) - [← 返回 网络 目录](./) - [← 返回
+
+## [联机架构](https://java-px.bot.cd/game/05-network/arch)
+> > 联机架构：C/S 房间制 / P2P Host 迁移 / Matchmaker 匹配系统。 - C/S 房间制：MMO / MOBA 主流（大厅 + 房间服务器） - P2P：CS / DotA 早期模式，Host 迁移复杂 - Matchmaker：基于 ELO / MMR 匹配（Open Skill / TrueSkill） - [同步模型](./sync) - [上线运营](../08-
+
+## [一致性](https://java-px.bot.cd/game/05-network/consistency)
+> > 网络一致性三大难题：客户端预测 / 服务器仲裁 / 回放录像。 - 客户端预测：本地先响应 + 服务器确认后校正 - 服务器仲裁：服务器是唯一真相源 - 回放录像：记录输入流，任意时刻回放 - 锁步：所有客户端严格按帧同步（确定性） - [同步模型](./sync) - [反外挂](./anticheat) - [← 返回 网络 目录](./) - [← 返回 game 首页](../) [同
+
+## [同步模型](https://java-px.bot.cd/game/05-network/sync)
+> > 联机游戏三种同步模型：状态同步 / 帧同步（Lockstep）/ 快照同步。 - 状态同步：服务器权威，发送状态，MOBA 主流 - 帧同步：所有客户端按帧执行相同输入，RTS 主流 - 快照同步：定期发完整快照，FPS 主流 - 选择：MOBA → 状态；RTS → 帧同步；FPS → 快照 - [一致性](./consistency) - [反外挂](./anticheat) - [← 返
+
+## [音频](https://java-px.bot.cd/game/06-audio/README)
+> 游戏音频：空间 / 动态混音 / 音频引擎。 | 节点 | 一句话 | |------|--------| | [空间音频](./spatial) | HRTF / 3D 衰减 / 声障 | | [动态混音](./mix) | Snapshot / 实时参数 / 总线 | | [音频引擎](./engine) | Wwise / FMOD / 内置 | - **3A**：Wwise（行业标准） -
+
+## [音频引擎](https://java-px.bot.cd/game/06-audio/engine)
+> > 游戏音频中间件：Wwise / FMOD / 引擎内置音频（Unity Audio / Unreal Sound）。 - Wwise（Audiokinetic）：行业标准，AAA 主流，按授权收费 - FMOD：轻量 + 集成简单，独立 / 中型项目主流 - 内置：Unity Audio / Unreal Sound，简单场景够用 - 选型：3A → Wwise；中型 → FMOD；休闲 →
+
+## [动态混音](https://java-px.bot.cd/game/06-audio/mix)
+> > 动态混音：Snapshot（场景切换）+ 实时参数（情绪/战斗）+ 音效总线（路由）。 - Snapshot：预设混音状态（探索 / 战斗 / Boss） - 实时参数：根据玩家状态动态调整（低血量增心跳） - 音效总线：Master / Music / SFX / Voice 分层 - 工具：Wwise / FMOD 状态机驱动 - [空间音频](./spatial) - [音频引擎](./
+
+## [空间音频](https://java-px.bot.cd/game/06-audio/spatial)
+> > 空间音频：HRTF 头相关传输函数 + 3D 距离衰减 + 声障遮挡。 - HRTF：头相关传输函数，模拟人耳定位（耳机 3D） - 3D 衰减：距离 / 方向（双声道 / 环绕声） - 声障遮挡：射线检测 + 衰减 - 引擎：Unity Audio / Wwise / FMOD 都支持 - [动态混音](./mix) - [音频引擎](./engine) - [← 返回 音频 目录](./)
+
+## [工具链](https://java-px.bot.cd/game/07-toolchain/README)
+> 游戏工具链：资产 / 版本控制 / 构建发布。 | 节点 | 一句话 | |------|--------| | [资产管线](./assets) | FBX / glTF / LOD / Addressable | | [版本控制](./vcs) | Git LFS / Perforce / 分支 | | [构建发布](./build) | 多平台构建 / CI/CD / Steam | - *
+
+## [资产管线](https://java-px.bot.cd/game/07-toolchain/assets)
+> > 资产管线：FBX / glTF 模型 + LOD 生成 + 纹理压缩 + Addressable 加载。 - 模型格式：FBX（DCC 通用） / glTF（开放标准） - LOD（Level of Detail）：远距离用低模 + 减少 Draw Call - 纹理压缩：ASTC（移动）/ BC（PC）/ ETC2（OpenGL ES） - 加载：Addressable（Unity 按需加载
+
+## [构建发布](https://java-px.bot.cd/game/07-toolchain/build)
+> > 构建发布：多平台构建脚本 + CI/CD（GitHub Actions / Jenkins） + 平台 SDK 接入。 - 平台构建：Unity BuildPipeline / Unreal UAT - CI/CD：GitHub Actions / Jenkins + 缓存 Library/ - Steam：Steamworks SDK + 上架审核 - 主机：Sony / Microsoft
+
+## [版本控制](https://java-px.bot.cd/game/07-toolchain/vcs)
+> > 游戏版本控制：Git LFS（小团队） / Perforce Helix（大团队） + 分支策略。 - Git LFS：大文件（美术资产）扩展，GitHub / GitLab 支持 - Perforce Helix：游戏行业标配，TB 级资产友好 - 分支策略：main / develop / feature/* - 锁定文件：二进制资产（场景 / Prefab）避免冲突 - [资产管线](.
+
+## [性能与上线](https://java-px.bot.cd/game/08-ship/README)
+> 游戏性能与上线：性能 / 多平台 / 反作弊 / 数据。 | 节点 | 一句话 | |------|--------| | [性能优化](./perf) | Draw Call / GC / 内存池 / 帧率 | | [上线运营](./launch) | 多平台 / 认证 / 反作弊 / 埋点 | - **性能**：先 Profiler 后优化 - **上线**：数据驱动决策 - **合规**：隐
+
+## [上线运营](https://java-px.bot.cd/game/08-ship/launch)
+> > 游戏上线：多平台适配 / 主机认证 / 反作弊 / 数据埋点 / 运营活动。 - 多平台：PC（Steam / Epic）/ 主机（PS/Xbox/Switch）/ 移动（iOS/Android） - 主机认证：Sony / Microsoft / Nintendo TRC 认证 - 反作弊：EAC / BattlEye + 自研检测 - 数据埋点：玩家行为 + 付费漏斗 + 关卡热度 - [
+
+## [性能优化](https://java-px.bot.cd/game/08-ship/perf)
+> > 游戏性能五大维度：Draw Call / GC / 内存池 / 帧率稳定 / 移动端功耗。 - Draw Call：合批（Batching）+ GPU Instancing + SRP Batcher - GC：避免频繁 new + 对象池 - 内存池：复用对象（子弹 / 粒子） - 帧率稳定：Profiler 找热点（CPU / GPU / IO） - 移动端：降分辨率 + 限制后处理 -
+
+## [Game 站在知识图谱中的位置](https://java-px.bot.cd/game/README)
+> **Game = 基于实时渲染 + 物理模拟 + 多人同步的交互式内容工程**：引擎层（Unity / Unreal / Godot）+ 渲染管线（Forward / Deferred / Clustered）+ 物理（碰撞 / 刚体）+ AI（FSM / BT / GOAP）+ 网络（状态同步 / 帧同步）的横切栈。 - **frontend**：客户端通识（窗口 / 输入 / UI / 事件循
+
+## [游戏开发速查表](https://java-px.bot.cd/game/cheatsheet)
+> > 引擎版本 / 数学公式 / 寻路算法 / 物理参数 / Shader 关键字 一页速查。 | 引擎 | 当前稳定版 | LTS | 语言 | 包大小 | |---|---|---|---|---| | Unity | 6000.x (Unity 6) | 2022 LTS | C# | ~250MB | | Unreal Engine | 5.4 / 5.5 | 5.3 | C++ / Blu
+
+## [game 知识图谱](https://java-px.bot.cd/game/index)
+> <script setup> const painPoints = [ "引擎选型纠结：Unity / Unreal / Godot 哪个更适合我的项目？", "渲染卡顿 / 帧率不稳：Draw Call 爆炸 / Shader 编译 / GPU 带宽瓶颈？", "物理穿透 / 抖动 / 速度异常：浮点精度 / 碰撞体配置 / 时间步长？", "敌人 AI 太死板：FSM 不够灵活 / 行为树不会
+
+## [游戏开发知识图谱](https://java-px.bot.cd/game/mindmap)
+> > 本页用 Mermaid mindmap 展示游戏开发全栈知识结构。 - **引擎使用者**：从引擎选型 → 渲染管线 → 着色器 入手，掌握一个 DCC 工作流 - **图形程序员**：渲染管线 → 光照 → 着色器 → GPU 优化，最后补 Compute / 光追 - **AI / 网络程序员**：寻路 → 行为树 → 同步模型，重点掌握一致性和反外挂 - **工具链工程师**：资产管线
+
+## [游戏开发学习路径](https://java-px.bot.cd/game/path)
+> > 三条路径覆盖"引擎使用者 / 图形程序员 / 联机 / AI 程序员"三种角色。按背景选择即可。 适合：应用开发者转游戏 / 想做独立游戏 / 从零入门。 | Day | 主题 | 关键交付 | |---|---|---| | D1 | 引擎选型（Unity / Unreal / Godot 对比） | 选定主攻引擎 + 安装环境 | | D2-3 | 场景搭建（地形 / 灯光 / 摄像机）
+
+## [游戏开发面试与常见问题](https://java-px.bot.cd/game/questions)
+> > 分 Easy / Medium / Hard 三档，覆盖引擎、渲染、网络、AI、性能。 **答**： - **Unity（C#）**：移动端 / 中小型游戏 / 跨平台首选，资源商店最全，迭代快 - **Unreal（C++ / Blueprint）**：3A / 主机 / 写实画面首选，光追 + Nanite + Lumen 内置 - **Godot（GDScript / C#）**：开源免

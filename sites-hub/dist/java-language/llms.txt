@@ -1,8 +1,8 @@
 # java-language 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 55 个文档页 · 34,653 字
-> 生成时间：2026-08-19T20:00:49
+> 55 个文档页 · 34,983 字
+> 生成时间：2026-08-25T20:49:52
 
 ## [数据类型 / 包装类](https://java-px.bot.cd/java-language/01-basics/datatypes)
 > | 类型 | 字节 | 范围 | 包装类 | |------|------|------|--------| | byte | 1 | -128~127 | Byte | | short | 2 | -32k~32k | Short | | int | 4 | -2B~2B | Integer | | long | 8 | -9e18~9e18 | Long | | float | 4 | 6-7

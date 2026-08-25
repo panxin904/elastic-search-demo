@@ -6,13 +6,20 @@
     <atom:link href="https://java-px.bot.cd/frontend/feed.xml" rel="self" type="application/rss+xml" />
     <description>frontend 知识图谱（65 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 19 Aug 2026 20:00:49 -0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
     <item>
       <title>frontend 知识图谱</title>
       <link>https://java-px.bot.cd/frontend/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/frontend/</guid>
       <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "HTML / CSS 基础不扎实，遇到复杂布局就懵？", "React / Vue / Angular / Svelte 选哪个？", "浏览器渲染原理、E</description>
-      <pubDate>Sun, 16 Aug 2026 09:36:38 -0000</pubDate>
+      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>CSS 预处理器</title>
+      <link>https://java-px.bot.cd/frontend/06-style/preprocessor</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/frontend/06-style/preprocessor</guid>
+      <description>特性： - **变量** `$var` - **嵌套** `&amp;` - **mixin** `@mixin` / `@include` - **继承** `@extend` - **运算** `+`、`*`、`darken()` | 需求 | 旧（SCSS） | 现在 | |------|-----------|------| | 变量 | `$primary` | `--var-primary`</description>
+      <pubDate>Mon, 24 Aug 2026 21:00:23 -0000</pubDate>
     </item>
     <item>
       <title>微前端</title>
@@ -265,13 +272,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/frontend/06-style/tailwind</guid>
       <description>**Utility-first CSS 框架**：在 HTML / JSX 中拼出 class。 - **不用离开 HTML**：无需切换文件 - **约束体积**：自动 purge 未用到的 class - **一致性**：design token 内置（间距、颜色、字号） 2024+ 新版本： - **CSS-first 配置**（在 CSS 里写 `@theme`） - 零配置 / 更快的构</description>
       <pubDate>Thu, 23 Jul 2026 20:01:35 -0000</pubDate>
-    </item>
-    <item>
-      <title>CSS 预处理器</title>
-      <link>https://java-px.bot.cd/frontend/06-style/preprocessor</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/frontend/06-style/preprocessor</guid>
-      <description>特性： - **变量** `$var` - **嵌套** `&amp;` - **mixin** `@mixin` / `@include` - **继承** `@extend` - **运算** `+`、`*`、`darken()` | 需求 | 旧（SCSS） | 现在 | |------|-----------|------| | 变量 | `$primary` | `--var-primary`</description>
-      <pubDate>Thu, 23 Jul 2026 20:01:25 -0000</pubDate>
     </item>
     <item>
       <title>Monorepo (Turbo/Nx)</title>

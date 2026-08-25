@@ -6,13 +6,62 @@
     <atom:link href="https://java-px.bot.cd/filesystem/feed.xml" rel="self" type="application/rss+xml" />
     <description>filesystem 知识图谱（94 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 19 Aug 2026 20:00:49 -0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
     <item>
       <title>文件系统 / 文件服务 / 存储全栈</title>
       <link>https://java-px.bot.cd/filesystem/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/filesystem/</guid>
       <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "从单块磁盘的 inode 到跨数据中心的对象存储，怎么系统学？", "POSIX 权限 / ACL / Capabilities 到底有什么区别？", "本</description>
-      <pubDate>Sun, 16 Aug 2026 09:36:38 -0000</pubDate>
+      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+    </item>
+    <item>
+      <title>13 · 面试 / 实战</title>
+      <link>https://java-px.bot.cd/filesystem/13-interview/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/13-interview/README</guid>
+      <description>&lt;span class="kg-badge kg-badge-interview"&gt;面试&lt;/span&gt; 求职导向的高频题、系统设计、对比表。 | 节点 | 一句话 | |------|--------| | [高频面试题](/13-interview/questions) | 50+ 道（含要点答案） | | [系统设计题](/13-interview/system-design) | 6 大经典</description>
+      <pubDate>Mon, 24 Aug 2026 21:00:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>12 · 企业案例</title>
+      <link>https://java-px.bot.cd/filesystem/12-cases/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/12-cases/README</guid>
+      <description>&lt;span class="kg-badge kg-badge-cases"&gt;案例&lt;/span&gt; 真实世界的大型存储架构演进。 | 节点 | 一句话 | |------|--------| | [Netflix S3 架构](/12-cases/netflix-s3) | 每天 1.4 万亿次 S3 操作 | | [ByteDance JuiceFS](/12-cases/juicefs-byted</description>
+      <pubDate>Mon, 24 Aug 2026 21:00:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>10 · 安全与权限</title>
+      <link>https://java-px.bot.cd/filesystem/10-security/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/10-security/README</guid>
+      <description>&lt;span class="kg-badge kg-badge-security"&gt;安全&lt;/span&gt; 文件系统层面的访问控制、加密、审计。 | 节点 | 一句话 | |------|--------| | [POSIX 权限位](/10-security/posix-perm) | rwx 三组九位 | | [ACL 访问控制列表](/10-security/acl) | 细粒度权限 | | [x</description>
+      <pubDate>Mon, 24 Aug 2026 21:00:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>09 · 性能调优</title>
+      <link>https://java-px.bot.cd/filesystem/09-perf/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/09-perf/README</guid>
+      <description>&lt;span class="kg-badge kg-badge-perf"&gt;性能&lt;/span&gt; 让文件系统跑得更快的核心方法论。 | 节点 | 一句话 | |------|--------| | [IO 调度器选型](/09-perf/io-scheduler) | SSD vs HDD 的调度器差异 | | [Page Cache 调优](/09-perf/page-cache-tune) | `</description>
+      <pubDate>Mon, 24 Aug 2026 21:00:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>08 · 文件工具集</title>
+      <link>https://java-px.bot.cd/filesystem/08-tools/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/08-tools/README</guid>
+      <description>&lt;span class="kg-badge kg-badge-tools"&gt;工具&lt;/span&gt; 日常必备的文件操作、调试、监控工具。 | 节点 | 一句话 | |------|--------| | [FUSE 用户态 FS](/08-tools/fuse) | 让用户态程序实现文件系统 | | [debugfs 调试工具](/08-tools/debugfs) | ext 系列底层调试器 | |</description>
+      <pubDate>Mon, 24 Aug 2026 21:00:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>07 · 容器文件系统</title>
+      <link>https://java-px.bot.cd/filesystem/07-container/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/07-container/README</guid>
+      <description>&lt;span class="kg-badge kg-badge-container"&gt;容器&lt;/span&gt; Docker 镜像背后——OverlayFS 与分层原理。 | 节点 | 一句话 | |------|--------| | [OverlayFS 联合挂载](/07-container/overlayfs) | 镜像层的底层技术 | | [Docker 镜像分层](/07-container/</description>
+      <pubDate>Mon, 24 Aug 2026 21:00:15 -0000</pubDate>
+    </item>
+    <item>
+      <title>05 · 网络文件协议</title>
+      <link>https://java-px.bot.cd/filesystem/05-network/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/05-network/README</guid>
+      <description>&lt;span class="kg-badge kg-badge-network"&gt;网络&lt;/span&gt; 跨机器访问文件的标准协议。 | 节点 | 一句话 | |------|--------| | [NFS Unix 经典](/05-network/nfs) | 网络文件系统的事实标准 | | [SMB / CIFS Windows](/05-network/smb) | Windows 共享 / S</description>
+      <pubDate>Mon, 24 Aug 2026 21:00:15 -0000</pubDate>
     </item>
     <item>
       <title>学习路径</title>
@@ -153,13 +202,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/filesystem/01-basics/file-descriptor</guid>
       <description>&lt;span class="kg-badge kg-badge-basics"&gt;基础&lt;/span&gt; `open()` 返回的那个 int 是什么？fd 表如何工作？为什么 `Too many open files`？ 文件描述符是进程级的**整数索引**，指向内核中的"打开文件表"项。 **关键**：多个 fd 可以指向同一个 file（比如 `dup()` 后）；多个进程可以指向同一个 file（</description>
       <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
-    </item>
-    <item>
-      <title>08 · 文件工具集</title>
-      <link>https://java-px.bot.cd/filesystem/08-tools/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/08-tools/README</guid>
-      <description>&lt;span class="kg-badge kg-badge-tools"&gt;工具&lt;/span&gt; 日常必备的文件操作、调试、监控工具。 | 节点 | 一句话 | |------|--------| | [FUSE 用户态 FS](/08-tools/fuse) | 让用户态程序实现文件系统 | | [debugfs 调试工具](/08-tools/debugfs) | ext 系列底层调试器 | |</description>
-      <pubDate>Sat, 15 Aug 2026 11:58:57 -0000</pubDate>
     </item>
     <item>
       <title>全维度对比</title>
@@ -582,20 +624,6 @@
       <pubDate>Sat, 08 Aug 2026 12:27:22 -0000</pubDate>
     </item>
     <item>
-      <title>13 · 面试 / 实战</title>
-      <link>https://java-px.bot.cd/filesystem/13-interview/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/13-interview/README</guid>
-      <description>&lt;span class="kg-badge kg-badge-interview"&gt;面试&lt;/span&gt; 求职导向的高频题、系统设计、对比表。 | 节点 | 一句话 | |------|--------| | [高频面试题](/13-interview/questions) | 50+ 道（含要点答案） | | [系统设计题](/13-interview/system-design) | 6 大经典</description>
-      <pubDate>Sat, 08 Aug 2026 12:19:32 -0000</pubDate>
-    </item>
-    <item>
-      <title>12 · 企业案例</title>
-      <link>https://java-px.bot.cd/filesystem/12-cases/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/12-cases/README</guid>
-      <description>&lt;span class="kg-badge kg-badge-cases"&gt;案例&lt;/span&gt; 真实世界的大型存储架构演进。 | 节点 | 一句话 | |------|--------| | [Netflix S3 架构](/12-cases/netflix-s3) | 每天 1.4 万亿次 S3 操作 | | [ByteDance JuiceFS](/12-cases/juicefs-byted</description>
-      <pubDate>Sat, 08 Aug 2026 12:19:27 -0000</pubDate>
-    </item>
-    <item>
       <title>11 · 备份与快照</title>
       <link>https://java-px.bot.cd/filesystem/11-backup/README</link>
       <guid isPermaLink="true">https://java-px.bot.cd/filesystem/11-backup/README</guid>
@@ -603,39 +631,11 @@
       <pubDate>Sat, 08 Aug 2026 12:19:23 -0000</pubDate>
     </item>
     <item>
-      <title>10 · 安全与权限</title>
-      <link>https://java-px.bot.cd/filesystem/10-security/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/10-security/README</guid>
-      <description>&lt;span class="kg-badge kg-badge-security"&gt;安全&lt;/span&gt; 文件系统层面的访问控制、加密、审计。 | 节点 | 一句话 | |------|--------| | [POSIX 权限位](/10-security/posix-perm) | rwx 三组九位 | | [ACL 访问控制列表](/10-security/acl) | 细粒度权限 | | [x</description>
-      <pubDate>Sat, 08 Aug 2026 12:19:17 -0000</pubDate>
-    </item>
-    <item>
-      <title>09 · 性能调优</title>
-      <link>https://java-px.bot.cd/filesystem/09-perf/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/09-perf/README</guid>
-      <description>&lt;span class="kg-badge kg-badge-perf"&gt;性能&lt;/span&gt; 让文件系统跑得更快的核心方法论。 | 节点 | 一句话 | |------|--------| | [IO 调度器选型](/09-perf/io-scheduler) | SSD vs HDD 的调度器差异 | | [Page Cache 调优](/09-perf/page-cache-tune) | `</description>
-      <pubDate>Sat, 08 Aug 2026 12:19:13 -0000</pubDate>
-    </item>
-    <item>
-      <title>07 · 容器文件系统</title>
-      <link>https://java-px.bot.cd/filesystem/07-container/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/07-container/README</guid>
-      <description>&lt;span class="kg-badge kg-badge-container"&gt;容器&lt;/span&gt; Docker 镜像背后——OverlayFS 与分层原理。 | 节点 | 一句话 | |------|--------| | [OverlayFS 联合挂载](/07-container/overlayfs) | 镜像层的底层技术 | | [Docker 镜像分层](/07-container/</description>
-      <pubDate>Sat, 08 Aug 2026 12:19:00 -0000</pubDate>
-    </item>
-    <item>
       <title>06 · 云原生存储</title>
       <link>https://java-px.bot.cd/filesystem/06-cloud-native/README</link>
       <guid isPermaLink="true">https://java-px.bot.cd/filesystem/06-cloud-native/README</guid>
       <description>&lt;span class="kg-badge kg-badge-cloud-native"&gt;云原生&lt;/span&gt; Kubernetes 时代的存储抽象——CSI、PV/PVC、Operator。 | 节点 | 一句话 | |------|--------| | [CSI 容器存储接口](/06-cloud-native/csi) | K8s 存储标准 | | [PV / PVC / StorageC</description>
       <pubDate>Sat, 08 Aug 2026 12:18:56 -0000</pubDate>
-    </item>
-    <item>
-      <title>05 · 网络文件协议</title>
-      <link>https://java-px.bot.cd/filesystem/05-network/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/05-network/README</guid>
-      <description>&lt;span class="kg-badge kg-badge-network"&gt;网络&lt;/span&gt; 跨机器访问文件的标准协议。 | 节点 | 一句话 | |------|--------| | [NFS Unix 经典](/05-network/nfs) | 网络文件系统的事实标准 | | [SMB / CIFS Windows](/05-network/smb) | Windows 共享 / S</description>
-      <pubDate>Sat, 08 Aug 2026 12:18:52 -0000</pubDate>
     </item>
     <item>
       <title>04 · 对象存储</title>

@@ -1,8 +1,8 @@
 # Scholar's Atlas 跨站知识图谱
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 1464 个文档页 · 6,223,507 字
-> 生成时间：2026-08-19T20:00:49
+> 1567 个文档页 · 6,352,823 字
+> 生成时间：2026-08-25T20:49:52
 
 ## [集群 Cluster](https://java-px.bot.cd/es/01-storage/cluster)
 > <span class="kg-badge kg-badge-storage">存储层</span> ES 集群是由**一个或多个节点**组成的、能对外提供统一搜索服务的分布式系统。 - **水平扩展**：突破单机容量与吞吐上限 - **高可用**：节点故障时副本接管 - **并行处理**：查询与索引在多节点并行执行 返回： | 状态 | 含义 | |---|---| | 🟢 green | 所有
@@ -915,6 +915,12 @@ GET /products/_stats?level=shards
 ## 📚 延伸阅读
 - [段 Segment](/01-storage/segment)
 - [Refresh 机制](/01-storage/refresh)
+## 🎯 调优建议
+
+- 默认 index.translog.durability=request（同步刷盘，性能 vs 安全平衡）
+- 高吞吐场景可设 async（异步刷盘，宕机可能丢最近 5s 数据）
+- index.translog.flush_threshold_size 控制 flush 频率（默认 512MB）
+- translog 是 segment 合并的关键，监控 translog 大小避免磁盘满
 
 ---
 
@@ -1856,6 +1862,12 @@ POST /products/_search
 ## 📚 延伸阅读
 - [Term Query](/02-query/term)
 - [Bool Query](/02-query/bool)
+## 🎯 实战建议
+
+- 数值范围查询优先用 `gte/lte`（避免 `gt/lt` 在浮点精度问题上的 off-by-one）
+- 日期范围用 `now-7d` 数学表达式比传毫秒时间戳更易读
+- 大范围查询 + 排序慎用：性能开销大（要扫整个范围 + 排序）
+- 范围查询会展开为 term set（keyword 类型），范围过大时考虑用 `terms` + 路由优化
 
 ---
 
@@ -2202,6 +2214,12 @@ POST /products/_search
 ## 📚 延伸阅读
 - [分页](/02-query/pagination)
 - [Search After](/02-query/search-after)
+## 🎯 实战建议
+
+- `_score` 排排序 + relevance 时考虑 tie_breaker（多字段综合评分）
+- 字符串排序用 `keyword` 字段（`text` 字段无法直接排序）
+- 大结果集排序用 search_after（游标分页，比 from/size 深翻页性能好）
+- 多字段排序用 `_score` + 业务字段组合，确保稳定性
 
 ---
 
@@ -5375,6 +5393,19 @@ const relatedSites = [
 - 🎓 [Elastic 官方培训](https://www.elastic.co/training/)
 - 📚 [Elasticsearch 权威指南](https://www.elastic.co/guide/en/elasticsearch/guide/current/index.html)
 - 🔬 [Lucene 官方文档](https://lucene.apache.org/core/)
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [mysql](https://java-px.bot.cd/mysql/)：MySQL 全文索引对比
+- [clickhouse](https://java-px.bot.cd/clickhouse/)：ClickHouse OLAP 对比
+- [bigdata](https://java-px.bot.cd/bigdata/)：大数据生态
+- [system-design](https://java-px.bot.cd/system-design/)：搜索引擎架构
+- [java](https://java-px.bot.cd/java-web-manual/)：Java ES Client
+- [observability](https://java-px.bot.cd/observability/)：ES 集群监控
 
 ---
 
@@ -29154,6 +29185,20 @@ const relatedSites = [
 | 🧮 性能计算器 | B+Tree 高度 / Buffer Pool / QPS 容量估算 |
 | ☕ **MyBatis/MyBatis-Plus** | 10 页从入门到高级实战的 ORM 教程 |
 
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [postgresql](https://java-px.bot.cd/postgresql/)：PostgreSQL 对比
+- [redis](https://java-px.bot.cd/redis/)：Redis 缓存层
+- [clickhouse](https://java-px.bot.cd/clickhouse/)：ClickHouse OLAP
+- [system-design](https://java-px.bot.cd/system-design/)：数据库选型
+- [architecture](https://java-px.bot.cd/architecture/)：读写分离 / 分库分表
+- [observability](https://java-px.bot.cd/observability/)：慢查询监控
+- [linux](https://java-px.bot.cd/linux/)：Linux I/O 调优
+
 ---
 
 ## [思维导图](https://java-px.bot.cd/mysql/mindmap)
@@ -45400,6 +45445,19 @@ const relatedSites = [
 - [Vue 3](https://vuejs.org/) - 组件化
 - [ECharts 5.x](https://echarts.apache.org/) - 图谱、思维导图
 - 5 个自研交互组件（命令 Playground / 数据结构可视化 / 集群拓扑 / 分布式锁 / 命令速查）
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [mysql](https://java-px.bot.cd/mysql/)：MySQL 主存
+- [kafka](https://java-px.bot.cd/kafka/)：Kafka 异步队列
+- [java](https://java-px.bot.cd/java-web-manual/)：Java 客户端（Redisson / Jedis）
+- [system-design](https://java-px.bot.cd/system-design/)：分布式锁 / 缓存架构
+- [architecture](https://java-px.bot.cd/architecture/)：微服务缓存层
+- [linux](https://java-px.bot.cd/linux/)：Linux 内核参数调优
 
 ---
 
@@ -79628,6 +79686,18 @@ const relatedSites = [
 - [ECharts 5.x](https://echarts.apache.org/) - 图谱、思维导图、排序可视化
 - 7 个自研交互组件（Playground / Scrapy 流程 / 排序可视化 / API 速查 / 知识图谱 / 思维导图 / Cheatsheet）
 
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [java](https://java-px.bot.cd/java-web-manual/)：Java 对比
+- [ai](https://java-px.bot.cd/ai/)：AI / 机器学习
+- [data](https://java-px.bot.cd/data/)：数据处理
+- [devops](https://java-px.bot.cd/devops/)：自动化运维
+- [linux](https://java-px.bot.cd/linux/)：Linux 脚本
+
 ---
 
 ## [思维导图](https://java-px.bot.cd/python/mindmap)
@@ -107352,6 +107422,19 @@ Kafka 是分布式消息中间件的标杆，但绝大多数人：
 - [ECharts 5.x](https://echarts.apache.org/) - 图谱、思维导图
 - 6 个自研交互组件（命令 Playground / 集群拓扑 / 消费者模拟器 / 命令速查 / 知识图谱 / 思维导图）
 
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [redis](https://java-px.bot.cd/redis/)：Redis 缓存对比
+- [java](https://java-px.bot.cd/java-web-manual/)：Java 客户端集成
+- [system-design](https://java-px.bot.cd/system-design/)：消息可靠性
+- [architecture](https://java-px.bot.cd/architecture/)：事件驱动架构
+- [observability](https://java-px.bot.cd/observability/)：消息延迟监控
+- [bigdata](https://java-px.bot.cd/bigdata/)：Kafka 在大数据中的角色
+
 ---
 
 ## [思维导图](https://java-px.bot.cd/kafka/mindmap)
@@ -108693,7 +108776,7 @@ public class LogAspect {
 ---
 
 ## [责任链模式](https://java-px.bot.cd/java/02-design/chain-of-responsibility)
-> 将请求沿着处理链传递，每个处理器决定处理或传递给下一个。 - **Servlet Filter 链**：每个 Filter 决定是否放行 - **Spring Interceptor**：preHandle → Controller → postHandle → afterCompletion - **审批流**：组长 → 经理 → 总监 逐级审批 <KnowledgeGraph mode="ne
+> 将请求沿着处理链传递，每个处理器决定处理或传递给下一个。 - **Servlet Filter 链**：每个 Filter 决定是否放行 - **Spring Interceptor**：preHandle → Controller → postHandle → afterCompletion - **审批流**：组长 → 经理 → 总监 逐级审批 **使用场景**：请求需要**多个处理者**依次
 
 # 责任链模式
 
@@ -108729,6 +108812,19 @@ public class HandlerChain {
     private List<AbstractHandler> handlers;
 }
 ```
+
+## 🛠️ 何时用责任链
+
+**使用场景**：请求需要**多个处理者**依次处理（每个处理者可决定是否处理 + 传给下一个）。
+
+**典型应用**：
+- Servlet Filter / Spring Interceptor
+- Netty ChannelPipeline
+- Spring Security Filter Chain
+- 日志 / 鉴权 / 限流 / 监控 多层串联
+
+**与装饰器模式区别**：责任链**单向传递**（每个处理者可中断），装饰器**层层包裹**
+（外层调用内层）。
 
 ## 图谱关联
 
@@ -108781,7 +108877,7 @@ DDD 适用于复杂业务场景，通过领域建模让代码结构与业务逻�
 ---
 
 ## [依赖注入](https://java-px.bot.cd/java/02-design/dependency-injection)
-> Spring 通过 IoC 容器管理对象的创建和依赖关系，开发者只需声明需要什么。 | | @Autowired | @Resource | |---|---|---| | 来源 | Spring | JDK (JSR-250) | | 默认装配 | byType | byName | | 指定方式 | @Qualifier | name 属性 | <KnowledgeGraph mode="ne
+> Spring 通过 IoC 容器管理对象的创建和依赖关系，开发者只需声明需要什么。 | | @Autowired | @Resource | |---|---|---| | 来源 | Spring | JDK (JSR-250) | | 默认装配 | byType | byName | | 指定方式 | @Qualifier | name 属性 | **DI 优势**：依赖关系**显式可见**（构
 
 # 依赖注入（IoC/DI）
 
@@ -108830,6 +108926,15 @@ public class UserController {
 | 默认装配 | byType | byName |
 | 指定方式 | @Qualifier | name 属性 |
 
+## 🛠️ DI vs Service Locator
+
+**DI 优势**：依赖关系**显式可见**（构造器参数列表）、便于测试（注入 mock）、框架管理生命周期。
+
+**Service Locator 劣势**：依赖隐藏在 locator.get() 调用里，测试和重构困难。
+
+**Spring 推荐**：构造器注入（final 字段）+ Lombok `@RequiredArgsConstructor`，
+字段注入（@Autowired on field）不推荐（不利于测试 + 隐藏依赖）。
+
 ## 图谱关联
 
 <KnowledgeGraph mode="neighbor" focusNodeId="dependency-injection" :height="400" />
@@ -108837,7 +108942,7 @@ public class UserController {
 ---
 
 ## [工厂模式](https://java-px.bot.cd/java/02-design/factory-pattern)
-> 定义创建对象的接口，让子类决定实例化哪个类。 - **Spring BeanFactory**：IoC 容器本身就是巨型工厂 - **SqlSessionFactory**：MyBatis 创建 SqlSession - **ThreadPoolExecutor 工厂**：统一创建线程池 <KnowledgeGraph mode="neighbor" focusNodeId="factory-pa
+> 定义创建对象的接口，让子类决定实例化哪个类。 - **Spring BeanFactory**：IoC 容器本身就是巨型工厂 - **SqlSessionFactory**：MyBatis 创建 SqlSession - **ThreadPoolExecutor 工厂**：统一创建线程池 **使用场景**：创建逻辑较复杂（参数多 / 多种类型 / 需要缓存 / 需要单例管理）， 或者**调用方不想
 
 # 工厂模式
 
@@ -108863,6 +108968,16 @@ public class NotificationFactory {
     }
 }
 ```
+
+## 🛠️ 何时用工厂模式
+
+**使用场景**：创建逻辑较复杂（参数多 / 多种类型 / 需要缓存 / 需要单例管理），
+或者**调用方不想关心具体类名**（依赖倒置 + 解耦）。
+
+**不要用**：只有 1-2 个实现类，且创建逻辑简单（直接 `new`）。
+
+**Spring 替代**：直接用 `@Component` + `@Autowired`，IoC 容器本身就是工厂，
+业务代码不需要再写工厂类。
 
 ## 图谱关联
 
@@ -108989,6 +109104,17 @@ public class User {
 | 数据独立性 | 每个服务有独立数据库 |
 | 渐进式拆分 | 从核心业务开始，逐步拆 |
 
+## 🛠️ 微服务拆分的陷阱
+
+**不要为了拆而拆**：服务越多运维成本越高（部署 / 监控 / 链路追踪 / 分布式事务）。
+
+**拆分原则**：
+- 业务边界清晰（DDD 限界上下文）
+- 数据独立（每个服务有自己的数据库，不共享表）
+- 团队规模匹配（两个披萨团队原则 — Amazon 10 人内）
+
+**通信方式**：同步（HTTP/REST/gRPC）vs 异步（Kafka/RocketMQ）vs 事件驱动（EventBridge）。
+
 ## 图谱关联
 
 <KnowledgeGraph mode="neighbor" focusNodeId="microservices" :height="400" />
@@ -109050,6 +109176,17 @@ public class UserController {
 | 能获取 Bean | 否 | 是 |
 | 能获取请求体 | 否（只能 request/response） | 是（HandlerMethod） |
 | 使用场景 | 编码、跨域、安全 | 鉴权、日志、性能统计 |
+
+## 🛠️ Spring MVC 关键注解
+
+- `@RestController` = `@Controller` + `@ResponseBody`（返回 JSON）
+- `@RequestMapping` 父注解 + `@GetMapping/@PostMapping` 子注解
+- `@PathVariable` 路径参数 / `@RequestParam` 查询参数 / `@RequestBody` 请求体
+- `@Valid` 触发参数校验（搭配 `@NotNull/@Min/@Max` 等）
+- `@ControllerAdvice` + `@ExceptionHandler` 全局异常处理
+
+**性能调优**：异步 MVC（`@Async` + `WebMvcConfigurer` 配置 ThreadPoolTaskExecutor）
+可释放 Servlet 线程，适合 IO 密集型接口。
 
 ## 图谱关联
 
@@ -109157,6 +109294,17 @@ Java Web 开发的实现思路涵盖**架构设计、设计模式、编程范式
 | 要求 | 必须有接口 | final 类/方法不行 |
 | 性能 | 反射调用 | 字节码，略快 |
 
+## 🛠️ 何时用代理模式
+
+**使用场景**：想在原方法前后**无侵入**加逻辑（AOP 切面），或**延迟加载**资源
+（lazy proxy / hibernate lazy loading）。
+
+**JDK 动态代理 vs CGLIB**：
+- 有接口 → JDK 动态代理（无依赖）
+- 无接口 → 必须 CGLIB（Spring 默认 fallback）
+
+**Spring AOP**：默认 JDK 动态代理 + CGLIB 混合；配置 `spring.aop.proxy-target-class=true` 强制 CGLIB。
+
 ## 图谱关联
 
 <KnowledgeGraph mode="neighbor" focusNodeId="proxy-pattern" :height="400" />
@@ -109210,7 +109358,7 @@ Header: API-Version: v1
 ---
 
 ## [策略模式](https://java-px.bot.cd/java/02-design/strategy-pattern)
-> 定义一组算法，分别封装，使其可以互相替换。 - **多种支付方式**：微信支付、支付宝、银行卡 - **多种通知渠道**：短信、邮件、App推送 - **多种计费规则**：普通用户、VIP、企业 <KnowledgeGraph mode="neighbor" focusNodeId="strategy-pattern" :height="400" />
+> 定义一组算法，分别封装，使其可以互相替换。 - **多种支付方式**：微信支付、支付宝、银行卡 - **多种通知渠道**：短信、邮件、App推送 - **多种计费规则**：普通用户、VIP、企业 **使用场景**：多种算法可以**互换**，且算法选择**在运行时决定**（如支付方式 选择、排序算法选择、压缩算法选择）。 **优势**：消除 if-else 链，新增算法只需新增 Strategy 实
 
 # 策略模式
 
@@ -109248,6 +109396,16 @@ public class PayService {
 }
 ```
 
+## 🛠️ 何时用策略模式
+
+**使用场景**：多种算法可以**互换**，且算法选择**在运行时决定**（如支付方式
+选择、排序算法选择、压缩算法选择）。
+
+**优势**：消除 if-else 链，新增算法只需新增 Strategy 实现类（OCP）。
+
+**Spring 替代**：用 `Map<String, Strategy>` + `@Component` 自动注入多种实现，
+比手写 if-else 优雅。
+
 ## 图谱关联
 
 <KnowledgeGraph mode="neighbor" focusNodeId="strategy-pattern" :height="400" />
@@ -109255,7 +109413,7 @@ public class PayService {
 ---
 
 ## [模板方法模式](https://java-px.bot.cd/java/02-design/template-method)
-> 在父类中定义算法骨架，子类实现具体步骤。 - **BaseService**：通用 CRUD 模板 - **JdbcTemplate / RestTemplate**：连接管理、异常处理已封装 - **数据导出**：查询数据 → 格式化 → 写入文件（子类实现格式化） <KnowledgeGraph mode="neighbor" focusNodeId="template-method" :he
+> 在父类中定义算法骨架，子类实现具体步骤。 - **BaseService**：通用 CRUD 模板 - **JdbcTemplate / RestTemplate**：连接管理、异常处理已封装 - **数据导出**：查询数据 → 格式化 → 写入文件（子类实现格式化） **使用场景**：业务流程**整体固定**，但某些步骤需要子类定制（如 Spring `AbstractView.render()
 
 # 模板方法模式
 
@@ -109281,6 +109439,17 @@ public abstract class AbstractExportService<T> {
     protected abstract void formatAndWrite(List<T> data, HttpServletResponse response);
 }
 ```
+
+## 🛠️ 何时用模板方法
+
+**使用场景**：业务流程**整体固定**，但某些步骤需要子类定制（如 Spring
+`AbstractView.render()`、`JdbcTemplate`、`AbstractHandlerMethodMapping`）。
+
+**与策略模式区别**：
+- 模板方法：**继承**关系，子类覆写钩子方法（流程由父类控制）
+- 策略模式：**组合**关系，运行时切换算法（流程由调用方控制）
+
+**钩子方法（hook）vs 抽象方法：钩子有默认实现（子类可选择性覆写），抽象方法必须覆写。
 
 ## 图谱关联
 
@@ -109491,11 +109660,25 @@ public void afterCompletion(...) {
 ---
 
 ## [数据脱敏](https://java-px.bot.cd/java/03-practice/data-masking)
-> 对手机号、身份证、银行卡等敏感信息进行部分遮蔽处理。 | 类型 | 规则 | 示例 | |---|---|---| | 手机号 | 保留前3后4 | 138****1234 | | 身份证 | 保留前4后4 | 3301**********1234 | | 银行卡 | 保留后4 | ****1234 | | 姓名 | 保留姓，名用* | 张** | | 邮箱 | 用户名部分打* | t***@qq
+> 对手机号、身份证、银行卡等敏感信息进行部分遮蔽处理。 **静态脱敏**：DB 导出前就脱敏（备份、日志、BI 报表场景）。优点：调用方无感知。 **动态脱敏**：查询时按用户权限脱敏（金融 / 医疗合规场景）。常用 `@JsonSerialize` + 自定义 Serializer 屏蔽敏感字段。 **常见脱敏规则**： - 手机号 `138****1234` - 身份证 `110101*****
 
 # 数据脱敏
 
 对手机号、身份证、银行卡等敏感信息进行部分遮蔽处理。
+
+## 🛠️ 数据脱敏方案
+
+**静态脱敏**：DB 导出前就脱敏（备份、日志、BI 报表场景）。优点：调用方无感知。
+
+**动态脱敏**：查询时按用户权限脱敏（金融 / 医疗合规场景）。常用 `@JsonSerialize` + 自定义 Serializer 屏蔽敏感字段。
+
+**常见脱敏规则**：
+- 手机号 `138****1234`
+- 身份证 `110101********1234`
+- 银行卡 `**** **** **** 1234`
+- 邮箱 `abc***@gmail.com`
+
+**合规要求**：GDPR / 个人信息保护法（PIPL）要求"最小必要原则"+ 加密存储 + 审计日志。
 
 ## 脱敏规则
 
@@ -110410,11 +110593,23 @@ parent-project/
 ---
 
 ## [Docker](https://java-px.bot.cd/java/04-tech/docker)
-> Docker 实现应用容器化，解决"在我机器上能跑"的问题。 | 概念 | 说明 | |---|---| | 镜像 Image | 应用的只读模板 | | 容器 Container | 镜像的运行实例 | | Dockerfile | 镜像构建脚本 | | docker-compose | 多容器编排 | <KnowledgeGraph mode="neighbor" focusNodeId="d
+> Docker 实现应用容器化，解决"在我机器上能跑"的问题。 **多阶段构建**：减少镜像体积（builder stage + runtime stage），最终镜像只含运行时依赖。 **Dockerfile 最佳实践**： - 容器跑应用用非 root 用户（`USER appuser`） - .dockerignore 排除 target/、.git/、node_modules/ 等 - 健康
 
 # Docker
 
 Docker 实现应用容器化，解决"在我机器上能跑"的问题。
+
+## 🛠️ Docker 实战要点
+
+**多阶段构建**：减少镜像体积（builder stage + runtime stage），最终镜像只含运行时依赖。
+
+**Dockerfile 最佳实践**：
+- 基础镜像用 `eclipse-temurin:17-jre-alpine`（小、含 JRE）
+- 容器跑应用用非 root 用户（`USER appuser`）
+- .dockerignore 排除 target/、.git/、node_modules/ 等
+- 健康检查用 `HEALTHCHECK`（不是业务自己探活）
+
+**Docker Compose vs K8s**：本地开发用 Compose（简单），生产用 K8s（编排 / 自愈 / 扩缩容）。
 
 ## 核心概念
 
@@ -110679,11 +110874,26 @@ SELECT * FROM t_user WHERE username LIKE '张三%';
 ---
 
 ## [Nginx](https://java-px.bot.cd/java/04-tech/nginx)
-> Nginx 是高性能的 HTTP 服务器和反向代理，常用于负载均衡、静态资源、HTTPS 终端。 <KnowledgeGraph mode="neighbor" focusNodeId="nginx" :height="400" />
+> Nginx 是高性能的 HTTP 服务器和反向代理，常用于负载均衡、静态资源、HTTPS 终端。 **反向代理**：`proxy_pass http://backend;` + `proxy_set_header X-Real-IP $remote_addr;` **负载均衡策略**： - `round-robin`（默认，轮询） - `least_conn`（最少连接，适合长连接） - `ip_
 
 # Nginx
 
 Nginx 是高性能的 HTTP 服务器和反向代理，常用于负载均衡、静态资源、HTTPS 终端。
+
+## 🛠️ Nginx 关键配置
+
+**反向代理**：`proxy_pass http://backend;` + `proxy_set_header X-Real-IP $remote_addr;`
+
+**负载均衡策略**：
+- `round-robin`（默认，轮询）
+- `least_conn`（最少连接，适合长连接）
+- `ip_hash`（会话保持，按客户端 IP hash）
+- `weight=`（权重，可与上面策略组合）
+
+**gzip 压缩**：`gzip on; gzip_types text/plain application/json; gzip_min_length 1024;`
+
+**HTTPS**：`ssl_certificate /etc/nginx/ssl/cert.pem; ssl_certificate_key /etc/nginx/ssl/key.pem;`
+（用 Let's Encrypt + certbot 自动续期）。
 
 ## 反向代理
 
@@ -111351,6 +111561,21 @@ const relatedSites = [
 - [阿里 Java 开发手册](https://github.com/alibaba/p3c)
 - [Design Patterns in Java](https://refactoring.guru/design-patterns/java)
 
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [java-language](https://java-px.bot.cd/java-language/)：JVM 调优 / 字节码 / 类加载器
+- [system-design](https://java-px.bot.cd/system-design/)：系统设计 / 高并发 / 分布式
+- [architecture](https://java-px.bot.cd/architecture/)：企业级架构 / 微服务
+- [mysql](https://java-px.bot.cd/mysql/)：MySQL 索引 / SQL 优化
+- [redis](https://java-px.bot.cd/redis/)：Redis 缓存 / 分布式锁
+- [kafka](https://java-px.bot.cd/kafka/)：Kafka 消息队列
+- [cloud-native](https://java-px.bot.cd/cloud-native/)：Docker / K8s 部署
+- [es](https://java-px.bot.cd/es/)：Elasticsearch 搜索
+
 ---
 
 ## [Base64 编解码](https://java-px.bot.cd/tools/base64)
@@ -111745,6 +111970,16 @@ const relatedSites = [
     <p>解析 Cron 并预览接下来 5 次运行时间。</p>
   </a>
 </div>
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [frontend](https://java-px.bot.cd/frontend/)：前端工具
+- [devops](https://java-px.bot.cd/devops/)：运维工具
+- [python](https://java-px.bot.cd/python/)：Python 工具
 
 ---
 
@@ -116433,6 +116668,14 @@ $primary: #06b6d4;
 
 - [Tailwind / UnoCSS](/06-style/tailwind)
 - [CSS Modules](/06-style/css-modules)
+## 🎯 现代 CSS 工程化建议
+
+- 中小项目：原生 CSS + 自定义属性（无需 SCSS 编译）
+- 大型项目 / 设计系统：用 SCSS 维护 token + 设计规范
+- 工具替代：Tailwind / UnoCSS 提供 utility-first 思维，比 SCSS 更适合组件化
+- PostCSS 插件链：autoprefixer + postcss-preset-env（无需 SCSS 也能用未来语法）
+
+迁移建议：旧 SCSS 项目不必强制迁移，渐进式替换即可。
 
 ---
 
@@ -121759,6 +122002,18 @@ features:
 3. 全栈    →  加入"Node 后端"
 4. 求职    →  "面试"模块 +  高频手写代码
 ```
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [java](https://java-px.bot.cd/java-web-manual/)：Java 后端 API
+- [android](https://java-px.bot.cd/android/)：Android 移动
+- [java-language](https://java-px.bot.cd/java-language/)：Java 基础
+- [network](https://java-px.bot.cd/network/)：HTTP / WebSocket
+- [devops](https://java-px.bot.cd/devops/)：前端 CI/CD
 
 ---
 
@@ -135098,6 +135353,19 @@ features:
 5. 安全合规  →  "防火墙 / SELinux / auditd"
 ```
 
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [devops](https://java-px.bot.cd/devops/)：DevOps 自动化
+- [cloud-native](https://java-px.bot.cd/cloud-native/)：云原生
+- [network](https://java-px.bot.cd/network/)：Linux 网络
+- [security](https://java-px.bot.cd/security/)：Linux 安全
+- [rust](https://java-px.bot.cd/rust/)：Linux 系统编程
+- [filesystem](https://java-px.bot.cd/filesystem/)：文件系统
+
 ---
 
 ## [思维导图](https://java-px.bot.cd/linux/mindmap)
@@ -147219,6 +147487,19 @@ const relatedSites = [
 4. 求职 / 跳槽      →  排错 + CKA 备考
 ```
 
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [cloud](https://java-px.bot.cd/cloud/)：Spring Cloud 微服务
+- [linux](https://java-px.bot.cd/linux/)：Linux 内核基础
+- [devops](https://java-px.bot.cd/devops/)：DevOps 流程
+- [observability](https://java-px.bot.cd/observability/)：K8s 监控
+- [architecture](https://java-px.bot.cd/architecture/)：云原生架构
+- [security](https://java-px.bot.cd/security/)：容器安全
+
 ---
 
 ## [思维导图](https://java-px.bot.cd/cloud-native/mindmap)
@@ -157837,6 +158118,18 @@ const relatedSites = [
   <GiscusComment />
 </ClientOnly>
 
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [python](https://java-px.bot.cd/python/)：Python AI
+- [bigdata](https://java-px.bot.cd/bigdata/)：大数据训练
+- [system-design](https://java-px.bot.cd/system-design/)：AI 系统架构
+- [observability](https://java-px.bot.cd/observability/)：模型监控
+- [python-html](https://java-px.bot.cd/python-html/)：Python 工具链
+
 ---
 
 ## [思维导图](https://java-px.bot.cd/ai/mindmap)
@@ -168214,6 +168507,18 @@ const relatedSites = [
 4. 数据湖 / Lakehouse  →  Delta / Iceberg / Hudi
 5. 面试       →  OLAP 选型 + 案例 + 高频题
 ```
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [kafka](https://java-px.bot.cd/kafka/)：Kafka 流处理
+- [es](https://java-px.bot.cd/es/)：Elasticsearch
+- [clickhouse](https://java-px.bot.cd/clickhouse/)：ClickHouse OLAP
+- [hadoop](https://java-px.bot.cd/hadoop/)：Hadoop 生态
+- [python](https://java-px.bot.cd/python/)：Python 数据处理
 
 ---
 
@@ -179651,6 +179956,17 @@ const relatedSites = [
 - **后端 / SRE** → [传输层 TCP](/05-transport/tcp-handshake) → [HTTP/HTTPS](/06-application/https) → [性能测试](/10-tools/performance-test) → [故障排查](/10-tools/troubleshooting)
 - **安全** → [加密基础](/07-security/encryption) → [PKI/TLS](/07-security/pki-tls) → [网络攻击](/07-security/network-attack) → [防火墙/VPN](/07-security/firewall-vpn)
 - **面试** → [高频题](/12-interview-practice/questions) → [案例题](/12-interview-practice/cases) → [协议对比](/12-interview-practice/comparison)
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [linux](https://java-px.bot.cd/linux/)：Linux 网络栈
+- [security](https://java-px.bot.cd/security/)：网络安全
+- [cloud-native](https://java-px.bot.cd/cloud-native/)：K8s 网络
+- [java](https://java-px.bot.cd/java-web-manual/)：Java Netty
 
 ---
 
@@ -196303,6 +196619,17 @@ const relatedSites = [
 - **AI 算法** → [超分](/04-algorithm/super-res) → [AI 超分](/07-ai/super-res-ai) → [视频生成](/07-ai/generation) → [数字人](/07-ai/digital-human)
 - **面试** → [高频题](/12-interview/questions) → [案例题](/12-interview/cases) → [编码对比](/12-interview/comparison)
 
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [ffmpeg-html](https://java-px.bot.cd/ffmpeg-html/)：FFmpeg 命令行
+- [frontend](https://java-px.bot.cd/frontend/)：Web 播放器
+- [ai](https://java-px.bot.cd/ai/)：视频 AI
+- [python](https://java-px.bot.cd/python/)：Python 处理
+
 ---
 
 ## [思维导图](https://java-px.bot.cd/video/mindmap)
@@ -202393,6 +202720,14 @@ S3 从 2020 年起宣布了 **强一致（read-after-write）**：PUT 后立刻 
 | FTP | 21 | 无 / FTPS | 老旧系统 |
 | SFTP | 22 | SSH | 安全传输 |
 | rsync | 873 / 22 | SSH | 备份同步 |
+## 🎯 本章学习路径
+
+1. **了解场景**：每个协议都有它的设计目标（NFS = Unix 共享、SMB = Windows、FTP = 老系统）
+2. **掌握配置**：端口 / 加密方式 / 性能调优
+3. **安全加固**：防火墙规则 / TLS 配置 / 用户认证
+4. **监控告警**：连接数 / 延迟 / 错误率
+
+详细各协议配置见子节点文章。
 
 ---
 
@@ -205560,6 +205895,14 @@ Union Mount 合并视图
 ```
 
 Docker 镜像被设计成只读 + 多层共享——多个容器共享同一个镜像基础层，每个容器只有自己的薄写入层。空间占用小，启动快，传输高效。
+## 🎯 本章学习路径
+
+1. **了解场景**：每个协议都有它的设计目标（NFS = Unix 共享、SMB = Windows、FTP = 老系统）
+2. **掌握配置**：端口 / 加密方式 / 性能调优
+3. **安全加固**：防火墙规则 / TLS 配置 / 用户认证
+4. **监控告警**：连接数 / 延迟 / 错误率
+
+详细各协议配置见子节点文章。
 
 ---
 
@@ -206937,6 +207280,14 @@ docker pull myimage:tag --all-tags=true
 | 监控文件变化 | `inotifywait` |
 | 谁占了文件 | `lsof` |
 | 空间占用 | `ncdu` |
+## 🎯 本章学习路径
+
+1. **了解场景**：每个协议都有它的设计目标（NFS = Unix 共享、SMB = Windows、FTP = 老系统）
+2. **掌握配置**：端口 / 加密方式 / 性能调优
+3. **安全加固**：防火墙规则 / TLS 配置 / 用户认证
+4. **监控告警**：连接数 / 延迟 / 错误率
+
+详细各协议配置见子节点文章。
 
 ---
 
@@ -208564,6 +208915,14 @@ strace -ff -o /tmp/trace -p <PID>
 ```
 
 **从上往下**：越底层越通用，越上层越具体。Always start from the top。
+## 🎯 本章学习路径
+
+1. **了解场景**：每个协议都有它的设计目标（NFS = Unix 共享、SMB = Windows、FTP = 老系统）
+2. **掌握配置**：端口 / 加密方式 / 性能调优
+3. **安全加固**：防火墙规则 / TLS 配置 / 用户认证
+4. **监控告警**：连接数 / 延迟 / 错误率
+
+详细各协议配置见子节点文章。
 
 ---
 
@@ -209951,6 +210310,14 @@ echo 16 | sudo tee /sys/block/nvme0n1/queue/read_ahead_kb
 ```
 
 任何一层失守，下一层仍能阻止攻击。
+## 🎯 本章学习路径
+
+1. **了解场景**：每个协议都有它的设计目标（NFS = Unix 共享、SMB = Windows、FTP = 老系统）
+2. **掌握配置**：端口 / 加密方式 / 性能调优
+3. **安全加固**：防火墙规则 / TLS 配置 / 用户认证
+4. **监控告警**：连接数 / 延迟 / 错误率
+
+详细各协议配置见子节点文章。
 
 ---
 
@@ -212357,6 +212724,14 @@ CSI Driver 创建快照（EBS Snapshot / Ceph RBD snap / ZFS snapshot 等）。
 - **教训**：踩过的坑与最佳实践
 
 这些案例不是"标准答案"，而是"特定约束下的最优解"——理解背后的**约束**比抄架构更重要。
+## 🎯 本章学习路径
+
+1. **了解场景**：每个协议都有它的设计目标（NFS = Unix 共享、SMB = Windows、FTP = 老系统）
+2. **掌握配置**：端口 / 加密方式 / 性能调优
+3. **安全加固**：防火墙规则 / TLS 配置 / 用户认证
+4. **监控告警**：连接数 / 延迟 / 错误率
+
+详细各协议配置见子节点文章。
 
 ---
 
@@ -213380,6 +213755,14 @@ ALTER TABLE mydb.events ADD SEARCH OPTIMIZATION ON EQUALITY(user_id);
 ├── NFS vs SMB
 └── S3 vs HDFS vs Ceph
 ```
+## 🎯 本章学习路径
+
+1. **了解场景**：每个协议都有它的设计目标（NFS = Unix 共享、SMB = Windows、FTP = 老系统）
+2. **掌握配置**：端口 / 加密方式 / 性能调优
+3. **安全加固**：防火墙规则 / TLS 配置 / 用户认证
+4. **监控告警**：连接数 / 延迟 / 错误率
+
+详细各协议配置见子节点文章。
 
 ---
 
@@ -214344,6 +214727,17 @@ const relatedSites = [
   <div class="kg-stat"><div class="kg-stat-num">70+</div><div class="kg-stat-label">内容页</div></div>
   <div class="kg-stat"><div class="kg-stat-num">3</div><div class="kg-stat-label">交互组件</div></div>
 </div>
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [linux](https://java-px.bot.cd/linux/)：Linux 文件系统
+- [observability](https://java-px.bot.cd/observability/)：存储监控
+- [postgresql](https://java-px.bot.cd/postgresql/)：PG 存储引擎
+- [mysql](https://java-px.bot.cd/mysql/)：MySQL InnoDB
 
 ---
 
@@ -215752,6 +216146,17 @@ const relatedSites = [
 4. 性能     →  性能调优 + Arthas
 5. 求职     →  面试高频题 + 手写代码
 ```
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [java](https://java-px.bot.cd/java-web-manual/)：Java Web 开发
+- [system-design](https://java-px.bot.cd/system-design/)：JVM 调优实战
+- [architecture](https://java-px.bot.cd/architecture/)：JVM 在架构中的角色
+- [frontend](https://java-px.bot.cd/frontend/)：Java 跨端（VR / Android）
 
 ---
 
@@ -223651,6 +224056,20 @@ const relatedSites = [
 3. 面试      →  CAP + 缓存三大问题 + 秒杀设计
 4. SRE      →  限流 / 熔断 / 可观测 / 异地多活
 ```
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [system-design](https://java-px.bot.cd/system-design/)：系统设计模式
+- [cloud](https://java-px.bot.cd/cloud/)：微服务架构
+- [cloud-native](https://java-px.bot.cd/cloud-native/)：云原生
+- [java](https://java-px.bot.cd/java-web-manual/)：Java 实现
+- [kafka](https://java-px.bot.cd/kafka/)：消息架构
+- [redis](https://java-px.bot.cd/redis/)：缓存架构
+- [observability](https://java-px.bot.cd/observability/)：可观测性
 
 ---
 
@@ -241261,6 +241680,19 @@ const relatedSites = [
 | 面试候选人 | CAP + 一致性哈希 + 短链 + 秒杀 + 抢红包 |
 | SRE | 高可用设计 + 多活 / 单元化 + 容灾演练 |
 
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [architecture](https://java-px.bot.cd/architecture/)：企业架构
+- [java](https://java-px.bot.cd/java-web-manual/)：Java 实现
+- [kafka](https://java-px.bot.cd/kafka/)：消息
+- [redis](https://java-px.bot.cd/redis/)：缓存
+- [mysql](https://java-px.bot.cd/mysql/)：数据库
+- [design-pattern](https://java-px.bot.cd/design-pattern/)：设计模式
+
 ---
 
 ## [进程架构](https://java-px.bot.cd/postgresql/01-basics/architecture)
@@ -254969,6 +255401,18 @@ const relatedSites = [
 | 高级 | 2-3 周 | 07-operations → 08-replication → 09-connection |
 | 实战 | 持续 | 10-extensions（PostGIS/pgvector/TimescaleDB）→ 11-compare |
 
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [mysql](https://java-px.bot.cd/mysql/)：MySQL 对比
+- [clickhouse](https://java-px.bot.cd/clickhouse/)：ClickHouse OLAP
+- [system-design](https://java-px.bot.cd/system-design/)：数据库选型
+- [architecture](https://java-px.bot.cd/architecture/)：数据一致性
+- [linux](https://java-px.bot.cd/linux/)：Linux 服务端调优
+
 ---
 
 ## [可观测性四大支柱](https://java-px.bot.cd/observability/01-foundations/four-pillars)
@@ -266362,6 +266806,18 @@ const relatedSites = [
 
 🏠 <a href="https://java-px.bot.cd/" target="_blank">返回门户首页</a>
 
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [devops](https://java-px.bot.cd/devops/)：DevOps 监控
+- [cloud-native](https://java-px.bot.cd/cloud-native/)：K8s 监控
+- [kafka](https://java-px.bot.cd/kafka/)：日志收集
+- [es](https://java-px.bot.cd/es/)：日志存储
+- [java](https://java-px.bot.cd/java-web-manual/)：Java APM
+
 ---
 
 ## [A01 访问控制失效](https://java-px.bot.cd/security/01-web-top10/a01-broken-access)
@@ -272044,6 +272500,18 @@ const relatedSites = [
 
 **前置知识**：HTTP 协议、Linux 命令行、至少一门后端语言、基础数据库 SQL。
 
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [linux](https://java-px.bot.cd/linux/)：Linux 权限
+- [network](https://java-px.bot.cd/network/)：网络安全
+- [cloud-native](https://java-px.bot.cd/cloud-native/)：K8s 安全
+- [java](https://java-px.bot.cd/java-web-manual/)：Spring Security
+- [architecture](https://java-px.bot.cd/architecture/)：零信任架构
+
 ---
 
 ## [CI/CD Pipeline 最佳实践](https://java-px.bot.cd/devops/01-pipeline/best-practices)
@@ -276588,6 +277056,18 @@ const relatedSites = [
 **适用读者**：SRE / DevOps 工程师 / 平台工程师 / 后端架构师 / 研发效能负责人 / 关注 AI 部署的算法工程师。
 
 **前置知识**：Linux 命令行、Git、Docker 基础、至少一门后端语言、HTTP 协议。
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [cloud-native](https://java-px.bot.cd/cloud-native/)：K8s 编排
+- [linux](https://java-px.bot.cd/linux/)：Linux 运维
+- [observability](https://java-px.bot.cd/observability/)：监控告警
+- [python](https://java-px.bot.cd/python/)：脚本工具
+- [go](https://java-px.bot.cd/go/)：Go 工具链
 
 ---
 
@@ -283512,6 +283992,17 @@ const relatedSites = [
 ---
 
 > **Rust 不是更安全的 C++，是一种全新的系统编程思维**。开始你的 Rust 之旅，从 [基础总览](/01-basics/overview) 开始。
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [go](https://java-px.bot.cd/go/)：Go 对比
+- [linux](https://java-px.bot.cd/linux/)：Linux 系统编程
+- [android](https://java-px.bot.cd/android/)：NDK 集成
+- [iot](https://java-px.bot.cd/iot/)：嵌入式 Rust
 
 ---
 
@@ -296388,6 +296879,18 @@ const relatedSites = [
   />
 </ClientOnly>
 
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [rust](https://java-px.bot.cd/rust/)：Rust 对比
+- [cloud-native](https://java-px.bot.cd/cloud-native/)：K8s / Docker
+- [devops](https://java-px.bot.cd/devops/)：DevOps 工具
+- [java](https://java-px.bot.cd/java-web-manual/)：Java 对比
+- [network](https://java-px.bot.cd/network/)：Go 高并发网络
+
 ---
 
 ## [客户端连接](https://java-px.bot.cd/clickhouse/01-basics/client)
@@ -305769,6 +306272,18 @@ const relatedSites = [
 | 入门 | 1 周 | 01-foundations → 02-column-store |
 | 进阶 | 2 周 | 03-table-engine → 04-olap-scenarios |
 | 高级 | 2 周 | 05-ecosystem → 06-compare |
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [es](https://java-px.bot.cd/es/)：ES 对比
+- [bigdata](https://java-px.bot.cd/bigdata/)：大数据生态
+- [postgresql](https://java-px.bot.cd/postgresql/)：PostgreSQL 对比
+- [mysql](https://java-px.bot.cd/mysql/)：MySQL 对比
+- [system-design](https://java-px.bot.cd/system-design/)：OLAP 架构
 
 ---
 
@@ -318078,6 +318593,17 @@ const relatedSites = [
   />
 </ClientOnly>
 
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [java-language](https://java-px.bot.cd/java-language/)：Java 设计模式
+- [java](https://java-px.bot.cd/java-web-manual/)：Java 实现
+- [architecture](https://java-px.bot.cd/architecture/)：架构模式
+- [system-design](https://java-px.bot.cd/system-design/)：系统设计
+
 ---
 
 ## [爆炸半径](https://java-px.bot.cd/chaos/01-foundations/blast-radius)
@@ -323781,5 +324307,6017 @@ const relatedSites = [
 | 入门 | 1 周 | 01-foundations → 02-chaos-mesh |
 | 进阶 | 2 周 | 03-litmus → 04-platform-compare |
 | 实战 | 2 周 | 05-resilience-patterns → 06-game-day → 07-observability-for-chaos |
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [cloud-native](https://java-px.bot.cd/cloud-native/)：K8s 混沌
+- [observability](https://java-px.bot.cd/observability/)：故障注入监控
+- [system-design](https://java-px.bot.cd/system-design/)：系统韧性
+- [architecture](https://java-px.bot.cd/architecture/)：韧性架构
+
+---
+
+## [01 · 通信协议](https://java-px.bot.cd/iot/01-protocol/README)
+> IoT 设备互联的基础协议层。 | 节点 | 一句话 | |------|--------| | [MQTT 5.0](./mqtt) | IoT 事实标准，发布订阅 | | [CoAP](./coap) | 受限设备首选，UDP 上的 RESTful | | [Modbus / OPC-UA](./modbus) | 工业现场总线 | | [LoRaWAN / NB-IoT](./lpwan)
+
+# 01 · 通信协议
+
+IoT 设备互联的基础协议层。
+
+## 章节目录
+
+| 节点 | 一句话 |
+|------|--------|
+| [MQTT 5.0](./mqtt) | IoT 事实标准，发布订阅 |
+| [CoAP](./coap) | 受限设备首选，UDP 上的 RESTful |
+| [Modbus / OPC-UA](./modbus) | 工业现场总线 |
+| [LoRaWAN / NB-IoT](./lpwan) | 低功耗广域网 |
+
+## 选型决策
+
+- **应用层协议**：MQTT（首选）/ CoAP（受限设备）/ HTTP（调试）
+- **工业现场**：Modbus TCP（简单）/ OPC-UA（工业 4.0）
+- **远距离低功耗**：LoRaWAN（免授权）/ NB-IoT（运营商）
+## 🎯 选型决策树
+
+设备选哪种通信协议？按三个维度判断：
+
+1. **网络环境**：局域网（Modbus / OPC-UA）vs 互联网（MQTT / CoAP / HTTP）vs 远距离低功耗（LoRaWAN / NB-IoT）
+2. **设备能力**：MCU 算力强（MQTT / HTTP）vs 资源受限（CoAP）
+3. **应用需求**：发布订阅（MQTT）vs 请求响应（CoAP / HTTP）vs 工业控制（Modbus）
+
+详细各协议对比见子节点文章。
+
+---
+
+## [CoAP](https://java-px.bot.cd/iot/01-protocol/coap)
+> > 受限应用协议，基于 UDP 的 RESTful 架构。低功耗设备首选，比 HTTP 协议头更小。 - 协议基于 UDP，默认端口 5683 / DTLS 5684 - 方法同 HTTP（GET/POST/PUT/DELETE） - 资源发现（`.well-known/core`） - 观察模式（订阅资源变化，类似 WebSocket） - 适用场景：电池供电设备 / 网络不稳定 / 资源受限
+
+# CoAP
+
+> 受限应用协议，基于 UDP 的 RESTful 架构。低功耗设备首选，比 HTTP 协议头更小。
+
+## 🎯 核心要点
+
+- 协议基于 UDP，默认端口 5683 / DTLS 5684
+- 方法同 HTTP（GET/POST/PUT/DELETE）
+- 资源发现（`.well-known/core`）
+- 观察模式（订阅资源变化，类似 WebSocket）
+- 适用场景：电池供电设备 / 网络不稳定 / 资源受限
+
+## 🛠️ 实战示例
+
+```javascript
+# Node.js coap 客户端
+const coap = require("coap");
+const req = coap.request("coap://californium.eclipseprojects.io:5683/.well-known/core");
+req.on("response", (res) => {
+  console.log(res.payload.toString());
+});
+req.end();
+```
+
+## 🔗 相关链接
+
+- [MQTT](./mqtt)
+- [Modbus](./modbus)
+- [← 返回 通信协议 目录](./)
+- [← 返回 iot 首页](../)
+## 🎯 CoAP 实战建议
+
+- **资源 URI 设计**：分层结构 `/device/{id}/sensor/{type}`
+- **CoAP over DTLS**：用 PSK（预共享密钥）或证书认证
+- **观察模式**：适合周期性上报（类似 WebSocket）
+- **调试工具**：libcoap / copper (Firefox 插件，已废弃) / Wireshark
+
+---
+
+## [LoRaWAN / NB-IoT](https://java-px.bot.cd/iot/01-protocol/lpwan)
+> > 低功耗广域网协议，远距离（数公里）+ 低功耗（电池用数年）+ 低数据量。 - LoRaWAN：免授权频段，1-3km 城市 / 10km+ 郊区，速率 0.3-50 kbps - NB-IoT：运营商授权频段（蜂窝），覆盖更广，模组成本低 - Sigfox：欧洲主导，极低数据量（每天 140 条消息） - 适用场景：智能水电气表 / 农业传感 / 资产追踪 - [MQTT](./mqtt) -
+
+# LoRaWAN / NB-IoT
+
+> 低功耗广域网协议，远距离（数公里）+ 低功耗（电池用数年）+ 低数据量。
+
+## 🎯 核心要点
+
+- LoRaWAN：免授权频段，1-3km 城市 / 10km+ 郊区，速率 0.3-50 kbps
+- NB-IoT：运营商授权频段（蜂窝），覆盖更广，模组成本低
+- Sigfox：欧洲主导，极低数据量（每天 140 条消息）
+- 适用场景：智能水电气表 / 农业传感 / 资产追踪
+
+## 🛠️ 实战示例
+
+```cpp
+# LoRaWAN 节点伪代码（基于 LMIC 库）
+void setup() {
+  os_init();  // 初始化 LMIC
+  LMIC_setLinkMode(MODE_LORAWAN);
+  LMIC_setDrTxpow(DR_SF7, 14);  // SF7 数据率，14dBm 功率
+}
+
+void loop() {
+  LMIC_send(1, payload, len, 0);  // 端口 1 发送
+  os_runloop_once();
+}
+```
+
+## 🔗 相关链接
+
+- [MQTT](./mqtt)
+- [设备安全](../04-management/security)
+- [← 返回 通信协议 目录](./)
+- [← 返回 iot 首页](../)
+## 🎯 LPWAN 选型
+
+- **LoRaWAN**：免授权频段，自建网关，1-3km 城市覆盖
+- **NB-IoT**：运营商频段（移动 / 电信 / 联通），无需自建网关
+- **Sigfox**：欧洲主导，国内应用少
+- **数据包大小**：LoRaWAN 最大 51 字节 / NB-IoT 最大 1600 字节
+
+---
+
+## [Modbus / OPC-UA](https://java-px.bot.cd/iot/01-protocol/modbus)
+> > 工业现场总线协议，Modbus 简单通用，OPC-UA 工业 4.0 标准。 - Modbus RTU（串口） / Modbus TCP（以太网，端口 502） - 寄存器分类：Coil / Discrete Input / Holding Register / Input Register - OPC-UA：二进制协议 + 信息建模 + 安全加密 - 适用场景：PLC / 工业仪表 / SC
+
+# Modbus / OPC-UA
+
+> 工业现场总线协议，Modbus 简单通用，OPC-UA 工业 4.0 标准。
+
+## 🎯 核心要点
+
+- Modbus RTU（串口） / Modbus TCP（以太网，端口 502）
+- 寄存器分类：Coil / Discrete Input / Holding Register / Input Register
+- OPC-UA：二进制协议 + 信息建模 + 安全加密
+- 适用场景：PLC / 工业仪表 / SCADA 系统
+
+## 🛠️ 实战示例
+
+```python
+# pymodbus 读保持寄存器
+from pymodbus.client import ModbusTcpClient
+
+client = ModbusTcpClient("192.168.1.100", port=502)
+result = client.read_holding_registers(0, 10, slave=1)
+if not result.isError():
+    print(f"寄存器值: {result.registers}")
+```
+
+## 🔗 相关链接
+
+- [MQTT](./mqtt)
+- [工业互联网](../06-platform/iiot)
+- [← 返回 通信协议 目录](./)
+- [← 返回 iot 首页](../)
+## 🎯 Modbus 实战建议
+
+- **寄存器映射**：用 Excel / 文档记录每个从站地址含义
+- **轮询间隔**：根据设备响应时间设置（典型 100-1000ms）
+- **异常处理**：超时重试 + 断线告警 + 数据校验
+- **库选择**：Python 用 pymodbus / Java 用 modbus4j
+
+---
+
+## [MQTT 5.0](https://java-px.bot.cd/iot/01-protocol/mqtt)
+> > 消息队列遥测传输协议，IoT 事实标准。轻量、发布订阅、QoS 等级、遗嘱消息。 - 协议基于 TCP，默认端口 1883 / TLS 8883 - 三种 QoS 等级（at most once / at least once / exactly once） - 主题通配符：`+` 单层匹配 / `#` 多层匹配 - 5.0 新增：reason codes / shared subscript
+
+# MQTT 5.0
+
+> 消息队列遥测传输协议，IoT 事实标准。轻量、发布订阅、QoS 等级、遗嘱消息。
+
+## 🎯 核心要点
+
+- 协议基于 TCP，默认端口 1883 / TLS 8883
+- 三种 QoS 等级（at most once / at least once / exactly once）
+- 主题通配符：`+` 单层匹配 / `#` 多层匹配
+- 5.0 新增：reason codes / shared subscriptions / message expiry
+
+## 🛠️ 实战示例
+
+```python
+# Python paho-mqtt 订阅示例
+import paho.mqtt.client as mqtt
+
+client = mqtt.Client()
+client.connect("broker.emqx.io", 1883, 60)
+
+def on_message(client, userdata, msg):
+    print(f"{msg.topic}: {msg.payload.decode()}")
+
+client.on_message = on_message
+client.subscribe("sensors/+/temperature")  # 通配符订阅
+client.loop_forever()
+```
+
+## 🔗 相关链接
+
+- [CoAP](./coap)
+- [EMQX Broker](../06-platform/self-hosted)
+- [← 返回 通信协议 目录](./)
+- [← 返回 iot 首页](../)
+## 🎯 MQTT 实战建议
+
+- **QoS 选择**：传感器上报用 QoS 0（最快）/ 命令用 QoS 1（确保到达）/ 关键事件用 QoS 2（exactly once）
+- **主题设计**：分层 `/org/region/device/type` 便于通配订阅
+- **保留消息（retained）**：用于设备最新状态缓存
+- **遗嘱消息（will）**：设备异常断开时通知
+- **Broker 选型**：EMQX（国产开源）/ Mosquitto（轻量）/ HiveMQ（商业）
+
+---
+
+## [02 · 设备与硬件](https://java-px.bot.cd/iot/02-device/README)
+> IoT 终端的硬件选型与嵌入式开发。 | 节点 | 一句话 | |------|--------| | [MCU / SoC](./mcu) | 微控制器与片上系统 | | [FreeRTOS / Zephyr](./rtos) | 嵌入式实时操作系统 | | [传感器](./sensor) | 温湿度 / IMU / 图像 / 气体 | | [网关硬件](./gateway) | 树莓派 / 工
+
+# 02 · 设备与硬件
+
+IoT 终端的硬件选型与嵌入式开发。
+
+## 章节目录
+
+| 节点 | 一句话 |
+|------|--------|
+| [MCU / SoC](./mcu) | 微控制器与片上系统 |
+| [FreeRTOS / Zephyr](./rtos) | 嵌入式实时操作系统 |
+| [传感器](./sensor) | 温湿度 / IMU / 图像 / 气体 |
+| [网关硬件](./gateway) | 树莓派 / 工业网关 / 边缘网关 |
+
+## 选型思路
+
+- 入门：ESP32 + Arduino
+- 中端：STM32 + FreeRTOS
+- 网关：树莓派 + K3s / EMQX
+- 工业：研华 UNO + 西门子 IOT2050
+## 🎯 选型三问
+
+- **电池供电？** ESP32 / nRF52（低功耗）/ STM32L（低功耗系列）
+- **实时性？** STM32 + FreeRTOS / Zephyr（硬实时）/ Linux Embedded（软实时）
+- **需要哪些外设？** I2C / SPI / UART / ADC / PWM / 专用接口
+
+**调试工具**：JTAG / SWD / 串口 / 逻辑分析仪。
+**调试**：JTAG / SWD / 串口 / 逻辑分析仪
+**功耗**：睡眠模式（μA 级）/ 工作模式（mA 级）/ 发射峰值（A 级）。
+
+- **小贴士**：选型先看功耗预算（电池 vs 电源）、实时性、外设需求三件事。
+
+---
+
+## [网关硬件](https://java-px.bot.cd/iot/02-device/gateway)
+> > 树莓派 / 工业网关 / 边缘网关。对接多种协议 + 本地缓存 + 离线自治。 - 入门：树莓派 4B（4GB / ¥300）/ Orange Pi 5 - 工业：研华 UNO 系列 / 西门子 IOT2050（IP65 防护） - 协议转换：Modbus → MQTT / Zigbee → Wi-Fi - 离线自治：本地缓存 + 网络恢复后批量上云 - [KubeEdge](../03-ed
+
+# 网关硬件
+
+> 树莓派 / 工业网关 / 边缘网关。对接多种协议 + 本地缓存 + 离线自治。
+
+## 🎯 核心要点
+
+- 入门：树莓派 4B（4GB / ¥300）/ Orange Pi 5
+- 工业：研华 UNO 系列 / 西门子 IOT2050（IP65 防护）
+- 协议转换：Modbus → MQTT / Zigbee → Wi-Fi
+- 离线自治：本地缓存 + 网络恢复后批量上云
+
+## 🛠️ 实战示例
+
+```text
+# Node-RED 流程（树莓派网关）
+[Modbus TCP] -> [Function: 数据清洗] -> [InfluxDB]
+                              |
+                              v
+                       [MQTT 上传]
+# 本地缓存：网络断时数据先写 SQLite，恢复后批量同步
+```
+
+## 🔗 相关链接
+
+- [KubeEdge](../03-edge/k8s-edge)
+- [EMQX](../06-platform/self-hosted)
+- [← 返回 设备与硬件 目录](./)
+- [← 返回 iot 首页](../)
+## 🎯 网关选型
+
+- **入门**：树莓派 4B / Orange Pi 5（4GB / ¥300-500）
+- **工业**：研华 UNO 系列 / 西门子 IOT2050（IP65）
+- **协议转换**：Modbus TCP → MQTT / Zigbee → Wi-Fi
+- **本地能力**：缓存 / 离线自治 / 边缘 AI
+**存储**：本地 SSD 或 eMMC 缓存
+
+---
+
+## [MCU / SoC](https://java-px.bot.cd/iot/02-device/mcu)
+> > 微控制器与片上系统选型。算力 / 内存 / 功耗 / 价格 / 外设的权衡。 - 入门级：ESP32（双核 240MHz / Wi-Fi+BLE / ¥10）/ Arduino - 中端：STM32（ARM Cortex-M，工业级）/ nRF52（BLE 强） - 高端：树莓派 Pico（RP2040 双核 M0）/ Allwinner / Rockchip（Linux） - 选型三问：电池
+
+# MCU / SoC
+
+> 微控制器与片上系统选型。算力 / 内存 / 功耗 / 价格 / 外设的权衡。
+
+## 🎯 核心要点
+
+- 入门级：ESP32（双核 240MHz / Wi-Fi+BLE / ¥10）/ Arduino
+- 中端：STM32（ARM Cortex-M，工业级）/ nRF52（BLE 强）
+- 高端：树莓派 Pico（RP2040 双核 M0）/ Allwinner / Rockchip（Linux）
+- 选型三问：电池供电？实时性？需要哪些外设？
+
+## 🛠️ 实战示例
+
+```cpp
+# ESP32 Arduino 读取温度传感器（伪代码）
+#include <OneWire.h>
+OneWire ds(4);  // GPIO4 接 DS18B20
+
+void loop() {
+  ds.reset();
+  ds.write(0xCC);  // 跳过 ROM
+  ds.write(0x44);  // 温度转换
+  delay(750);
+  ds.reset();
+  ds.write(0xCC);
+  ds.write(0xBE);  // 读 Scratchpad
+  byte data[9]; ds.readBytes(data, 9);
+  int raw = (data[1] << 8) | data[0];
+  float temp = raw / 16.0;
+  Serial.printf("Temperature: %.2f°C\n", temp);
+}
+```
+
+## 🔗 相关链接
+
+- [FreeRTOS](./rtos)
+- [网关硬件](./gateway)
+- [← 返回 设备与硬件 目录](./)
+- [← 返回 iot 首页](../)
+## 🎯 MCU 选型三问
+
+- **是否需要 Wi-Fi/BLE？** 需要 → ESP32 / nRF52 / ESP32-C3
+- **是否需要硬实时？** 需要 → STM32F4 / Nordic nRF52
+- **是否需要 Linux？** 需要 → 树莓派 / Allwinner / Rockchip
+
+---
+
+## [FreeRTOS / Zephyr](https://java-px.bot.cd/iot/02-device/rtos)
+> > 嵌入式实时操作系统，多任务调度 + 同步原语 + 硬件抽象层。 - FreeRTOS：小型内核（4-12KB），MIT 许可，Arduino / ESP-IDF 内置 - Zephyr：Linux 基金会维护，模块化设计，BLE / LoRa / Wi-Fi 驱动丰富 - Riot OS：欧洲学术项目，低内存友好（10KB 即可运行） - 任务间同步：信号量 / 互斥锁 / 队列 / 事件组
+
+# FreeRTOS / Zephyr
+
+> 嵌入式实时操作系统，多任务调度 + 同步原语 + 硬件抽象层。
+
+## 🎯 核心要点
+
+- FreeRTOS：小型内核（4-12KB），MIT 许可，Arduino / ESP-IDF 内置
+- Zephyr：Linux 基金会维护，模块化设计，BLE / LoRa / Wi-Fi 驱动丰富
+- Riot OS：欧洲学术项目，低内存友好（10KB 即可运行）
+- 任务间同步：信号量 / 互斥锁 / 队列 / 事件组
+
+## 🛠️ 实战示例
+
+```cpp
+# FreeRTOS 多任务示例（ESP32）
+xTaskCreate(
+  sensorTask,    // 任务函数
+  "Sensor",      // 名称
+  4096,          // 栈大小
+  NULL,          // 参数
+  1,             // 优先级
+  NULL           // 句柄
+);
+xTaskCreate(uploadTask, "Upload", 8192, NULL, 1, NULL);
+
+void sensorTask(void* arg) {
+  while (1) {
+    float data = readSensor();
+    xQueueSend(sensorQueue, &data, portMAX_DELAY);
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
+  }
+}
+```
+
+## 🔗 相关链接
+
+- [MCU](./mcu)
+- [边缘智能](../03-edge/ai-edge)
+- [← 返回 设备与硬件 目录](./)
+- [← 返回 iot 首页](../)
+## 🎯 RTOS 选型
+
+- **入门**：FreeRTOS（资源最少，Arduino / ESP-IDF 内置）
+- **中端**：Zephyr（Linux 基金会，蓝牙协议栈完善）
+- **学术**：Riot OS（欧洲学术项目，内存极小）
+- **任务设计**：优先级 / 栈大小 / 同步原语 / 看门狗
+
+---
+
+## [传感器](https://java-px.bot.cd/iot/02-device/sensor)
+> > 温湿度 / IMU / 图像 / 气体四类常见传感器原理、选型、接口。 - 温湿度：DHT22 / SHT31（I2C）/ DS18B20（1-Wire） - 惯性 IMU：MPU6050（6 轴）/ BMI088（无人机级） - 图像：OV2640（200万像素）/ Arducam 系列 - 气体：BME680（VOC+温湿压）/ MQ-2（烟雾）/ MH-Z19（CO2） - [MCU](
+
+# 传感器
+
+> 温湿度 / IMU / 图像 / 气体四类常见传感器原理、选型、接口。
+
+## 🎯 核心要点
+
+- 温湿度：DHT22 / SHT31（I2C）/ DS18B20（1-Wire）
+- 惯性 IMU：MPU6050（6 轴）/ BMI088（无人机级）
+- 图像：OV2640（200万像素）/ Arducam 系列
+- 气体：BME680（VOC+温湿压）/ MQ-2（烟雾）/ MH-Z19（CO2）
+
+## 🛠️ 实战示例
+
+```python
+# Raspberry Pi + BME680 Python
+import smbus2
+import bme680
+
+bus = smbus2.SMBus(1)
+sensor = bme680.BME680(bus)
+
+while True:
+  data = {} if sensor.get_sensor_data() else sensor.data
+  print(f"温度: {data.temperature:.1f}°C  湿度: {data.humidity:.1f}%  气压: {data.pressure:.1f}hPa")
+  time.sleep(1)
+```
+
+## 🔗 相关链接
+
+- [MCU](./mcu)
+- [边缘智能](../03-edge/ai-edge)
+- [← 返回 设备与硬件 目录](./)
+- [← 返回 iot 首页](../)
+## 🎯 传感器选型
+
+- **精度需求**：消费级（DHT22）/ 工业级（BME680）/ 医疗级（PT100）
+- **接口选择**：I2C（短距离）/ SPI（高速）/ 1-Wire（单线）
+- **校准**：温湿度补偿 / 零点漂移 / 长期稳定性
+- **防护等级**：IP65（户外）/ IP67（水下）
+**采样率**：根据应用需求选择（1Hz / 100Hz / 1kHz）
+**接口**：I2C（≤ 1Mbps 短距离）/ SPI（高速）/ 1-Wire（单线）。
+
+---
+
+## [03 · 边缘计算](https://java-px.bot.cd/iot/03-edge/README)
+> 云边协同 + 离线自治 + 边缘智能。 | 节点 | 一句话 | |------|--------| | [EdgeX / KubeEdge](./framework) | 边缘计算框架 | | [边缘智能 AI](./ai-edge) | TensorFlow Lite / ONNX / OpenVINO | | [离线自治](./offline) | 本地缓存 + 协议转换 | | [K8s
+
+# 03 · 边缘计算
+
+云边协同 + 离线自治 + 边缘智能。
+
+## 章节目录
+
+| 节点 | 一句话 |
+|------|--------|
+| [EdgeX / KubeEdge](./framework) | 边缘计算框架 |
+| [边缘智能 AI](./ai-edge) | TensorFlow Lite / ONNX / OpenVINO |
+| [离线自治](./offline) | 本地缓存 + 协议转换 |
+| [K8s 边缘](./k8s-edge) | K3s / KubeEdge / OpenYurt |
+
+## 选型决策
+
+- 单边缘节点：K3s
+- 多节点协同：KubeEdge / OpenYurt
+- 纯框架：EdgeX Foundry
+- AI 推理：TF Lite / ONNX Runtime
+## 🎯 云边协同模式
+
+- **数据上行**：边缘 → 云（聚合 / 过滤 / 压缩）
+- **控制下行**：云 → 边缘（配置 / 命令 / 模型更新）
+- **离线自治**：网络断时边缘独立工作，恢复后增量同步
+
+**关键指标**：自治时长 / 网络恢复同步时间 / 边缘节点数。
+**安全**：边缘节点物理暴露，硬件安全更重要
+**架构**：云边端三层（云端训练 / 边缘推理 / 端侧采集）。
+
+---
+
+## [边缘智能 AI](https://java-px.bot.cd/iot/03-edge/ai-edge)
+> > 边缘端推理：TensorFlow Lite / ONNX / OpenVINO。低延迟 + 隐私保护 + 离线可用。 - TensorFlow Lite：Google 主导，跨平台（ARM / x86 / MCU） - ONNX Runtime：跨框架互操作，模型量化工具链完善 - OpenVINO：Intel 优化，x86 CPU / GPU / VPU 加速 - 典型应用：图像分类 / 物
+
+# 边缘智能 AI
+
+> 边缘端推理：TensorFlow Lite / ONNX / OpenVINO。低延迟 + 隐私保护 + 离线可用。
+
+## 🎯 核心要点
+
+- TensorFlow Lite：Google 主导，跨平台（ARM / x86 / MCU）
+- ONNX Runtime：跨框架互操作，模型量化工具链完善
+- OpenVINO：Intel 优化，x86 CPU / GPU / VPU 加速
+- 典型应用：图像分类 / 物体检测 / 异常检测 / 语音唤醒
+
+## 🛠️ 实战示例
+
+```python
+# TensorFlow Lite Python 推理
+import tflite_runtime.interpreter as tflite
+
+interpreter = tflite.Interpreter(model_path="model.tflite")
+interpreter.allocate_tensors()
+input_details = interpreter.get_input_details()
+output_details = interpreter.get_output_details()
+
+interpreter.set_tensor(input_details[0]["index"], input_data)
+interpreter.invoke()
+predictions = interpreter.get_tensor(output_details[0]["index"])
+```
+
+## 🔗 相关链接
+
+- [KubeEdge](./framework)
+- [设备影子](../04-management/shadow)
+- [← 返回 边缘计算 目录](./)
+- [← 返回 iot 首页](../)
+## 🎯 AI 框架选型
+
+- **TensorFlow Lite**：Google 主导，跨平台
+- **ONNX Runtime**：跨框架互操作
+- **OpenVINO**：Intel 优化（x86 CPU / GPU / VPU）
+- **模型量化**：INT8 / FP16（牺牲精度换速度）
+**硬件**：NPU（神经网络处理器）加速推理
+**硬件加速**：NPU / GPU / VPU 按场景选，NPU 能效比最高。
+
+---
+
+## [EdgeX / KubeEdge](https://java-px.bot.cd/iot/03-edge/framework)
+> > 边缘计算框架，统一设备接入 + 数据处理 + 云边协同。 - EdgeX Foundry：Linux 基金会项目，模块化（Core/Supporting/Application Service） - KubeEdge：Kubernetes 原生，边缘节点管理 + 离线自治 - Azure IoT Edge：微软云生态，容器化部署 - AWS Greengrass：AWS IoT 边缘运行时 -
+
+# EdgeX / KubeEdge
+
+> 边缘计算框架，统一设备接入 + 数据处理 + 云边协同。
+
+## 🎯 核心要点
+
+- EdgeX Foundry：Linux 基金会项目，模块化（Core/Supporting/Application Service）
+- KubeEdge：Kubernetes 原生，边缘节点管理 + 离线自治
+- Azure IoT Edge：微软云生态，容器化部署
+- AWS Greengrass：AWS IoT 边缘运行时
+
+## 🛠️ 实战示例
+
+```bash
+# KubeEdge 边缘节点加入集群
+kubectl apply -f edge-node.yaml
+# 边缘节点本地运行 Pod，云端 API 失联仍可工作
+```
+
+## 🔗 相关链接
+
+- [K8s 边缘](./k8s-edge)
+- [设备影子](../04-management/shadow)
+- [← 返回 边缘计算 目录](./)
+- [← 返回 iot 首页](../)
+## 🎯 选型
+
+- **EdgeX Foundry**：Linux 基金会，模块化设计
+- **KubeEdge**：K8s 原生，云边协同
+- **Azure IoT Edge**：微软云生态
+- **AWS Greengrass**：AWS IoT 生态
+**部署**：Helm chart 简化 K8s 边缘部署
+**部署**：EdgeX 用 Docker Compose / KubeEdge 用 Helm。
+
+- **云中立**：EdgeX 是云中立框架，可对接任意云。
+
+---
+
+## [K8s 边缘](https://java-px.bot.cd/iot/03-edge/k8s-edge)
+> > K3s / KubeEdge / OpenYurt 三种 K8s 边缘方案对比与选型。 - K3s：轻量级 K8s（单 binary < 100MB），适合边缘网关 - KubeEdge：完整 K8s 边缘管理，云边协同 + 离线自治 - OpenYurt：阿里云开源，原生 K8s + 边缘单元化 - 选型：单边缘节点 → K3s；多节点协同 → KubeEdge / OpenYurt - [
+
+# K8s 边缘
+
+> K3s / KubeEdge / OpenYurt 三种 K8s 边缘方案对比与选型。
+
+## 🎯 核心要点
+
+- K3s：轻量级 K8s（单 binary < 100MB），适合边缘网关
+- KubeEdge：完整 K8s 边缘管理，云边协同 + 离线自治
+- OpenYurt：阿里云开源，原生 K8s + 边缘单元化
+- 选型：单边缘节点 → K3s；多节点协同 → KubeEdge / OpenYurt
+
+## 🛠️ 实战示例
+
+```bash
+# K3s 单命令安装
+curl -sfL https://get.k3s.io | sh -
+# 启动后直接 kubectl get nodes 可用
+```
+
+## 🔗 相关链接
+
+- [EdgeX](./framework)
+- [网关硬件](../02-device/gateway)
+- [← 返回 边缘计算 目录](./)
+- [← 返回 iot 首页](../)
+## 🎯 K8s 边缘方案对比
+
+- **K3s**：单 binary < 100MB，适合单节点
+- **KubeEdge**：完整云边协同，多节点
+- **OpenYurt**：阿里云开源，原生 K8s + 边缘单元化
+**网络**：边缘节点常网络受限，需优化控制面流量
+**部署**：k3s 单 binary < 100MB，适合边缘资源受限场景。
+
+- **小贴士**：K3s 单节点够用就上 K3s，省资源。
+
+---
+
+## [离线自治](https://java-px.bot.cd/iot/03-edge/offline)
+> > 网络中断时边缘设备继续工作：本地缓存 + 协议转换 + 网络恢复后批量上云。 - 本地缓存：SQLite / LevelDB / BadgerDB - 协议转换：Modbus RTU → MQTT（本地完成） - 决策降级：网络断时按本地规则处理，恢复后上报告 - 关键指标：自治时长（电池续航 / 本地存储容量） - [KubeEdge](./framework) - [设备影子](../04
+
+# 离线自治
+
+> 网络中断时边缘设备继续工作：本地缓存 + 协议转换 + 网络恢复后批量上云。
+
+## 🎯 核心要点
+
+- 本地缓存：SQLite / LevelDB / BadgerDB
+- 协议转换：Modbus RTU → MQTT（本地完成）
+- 决策降级：网络断时按本地规则处理，恢复后上报告
+- 关键指标：自治时长（电池续航 / 本地存储容量）
+
+## 🛠️ 实战示例
+
+```python
+# 离线自治伪代码
+while network_up:
+  data = read_sensor()
+  upload_to_cloud(data)  # 上传云端
+else:
+  save_to_local(data)    # 写入本地 SQLite
+  when network_recovered:
+    batch_upload_local_data()
+```
+
+## 🔗 相关链接
+
+- [KubeEdge](./framework)
+- [设备影子](../04-management/shadow)
+- [← 返回 边缘计算 目录](./)
+- [← 返回 iot 首页](../)
+## 🎯 离线自治模式
+
+- **缓存 + 重传**：本地 SQLite，网络恢复后批量同步
+- **决策降级**：本地规则引擎（if-else / 决策树）
+- **降级运行**：低频率采集 / 简化算法
+- **关键指标**：自治时长（电池容量 / 存储上限）
+
+---
+
+## [04 · 设备管理](https://java-px.bot.cd/iot/04-management/README)
+> 设备全生命周期：注册 → 认证 → 配置 → 命令 → OTA。 | 节点 | 一句话 | |------|--------| | [设备影子 / 物模型](./shadow) | 设备状态云端抽象 | | [固件 OTA](./ota) | 空中升级与签名 | | [设备安全](./security) | X.509 / mTLS / 密钥管理 | 1. 证书（设备身份） 2. mTLS（双向认
+
+# 04 · 设备管理
+
+设备全生命周期：注册 → 认证 → 配置 → 命令 → OTA。
+
+## 章节目录
+
+| 节点 | 一句话 |
+|------|--------|
+| [设备影子 / 物模型](./shadow) | 设备状态云端抽象 |
+| [固件 OTA](./ota) | 空中升级与签名 |
+| [设备安全](./security) | X.509 / mTLS / 密钥管理 |
+
+## 安全四支柱
+
+1. 证书（设备身份）
+2. mTLS（双向认证）
+3. 密钥管理（HSM / SE）
+4. OTA 签名（固件防伪）
+## 🎯 安全四支柱
+
+1. **证书**：设备唯一身份（X.509）
+2. **mTLS**：双向 TLS 认证
+3. **密钥管理**：HSM / TrustZone / SE 芯片
+4. **OTA 签名**：固件防伪
+**生命周期**：注册 → 认证 → 配置 → 命令 → OTA
+**运维**：监控设备在线率 / 心跳 / 消息延迟，告警阈值。
+
+## 📚 学习路径
+
+- **入门**：阿里云 LinkKit 物模型 + 自建 EMQX（设备影子练习）
+- **进阶**：AWS IoT Core / Azure IoT Hub（完整云生态）
+- **生产**：批量设备烧录证书 + OTA 灰度发布 + 监控设备在线率
+
+---
+
+## [固件 OTA](https://java-px.bot.cd/iot/04-management/ota)
+> > 空中升级（Firmware Over-The-Air），分块传输 + 签名验证 + 回滚机制。 - 分块传输：A/B 分区或流式写入（避免大文件一次性写入失败） - 签名验证：ECDSA / RSA 签名 + 公钥校验（防止恶意固件） - 回滚机制：升级失败自动回退到上一版本 - 灰度发布：按设备 ID / 区域 / 版本分组升级 - [设备影子](./shadow) - [设备安全](./s
+
+# 固件 OTA
+
+> 空中升级（Firmware Over-The-Air），分块传输 + 签名验证 + 回滚机制。
+
+## 🎯 核心要点
+
+- 分块传输：A/B 分区或流式写入（避免大文件一次性写入失败）
+- 签名验证：ECDSA / RSA 签名 + 公钥校验（防止恶意固件）
+- 回滚机制：升级失败自动回退到上一版本
+- 灰度发布：按设备 ID / 区域 / 版本分组升级
+
+## 🛠️ 实战示例
+
+```c
+# OTA 签名验证伪代码（C / ESP32）
+int verify_firmware(uint8_t* fw, size_t len, uint8_t* sig) {
+  if (mbedtls_rsa_verify(fw, len, sig, PUBLIC_KEY) != 0) {
+    return -1;  // 验签失败，拒绝升级
+  }
+  return 0;
+}
+```
+
+## 🔗 相关链接
+
+- [设备影子](./shadow)
+- [设备安全](./security)
+- [← 返回 设备管理 目录](./)
+- [← 返回 iot 首页](../)
+## 🎯 OTA 实施要点
+
+- **A/B 分区**：双固件分区，失败自动回滚
+- **签名验证**：ECDSA / RSA + 公钥校验
+- **灰度发布**：按区域 / 设备类型 / 版本分组
+- **断点续传**：大文件分块 + 校验和
+
+---
+
+## [设备安全](https://java-px.bot.cd/iot/04-management/security)
+> > X.509 证书 / mTLS / 密钥管理 / OTA 签名四大支柱。 - X.509 证书：设备身份认证（每设备唯一证书） - mTLS：双向 TLS 认证，云端 + 设备互相验证 - 密钥管理：硬件安全模块（HSM）/ TrustZone / SE 芯片 - OTA 签名：固件必须签名才能升级 - [OTA](./ota) - [公有云 IoT](../06-platform/publi
+
+# 设备安全
+
+> X.509 证书 / mTLS / 密钥管理 / OTA 签名四大支柱。
+
+## 🎯 核心要点
+
+- X.509 证书：设备身份认证（每设备唯一证书）
+- mTLS：双向 TLS 认证，云端 + 设备互相验证
+- 密钥管理：硬件安全模块（HSM）/ TrustZone / SE 芯片
+- OTA 签名：固件必须签名才能升级
+
+## 🛠️ 实战示例
+
+```text
+# mTLS 配置（mosquitto MQTT broker）
+listener 8883
+cafile /etc/mosquitto/ca_cert.pem
+certfile /etc/mosquitto/server_cert.pem
+keyfile /etc/mosquitto/server_key.pem
+require_certificate true
+use_identity_as_username true
+```
+
+## 🔗 相关链接
+
+- [OTA](./ota)
+- [公有云 IoT](../06-platform/public-cloud)
+- [← 返回 设备管理 目录](./)
+- [← 返回 iot 首页](../)
+## 🎯 安全四支柱
+
+1. **X.509 证书**：设备唯一身份（每设备一张）
+2. **mTLS**：双向 TLS 认证（client + server 互相验证）
+3. **硬件安全**：HSM / TrustZone / SE 芯片
+4. **OTA 签名**：固件升级必须签名
+**轮换**：定期轮换证书 / 密钥
+
+- **小贴士**：证书签发用 CFSSL + 自建 CA 或 Let's Encrypt。
+
+---
+
+## [设备影子 / 物模型](https://java-px.bot.cd/iot/04-management/shadow)
+> > 设备状态在云端的抽象表示，用于状态同步、命令下发、状态查询。 - 设备影子（Device Shadow）：AWS IoT / Azure IoT 都用此概念 - 物模型（Thing Specification）：阿里云 LinkKit 定义设备属性 / 服务 / 事件 - 数字孪生（Digital Twin）：更复杂的物理模型仿真 - 同步机制：reported vs desired，最终一致
+
+# 设备影子 / 物模型
+
+> 设备状态在云端的抽象表示，用于状态同步、命令下发、状态查询。
+
+## 🎯 核心要点
+
+- 设备影子（Device Shadow）：AWS IoT / Azure IoT 都用此概念
+- 物模型（Thing Specification）：阿里云 LinkKit 定义设备属性 / 服务 / 事件
+- 数字孪生（Digital Twin）：更复杂的物理模型仿真
+- 同步机制：reported vs desired，最终一致
+
+## 🛠️ 实战示例
+
+```json
+# AWS IoT Device Shadow JSON 示例
+{
+  "reported": { "temperature": 25.5, "fan_speed": 1500 },
+  "desired": { "temperature": 24.0 }
+}
+```
+
+## 🔗 相关链接
+
+- [OTA](./ota)
+- [云平台](../06-platform/public-cloud)
+- [← 返回 设备管理 目录](./)
+- [← 返回 iot 首页](../)
+## 🎯 设计模式
+
+- **AWS IoT Shadow**：AWS IoT 标准
+- **Azure Digital Twins**：数字孪生（更复杂物理模型）
+- **阿里云物模型**：国内标准（属性 / 服务 / 事件）
+**同步**：reported vs desired 最终一致
+
+- **小贴士**：状态合并用 MQTT 保留消息 + 版本号。
+
+---
+
+## [05 · 时序数据](https://java-px.bot.cd/iot/05-timeseries/README)
+> IoT 数据的存储 / 处理 / 可视化。 | 节点 | 一句话 | |------|--------| | [时序库选型](./database) | InfluxDB / TDengine / TimescaleDB | | [流处理 / Downsampling](./processing) | 降采样 + 连续查询 | | [Grafana / Kafka](./integration)
+
+# 05 · 时序数据
+
+IoT 数据的存储 / 处理 / 可视化。
+
+## 章节目录
+
+| 节点 | 一句话 |
+|------|--------|
+| [时序库选型](./database) | InfluxDB / TDengine / TimescaleDB |
+| [流处理 / Downsampling](./processing) | 降采样 + 连续查询 |
+| [Grafana / Kafka](./integration) | 可视化与消息集成 |
+| [数据模型](./schema) | tag / field / timestamp |
+
+## 典型架构
+
+```
+设备 → MQTT → Kafka → InfluxDB → Grafana
+                  ↓
+              Downsampling
+                  ↓
+              长期存储（聚合）
+```
+## 🎯 典型架构
+
+```
+设备 → MQTT → Kafka → InfluxDB → Grafana
+                  ↓
+              Downsampling
+                  ↓
+              长期存储（聚合）
+```
+
+- **写入层**：Kafka / EMQX（高吞吐）
+- **存储层**：InfluxDB / TDengine（时序优化）
+- **查询层**：Grafana / PromQL
+**写优化**：批量写 + 预排序 + 压缩
+**Schema 设计**：tag 维度要稳定，避免每条数据都有新 tag 值。
+
+## 📚 学习路径
+
+- **入门**：InfluxDB 单机 + Grafana（30 分钟跑通）
+- **进阶**：TDengine 集群 + Kafka 流处理
+- **生产**：考虑数据生命周期（原始 → 1m 聚合 → 1h 聚合 → 归档），按 7d / 30d / 365d 分级存储
+
+- **小贴士**：Grafana 用 Flux / InfluxQL 查 InfluxDB，用 SQL 查 TDengine。
+
+---
+
+## [时序库选型](https://java-px.bot.cd/iot/05-timeseries/database)
+> > InfluxDB / TDengine / TimescaleDB / QuestDB 四大时序库对比与选型。 - InfluxDB：生态最全（Telegraf / Chronograf），2.x 起闭源 - TDengine：国产开源，专为 IoT 设计，性能强（10x InfluxDB） - TimescaleDB：PostgreSQL 扩展，SQL 兼容 - QuestDB：Influx
+
+# 时序库选型
+
+> InfluxDB / TDengine / TimescaleDB / QuestDB 四大时序库对比与选型。
+
+## 🎯 核心要点
+
+- InfluxDB：生态最全（Telegraf / Chronograf），2.x 起闭源
+- TDengine：国产开源，专为 IoT 设计，性能强（10x InfluxDB）
+- TimescaleDB：PostgreSQL 扩展，SQL 兼容
+- QuestDB：InfluxDB 替代，PostgreSQL 协议兼容
+- 选型三问：写入吞吐？查询模式（聚合 / 原始）？生态？
+
+## 🛠️ 实战示例
+
+```python
+# TDengine Python 写入示例
+import taos
+
+conn = taos.connect(host="localhost", user="root", password="taosdata")
+cursor = conn.cursor()
+cursor.execute("CREATE DATABASE IF NOT EXISTS iot_data PRECISION 'ms';")
+cursor.execute("USE iot_data")
+cursor.execute("CREATE TABLE IF NOT EXISTS sensor (ts TIMESTAMP, temperature FLOAT, humidity FLOAT);")
+cursor.execute("INSERT INTO sensor VALUES (NOW, 25.5, 60.2);")
+```
+
+## 🔗 相关链接
+
+- [流处理](./processing)
+- [可视化](./integration)
+- [← 返回 时序数据 目录](./)
+- [← 返回 iot 首页](../)
+## 🎯 时序库选型
+
+- **生态最全**：InfluxDB（Telegraf / Chronograf）
+- **国产性能强**：TDengine（10x InfluxDB 性能）
+- **SQL 兼容**：TimescaleDB（PostgreSQL 扩展）
+- **InfluxDB 替代**：QuestDB（PostgreSQL 协议）
+
+---
+
+## [Grafana / Kafka](https://java-px.bot.cd/iot/05-timeseries/integration)
+> > Grafana 可视化 + Kafka 消息集成，时序数据生态对接。 - Grafana：可视化仪表盘，多数据源支持 - Kafka：时序数据通过 Kafka 流转到下游（实时分析 / 备份） - Prometheus remote_write：InfluxDB / TDengine 兼容此协议 - 典型架构：设备 → MQTT → Kafka → InfluxDB → Grafana - [
+
+# Grafana / Kafka
+
+> Grafana 可视化 + Kafka 消息集成，时序数据生态对接。
+
+## 🎯 核心要点
+
+- Grafana：可视化仪表盘，多数据源支持
+- Kafka：时序数据通过 Kafka 流转到下游（实时分析 / 备份）
+- Prometheus remote_write：InfluxDB / TDengine 兼容此协议
+- 典型架构：设备 → MQTT → Kafka → InfluxDB → Grafana
+
+## 🛠️ 实战示例
+
+```python
+# Kafka 集成（Python）
+from kafka import KafkaProducer
+import json
+
+producer = KafkaProducer(
+  bootstrap_servers=["kafka:9092"],
+  value_serializer=lambda v: json.dumps(v).encode()
+)
+producer.send("sensor-data", {"device_id": "d001", "value": 25.5})
+```
+
+## 🔗 相关链接
+
+- [时序库](./database)
+- [流处理](./processing)
+- [← 返回 时序数据 目录](./)
+- [← 返回 iot 首页](../)
+## 🎯 生态集成
+
+- **Grafana**：可视化仪表盘（InfluxDB / TDengine 数据源）
+- **Kafka**：消息流转（设备 → MQTT → Kafka → InfluxDB）
+- **Prometheus remote_write**：兼容协议
+**告警**：基于阈值 / 异常检测 / 趋势预测
+**降采样**：原始数据保留 7 天，1m 聚合保留 30 天，1h 聚合保留 1 年。
+
+- **小贴士**：Grafana 8+ 原生支持 TDengine / InfluxDB 数据源。
+
+---
+
+## [流处理 / Downsampling](https://java-px.bot.cd/iot/05-timeseries/processing)
+> > 数据降采样 + 连续查询 + 边缘流处理，时序数据降本提效。 - Downsampling：1 秒原始数据降为 1 分钟 / 1 小时平均值 - 连续查询（Continuous Query）：自动定时执行聚合 - 边缘流处理：eKuiper（EMQX）/ Flink IoT - 保留策略：原始数据保留 7 天，聚合数据保留 1 年 - [时序库](./database) - [数据模型](./
+
+# 流处理 / Downsampling
+
+> 数据降采样 + 连续查询 + 边缘流处理，时序数据降本提效。
+
+## 🎯 核心要点
+
+- Downsampling：1 秒原始数据降为 1 分钟 / 1 小时平均值
+- 连续查询（Continuous Query）：自动定时执行聚合
+- 边缘流处理：eKuiper（EMQX）/ Flink IoT
+- 保留策略：原始数据保留 7 天，聚合数据保留 1 年
+
+## 🛠️ 实战示例
+
+```sql
+# TDengine 连续查询（自动每分钟聚合）
+CREATE TABLE sensor_avg_minute AS
+SELECT AVG(temperature), AVG(humidity)
+FROM sensor
+INTERVAL(1m);
+```
+
+## 🔗 相关链接
+
+- [时序库](./database)
+- [数据模型](./schema)
+- [← 返回 时序数据 目录](./)
+- [← 返回 iot 首页](../)
+## 🎯 流处理模式
+
+- **Downsampling**：1s → 1min → 1h 三级聚合
+- **连续查询**：定时自动聚合（Continuous Query）
+- **边缘流处理**：eKuiper（EMQX）/ Flink IoT
+- **保留策略**：原始 7 天 / 聚合 1 年
+**精度**：降采样需保留关键特征（峰值 / 谷值）
+
+---
+
+## [数据模型](https://java-px.bot.cd/iot/05-timeseries/schema)
+> > tag / field / timestamp 三元组是时序数据核心模型。 - tag：维度（设备 ID / 区域 / 类型），可索引 - field：测量值（温度 / 湿度），不可索引 - timestamp：纳秒精度时间戳 - 一设备一表 vs 一类设备一表：写入性能 vs 查询灵活 - [时序库](./database) - [流处理](./processing) - [← 返回 时序数
+
+# 数据模型
+
+> tag / field / timestamp 三元组是时序数据核心模型。
+
+## 🎯 核心要点
+
+- tag：维度（设备 ID / 区域 / 类型），可索引
+- field：测量值（温度 / 湿度），不可索引
+- timestamp：纳秒精度时间戳
+- 一设备一表 vs 一类设备一表：写入性能 vs 查询灵活
+
+## 🛠️ 实战示例
+
+```text
+# InfluxDB Line Protocol
+sensor,device_id=d001,region=shanghai temperature=25.5,humidity=60.2 1692096000000000000
+```
+
+## 🔗 相关链接
+
+- [时序库](./database)
+- [流处理](./processing)
+- [← 返回 时序数据 目录](./)
+- [← 返回 iot 首页](../)
+## 🎯 数据模型设计
+
+- **tag**：维度（设备 ID / 区域 / 类型），可索引
+- **field**：测量值（温度 / 湿度），不可索引
+- **timestamp**：纳秒精度
+- **建表策略**：一设备一表 vs 一类设备一表
+**写入**：tag 索引占空间，避免高基数（每条不同值）
+**设计原则**：tag 不要高基数（≤ 100K 不同值），field 必须存在。
+
+---
+
+## [06 · 云平台与行业落地](https://java-px.bot.cd/iot/06-platform/README)
+> 公有云 IoT + 自建平台 + 行业方案。 | 节点 | 一句话 | |------|--------| | [公有云 IoT](./public-cloud) | AWS / Azure / 阿里云 / 华为云 | | [自建 IoT 平台](./self-hosted) | EMQX / ThingsBoard / HiveMQ | | [智能家居 Matter](./smart-home)
+
+# 06 · 云平台与行业落地
+
+公有云 IoT + 自建平台 + 行业方案。
+
+## 章节目录
+
+| 节点 | 一句话 |
+|------|--------|
+| [公有云 IoT](./public-cloud) | AWS / Azure / 阿里云 / 华为云 |
+| [自建 IoT 平台](./self-hosted) | EMQX / ThingsBoard / HiveMQ |
+| [智能家居 Matter](./smart-home) | 跨生态互联协议 |
+| [工业互联网 IIoT](./iiot) | 工业 4.0 + 边缘计算 |
+
+## 选型决策
+
+- 公有云（运维省心 / 成本可控）：阿里云 / AWS
+- 自建（数据自主 / 长期省钱）：EMQX + ThingsBoard
+- 智能家居：Matter（跨生态）
+- 工业场景：OPC-UA + IIoT 平台
+## 🎯 选型决策
+
+- **公有云**（运维省心 / 成本可控）：阿里云 / AWS / 华为云
+- **自建**（数据自主 / 长期省钱）：EMQX + ThingsBoard
+- **智能家居**：Matter（跨生态）
+- **工业场景**：OPC-UA + IIoT 平台
+**集成**：所有平台都支持 MQTT / Webhook
+**协议**：所有平台都支持 MQTT + WebHook，集成成本低。
+
+---
+
+## [工业互联网 IIoT](https://java-px.bot.cd/iot/06-platform/iiot)
+> > 工业 4.0 + 边缘计算 + 设备联网，工业场景的 IoT 应用。 - 工业 4.0：智能工厂 + 数字孪生 + 网络物理系统 - 边缘计算：实时控制（毫秒级）不能在云端 - OPC-UA：工业标准协议，与 Modbus / PROFINET 集成 - 行业落地：预测性维护 / 质量检测 / 能源管理 / 安全监控 - [Modbus](../01-protocol/modbus) - [边
+
+# 工业互联网 IIoT
+
+> 工业 4.0 + 边缘计算 + 设备联网，工业场景的 IoT 应用。
+
+## 🎯 核心要点
+
+- 工业 4.0：智能工厂 + 数字孪生 + 网络物理系统
+- 边缘计算：实时控制（毫秒级）不能在云端
+- OPC-UA：工业标准协议，与 Modbus / PROFINET 集成
+- 行业落地：预测性维护 / 质量检测 / 能源管理 / 安全监控
+
+## 🛠️ 实战示例
+
+```python
+# 预测性维护（Python + scikit-learn）
+from sklearn.ensemble import IsolationForest
+
+# 训练：正常工况下的传感器数据
+clf = IsolationForest(contamination=0.01)
+clf.fit(X_train)
+
+# 推理：检测异常
+predictions = clf.predict(X_live)  # -1 = 异常，1 = 正常
+alert_on_anomaly(predictions)
+```
+
+## 🔗 相关链接
+
+- [Modbus](../01-protocol/modbus)
+- [边缘智能](../03-edge/ai-edge)
+- [← 返回 云平台与行业落地 目录](./)
+- [← 返回 iot 首页](../)
+## 🎯 IIoT 落地场景
+
+- **预测性维护**：异常检测 + 寿命预测
+- **质量检测**：图像识别 + 实时分析
+- **能源管理**：能耗监测 + 优化
+- **安全监控**：人员定位 + 设备状态
+
+---
+
+## [公有云 IoT](https://java-px.bot.cd/iot/06-platform/public-cloud)
+> > AWS IoT Core / Azure IoT Hub / 阿里云 LinkKit / 华为云 IoTDA 四大公有云对比。 - AWS IoT Core：Device Gateway / Registry / Shadow / Rules Engine - Azure IoT Hub：与 Azure Functions / Digital Twins 集成 - 阿里云 LinkKit：物模
+
+# 公有云 IoT
+
+> AWS IoT Core / Azure IoT Hub / 阿里云 LinkKit / 华为云 IoTDA 四大公有云对比。
+
+## 🎯 核心要点
+
+- AWS IoT Core：Device Gateway / Registry / Shadow / Rules Engine
+- Azure IoT Hub：与 Azure Functions / Digital Twins 集成
+- 阿里云 LinkKit：物模型 + 设备影子，国内 IoT 接入首选
+- 华为云 IoTDA：LiteOS + 物联网平台，国内第二
+
+## 🛠️ 实战示例
+
+```python
+# 阿里云 LinkKit 接入伪代码
+import linkkit
+
+lk = linkkit.LinkKit(
+  host_name="cn-shanghai.link.aliyuncs.com",
+  product_key="pk123",
+  device_name="sensor001",
+  device_secret="secret"
+)
+lk.connect()
+lk.post_property("temperature", 25.5)
+```
+
+## 🔗 相关链接
+
+- [设备影子](../04-management/shadow)
+- [自建 IoT](./self-hosted)
+- [← 返回 云平台与行业落地 目录](./)
+- [← 返回 iot 首页](../)
+## 🎯 公有云对比
+
+- **AWS IoT Core**：Device Gateway / Registry / Shadow / Rules Engine
+- **Azure IoT Hub**：与 Azure Functions / Digital Twins 集成
+- **阿里云 LinkKit**：国内 IoT 首选，物模型 + 设备影子
+- **华为云 IoTDA**：LiteOS + IoT 平台
+**费用**：消息数 / 设备数 / 流量计费
+
+---
+
+## [自建 IoT 平台](https://java-px.bot.cd/iot/06-platform/self-hosted)
+> > EMQX / ThingsBoard / HiveMQ 三大开源 IoT Broker 与平台对比。 - EMQX：国产开源，百万级 MQTT 连接，性能强 - ThingsBoard：可视化设备管理 + 仪表盘 + 规则引擎 - HiveMQ：商业友好，集群支持完善 - 选型：纯 Broker → EMQX；含设备管理 → ThingsBoard - [公有云](./public-cloud
+
+# 自建 IoT 平台
+
+> EMQX / ThingsBoard / HiveMQ 三大开源 IoT Broker 与平台对比。
+
+## 🎯 核心要点
+
+- EMQX：国产开源，百万级 MQTT 连接，性能强
+- ThingsBoard：可视化设备管理 + 仪表盘 + 规则引擎
+- HiveMQ：商业友好，集群支持完善
+- 选型：纯 Broker → EMQX；含设备管理 → ThingsBoard
+
+## 🛠️ 实战示例
+
+```bash
+# EMQX 启动（Docker）
+docker run -d --name emqx -p 1883:1883 -p 18083:18083 emqx/emqx:latest
+# Web 控制台: http://localhost:18083
+# 默认账户: admin / public
+```
+
+## 🔗 相关链接
+
+- [公有云](./public-cloud)
+- [智能家居](./smart-home)
+- [← 返回 云平台与行业落地 目录](./)
+- [← 返回 iot 首页](../)
+## 🎯 自建选型
+
+- **EMQX**：国产开源，百万级 MQTT 连接
+- **ThingsBoard**：含设备管理 + 仪表盘 + 规则引擎
+- **HiveMQ**：商业友好，集群支持完善
+**集群**：EMQX / ThingsBoard 都支持集群部署
+**高可用**：EMQX / ThingsBoard 集群部署至少 3 节点。
+
+---
+
+## [智能家居 Matter](https://java-px.bot.cd/iot/06-platform/smart-home)
+> > Matter 协议（Project CHIP），CSA 标准，跨 Apple / Google / Amazon / 三星。 - Matter 1.0：基于 IPv6 / Wi-Fi / Thread / Ethernet - 多生态互操作：Apple HomeKit / Google Home / Amazon Alexa - 设备发现：mDNS / DNS-SD - 配网：BLE 辅助 /
+
+# 智能家居 Matter
+
+> Matter 协议（Project CHIP），CSA 标准，跨 Apple / Google / Amazon / 三星。
+
+## 🎯 核心要点
+
+- Matter 1.0：基于 IPv6 / Wi-Fi / Thread / Ethernet
+- 多生态互操作：Apple HomeKit / Google Home / Amazon Alexa
+- 设备发现：mDNS / DNS-SD
+- 配网：BLE 辅助 / Wi-Fi 简化配网
+
+## 🛠️ 实战示例
+
+```text
+# Matter 设备配网流程伪代码
+1. 设备广播 mDNS 服务 _matter._tcp.local
+2. 手机扫码 / 蓝牙发现设备
+3. Commissioning（密钥交换 + 认证）
+4. 加入 Fabric（用户家庭网络）
+```
+
+## 🔗 相关链接
+
+- [公有云](./public-cloud)
+- [工业互联网](./iiot)
+- [← 返回 云平台与行业落地 目录](./)
+- [← 返回 iot 首页](../)
+## 🎯 Matter 协议要点
+
+- **Matter 1.0**：基于 IPv6 / Wi-Fi / Thread / Ethernet
+- **多生态**：Apple HomeKit / Google Home / Amazon Alexa
+- **配网**：BLE 辅助 + mDNS 发现
+- **本地优先**：不依赖云，断网仍可控制
+**认证**：设备需 Matter 认证（兼容性测试）
+
+---
+
+## [IoT 站在知识图谱中的位置](https://java-px.bot.cd/iot/README)
+> **物联网（IoT）= 把物理世界的设备 / 传感器 / 执行器数字化并接入互联网**。它不是单一技术，而是协议、硬件、边缘、云端、行业落地的**横切层**。 - **IoT 是横切层，不是替代品**：学 IoT 前先补 network / cloud-native / bigdata 三门基础 - **协议不是越多越好**：90% 场景 MQTT 一招鲜；只在工业现场加 OPC-UA / Mod
+
+# IoT 站在知识图谱中的位置
+
+## 一句话定义
+
+**物联网（IoT）= 把物理世界的设备 / 传感器 / 执行器数字化并接入互联网**。它不是单一技术，而是协议、硬件、边缘、云端、行业落地的**横切层**。
+
+## 在 28 站中的关系
+
+```mermaid
+graph LR
+  network[network<br/>TCP/IP 基础] --> iot
+  cloud-native[cloud-native<br/>K8s + Docker] --> iot
+  bigdata[bigdata<br/>Kafka + Flink] --> iot
+  observability[observability<br/>Prometheus + Grafana] --> iot
+  security[security<br/>mTLS + 证书] --> iot
+  architecture[architecture<br/>高可用 + 微服务] --> iot
+  iot[IoT<br/>设备全栈] --> smart_home[智能家居]
+  iot --> iiot[工业互联网]
+  iot --> v2x[车联网 V2X]
+  iot --> smart_city[智慧城市]
+```
+
+## 关键 takeaway
+
+- **IoT 是横切层，不是替代品**：学 IoT 前先补 network / cloud-native / bigdata 三门基础
+- **协议不是越多越好**：90% 场景 MQTT 一招鲜；只在工业现场加 OPC-UA / ModBus
+- **数据时序性是核心**：别用 MySQL，第一周就上 InfluxDB / TDengine
+- **安全是后置必修**：先跑通再加 mTLS / 证书 / 签名，不要"以后再说"
+- **云平台不是银弹**：百万级以下自建 EMQX 比上云便宜
+
+## 与其他站点的关系
+
+| 站点 | 关系 |
+|---|---|
+| network | MQTT 跑在 TCP/IP 上；5G / NB-IoT 是网络层技术 |
+| cloud-native | KubeEdge / EdgeX 是 K8s 在边缘的延伸 |
+| bigdata | 千万设备数据接入 Kafka / Flink 实时处理 |
+| observability | 设备指标用 Prometheus remote_write 接入 |
+| security | 设备证书 / mTLS / OTA 签名是 IoT 安全核心 |
+| architecture | 千万级 IoT 平台是高可用 + 微服务架构 |
+| postgresql | 设备元数据 / 影子存 PG（不是时序库） |
+| redis | 设备影子 / 在线状态 / 限流热点数据 |
+
+---
+
+## [IoT 速查表](https://java-px.bot.cd/iot/cheatsheet)
+> > 协议 / 端口 / 频段 / 数据格式 一页速查。 | 协议 | 传输层 | 端口 | QoS | 适用场景 | |---|---|---|---|---| | MQTT 5.0 | TCP | 8883 (TLS) | 0/1/2 | 通用 IoT、双向消息、设备管理 | | MQTT 3.1.1 | TCP | 1883 / 8883 | 0/1/2 | 旧设备兼容 | | CoAP |
+
+# 🧾 IoT 速查表
+
+> 协议 / 端口 / 频段 / 数据格式 一页速查。
+
+## 协议矩阵
+
+| 协议 | 传输层 | 端口 | QoS | 适用场景 |
+|---|---|---|---|---|
+| MQTT 5.0 | TCP | 8883 (TLS) | 0/1/2 | 通用 IoT、双向消息、设备管理 |
+| MQTT 3.1.1 | TCP | 1883 / 8883 | 0/1/2 | 旧设备兼容 |
+| CoAP | UDP | 5683 / 5684 | Confirmable / Non | 受限设备、低功耗 |
+| HTTP/HTTPS | TCP | 80 / 443 | — | REST API、配置下发 |
+| WebSocket | TCP | 80 / 443 | — | 浏览器直连设备 |
+| Modbus TCP | TCP | 502 | — | 工业现场 |
+| OPC-UA | TCP | 4840 | — | 工业 4.0、安全通信 |
+| LoRaWAN | — | — | — | 远距离低功耗（< 10km） |
+| NB-IoT | LTE Cat-NB | — | — | 蜂窝物联网、深覆盖 |
+| BLE 5.x | 2.4GHz | — | — | 近场、可穿戴 |
+| Zigbee | 2.4GHz | — | — | 智能家居 mesh |
+
+## MQTT 关键参数
+
+```text
+keep_alive:        60s            # 心跳间隔；建议 1.5-2 倍 NAT 超时
+clean_session:     true           # 1：每次新会话；0：断线保留订阅
+qos:               1              # 99% 场景用 1
+retain:            false          # 保留消息给新订阅者；状态类用 true
+will_message:      offline        # 异常断开时发的最后遗言
+will_qos:          1
+will_retain:       true
+max_inflight:      20             # 同时未确认消息数
+max_qos:           2              # broker 限制
+max_packet_size:   256KB          # 避免巨型 payload
+```
+
+## MQTT Topic 设计模板
+
+```text
+{tenant}/{product}/{deviceId}/{service}
+
+# 示例
+acme/factory-A/sensor-001/telemetry      # 设备上行数据
+acme/factory-A/sensor-001/event           # 事件上报
+acme/factory-A/sensor-001/command         # 下行控制
+acme/factory-A/sensor-001/ack             # 命令确认
+acme/factory-A/sensor-001/lwt             # 遗嘱
+
+# 通配符订阅
+acme/+/sensor-001/#                       # 某设备所有消息
+acme/factory-A/#                          # 整厂所有消息
+acme/+/+/telemetry                        # 所有设备的遥测
+```
+
+## 时序数据库选型
+
+| 项 | InfluxDB | TDengine | TimescaleDB | Prometheus |
+|---|---|---|---|---|
+| 主语言 | Go | C | C / PG ext | Go |
+| 协议 | HTTP / InfluxQL | RESTful SQL | PG SQL | PromQL |
+| 写入 (ops/s) | 100w | 1000w | 100w | 100w |
+| 压缩比 | 5-10x | 10-20x | 5-10x | 5x |
+| 数据保留 | 策略保留 | 块级 TTL | 策略保留 | 默认 15d |
+| Grafana 集成 | 原生 | 插件 | 原生 | 原生 |
+| 集群 | OSS / Enterprise | 开源可集群 | 开源 | 联邦 |
+
+## 设备端参考功耗
+
+| 场景 | 平均电流 | 续航（2000mAh） |
+|---|---|---|
+| ESP32 深度睡眠 | 10 µA | 27 年 |
+| ESP32 蓝牙配网 | 50 mA | 40 小时 |
+| ESP32 Wi-Fi 持续连接 | 80 mA | 25 小时 |
+| NB-IoT PSM 模式 | 5 µA | 45 年 |
+| NB-IoT 主动上报 | 100 mA | 20 小时 |
+| LoRaWAN Class A | 10 µA | 27 年 |
+| LoRaWAN Class C | 30 mA | 67 小时 |
+
+## OTA 包大小估算
+
+| 固件类型 | 全量 | 差分（10% 改动） |
+|---|---|---|
+| ESP32 Arduino | 1.2 MB | 120 KB |
+| STM32 FreeRTOS | 0.5 MB | 50 KB |
+| Linux ARM64 | 80 MB | 8 MB |
+| Android 设备 | 500 MB | 50 MB |
+
+## 设备影子数据结构
+
+```json
+{
+  "desired": { "switch": "on", "brightness": 80 },
+  "reported": { "switch": "on", "brightness": 50, "fw_version": "1.2.3" },
+  "delta": { "brightness": 80 }
+}
+```
+
+## 安全端口速查
+
+| 协议 | 端口 | 加密 |
+|---|---|---|
+| MQTT (明文) | 1883 | ❌ |
+| MQTT over TLS | 8883 | ✅ mTLS 可选 |
+| MQTT over WebSocket | 8083 | ❌ |
+| MQTT over WSS | 8084 | ✅ |
+| CoAP (明文) | 5683 | ❌ |
+| CoAP over DTLS | 5684 | ✅ |
+
+## 一句话总结
+
+90% 场景 = **ESP32 + MQTT(TLS) + InfluxDB + Grafana**；只在工业现场加 OPC-UA / Modbus，在低功耗加 LoRaWAN / NB-IoT。
+
+---
+
+## [iot 知识图谱](https://java-px.bot.cd/iot/index)
+> <script setup> const painPoints = [ "协议栈碎片：MQTT / CoAP / Modbus / OPC-UA / LoRaWAN 各自适合什么场景？", "边缘 vs 云端：哪些计算放边缘、哪些放云端？", "设备影子 vs 物模型：阿里 / 华为 / AWS 三家抽象不一致，迁移成本高？", "时序数据爆炸：百万设备 × 每秒 1 条数据，传统 MySQL 撑
+
+<script setup>
+const painPoints = [
+  "协议栈碎片：MQTT / CoAP / Modbus / OPC-UA / LoRaWAN 各自适合什么场景？",
+  "边缘 vs 云端：哪些计算放边缘、哪些放云端？",
+  "设备影子 vs 物模型：阿里 / 华为 / AWS 三家抽象不一致，迁移成本高？",
+  "时序数据爆炸：百万设备 × 每秒 1 条数据，传统 MySQL 撑不住？",
+  "OTA 升级：如何保证百万设备固件升级不回滚、不变砖？",
+  "安全：设备证书、密钥管理、TLS 双向认证怎么做？"
+]
+const goals = [
+  "协议选型矩阵（按功耗 / 带宽 / 实时性 / 部署成本）",
+  "设备端硬件 + RTOS + 网络栈全栈视图",
+  "边缘网关架构（EdgeX / KubeEdge / Azure IoT Edge）",
+  "设备管理（影子 / 物模型 / OTA / 拓扑）",
+  "时序数据库选型（InfluxDB / TDengine / TimescaleDB）",
+  "主流云平台对比（AWS / 阿里 / 华为 / 自建 EMQX）"
+]
+const relatedSites = [
+  { site: "network", path: "/path", label: "网络协议（MQTT 跑在 TCP/IP 上）" },
+  { site: "cloud-native", path: "/path", label: "云原生（KubeEdge / EdgeX 容器化）" },
+  { site: "bigdata", path: "/path", label: "大数据（时序数据接入 Kafka / Flink）" },
+  { site: "observability", path: "/path", label: "可观测性（设备指标 / Prometheus remote_write）" },
+  { site: "security", path: "/path", label: "安全（设备证书 / mTLS / ZeroTrust）" },
+  { site: "architecture", path: "/path", label: "企业架构（千万级 IoT 平台架构）" }
+]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
+    title="🎯 为什么写这个图谱？"
+  />
+</ClientOnly>
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [android](https://java-px.bot.cd/android/)：Android Things
+- [linux](https://java-px.bot.cd/linux/)：Linux 嵌入式
+- [rust](https://java-px.bot.cd/rust/)：Rust 嵌入式
+- [python](https://java-px.bot.cd/python/)：Python 数据处理
+- [network](https://java-px.bot.cd/network/)：MQTT / CoAP 协议
+- [security](https://java-px.bot.cd/security/)：设备安全
+
+---
+
+## [IoT 知识图谱](https://java-px.bot.cd/iot/mindmap)
+> > 本页用 Mermaid mindmap 展示 IoT 全栈知识结构。 - **协议入门**：先看 MQTT / CoAP 两节，再看 Modbus 对比 - **设备端**：从 ESP32 + FreeRTOS 入手，进阶到 Linux Embedded - **边缘架构**：先看 EdgeX 整体框架，再深入 KubeEdge - **数据落地**：协议 → 设备 → 边缘 → 云端 → 时
+
+# 🗺️ IoT 知识图谱
+
+> 本页用 Mermaid mindmap 展示 IoT 全栈知识结构。
+
+```mermaid
+mindmap
+  root((IoT 物联网))
+    通信协议
+      应用层
+        MQTT 5.0
+        CoAP
+        HTTP/WebSocket
+        AMQP
+      工业现场
+        Modbus
+        OPC-UA
+        CAN
+        EtherCAT
+      低功耗广域网
+        LoRaWAN
+        NB-IoT
+        Sigfox
+      短距离
+        BLE 5.x
+        Zigbee
+        Z-Wave
+        Wi-Fi 6
+    设备与硬件
+      MCU
+        ESP32
+        STM32
+        Arduino
+        Raspberry Pi Pico
+      SoC
+        nRF52
+        Allwinner
+        Rockchip
+      操作系统
+        FreeRTOS
+        Zephyr
+        Riot OS
+        Linux Embedded
+      传感器
+        温湿度
+        惯性 IMU
+        图像
+        气体
+    边缘计算
+      框架
+        EdgeX Foundry
+        KubeEdge
+        Azure IoT Edge
+        AWS Greengrass
+      网关
+        协议转换
+        本地缓存
+        离线自治
+      边缘智能
+        TensorFlow Lite
+        ONNX Runtime
+        OpenVINO
+    设备管理
+      抽象模型
+        设备影子
+        物模型
+        数字孪生
+      生命周期
+        注册认证
+        固件 OTA
+        配置下发
+        远程命令
+      安全
+        X.509 证书
+        mTLS
+        密钥管理
+        OTA 签名
+    时序数据
+      数据库
+        InfluxDB
+        TDengine
+        TimescaleDB
+        QuestDB
+      数据处理
+        Downsampling
+        连续查询
+        边缘流处理
+        Flink / eKuiper
+      集成
+        Grafana
+        Prometheus remote_write
+        Kafka 引擎
+    云平台与行业落地
+      公有云
+        AWS IoT Core
+        Azure IoT Hub
+        阿里云 LinkKit
+        华为云 IoTDA
+      自建
+        EMQX
+        ThingsBoard
+        HiveMQ
+      场景
+        智能家居 Matter
+        工业互联网 IIoT
+        车联网 V2X
+        智慧城市
+```
+
+## 阅读建议
+
+- **协议入门**：先看 MQTT / CoAP 两节，再看 Modbus 对比
+- **设备端**：从 ESP32 + FreeRTOS 入手，进阶到 Linux Embedded
+- **边缘架构**：先看 EdgeX 整体框架，再深入 KubeEdge
+- **数据落地**：协议 → 设备 → 边缘 → 云端 → 时序库 → 可视化是一条完整链路
+
+## 在图谱中的位置
+
+物联网是 **network（网络协议）+ cloud-native（容器化边缘）+ bigdata（时序数据）** 三大领域的交叉落地场景。如果只看图谱名词不熟悉，先回到 [network](/network/)/[cloud-native](/cloud-native/) 站补基础。
+
+---
+
+## [IoT 学习路径](https://java-px.bot.cd/iot/path)
+> > 三条路径覆盖"嵌入式开发者 / 后端开发者 / 解决方案架构师"三种角色。按背景选择即可。 适合：从其他方向（前端/后端/算法）转入 IoT，从未接触过嵌入式硬件。 | Day | 主题 | 关键交付 | |---|---|---| | Day 1 | MQTT 协议 5 分钟入门 | 用 EMQX + MQTTX 跑通 pub/sub | | Day 2 | ESP32 + Arduino
+
+# 🚶 IoT 学习路径
+
+> 三条路径覆盖"嵌入式开发者 / 后端开发者 / 解决方案架构师"三种角色。按背景选择即可。
+
+## 路径 1：纯新手（1 周）
+
+适合：从其他方向（前端/后端/算法）转入 IoT，从未接触过嵌入式硬件。
+
+| Day | 主题 | 关键交付 |
+|---|---|---|
+| Day 1 | MQTT 协议 5 分钟入门 | 用 EMQX + MQTTX 跑通 pub/sub |
+| Day 2 | ESP32 + Arduino IDE 点灯 | 第一个固件：Blink + Wi-Fi 连接 |
+| Day 3 | ESP32 发布 DHT11 温湿度 | 上行数据到本地 EMQX broker |
+| Day 4 | 搭建 EMQX + InfluxDB + Grafana | 数据可视化一条链路 |
+| Day 5 | Node-RED 入门 | 拖拽式串联设备 / 数据库 / 通知 |
+| Day 6 | AWS IoT Core 免费额度试用 | 跑通"设备 → 云 → 回调" |
+| Day 7 | 复盘 + 选题 | 决定走嵌入式 / 后端 / 架构 哪个细分 |
+
+## 路径 2：后端开发者（2 周）
+
+适合：已熟悉 Linux / 网络 / 数据库，想转 IoT 后端 / 云平台开发。
+
+| 周 | 主题 | 关键交付 |
+|---|---|---|
+| W1 D1-2 | MQTT 5.0 协议深挖 | QoS 0/1/2、Topic 通配符、Retain、Will |
+| W1 D3-4 | EMQX 企业级特性 | 鉴权（JWT / X.509）、桥接、规则引擎 |
+| W1 D5 | InfluxDB vs TDengine vs TimescaleDB | 百万级写入 benchmark |
+| W2 D1-2 | EdgeX Foundry 架构 | Core/Support/Export/Edge 服务 + Device SDK |
+| W2 D3 | KubeEdge（K8s 边缘扩展） | CloudCore / EdgeCore / Mapper |
+| W2 D4 | 设备影子 vs 物模型 | 对比 AWS / 阿里 / 华为 三家 |
+| W2 D5 | OTA 架构 | 灰度 / 分批 / 回滚 / 签名验证 |
+| W2 周末 | 实战：自建千万级 IoT 平台 demo | 含设备模拟器 + 后端 + 大盘 |
+
+## 路径 3：嵌入式开发者（3 周）
+
+适合：单片机 / RTOS / 驱动 开发背景，想往 IoT 全栈延伸。
+
+| 周 | 主题 | 关键交付 |
+|---|---|---|
+| W1 D1-2 | 网络协议栈（TCP/IP / TLS / DNS） | 在 ESP-IDF 上跑通 HTTPS client |
+| W1 D3-4 | MQTT 客户端移植 | 基于 mbedtls + 轻量 MQTT 库 |
+| W1 D5 | 低功耗设计 | 休眠 / 唤醒 / 蓝牙配网 |
+| W2 D1-2 | OTA 升级（断点续传 + 签名 + 回滚） | 在 ESP32 上完整实现 |
+| W2 D3-4 | 边缘网关（Linux + 多协议） | 串口 / Modbus / CAN → MQTT |
+| W2 D5 | 安全：SE / TEE / 安全启动 | 设备证书烧录 |
+| W3 D1-2 | LoRaWAN / NB-IoT 模组 | 长距离 / 低功耗接入 |
+| W3 D3-4 | 边缘 AI（TFLite Micro） | 关键词识别 / 简单 CV |
+| W3 D5 | 行业认证（CE / FCC / 国密） | 合规快速入门 |
+
+## 一句话定义
+
+物联网 = **把物理世界数字化**：传感器采集 → 设备端处理 → 网络传输 → 边缘/云端存储 → 应用消费 → 控制回路。
+
+## 关键 takeaway
+
+- **协议不是越多越好**：90% 场景 MQTT 一招鲜；只在强工业场景才上 OPC-UA / Modbus
+- **数据时序性是核心**：别用 MySQL 存设备数据，第一周就上 InfluxDB / TDengine
+- **安全是后置必修**：先跑通再加 mTLS / 证书 / 签名，不要"以后再说"
+- **云平台不是银弹**：百万级以下自建 EMQX 比上云便宜；千万级以上再评估上云 ROI
+
+---
+
+## [IoT 面试与常见问题](https://java-px.bot.cd/iot/questions)
+> > 分 Easy / Medium / Hard 三档，覆盖协议、架构、嵌入式、安全。 **答**：MQTT 是发布/订阅模式，专为低带宽、不稳定网络设计： | 维度 | MQTT | HTTP | |---|---|---| | 协议开销 | 2 字节固定头 | 数百字节头 | | 连接模式 | 长连接、心跳保活 | 短连接、请求/响应 | | 网络要求 | 能在 3G / 卫星下工作 | 弱网
+
+# ❓ IoT 面试与常见问题
+
+> 分 Easy / Medium / Hard 三档，覆盖协议、架构、嵌入式、安全。
+
+## Easy（基础）
+
+### Q1：MQTT 和 HTTP 相比有什么优势？
+
+**答**：MQTT 是发布/订阅模式，专为低带宽、不稳定网络设计：
+
+| 维度 | MQTT | HTTP |
+|---|---|---|
+| 协议开销 | 2 字节固定头 | 数百字节头 |
+| 连接模式 | 长连接、心跳保活 | 短连接、请求/响应 |
+| 网络要求 | 能在 3G / 卫星下工作 | 弱网频繁超时 |
+| 实时性 | 推送（push） | 轮询（pull） |
+| 主题路由 | Topic 通配符 | URL 路径 |
+| 适用场景 | 设备 → 云、设备间 | Web / API |
+
+物联网设备量多、带宽小、消息小（几十字节），MQTT 比 HTTP 节省 90%+ 流量。
+
+### Q2：MQTT QoS 0/1/2 的区别？
+
+**答**：
+
+- **QoS 0**：at most once，至多一次，不重传、不确认。带宽最省，丢消息无所谓时用。
+- **QoS 1**：at least once，至少一次，PUBACK 确认 + 重传。**最常用**，可能重复但保证到达。
+- **QoS 2**：exactly once，恰好一次，四次握手（PUBREC / PUBREL / PUBCOMP），最可靠也最慢。
+
+实际工程：99% 场景用 QoS 1；幂等性在应用层解决（带 messageId 去重）。
+
+### Q3：什么是设备影子（Device Shadow）？
+
+**答**：云端维护一个"虚拟设备状态"，包含 `desired`（期望状态）和 `reported`（实际状态）。
+
+工作流：
+
+1. App 设置 desired = { "switch": "on" }
+2. 设备上线时拉取 desired，与自己 reported diff
+3. 设备应用变更后更新 reported 上报
+4. App 拉 reported 确认执行结果
+
+**价值**：设备离线时也能"下发指令"（影子缓存），上线后自动同步；解耦 App 实时性与设备在线状态。
+
+## Medium（进阶）
+
+### Q4：MQTT Topic 应该怎么设计？
+
+**答**：层级化 + 业务前缀 + 设备 ID：
+
+```text
+{tenant}/{product}/{deviceId}/{service}
+```
+
+示例：
+
+```text
+acme/factory-A/sensor-001/telemetry
+acme/factory-A/sensor-001/event
+acme/factory-A/sensor-001/command
+```
+
+设计原则：
+
+- **不要超过 7 层**，影响通配符匹配效率
+- **设备 ID 唯一**（用 IMEI / MAC / SN）
+- **通配符**：订阅 `acme/+/sensor-001/#` 拿某设备所有消息；`acme/factory-A/#` 拿整厂
+- **保留前缀**：以 `$SYS/` 开头是 MQTT broker 内部状态，客户端不能用
+
+### Q5：边缘网关的价值是什么？为什么不全放云端？
+
+**答**：边缘网关 4 大价值：
+
+| 价值 | 说明 |
+|---|---|
+| 协议转换 | Modbus / CAN / 串口 → MQTT / HTTPS，云端只懂 IP 协议 |
+| 本地缓存 | 网络抖动时数据不丢，恢复后批量上行 |
+| 实时响应 | 工业控制 < 10ms，云端 RTT 不达标 |
+| 带宽 / 成本 | 摄像头原始流本地预处理，云端只接元数据 / 告警 |
+
+**反模式**：所有逻辑都放云端 → 一次断网全厂停产；所有逻辑都放边缘 → 设备端太重、难升级。
+
+### Q6：InfluxDB / TDengine / TimescaleDB 怎么选？
+
+**答**：
+
+| 维度 | InfluxDB | TDengine | TimescaleDB |
+|---|---|---|---|
+| 数据模型 | Tag + Field + Timestamp | 超级表 + 子表 | PG 表 + hypertable |
+| 写入吞吐 | 中（百万/秒） | 高（千万/秒） | 中（百万/秒） |
+| 压缩比 | 5-10x | 10-20x | 5-10x |
+| 查询语言 | InfluxQL / Flux | SQL | SQL |
+| 部署复杂度 | 单进程 | 集群需 3 节点起 | PG 扩展 |
+| 生态 | Grafana 一等公民 | 国产、Grafana 插件 | 与 PG 工具链通吃 |
+| 适用场景 | 中小规模 / 通用 | 高写入 / 国产化 | 已有 PG 团队 |
+
+**经验**：十万级设备 InfluxDB 够用；百万级以上 TDengine 性价比更高；团队 PG 强直接 TimescaleDB。
+
+## Hard（架构 / 安全）
+
+### Q7：千万级 IoT 平台怎么设计？
+
+**答**：分层架构 + 关键组件：
+
+```text
+┌────────────────────────────────────────┐
+│ 设备层（千万级）                            │
+│   - MQTT 长连接、CoAP / LwM2M             │
+│   - 设备 SDK（连接管理 + OTA + 影子）       │
+└────────────────────────────────────────┘
+           │ 百万并发连接
+           ▼
+┌────────────────────────────────────────┐
+│ 接入层（EMQX 集群 / 自研网关）              │
+│   - 负载均衡 + 多协议接入                   │
+│   - 认证鉴权 + 限流                        │
+│   - 消息路由（Kafka Pulsar）              │
+└────────────────────────────────────────┘
+           │ 千万 TPS
+           ▼
+┌────────────────────────────────────────┐
+│ 流处理层（Flink / eKuiper）                │
+│   - 规则引擎（数据清洗 / 告警 / 转发）       │
+│   - 设备影子同步                           │
+│   - 时序库写入                             │
+└────────────────────────────────────────┘
+           │
+           ▼
+┌────────────────────────────────────────┐
+│ 存储层                                     │
+│   - 时序库：TDengine / InfluxDB（设备数据） │
+│   - 关系库：PostgreSQL（设备元数据 / 影子）   │
+│   - 消息队列：Kafka / Pulsar（下行命令）     │
+│   - 对象存储：S3（OTA 固件 / 大文件）        │
+└────────────────────────────────────────┘
+           │
+           ▼
+┌────────────────────────────────────────┐
+│ 应用层                                      │
+│   - 设备管理后台                            │
+│   - 实时大盘（Grafana）                     │
+│   - 告警与远程命令                          │
+│   - 第三方 API（租户隔离）                  │
+└────────────────────────────────────────┘
+```
+
+**关键决策点**：
+
+- 千万级连接需要 EMQX 5.x 集群（至少 3 节点），单节点瓶颈在 ~200 万
+- 消息总线必须异步：Kafka 主题按 `tenant` 分区，避免热点
+- 时序库与关系库分离：时序数据生命周期短（30 天），元数据长期保留
+- 多租户隔离：namespace + 资源配额 + RBAC
+### Q8：OTA 升级怎么做才能保证"不变砖"？
+
+**答**：5 个关键机制：
+
+1. **差分升级**：bin diff（bsdiff / hdiff），从 10MB 全量降到 500KB 差分包，节省 95% 带宽
+2. **断点续传**：HTTP Range + 分片 MD5，断网续传无需重头
+3. **签名验证**：固件发布前用厂商私钥签名（RSA / ECDSA），设备端用公钥验签，防止中间人篡改
+4. **A/B 分区**：设备 flash 分 A / B 两区，本次升级写到 B 区，重启切到 B；失败自动回滚 A
+5. **灰度策略**：先 1% → 10% → 50% → 100%，每阶段观察 30 分钟异常率，异常率 > 阈值立即暂停
+
+参考：AWS IoT Jobs / 阿里云 OTA / 华为云固件升级 都提供完整流程。
+
+### Q9：IoT 设备安全从哪些层面入手？
+
+**答**：4 层防护：
+
+| 层 | 防护 | 技术 |
+|---|---|---|
+| 设备身份 | 每台设备唯一身份 | X.509 证书烧录 / TPM / SE 安全芯片 |
+| 通信加密 | 链路不可被窃听 | mTLS（MQTT over TLS 1.3） |
+| 平台鉴权 | 设备不能冒充云 | JWT / OAuth2 device flow |
+| 数据完整性 | 指令不被篡改 | 消息签名（HMAC / ECDSA） |
+
+**额外要求**：
+
+- 关闭 MQTT `anonymous = true`
+- 关闭不必要的端口（Telnet / 调试串口）
+- 定期轮换证书（设备端支持 OTA 更新证书）
+- 安全启动（Secure Boot）防止固件被替换
+
+## 一句话总结
+
+IoT 工程师的核心能力是 **"懂一点硬件 + 懂一点网络 + 懂一点云端"**，三段都懂才能做端到端设计；只懂一段容易被上下游卡脖子。
+
+---
+
+## [应用层](https://java-px.bot.cd/android/01-app/README)
+> Android 应用层：语言 + Jetpack + 协程，业务开发核心栈。 | 节点 | 一句话 | |------|--------| | [Kotlin / Java / NDK](./language) | JVM 语言与现代 Android 开发 | | [Jetpack 套件](./jetpack) | ViewModel / LiveData / Room / Hilt / Work
+
+# 01 · 应用层
+
+Android 应用层：语言 + Jetpack + 协程，业务开发核心栈。
+
+## 章节目录
+
+| 节点 | 一句话 |
+|------|--------|
+| [Kotlin / Java / NDK](./language) | JVM 语言与现代 Android 开发 |
+| [Jetpack 套件](./jetpack) | ViewModel / LiveData / Room / Hilt / WorkManager |
+| [Kotlin 协程](./coroutine) | 协程作用域 / Dispatchers / Flow |
+
+## 🎯 选型决策
+
+- **新项目**：默认 Kotlin + Jetpack（ViewModel + Hilt + Compose）
+- **老项目**：保留 Java，逐步用 Kotlin 迁移新模块
+- **性能瓶颈模块**：用 NDK 写 C++
+
+## 📚 学习路径
+
+- **入门**：Kotlin 语法 + Jetpack ViewModel + Coroutine
+- **进阶**：Compose UI + Hilt DI + Room
+- **高级**：KSP + Baseline Profile + 自定义 Annotation Processor
+
+## 📝 章节目录
+
+- `01-app`：Kotlin / Java / NDK + Jetpack + 协程
+- `02-ui`：View 体系 + Compose + 资源
+- `03-system`：启动 / IPC / ART / 系统服务
+- `04-cross`：跨平台框架与选型
+- `05-toolchain`：Gradle + IDE + 发布
+- `06-perf`：性能与安全
+
+- **小贴士**：Google 官方推荐 Kotlin + Jetpack + Compose 三件套
+- **小贴士**：应用层先学这一章，其他章节按需深入
+
+---
+
+## [Kotlin 协程](https://java-px.bot.cd/android/01-app/coroutine)
+> > Kotlin 协程：轻量级线程（百万级并发）+ 结构化并发 + 取消传播。 - Dispatchers：Main（UI）/ IO（网络磁盘）/ Default（CPU） - Scope 层级：GlobalScope / viewModelScope / lifecycleScope - 异常处理：CoroutineExceptionHandler / SupervisorJob - Chann
+
+# Kotlin 协程
+
+> Kotlin 协程：轻量级线程（百万级并发）+ 结构化并发 + 取消传播。
+
+## 🎯 核心要点
+
+- Dispatchers：Main（UI）/ IO（网络磁盘）/ Default（CPU）
+- Scope 层级：GlobalScope / viewModelScope / lifecycleScope
+- 异常处理：CoroutineExceptionHandler / SupervisorJob
+- Channel / Flow：冷热流、背压、组合操作符
+
+## 🛠️ 实战示例
+
+```kotlin
+// 并行请求 + 组合
+suspend fun fetchDashboard(): Dashboard = coroutineScope {
+  val user = async { api.getUser() }
+  val posts = async { api.getPosts() }
+  Dashboard(user.await(), posts.await())
+}
+```
+
+## 🔗 相关链接
+
+- [Jetpack](./jetpack)
+- [性能优化](../06-perf/performance)
+- [← 返回 应用层 目录](./)
+- [← 返回 android 首页](../)
+
+## 📝 补充
+
+- **小贴士**：ViewModel 销毁时 viewModelScope 自动取消，避免泄漏
+- **小贴士**：用 SupervisorJob 让子协程失败不影响父
+- **小贴士**：Flow 用 shareIn / stateIn 共享，避免重复订阅
+
+
+## 🔗 延伸阅读
+
+- [Android 官方文档](https://developer.android.com/)
+- [Android 源码（AOSP）](https://cs.android.com/)
+- [Jetpack 概览](https://developer.android.com/jetpack)
+
+- **官方文档**：kotlinlang.org/docs/coroutines-overview.html。
+
+---
+
+## [Jetpack 套件](https://java-px.bot.cd/android/01-app/jetpack)
+> > Google Jetpack 一站式 Android 架构组件，覆盖 UI / 数据 / 生命周期 / 依赖注入。 - ViewModel：UI 数据持有者（屏幕旋转不丢） - LiveData / Flow：响应式数据流 - Room：SQLite ORM - Hilt：编译期 DI - WorkManager：后台任务调度 - DataStore：替代 SharedPreferences
+
+# Jetpack 套件
+
+> Google Jetpack 一站式 Android 架构组件，覆盖 UI / 数据 / 生命周期 / 依赖注入。
+
+## 🎯 核心要点
+
+- ViewModel：UI 数据持有者（屏幕旋转不丢）
+- LiveData / Flow：响应式数据流
+- Room：SQLite ORM
+- Hilt：编译期 DI
+- WorkManager：后台任务调度
+- DataStore：替代 SharedPreferences
+
+## 🛠️ 实战示例
+
+```kotlin
+// Hilt + ViewModel + Flow
+@HiltViewModel
+class UserViewModel @Inject constructor(
+  private val repo: UserRepository
+) : ViewModel() {
+  val users: StateFlow<List<User>> = repo.usersFlow
+    .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
+}
+```
+
+## 🔗 相关链接
+
+- [协程](./coroutine)
+- [UI 体系](../02-ui/view-system)
+- [← 返回 应用层 目录](./)
+- [← 返回 android 首页](../)
+
+## 📝 补充
+
+- **小贴士**：ViewModel + Hilt + Compose 是 Google 推荐的三件套
+- **小贴士**：Room 用 KSP（Kotlin Symbol Processing）替代 KAPT，编译快 2x+
+- **小贴士**：DataStore 替代 SharedPreferences，协程 + Flow 原生支持
+
+
+## 🔗 延伸阅读
+
+- [Android 官方文档](https://developer.android.com/)
+- [Android 源码（AOSP）](https://cs.android.com/)
+- [Jetpack 概览](https://developer.android.com/jetpack)
+
+---
+
+## [Kotlin / Java / NDK](https://java-px.bot.cd/android/01-app/language)
+> > Android 三大语言路径：Kotlin（首选）/ Java（遗留）/ C++ NDK（性能关键 + 跨平台）。 - Kotlin：Google 2019 官方首选，null 安全 + 协程 + 扩展函数，Java 100% 互操作 - Java：遗留代码 + Android 11 以下设备支持 - C++ NDK：游戏 / 音视频 / 加密算法 / OpenGL 等性能敏感场景 - 选型：
+
+# Kotlin / Java / NDK
+
+> Android 三大语言路径：Kotlin（首选）/ Java（遗留）/ C++ NDK（性能关键 + 跨平台）。
+
+## 🎯 核心要点
+
+- Kotlin：Google 2019 官方首选，null 安全 + 协程 + 扩展函数，Java 100% 互操作
+- Java：遗留代码 + Android 11 以下设备支持
+- C++ NDK：游戏 / 音视频 / 加密算法 / OpenGL 等性能敏感场景
+- 选型：默认 Kotlin；性能瓶颈模块用 NDK；老项目逐步迁移
+
+## 🛠️ 实战示例
+
+```kotlin
+// Kotlin: data class + 协程
+data class User(val id: Long, val name: String)
+
+suspend fun fetchUser(id: Long): User = withContext(Dispatchers.IO) {
+    api.getUser(id)
+}
+```
+
+## 🔗 相关链接
+
+- [Kotlin 协程](./coroutine)
+- [Jetpack](./jetpack)
+- [← 返回 应用层 目录](./)
+- [← 返回 android 首页](../)
+
+## 📝 补充
+
+- **小贴士**：Kotlin 已成 Android 首选（官方推荐 + Google 自家应用已用）
+- **小贴士**：NDK 模块用 CMake 编译，源码放 `app/src/main/cpp/`
+- **小贴士**：Java 兼容模式仅用于遗留代码，新代码统一 Kotlin
+
+---
+
+## [UI 体系](https://java-px.bot.cd/android/02-ui/README)
+> UI 体系：传统 View + 现代 Compose + 资源系统。 | 节点 | 一句话 | |------|--------| | [视图系统](./view-system) | Activity / Fragment / View 树 / RecyclerView | | [Jetpack Compose](./compose) | 状态 / Modifier / Material 3 /
+
+# 02 · UI 体系
+
+UI 体系：传统 View + 现代 Compose + 资源系统。
+
+## 章节目录
+
+| 节点 | 一句话 |
+|------|--------|
+| [视图系统](./view-system) | Activity / Fragment / View 树 / RecyclerView |
+| [Jetpack Compose](./compose) | 状态 / Modifier / Material 3 / 重组优化 |
+| [资源与适配](./resource) | 主题 / 颜色 / 字符串 / 屏幕适配 / Drawable |
+
+## 🎯 选型决策
+
+- **新项目**：直接 Compose（Material 3）
+- **老项目**：View + Compose 混合（ComposeView 嵌入）
+- **重 UI 场景**（复杂自定义）：View 体系仍不可替代
+
+## 📚 学习路径
+
+- **入门**：Compose 基础（State / Modifier）
+- **进阶**：状态提升 + 副作用 + 自定义 Layout
+- **高级**：重组优化 + 性能分析
+
+## 📝 章节目录
+
+- `02-ui/view-system`：传统 View 三件套
+- `02-ui/compose`：Jetpack Compose 声明式
+- `02-ui/resource`：主题 / 适配 / 国际化
+
+- **小贴士**：新项目直接 Compose，老项目 View + Compose 混合
+- **小贴士**：Material 3 主题支持动态颜色（Android 12+）
+
+
+## 🔗 延伸阅读
+
+- [Android 官方文档](https://developer.android.com/)
+- [Android 源码（AOSP）](https://cs.android.com/)
+- [Jetpack 概览](https://developer.android.com/jetpack)
+
+---
+
+## [Jetpack Compose](https://java-px.bot.cd/android/02-ui/compose)
+> > 声明式 UI 框架，Kotlin DSL + 状态驱动 + 自动重组（Recomposition）。 - 状态管理：State / MutableState / remember / rememberSaveable - Modifier 链：顺序决定行为（padding 后点击 vs 点击后 padding） - Material 3：动态颜色 / 主题切换 - 重组优化：稳定参数 + La
+
+# Jetpack Compose
+
+> 声明式 UI 框架，Kotlin DSL + 状态驱动 + 自动重组（Recomposition）。
+
+## 🎯 核心要点
+
+- 状态管理：State / MutableState / remember / rememberSaveable
+- Modifier 链：顺序决定行为（padding 后点击 vs 点击后 padding）
+- Material 3：动态颜色 / 主题切换
+- 重组优化：稳定参数 + Lambda memoization + derivedStateOf
+
+## 🛠️ 实战示例
+
+```kotlin
+@Composable
+fun Counter() {
+  var count by remember { mutableStateOf(0) }
+  Button(onClick = { count++ }) {
+    Text("Clicked $count times")
+  }
+}
+```
+
+## 🔗 相关链接
+
+- [视图系统](./view-system)
+- [性能优化](../06-perf/performance)
+- [← 返回 UI 体系 目录](./)
+- [← 返回 android 首页](../)
+
+## 📝 补充
+
+- **小贴士**：@Stable / @Immutable 标注可重组稳定类
+- **小贴士**：Lambda 用 remember 包裹避免重组失效
+- **小贴士**：derivedStateOf 派生状态减少不必要的重组
+
+
+## 🔗 延伸阅读
+
+- [Android 官方文档](https://developer.android.com/)
+- [Android 源码（AOSP）](https://cs.android.com/)
+- [Jetpack 概览](https://developer.android.com/jetpack)
+
+- **官方文档**：developer.android.com/jetpack/compose。
+
+---
+
+## [资源与适配](https://java-px.bot.cd/android/02-ui/resource)
+> > Android 资源系统：颜色 / 主题 / 字符串 / Drawable / 多分辨率屏幕适配。 - 主题：Material 3 / DayNight / 自定义 Theme - 颜色：Color tokens（语义化命名） - 国际化：strings.xml 多语言（values-zh / values-en） - 屏幕适配：sw600dp / smallestWidth / 矢量图 /
+
+# 资源与适配
+
+> Android 资源系统：颜色 / 主题 / 字符串 / Drawable / 多分辨率屏幕适配。
+
+## 🎯 核心要点
+
+- 主题：Material 3 / DayNight / 自定义 Theme
+- 颜色：Color tokens（语义化命名）
+- 国际化：strings.xml 多语言（values-zh / values-en）
+- 屏幕适配：sw600dp / smallestWidth / 矢量图 / 多 Density 资源
+
+## 🛠️ 实战示例
+
+```xml
+<!-- res/values/colors.xml -->
+<resources>
+  <color name="md_theme_light_primary">#0061A4</color>
+  <color name="md_theme_light_onPrimary">#FFFFFF</color>
+</resources>
+```
+
+## 🔗 相关链接
+
+- [视图系统](./view-system)
+- [Compose](./compose)
+- [← 返回 UI 体系 目录](./)
+- [← 返回 android 首页](../)
+
+## 📝 补充
+
+- **小贴士**：矢量图（Vector Drawable）替代多分辨率 PNG
+- **小贴士**：主题用语义化命名（colorPrimary / colorOnPrimary）
+- **小贴士**：sw600dp / w820dp 分桶适配平板与折叠屏
+
+
+## 🔗 延伸阅读
+
+- [Android 官方文档](https://developer.android.com/)
+- [Android 源码（AOSP）](https://cs.android.com/)
+- [Jetpack 概览](https://developer.android.com/jetpack)
+
+- **官方文档**：developer.android.com/training/multiscreen/screendensities。
+
+---
+
+## [视图系统](https://java-px.bot.cd/android/02-ui/view-system)
+> > 传统 View 体系：Activity / Fragment / View 树 / RecyclerView，掌握底层原理有助于 Compose 优化。 - Activity：单一屏幕入口 + 生命周期 - Fragment：模块化 UI + FragmentManager 栈 - View 树：Measure / Layout / Draw 三阶段 - RecyclerView：ViewHo
+
+# 视图系统
+
+> 传统 View 体系：Activity / Fragment / View 树 / RecyclerView，掌握底层原理有助于 Compose 优化。
+
+## 🎯 核心要点
+
+- Activity：单一屏幕入口 + 生命周期
+- Fragment：模块化 UI + FragmentManager 栈
+- View 树：Measure / Layout / Draw 三阶段
+- RecyclerView：ViewHolder 复用 + DiffUtil 增量更新
+
+## 🛠️ 实战示例
+
+```kotlin
+// RecyclerView Adapter + DiffUtil
+class UserAdapter : ListAdapter<User, UserViewHolder>(DIFF) {
+  companion object {
+    val DIFF = object : DiffUtil.ItemCallback<User>() {
+      override fun areItemsTheSame(a: User, b: User) = a.id == b.id
+      override fun areContentsTheSame(a: User, b: User) = a == b
+    }
+  }
+}
+```
+
+## 🔗 相关链接
+
+- [Compose](./compose)
+- [资源与适配](./resource)
+- [← 返回 UI 体系 目录](./)
+- [← 返回 android 首页](../)
+
+## 📝 补充
+
+- **小贴士**：RecyclerView 必备 ViewHolder 模式 + DiffUtil 增量更新
+- **小贴士**：Fragment 嵌套注意 savedState 处理
+- **小贴士**：自定义 View 重写 onMeasure / onLayout / onDraw 三件套
+
+
+## 🔗 延伸阅读
+
+- [Android 官方文档](https://developer.android.com/)
+- [Android 源码（AOSP）](https://cs.android.com/)
+- [Jetpack 概览](https://developer.android.com/jetpack)
+
+---
+
+## [系统层](https://java-px.bot.cd/android/03-system/README)
+> 系统层：从启动到 IPC 到运行时 + 框架服务。 | 节点 | 一句话 | |------|--------| | [启动流程](./startup) | Boot ROM → Zygote → SystemServer → 第一个 App | | [IPC 机制](./ipc) | Binder / AIDL / Messenger / ContentProvider | | [ART 运行时
+
+# 03 · 系统层
+
+系统层：从启动到 IPC 到运行时 + 框架服务。
+
+## 章节目录
+
+| 节点 | 一句话 |
+|------|--------|
+| [启动流程](./startup) | Boot ROM → Zygote → SystemServer → 第一个 App |
+| [IPC 机制](./ipc) | Binder / AIDL / Messenger / ContentProvider |
+| [ART 运行时](./runtime) | Dex2oat / AOT / GC / ClassLoader |
+| [框架服务](./services) | AMS / WMS / PMS / IMS |
+
+## 🎯 选型决策
+
+- **应用开发**：了解启动流程 + IPC（足够 debug）
+- **系统开发 / ROM 定制**：深入每个服务的源码
+- **性能调优**：ART GC + Choreographer 调度
+
+## 📚 学习路径
+
+- **入门**：阅读 AOSP 启动章节 + dumpsys 工具
+- **进阶**：AIDL + Binder 驱动 + SystemServer 启动流程
+- **高级**：Trace32 + Perfetto + 内核调度
+
+## 📝 章节目录
+
+- `03-system/startup`：冷启动到第一帧
+- `03-system/ipc`：Binder / AIDL
+- `03-system/runtime`：ART 编译与 GC
+- `03-system/services`：AMS / WMS / PMS / IMS
+
+- **小贴士**：应用开发者只需了解启动 + IPC 即可
+- **小贴士**：dumpsys 是日常调试的瑞士军刀
+
+---
+
+## [IPC 机制](https://java-px.bot.cd/android/03-system/ipc)
+> > Android 进程间通信核心机制：Binder（高频）/ AIDL（强类型）/ Messenger（队列）/ ContentProvider（数据共享）。 - Binder：基于 mmap 的 IPC，单次拷贝性能高 - AIDL：定义跨进程接口（编译期生成 Stub/Proxy） - Messenger：Handler + Parcelable 序列化消息 - ContentProvide
+
+# IPC 机制
+
+> Android 进程间通信核心机制：Binder（高频）/ AIDL（强类型）/ Messenger（队列）/ ContentProvider（数据共享）。
+
+## 🎯 核心要点
+
+- Binder：基于 mmap 的 IPC，单次拷贝性能高
+- AIDL：定义跨进程接口（编译期生成 Stub/Proxy）
+- Messenger：Handler + Parcelable 序列化消息
+- ContentProvider：标准数据访问接口（可授权）
+
+## 🛠️ 实战示例
+
+```java
+// AIDL 定义（IUserService.aidl）
+interface IUserService {
+  User getUser(long id);
+  void updateUser(in User user);
+}
+```
+
+## 🔗 相关链接
+
+- [启动流程](./startup)
+- [框架服务](./services)
+- [← 返回 系统层 目录](./)
+- [← 返回 android 首页](../)
+
+## 📝 补充
+
+- **小贴士**：Binder 单进程内也可使用（不跨进程性能也 OK）
+- **小贴士**：AIDL 的 in / out / inout 标记参数方向
+- **小贴士**：oneway 关键字让方法异步返回（fire-and-forget）
+
+
+## 🔗 延伸阅读
+
+- [Android 官方文档](https://developer.android.com/)
+- [Android 源码（AOSP）](https://cs.android.com/)
+- [Jetpack 概览](https://developer.android.com/jetpack)
+
+---
+
+## [ART 运行时](https://java-px.bot.cd/android/03-system/runtime)
+> > Android Runtime（替代 Dalvik）：Dex2oat AOT 编译 + GC + ClassLoader。 - AOT（Ahead-of-Time）：安装时编译为本地代码（Android 7+） - JIT（Just-in-Time）：运行时编译（兼顾冷启动 + 热路径） - GC：分代回收 + Concurrent Mark Sweep - ClassLoader：BootC
+
+# ART 运行时
+
+> Android Runtime（替代 Dalvik）：Dex2oat AOT 编译 + GC + ClassLoader。
+
+## 🎯 核心要点
+
+- AOT（Ahead-of-Time）：安装时编译为本地代码（Android 7+）
+- JIT（Just-in-Time）：运行时编译（兼顾冷启动 + 热路径）
+- GC：分代回收 + Concurrent Mark Sweep
+- ClassLoader：BootClassLoader → PathClassLoader → DexPathList
+
+## 🛠️ 实战示例
+
+```bash
+# 查看运行时信息
+adb shell getprop ro.build.version.sdk
+adb shell getprop dalvik.vm.heapsize
+# TraceView / Perfetto 分析 GC
+```
+
+## 🔗 相关链接
+
+- [启动流程](./startup)
+- [框架服务](./services)
+- [← 返回 系统层 目录](./)
+- [← 返回 android 首页](../)
+
+## 📝 补充
+
+- **小贴士**：R8 默认开启，Dex2oat 安装时已编译为本地代码
+- **小贴士**：GC Log 通过 `-XX:+PrintGCDetails` 开启
+- **小贴士**：ClassLoader 双亲委派模型防止核心类被篡改
+
+
+## 🔗 延伸阅读
+
+- [Android 官方文档](https://developer.android.com/)
+- [Android 源码（AOSP）](https://cs.android.com/)
+- [Jetpack 概览](https://developer.android.com/jetpack)
+
+---
+
+## [框架服务](https://java-px.bot.cd/android/03-system/services)
+> > SystemServer 启动的核心系统服务：AMS / WMS / PMS / IMS。 - AMS（Activity Manager Service）：管理 Activity 栈 + 进程优先级 - WMS（Window Manager Service）：窗口 Z-Order + Surface 管理 - PMS（Package Manager Service）：APK 安装 / 卸载 /
+
+# 框架服务
+
+> SystemServer 启动的核心系统服务：AMS / WMS / PMS / IMS。
+
+## 🎯 核心要点
+
+- AMS（Activity Manager Service）：管理 Activity 栈 + 进程优先级
+- WMS（Window Manager Service）：窗口 Z-Order + Surface 管理
+- PMS（Package Manager Service）：APK 安装 / 卸载 / 权限查询
+- IMS（Input Manager Service）：触摸 / 按键事件分发
+
+## 🛠️ 实战示例
+
+```bash
+# dumpsys 查看 AMS 状态
+adb shell dumpsys activity activities | head -50
+adb shell dumpsys window windows | grep -A 5 "mCurrentFocus"
+```
+
+## 🔗 相关链接
+
+- [启动流程](./startup)
+- [IPC](./ipc)
+- [← 返回 系统层 目录](./)
+- [← 返回 android 首页](../)
+
+## 📝 补充
+
+- **小贴士**：dumpsys 是分析框架服务的瑞士军刀
+- **小贴士**：AMS 优先级管理（前台 / 可见 / 服务 / 后台）
+- **小贴士**：低内存时按优先级杀进程（oom_adj）
+
+
+## 🔗 延伸阅读
+
+- [Android 官方文档](https://developer.android.com/)
+- [Android 源码（AOSP）](https://cs.android.com/)
+- [Jetpack 概览](https://developer.android.com/jetpack)
+
+---
+
+## [启动流程](https://java-px.bot.cd/android/03-system/startup)
+> > Android 启动链：Boot ROM → Bootloader → Kernel → Init → Zygote → SystemServer → 第一个 App。 - Boot ROM：固化在芯片，初始化 RAM + 引导 Bootloader - Init 进程：PID 1，挂载文件系统 + 启动服务 - Zygote：预加载 framework + 资源（孵化新进程） - Syste
+
+# 启动流程
+
+> Android 启动链：Boot ROM → Bootloader → Kernel → Init → Zygote → SystemServer → 第一个 App。
+
+## 🎯 核心要点
+
+- Boot ROM：固化在芯片，初始化 RAM + 引导 Bootloader
+- Init 进程：PID 1，挂载文件系统 + 启动服务
+- Zygote：预加载 framework + 资源（孵化新进程）
+- SystemServer：启动 AMS / WMS / PMS 等系统服务
+- Launcher：从 AMS 启动到第一个可见 Activity
+
+## 🛠️ 实战示例
+
+```bash
+# 查看启动耗时
+adb shell am start -W -n com.example/.MainActivity
+# 启动时间报告
+TotalTime: 1234ms
+WaitTime: 50ms
+```
+
+## 🔗 相关链接
+
+- [IPC](./ipc)
+- [ART 运行时](./runtime)
+- [← 返回 系统层 目录](./)
+- [← 返回 android 首页](../)
+
+## 📝 补充
+
+- **小贴士**：冷启动 < 1.5s（推荐 < 1s），用 Macrobenchmark 测量
+- **小贴士**：App Startup 库统一管理 ContentProvider 初始化
+- **小贴士**：Baseline Profile 预编译热点代码，首启性能提升 30%+
+
+
+## 🔗 延伸阅读
+
+- [Android 官方文档](https://developer.android.com/)
+- [Android 源码（AOSP）](https://cs.android.com/)
+- [Jetpack 概览](https://developer.android.com/jetpack)
+
+---
+
+## [跨平台](https://java-px.bot.cd/android/04-cross/README)
+> 跨平台方案：Flutter / React Native / KMP / Compose Multiplatform。 | 节点 | 一句话 | |------|--------| | [跨平台框架](./frameworks) | Flutter / React Native / KMP / Compose Multiplatform | | [选型决策](./decision) | 性能 vs
+
+# 04 · 跨平台
+
+跨平台方案：Flutter / React Native / KMP / Compose Multiplatform。
+
+## 章节目录
+
+| 节点 | 一句话 |
+|------|--------|
+| [跨平台框架](./frameworks) | Flutter / React Native / KMP / Compose Multiplatform |
+| [选型决策](./decision) | 性能 vs 一致性 / 包大小 / 团队能力 / 业务场景 |
+
+## 🎯 选型决策
+
+- **业务复杂 + UI 一致**：Flutter
+- **前端团队**：React Native
+- **共享业务逻辑**：Kotlin Multiplatform
+- **保守方案**：原生 + 工具链整合
+
+## 📚 学习路径
+
+- **入门**：选定一种框架跑通 Demo
+- **进阶**：状态管理 + 性能优化 + 原生互调
+- **高级**：混合栈（Flutter + 原生 Activity）
+
+## 📝 章节目录
+
+- `04-cross/frameworks`：Flutter / RN / KMP / Compose Multiplatform
+- `04-cross/decision`：选型决策树
+
+- **小贴士**：跨平台不是银弹，看场景选
+- **小贴士**：KMP 是趋势（共享业务逻辑 + 原生 UI）
+
+
+## 🔗 延伸阅读
+
+- [Android 官方文档](https://developer.android.com/)
+- [Android 源码（AOSP）](https://cs.android.com/)
+- [Jetpack 概览](https://developer.android.com/jetpack)
+
+---
+
+## [选型决策](https://java-px.bot.cd/android/04-cross/decision)
+> > 跨平台方案选型：性能 vs 一致性 / 包大小 / 团队能力 / 业务场景。 - 性能要求高：原生（Kotlin / Swift） - UI 一致性要求高：Flutter - 团队 JS 强：React Native - 只共享业务逻辑：KMP - 业务场景：短视频/电商（Flutter）/ 中后台工具（RN） - [跨平台框架](./frameworks) - [性能优化](../06-pe
+
+# 选型决策
+
+> 跨平台方案选型：性能 vs 一致性 / 包大小 / 团队能力 / 业务场景。
+
+## 🎯 核心要点
+
+- 性能要求高：原生（Kotlin / Swift）
+- UI 一致性要求高：Flutter
+- 团队 JS 强：React Native
+- 只共享业务逻辑：KMP
+- 业务场景：短视频/电商（Flutter）/ 中后台工具（RN）
+
+## 🛠️ 实战示例
+
+```text
+# 决策清单（伪代码）
+if (性能瓶颈 in 动画 OR 渲染) → Flutter
+elif (团队主力是前端) → React Native
+elif (Android + iOS 双端都要原生体验) → 原生 + KMP 共享逻辑
+else → 原生开发
+```
+
+## 🔗 相关链接
+
+- [跨平台框架](./frameworks)
+- [性能优化](../06-perf/performance)
+- [← 返回 跨平台 目录](./)
+- [← 返回 android 首页](../)
+
+## 📝 补充
+
+- **小贴士**：MVP / 验证期用 React Native（开发快）
+- **小贴士**：用户量上来后逐步迁移到原生（性能 + 体验）
+- **小贴士**：电商类业务优先 Flutter（UI 一致性要求高）
+
+---
+
+## [跨平台框架](https://java-px.bot.cd/android/04-cross/frameworks)
+> > Android 之外的跨平台方案：Flutter（自绘 UI）/ React Native（JS 桥）/ KMP（共享逻辑）/ Compose Multiplatform（共享 UI）。 - Flutter：Dart + Skia 自绘 UI，跨 Android/iOS/Web/Desktop - React Native：JS 业务 + 原生组件桥接 - KMP：共享 Kotlin 业务逻辑
+
+# 跨平台框架
+
+> Android 之外的跨平台方案：Flutter（自绘 UI）/ React Native（JS 桥）/ KMP（共享逻辑）/ Compose Multiplatform（共享 UI）。
+
+## 🎯 核心要点
+
+- Flutter：Dart + Skia 自绘 UI，跨 Android/iOS/Web/Desktop
+- React Native：JS 业务 + 原生组件桥接
+- KMP：共享 Kotlin 业务逻辑，UI 端原生
+- Compose Multiplatform：JetBrains 推出的 KMP 共享 UI 方案
+
+## 🛠️ 实战示例
+
+```dart
+// Flutter Widget 示例
+class Counter extends StatefulWidget {
+  @override
+  State<Counter> createState() => _CounterState();
+}
+
+class _CounterState extends State<Counter> {
+  int _count = 0;
+  @override
+  Widget build(BuildContext context) => Scaffold(
+    body: Center(child: Text("Count: $_count")),
+    floatingActionButton: FloatingActionButton(
+      onPressed: () => setState(() => _count++),
+      child: Icon(Icons.add),
+    ),
+  );
+}
+```
+
+## 🔗 相关链接
+
+- [选型决策](./decision)
+- [应用层](../01-app/language)
+- [← 返回 跨平台 目录](./)
+- [← 返回 android 首页](../)
+
+## 📝 补充
+
+- **小贴士**：Flutter 性能接近原生（Skia 自绘 UI）
+- **小贴士**：RN 启动快但动画 / 复杂 UI 性能略差
+- **小贴士**：KMP 只共享逻辑，UI 端用原生（性能 + 一致性最佳）
+
+---
+
+## [工具链](https://java-px.bot.cd/android/05-toolchain/README)
+> 工具链：构建 + IDE + 发布。 | 节点 | 一句话 | |------|--------| | [构建系统](./gradle) | Gradle KTS / AGP / Build Variants / CI/CD | | [Android Studio](./ide) | Profiler / Layout Inspector / APK Analyzer | | [发布与上架](./
+
+# 05 · 工具链
+
+工具链：构建 + IDE + 发布。
+
+## 章节目录
+
+| 节点 | 一句话 |
+|------|--------|
+| [构建系统](./gradle) | Gradle KTS / AGP / Build Variants / CI/CD |
+| [Android Studio](./ide) | Profiler / Layout Inspector / APK Analyzer |
+| [发布与上架](./publish) | App Bundle / Play Console / Firebase |
+
+## 🎯 选型决策
+
+- **构建**：Gradle KTS（强类型 + IDE 友好）
+- **性能分析**：Android Studio Profiler + Perfetto
+- **发布**：海外 App Bundle + 国内多渠道分包
+
+## 📚 学习路径
+
+- **入门**：Gradle 命令行 + Android Studio 基础
+- **进阶**：自定义 Plugin + CI/CD + Baseline Profile
+- **高级**：编译期优化 + R8 规则定制
+
+## 📝 章节目录
+
+- `05-toolchain/gradle`：Gradle KTS + AGP
+- `05-toolchain/ide`：Android Studio
+- `05-toolchain/publish`：发布与上架
+
+- **小贴士**：构建系统用 Gradle KTS（强类型）
+- **小贴士**：CI/CD 用 GitHub Actions（免费 + 缓存）
+
+
+## 🔗 延伸阅读
+
+- [Android 官方文档](https://developer.android.com/)
+- [Android 源码（AOSP）](https://cs.android.com/)
+- [Jetpack 概览](https://developer.android.com/jetpack)
+
+- **官方文档**：developer.android.com/studio。
+
+---
+
+## [构建系统](https://java-px.bot.cd/android/05-toolchain/gradle)
+> > Gradle KTS + AGP（Android Gradle Plugin）：模块化 + Build Variants + CI/CD。 - Gradle KTS：Kotlin DSL（强类型 + IDE 补全） - AGP 8+：编译缓存 + 增量注解处理 - Build Variants：productFlavors（多渠道包） - CI/CD：GitHub Actions / GitL
+
+# 构建系统
+
+> Gradle KTS + AGP（Android Gradle Plugin）：模块化 + Build Variants + CI/CD。
+
+## 🎯 核心要点
+
+- Gradle KTS：Kotlin DSL（强类型 + IDE 补全）
+- AGP 8+：编译缓存 + 增量注解处理
+- Build Variants：productFlavors（多渠道包）
+- CI/CD：GitHub Actions / GitLab CI + 缓存 ~/.gradle
+
+## 🛠️ 实战示例
+
+```kotlin
+// app/build.gradle.kts
+android {
+  buildTypes {
+    release {
+      isMinifyEnabled = true
+      proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"))
+    }
+  }
+  flavorDimensions += "channel"
+  productFlavors {
+    create("google") { dimension = "channel" }
+    create("huawei") { dimension = "channel" }
+  }
+}
+```
+
+## 🔗 相关链接
+
+- [Android Studio](./ide)
+- [发布与上架](./publish)
+- [← 返回 工具链 目录](./)
+- [← 返回 android 首页](../)
+
+## 📝 补充
+
+- **小贴士**：构建缓存放 ~/.gradle/caches，CI 用本地缓存
+- **小贴士**：KSP 替代 KAPT，编译快 2-3x
+- **小贴士**：BuildConfig 字段用 buildConfigField 注入
+
+
+## 🔗 延伸阅读
+
+- [Android 官方文档](https://developer.android.com/)
+- [Android 源码（AOSP）](https://cs.android.com/)
+- [Jetpack 概览](https://developer.android.com/jetpack)
+
+- **官方推荐**：AGP 8+ 配合 Gradle 8+。
+
+- **实战提示**：用 `./gradlew assembleRelease` 编译 AAB 上架。
+
+---
+
+## [Android Studio](https://java-px.bot.cd/android/05-toolchain/ide)
+> > 官方 IDE：编码 / 调试 / 性能分析一体化工具集。 - Profiler：CPU / Memory / Network / Energy 实时分析 - Layout Inspector：运行时 View 树可视化 - APK Analyzer：APK 包结构 / 资源占用分析 - Database Inspector：SQLite / Room 数据库浏览 - [构建系统](./grad
+
+# Android Studio
+
+> 官方 IDE：编码 / 调试 / 性能分析一体化工具集。
+
+## 🎯 核心要点
+
+- Profiler：CPU / Memory / Network / Energy 实时分析
+- Layout Inspector：运行时 View 树可视化
+- APK Analyzer：APK 包结构 / 资源占用分析
+- Database Inspector：SQLite / Room 数据库浏览
+
+## 🛠️ 实战示例
+
+```bash
+# 命令行工具（与 IDE 等效）
+adb shell am start -n com.example/.MainActivity
+# LeakCanary 检测内存泄漏
+```
+
+## 🔗 相关链接
+
+- [构建系统](./gradle)
+- [性能优化](../06-perf/performance)
+- [← 返回 工具链 目录](./)
+- [← 返回 android 首页](../)
+
+## 📝 补充
+
+- **小贴士**：Profiler 火焰图看 CPU 热点
+- **小贴士**：Layout Inspector 看 Compose 树（2023+）
+- **小贴士**：APK Analyzer 找重复资源 / 未使用方法
+
+
+## 🔗 延伸阅读
+
+- [Android 官方文档](https://developer.android.com/)
+- [Android 源码（AOSP）](https://cs.android.com/)
+- [Jetpack 概览](https://developer.android.com/jetpack)
+
+- **必备插件**：Kotlin / Android WiFi ADB / Rainbow Brackets。
+
+- **实战提示**：Hedgehog / Iguana / Jellyfish 版本对应 AGP 8.x。
+
+---
+
+## [发布与上架](https://java-px.bot.cd/android/05-toolchain/publish)
+> > 从 App Bundle 到 Play Console / 国内应用市场的发布流程。 - App Bundle（.aab）：按设备 ABI / Density 拆分，包体积减 30%+ - Play Console：上传 .aab + 商店信息 + 隐私政策 - 国内应用市场：腾讯 / 华为 / 小米 / OPPO / VIVO 多渠道 - Firebase：Crashlytics / Ana
+
+# 发布与上架
+
+> 从 App Bundle 到 Play Console / 国内应用市场的发布流程。
+
+## 🎯 核心要点
+
+- App Bundle（.aab）：按设备 ABI / Density 拆分，包体积减 30%+
+- Play Console：上传 .aab + 商店信息 + 隐私政策
+- 国内应用市场：腾讯 / 华为 / 小米 / OPPO / VIVO 多渠道
+- Firebase：Crashlytics / Analytics / Remote Config
+
+## 🛠️ 实战示例
+
+```bash
+# 生成 Release AAB
+./gradlew bundleRelease
+# 产物路径
+app/build/outputs/bundle/release/app-release.aab
+```
+
+## 🔗 相关链接
+
+- [构建系统](./gradle)
+- [性能优化](../06-perf/performance)
+- [← 返回 工具链 目录](./)
+- [← 返回 android 首页](../)
+
+## 📝 补充
+
+- **小贴士**：Play Asset Delivery 按需下载资源
+- **小贴士**：Play Console Internal Testing 通道先跑灰度
+- **小贴士**：国内多渠道用 umeng / bugly + 各市场 SDK
+
+
+## 🔗 延伸阅读
+
+- [Android 官方文档](https://developer.android.com/)
+- [Android 源码（AOSP）](https://cs.android.com/)
+- [Jetpack 概览](https://developer.android.com/jetpack)
+
+---
+
+## [性能与安全](https://java-px.bot.cd/android/06-perf/README)
+> 性能与安全：启动 / 内存 / ANR / 权限 / 加密。 | 节点 | 一句话 | |------|--------| | [性能优化](./performance) | 启动 / Baseline Profile / 内存 / ANR / 包大小 | | [安全机制](./security) | 权限 / Scoped Storage / Network Security / Keystor
+
+# 06 · 性能与安全
+
+性能与安全：启动 / 内存 / ANR / 权限 / 加密。
+
+## 章节目录
+
+| 节点 | 一句话 |
+|------|--------|
+| [性能优化](./performance) | 启动 / Baseline Profile / 内存 / ANR / 包大小 |
+| [安全机制](./security) | 权限 / Scoped Storage / Network Security / Keystore |
+
+## 🎯 选型决策
+
+- **性能**：先 Profile 后优化（避免过早优化）
+- **安全**：默认权限最小化 + HTTPS + ProGuard/R8
+- **合规**：用户隐私 + 数据加密 + 第三方 SDK 审计
+
+## 📚 学习路径
+
+- **入门**：LeakCanary + Macrobenchmark + StrictMode
+- **进阶**：Perfetto + Baseline Profile + R8 规则
+- **高级**：ART 源码 + Choreographer + Kernel Scheduler
+
+## 📝 章节目录
+
+- `06-perf/performance`：启动 / 内存 / ANR
+- `06-perf/security`：权限 / 加密 / 证书
+
+- **小贴士**：性能优化先 Profile 后优化
+- **小贴士**：安全从设计阶段就考虑（最小权限原则）
+
+
+## 🔗 延伸阅读
+
+- [Android 官方文档](https://developer.android.com/)
+- [Android 源码（AOSP）](https://cs.android.com/)
+- [Jetpack 概览](https://developer.android.com/jetpack)
+
+---
+
+## [性能优化](https://java-px.bot.cd/android/06-perf/performance)
+> > Android 性能五大维度：启动 / 内存 / 流畅度 / 包大小 / 电量。 - 启动优化：冷启动 < 1.5s（推荐 < 1s）+ Baseline Profile - 内存：避免 OOM + 内存泄漏（LeakCanary 检测） - 流畅度：Jank < 5%，Choreographer 监控 - ANR：主线程 5s 无响应（Input 2s） - 包大小：APK Analyzer
+
+# 性能优化
+
+> Android 性能五大维度：启动 / 内存 / 流畅度 / 包大小 / 电量。
+
+## 🎯 核心要点
+
+- 启动优化：冷启动 < 1.5s（推荐 < 1s）+ Baseline Profile
+- 内存：避免 OOM + 内存泄漏（LeakCanary 检测）
+- 流畅度：Jank < 5%，Choreographer 监控
+- ANR：主线程 5s 无响应（Input 2s）
+- 包大小：APK Analyzer + R8 + 资源压缩
+
+## 🛠️ 实战示例
+
+```kotlin
+# Macrobenchmark 启动性能测试（Kotlin）
+@RunWith(AndroidJUnit4::class)
+class StartupBenchmark {
+  @Test
+  fun startup() = benchmarkRule.measureRepeated {
+    pressHome()
+    startActivityAndWait()
+  }
+}
+```
+
+## 🔗 相关链接
+
+- [ART 运行时](../03-system/runtime)
+- [安全机制](./security)
+- [← 返回 性能与安全 目录](./)
+- [← 返回 android 首页](../)
+
+## 📝 补充
+
+- **小贴士**：启动分三段：Application → Activity → 第一帧
+- **小贴士**：Baseline Profile 用 macrobenchmark 生成
+- **小贴士**：内存抖动用 Allocation Tracker 检测
+
+
+## 🔗 延伸阅读
+
+- [Android 官方文档](https://developer.android.com/)
+- [Android 源码（AOSP）](https://cs.android.com/)
+- [Jetpack 概览](https://developer.android.com/jetpack)
+
+- **官方文档**：developer.android.com/topic/performance。
+
+---
+
+## [安全机制](https://java-px.bot.cd/android/06-perf/security)
+> > Android 安全栈：权限模型 / Scoped Storage / Network Security / Keystore / 证书钉扎。 - 权限模型：Runtime Permission（Android 6+） - Scoped Storage（Android 10+）：应用沙箱 + MediaStore - Network Security Config：明文 HTTP 禁用 / 证
+
+# 安全机制
+
+> Android 安全栈：权限模型 / Scoped Storage / Network Security / Keystore / 证书钉扎。
+
+## 🎯 核心要点
+
+- 权限模型：Runtime Permission（Android 6+）
+- Scoped Storage（Android 10+）：应用沙箱 + MediaStore
+- Network Security Config：明文 HTTP 禁用 / 证书信任配置
+- Keystore：硬件级密钥存储（StrongBox）
+- 证书钉扎（Certificate Pinning）：防中间人攻击
+
+## 🛠️ 实战示例
+
+```xml
+<!-- res/xml/network_security_config.xml -->
+<network-security-config>
+  <base-config cleartextTrafficPermitted="false">
+    <trust-anchors>
+      <certificates src="system" />
+    </trust-anchors>
+  </base-config>
+</network-security-config>
+```
+
+## 🔗 相关链接
+
+- [性能优化](./performance)
+- [构建系统](../05-toolchain/gradle)
+- [← 返回 性能与安全 目录](./)
+- [← 返回 android 首页](../)
+
+## 📝 补充
+
+- **小贴士**：所有敏感数据用 EncryptedSharedPreferences
+- **小贴士**：BiometricPrompt 替代指纹 API
+- **小贴士**：定期审计第三方 SDK 收集的数据
+
+
+## 🔗 延伸阅读
+
+- [Android 官方文档](https://developer.android.com/)
+- [Android 源码（AOSP）](https://cs.android.com/)
+- [Jetpack 概览](https://developer.android.com/jetpack)
+
+---
+
+## [Android 站在知识图谱中的位置](https://java-px.bot.cd/android/README)
+> **Android = 基于 Linux Kernel 的移动设备操作系统**：应用层用 Kotlin + Jetpack Compose / 系统层是 Java + C++ + Binder IPC 的横切栈。 - Android 是横切层：应用层要 frontend + java-language；系统层要 linux + rust - 90% 应用开发者只要掌握 Jetpack + Comp
+
+# Android 站在知识图谱中的位置
+
+## 一句话定义
+
+**Android = 基于 Linux Kernel 的移动设备操作系统**：应用层用 Kotlin + Jetpack Compose / 系统层是 Java + C++ + Binder IPC 的横切栈。
+
+## 在 30 站中的关系
+
+```mermaid
+graph LR
+  frontend[frontend<br/>客户端开发] --> android
+  java-language[java-language<br/>JVM 基础] --> android
+  linux[linux<br/>Kernel 基础] --> android
+  rust[rust<br/>NDK Native] --> android
+  iot[iot<br/>嵌入式延伸] --> android
+  android[Android<br/>移动全栈] -->
+  android --> app[应用开发]
+  android --> sys[系统 / Framework]
+  android --> cross[跨平台]
+  android --> perf[性能优化]
+```
+
+## 关键 takeaway
+
+- Android 是横切层：应用层要 frontend + java-language；系统层要 linux + rust
+
+- 90% 应用开发者只要掌握 Jetpack + Compose + 协程就够
+
+- 包大小是生死线：APK 每涨 5MB，安装转化率掉 2%；R8 + ABI split 必须做
+
+- 协程是 Android 异步事实标准：新项目直接 Coroutine + Flow，不用 RxJava
+
+- Compose 是未来：Google 全力推，View 体系只维护不开发
+
+## 与其他站点的关系
+
+| 站点 | 关系 |
+|---|---|
+| frontend | Android 应用层本质是客户端开发 |
+| java-language | Android 历史主语言 + JVM 基础（堆、GC、ClassLoader） |
+| linux | Android 基于 Linux Kernel |
+| rust | Android NDK / 系统层 Native |
+| iot | Android Things / 嵌入式延伸 |
+| security | 权限模型 / 密钥库 / mTLS |
+| observability | 性能监控 / Crash 上报 |
+| architecture | 大型 App 架构（模块化 / 组件化） |
+
+## Android 在 30 站中的定位
+
+Android 是少数几个"贯穿应用 + 系统 + 跨端"三层的技术栈之一。学 Android 等于把前端、移动、底层全打通，对客户端架构师来说性价比极高。
+
+## 章节快速导航
+
+| 章节 | 内容 | 一句话 |
+|---|---|---|
+| [01 · 应用层](./01-app/) | Kotlin / Jetpack / 协程 | Android 业务开发核心栈 |
+| [02 · UI 体系](./02-ui/) | View / Compose / 资源 | UI 开发双路径 |
+| [03 · 系统层](./03-system/) | 启动 / IPC / ART / 框架服务 | Framework 底层原理 |
+| [04 · 跨平台](./04-cross/) | Flutter / RN / KMP | 跨端方案决策 |
+| [05 · 工具链](./05-toolchain/) | Gradle / IDE / 发布 | 工程化与上架 |
+| [06 · 性能与安全](./06-perf/) | 启动 / 内存 / ANR / 权限 | 性能基线与安全合规 |
+
+---
+
+## [Android 速查表](https://java-px.bot.cd/android/cheatsheet)
+> > Gradle / Manifest / 常用命令 / 关键 API 一页速查。 | 作用域 | 生命周期 | 典型用途 | |---|---|---| | GlobalScope | 整个应用进程 | 慎用 | | MainScope | 手动管理 | 替代 GlobalScope | | lifecycleScope | Activity/Fragment | UI 层业务 | | view
+
+# 🧾 Android 速查表
+
+> Gradle / Manifest / 常用命令 / 关键 API 一页速查。
+
+## Gradle 关键配置
+
+```kotlin
+// build.gradle.kts
+plugins {
+    id("com.android.application") version "8.5.0" apply false
+    id("org.jetbrains.kotlin.android") version "2.0.0" apply false
+}
+
+android {
+    compileSdk = 34
+    minSdk = 24
+    targetSdk = 34
+    buildFeatures { compose = true }
+    defaultConfig {
+        applicationId = "com.example.app"
+        versionCode = 1
+        versionName = "1.0.0"
+        ndk { abiFilters += listOf("arm64-v8a") }
+    }
+    buildTypes {
+        release {
+            isMinifyEnabled = true
+            isShrinkResources = true
+        }
+    }
+}
+```
+
+## AndroidManifest 常用标签
+
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.app">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <application android:allowBackup="false"
+        android:networkSecurityConfig="@xml/network_security_config">
+        <activity android:name=".MainActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
+```
+
+## ADB 常用命令
+
+```bash
+adb install app-debug.apk
+adb install -r -d app.apk
+adb uninstall com.example.app
+adb shell am start -n com.example.app/.MainActivity
+adb shell am force-stop com.example.app
+adb logcat -s MyTag:V *:E
+adb logcat -d | grep "FATAL EXCEPTION"
+adb shell screencap -p /sdcard/screen.png
+adb pull /sdcard/screen.png
+adb shell screenrecord --time-limit 10 /sdcard/video.mp4
+adb shell am start -W -n com.example.app/.MainActivity
+adb shell dumpsys gfxinfo com.example.app
+adb shell dumpsys meminfo com.example.app
+adb devices -l
+```
+
+## 协程作用域
+
+| 作用域 | 生命周期 | 典型用途 |
+|---|---|---|
+| GlobalScope | 整个应用进程 | 慎用 |
+| MainScope | 手动管理 | 替代 GlobalScope |
+| lifecycleScope | Activity/Fragment | UI 层业务 |
+| viewModelScope | ViewModel | 业务逻辑 + 网络 |
+| repeatOnLifecycle | 配合 lifecycleScope | Compose 收 Flow |
+| 自定义 SupervisorJob | 自定义 | 后台任务 |
+
+## 启动模式
+
+| 模式 | 行为 | 用途 |
+|---|---|---|
+| standard | 每次新建实例 | 普通跳转 |
+| singleTop | 栈顶复用 | 通知跳转 |
+| singleTask | 栈内唯一 | 入口 Activity |
+| singleInstance | 系统唯一 | 系统级分享 |
+
+## 关键版本 API
+
+| Android | API | 关键特性 |
+|---|---|---|
+| 14 | 34 | 强制 targetSdk |
+| 13 | 33 | 通知权限运行时申请 |
+| 12 | 31/32 | SplashScreen、Material You |
+| 11 | 30 | Scoped Storage |
+| 10 | 29 | 暗黑模式 |
+| 9 | 28 | 自适应图标 |
+| 8.0 | 26 | 通知渠道 |
+| 7.0 | 24 | 多窗口 |
+| 6.0 | 23 | 运行时权限 |
+
+## 性能基线参考
+
+| 指标 | 推荐值 | 工具 |
+|---|---|---|
+| 冷启动 | < 1.5s | Macrobenchmark |
+| 热启动 | < 500ms | Logcat + am start |
+| 首帧 FCP | < 1s | Choreographer |
+| FPS | 60/90/120 | gfxinfo |
+| 丢帧率 | < 1% | JankStats |
+| ANR 率 | < 0.1% | Play Console |
+| 内存峰值 | < 200MB | Memory Profiler |
+| APK 大小 | < 40MB | APK Analyzer |
+
+## 一句话总结
+
+现代 Android = Kotlin + Jetpack Compose + Coroutine + Hilt + Room；系统层只在性能优化或 Framework 二次开发时深入。
+
+---
+
+## [android 知识图谱](https://java-px.bot.cd/android/index)
+> <script setup> const painPoints = [ "Activity / Fragment 生命周期混乱：屏幕旋转后 ViewModel 数据丢失？", "协程作用域错位：GlobalScope / viewModelScope / lifecycleScope 该用哪个？", "Compose 与 View 混用：状态同步、重组范围、跨进程通信怎么搞？", "应用卡顿 /
+
+<script setup>
+const painPoints = [
+  "Activity / Fragment 生命周期混乱：屏幕旋转后 ViewModel 数据丢失？",
+  "协程作用域错位：GlobalScope / viewModelScope / lifecycleScope 该用哪个？",
+  "Compose 与 View 混用：状态同步、重组范围、跨进程通信怎么搞？",
+  "应用卡顿 / ANR / OOM 频发：怎么定位是主线程、IO 还是渲染？",
+  "包大小爆炸：从 30MB 涨到 80MB，R8 / 资源压缩 / ABI 拆分怎么做？",
+  "跨平台选型纠结：Flutter / RN / KMP 哪个 ROI 最高？"
+]
+const goals = [
+  "Kotlin 协程 + Flow + ViewModel 全套应用层模式",
+  "Jetpack Compose 状态管理 + Material 3",
+  "系统层四大金刚（Binder / Handler / AMS / WMS）",
+  "跨平台选型决策（Flutter / RN / KMP）",
+  "Gradle 构建优化（KTS / 插件 / 加速）",
+  "性能基线（启动 / 内存 / 包大小 / ANR）"
+]
+const relatedSites = [
+  { site: "frontend", path: "/path", label: "前端（Android 应用层本质是客户端开发）" },
+  { site: "java-language", path: "/path", label: "Java 语言（Android 历史主语言 + JVM 基础）" },
+  { site: "java", path: "/path", label: "Java Web（Android 后端联调 / OkHttp）" },
+  { site: "iot", path: "/path", label: "物联网（Android Things / Embedded）" },
+  { site: "rust", path: "/path", label: "Rust（Android 系统层 NDK / Native）" },
+  { site: "linux", path: "/path", label: "Linux（Android 基于 Linux Kernel）" },
+  { site: "security", path: "/path", label: "安全（权限模型 / 密钥库 / mTLS）" },
+  { site: "observability", path: "/path", label: "可观测性（性能监控 / Crash 上报）" }
+]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
+    title="🎯 为什么写这个图谱？"
+  />
+</ClientOnly>
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [java-language](https://java-px.bot.cd/java-language/)：Java / Kotlin JVM
+- [frontend](https://java-px.bot.cd/frontend/)：前端基础
+- [iot](https://java-px.bot.cd/iot/)：IoT / 嵌入式
+- [linux](https://java-px.bot.cd/linux/)：Linux Kernel
+- [rust](https://java-px.bot.cd/rust/)：NDK Native
+
+---
+
+## [Android 知识图谱](https://java-px.bot.cd/android/mindmap)
+> > 本页用 Mermaid mindmap 展示 Android 全栈知识结构。 - **应用开发者**：从 Jetpack → Compose → 协程 入手，再看性能章节 - **系统开发者**：启动流程 → IPC → ART 运行时 → 框架服务 - **跨端架构师**：先看跨平台决策树，再深入某一框架 Android 是 frontend（客户端开发）+ java-language（JV
+
+# 🗺️ Android 知识图谱
+
+> 本页用 Mermaid mindmap 展示 Android 全栈知识结构。
+
+```mermaid
+mindmap
+  root((Android 安卓))
+    应用层
+      语言
+        Kotlin
+        Java
+        C++ NDK
+      Jetpack
+        ViewModel
+        LiveData / Flow
+        Navigation
+        Room / DataStore
+        Hilt DI
+        WorkManager
+      协程
+        Dispatchers
+        Scope 层级
+        异常处理
+        Channel / Flow
+    UI 体系
+      视图系统
+        Activity
+        Fragment
+        View 树
+        RecyclerView
+      Compose
+        状态管理
+        Modifier
+        Material 3
+        重组优化
+        主题切换
+      资源
+        主题 / 颜色
+        字符串 / 国际化
+        屏幕适配
+        Drawable
+    系统层
+      启动流程
+        Boot ROM
+        Bootloader
+        Init 进程
+        Zygote
+        SystemServer
+      IPC
+        Binder
+        AIDL
+        Messenger
+        ContentProvider
+      运行时
+        ART
+        Dex2oat / AOT
+        GC
+        ClassLoader
+      框架服务
+        AMS
+        WMS
+        PMS
+        IMS
+    跨平台
+      框架
+        Flutter
+        React Native
+        Kotlin Multiplatform
+        Compose Multiplatform
+      决策
+        性能 vs 一致性
+        包大小 vs 开发效率
+        团队能力
+        业务场景
+    工具链
+      构建
+        Gradle KTS
+        AGP Plugin
+        Build Variants
+        CI/CD
+      IDE
+        Android Studio
+        Profiler
+        Layout Inspector
+        APK Analyzer
+      发布
+        App Bundle
+        Play Console
+        Firebase
+    性能与安全
+      性能
+        启动优化
+        Baseline Profile
+        内存 / OOM
+        ANR / 卡顿
+        包大小
+      安全
+        权限模型
+        Scoped Storage
+        Network Security Config
+        密钥库 Keystore
+        证书钉扎
+```
+
+## 阅读建议
+
+- **应用开发者**：从 Jetpack → Compose → 协程 入手，再看性能章节
+- **系统开发者**：启动流程 → IPC → ART 运行时 → 框架服务
+- **跨端架构师**：先看跨平台决策树，再深入某一框架
+
+## 在图谱中的位置
+
+Android 是 frontend（客户端开发）+ java-language（JVM 基础）+ linux（底层 Kernel）+ iot（嵌入式延伸）的横切。如果只看应用层开发，前端基础就够；要做系统层或 NDK，需要补 linux + rust 基础。
+
+---
+
+## [Android 学习路径](https://java-px.bot.cd/android/path)
+> > 三条路径覆盖"应用开发者 / 系统/性能优化者 / 跨端架构师"三种角色。按背景选择即可。 适合：Java 转 Android / 前端转移动端 / 从零入门。 | Day | 主题 | 关键交付 | |---|---|---| | D1 | Kotlin 基础（语法糖 / 空安全 / 扩展函数） | 第一个 Kotlin 工程 | | D2-3 | Activity / Fragment 生
+
+# 🚶 Android 学习路径
+
+> 三条路径覆盖"应用开发者 / 系统/性能优化者 / 跨端架构师"三种角色。按背景选择即可。
+
+## 路径 1：应用开发者（3 周）
+
+适合：Java 转 Android / 前端转移动端 / 从零入门。
+
+| Day | 主题 | 关键交付 |
+|---|---|---|
+| D1 | Kotlin 基础（语法糖 / 空安全 / 扩展函数） | 第一个 Kotlin 工程 |
+| D2-3 | Activity / Fragment 生命周期 | 跑通屏幕旋转 / 进程被杀后状态恢复 |
+| D4-5 | ViewModel + LiveData / StateFlow | 替换 setText 时代的数据流 |
+| D6-7 | RecyclerView + Adapter + DiffUtil | 跑通联系人列表 1000 条 |
+| W2 D1-2 | Kotlin 协程（Coroutine / Flow / Channel） | viewModelScope + retry 实战 |
+| W2 D3 | Navigation 组件 + Safe Args | 单 Activity 多 Fragment 导航 |
+| W2 D4-5 | Room 数据库 + DataStore | 替换 SharedPreferences |
+| W2 D6 | Hilt 依赖注入 | @HiltAndroidApp / @Inject |
+| W2 D7 | WorkManager 后台任务 | 周期同步 + 约束条件 |
+| W3 D1-3 | Jetpack Compose（State / Modifier / Layout） | 改写一个页面为 Compose |
+| W3 D4-5 | Material 3 主题 + 自适应布局 | 横竖屏 + 平板布局 |
+| W3 D6-7 | 实战项目：仿掘金客户端首页 | 全流程：网络 + 数据库 + UI |
+
+## 路径 2：系统/性能优化者（4 周）
+
+适合：工作 2 年以上，想往系统层 / 性能 / Framework 走。
+
+| 周 | 主题 | 关键交付 |
+|---|---|---|
+| W1 D1-2 | Android 系统架构（5 层 + Zygote） | 画出启动流程时序图 |
+| W1 D3-4 | Binder IPC 原理（mmap / ioctl） | 手写一个 AIDL 跨进程 demo |
+| W1 D5-6 | ActivityManagerService / WindowManagerService | 理解 Activity 启动链路 |
+| W1 D7 | PackageManagerService | APK 安装 / 解析流程 |
+| W2 D1-2 | ART 运行时（Dex2oat / AOT / JIT） | 解释冷启动为何慢 |
+| W2 D3-4 | ClassLoader 机制 | 理解 DexPathList / 热修复原理 |
+| W2 D5-6 | 内存模型（Native 堆 / Java 堆 / GC） | LeakCanary 源码阅读 |
+| W2 D7 | 线程模型（Handler / MessageQueue / Looper） | 理解主线程消息循环 |
+| W3 D1-2 | 启动优化（Baseline Profile / Macrobenchmark） | 启动时间从 2s → 800ms |
+| W3 D3-4 | 内存优化（LeakCanary / Memory Profiler） | OOM 率从 1% → 0.1% |
+| W3 D5-6 | ANR 与卡顿（Choreographer / Systrace） | 定位并修复 ANR |
+| W3 D7 | 包大小优化（R8 / ABI split / 资源压缩） | APK 从 80MB → 35MB |
+| W4 D1-2 | Gradle 构建优化（KTS / Build Cache） | 构建从 5min → 1min |
+| W4 D3-4 | NDK / JNI / Native Hook | 接入一个 C++ 库 |
+| W4 D5 | 渲染机制（HWUI / RenderThread） | 解释 Compose 重组为何 60fps |
+| W4 D6-7 | 源码阅读：Choreographer / Handler / AMS | 写读书笔记 |
+
+## 路径 3：跨端架构师（2 周）
+
+适合：客户端老兵，要做技术选型 / 跨平台方案决策。
+
+| 周 | 主题 | 关键交付 |
+|---|---|---|
+| W1 D1-2 | Flutter 架构（Widget / Element / RenderObject） | 跑通 Flutter Counter |
+| W1 D3-4 | Flutter 状态管理（Provider / Riverpod / Bloc） | 三选一实战 |
+| W1 D5 | Flutter 与原生互调（Platform Channel） | MethodChannel demo |
+| W1 D6-7 | React Native 架构（Bridge / JSI / Hermes） | 跑通 RN 列表 + 网络 |
+| W2 D1-2 | Kotlin Multiplatform（KMP / Compose Multiplatform） | KMP 共享业务模块 demo |
+| W2 D3-4 | 跨端决策树（性能 / 一致性 / 团队） | 写一篇选型决策文档 |
+| W2 D5 | 包大小 vs 性能 vs 开发效率（量化对比） | benchmark 三个框架 |
+| W2 D6-7 | 实战：用一个跨端框架重写一个真实页面 | 含性能 + 包大小数据 |
+
+## 一句话定义
+
+Android = **基于 Linux Kernel 的移动设备操作系统**：应用层用 Kotlin + Jetpack Compose / 系统层是 Java + C++ + Binder IPC 的横切栈。
+
+## 关键 takeaway
+
+- **不要一上来就学系统层**：90% 应用开发者只要掌握 Jetpack + Compose + 协程就够
+- **协程是 Android 异步的事实标准**：AsyncTask / RxJava / Thread 都应淘汰，新项目直接 Coroutine + Flow
+- **Compose 是未来**：Google 全力推 Compose，View 体系只维护不开发
+- **包大小是生死线**：APK 每涨 5MB，安装转化率掉 2%；R8 + ABI split 必须做
+- **跨平台 ROI 看团队**：纯 Android 团队上 Flutter 收益高；iOS+Android 团队 RN/KMP 更划算
+
+## 📑 章节快速索引
+
+按章节速查（详细文档在 6 大类子目录）：
+
+- [01 · 应用层](./01-app/)：Kotlin / Jetpack / 协程
+- [02 · UI 体系](./02-ui/)：视图系统 / Compose / 资源
+- [03 · 系统层](./03-system/)：启动 / IPC / ART / 框架服务
+- [04 · 跨平台](./04-cross/)：Flutter / RN / KMP / 选型
+- [05 · 工具链](./05-toolchain/)：Gradle / IDE / 发布
+- [06 · 性能与安全](./06-perf/)：启动优化 / 内存 / 权限 / Keystore
+
+---
+
+## [Android 面试与常见问题](https://java-px.bot.cd/android/questions)
+> > 分 Easy / Medium / Hard 三档，覆盖应用层、系统层、性能、跨平台。 **答**： Activity 生命周期： - onCreate：初始化（setContentView） - onStart：可见但不可交互 - onResume：可见可交互（位于栈顶） - onPause：失去焦点 - onStop：完全不可见 - onDestroy：销毁 - onRestart：从 S
+
+# ❓ Android 面试与常见问题
+
+> 分 Easy / Medium / Hard 三档，覆盖应用层、系统层、性能、跨平台。
+
+## Easy（基础）
+
+### Q1：Activity / Fragment 生命周期有哪些阶段？
+
+**答**：
+
+Activity 生命周期：
+
+- onCreate：初始化（setContentView）
+- onStart：可见但不可交互
+- onResume：可见可交互（位于栈顶）
+- onPause：失去焦点
+- onStop：完全不可见
+- onDestroy：销毁
+- onRestart：从 Stopped 重新可见
+
+**屏幕旋转**：默认销毁重建。解决：ViewModel 保留数据；或 configChanges 自己处理（不推荐）。
+
+### Q2：ViewModel 为什么能在屏幕旋转后存活？
+
+**答**：ViewModel 存在 ViewModelStore 里，ViewModelStore 由 NonConfigurationInstances 持有，与 Activity 重建无关。
+
+**注意**：ViewModel 不应持有 Context，需要 Context 用 AndroidViewModel 或注入 Application。
+
+### Q3：Kotlin 协程的 Dispatchers 有哪些？
+
+**答**：
+
+| Dispatcher | 线程 | 用途 |
+|---|---|---|
+| Main | 主线程 | UI 更新 |
+| IO | 64 线程池 | 网络 / 数据库 / 文件 IO |
+| Default | CPU 核数 | CPU 密集 |
+| Unconfined | 调用者线程 | 不推荐生产 |
+
+## Medium（进阶）
+
+### Q4：Jetpack Compose 的"重组"是什么？如何避免过度重组？
+
+**答**：
+
+**重组** 是 Compose 在状态变化时重新执行 composable 函数生成新 UI。
+
+**触发条件**：
+
+- 读取的 State（mutableStateOf / StateFlow）变化
+- 参数变化
+
+**优化**：
+
+- remember(key)：key 变化才重置
+- derivedStateOf：依赖多 State 计算时缓存
+- LaunchedEffect(key)：副作用 key 不变不重启
+- @Stable / @Immutable 标注类
+
+### Q5：Binder 为什么比 Socket 快？
+
+**答**：
+
+| 维度 | Binder | Socket |
+|---|---|---|
+| IPC 机制 | 内核态 mmap + 一次拷贝 | 内核态两次拷贝 |
+| 性能 | < 1ms | > 10ms |
+| 安全 | 内核 UID/PID 校验 | 应用层校验 |
+| 跨设备 | 否 | 是 |
+
+Binder 核心原理：
+
+1. Server 在内核注册
+
+2. Client 通过 ServiceManager 拿引用
+
+3. 数据经 Binder 驱动到内核
+
+4. 通过 mmap 映射到 Server 地址空间
+
+5. Server 直接读到 Client 数据（只拷贝一次）
+
+### Q6：为什么 Activity 不能在子线程 new？
+
+**答**：
+
+1. 生命周期回调必须在主线程
+
+2. Window / ViewRootImpl 必须主线程操作
+
+3. UI 操作只能在主线程（Looper 检查）
+
+反例：子线程 new Activity 不会报错，但生命周期回调错乱，会变成"幽灵 Activity"。
+
+## Hard（架构 / 性能）
+
+### Q7：APK 体积怎么从 80MB 优化到 30MB？
+
+**答**：分层优化：
+
+- R8 移除未使用代码（~10MB）
+
+- 资源压缩（图片 WebP、移除未引用）~8MB
+
+- ABI split（只保留 arm64-v8a）~25MB
+
+- App Bundle 按需下载（最终用户包 ~20MB）
+
+**具体动作**：R8 + ProGuard、AndResGuard 图片 WebP/Lottie、动态库拆 .so、shrinkResources、定期清理。
+
+### Q8：冷启动 2 秒怎么优化到 800ms？
+
+**答**：
+
+冷启动 = 进程创建 + Application 初始化 + 首帧绘制。
+
+**瓶颈常在 onCreate 和首帧绘制**。
+
+**优化**：
+
+1. **Application.onCreate 异步化**：非必要初始化放子线程 / WorkManager；启动器 ContentProvider 黑科技延迟三方库加载
+
+2. **首页布局扁平化**：ConstraintLayout 替代嵌套、ViewStub、merge 标签
+
+3. **主题闪屏**：windowSplashScreenBackground 简单 logo
+
+4. **Baseline Profile（关键！）**：Macrobenchmark 生成 profile，提前 AOT 编译，可缩短 30-50%
+
+5. **dex 分包**：启动只 load classes.dex，其他懒加载
+
+6. **资源优化**：移除启动时大 drawable / font
+
+### Q9：跨平台 Flutter / RN / KMP 怎么选？
+
+**答**：
+
+| 维度 | Flutter | RN | KMP |
+|---|---|---|---|
+| 渲染 | 自绘 Skia | Native Bridge | Native UI |
+| 性能 | 接近 Native | 弱 | 接近 Native |
+| 包大小 | +6MB | +2MB | +500KB |
+| 一致性 | 高 | 低 | 共享逻辑 |
+
+**选型**：
+
+- 新 App 多端需求 → Flutter
+
+- 已有 Web 团队 → React Native
+
+- 已有 Android / iOS 团队 → KMP
+
+- 性能敏感 → Native + C++
+
+## 一句话总结
+
+Android 工程师的核心能力是懂一点 Kotlin + 懂一点 Compose + 懂一点系统层，三段都懂才能做端到端设计。
+
+---
+
+## [引擎层](https://java-px.bot.cd/game/01-engine/README)
+> 游戏引擎层：商业引擎选型 + 自研引擎架构 + 决策。 | 节点 | 一句话 | |------|--------| | [商业引擎选型](./commercial) | Unity / Unreal / Godot 三选一 | | [自研引擎架构](./custom) | ECS / RHI / 资源管理 | | [选型决策](./decision) | 平台 / 团队 / 预算 / 性能权衡
+
+# 01 · 引擎层
+
+游戏引擎层：商业引擎选型 + 自研引擎架构 + 决策。
+
+## 章节目录
+
+| 节点 | 一句话 |
+|------|--------|
+| [商业引擎选型](./commercial) | Unity / Unreal / Godot 三选一 |
+| [自研引擎架构](./custom) | ECS / RHI / 资源管理 |
+| [选型决策](./decision) | 平台 / 团队 / 预算 / 性能权衡 |
+
+## 🎯 选型决策
+
+- **移动休闲 / 中型**：Unity
+- **PC / 主机 3A**：Unreal
+- **独立 / 2D**：Godot
+- **自研**：百万级代码 + 5+ 年 + 顶级图形团队
+
+## 📚 学习路径
+
+- **入门**：选定一个引擎跑通 Demo
+- **进阶**：ECS / RHI / 资源管线
+- **高级**：引擎源码 + GPU 驱动
+
+
+## 📝 章节目录
+
+[商业引擎选型](./commercial) / [自研引擎](./custom) / [决策](./decision)
+
+## 🛠️ 实战提示
+
+三大引擎各有优势，新项目优先评估商业引擎，自研门槛极高。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+---
+
+## [商业引擎选型](https://java-px.bot.cd/game/01-engine/commercial)
+> > Unity / Unreal Engine / Godot 三大商业引擎对比，按场景选最适合的。 - Unity：C# + 庞大生态 + Asset Store + 移动端霸主（Hyper Casual / 中小规模） - Unreal：AAA + 图形（C++ / Nanite / Lumen）+ 主机 + PC 3A - Godot：开源 + 轻量 + 2D 强 + 独立游戏 - 选型：移
+
+# 商业引擎选型
+
+> Unity / Unreal Engine / Godot 三大商业引擎对比，按场景选最适合的。
+
+## 🎯 核心要点
+
+- Unity：C# + 庞大生态 + Asset Store + 移动端霸主（Hyper Casual / 中小规模）
+- Unreal：AAA + 图形（C++ / Nanite / Lumen）+ 主机 + PC 3A
+- Godot：开源 + 轻量 + 2D 强 + 独立游戏
+- 选型：移动休闲 → Unity；3A → Unreal；独立/2D → Godot
+
+## 🛠️ 实战示例
+
+```csharp
+# Unity C# MonoBehaviour
+using UnityEngine;
+
+public class Player : MonoBehaviour {
+  public float speed = 5f;
+  void Update() {
+    float h = Input.GetAxis("Horizontal");
+    float v = Input.GetAxis("Vertical");
+    transform.Translate(new Vector3(h, 0, v) * speed * Time.deltaTime);
+  }
+}
+```
+
+## 🔗 相关链接
+
+- [自研引擎](./custom)
+- [选型决策](./decision)
+- [← 返回 引擎层 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[选型决策](./decision) / [自研引擎](./custom)
+
+## 🛠️ 实战提示
+
+试用 Unity / Unreal / Godot 的 LTS 版本，对比工具链和生态。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+---
+
+## [自研引擎架构](https://java-px.bot.cd/game/01-engine/custom)
+> > 自研引擎核心三件套：ECS 架构 + RHI 渲染抽象 + 资源管理。 - ECS（Entity Component System）：数据驱动 + 缓存友好，Unity DOTS / Bevy / 自研常用 - RHI（Render Hardware Interface）：抽象 D3D12 / Vulkan / Metal，让一套代码跨平台 - 资源管理：AssetBundle / Addre
+
+# 自研引擎架构
+
+> 自研引擎核心三件套：ECS 架构 + RHI 渲染抽象 + 资源管理。
+
+## 🎯 核心要点
+
+- ECS（Entity Component System）：数据驱动 + 缓存友好，Unity DOTS / Bevy / 自研常用
+- RHI（Render Hardware Interface）：抽象 D3D12 / Vulkan / Metal，让一套代码跨平台
+- 资源管理：AssetBundle / Addressable / 异步加载 + 引用计数
+- 自研门槛：百万级代码 + 5+ 年 + 顶级图形团队
+
+## 🛠️ 实战示例
+
+```rust
+// 简易 ECS 示例（Rust + Bevy 风格）
+#[derive(Component)]
+struct Position { x: f32, y: f32 }
+#[derive(Component)]
+struct Velocity { dx: f32, dy: f32 }
+
+fn movement(mut q: Query<(&mut Position, &Velocity)>) {
+  for (mut pos, vel) in &mut q {
+    pos.x += vel.dx;
+    pos.y += vel.dy;
+  }
+}
+```
+
+## 🔗 相关链接
+
+- [商业引擎](./commercial)
+- [渲染管线](../02-render/pipeline)
+- [← 返回 引擎层 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[商业引擎](./commercial) / [渲染管线](../02-render/pipeline)
+
+## 🛠️ 实战提示
+
+ECS 框架推荐 Bevy / Flecs，RHI 推荐学习 Vulkan 后端。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+---
+
+## [选型决策](https://java-px.bot.cd/game/01-engine/decision)
+> > 引擎选型四问：平台目标 / 团队规模 / 预算 / 性能需求。 - 平台目标：移动端 → Unity；PC/主机 3A → Unreal；2D 独立 → Godot - 团队规模：< 10 人用现成引擎；50+ 人可考虑自研 - 预算：Unreal 5% 营收分成，Unity 订阅费，Godot 免费 - 性能需求：移动端 Unity；高画质 Unreal；轻量 Godot - [商业引擎](
+
+# 选型决策
+
+> 引擎选型四问：平台目标 / 团队规模 / 预算 / 性能需求。
+
+## 🎯 核心要点
+
+- 平台目标：移动端 → Unity；PC/主机 3A → Unreal；2D 独立 → Godot
+- 团队规模：< 10 人用现成引擎；50+ 人可考虑自研
+- 预算：Unreal 5% 营收分成，Unity 订阅费，Godot 免费
+- 性能需求：移动端 Unity；高画质 Unreal；轻量 Godot
+
+## 🛠️ 实战示例
+
+```text
+# 决策清单（伪代码）
+if 平台 == 移动 and 玩法 == 休闲:
+    选择 Unity
+elif 平台 == 主机 or 画质要求 == 顶级:
+    选择 Unreal
+elif 团队规模 == 1-3 or 类型 == 2D:
+    选择 Godot
+else:
+    评估自研
+```
+
+## 🔗 相关链接
+
+- [商业引擎](./commercial)
+- [渲染](../02-render/pipeline)
+- [← 返回 引擎层 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[商业引擎](./commercial)
+
+## 🛠️ 实战提示
+
+决策树：先看平台，再看团队，最后看预算。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+---
+
+## [渲染](https://java-px.bot.cd/game/02-render/README)
+> 游戏渲染：管线 / 光照 / 着色器 / 后处理。 | 节点 | 一句话 | |------|--------| | [渲染管线](./pipeline) | 前向 / 延迟 / Clustered / 光追 | | [光照与阴影](./lighting) | PBR / IBL / GI / 阴影 | | [着色器](./shader) | HLSL / Shader Graph / Compu
+
+# 02 · 渲染
+
+游戏渲染：管线 / 光照 / 着色器 / 后处理。
+
+## 章节目录
+
+| 节点 | 一句话 |
+|------|--------|
+| [渲染管线](./pipeline) | 前向 / 延迟 / Clustered / 光追 |
+| [光照与阴影](./lighting) | PBR / IBL / GI / 阴影 |
+| [着色器](./shader) | HLSL / Shader Graph / Compute |
+| [后处理](./postprocess) | Bloom / SSAO / TAA / Color Grading |
+
+## 🎯 选型决策
+
+- **入门**：引擎默认管线 + Shader Graph
+- **进阶**：手写 HLSL + 自定义后处理
+- **高级**：Forward+ / 光追 / 自研 RHI
+
+## 📚 学习路径
+
+- **入门**：PBR 原理 + 引擎材质
+- **进阶**：渲染管线源码 + GPU 优化
+- **高级**：实时 GI / 路径追踪
+
+
+## 📝 章节目录
+
+[渲染管线](./pipeline) / [光照](./lighting) / [着色器](./shader) / [后处理](./postprocess)
+
+## 🛠️ 实战提示
+
+图形程序员进阶路线：管线 → 光照 → 着色器 → GPU 优化。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+---
+
+## [光照与阴影](https://java-px.bot.cd/game/02-render/lighting)
+> > PBR 物理光照 + IBL 间接光 + 全局光照（GI）+ 阴影算法。 - PBR（Physically Based Rendering）：基于物理的 BRDF（金属 / 粗糙度） - IBL（Image Based Lighting）：环境贴图采样，模拟间接光 - GI（Global Ill）：实时光追（Lumen / RT）/ 烘焙（Lightmap） - 阴影：Shadow Map /
+
+# 光照与阴影
+
+> PBR 物理光照 + IBL 间接光 + 全局光照（GI）+ 阴影算法。
+
+## 🎯 核心要点
+
+- PBR（Physically Based Rendering）：基于物理的 BRDF（金属 / 粗糙度）
+- IBL（Image Based Lighting）：环境贴图采样，模拟间接光
+- GI（Global Ill）：实时光追（Lumen / RT）/ 烘焙（Lightmap）
+- 阴影：Shadow Map / Cascaded Shadow Map（CSM）/ VSM / 软阴影
+
+## 🛠️ 实战示例
+
+```hlsl
+// HLSL PBR 计算（简化版）
+float3 BRDF(float3 albedo, float metallic, float roughness, float3 L, float3 V, float3 N) {
+  float3 H = normalize(L + V);
+  float NdotL = max(dot(N, L), 0.0);
+  float NdotH = max(dot(N, H), 0.0);
+  float D = DistributionGGX(NdotH, roughness);
+  float G = GeometrySmith(NdotL, dot(N,V), roughness);
+  return (albedo * (1-metallic) + F0) * D * G / (4 * NdotL);
+}
+```
+
+## 🔗 相关链接
+
+- [渲染管线](./pipeline)
+- [着色器](./shader)
+- [← 返回 渲染 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[渲染管线](./pipeline) / [着色器](./shader)
+
+## 🛠️ 实战提示
+
+PBR 是工业标准，UE5 的 Lumen 简化了实时光照配置。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+---
+
+## [渲染管线](https://java-px.bot.cd/game/02-render/pipeline)
+> > 四大主流渲染管线：前向 / 延迟 / Clustered / 光线追踪，各有适用场景。 - 前向渲染：移动端首选（low power），带宽低 - 延迟渲染：PC / 主机主流，多光源场景好 - Clustered / Tiled：Forward+ / Deferred+，效率与质量兼顾（UE5 默认） - 光线追踪：电影级画质，硬件要求高（RTX / PS5 / XSX） - [光照](./
+
+# 渲染管线
+
+> 四大主流渲染管线：前向 / 延迟 / Clustered / 光线追踪，各有适用场景。
+
+## 🎯 核心要点
+
+- 前向渲染：移动端首选（low power），带宽低
+- 延迟渲染：PC / 主机主流，多光源场景好
+- Clustered / Tiled：Forward+ / Deferred+，效率与质量兼顾（UE5 默认）
+- 光线追踪：电影级画质，硬件要求高（RTX / PS5 / XSX）
+
+## 🛠️ 实战示例
+
+```text
+// Unreal 选择渲染管线（Project Settings → Rendering）
+// Deferred Shading（默认 PC/主机）
+// Forward Shading（VR / 移动端）
+// Forward+ / Deferred+
+```
+
+## 🔗 相关链接
+
+- [光照](./lighting)
+- [着色器](./shader)
+- [← 返回 渲染 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[光照](./lighting) / [着色器](./shader)
+
+## 🛠️ 实战提示
+
+引擎默认管线足够多数项目，需要时切到 Forward+。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+---
+
+## [后处理](https://java-px.bot.cd/game/02-render/postprocess)
+> > 屏幕空间后处理：Bloom / DOF / SSAO / TAA / Color Grading，营造氛围。 - Bloom：发光物体光晕 - DOF（Depth of Field）：景深虚化 - SSAO / HBAO：环境光遮蔽 - TAA（Temporal AA）：时序抗锯齿 - Color Grading：色调映射 + LUT - [渲染管线](./pipeline) - [性能优化]
+
+# 后处理
+
+> 屏幕空间后处理：Bloom / DOF / SSAO / TAA / Color Grading，营造氛围。
+
+## 🎯 核心要点
+
+- Bloom：发光物体光晕
+- DOF（Depth of Field）：景深虚化
+- SSAO / HBAO：环境光遮蔽
+- TAA（Temporal AA）：时序抗锯齿
+- Color Grading：色调映射 + LUT
+
+## 🛠️ 实战示例
+
+```csharp
+# Unity URP Post Processing Volume
+var volume = gameObject.AddComponent<UnityEngine.Rendering.Volume>();
+volume.profile = ScriptableObject.CreateInstance<UnityEngine.Rendering.VolumeProfile>();
+var bloom = volume.profile.Add<UnityEngine.Rendering.Universal.Bloom>();
+bloom.intensity.value = 1.5f;
+```
+
+## 🔗 相关链接
+
+- [渲染管线](./pipeline)
+- [性能优化](../08-ship/perf)
+- [← 返回 渲染 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[渲染管线](./pipeline) / [性能优化](../08-ship/perf)
+
+## 🛠️ 实战提示
+
+后处理是 GPU 大户，移动端要谨慎。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+- **实战提示**：从引擎默认配置入手，按需自定义。
+- **官方文档**：参考 Unity / Unreal / Godot 最新 LTS 版本。
+
+---
+
+## [着色器](https://java-px.bot.cd/game/02-render/shader)
+> > HLSL（GLSL/MSL/Slang）+ Shader Graph 可视化 + Compute Shader 通用计算。 - HLSL：DirectX + Xbox + PC，Unity ShaderLab / UE Material 编译为目标 - GLSL：Vulkan / OpenGL，跨平台 - Shader Graph：节点式可视化（Unity / UE 都有），适合美术 - Co
+
+# 着色器
+
+> HLSL（GLSL/MSL/Slang）+ Shader Graph 可视化 + Compute Shader 通用计算。
+
+## 🎯 核心要点
+
+- HLSL：DirectX + Xbox + PC，Unity ShaderLab / UE Material 编译为目标
+- GLSL：Vulkan / OpenGL，跨平台
+- Shader Graph：节点式可视化（Unity / UE 都有），适合美术
+- Compute Shader：GPU 通用计算（GPGPU），用于粒子 / 后处理 / AI
+
+## 🛠️ 实战示例
+
+```hlsl
+// HLSL Compute Shader 示例
+[numthreads(8,8,1)]
+void CSMain(uint3 id : SV_DispatchThreadID) {
+  Result[id.xy] = float4(id.x / 255.0, id.y / 255.0, 0.5, 1.0);
+}
+```
+
+## 🔗 相关链接
+
+- [光照](./lighting)
+- [后处理](./postprocess)
+- [← 返回 渲染 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[光照](./lighting) / [后处理](./postprocess)
+
+## 🛠️ 实战提示
+
+Shader Graph 适合美术，手写 HLSL 适合性能关键路径。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+- **实战提示**：从引擎默认配置入手，按需自定义。
+- **官方文档**：参考 Unity / Unreal / Godot 最新 LTS 版本。
+
+---
+
+## [物理](https://java-px.bot.cd/game/03-physics/README)
+> 游戏物理：碰撞 / 刚体 / 柔体。 | 节点 | 一句话 | |------|--------| | [碰撞检测](./collision) | AABB / GJK / 空间分割 | | [刚体动力学](./rigidbody) | Verlet / 约束 / PhysX | | [柔体模拟](./softbody) | 弹簧质点 / 布料 / 流体 | - **简单碰撞**：引擎内置 Col
+
+# 03 · 物理
+
+游戏物理：碰撞 / 刚体 / 柔体。
+
+## 章节目录
+
+| 节点 | 一句话 |
+|------|--------|
+| [碰撞检测](./collision) | AABB / GJK / 空间分割 |
+| [刚体动力学](./rigidbody) | Verlet / 约束 / PhysX |
+| [柔体模拟](./softbody) | 弹簧质点 / 布料 / 流体 |
+
+## 🎯 选型决策
+
+- **简单碰撞**：引擎内置 Collider
+- **复杂刚体**：PhysX / Bullet
+- **布料 / 流体**：PBD / SPH（自研 / 插件）
+
+## 📚 学习路径
+
+- **入门**：引擎物理组件
+- **进阶**：刚体积分 + 约束求解
+- **高级**：GPU 物理 + 布料 / 流体模拟
+
+
+## 📝 章节目录
+
+[碰撞检测](./collision) / [刚体](./rigidbody) / [柔体](./softbody)
+
+## 🛠️ 实战提示
+
+游戏物理多数用 PhysX / Bullet，自研不划算。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+- **实战提示**：从引擎默认配置入手，按需自定义。
+- **官方文档**：参考 Unity / Unreal / Godot 最新 LTS 版本。
+
+---
+
+## [碰撞检测](https://java-px.bot.cd/game/03-physics/collision)
+> > 碰撞检测基础：AABB / OBB / GJK / SAT + 空间分割（四叉树 / BVH / NavMesh）。 - AABB：轴对齐包围盒，O(1) 检测，精度低 - OBB：旋转包围盒，更精确 - GJK：凸体碰撞，O(log n) - SAT：分离轴定理 - 空间分割：四叉树（2D）/ 八叉树（3D）/ BVH / NavMesh - [刚体动力学](./rigidbody) - [
+
+# 碰撞检测
+
+> 碰撞检测基础：AABB / OBB / GJK / SAT + 空间分割（四叉树 / BVH / NavMesh）。
+
+## 🎯 核心要点
+
+- AABB：轴对齐包围盒，O(1) 检测，精度低
+- OBB：旋转包围盒，更精确
+- GJK：凸体碰撞，O(log n)
+- SAT：分离轴定理
+- 空间分割：四叉树（2D）/ 八叉树（3D）/ BVH / NavMesh
+
+## 🛠️ 实战示例
+
+```csharp
+// Unity AABB 检测
+bool AABBOverlap(Bounds a, Bounds b) {
+  return a.min.x <= b.max.x && a.max.x >= b.min.x &&
+         a.min.y <= b.max.y && a.max.y >= b.min.y &&
+         a.min.z <= b.max.z && a.max.z >= b.min.z;
+}
+```
+
+## 🔗 相关链接
+
+- [刚体动力学](./rigidbody)
+- [寻路](../04-ai/pathfinding)
+- [← 返回 物理 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[刚体动力学](./rigidbody) / [寻路](../04-ai/pathfinding)
+
+## 🛠️ 实战提示
+
+引擎内置 Collider 够用，自定义检测用于复杂形状。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+---
+
+## [刚体动力学](https://java-px.bot.cd/game/03-physics/rigidbody)
+> > 刚体模拟：积分（Verlet / Euler）+ 约束求解 + 现成物理引擎（PhysX / Bullet / Havok）。 - Verlet 积分：稳定 + 速度隐式 - Euler 积分：简单但易爆 - 约束求解：PBD（Position Based Dynamics）/ Sequential Impulse - PhysX（NVIDIA）：Unity / Unreal 默认 - Bul
+
+# 刚体动力学
+
+> 刚体模拟：积分（Verlet / Euler）+ 约束求解 + 现成物理引擎（PhysX / Bullet / Havok）。
+
+## 🎯 核心要点
+
+- Verlet 积分：稳定 + 速度隐式
+- Euler 积分：简单但易爆
+- 约束求解：PBD（Position Based Dynamics）/ Sequential Impulse
+- PhysX（NVIDIA）：Unity / Unreal 默认
+- Bullet：开源，游戏 + 电影
+
+## 🛠️ 实战示例
+
+```csharp
+// Unity Rigidbody + Force
+void FixedUpdate() {
+  rb.AddForce(transform.forward * thrust);
+  rb.AddTorque(transform.up * torque);
+}
+```
+
+## 🔗 相关链接
+
+- [碰撞检测](./collision)
+- [柔体模拟](./softbody)
+- [← 返回 物理 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[碰撞检测](./collision) / [柔体模拟](./softbody)
+
+## 🛠️ 实战提示
+
+Verlet 积分稳定，适合布料；Euler 简单但易爆。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+- **实战提示**：从引擎默认配置入手，按需自定义。
+- **官方文档**：参考 Unity / Unreal / Godot 最新 LTS 版本。
+
+---
+
+## [柔体模拟](https://java-px.bot.cd/game/03-physics/softbody)
+> > 柔体（软体）模拟：弹簧质点 + 布料 + 流体 SPH，常用于角色头发 / 旗帜 / 爆炸。 - 弹簧质点（Mass-Spring）：布料 / 软组织 - PBD（Position Based Dynamics）：稳定 + 实时 - SPH（Smoothed Particle Hydrodynamics）：流体 - XFEM / FEM：精确但昂贵（电影用） - 性能：通常用 GPU + Co
+
+# 柔体模拟
+
+> 柔体（软体）模拟：弹簧质点 + 布料 + 流体 SPH，常用于角色头发 / 旗帜 / 爆炸。
+
+## 🎯 核心要点
+
+- 弹簧质点（Mass-Spring）：布料 / 软组织
+- PBD（Position Based Dynamics）：稳定 + 实时
+- SPH（Smoothed Particle Hydrodynamics）：流体
+- XFEM / FEM：精确但昂贵（电影用）
+- 性能：通常用 GPU + Compute Shader
+
+## 🛠️ 实战示例
+
+```text
+// 弹簧质点更新（伪代码）
+for each spring (a, b, restLength, stiffness):
+  delta = positions[b] - positions[a]
+  current = length(delta)
+  offset = (current - restLength) / current * stiffness * dt
+  positions[a] += delta * 0.5 * offset
+  positions[b] -= delta * 0.5 * offset
+```
+
+## 🔗 相关链接
+
+- [刚体动力学](./rigidbody)
+- [物理](./)
+- [← 返回 物理 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[刚体动力学](./rigidbody)
+
+## 🛠️ 实战提示
+
+布料 / 流体通常用商业中间件（Havok Cloth / NVIDIA Flex）。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+---
+
+## [AI](https://java-px.bot.cd/game/04-ai/README)
+> 游戏 AI：寻路 / 决策 / 机器学习。 | 节点 | 一句话 | |------|--------| | [寻路](./pathfinding) | A* / NavMesh / Flow Field | | [决策系统](./decision) | FSM / 行为树 / 效用 / GOAP | | [机器学习 AI](./ml) | 强化学习 / 神经网络 NPC | - **简单 NPC
+
+# 04 · AI
+
+游戏 AI：寻路 / 决策 / 机器学习。
+
+## 章节目录
+
+| 节点 | 一句话 |
+|------|--------|
+| [寻路](./pathfinding) | A* / NavMesh / Flow Field |
+| [决策系统](./decision) | FSM / 行为树 / 效用 / GOAP |
+| [机器学习 AI](./ml) | 强化学习 / 神经网络 NPC |
+
+## 🎯 选型决策
+
+- **简单 NPC**：FSM
+- **复杂 NPC**：行为树（行业标准）
+- **前沿**：强化学习（赛车 / RTS）
+
+## 📚 学习路径
+
+- **入门**：引擎 NavMesh + FSM
+- **进阶**：行为树 + Utility AI
+- **高级**：GOAP + 强化学习
+
+
+## 📝 章节目录
+
+[寻路](./pathfinding) / [决策](./decision) / [ML AI](./ml)
+
+## 🛠️ 实战提示
+
+游戏 AI 主流是行为树，强化学习是前沿。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+- **实战提示**：从引擎默认配置入手，按需自定义。
+- **官方文档**：参考 Unity / Unreal / Godot 最新 LTS 版本。
+
+---
+
+## [决策系统](https://java-px.bot.cd/game/04-ai/decision)
+> > NPC 决策：FSM（状态机）/ BT（行为树）/ Utility AI / GOAP（目标导向行动规划）。 - FSM：简单状态切换，适合小型 NPC - BT（行为树）：模块化 + 可视化，AAA 标准 - Utility AI：基于效用函数，适合复杂决策 - GOAP：规划式，模拟真实思考过程 - [寻路](./pathfinding) - [机器学习](./ml) - [← 返回 AI
+
+# 决策系统
+
+> NPC 决策：FSM（状态机）/ BT（行为树）/ Utility AI / GOAP（目标导向行动规划）。
+
+## 🎯 核心要点
+
+- FSM：简单状态切换，适合小型 NPC
+- BT（行为树）：模块化 + 可视化，AAA 标准
+- Utility AI：基于效用函数，适合复杂决策
+- GOAP：规划式，模拟真实思考过程
+
+## 🛠️ 实战示例
+
+```text
+// 行为树节点（伪代码）
+Selector
+├── Sequence
+│   ├── HasEnemy?
+│   └── Attack
+└── Patrol
+```
+
+## 🔗 相关链接
+
+- [寻路](./pathfinding)
+- [机器学习](./ml)
+- [← 返回 AI 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[寻路](./pathfinding)
+
+## 🛠️ 实战提示
+
+行为树是 AAA 标准，BehaviorTree 可视化节点（UE 内置）。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+- **实战提示**：从引擎默认配置入手，按需自定义。
+- **官方文档**：参考 Unity / Unreal / Godot 最新 LTS 版本。
+
+---
+
+## [机器学习 AI](https://java-px.bot.cd/game/04-ai/ml)
+> > 游戏 AI 与机器学习结合：强化学习（RL）/ 神经网络 NPC / 群体模拟 Boids。 - 强化学习（RL）：DQN / PPO 训练 NPC 策略 - 神经网络 NPC：模仿学习 / 决策网络 - Boids：群体行为（鸟群 / 鱼群） - 应用：赛车 AI / RTS 微操 / NPC 对话生成 - [决策系统](./decision) - [联机架构](../05-network/
+
+# 机器学习 AI
+
+> 游戏 AI 与机器学习结合：强化学习（RL）/ 神经网络 NPC / 群体模拟 Boids。
+
+## 🎯 核心要点
+
+- 强化学习（RL）：DQN / PPO 训练 NPC 策略
+- 神经网络 NPC：模仿学习 / 决策网络
+- Boids：群体行为（鸟群 / 鱼群）
+- 应用：赛车 AI / RTS 微操 / NPC 对话生成
+
+## 🛠️ 实战示例
+
+```python
+# Stable Baselines3 DQN 训练 CartPole
+from stable_baselines3 import DQN
+model = DQN("MlpPolicy", "CartPole-v1", verbose=1)
+model.learn(total_timesteps=10_000)
+```
+
+## 🔗 相关链接
+
+- [决策系统](./decision)
+- [联机架构](../05-network/arch)
+- [← 返回 AI 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[决策系统](./decision)
+
+## 🛠️ 实战提示
+
+ML-Agents 是 Unity 的强化学习框架，适合实验。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+- **实战提示**：从引擎默认配置入手，按需自定义。
+- **官方文档**：参考 Unity / Unreal / Godot 最新 LTS 版本。
+
+---
+
+## [寻路](https://java-px.bot.cd/game/04-ai/pathfinding)
+> > 寻路算法：A* / Dijkstra / NavMesh / Flow Field / D* Lite，NPC 移动核心。 - A*：启发式搜索，最常用 - Dijkstra：无启发式，最短路径 - NavMesh：导航网格，预烘焙 - Flow Field：RTS 大规模寻路 - D* Lite：动态障碍物寻路 - [决策系统](./decision) - [碰撞检测](../03-phys
+
+# 寻路
+
+> 寻路算法：A* / Dijkstra / NavMesh / Flow Field / D* Lite，NPC 移动核心。
+
+## 🎯 核心要点
+
+- A*：启发式搜索，最常用
+- Dijkstra：无启发式，最短路径
+- NavMesh：导航网格，预烘焙
+- Flow Field：RTS 大规模寻路
+- D* Lite：动态障碍物寻路
+
+## 🛠️ 实战示例
+
+```text
+// A* 简化实现（伪代码）
+function AStar(start, goal):
+  open = PriorityQueue([(0, start)])
+  cameFrom = {}
+  while open not empty:
+    current = open.pop()
+    if current == goal: return reconstruct(cameFrom)
+    for neighbor in neighbors(current):
+      tentative = gScore[current] + dist(current, neighbor)
+      if tentative < gScore[neighbor]:
+        cameFrom[neighbor] = current
+        gScore[neighbor] = tentative
+        fScore = tentative + heuristic(neighbor, goal)
+        open.push((fScore, neighbor))
+```
+
+## 🔗 相关链接
+
+- [决策系统](./decision)
+- [碰撞检测](../03-physics/collision)
+- [← 返回 AI 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[决策系统](./decision)
+
+## 🛠️ 实战提示
+
+A* 是必学，NavMesh 是引擎标配。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+---
+
+## [网络](https://java-px.bot.cd/game/05-network/README)
+> 游戏网络：同步 / 一致性 / 反外挂 / 联机架构。 | 节点 | 一句话 | |------|--------| | [同步模型](./sync) | 状态 / 帧同步 / 快照 | | [一致性](./consistency) | 客户端预测 / 服务器仲裁 / 回放 | | [反外挂](./anticheat) | 服务器权威 / 加密 / 行为检测 | | [联机架构](./arch)
+
+# 05 · 网络
+
+游戏网络：同步 / 一致性 / 反外挂 / 联机架构。
+
+## 章节目录
+
+| 节点 | 一句话 |
+|------|--------|
+| [同步模型](./sync) | 状态 / 帧同步 / 快照 |
+| [一致性](./consistency) | 客户端预测 / 服务器仲裁 / 回放 |
+| [反外挂](./anticheat) | 服务器权威 / 加密 / 行为检测 |
+| [联机架构](./arch) | C/S / P2P / Matchmaker |
+
+## 🎯 选型决策
+
+- **MOBA / MMO**：状态同步 + 服务器权威
+- **RTS**：帧同步 + 确定性
+- **FPS**：快照同步 + 客户端预测
+- **反外挂**：关键逻辑放服务器 + EAC / BattlEye
+
+## 📚 学习路径
+
+- **入门**：Photon / Mirror 框架
+- **进阶**：自研同步协议 + 预测 / 回滚
+- **高级**：反作弊 + Matchmaker 算法
+
+
+## 📝 章节目录
+
+[同步模型](./sync) / [一致性](./consistency) / [反外挂](./anticheat) / [架构](./arch)
+
+## 🛠️ 实战提示
+
+联机游戏三大难题：同步、一致性、反外挂。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+---
+
+## [反外挂](https://java-px.bot.cd/game/05-network/anticheat)
+> > 反外挂三支柱：服务器权威 / 加密协议 / 行为检测。 - 服务器权威：关键逻辑放服务器，客户端只渲染 - 加密协议：防协议分析 / 中间人 - 行为检测：机器学习分析异常操作 - 商用：EAC（Easy Anti-Cheat）/ BattlEye / VAC - [一致性](./consistency) - [联机架构](./arch) - [← 返回 网络 目录](./) - [← 返回
+
+# 反外挂
+
+> 反外挂三支柱：服务器权威 / 加密协议 / 行为检测。
+
+## 🎯 核心要点
+
+- 服务器权威：关键逻辑放服务器，客户端只渲染
+- 加密协议：防协议分析 / 中间人
+- 行为检测：机器学习分析异常操作
+- 商用：EAC（Easy Anti-Cheat）/ BattlEye / VAC
+
+## 🛠️ 实战示例
+
+```text
+# 关键逻辑放服务器（伪代码）
+# 错误：客户端计算伤害
+if hit_check() and damage > 0:
+  apply_damage(target)
+# 正确：服务器验证
+def on_damage_request(attacker, target, amount):
+  if not server_hit_check(attacker, target):
+    return  # 作弊拦截
+  target.hp -= amount
+```
+
+## 🔗 相关链接
+
+- [一致性](./consistency)
+- [联机架构](./arch)
+- [← 返回 网络 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[同步模型](./sync) / [架构](./arch)
+
+## 🛠️ 实战提示
+
+关键逻辑放服务器是反外挂的根本。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+---
+
+## [联机架构](https://java-px.bot.cd/game/05-network/arch)
+> > 联机架构：C/S 房间制 / P2P Host 迁移 / Matchmaker 匹配系统。 - C/S 房间制：MMO / MOBA 主流（大厅 + 房间服务器） - P2P：CS / DotA 早期模式，Host 迁移复杂 - Matchmaker：基于 ELO / MMR 匹配（Open Skill / TrueSkill） - [同步模型](./sync) - [上线运营](../08-
+
+# 联机架构
+
+> 联机架构：C/S 房间制 / P2P Host 迁移 / Matchmaker 匹配系统。
+
+## 🎯 核心要点
+
+- C/S 房间制：MMO / MOBA 主流（大厅 + 房间服务器）
+- P2P：CS / DotA 早期模式，Host 迁移复杂
+- 专用服务器：3A FPS 主流（Valorant / CS:GO）
+- Matchmaker：基于 ELO / MMR 匹配（Open Skill / TrueSkill）
+
+## 🛠️ 实战示例
+
+```python
+# Matchmaker 简化（ELO）
+def match(players):
+  # 按分数排序
+  players.sort(key=lambda p: p.rating)
+  # 分组
+  return [(players[i], players[i+1]) for i in range(0, len(players), 2)]
+# 评分更新
+def update_rating(winner, loser, k=32):
+  expected = 1 / (1 + 10 ** ((loser.rating - winner.rating) / 400))
+  winner.rating += k * (1 - expected)
+  loser.rating -= k * (1 - expected)
+```
+
+## 🔗 相关链接
+
+- [同步模型](./sync)
+- [上线运营](../08-ship/launch)
+- [← 返回 网络 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[同步模型](./sync) / [上线运营](../08-ship/launch)
+
+## 🛠️ 实战提示
+
+Matchmaker 算法：ELO / TrueSkill / Open Skill。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+---
+
+## [一致性](https://java-px.bot.cd/game/05-network/consistency)
+> > 网络一致性三大难题：客户端预测 / 服务器仲裁 / 回放录像。 - 客户端预测：本地先响应 + 服务器确认后校正 - 服务器仲裁：服务器是唯一真相源 - 回放录像：记录输入流，任意时刻回放 - 锁步：所有客户端严格按帧同步（确定性） - [同步模型](./sync) - [反外挂](./anticheat) - [← 返回 网络 目录](./) - [← 返回 game 首页](../) [同
+
+# 一致性
+
+> 网络一致性三大难题：客户端预测 / 服务器仲裁 / 回放录像。
+
+## 🎯 核心要点
+
+- 客户端预测：本地先响应 + 服务器确认后校正
+- 服务器仲裁：服务器是唯一真相源
+- 回放录像：记录输入流，任意时刻回放
+- 锁步：所有客户端严格按帧同步（确定性）
+
+## 🛠️ 实战示例
+
+```text
+// 客户端预测 + 服务器校正（伪代码）
+void onLocalInput(input) {
+  applyLocally(input);  // 本地立即响应
+  sendToServer(input);
+}
+void onServerState(state) {
+  if (state.sequence > lastAppliedSequence) {
+    correctToState(state);  // 服务器校正
+  }
+}
+```
+
+## 🔗 相关链接
+
+- [同步模型](./sync)
+- [反外挂](./anticheat)
+- [← 返回 网络 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[同步模型](./sync) / [反外挂](./anticheat)
+
+## 🛠️ 实战提示
+
+客户端预测 + 服务器仲裁是主流方案。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+---
+
+## [同步模型](https://java-px.bot.cd/game/05-network/sync)
+> > 联机游戏三种同步模型：状态同步 / 帧同步（Lockstep）/ 快照同步。 - 状态同步：服务器权威，发送状态，MOBA 主流 - 帧同步：所有客户端按帧执行相同输入，RTS 主流 - 快照同步：定期发完整快照，FPS 主流 - 选择：MOBA → 状态；RTS → 帧同步；FPS → 快照 - [一致性](./consistency) - [反外挂](./anticheat) - [← 返
+
+# 同步模型
+
+> 联机游戏三种同步模型：状态同步 / 帧同步（Lockstep）/ 快照同步。
+
+## 🎯 核心要点
+
+- 状态同步：服务器权威，发送状态，MOBA 主流
+- 帧同步：所有客户端按帧执行相同输入，RTS 主流
+- 快照同步：定期发完整快照，FPS 主流
+- 选择：MOBA → 状态；RTS → 帧同步；FPS → 快照
+
+## 🛠️ 实战示例
+
+```text
+# 状态同步示例（伪代码）
+# 服务器
+def on_player_move(player, target):
+  player.position = target
+  broadcast({"type": "move", "id": player.id, "pos": target})
+
+# 客户端
+def on_message(msg):
+  if msg.type == "move":
+    entities[msg.id].position = msg.pos
+```
+
+## 🔗 相关链接
+
+- [一致性](./consistency)
+- [反外挂](./anticheat)
+- [← 返回 网络 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[一致性](./consistency) / [架构](./arch)
+
+## 🛠️ 实战提示
+
+同步模型选型决定后续所有架构。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+---
+
+## [音频](https://java-px.bot.cd/game/06-audio/README)
+> 游戏音频：空间 / 动态混音 / 音频引擎。 | 节点 | 一句话 | |------|--------| | [空间音频](./spatial) | HRTF / 3D 衰减 / 声障 | | [动态混音](./mix) | Snapshot / 实时参数 / 总线 | | [音频引擎](./engine) | Wwise / FMOD / 内置 | - **3A**：Wwise（行业标准） -
+
+# 06 · 音频
+
+游戏音频：空间 / 动态混音 / 音频引擎。
+
+## 章节目录
+
+| 节点 | 一句话 |
+|------|--------|
+| [空间音频](./spatial) | HRTF / 3D 衰减 / 声障 |
+| [动态混音](./mix) | Snapshot / 实时参数 / 总线 |
+| [音频引擎](./engine) | Wwise / FMOD / 内置 |
+
+## 🎯 选型决策
+
+- **3A**：Wwise（行业标准）
+- **中型**：FMOD
+- **休闲**：引擎内置
+
+## 📚 学习路径
+
+- **入门**：AudioSource + 3D
+- **进阶**：Wwise / FMOD 事件系统
+- **高级**：自适应音乐 + 程序化音效
+
+
+## 📝 章节目录
+
+[空间音频](./spatial) / [动态混音](./mix) / [音频引擎](./engine)
+
+## 🛠️ 实战提示
+
+游戏音频 50% 沉浸感来自音频。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+- **实战提示**：从引擎默认配置入手，按需自定义。
+- **官方文档**：参考 Unity / Unreal / Godot 最新 LTS 版本。
+
+---
+
+## [音频引擎](https://java-px.bot.cd/game/06-audio/engine)
+> > 游戏音频中间件：Wwise / FMOD / 引擎内置音频（Unity Audio / Unreal Sound）。 - Wwise（Audiokinetic）：行业标准，AAA 主流，按授权收费 - FMOD：轻量 + 集成简单，独立 / 中型项目主流 - 内置：Unity Audio / Unreal Sound，简单场景够用 - 选型：3A → Wwise；中型 → FMOD；休闲 →
+
+# 音频引擎
+
+> 游戏音频中间件：Wwise / FMOD / 引擎内置音频（Unity Audio / Unreal Sound）。
+
+## 🎯 核心要点
+
+- Wwise（Audiokinetic）：行业标准，AAA 主流，按授权收费
+- FMOD：轻量 + 集成简单，独立 / 中型项目主流
+- 内置：Unity Audio / Unreal Sound，简单场景够用
+- 选型：3A → Wwise；中型 → FMOD；休闲 → 内置
+
+## 🛠️ 实战示例
+
+```csharp
+# FMOD 事件触发（Unity C#）
+RuntimeManager.PlayOneShot("event:/SFX/Explosion", transform.position);
+# 事件驱动：美术 / 音频设计师配置，无需改代码
+```
+
+## 🔗 相关链接
+
+- [空间音频](./spatial)
+- [动态混音](./mix)
+- [← 返回 音频 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[空间音频](./spatial) / [动态混音](./mix)
+
+## 🛠️ 实战提示
+
+Wwise / FMOD 都提供可视化编辑器。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+---
+
+## [动态混音](https://java-px.bot.cd/game/06-audio/mix)
+> > 动态混音：Snapshot（场景切换）+ 实时参数（情绪/战斗）+ 音效总线（路由）。 - Snapshot：预设混音状态（探索 / 战斗 / Boss） - 实时参数：根据玩家状态动态调整（低血量增心跳） - 音效总线：Master / Music / SFX / Voice 分层 - 工具：Wwise / FMOD 状态机驱动 - [空间音频](./spatial) - [音频引擎](./
+
+# 动态混音
+
+> 动态混音：Snapshot（场景切换）+ 实时参数（情绪/战斗）+ 音效总线（路由）。
+
+## 🎯 核心要点
+
+- Snapshot：预设混音状态（探索 / 战斗 / Boss）
+- 实时参数：根据玩家状态动态调整（低血量增心跳）
+- 音效总线：Master / Music / SFX / Voice 分层
+- 工具：Wwise / FMOD 状态机驱动
+
+## 🛠️ 实战示例
+
+```cpp
+// Wwise RTPC（实时参数）
+// 设置血量参数（0-100）
+AK::SoundEngine::SetRTPCValue("PlayerHealth", player.health);
+// 低血量时心跳音效更明显
+// 在 Wwise 中绑定 RTPC → HeartBeat Volume
+```
+
+## 🔗 相关链接
+
+- [空间音频](./spatial)
+- [音频引擎](./engine)
+- [← 返回 音频 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[动态混音](./mix) / [音频引擎](./engine)
+
+## 🛠️ 实战提示
+
+Wwise 用 RTPC 实现动态混音。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+---
+
+## [空间音频](https://java-px.bot.cd/game/06-audio/spatial)
+> > 空间音频：HRTF 头相关传输函数 + 3D 距离衰减 + 声障遮挡。 - HRTF：头相关传输函数，模拟人耳定位（耳机 3D） - 3D 衰减：距离 / 方向（双声道 / 环绕声） - 声障遮挡：射线检测 + 衰减 - 引擎：Unity Audio / Wwise / FMOD 都支持 - [动态混音](./mix) - [音频引擎](./engine) - [← 返回 音频 目录](./)
+
+# 空间音频
+
+> 空间音频：HRTF 头相关传输函数 + 3D 距离衰减 + 声障遮挡。
+
+## 🎯 核心要点
+
+- HRTF：头相关传输函数，模拟人耳定位（耳机 3D）
+- 3D 衰减：距离 / 方向（双声道 / 环绕声）
+- 声障遮挡：射线检测 + 衰减
+- 引擎：Unity Audio / Wwise / FMOD 都支持
+
+## 🛠️ 实战示例
+
+```csharp
+// Unity 3D 音源
+var source = gameObject.AddComponent<AudioSource>();
+source.clip = shootClip;
+source.spatialBlend = 1f;  // 3D 音频
+source.rolloffMode = AudioRolloffMode.Linear;
+source.minDistance = 1f; source.maxDistance = 50f;
+```
+
+## 🔗 相关链接
+
+- [动态混音](./mix)
+- [音频引擎](./engine)
+- [← 返回 音频 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[音频引擎](./engine)
+
+## 🛠️ 实战提示
+
+HRTF 需要双声道立体声耳机才能展现效果。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+- **实战提示**：从引擎默认配置入手，按需自定义。
+- **官方文档**：参考 Unity / Unreal / Godot 最新 LTS 版本。
+
+---
+
+## [工具链](https://java-px.bot.cd/game/07-toolchain/README)
+> 游戏工具链：资产 / 版本控制 / 构建发布。 | 节点 | 一句话 | |------|--------| | [资产管线](./assets) | FBX / glTF / LOD / Addressable | | [版本控制](./vcs) | Git LFS / Perforce / 分支 | | [构建发布](./build) | 多平台构建 / CI/CD / Steam | - *
+
+# 07 · 工具链
+
+游戏工具链：资产 / 版本控制 / 构建发布。
+
+## 章节目录
+
+| 节点 | 一句话 |
+|------|--------|
+| [资产管线](./assets) | FBX / glTF / LOD / Addressable |
+| [版本控制](./vcs) | Git LFS / Perforce / 分支 |
+| [构建发布](./build) | 多平台构建 / CI/CD / Steam |
+
+## 🎯 选型决策
+
+- **小团队**：Git LFS
+- **大团队**：Perforce Helix
+- **构建**：GitHub Actions + Library 缓存
+
+## 📚 学习路径
+
+- **入门**：Git + Unity / UE 构建
+- **进阶**：CI/CD + 资产压缩
+- **高级**：主机 SDK 接入 + TRC 认证
+
+
+## 📝 章节目录
+
+[资产管线](./assets) / [版本控制](./vcs) / [构建发布](./build)
+
+## 🛠️ 实战提示
+
+资产膨胀是大型游戏最大痛点。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+- **实战提示**：从引擎默认配置入手，按需自定义。
+- **官方文档**：参考 Unity / Unreal / Godot 最新 LTS 版本。
+
+---
+
+## [资产管线](https://java-px.bot.cd/game/07-toolchain/assets)
+> > 资产管线：FBX / glTF 模型 + LOD 生成 + 纹理压缩 + Addressable 加载。 - 模型格式：FBX（DCC 通用） / glTF（开放标准） - LOD（Level of Detail）：远距离用低模 + 减少 Draw Call - 纹理压缩：ASTC（移动）/ BC（PC）/ ETC2（OpenGL ES） - 加载：Addressable（Unity 按需加载
+
+# 资产管线
+
+> 资产管线：FBX / glTF 模型 + LOD 生成 + 纹理压缩 + Addressable 加载。
+
+## 🎯 核心要点
+
+- 模型格式：FBX（DCC 通用） / glTF（开放标准）
+- LOD（Level of Detail）：远距离用低模 + 减少 Draw Call
+- 纹理压缩：ASTC（移动）/ BC（PC）/ ETC2（OpenGL ES）
+- 加载：Addressable（Unity 按需加载） / AssetBundle
+
+## 🛠️ 实战示例
+
+```csharp
+# Unity Addressable 加载
+using UnityEngine.AddressableAssets;
+var handle = Addressables.LoadAssetAsync<GameObject>("Player");
+yield return handle;
+Instantiate(handle.Result);
+```
+
+## 🔗 相关链接
+
+- [版本控制](./vcs)
+- [构建发布](./build)
+- [← 返回 工具链 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[版本控制](./vcs)
+
+## 🛠️ 实战提示
+
+Addressable 按需加载，避免一次性加载所有资源。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+- **实战提示**：从引擎默认配置入手，按需自定义。
+- **官方文档**：参考 Unity / Unreal / Godot 最新 LTS 版本。
+
+---
+
+## [构建发布](https://java-px.bot.cd/game/07-toolchain/build)
+> > 构建发布：多平台构建脚本 + CI/CD（GitHub Actions / Jenkins） + 平台 SDK 接入。 - 平台构建：Unity BuildPipeline / Unreal UAT - CI/CD：GitHub Actions / Jenkins + 缓存 Library/ - Steam：Steamworks SDK + 上架审核 - 主机：Sony / Microsoft
+
+# 构建发布
+
+> 构建发布：多平台构建脚本 + CI/CD（GitHub Actions / Jenkins） + 平台 SDK 接入。
+
+## 🎯 核心要点
+
+- 平台构建：Unity BuildPipeline / Unreal UAT
+- CI/CD：GitHub Actions / Jenkins + 缓存 Library/
+- Steam：Steamworks SDK + 上架审核
+- 主机：Sony / Microsoft / Nintendo 认证流程（数月）
+
+## 🛠️ 实战示例
+
+```yaml
+# GitHub Actions Unity Build 示例
+- name: Build StandaloneLinux64
+  run: |
+    mkdir -p build/Linux
+    /opt/unity/Editor/Unity \
+      -batchmode -quit -nographics \
+      -projectPath ${{ github.workspace }} \
+      -buildTarget Linux64 \
+      -executeMethod BuildScript.Linux64 \
+      -logFile -
+  env:
+    UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+```
+
+## 🔗 相关链接
+
+- [资产管线](./assets)
+- [性能优化](../08-ship/perf)
+- [← 返回 工具链 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[资产管线](./assets) / [性能优化](../08-ship/perf)
+
+## 🛠️ 实战提示
+
+CI/CD 用 Library 缓存，构建时间从 1h 降到 5min。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+- **实战提示**：从引擎默认配置入手，按需自定义。
+- **官方文档**：参考 Unity / Unreal / Godot 最新 LTS 版本。
+
+---
+
+## [版本控制](https://java-px.bot.cd/game/07-toolchain/vcs)
+> > 游戏版本控制：Git LFS（小团队） / Perforce Helix（大团队） + 分支策略。 - Git LFS：大文件（美术资产）扩展，GitHub / GitLab 支持 - Perforce Helix：游戏行业标配，TB 级资产友好 - 分支策略：main / develop / feature/* - 锁定文件：二进制资产（场景 / Prefab）避免冲突 - [资产管线](.
+
+# 版本控制
+
+> 游戏版本控制：Git LFS（小团队） / Perforce Helix（大团队） + 分支策略。
+
+## 🎯 核心要点
+
+- Git LFS：大文件（美术资产）扩展，GitHub / GitLab 支持
+- Perforce Helix：游戏行业标配，TB 级资产友好
+- 分支策略：main / develop / feature/*
+- 锁定文件：二进制资产（场景 / Prefab）避免冲突
+
+## 🛠️ 实战示例
+
+```bash
+# Git LFS 跟踪大文件
+git lfs install
+git lfs track "*.fbx" "*.png" "*.wav"
+git lfs track "*.unity" "*.prefab"
+git add .gitattributes
+```
+
+## 🔗 相关链接
+
+- [资产管线](./assets)
+- [构建发布](./build)
+- [← 返回 工具链 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[资产管线](./assets) / [构建发布](./build)
+
+## 🛠️ 实战提示
+
+Perforce 适合大团队，Git LFS 适合小团队。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+---
+
+## [性能与上线](https://java-px.bot.cd/game/08-ship/README)
+> 游戏性能与上线：性能 / 多平台 / 反作弊 / 数据。 | 节点 | 一句话 | |------|--------| | [性能优化](./perf) | Draw Call / GC / 内存池 / 帧率 | | [上线运营](./launch) | 多平台 / 认证 / 反作弊 / 埋点 | - **性能**：先 Profiler 后优化 - **上线**：数据驱动决策 - **合规**：隐
+
+# 08 · 性能与上线
+
+游戏性能与上线：性能 / 多平台 / 反作弊 / 数据。
+
+## 章节目录
+
+| 节点 | 一句话 |
+|------|--------|
+| [性能优化](./perf) | Draw Call / GC / 内存池 / 帧率 |
+| [上线运营](./launch) | 多平台 / 认证 / 反作弊 / 埋点 |
+
+## 🎯 选型决策
+
+- **性能**：先 Profiler 后优化
+- **上线**：数据驱动决策
+- **合规**：隐私 + GDPR + 未成年保护
+
+## 📚 学习路径
+
+- **入门**：引擎 Profiler
+- **进阶**：Frame Debugger + Memory Profiler
+- **高级**：GPU 优化 + 数据埋点体系
+
+
+## 📝 章节目录
+
+[性能优化](./perf) / [上线运营](./launch)
+
+## 🛠️ 实战提示
+
+上线前必须做：性能 Profile + 反作弊 + 数据埋点。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+- **实战提示**：从引擎默认配置入手，按需自定义。
+- **官方文档**：参考 Unity / Unreal / Godot 最新 LTS 版本。
+
+---
+
+## [上线运营](https://java-px.bot.cd/game/08-ship/launch)
+> > 游戏上线：多平台适配 / 主机认证 / 反作弊 / 数据埋点 / 运营活动。 - 多平台：PC（Steam / Epic）/ 主机（PS/Xbox/Switch）/ 移动（iOS/Android） - 主机认证：Sony / Microsoft / Nintendo TRC 认证 - 反作弊：EAC / BattlEye + 自研检测 - 数据埋点：玩家行为 + 付费漏斗 + 关卡热度 - [
+
+# 上线运营
+
+> 游戏上线：多平台适配 / 主机认证 / 反作弊 / 数据埋点 / 运营活动。
+
+## 🎯 核心要点
+
+- 多平台：PC（Steam / Epic）/ 主机（PS/Xbox/Switch）/ 移动（iOS/Android）
+- 主机认证：Sony / Microsoft / Nintendo TRC 认证
+- 反作弊：EAC / BattlEye + 自研检测
+- 数据埋点：玩家行为 + 付费漏斗 + 关卡热度
+
+## 🛠️ 实战示例
+
+```csharp
+# 数据埋点（Unity Analytics）
+using UnityEngine.Analytics;
+Analytics.CustomEvent("level_complete", new Dictionary<string, object> {
+  {"level_id", 3},
+  {"time_spent", 120.5f},
+  {"deaths", 2}
+});
+```
+
+## 🔗 相关链接
+
+- [性能优化](./perf)
+- [构建发布](../07-toolchain/build)
+- [← 返回 性能与上线 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[性能优化](./perf) / [构建发布](../07-toolchain/build)
+
+## 🛠️ 实战提示
+
+多平台适配：先 Steam PC，再移植到主机 / 移动。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+---
+
+## [性能优化](https://java-px.bot.cd/game/08-ship/perf)
+> > 游戏性能五大维度：Draw Call / GC / 内存池 / 帧率稳定 / 移动端功耗。 - Draw Call：合批（Batching）+ GPU Instancing + SRP Batcher - GC：避免频繁 new + 对象池 - 内存池：复用对象（子弹 / 粒子） - 帧率稳定：Profiler 找热点（CPU / GPU / IO） - 移动端：降分辨率 + 限制后处理 -
+
+# 性能优化
+
+> 游戏性能五大维度：Draw Call / GC / 内存池 / 帧率稳定 / 移动端功耗。
+
+## 🎯 核心要点
+
+- Draw Call：合批（Batching）+ GPU Instancing + SRP Batcher
+- GC：避免频繁 new + 对象池
+- 内存池：复用对象（子弹 / 粒子）
+- 帧率稳定：Profiler 找热点（CPU / GPU / IO）
+- 移动端：降分辨率 + 限制后处理
+
+## 🛠️ 实战示例
+
+```csharp
+// Unity Profiler 实时分析
+Profiler.BeginSample("PlayerUpdate");
+// ... 玩家逻辑 ...
+Profiler.EndSample();
+
+// GPU Profiler：Frame Debugger 看 Draw Call
+```
+
+## 🔗 相关链接
+
+- [渲染管线](../02-render/pipeline)
+- [上线运营](./launch)
+- [← 返回 性能与上线 目录](./)
+- [← 返回 game 首页](../)
+
+
+## 📝 章节目录
+
+[渲染管线](../02-render/pipeline) / [上线运营](./launch)
+
+## 🛠️ 实战提示
+
+先 Profiler 后优化，避免过早优化。
+
+## 🔗 延伸阅读
+
+- [GameDev.net](https://www.gamedev.net/)
+- [GDC Vault](https://www.gdcvault.com/)
+- [Unity Manual](https://docs.unity3d.com/Manual/index.html)
+- [Unreal Engine Docs](https://docs.unrealengine.com/)
+
+---
+
+## [Game 站在知识图谱中的位置](https://java-px.bot.cd/game/README)
+> **Game = 基于实时渲染 + 物理模拟 + 多人同步的交互式内容工程**：引擎层（Unity / Unreal / Godot）+ 渲染管线（Forward / Deferred / Clustered）+ 物理（碰撞 / 刚体）+ AI（FSM / BT / GOAP）+ 网络（状态同步 / 帧同步）的横切栈。 - **frontend**：客户端通识（窗口 / 输入 / UI / 事件循
+
+# Game 站在知识图谱中的位置
+
+## 一句话定义
+
+**Game = 基于实时渲染 + 物理模拟 + 多人同步的交互式内容工程**：引擎层（Unity / Unreal / Godot）+ 渲染管线（Forward / Deferred / Clustered）+ 物理（碰撞 / 刚体）+ AI（FSM / BT / GOAP）+ 网络（状态同步 / 帧同步）的横切栈。
+
+## 在 31 站中的关系
+
+```mermaid
+graph LR
+  frontend[frontend<br/>客户端开发] --> game
+  android[android<br/>移动平台] --> game
+  rust[rust<br/>高性能原生] --> game
+  ai[ai<br/>NPC / 寻路 ML] --> game
+  network[network<br/>联机同步] --> game
+  observability[observability<br/>反作弊埋点] --> game
+  game[Game<br/>游戏开发] --> frontend
+  game --> android
+  game --> ai
+  game --> network
+```
+
+## 上下游关系
+
+### 上游（依赖什么）
+
+- **frontend**：客户端通识（窗口 / 输入 / UI / 事件循环）
+- **rust**（可选）：图形 / 引擎底层原生代码常用 Rust / C++
+- **ai**：NPC 决策 / 强化学习 / 群体模拟
+- **network**：联机同步 / KCP / 反外挂
+- **android**：移动游戏上架 / 平台 SDK / 功耗优化
+
+### 下游（被谁依赖）
+
+- **frontend**：游戏前端是前端开发的延伸
+- **observability**：玩家行为 / 性能埋点需要接入监控
+- **security**（间接）：反作弊 / 反外挂 / 防破解属于安全延伸
+
+## 与相邻站的边界
+
+| 站 | 核心差异 | 交集 |
+|---|---|---|
+| frontend | 通用客户端开发 | 游戏前端 / UI 系统 |
+| android | Android 移动平台 | 移动游戏 / Android SDK |
+| rust | 系统语言 | 引擎底层 / 高性能模块 |
+| ai | 通用 AI | NPC / 强化学习 / 寻路 |
+| network | 通用网络 | 联机同步 / 反外挂 |
+| observability | 通用监控 | 游戏埋点 / 性能采集 |
+
+## 谁需要读 Game 站
+
+- 想做独立游戏 / 业余项目的开发者
+- 准备面试游戏客户端 / 渲染 / 引擎岗的候选人
+- 已会前端 / 客户端，想拓展到游戏开发方向
+- 网络 / AI 工程师想了解游戏领域的特殊应用
+
+## 学习入口
+
+- **5 分钟了解**：读 [index.md](./index)
+- **看全局知识图谱**：[mindmap.md](./mindmap)
+- **按背景选路径**：[path.md](./path)
+- **面试 / 自测**：[questions.md](./questions)
+- **API / 参数速查**：[cheatsheet.md](./cheatsheet)
+
+## 当前文档范围
+
+本页为 Game 站首版 v0.1，已覆盖：
+
+- 引擎选型（Unity / Unreal / Godot 对比）
+- 渲染管线（前向 / 延迟 / 光追）
+- 物理（碰撞 / 刚体 / 布料）
+- AI（寻路 / 行为树 / 决策）
+- 网络（状态同步 / 帧同步 / 反外挂）
+- 性能（Draw Call / GC / 帧率稳定）
+- 工具链（资产管线 / 版本控制 / CI/CD）
+
+后续版本将补充：完整示例代码（Unity C# / Unreal C++ / GDScript 三栈对照）、常用 Shader 模板库、性能调优 checklist。
+
+## 章节快速导航
+
+| 章节 | 内容 | 一句话 |
+|---|---|---|
+| [01 · 引擎层](./01-engine/) | 商业引擎 / 自研引擎 / 选型 | 引擎选型与架构 |
+| [02 · 渲染](./02-render/) | 管线 / 光照 / 着色器 / 后处理 | 图形渲染技术栈 |
+| [03 · 物理](./03-physics/) | 碰撞 / 刚体 / 柔体 | 物理模拟基础 |
+| [04 · AI](./04-ai/) | 寻路 / 决策 / ML | NPC 智能化 |
+| [05 · 网络](./05-network/) | 同步 / 一致性 / 反外挂 | 联机游戏核心 |
+| [06 · 音频](./06-audio/) | 空间 / 混音 / 引擎 | 沉浸感设计 |
+| [07 · 工具链](./07-toolchain/) | 资产 / VCS / 构建 | 工程化基础 |
+| [08 · 性能与上线](./08-ship/) | 性能 / 多平台 / 运营 | 上线运营 |
+
+---
+
+## [游戏开发速查表](https://java-px.bot.cd/game/cheatsheet)
+> > 引擎版本 / 数学公式 / 寻路算法 / 物理参数 / Shader 关键字 一页速查。 | 引擎 | 当前稳定版 | LTS | 语言 | 包大小 | |---|---|---|---|---| | Unity | 6000.x (Unity 6) | 2022 LTS | C# | ~250MB | | Unreal Engine | 5.4 / 5.5 | 5.3 | C++ / Blu
+
+# 🧾 游戏开发速查表
+
+> 引擎版本 / 数学公式 / 寻路算法 / 物理参数 / Shader 关键字 一页速查。
+
+## 主流引擎版本
+
+| 引擎 | 当前稳定版 | LTS | 语言 | 包大小 |
+|---|---|---|---|---|
+| Unity | 6000.x (Unity 6) | 2022 LTS | C# | ~250MB |
+| Unreal Engine | 5.4 / 5.5 | 5.3 | C++ / Blueprint | ~150MB |
+| Godot | 4.3 / 4.4 | — | GDScript / C# | ~30MB |
+
+## 关键数学公式
+
+### 向量运算
+
+```text
+点积（Dot）：a · b = |a| × |b| × cos(θ)
+  用于：判断朝向 / 光照衰减 / 投影长度
+
+叉积（Cross）：a × b = |a| × |b| × sin(θ)
+  用于：法线计算 / 左右判断 / 三角形面积
+
+反射：R = D - 2(D · N)N
+  用于：镜面反射 / 弹球
+```
+
+### 矩阵变换
+
+```text
+世界变换 = Scale × Rotation × Translation (TRS)
+视图变换 = View Matrix（摄像机位置 / 朝向）
+投影变换 = Projection Matrix（透视 / 正交）
+
+MVP = Projection × View × World
+```
+
+### 坐标系
+
+- **左手系**：Unity / Unreal / Godot 默认（Y 向上，Z 向前）
+- **右手系**：DirectX / OpenGL 默认（Y 向上，-Z 向前）
+- **屏幕坐标**：左下角 (0, 0)，右上角 (W, H)
+
+## Shader 关键字速查
+
+### HLSL / GLSL 共通
+
+```glsl
+// 顶点着色器输入
+struct VS_INPUT {
+    float3 pos : POSITION;
+    float3 normal : NORMAL;
+    float2 uv : TEXCOORD0;
+};
+
+// 像素着色器输出
+struct PS_OUTPUT {
+    float4 color : SV_Target;
+};
+
+// 常用语义（HLSL）
+POSITION     // 顶点位置
+NORMAL       // 法线
+TEXCOORD0    // UV / 顶点数据
+SV_Target    // 像素输出
+SV_VertexID  // 顶点索引
+```
+
+### Unity URP / Shader Graph 关键字
+
+```text
+_ MainTex          主纹理
+_ NormalMap        法线贴图
+_ BaseColor        基础颜色（URP）
+_ Metallic        金属度
+_ Smoothness      光滑度
+_ EmissionColor   自发光
+```
+
+## 寻路算法复杂度
+
+| 算法 | 时间复杂度 | 空间复杂度 | 适合 |
+|---|---|---|---|
+| BFS | O(V + E) | O(V) | 无权图 |
+| Dijkstra | O((V+E) log V) | O(V) | 正权图 |
+| A* | O((V+E) log V) | O(V) | 有启发式的最优 |
+| NavMesh | O(P log P)，P=多边形 | O(P) | 开放世界 |
+| Flow Field | O(V) 一次 | O(V) | 大量单位同目标 |
+| D* Lite | O(E log V) | O(V) | 动态障碍 |
+
+## 物理参数表
+
+### 刚体参数
+
+```text
+质量 Mass：单位 kg
+重力 Gravity：默认 (0, -9.81, 0) m/s²
+阻力 Drag：0 = 无阻力，1 = 立即停止
+角阻力 Angular Drag：旋转阻力
+```
+
+### 常用物理材质（Unity Physic Material）
+
+```text
+Dynamic Friction：动态摩擦（运动时）
+Static Friction：静态摩擦（启动时）
+Bounciness：弹性（0-1）
+Friction Combine：Average / Min / Max / Multiply
+Bounce Combine：同上
+```
+
+### 触发器条件
+
+| 组合 | 行为 |
+|---|---|
+| 两个 Collider 都非 Is Trigger | 物理碰撞 |
+| 任一 Is Trigger | 触发事件，无物理推力 |
+| 两个 Rigidbody | 完整物理响应 |
+| 一个 Kinematic | 不受力，但可推动非 Kinematic |
+
+## 网络协议对比
+
+| 协议 | 可靠 | 速度 | 适合 |
+|---|---|---|---|
+| TCP | ✓ | 慢 | 登录 / 支付 |
+| UDP | ✗ | 快 | 实时游戏 |
+| KCP | ✓ | 较快 | 自研可靠 UDP |
+| ENet | ✓ | 中 | Unity / Godot 内置 |
+| WebSocket | ✓ | 中 | Web 游戏 |
+| WebRTC | ✓ | 低延迟 | Web P2P |
+
+## 关键性能指标
+
+```text
+帧率 FPS：30 / 60 / 120 / 144
+帧时间：33ms / 16ms / 8ms / 7ms
+Draw Call 预算：PC ≤ 3000 / 移动 ≤ 200
+三角形预算：PC ≤ 100 万 / 移动 ≤ 30 万
+纹理内存：移动 ≤ 50MB / PC ≤ 500MB
+GC 时间：单帧 ≤ 2ms（Unity C#）
+网络抖动：≤ 100ms 可玩 / ≤ 50ms 流畅
+```
+
+## 常用命令（Unity 编辑器）
+
+```bash
+# 命令行批处理构建
+Unity -batchmode -projectPath . -buildTarget Android -executeMethod BuildScript.BuildAndroid -quit
+
+# 清空 Library 缓存（解决诡异编译错误）
+rm -rf Library/ScriptAssemblies/ Temp/
+
+# 强制重导入资源
+touch Assets && find Assets -name "*.meta" -exec touch {} \;
+```
+
+## 调试快捷键
+
+| 引擎 | 快捷键 | 功能 |
+|---|---|---|
+| Unity | F | 聚焦选中物体 |
+| Unity | Shift+F | 锁定跟随相机 |
+| Unity | Ctrl+Shift+C | 显示 / 隐藏 Collider |
+| Unity | Ctrl+Alt+F | 帧率限制 60/30 |
+| Unreal | F8 | Eject（脱离玩家控制） |
+| Unreal | F11 | Simulate 模拟模式 |
+| Godot | F1 | 帮助 / F5 运行场景 |
+
+## 资产导入设置速查
+
+### 纹理（Texture）
+
+```
+纹理类型：Default / Normal map / Sprite
+压缩格式：移动 ASTC / PC DXT5 / iOS ASTC
+Mip Maps：开启（3D）/ 关闭（UI）
+sRGB：颜色纹理开 / 法线贴图关
+过滤：Trilinear（3D）/ Bilinear（UI）
+各向异性：8-16（地面）
+```
+
+### 模型（Model）
+
+```
+Scale Factor：1
+Import Normals：Calculate / Import
+Import Tangents：Calculate MikkTSpace（推荐）
+Rig：Generic / Humanoid
+Optimize Mesh：开启
+Read/Write Enabled：按需（开启可运行时访问顶点）
+```
+
+---
+
+## [game 知识图谱](https://java-px.bot.cd/game/index)
+> <script setup> const painPoints = [ "引擎选型纠结：Unity / Unreal / Godot 哪个更适合我的项目？", "渲染卡顿 / 帧率不稳：Draw Call 爆炸 / Shader 编译 / GPU 带宽瓶颈？", "物理穿透 / 抖动 / 速度异常：浮点精度 / 碰撞体配置 / 时间步长？", "敌人 AI 太死板：FSM 不够灵活 / 行为树不会
+
+<script setup>
+const painPoints = [
+  "引擎选型纠结：Unity / Unreal / Godot 哪个更适合我的项目？",
+  "渲染卡顿 / 帧率不稳：Draw Call 爆炸 / Shader 编译 / GPU 带宽瓶颈？",
+  "物理穿透 / 抖动 / 速度异常：浮点精度 / 碰撞体配置 / 时间步长？",
+  "敌人 AI 太死板：FSM 不够灵活 / 行为树不会调试 / 寻路卡墙？",
+  "多人游戏外挂泛滥：客户端能改内存 / 状态不同步 / 怎么服务器校验？",
+  "包体过大 / 启动慢：Asset Bundle 怎么分包 / 怎么热更新？",
+]
+const goals = [
+  "三大引擎对比与选型（Unity / Unreal / Godot）",
+  "现代渲染管线（PBR / 光追 / 后处理）",
+  "物理仿真（碰撞检测 / 刚体 / 流体）",
+  "游戏 AI（FSM / 行为树 / 寻路）",
+  "网络同步（状态同步 / 帧同步 / 反外挂）",
+  "工具链（Git LFS / Asset Bundle / Steamworks）",
+]
+const relatedSites = [
+  { site: "frontend", path: "/path", label: "前端（Web 游戏 / Canvas / WebGL）" },
+  { site: "android", path: "/path", label: "Android（手游客户端开发）" },
+  { site: "rust", path: "/path", label: "Rust（高性能游戏引擎 / Bevy）" },
+  { site: "ai", path: "/path", label: "AI（游戏 AI / NPC 决策）" },
+  { site: "network", path: "/path", label: "网络（多人游戏同步）" },
+]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
+    title="🎯 为什么写这个图谱？"
+  />
+</ClientOnly>
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [frontend](https://java-px.bot.cd/frontend/)：客户端基础
+- [rust](https://java-px.bot.cd/rust/)：高性能原生
+- [ai](https://java-px.bot.cd/ai/)：NPC AI
+- [network](https://java-px.bot.cd/network/)：联机同步
+- [linux](https://java-px.bot.cd/linux/)：Linux 平台
+- [python](https://java-px.bot.cd/python/)：脚本与工具
+
+---
+
+## [游戏开发知识图谱](https://java-px.bot.cd/game/mindmap)
+> > 本页用 Mermaid mindmap 展示游戏开发全栈知识结构。 - **引擎使用者**：从引擎选型 → 渲染管线 → 着色器 入手，掌握一个 DCC 工作流 - **图形程序员**：渲染管线 → 光照 → 着色器 → GPU 优化，最后补 Compute / 光追 - **AI / 网络程序员**：寻路 → 行为树 → 同步模型，重点掌握一致性和反外挂 - **工具链工程师**：资产管线
+
+# 🗺️ 游戏开发知识图谱
+
+> 本页用 Mermaid mindmap 展示游戏开发全栈知识结构。
+
+```mermaid
+mindmap
+  root((游戏开发))
+    引擎层
+      商业引擎
+        Unity
+        Unreal Engine
+        Godot
+      自研引擎
+        ECS 架构
+        渲染抽象 RHI
+        资源管理
+      选型决策
+        平台目标
+        团队规模
+        预算 / License
+        性能需求
+    渲染
+      渲染管线
+        前向渲染
+        延迟渲染
+        Clustered / Tiled
+        光线追踪
+      光照
+        PBR / IBL
+        阴影算法
+        全局光照 GI
+      着色器
+        HLSL / GLSL
+        Shader Graph
+        Compute Shader
+      后处理
+        Bloom / DOF / SSAO
+        抗锯齿 TAA / SMAA
+        Color Grading
+    物理
+      碰撞检测
+        AABB / OBB
+        GJK / SAT
+        空间分割
+          四叉树
+          BVH
+          NavMesh
+      刚体动力学
+        Verlet 积分
+        约束求解
+        PhysX / Bullet
+      柔体
+        弹簧质点
+        布料模拟
+        流体 SPH
+    AI
+      寻路
+        A* / Dijkstra
+        NavMesh
+        Flow Field
+        D* Lite
+      决策
+        FSM 有限状态机
+        行为树 BT
+        效用系统
+        GOAP 规划
+      机器学习
+        强化学习
+        神经网络 NPC
+        群体模拟 Boids
+    网络
+      同步模型
+        状态同步
+        帧同步 Lockstep
+        快照同步
+      一致性
+        客户端预测
+        服务器仲裁
+        回放录像
+      反外挂
+        服务器权威
+        加密协议
+        行为检测
+      联机架构
+        C/S 房间制
+        P2P Host 迁移
+        Matchmaker
+    音频
+      空间音频
+        HRTF 头相关
+        3D 衰减
+        声障遮挡
+      动态混音
+        Snapshot 切换
+        实时参数
+        音效总线
+      音效
+        Wwise / FMOD
+        事件驱动
+        音乐自适应
+    工具链
+      资产管线
+        FBX / glTF
+        LOD 生成
+        纹理压缩
+        Addressable
+      版本控制
+        Git LFS
+        Perforce Helix
+        分支策略
+      构建发布
+        平台构建脚本
+        CI/CD
+        Steam / 主机 SDK
+    性能与上线
+      性能
+        Draw Call 优化
+        GC / 内存池
+        帧率稳定
+        移动端功耗
+      上线
+        多平台适配
+        主机认证
+        反作弊对接
+        数据埋点
+```
+
+## 阅读建议
+
+- **引擎使用者**：从引擎选型 → 渲染管线 → 着色器 入手，掌握一个 DCC 工作流
+- **图形程序员**：渲染管线 → 光照 → 着色器 → GPU 优化，最后补 Compute / 光追
+- **AI / 网络程序员**：寻路 → 行为树 → 同步模型，重点掌握一致性和反外挂
+- **工具链工程师**：资产管线 → 版本控制 → CI/CD，关注资产膨胀和构建时长
+
+## 在图谱中的位置
+
+游戏开发是 frontend（客户端开发延伸）+ rust（高性能原生）+ ai（NPC / 寻路）+ network（联机同步）的横切栈。客户端开发基础是底盘；想深入图形 / 引擎底层，建议补 rust + 数学（线性代数）；要做联机，必看 network + 反外挂。
+
+---
+
+## [游戏开发学习路径](https://java-px.bot.cd/game/path)
+> > 三条路径覆盖"引擎使用者 / 图形程序员 / 联机 / AI 程序员"三种角色。按背景选择即可。 适合：应用开发者转游戏 / 想做独立游戏 / 从零入门。 | Day | 主题 | 关键交付 | |---|---|---| | D1 | 引擎选型（Unity / Unreal / Godot 对比） | 选定主攻引擎 + 安装环境 | | D2-3 | 场景搭建（地形 / 灯光 / 摄像机）
+
+# 🚶 游戏开发学习路径
+
+> 三条路径覆盖"引擎使用者 / 图形程序员 / 联机 / AI 程序员"三种角色。按背景选择即可。
+
+## 路径 1：引擎使用者（4 周）
+
+适合：应用开发者转游戏 / 想做独立游戏 / 从零入门。
+
+| Day | 主题 | 关键交付 |
+|---|---|---|
+| D1 | 引擎选型（Unity / Unreal / Godot 对比） | 选定主攻引擎 + 安装环境 |
+| D2-3 | 场景搭建（地形 / 灯光 / 摄像机） | 第一个可漫游场景 |
+| D4-5 | 物理系统（刚体 / 碰撞体 / Trigger） | 跑通平台跳跃 + 收集物 |
+| D6-7 | 脚本系统（C# / Blueprint / GDScript） | 玩家控制 + 简单敌人 AI |
+| W2 D1-2 | 动画系统（Animator / 状态机 / Blend Tree） | 角色跑跳攻击完整动画 |
+| W2 D3 | UI 系统（UGUI / UMG / Control） | 主菜单 + HUD + 计分 |
+| W2 D4-5 | 音频（Wwise / FMOD / 内置） | 脚步声 + 背景音乐 + 3D 衰减 |
+| W2 D6-7 | 资产工作流（FBX / 纹理 / 材质） | 接入 DCC 美术资源 |
+| W3 | 第一个完整 Demo（横版动作 / 解谜） | 5 分钟可玩关卡 |
+| W4 | 性能初识（Profiler / Draw Call / GC） | 60 FPS 稳定 |
+
+## 路径 2：图形程序员（6 周）
+
+适合：计算机图形学背景 / 引擎底层开发者 / 想做渲染岗。
+
+| 周 | 主题 | 关键交付 |
+|---|---|---|
+| W1 | 图形 API（DirectX 12 / Vulkan / Metal / WebGPU） | 第一个三角形 + 窗口化 |
+| W2 | 渲染管线（前向 / 延迟 / Clustered） | 单 Pass 多光源场景 |
+| W3 | PBR + IBL（Cook-Torrance / BRDF / 预滤波） | 真实感材质渲染 |
+| W4 | 后处理链（Bloom / SSAO / TAA / Tonemap） | 电影级画面 |
+| W5 | GPU 优化（Instancing / Batching / LOD） | 10 万物体 60 FPS |
+| W6 | 进阶（Compute Shader / 光线追踪 / Mesh Shader） | 跑通 GPU 粒子或光追 Demo |
+
+## 路径 3：联机 / AI 程序员（5 周）
+
+适合：网络工程师 / AI 工程师 / 想做多人游戏 / 关卡 / 智能 NPC。
+
+| 周 | 主题 | 关键交付 |
+|---|---|---|
+| W1 | 网络基础（TCP / UDP / KCP / WebSocket） | 自建回声服务器 |
+| W2 | 同步模型（状态同步 / 帧同步 / 快照） | 房间制 Demo（2 客户端） |
+| W3 | 一致性（预测 / 仲裁 / 回放） | 网络抖动 + 丢包测试通过 |
+| W4 | 反外挂（服务器权威 / 协议加密 / 行为检测） | 反作弊 SDK 接入 |
+| W5 | AI 决策（FSM / BT / GOAP）+ 寻路（NavMesh / Flow Field） | 智能敌人 + 动态障碍物 |
+
+## 选路径决策树
+
+- **想快速出作品** → 路径 1（4 周就有 Demo）
+- **目标是引擎 / 渲染大厂 / 自研引擎** → 路径 2（数学 + 图形 API）
+- **想做多人 / MOBA / FPS / 智能 NPC** → 路径 3（网络 + AI）
+- **三者都做** → 路径 1 打底，再选 2 或 3 深入
+
+## 推荐前置知识
+
+- **数学**：线性代数（矩阵 / 向量 / 坐标系变换）+ 基础几何
+- **编程**：C++ / C# / Rust 至少一门；了解指针 / 内存模型
+- **英语**：引擎文档 / 论文以英文为主
+- **客户端基础**：参考 `frontend` 站补客户端通识
+
+## 📑 章节快速索引
+
+按章节速查（详细文档在 8 大类子目录）：
+
+- [01 · 引擎层](./01-engine/)：Unity / Unreal / Godot
+- [02 · 渲染](./02-render/)：管线 / 光照 / 着色器 / 后处理
+- [03 · 物理](./03-physics/)：碰撞 / 刚体 / 柔体
+- [04 · AI](./04-ai/)：寻路 / 行为树 / ML
+- [05 · 网络](./05-network/)：同步 / 一致性 / 反外挂
+- [06 · 音频](./06-audio/)：空间 / 混音 / Wwise/FMOD
+- [07 · 工具链](./07-toolchain/)：资产 / VCS / CI
+- [08 · 性能与上线](./08-ship/)：性能 / 上线 / 运营
+
+---
+
+## [游戏开发面试与常见问题](https://java-px.bot.cd/game/questions)
+> > 分 Easy / Medium / Hard 三档，覆盖引擎、渲染、网络、AI、性能。 **答**： - **Unity（C#）**：移动端 / 中小型游戏 / 跨平台首选，资源商店最全，迭代快 - **Unreal（C++ / Blueprint）**：3A / 主机 / 写实画面首选，光追 + Nanite + Lumen 内置 - **Godot（GDScript / C#）**：开源免
+
+# ❓ 游戏开发面试与常见问题
+
+> 分 Easy / Medium / Hard 三档，覆盖引擎、渲染、网络、AI、性能。
+
+## Easy（基础）
+
+### Q1：Unity vs Unreal vs Godot 怎么选？
+
+**答**：
+
+- **Unity（C#）**：移动端 / 中小型游戏 / 跨平台首选，资源商店最全，迭代快
+- **Unreal（C++ / Blueprint）**：3A / 主机 / 写实画面首选，光追 + Nanite + Lumen 内置
+- **Godot（GDScript / C#）**：开源免费 / 2D / 独立游戏 / 学习成本最低
+
+| 维度 | Unity | Unreal | Godot |
+|---|---|---|---|
+| 主要语言 | C# | C++ + Blueprint | GDScript + C# |
+| 包大小 | 较小 | 较大（带引擎 ~150MB） | 很小（10-30MB） |
+| 图形能力 | 中 | 顶级 | 中 |
+| 平台覆盖 | 全平台 | 全平台（主机强） | 全平台（主机弱） |
+| License | 订阅制 | 5% 营收抽成 | MIT 免费 |
+| 学习曲线 | 平缓 | 陡峭 | 平缓 |
+
+### Q2：什么是 Draw Call？怎么优化？
+
+**答**：
+
+Draw Call 是 CPU 向 GPU 提交的一次绘制命令。一次 Draw Call 包含：设置渲染状态 + 提交顶点 / 索引 + 切换 Shader / 纹理。
+
+**优化方法**：
+
+1. **合批（Batching）**：相同材质的网格合并为一个 Draw Call
+   - Static Batching：静态物体编辑器期合并
+   - Dynamic Batching：小动态物体运行时合并（顶点数 ≤ 300）
+   - SRP Batcher（URP）：兼容 SRP 的合批
+2. **GPU Instancing**：相同 Mesh + Material 的实例一次提交
+3. **图集（Atlas）**：多张小图合成一张大纹理，减少纹理切换
+4. **减少材质数量**：共享 Material 实例
+5. **遮挡剔除（Occlusion Culling）**：不渲染被遮挡的物体
+
+### Q3：什么是游戏循环（Game Loop）？
+
+**答**：
+
+游戏循环是游戏引擎的核心，每帧按固定顺序执行：
+
+```
+while (running) {
+    processInput();     // 处理输入
+    update(dt);         // 更新游戏状态（dt = 距离上一帧的时间）
+    render();           // 渲染画面
+}
+```
+
+**两种时间步长策略**：
+
+- **固定时间步长（Fixed Timestep）**：逻辑更新用固定 dt（如 1/60s），物理稳定
+- **可变时间步长（Variable Timestep）**：渲染跟显示刷新率（如 144Hz），画面流畅
+
+**现代引擎做法**：逻辑固定步长 + 渲染可变步长 + 插值（Interpolation）补偿。
+
+## Medium（进阶）
+
+### Q4：状态同步和帧同步的区别？
+
+**答**：
+
+| 维度 | 状态同步 | 帧同步（Lockstep） |
+|---|---|---|
+| 同步内容 | 客户端状态变化 | 操作指令（Input） |
+| 网络带宽 | 中（按状态变化频率） | 低（只传输入） |
+| 服务器职责 | 权威转发 / 仲裁 | 只转发输入 |
+| 客户端负担 | 中 | 重（必须确定性回放） |
+| 一致性 | 服务器仲裁 → 强一致 | 确定性 → 天然一致 |
+| 反外挂 | 容易（服务器有全量） | 难（客户端决定结果） |
+| 适合 | FPS / MOBA / 回合制 | RTS / 格斗 / 棋牌 |
+| 代表作 | 王者荣耀 / LOL | 魔兽争霸 3 / 星际争霸 |
+
+**关键点**：
+
+- **状态同步**：服务器收状态变化 → 广播给其他客户端；服务器可校验 / 仲裁
+- **帧同步**：所有客户端收到相同输入 → 各自独立模拟 → 靠确定性保持结果一致
+- **混合**：常见做法是 RTS 用帧同步，关键事件用状态同步兜底
+
+### Q5：什么是客户端预测（Client Prediction）？
+
+**答**：
+
+客户端预测是为了解决网络延迟导致的"操作卡顿"问题。
+
+**核心思想**：客户端不等服务器确认，立即按本地输入执行，并预测结果；服务器仲裁后若有差异，客户端回滚 + 重新应用未确认的输入。
+
+**三步流程**：
+
+1. **预测执行**：客户端收到输入 → 立即本地执行 → 显示结果
+2. **服务器确认**：服务器收到输入 → 执行权威逻辑 → 返回结果
+3. **客户端对账**：客户端收到服务器结果 → 与本地预测对比 → 不一致则回滚并重放
+
+**配套技术**：
+
+- **插值（Interpolation）**：其他玩家位置 / 状态平滑插值（100-200ms 延迟渲染）
+- **Lag Compensation（服务器侧）**：服务器回溯时间点做命中判定
+
+### Q6：A* 算法和 NavMesh 寻路有什么区别？
+
+**答**：
+
+- **A\***：基于图的启发式搜索，作用于网格（Grid）图；适合规则地形
+- **NavMesh**：将可行走区域烘焙成凸多边形网格，搜索作用于多边形；适合复杂不规则地形
+
+**算法对比**：
+
+| 维度 | A* | NavMesh |
+|---|---|---|
+| 图结构 | 网格 / 四叉树 | 凸多边形 |
+| 内存占用 | 较高（节点多） | 较低（区域聚合） |
+| 路径质量 | 锯齿状 | 平滑 |
+| 动态障碍 | 需重算 | 局部重规划 |
+| 适合 | 室内 / 网格地图 | 开放世界 / 不规则地形 |
+
+**实战建议**：开放世界用 NavMesh，室内 / 棋盘用 A\*；寻路开销大时考虑 Flow Field（流场，一次计算全场）。
+
+## Hard（高级）
+
+### Q7：前向渲染和延迟渲染的取舍？
+
+**答**：
+
+**前向渲染（Forward Rendering）**：
+
+- 几何阶段：所有光照在顶点 / 像素着色器一次性计算
+- 优点：支持 MSAA、半透明、抗锯齿友好、低带宽
+- 缺点：光源数 = 几何复杂度 × 光源数（O(G × L)）
+
+**延迟渲染（Deferred Rendering）**：
+
+- 第一遍：G-Buffer（Position / Normal / Albedo / Material）写入 MRT
+- 第二遍：用 G-Buffer 做光照计算（每个像素只算可见光）
+- 优点：光源数与场景复杂度解耦（O(G + L)），适合大量动态光
+- 缺点：带宽大、不支持 MSAA、半透明物体需额外 Forward Pass
+
+**现代方案（Clustered / Tiled Forward+）**：
+
+- 把屏幕分块（Tile）或按深度切片（Cluster）
+- 每个块的光源列表预先计算
+- 前向管线 + 大量光源，兼顾带宽和透明
+
+**选型决策**：
+
+- 光源 ≤ 4 个 → 前向
+- 光源 ≥ 8 个 + 动态阴影 → 延迟
+- 移动端 / 带宽敏感 → Forward+ 或 Clustered
+
+### Q8：如何排查游戏内存泄漏 / GC 卡顿？
+
+**答**：
+
+**内存泄漏排查**：
+
+1. **Profiler 抓快照**：Unity Profiler / Unreal Memory Insights
+2. **对比基线**：场景切换前后内存不下降 → 泄漏
+3. **常见泄漏点**：
+   - 静态集合未清理（`static List&lt;T>`）
+   - 事件订阅未解绑（C# event -= handler）
+   - Unity Resources / AssetBundle 未 Unload
+   - 单例持有 DontDestroyOnLoad 对象引用
+
+**GC 卡顿排查**（Unity C#）：
+
+1. **开启 GC Profile**：`Profiler` → `Memory` → `Allocation Call Stacks`
+2. **定位大对象分配**：`>1KB` 的数组、字符串拼接
+3. **优化方法**：
+   - 用 `StringBuilder` 替代 `+`
+   - 用对象池（`ObjectPool&lt;T>`）复用
+   - 用 `struct` / `值类型` 替代小 class
+   - 避免 LINQ（隐式装箱）
+   - 用 `ArrayPool&lt;T>` 复用数组
+   - 用 `unsafe` / `NativeArray` 绕过 GC
+
+**Unreal**：UObject 自动 GC，但 UPROPERTY 标记的对象不会被回收（类似引用计数）；用 `obj list` 命令查看活跃对象。
+
+### Q9：如何设计一个高一致性的多人竞技同步系统？
+
+**答**：
+
+**目标**：所有客户端在 ≤ 100ms 网络抖动下，看到一致结果。
+
+**核心设计**：
+
+1. **同步模型选型**
+   - FPS / MOBA → 状态同步 + 服务器权威
+   - RTS / 格斗 → 帧同步 + 确定性模拟
+   - 回合制 → 状态同步即可
+
+2. **关键模块**
+   - **客户端预测**：本地立即响应，服务器仲裁回滚
+   - **服务器侧 Lag Compensation**：命中判定回溯客户端时间点
+   - **实体插值**：其他玩家位置 100-200ms 延迟渲染 + 平滑插值
+   - **确定性随机**：所有客户端用相同种子 RNG（避免飘字）
+   - **Tick Rate**：30 / 60 / 128 Hz，越高越流畅但带宽越大
+   - **回放录像**：记录输入流，本地可复现任意时间点
+
+3. **反作弊**
+   - 服务器权威（所有伤害 / 得分服务器计算）
+   - 协议加密 + 签名（防抓包伪造）
+   - 行为检测（自瞄 / 透视 / 加速）
+   - 客户端完整性校验（反调试 / 反注入）
+
+4. **网络优化**
+   - UDP + 自研可靠层（KCP / ENet）
+   - 状态变化频率限制（Rate Limiting）
+   - 兴趣区域（AOI / Area of Interest）：只同步视野内实体
+   - 数据压缩（位运算 / protobuf）
+
+5. **调试工具**
+   - 服务器 / 客户端同步录像回放
+   - 网络模拟器（丢包 / 抖动注入）
+   - 时间戳 + Replay 系统
 
 ---

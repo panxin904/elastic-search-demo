@@ -6,13 +6,13 @@
     <atom:link href="https://java-px.bot.cd/go/feed.xml" rel="self" type="application/rss+xml" />
     <description>go 知识图谱（36 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 19 Aug 2026 20:00:49 -0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
     <item>
       <title>go 知识图谱</title>
       <link>https://java-px.bot.cd/go/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/go/</guid>
       <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "goroutine 调度原理、栈扩容讲不清？", "channel vs sync.Mutex 不知道选哪个？", "Go 错误处理（error / pan</description>
-      <pubDate>Sun, 16 Aug 2026 09:36:38 -0000</pubDate>
+      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
     </item>
     <item>
       <title>反射 reflect</title>

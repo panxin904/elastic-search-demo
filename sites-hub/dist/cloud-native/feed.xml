@@ -6,13 +6,13 @@
     <atom:link href="https://java-px.bot.cd/cloud-native/feed.xml" rel="self" type="application/rss+xml" />
     <description>cloud-native 知识图谱（55 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 19 Aug 2026 20:00:49 -0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
     <item>
       <title>cloud-native 知识图谱</title>
       <link>https://java-px.bot.cd/cloud-native/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/</guid>
       <description>features: title: Docker 容器 details: Docker 基础 · 镜像 · 容器 · 网络 · 卷 · Compose link: /01-docker/intro linkText: 开始 Docker → title: k8s 架构 details: 控制面 / Node / kubectl / etcd · 集群全貌 link: /02-k8s-arch/ove</description>
-      <pubDate>Sun, 16 Aug 2026 09:36:38 -0000</pubDate>
+      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
     </item>
     <item>
       <title>Deployment</title>

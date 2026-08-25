@@ -6,13 +6,90 @@
     <atom:link href="https://java-px.bot.cd/java/feed.xml" rel="self" type="application/rss+xml" />
     <description>java 知识图谱（53 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 19 Aug 2026 20:00:49 -0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
     <item>
       <title>Java Web Dev Manual</title>
       <link>https://java-px.bot.cd/java/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/java/</guid>
       <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Java 知识图谱太广（基础 / JVM / 并发 / 框架 / 中间件）怎么系统学？", "JVM 内存模型（堆 / 栈 / Metaspace / 直接</description>
-      <pubDate>Sun, 16 Aug 2026 09:36:38 -0000</pubDate>
+      <pubDate>Tue, 25 Aug 2026 19:05:12 -0000</pubDate>
+    </item>
+    <item>
+      <title>数据脱敏</title>
+      <link>https://java-px.bot.cd/java/03-practice/data-masking</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/03-practice/data-masking</guid>
+      <description>对手机号、身份证、银行卡等敏感信息进行部分遮蔽处理。 **静态脱敏**：DB 导出前就脱敏（备份、日志、BI 报表场景）。优点：调用方无感知。 **动态脱敏**：查询时按用户权限脱敏（金融 / 医疗合规场景）。常用 `@JsonSerialize` + 自定义 Serializer 屏蔽敏感字段。 **常见脱敏规则**： - 手机号 `138****1234` - 身份证 `110101*****</description>
+      <pubDate>Mon, 24 Aug 2026 21:00:07 -0000</pubDate>
+    </item>
+    <item>
+      <title>Nginx</title>
+      <link>https://java-px.bot.cd/java/04-tech/nginx</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/nginx</guid>
+      <description>Nginx 是高性能的 HTTP 服务器和反向代理，常用于负载均衡、静态资源、HTTPS 终端。 **反向代理**：`proxy_pass http://backend;` + `proxy_set_header X-Real-IP $remote_addr;` **负载均衡策略**： - `round-robin`（默认，轮询） - `least_conn`（最少连接，适合长连接） - `ip_</description>
+      <pubDate>Mon, 24 Aug 2026 21:00:07 -0000</pubDate>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>https://java-px.bot.cd/java/04-tech/docker</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/docker</guid>
+      <description>Docker 实现应用容器化，解决"在我机器上能跑"的问题。 **多阶段构建**：减少镜像体积（builder stage + runtime stage），最终镜像只含运行时依赖。 **Dockerfile 最佳实践**： - 容器跑应用用非 root 用户（`USER appuser`） - .dockerignore 排除 target/、.git/、node_modules/ 等 - 健康</description>
+      <pubDate>Mon, 24 Aug 2026 21:00:07 -0000</pubDate>
+    </item>
+    <item>
+      <title>微服务架构</title>
+      <link>https://java-px.bot.cd/java/02-design/microservices</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/microservices</guid>
+      <description>微服务将单体应用拆分为一组独立部署的小服务，每个服务围绕特定业务能力构建。 | 组件 | 功能 | |---|---| | Nacos | 注册中心 + 配置中心 | | Sentinel | 流量控制、熔断降级 | | Seata | 分布式事务 | | Gateway | API 网关 | | RocketMQ | 消息队列 | | 原则 | 说明 | |---|---| | 单一职责 | 一</description>
+      <pubDate>Mon, 24 Aug 2026 20:59:47 -0000</pubDate>
+    </item>
+    <item>
+      <title>MVC 模式</title>
+      <link>https://java-px.bot.cd/java/02-design/mvc-pattern</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/mvc-pattern</guid>
+      <description>Spring MVC 是 Spring Web 框架的核心，基于 Model-View-Controller 模式。 | | Filter | Interceptor | |---|---|---| | 层面 | Servlet 容器 | Spring 框架 | | 能获取 Bean | 否 | 是 | | 能获取请求体 | 否（只能 request/response） | 是（HandlerMe</description>
+      <pubDate>Mon, 24 Aug 2026 20:59:47 -0000</pubDate>
+    </item>
+    <item>
+      <title>依赖注入</title>
+      <link>https://java-px.bot.cd/java/02-design/dependency-injection</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/dependency-injection</guid>
+      <description>Spring 通过 IoC 容器管理对象的创建和依赖关系，开发者只需声明需要什么。 | | @Autowired | @Resource | |---|---|---| | 来源 | Spring | JDK (JSR-250) | | 默认装配 | byType | byName | | 指定方式 | @Qualifier | name 属性 | **DI 优势**：依赖关系**显式可见**（构</description>
+      <pubDate>Mon, 24 Aug 2026 20:59:47 -0000</pubDate>
+    </item>
+    <item>
+      <title>责任链模式</title>
+      <link>https://java-px.bot.cd/java/02-design/chain-of-responsibility</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/chain-of-responsibility</guid>
+      <description>将请求沿着处理链传递，每个处理器决定处理或传递给下一个。 - **Servlet Filter 链**：每个 Filter 决定是否放行 - **Spring Interceptor**：preHandle → Controller → postHandle → afterCompletion - **审批流**：组长 → 经理 → 总监 逐级审批 **使用场景**：请求需要**多个处理者**依次</description>
+      <pubDate>Mon, 24 Aug 2026 20:59:47 -0000</pubDate>
+    </item>
+    <item>
+      <title>策略模式</title>
+      <link>https://java-px.bot.cd/java/02-design/strategy-pattern</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/strategy-pattern</guid>
+      <description>定义一组算法，分别封装，使其可以互相替换。 - **多种支付方式**：微信支付、支付宝、银行卡 - **多种通知渠道**：短信、邮件、App推送 - **多种计费规则**：普通用户、VIP、企业 **使用场景**：多种算法可以**互换**，且算法选择**在运行时决定**（如支付方式 选择、排序算法选择、压缩算法选择）。 **优势**：消除 if-else 链，新增算法只需新增 Strategy 实</description>
+      <pubDate>Mon, 24 Aug 2026 20:59:47 -0000</pubDate>
+    </item>
+    <item>
+      <title>模板方法模式</title>
+      <link>https://java-px.bot.cd/java/02-design/template-method</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/template-method</guid>
+      <description>在父类中定义算法骨架，子类实现具体步骤。 - **BaseService**：通用 CRUD 模板 - **JdbcTemplate / RestTemplate**：连接管理、异常处理已封装 - **数据导出**：查询数据 → 格式化 → 写入文件（子类实现格式化） **使用场景**：业务流程**整体固定**，但某些步骤需要子类定制（如 Spring `AbstractView.render()</description>
+      <pubDate>Mon, 24 Aug 2026 20:59:47 -0000</pubDate>
+    </item>
+    <item>
+      <title>代理模式</title>
+      <link>https://java-px.bot.cd/java/02-design/proxy-pattern</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/proxy-pattern</guid>
+      <description>为其他对象提供代理，控制对原对象的访问。 - **Spring AOP**：JDK 动态代理（接口代理）+ CGLIB（类代理） - **MyBatis Mapper**：接口没有实现类，运行时生成代理对象 - **@Transactional**：生成代理，在方法前后开启/提交/回滚事务 | | JDK 动态代理 | CGLIB | |---|---|---| | 机制 | 基于接口 | 基于继</description>
+      <pubDate>Mon, 24 Aug 2026 20:59:47 -0000</pubDate>
+    </item>
+    <item>
+      <title>工厂模式</title>
+      <link>https://java-px.bot.cd/java/02-design/factory-pattern</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/factory-pattern</guid>
+      <description>定义创建对象的接口，让子类决定实例化哪个类。 - **Spring BeanFactory**：IoC 容器本身就是巨型工厂 - **SqlSessionFactory**：MyBatis 创建 SqlSession - **ThreadPoolExecutor 工厂**：统一创建线程池 **使用场景**：创建逻辑较复杂（参数多 / 多种类型 / 需要缓存 / 需要单例管理）， 或者**调用方不想</description>
+      <pubDate>Mon, 24 Aug 2026 20:59:47 -0000</pubDate>
     </item>
     <item>
       <title>MyBatis / MyBatis-Plus</title>
@@ -41,20 +118,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/testing</guid>
       <description>Java 测试的核心组合：JUnit 5 + Mockito + SpringBootTest。 &lt;KnowledgeGraph mode="neighbor" focusNodeId="testing" :height="400" /&gt;</description>
       <pubDate>Wed, 22 Jul 2026 20:53:10 -0000</pubDate>
-    </item>
-    <item>
-      <title>Nginx</title>
-      <link>https://java-px.bot.cd/java/04-tech/nginx</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/nginx</guid>
-      <description>Nginx 是高性能的 HTTP 服务器和反向代理，常用于负载均衡、静态资源、HTTPS 终端。 &lt;KnowledgeGraph mode="neighbor" focusNodeId="nginx" :height="400" /&gt;</description>
-      <pubDate>Wed, 22 Jul 2026 20:53:02 -0000</pubDate>
-    </item>
-    <item>
-      <title>Docker</title>
-      <link>https://java-px.bot.cd/java/04-tech/docker</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/docker</guid>
-      <description>Docker 实现应用容器化，解决"在我机器上能跑"的问题。 | 概念 | 说明 | |---|---| | 镜像 Image | 应用的只读模板 | | 容器 Container | 镜像的运行实例 | | Dockerfile | 镜像构建脚本 | | docker-compose | 多容器编排 | &lt;KnowledgeGraph mode="neighbor" focusNodeId="d</description>
-      <pubDate>Wed, 22 Jul 2026 20:52:56 -0000</pubDate>
     </item>
     <item>
       <title>构建工具 Maven/Gradle</title>
@@ -120,13 +183,6 @@
       <pubDate>Wed, 22 Jul 2026 20:51:40 -0000</pubDate>
     </item>
     <item>
-      <title>数据脱敏</title>
-      <link>https://java-px.bot.cd/java/03-practice/data-masking</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/java/03-practice/data-masking</guid>
-      <description>对手机号、身份证、银行卡等敏感信息进行部分遮蔽处理。 | 类型 | 规则 | 示例 | |---|---|---| | 手机号 | 保留前3后4 | 138****1234 | | 身份证 | 保留前4后4 | 3301**********1234 | | 银行卡 | 保留后4 | ****1234 | | 姓名 | 保留姓，名用* | 张** | | 邮箱 | 用户名部分打* | t***@qq</description>
-      <pubDate>Wed, 22 Jul 2026 20:51:30 -0000</pubDate>
-    </item>
-    <item>
       <title>接口幂等</title>
       <link>https://java-px.bot.cd/java/03-practice/idempotency</link>
       <guid isPermaLink="true">https://java-px.bot.cd/java/03-practice/idempotency</guid>
@@ -190,48 +246,6 @@
       <pubDate>Wed, 22 Jul 2026 20:50:22 -0000</pubDate>
     </item>
     <item>
-      <title>代理模式</title>
-      <link>https://java-px.bot.cd/java/02-design/proxy-pattern</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/proxy-pattern</guid>
-      <description>为其他对象提供代理，控制对原对象的访问。 - **Spring AOP**：JDK 动态代理（接口代理）+ CGLIB（类代理） - **MyBatis Mapper**：接口没有实现类，运行时生成代理对象 - **@Transactional**：生成代理，在方法前后开启/提交/回滚事务 | | JDK 动态代理 | CGLIB | |---|---|---| | 机制 | 基于接口 | 基于继</description>
-      <pubDate>Wed, 22 Jul 2026 20:50:14 -0000</pubDate>
-    </item>
-    <item>
-      <title>工厂模式</title>
-      <link>https://java-px.bot.cd/java/02-design/factory-pattern</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/factory-pattern</guid>
-      <description>定义创建对象的接口，让子类决定实例化哪个类。 - **Spring BeanFactory**：IoC 容器本身就是巨型工厂 - **SqlSessionFactory**：MyBatis 创建 SqlSession - **ThreadPoolExecutor 工厂**：统一创建线程池 &lt;KnowledgeGraph mode="neighbor" focusNodeId="factory-pa</description>
-      <pubDate>Wed, 22 Jul 2026 20:50:11 -0000</pubDate>
-    </item>
-    <item>
-      <title>模板方法模式</title>
-      <link>https://java-px.bot.cd/java/02-design/template-method</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/template-method</guid>
-      <description>在父类中定义算法骨架，子类实现具体步骤。 - **BaseService**：通用 CRUD 模板 - **JdbcTemplate / RestTemplate**：连接管理、异常处理已封装 - **数据导出**：查询数据 → 格式化 → 写入文件（子类实现格式化） &lt;KnowledgeGraph mode="neighbor" focusNodeId="template-method" :he</description>
-      <pubDate>Wed, 22 Jul 2026 20:50:09 -0000</pubDate>
-    </item>
-    <item>
-      <title>策略模式</title>
-      <link>https://java-px.bot.cd/java/02-design/strategy-pattern</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/strategy-pattern</guid>
-      <description>定义一组算法，分别封装，使其可以互相替换。 - **多种支付方式**：微信支付、支付宝、银行卡 - **多种通知渠道**：短信、邮件、App推送 - **多种计费规则**：普通用户、VIP、企业 &lt;KnowledgeGraph mode="neighbor" focusNodeId="strategy-pattern" :height="400" /&gt;</description>
-      <pubDate>Wed, 22 Jul 2026 20:50:06 -0000</pubDate>
-    </item>
-    <item>
-      <title>责任链模式</title>
-      <link>https://java-px.bot.cd/java/02-design/chain-of-responsibility</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/chain-of-responsibility</guid>
-      <description>将请求沿着处理链传递，每个处理器决定处理或传递给下一个。 - **Servlet Filter 链**：每个 Filter 决定是否放行 - **Spring Interceptor**：preHandle → Controller → postHandle → afterCompletion - **审批流**：组长 → 经理 → 总监 逐级审批 &lt;KnowledgeGraph mode="ne</description>
-      <pubDate>Wed, 22 Jul 2026 20:50:04 -0000</pubDate>
-    </item>
-    <item>
-      <title>微服务架构</title>
-      <link>https://java-px.bot.cd/java/02-design/microservices</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/microservices</guid>
-      <description>微服务将单体应用拆分为一组独立部署的小服务，每个服务围绕特定业务能力构建。 | 组件 | 功能 | |---|---| | Nacos | 注册中心 + 配置中心 | | Sentinel | 流量控制、熔断降级 | | Seata | 分布式事务 | | Gateway | API 网关 | | RocketMQ | 消息队列 | | 原则 | 说明 | |---|---| | 单一职责 | 一</description>
-      <pubDate>Wed, 22 Jul 2026 20:50:01 -0000</pubDate>
-    </item>
-    <item>
       <title>领域驱动设计 DDD</title>
       <link>https://java-px.bot.cd/java/02-design/ddd</link>
       <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/ddd</guid>
@@ -250,20 +264,6 @@
       <link>https://java-px.bot.cd/java/02-design/aop</link>
       <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/aop</guid>
       <description>AOP（Aspect-Oriented Programming）在不修改原有代码的前提下，通过"切面"横向织入增强逻辑。 | 场景 | 说明 | |---|---| | 日志记录 | 自动记录方法入参、出参、耗时 | | 事务管理 | @Transactional 就是 AOP 实现 | | 权限校验 | 方法执行前校验权限 | | 缓存处理 | 方法结果自动缓存 | | 异常处理 | 统一拦截异</description>
-      <pubDate>Wed, 22 Jul 2026 20:49:19 -0000</pubDate>
-    </item>
-    <item>
-      <title>依赖注入</title>
-      <link>https://java-px.bot.cd/java/02-design/dependency-injection</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/dependency-injection</guid>
-      <description>Spring 通过 IoC 容器管理对象的创建和依赖关系，开发者只需声明需要什么。 | | @Autowired | @Resource | |---|---|---| | 来源 | Spring | JDK (JSR-250) | | 默认装配 | byType | byName | | 指定方式 | @Qualifier | name 属性 | &lt;KnowledgeGraph mode="ne</description>
-      <pubDate>Wed, 22 Jul 2026 20:49:19 -0000</pubDate>
-    </item>
-    <item>
-      <title>MVC 模式</title>
-      <link>https://java-px.bot.cd/java/02-design/mvc-pattern</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/mvc-pattern</guid>
-      <description>Spring MVC 是 Spring Web 框架的核心，基于 Model-View-Controller 模式。 | | Filter | Interceptor | |---|---|---| | 层面 | Servlet 容器 | Spring 框架 | | 能获取 Bean | 否 | 是 | | 能获取请求体 | 否（只能 request/response） | 是（HandlerMe</description>
       <pubDate>Wed, 22 Jul 2026 20:49:19 -0000</pubDate>
     </item>
     <item>

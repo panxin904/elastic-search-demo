@@ -6,13 +6,13 @@
     <atom:link href="https://java-px.bot.cd/security/feed.xml" rel="self" type="application/rss+xml" />
     <description>security 知识图谱（36 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 19 Aug 2026 20:00:49 -0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
     <item>
       <title>Security 知识图谱</title>
       <link>https://java-px.bot.cd/security/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/security/</guid>
       <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "OWASP Top 10 风险记不全，audit 一个 Web 应用无从下手？", "认证 vs 授权、RBAC vs ABAC 模型区别？", "密码学（</description>
-      <pubDate>Sun, 16 Aug 2026 09:36:38 -0000</pubDate>
+      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
     </item>
     <item>
       <title>A06 易受攻击组件</title>

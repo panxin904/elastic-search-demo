@@ -6,13 +6,13 @@
     <atom:link href="https://java-px.bot.cd/ai/feed.xml" rel="self" type="application/rss+xml" />
     <description>ai 知识图谱（57 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 19 Aug 2026 20:00:49 -0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
     <item>
       <title>ai 知识图谱</title>
       <link>https://java-px.bot.cd/ai/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/ai/</guid>
       <description>features: title: 大模型与推理 details: Claude / GPT / Gemini / DeepSeek / Llama / Mistral / 选型 link: /01-models/claude linkText: 开始看模型 → title: AI 编程工具 details: Claude Code / Cursor / Copilot / Continue / A</description>
-      <pubDate>Sun, 16 Aug 2026 09:36:38 -0000</pubDate>
+      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
     </item>
     <item>
       <title>MCP 核心概念</title>
