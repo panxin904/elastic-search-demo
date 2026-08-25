@@ -23,7 +23,7 @@
 | Vue 组件缺失（md 引用无 .vue） | 0 | 0 | ✅ |
 | Mermaid 代码块未闭合 | 0 | 0 | ✅ |
 | 标题层级跳级 | 0 | 0 | ✅ |
-| 跨子站重复标题 | 186 | ≤ 20 | ⚠️ |
+| 跨子站重复标题 | 141 | ≤ 20 | ⚠️ |
 
 ## 一、各子站统计
 
@@ -123,7 +123,7 @@
 | clickhouse-html | 4.5 | 3 / 36 | 加代码示例 / 表格 / Vue 组件 |
 | cloud-native-html | 4.7 | 1 / 55 | 加代码示例 / 表格 / Vue 组件 |
 
-## 七、跨子站重复标题（186 组 — 候选合并/跨站引用）
+## 七、跨子站重复标题（141 组 — 候选合并/跨站引用）
 
 模板 词已在检测中过滤（在图谱中的位置 / 一句话定义 / 关键 takeaway 等）
 
@@ -141,16 +141,8 @@
   - `architecture/sidecar.md`
   - `cloud-native/sidecar.md`
   - `cloud-native/sidecar.md`
-- **'Saga 模式'** (2 处)
-  - `architecture/saga.md`
-  - `system-design/saga.md`
-- **'消息可靠性'** (2 处)
-  - `architecture/compare.md`
-  - `java/message-queue.md`
-- **'多级缓存架构'** (4 处)
+- **'多级缓存架构'** (2 处)
   - `architecture/architecture.md`
-  - `architecture/architecture.md`
-  - `system-design/multi-level.md`
   - `system-design/multi-level.md`
 - **'缓存一致性'** (3 处)
   - `architecture/consistency.md`
@@ -160,12 +152,6 @@
   - `architecture/base.md`
   - `cloud/cap-base.md`
 - **'Raft 共识算法'** (2 处)
-  - `architecture/raft.md`
-  - `system-design/raft.md`
-- **'Paxos vs Raft'** (2 处)
-  - `architecture/raft.md`
-  - `system-design/paxos.md`
-- **'角色与状态'** (2 处)
   - `architecture/raft.md`
   - `system-design/raft.md`
 - **'CAP 定理'** (3 处)
@@ -178,18 +164,9 @@
 - **'Kafka Streams'** (2 处)
   - `bigdata/streams.md`
   - `kafka/streams.md`
-- **'数据写入流程'** (2 处)
-  - `bigdata/architecture.md`
-  - `kafka/overview.md`
-- **'故障切换流程'** (2 处)
-  - `bigdata/ha.md`
-  - `postgresql/patroni.md`
 - **'三大核心组件'** (2 处)
   - `chaos/architecture.md`
   - `cloud-native/control-plane.md`
-- **'5xx 错误率'** (2 处)
-  - `chaos/overview.md`
-  - `observability/logql.md`
 - **'聚合窗口函数'** (2 处)
   - `clickhouse/window-functions.md`
   - `postgresql/window.md`
@@ -211,12 +188,10 @@
   - `cloud-native/loki.md`
   - `observability/pyroscope.md`
   - `observability/tempo.md`
-- **'监控与告警'** (5 处)
+- **'监控与告警'** (3 处)
   - `clickhouse/realtime-warehouse.md`
   - `clickhouse/dbt-airbyte.md`
   - `kafka/recovery.md`
-  - `system-design/not-lost.md`
-  - `system-design/backlog.md`
 - **'Prometheus 配置'** (3 处)
   - `clickhouse/metrics-storage.md`
   - `kafka/backlog.md`
@@ -237,7 +212,28 @@
   - `observability/collector.md`
   - `observability/jaeger.md`
   - `python/docker.md`
-- ... 及其他 156 组
+- **'客户端连接'** (2 处)
+  - `clickhouse/client.md`
+  - `redis/install.md`
+- **'指定数据库'** (2 处)
+  - `clickhouse/client.md`
+  - `mysql/mysql-client.md`
+- **'分片键选择'** (2 处)
+  - `clickhouse/distributed.md`
+  - `mysql/sharding-strategy.md`
+- **'微服务架构'** (2 处)
+  - `cloud/intro.md`
+  - `java/microservices.md`
+- **'选举超时（毫秒）'** (2 处)
+  - `cloud/nacos-principle.md`
+  - `kafka/controller.md`
+- **'方法级权限'** (2 处)
+  - `cloud/basic.md`
+  - `java/spring-security.md`
+- **'三大核心概念'** (2 处)
+  - `cloud/basic.md`
+  - `rust/overview.md`
+- ... 及其他 111 组
 
 ## 八、关键发现与建议
 

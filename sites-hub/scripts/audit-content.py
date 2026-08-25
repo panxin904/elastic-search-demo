@@ -450,6 +450,10 @@ def main():
         for t in h1 + h2:
             t = t.strip()
             if 4 < len(t) < 60:
+                # §8.67：编号章节智能豁免（'1. xxx' / '11. xxx' 开头）
+                # 多站模板生成的固定章节标题，去前缀后剩余词（如 '业务场景'）会被误判 dups
+                if re.match(r'^\d+\.\s', t) and len(t) <= 30:
+                    continue
                 all_titles.append((t, site_short, path))
 
     # 重复标题检测：跨子站完全相同 + 排除模板词
