@@ -106,3 +106,15 @@ const relatedSites = [
 **适用读者**：SRE / DevOps 工程师 / 平台工程师 / 后端架构师 / 研发效能负责人 / 关注 AI 部署的算法工程师。
 
 **前置知识**：Linux 命令行、Git、Docker 基础、至少一门后端语言、HTTP 协议。
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [cloud-native](https://java-px.bot.cd/cloud-native/)：K8s 编排
+- [linux](https://java-px.bot.cd/linux/)：Linux 运维
+- [observability](https://java-px.bot.cd/observability/)：监控告警
+- [python](https://java-px.bot.cd/python/)：脚本工具
+- [go](https://java-px.bot.cd/go/)：Go 工具链

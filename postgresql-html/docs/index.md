@@ -123,3 +123,15 @@ const relatedSites = [
 | 进阶 | 2-3 周 | 04-query → 05-transaction → 06-advanced |
 | 高级 | 2-3 周 | 07-operations → 08-replication → 09-connection |
 | 实战 | 持续 | 10-extensions（PostGIS/pgvector/TimescaleDB）→ 11-compare |
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [mysql](https://java-px.bot.cd/mysql/)：MySQL 对比
+- [clickhouse](https://java-px.bot.cd/clickhouse/)：ClickHouse OLAP
+- [system-design](https://java-px.bot.cd/system-design/)：数据库选型
+- [architecture](https://java-px.bot.cd/architecture/)：数据一致性
+- [linux](https://java-px.bot.cd/linux/)：Linux 服务端调优

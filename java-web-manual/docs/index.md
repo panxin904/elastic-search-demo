@@ -132,3 +132,18 @@ const relatedSites = [
 - [Spring Security 参考](https://docs.spring.io/spring-security/reference/)
 - [阿里 Java 开发手册](https://github.com/alibaba/p3c)
 - [Design Patterns in Java](https://refactoring.guru/design-patterns/java)
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [java-language](https://java-px.bot.cd/java-language/)：JVM 调优 / 字节码 / 类加载器
+- [system-design](https://java-px.bot.cd/system-design/)：系统设计 / 高并发 / 分布式
+- [architecture](https://java-px.bot.cd/architecture/)：企业级架构 / 微服务
+- [mysql](https://java-px.bot.cd/mysql/)：MySQL 索引 / SQL 优化
+- [redis](https://java-px.bot.cd/redis/)：Redis 缓存 / 分布式锁
+- [kafka](https://java-px.bot.cd/kafka/)：Kafka 消息队列
+- [cloud-native](https://java-px.bot.cd/cloud-native/)：Docker / K8s 部署
+- [es](https://java-px.bot.cd/es/)：Elasticsearch 搜索

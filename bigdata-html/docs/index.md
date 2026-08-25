@@ -158,3 +158,15 @@ const relatedSites = [
 4. 数据湖 / Lakehouse  →  Delta / Iceberg / Hudi
 5. 面试       →  OLAP 选型 + 案例 + 高频题
 ```
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [kafka](https://java-px.bot.cd/kafka/)：Kafka 流处理
+- [es](https://java-px.bot.cd/es/)：Elasticsearch
+- [clickhouse](https://java-px.bot.cd/clickhouse/)：ClickHouse OLAP
+- [hadoop](https://java-px.bot.cd/hadoop/)：Hadoop 生态
+- [python](https://java-px.bot.cd/python/)：Python 数据处理

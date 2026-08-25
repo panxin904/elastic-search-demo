@@ -78,3 +78,14 @@ const relatedSites = [
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [java-language](https://java-px.bot.cd/java-language/)：Java 设计模式
+- [java](https://java-px.bot.cd/java-web-manual/)：Java 实现
+- [architecture](https://java-px.bot.cd/architecture/)：架构模式
+- [system-design](https://java-px.bot.cd/system-design/)：系统设计

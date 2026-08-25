@@ -122,3 +122,16 @@ const relatedSites = [
 - [Vue 3](https://vuejs.org/) - 组件化
 - [ECharts 5.x](https://echarts.apache.org/) - 图谱、思维导图
 - 5 个自研交互组件（命令 Playground / 数据结构可视化 / 集群拓扑 / 分布式锁 / 命令速查）
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [mysql](https://java-px.bot.cd/mysql/)：MySQL 主存
+- [kafka](https://java-px.bot.cd/kafka/)：Kafka 异步队列
+- [java](https://java-px.bot.cd/java-web-manual/)：Java 客户端（Redisson / Jedis）
+- [system-design](https://java-px.bot.cd/system-design/)：分布式锁 / 缓存架构
+- [architecture](https://java-px.bot.cd/architecture/)：微服务缓存层
+- [linux](https://java-px.bot.cd/linux/)：Linux 内核参数调优

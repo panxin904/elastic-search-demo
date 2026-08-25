@@ -137,3 +137,13 @@ const relatedSites = [
     <p>解析 Cron 并预览接下来 5 次运行时间。</p>
   </a>
 </div>
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [frontend](https://java-px.bot.cd/frontend/)：前端工具
+- [devops](https://java-px.bot.cd/devops/)：运维工具
+- [python](https://java-px.bot.cd/python/)：Python 工具

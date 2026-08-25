@@ -171,3 +171,15 @@ features:
 3. 全栈    →  加入"Node 后端"
 4. 求职    →  "面试"模块 +  高频手写代码
 ```
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [java](https://java-px.bot.cd/java-web-manual/)：Java 后端 API
+- [android](https://java-px.bot.cd/android/)：Android 移动
+- [java-language](https://java-px.bot.cd/java-language/)：Java 基础
+- [network](https://java-px.bot.cd/network/)：HTTP / WebSocket
+- [devops](https://java-px.bot.cd/devops/)：前端 CI/CD

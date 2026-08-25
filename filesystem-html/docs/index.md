@@ -143,3 +143,14 @@ const relatedSites = [
   <div class="kg-stat"><div class="kg-stat-num">70+</div><div class="kg-stat-label">内容页</div></div>
   <div class="kg-stat"><div class="kg-stat-num">3</div><div class="kg-stat-label">交互组件</div></div>
 </div>
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [linux](https://java-px.bot.cd/linux/)：Linux 文件系统
+- [observability](https://java-px.bot.cd/observability/)：存储监控
+- [postgresql](https://java-px.bot.cd/postgresql/)：PG 存储引擎
+- [mysql](https://java-px.bot.cd/mysql/)：MySQL InnoDB

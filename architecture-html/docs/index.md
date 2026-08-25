@@ -155,3 +155,17 @@ const relatedSites = [
 3. 面试      →  CAP + 缓存三大问题 + 秒杀设计
 4. SRE      →  限流 / 熔断 / 可观测 / 异地多活
 ```
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [system-design](https://java-px.bot.cd/system-design/)：系统设计模式
+- [cloud](https://java-px.bot.cd/cloud/)：微服务架构
+- [cloud-native](https://java-px.bot.cd/cloud-native/)：云原生
+- [java](https://java-px.bot.cd/java-web-manual/)：Java 实现
+- [kafka](https://java-px.bot.cd/kafka/)：消息架构
+- [redis](https://java-px.bot.cd/redis/)：缓存架构
+- [observability](https://java-px.bot.cd/observability/)：可观测性

@@ -5029,3 +5029,87 @@ files: 1567  words: 1,234,766  thin: 0
 - §8.55 audit 工具升级（按需）：加 `content_completeness_score` 检测
 - check-sites.sh CI 门禁：保持 baseline thin ≤ 5%
 - 其他"骨架站"如需章节化，可直接复用生成器模板
+
+# §8.60 C2 跨站内容关联（X-Linking）
+
+> 日期：2026-08-25 · 第五十三次 · 工作量：30 分钟（脚本 + 术语表）
+> 范围：30 个子站（除 springcloud 旧站）
+
+## 8.60.1 背景与根因
+
+**根因**：audit baseline 显示跨站引用仅 159 处（28+ 站），远低于 100 阈值的下限参考值。每站平均 5 个跨站链接，内容孤岛严重。
+
+**典型痛点**：
+
+- java 页提到"JVM 调优"无法跳到 `java-language` 的 JVM 章节
+- ES 页提到"DSL"没有索引到 `system-design`
+- 用户被锁在一个站点的认知闭环
+
+## 8.60.2 实施步骤
+
+1. **建术语映射表** `sites-hub/data/xlink-terms.json`（v1.0）
+   - 30 个源站，每个 3-8 个目标站
+   - 每条含 `{site, label}`，label 是中文场景标签（"JVM 调优" / "Docker 部署"等）
+   - 31 个 source（_meta 不计入），覆盖核心架构 / 数据库 / 中间件 / 前端 / 移动 / IoT / AI 等
+
+2. **写注入脚本** `sites-hub/scripts/xlink-injector.py`
+   - 幂等：检查 `<!-- xlink-injected:do-not-edit -->` 标记
+   - 自动追加到 `index.md`（每个站首页）末尾"## 📚 相关阅读（跨站导航）"段落
+   - 特殊处理：java 用 `java-web-manual` 目录（非 `-html` 后缀）
+   - 跳过 springcloud（已删站）
+
+3. **运行一遍**
+   - 注入 30 站：29 正常 + 1 java（特殊路径）
+   - 失败 0
+
+4. **audit 验证**
+   - xsite 链接数：159 → 311（+152, +95.6%）
+   - 跨站引用密度：~5 → ~10 / 站
+
+## 8.60.3 验证结果
+
+```text
+audit 全局 baseline（2026-08-25）：
+- files: 1567
+- words: 1,237,176
+- thin: 0
+- no_fm: 0
+- broken: 0
+- vue_missing: 0
+- xsite: 311（+152, +95.6%）✅
+```
+
+跨站链接 top 10 站点：
+
+| 子站 | xsite 链接数 |
+|---|---:|
+| android | 13 |
+| filesystem | 13 |
+| java | 13 |
+| security | 13 |
+| architecture | 12 |
+| iot | 12 |
+| mysql | 12 |
+| es | 11 |
+| game | 11 |
+| kafka | 11 |
+
+## 8.60.4 复用与维护
+
+- **新增站点** 时：在 `xlink-terms.json` 加源站条目 + 运行 `xlink-injector.py`
+- **调整推荐** 时：直接编辑 `xlink-terms.json`（JSON 即配置）
+- **撤销注入** 时：脚本支持幂等，已存在 `<!-- xlink-injected -->` 标记会跳过
+- **下阶段增强**：在 `audit-content.py` 加 xsite 推荐链接检查（如：每站应至少有 5 个跨站链接，否则提示补充）
+
+## 8.60.5 与 C1 / C7 的协同
+
+- **C1 子站结构统一化**：每个子站 sidebar 标准化 + index.md 末尾统一加跨站段
+- **C7 阅读体验**：跨站链接是"用户体验补全"，让用户从单站扩展到全栈认知
+- **C3 内容质量审计**：audit baseline 升级（§8.41 / §8.49 / §8.55 体系），新增 xsite 密度指标
+
+## 8.60.6 后续按需
+
+- 站内 xsite 检测：在 audit 加 `xsite_density`（每 1000 字应有 ≥ 1 个跨站链接）
+- 推荐链接反馈：基于点击数据调整推荐（需要 Plausible 接入，先做数据收集）
+- 自动检测"无 xsite 链接"的孤岛页（> 5 个 md 但 xsite=0 的页）
+- glossary 同步（§C8）：把跨站链接与术语表关联，AI 总结时自动推荐

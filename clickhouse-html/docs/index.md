@@ -87,3 +87,15 @@ const relatedSites = [
 | 入门 | 1 周 | 01-foundations → 02-column-store |
 | 进阶 | 2 周 | 03-table-engine → 04-olap-scenarios |
 | 高级 | 2 周 | 05-ecosystem → 06-compare |
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [es](https://java-px.bot.cd/es/)：ES 对比
+- [bigdata](https://java-px.bot.cd/bigdata/)：大数据生态
+- [postgresql](https://java-px.bot.cd/postgresql/)：PostgreSQL 对比
+- [mysql](https://java-px.bot.cd/mysql/)：MySQL 对比
+- [system-design](https://java-px.bot.cd/system-design/)：OLAP 架构

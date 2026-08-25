@@ -132,3 +132,15 @@ const relatedSites = [
 - [Vue 3](https://vuejs.org/) - 组件化
 - [ECharts 5.x](https://echarts.apache.org/) - 图谱、思维导图、排序可视化
 - 7 个自研交互组件（Playground / Scrapy 流程 / 排序可视化 / API 速查 / 知识图谱 / 思维导图 / Cheatsheet）
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [java](https://java-px.bot.cd/java-web-manual/)：Java 对比
+- [ai](https://java-px.bot.cd/ai/)：AI / 机器学习
+- [data](https://java-px.bot.cd/data/)：数据处理
+- [devops](https://java-px.bot.cd/devops/)：自动化运维
+- [linux](https://java-px.bot.cd/linux/)：Linux 脚本

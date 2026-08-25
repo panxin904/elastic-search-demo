@@ -126,3 +126,14 @@ const relatedSites = [
 ---
 
 > **Rust 不是更安全的 C++，是一种全新的系统编程思维**。开始你的 Rust 之旅，从 [基础总览](/01-basics/overview) 开始。
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [go](https://java-px.bot.cd/go/)：Go 对比
+- [linux](https://java-px.bot.cd/linux/)：Linux 系统编程
+- [android](https://java-px.bot.cd/android/)：NDK 集成
+- [iot](https://java-px.bot.cd/iot/)：嵌入式 Rust

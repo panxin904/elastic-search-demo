@@ -177,3 +177,16 @@ features:
 4. 性能调优  →  "性能监控 / 内核 / sysctl"
 5. 安全合规  →  "防火墙 / SELinux / auditd"
 ```
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [devops](https://java-px.bot.cd/devops/)：DevOps 自动化
+- [cloud-native](https://java-px.bot.cd/cloud-native/)：云原生
+- [network](https://java-px.bot.cd/network/)：Linux 网络
+- [security](https://java-px.bot.cd/security/)：Linux 安全
+- [rust](https://java-px.bot.cd/rust/)：Linux 系统编程
+- [filesystem](https://java-px.bot.cd/filesystem/)：文件系统

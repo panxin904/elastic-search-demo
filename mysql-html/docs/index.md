@@ -146,3 +146,17 @@ const relatedSites = [
 | 📋 SQL 速查表 | 30+ 模板，可搜索 + 一键复制 |
 | 🧮 性能计算器 | B+Tree 高度 / Buffer Pool / QPS 容量估算 |
 | ☕ **MyBatis/MyBatis-Plus** | 10 页从入门到高级实战的 ORM 教程 |
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [postgresql](https://java-px.bot.cd/postgresql/)：PostgreSQL 对比
+- [redis](https://java-px.bot.cd/redis/)：Redis 缓存层
+- [clickhouse](https://java-px.bot.cd/clickhouse/)：ClickHouse OLAP
+- [system-design](https://java-px.bot.cd/system-design/)：数据库选型
+- [architecture](https://java-px.bot.cd/architecture/)：读写分离 / 分库分表
+- [observability](https://java-px.bot.cd/observability/)：慢查询监控
+- [linux](https://java-px.bot.cd/linux/)：Linux I/O 调优

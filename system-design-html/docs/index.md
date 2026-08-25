@@ -143,3 +143,16 @@ const relatedSites = [
 | 架构师 | CAP / Raft / Saga / 微服务模式 / 多活 |
 | 面试候选人 | CAP + 一致性哈希 + 短链 + 秒杀 + 抢红包 |
 | SRE | 高可用设计 + 多活 / 单元化 + 容灾演练 |
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [architecture](https://java-px.bot.cd/architecture/)：企业架构
+- [java](https://java-px.bot.cd/java-web-manual/)：Java 实现
+- [kafka](https://java-px.bot.cd/kafka/)：消息
+- [redis](https://java-px.bot.cd/redis/)：缓存
+- [mysql](https://java-px.bot.cd/mysql/)：数据库
+- [design-pattern](https://java-px.bot.cd/design-pattern/)：设计模式

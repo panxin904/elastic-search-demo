@@ -131,3 +131,16 @@ const relatedSites = [
 - 🎓 [Elastic 官方培训](https://www.elastic.co/training/)
 - 📚 [Elasticsearch 权威指南](https://www.elastic.co/guide/en/elasticsearch/guide/current/index.html)
 - 🔬 [Lucene 官方文档](https://lucene.apache.org/core/)
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [mysql](https://java-px.bot.cd/mysql/)：MySQL 全文索引对比
+- [clickhouse](https://java-px.bot.cd/clickhouse/)：ClickHouse OLAP 对比
+- [bigdata](https://java-px.bot.cd/bigdata/)：大数据生态
+- [system-design](https://java-px.bot.cd/system-design/)：搜索引擎架构
+- [java](https://java-px.bot.cd/java-web-manual/)：Java ES Client
+- [observability](https://java-px.bot.cd/observability/)：ES 集群监控

@@ -122,3 +122,14 @@ const relatedSites = [
 - **直播开发** → [流媒体协议](/05-protocol/rtmp) → [HLS](/05-protocol/hls) → [CDN 架构](/05-protocol/cdn-arch) → [直播应用](/10-application/live)
 - **AI 算法** → [超分](/04-algorithm/super-res) → [AI 超分](/07-ai/super-res-ai) → [视频生成](/07-ai/generation) → [数字人](/07-ai/digital-human)
 - **面试** → [高频题](/12-interview/questions) → [案例题](/12-interview/cases) → [编码对比](/12-interview/comparison)
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [ffmpeg-html](https://java-px.bot.cd/ffmpeg-html/)：FFmpeg 命令行
+- [frontend](https://java-px.bot.cd/frontend/)：Web 播放器
+- [ai](https://java-px.bot.cd/ai/)：视频 AI
+- [python](https://java-px.bot.cd/python/)：Python 处理

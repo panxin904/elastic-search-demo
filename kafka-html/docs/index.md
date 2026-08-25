@@ -151,3 +151,16 @@ Kafka 是分布式消息中间件的标杆，但绝大多数人：
 - [Vue 3](https://vuejs.org/) - 组件化
 - [ECharts 5.x](https://echarts.apache.org/) - 图谱、思维导图
 - 6 个自研交互组件（命令 Playground / 集群拓扑 / 消费者模拟器 / 命令速查 / 知识图谱 / 思维导图）
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [redis](https://java-px.bot.cd/redis/)：Redis 缓存对比
+- [java](https://java-px.bot.cd/java-web-manual/)：Java 客户端集成
+- [system-design](https://java-px.bot.cd/system-design/)：消息可靠性
+- [architecture](https://java-px.bot.cd/architecture/)：事件驱动架构
+- [observability](https://java-px.bot.cd/observability/)：消息延迟监控
+- [bigdata](https://java-px.bot.cd/bigdata/)：Kafka 在大数据中的角色

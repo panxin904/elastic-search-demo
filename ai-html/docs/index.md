@@ -159,3 +159,15 @@ const relatedSites = [
 <ClientOnly>
   <GiscusComment />
 </ClientOnly>
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [python](https://java-px.bot.cd/python/)：Python AI
+- [bigdata](https://java-px.bot.cd/bigdata/)：大数据训练
+- [system-design](https://java-px.bot.cd/system-design/)：AI 系统架构
+- [observability](https://java-px.bot.cd/observability/)：模型监控
+- [python-html](https://java-px.bot.cd/python-html/)：Python 工具链

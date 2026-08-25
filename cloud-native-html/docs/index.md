@@ -159,3 +159,16 @@ const relatedSites = [
 3. 安全 / 审计      →  加安全章节 + CKS
 4. 求职 / 跳槽      →  排错 + CKA 备考
 ```
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [cloud](https://java-px.bot.cd/cloud/)：Spring Cloud 微服务
+- [linux](https://java-px.bot.cd/linux/)：Linux 内核基础
+- [devops](https://java-px.bot.cd/devops/)：DevOps 流程
+- [observability](https://java-px.bot.cd/observability/)：K8s 监控
+- [architecture](https://java-px.bot.cd/architecture/)：云原生架构
+- [security](https://java-px.bot.cd/security/)：容器安全

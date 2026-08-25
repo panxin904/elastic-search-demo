@@ -153,3 +153,15 @@ const relatedSites = [
 ---
 
 🏠 <a href="https://java-px.bot.cd/" target="_blank">返回门户首页</a>
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [devops](https://java-px.bot.cd/devops/)：DevOps 监控
+- [cloud-native](https://java-px.bot.cd/cloud-native/)：K8s 监控
+- [kafka](https://java-px.bot.cd/kafka/)：日志收集
+- [es](https://java-px.bot.cd/es/)：日志存储
+- [java](https://java-px.bot.cd/java-web-manual/)：Java APM

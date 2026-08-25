@@ -77,3 +77,15 @@ const relatedSites = [
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [rust](https://java-px.bot.cd/rust/)：Rust 对比
+- [cloud-native](https://java-px.bot.cd/cloud-native/)：K8s / Docker
+- [devops](https://java-px.bot.cd/devops/)：DevOps 工具
+- [java](https://java-px.bot.cd/java-web-manual/)：Java 对比
+- [network](https://java-px.bot.cd/network/)：Go 高并发网络

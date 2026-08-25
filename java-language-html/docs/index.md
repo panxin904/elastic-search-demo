@@ -158,3 +158,14 @@ const relatedSites = [
 4. 性能     →  性能调优 + Arthas
 5. 求职     →  面试高频题 + 手写代码
 ```
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [java](https://java-px.bot.cd/java-web-manual/)：Java Web 开发
+- [system-design](https://java-px.bot.cd/system-design/)：JVM 调优实战
+- [architecture](https://java-px.bot.cd/architecture/)：JVM 在架构中的角色
+- [frontend](https://java-px.bot.cd/frontend/)：Java 跨端（VR / Android）

@@ -91,3 +91,14 @@ const relatedSites = [
 | 入门 | 1 周 | 01-foundations → 02-chaos-mesh |
 | 进阶 | 2 周 | 03-litmus → 04-platform-compare |
 | 实战 | 2 周 | 05-resilience-patterns → 06-game-day → 07-observability-for-chaos |
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [cloud-native](https://java-px.bot.cd/cloud-native/)：K8s 混沌
+- [observability](https://java-px.bot.cd/observability/)：故障注入监控
+- [system-design](https://java-px.bot.cd/system-design/)：系统韧性
+- [architecture](https://java-px.bot.cd/architecture/)：韧性架构

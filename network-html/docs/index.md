@@ -121,3 +121,14 @@ const relatedSites = [
 - **后端 / SRE** → [传输层 TCP](/05-transport/tcp-handshake) → [HTTP/HTTPS](/06-application/https) → [性能测试](/10-tools/performance-test) → [故障排查](/10-tools/troubleshooting)
 - **安全** → [加密基础](/07-security/encryption) → [PKI/TLS](/07-security/pki-tls) → [网络攻击](/07-security/network-attack) → [防火墙/VPN](/07-security/firewall-vpn)
 - **面试** → [高频题](/12-interview-practice/questions) → [案例题](/12-interview-practice/cases) → [协议对比](/12-interview-practice/comparison)
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [linux](https://java-px.bot.cd/linux/)：Linux 网络栈
+- [security](https://java-px.bot.cd/security/)：网络安全
+- [cloud-native](https://java-px.bot.cd/cloud-native/)：K8s 网络
+- [java](https://java-px.bot.cd/java-web-manual/)：Java Netty

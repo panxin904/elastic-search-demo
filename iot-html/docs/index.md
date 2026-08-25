@@ -78,3 +78,16 @@ const relatedSites = [
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [android](https://java-px.bot.cd/android/)：Android Things
+- [linux](https://java-px.bot.cd/linux/)：Linux 嵌入式
+- [rust](https://java-px.bot.cd/rust/)：Rust 嵌入式
+- [python](https://java-px.bot.cd/python/)：Python 数据处理
+- [network](https://java-px.bot.cd/network/)：MQTT / CoAP 协议
+- [security](https://java-px.bot.cd/security/)：设备安全

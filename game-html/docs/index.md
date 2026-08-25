@@ -77,3 +77,16 @@ const relatedSites = [
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [frontend](https://java-px.bot.cd/frontend/)：客户端基础
+- [rust](https://java-px.bot.cd/rust/)：高性能原生
+- [ai](https://java-px.bot.cd/ai/)：NPC AI
+- [network](https://java-px.bot.cd/network/)：联机同步
+- [linux](https://java-px.bot.cd/linux/)：Linux 平台
+- [python](https://java-px.bot.cd/python/)：脚本与工具

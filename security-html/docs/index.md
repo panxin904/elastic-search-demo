@@ -104,3 +104,15 @@ const relatedSites = [
 **适用读者**：Web 开发者 / 后端工程师 / 安全工程师 / SRE / 架构师 / AI 工程师（关注 LLM 安全）。
 
 **前置知识**：HTTP 协议、Linux 命令行、至少一门后端语言、基础数据库 SQL。
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [linux](https://java-px.bot.cd/linux/)：Linux 权限
+- [network](https://java-px.bot.cd/network/)：网络安全
+- [cloud-native](https://java-px.bot.cd/cloud-native/)：K8s 安全
+- [java](https://java-px.bot.cd/java-web-manual/)：Spring Security
+- [architecture](https://java-px.bot.cd/architecture/)：零信任架构

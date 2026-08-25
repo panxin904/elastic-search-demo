@@ -82,3 +82,15 @@ const relatedSites = [
     title="🎯 为什么写这个图谱？"
   />
 </ClientOnly>
+
+## 📚 相关阅读（跨站导航）
+
+<!-- xlink-injected:do-not-edit -->
+
+按主题跨站推荐：
+
+- [java-language](https://java-px.bot.cd/java-language/)：Java / Kotlin JVM
+- [frontend](https://java-px.bot.cd/frontend/)：前端基础
+- [iot](https://java-px.bot.cd/iot/)：IoT / 嵌入式
+- [linux](https://java-px.bot.cd/linux/)：Linux Kernel
+- [rust](https://java-px.bot.cd/rust/)：NDK Native
