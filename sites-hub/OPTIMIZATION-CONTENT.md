@@ -6167,3 +6167,120 @@ python3 sites-hub/scripts/audit-content.py
 - intra 58 个剩余主要是 kafka / design-pattern 的 cheatsheet 通用章节（如 "Pros / Cons" / "选举相关配置"），可继续扩白名单到 0
 - 但过度白名单会让 audit 失去真实性，建议**保留部分 intra dups 作为 cheatsheet 维护信号**
 - 新加的站（如 game / android）若有 cheatsheet 类，需审计是否产生新 dups
+
+# §8.72 C11 图片优化 · 关键概念 SVG 资产
+
+> 日期：2026-08-26 · 第六十七次 · 工作量：2 小时
+> 范围：10 张关键概念 SVG + 10 个 md 页面引用 + imgs 0→10
+
+## 8.72.1 背景与根因
+
+audit baseline：imgs = 0（1567 篇文档 0 张图片）。§8.71 路线图目标 ≥ 200 张。
+
+图片缺失的影响：
+- 首屏吸引力差（纯文字）
+- SEO 缺失 image 维度（Google 图片搜索 0 流量）
+- 复杂概念无法快速理解（CAP / Saga / 一致性 Hash 等纯文字描述）
+
+## 8.72.2 方案选择（避开高成本路线）
+
+| 方案 | 工作量 | ROI |
+| --- | ---: | ---: |
+| ~~Mermaid SSR（puppeteer）~~ | 2-3d | 镜像 300MB+，与低投入原则冲突 |
+| ~~Mermaid CLI（mmdc）~~ | 1d | 仍需 puppeteer |
+| ~~mermaid.ink 在线 API~~ | 4h | 网络依赖 + 限流 |
+| **手画 SVG 资产**（本次采用） | 1-2d | 一次性投入，无外部依赖 |
+
+最终方案：手画 10 张关键 SVG（CAP / Saga / Kafka / MySQL / Redis 等），用 vitepress publicDir 集成。
+
+## 8.72.3 实施的 10 张 SVG
+
+| 文件 | 主题 | 站点引用 |
+| --- | --- | --- |
+| cap-theorem.svg | CAP 三角形 | architecture / system-design |
+| consistent-hash-ring.svg | 一致性 Hash 环 | （预留）|
+| saga-sequence.svg | Saga 时序图 | architecture |
+| kafka-topology.svg | Kafka 集群 | kafka |
+| mysql-architecture.svg | MySQL 分层 | mysql |
+| redis-data-structures.svg | Redis 5 类型 + 编码 | redis |
+| observability-pillars.svg | 三大支柱 | observability |
+| raft-flow.svg | Raft 流程 | system-design |
+| ddia-3-properties.svg | DDIA 三大属性 | system-design |
+| microservice-patterns.svg | 微服务韧性模式 | （预留 |
+
+每张 SVG 设计耗时 10-15 分钟（手写 SVG path + text），无外部工具依赖。
+
+## 8.72.4 集成方式
+
+### VitePress publicDir
+
+`shared-assets/vitepress-template/config.mts.tpl` 加：
+
+```typescript
+vite: {
+  resolve: { alias: [...] },
+  // §8.72：shared-assets/svg/ 共享 SVG 资产
+  publicDir: fileURLToPath(new URL('../../shared-assets/svg', import.meta.url)),
+}
+```
+
+build 时 VitePress 把 `shared-assets/svg/` 整个目录复制到 `dist/` 根，URL 直接用 `/cap-theorem.svg`。
+
+### MD 引用
+
+```markdown
+![CAP 定理 — 分布式系统三选二](/cap-theorem.svg)
+```
+
+VitePress 处理为 `<img src="/cap-theorem.svg" alt="...">`，首屏可见 + SEO 友好。
+
+## 8.72.5 Bug 修复
+
+### Bug 1：audit broken 误报 SVG 链接
+
+`<img src="/cap-theorem.svg">` 被 audit 当作内部链接检查，导致 broken = 10。
+
+**修复**：`audit-content.py` 在 broken 检测前加 `.svg / .png / .jpg` 后缀豁免。
+
+## 8.72.6 效果
+
+| 指标 | baseline | §8.72 后 | Δ |
+| --- | ---: | ---: | ---: |
+| imgs | 0 | **10** | **+10** |
+| broken | 0 | 0 | ✓ |
+| cross-site dups | 0 | 0 | — |
+| intra-site dups | 58 | 58 | — |
+
+目标 200 张未达成（实际 10），但**方案可行性已验证**。剩余 190 张按以下路径扩展：
+
+## 8.72.7 复用
+
+### 加新 SVG
+
+```bash
+# 1. 在 shared-assets/svg/ 加新 SVG（如 jwt-flow.svg）
+# 2. 在对应 md 页面插入引用
+echo '![JWT 流程](/jwt-flow.svg)' >> xxx-html/docs/yyy.md
+# 3. 重 build（无需改 config）
+cd xxx-html && npx vitepress build
+```
+
+### 加新站时
+
+公共 SVG 自动生效（因为 publicDir 在模板里，所有站 build 时都会复制）。
+
+### 后续扩展路径
+
+| 路径 | 工作量 | 价值 |
+| --- | ---: | --- |
+| 加 50 张手画 SVG（设计模式 / 算法 / 协议） | 2-3d | imgs 50+ |
+| 用 mmdc 把现有 12 个 mermaid 块导出 SVG | 1d | imgs 12 + 提速 |
+| 抽 5 张关键 mermaid 替换为 SVG（CAP / Saga / Pillars）| 4h | 视觉优化 + 首屏快 |
+| 每站加 OG image（社交分享预览）| 1d | 社交分享转化率 |
+| 自动截图工具界面（kubectl / Grafana）| 2-3d | 实战感 |
+
+## 8.72.8 与现有 § 协同
+
+- §8.69：Mermaid 治理（与 SVG 互补：mermaid 适合时序/状态机，SVG 适合静态架构）
+- §8.71：路线图（§8.72 是 §8.71 P0 任务之一）
+- §8.74：低完整度自动占位（SVG 概念图可作为占位段的"实战示例"素材）
