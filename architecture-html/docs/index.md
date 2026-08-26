@@ -127,6 +127,10 @@ const relatedSites = [
   />
 </ClientOnly>
 
+## 📐 三大基础理论（CAP / 一致性 / 共识）
+
+![CAP 定理 — 分布式系统三选二](/cap-theorem.svg)
+
 ## 🏛️ 分层架构对比（DDD / Clean / Hexagonal）
 
 ```mermaid

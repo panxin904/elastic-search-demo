@@ -27,6 +27,8 @@ export default defineConfig({
         { find: '@shared', replacement: SHARED_ASSETS },
       ],
     },
+    // §8.72：shared-assets/svg/ 共享 SVG 资产（CAP / Saga / 一致性 hash 等）
+    publicDir: fileURLToPath(new URL('../../shared-assets', import.meta.url)),
   },
   base: '/es/',
   title: 'ES Knowledge Atlas',
@@ -101,110 +103,111 @@ export default defineConfig({
     
         
             
-                              '/01-storage/': [
-                                {
-                                  text: '存储层 Storage',
-                                  items: [
-                                    { text: '总览', link: '/01-storage/overview' },
-                                    { text: '集群 Cluster', link: '/01-storage/cluster' },
-                                    { text: '节点 Node', link: '/01-storage/node' },
-                                    { text: '索引 Index', link: '/01-storage/index' },
-                                    { text: '文档 Document', link: '/01-storage/document' },
-                                    { text: '分片 Shard', link: '/01-storage/shard' },
-                                    { text: '副本 Replica', link: '/01-storage/replica' },
-                                    { text: '段 Segment', link: '/01-storage/segment' },
-                                    { text: '映射 Mapping', link: '/01-storage/mapping' },
-                                    { text: '字段类型', link: '/01-storage/field-types' },
-                                    { text: '_source 元数据', link: '/01-storage/source' },
-                                    { text: 'Translog', link: '/01-storage/translog' },
-                                    { text: 'Refresh 机制', link: '/01-storage/refresh' }
-                                  ]
-                                }
-                              ],
-                              '/02-query/': [
-                                {
-                                  text: '查询层 Query',
-                                  items: [
-                                    { text: '总览', link: '/02-query/overview' },
-                                    { text: 'Query DSL', link: '/02-query/query-dsl' },
-                                    { text: 'Match Query', link: '/02-query/match' },
-                                    { text: 'Term Query', link: '/02-query/term' },
-                                    { text: 'Bool Query', link: '/02-query/bool' },
-                                    { text: 'Range Query', link: '/02-query/range' },
-                                    { text: 'Boost 相关度', link: '/02-query/boost' },
-                                    { text: '分页', link: '/02-query/pagination' },
-                                    { text: '排序', link: '/02-query/sort' },
-                                    { text: 'Highlight', link: '/02-query/highlight' },
-                                    { text: '聚合 Aggregation', link: '/02-query/aggregation' },
-                                    { text: 'Script Query', link: '/02-query/script' },
-                                    { text: 'Multi Search', link: '/02-query/multi-search' },
-                                    { text: 'Search After', link: '/02-query/search-after' },
-                                    { text: 'Query Rewrite', link: '/02-query/rewrite' },
-                                    { text: 'Query Profile', link: '/02-query/profile' }
-                                  ]
-                                }
-                              ],
-                              '/03-analysis/': [
-                                {
-                                  text: '分析层 Analysis',
-                                  items: [
-                                    { text: '总览', link: '/03-analysis/overview' },
-                                    { text: 'Analyzer 分析器', link: '/03-analysis/analyzer' },
-                                    { text: 'Tokenizer 分词器', link: '/03-analysis/tokenizer' },
-                                    { text: 'Token Filter', link: '/03-analysis/token-filter' },
-                                    { text: 'Char Filter', link: '/03-analysis/char-filter' },
-                                    { text: '内置分词器', link: '/03-analysis/builtin-analyzers' },
-                                    { text: 'IK 分词器', link: '/03-analysis/ik-analyzer' },
-                                    { text: 'pinyin 分词器', link: '/03-analysis/pinyin-analyzer' },
-                                    { text: '自定义分词', link: '/03-analysis/custom-analyzer' },
-                                    { text: '倒排索引', link: '/03-analysis/inverted-index' },
-                                    { text: 'BM25 相关度', link: '/03-analysis/bm25' },
-                                    { text: 'Explain API', link: '/03-analysis/explain' }
-                                  ]
-                                }
-                              ],
-                              '/04-ops/': [
-                                {
-                                  text: '运维层 Ops',
-                                  items: [
-                                    { text: '总览', link: '/04-ops/overview' },
-                                    { text: '安装部署', link: '/04-ops/installation' },
-                                    { text: 'JVM 调优', link: '/04-ops/jvm-tuning' },
-                                    { text: '分片分配', link: '/04-ops/shard-allocation' },
-                                    { text: '集群健康', link: '/04-ops/cluster-health' },
-                                    { text: 'Snapshot 备份', link: '/04-ops/snapshot' },
-                                    { text: 'ILM 生命周期', link: '/04-ops/ilm' },
-                                    { text: 'Curator 工具', link: '/04-ops/curator' },
-                                    { text: '监控 Cerebro', link: '/04-ops/monitoring' },
-                                    { text: '慢日志', link: '/04-ops/slow-log' },
-                                    { text: '集群重启', link: '/04-ops/restart' },
-                                    { text: '_cat API', link: '/04-ops/cat-api' },
-                                    { text: '索引模板', link: '/04-ops/index-template' },
-                                    { text: '别名 Alias', link: '/04-ops/alias' }
-                                  ]
-                                }
-                              ],
-                              '/05-tools/': [
-                                {
-                                  text: '🛠️ 工具 Tools',
-                                  items: [
-                                    { text: '🚀 请求调试器', link: '/05-tools/curl-client' },
-                                    { text: '📚 Query DSL 速查', link: '/05-tools/dsl' },
-                                    { text: '☕ Java SDK 速查', link: '/05-tools/java' },
-                                    { text: '📚 使用场景与最佳实践', link: '/05-tools/scenarios' },
-                                    { text: '📊 集群监控仪表板', link: '/05-tools/dashboard' },
-                                    { text: '⚙️ 部署与生产配置', link: '/05-tools/deploy' }
-                                  ]
-                                }
-                              ],
-                              '/99-compare/': [
-                                {
-                                  text: '版本对比',
-                                  items: [
-                                    { text: '7 vs 8 差异', link: '/99-compare/diff' }
-                                  ]
-                                }
-                              ]
+                
+                                      '/01-storage/': [
+                                        {
+                                          text: '存储层 Storage',
+                                          items: [
+                                            { text: '总览', link: '/01-storage/overview' },
+                                            { text: '集群 Cluster', link: '/01-storage/cluster' },
+                                            { text: '节点 Node', link: '/01-storage/node' },
+                                            { text: '索引 Index', link: '/01-storage/index' },
+                                            { text: '文档 Document', link: '/01-storage/document' },
+                                            { text: '分片 Shard', link: '/01-storage/shard' },
+                                            { text: '副本 Replica', link: '/01-storage/replica' },
+                                            { text: '段 Segment', link: '/01-storage/segment' },
+                                            { text: '映射 Mapping', link: '/01-storage/mapping' },
+                                            { text: '字段类型', link: '/01-storage/field-types' },
+                                            { text: '_source 元数据', link: '/01-storage/source' },
+                                            { text: 'Translog', link: '/01-storage/translog' },
+                                            { text: 'Refresh 机制', link: '/01-storage/refresh' }
+                                          ]
+                                        }
+                                      ],
+                                      '/02-query/': [
+                                        {
+                                          text: '查询层 Query',
+                                          items: [
+                                            { text: '总览', link: '/02-query/overview' },
+                                            { text: 'Query DSL', link: '/02-query/query-dsl' },
+                                            { text: 'Match Query', link: '/02-query/match' },
+                                            { text: 'Term Query', link: '/02-query/term' },
+                                            { text: 'Bool Query', link: '/02-query/bool' },
+                                            { text: 'Range Query', link: '/02-query/range' },
+                                            { text: 'Boost 相关度', link: '/02-query/boost' },
+                                            { text: '分页', link: '/02-query/pagination' },
+                                            { text: '排序', link: '/02-query/sort' },
+                                            { text: 'Highlight', link: '/02-query/highlight' },
+                                            { text: '聚合 Aggregation', link: '/02-query/aggregation' },
+                                            { text: 'Script Query', link: '/02-query/script' },
+                                            { text: 'Multi Search', link: '/02-query/multi-search' },
+                                            { text: 'Search After', link: '/02-query/search-after' },
+                                            { text: 'Query Rewrite', link: '/02-query/rewrite' },
+                                            { text: 'Query Profile', link: '/02-query/profile' }
+                                          ]
+                                        }
+                                      ],
+                                      '/03-analysis/': [
+                                        {
+                                          text: '分析层 Analysis',
+                                          items: [
+                                            { text: '总览', link: '/03-analysis/overview' },
+                                            { text: 'Analyzer 分析器', link: '/03-analysis/analyzer' },
+                                            { text: 'Tokenizer 分词器', link: '/03-analysis/tokenizer' },
+                                            { text: 'Token Filter', link: '/03-analysis/token-filter' },
+                                            { text: 'Char Filter', link: '/03-analysis/char-filter' },
+                                            { text: '内置分词器', link: '/03-analysis/builtin-analyzers' },
+                                            { text: 'IK 分词器', link: '/03-analysis/ik-analyzer' },
+                                            { text: 'pinyin 分词器', link: '/03-analysis/pinyin-analyzer' },
+                                            { text: '自定义分词', link: '/03-analysis/custom-analyzer' },
+                                            { text: '倒排索引', link: '/03-analysis/inverted-index' },
+                                            { text: 'BM25 相关度', link: '/03-analysis/bm25' },
+                                            { text: 'Explain API', link: '/03-analysis/explain' }
+                                          ]
+                                        }
+                                      ],
+                                      '/04-ops/': [
+                                        {
+                                          text: '运维层 Ops',
+                                          items: [
+                                            { text: '总览', link: '/04-ops/overview' },
+                                            { text: '安装部署', link: '/04-ops/installation' },
+                                            { text: 'JVM 调优', link: '/04-ops/jvm-tuning' },
+                                            { text: '分片分配', link: '/04-ops/shard-allocation' },
+                                            { text: '集群健康', link: '/04-ops/cluster-health' },
+                                            { text: 'Snapshot 备份', link: '/04-ops/snapshot' },
+                                            { text: 'ILM 生命周期', link: '/04-ops/ilm' },
+                                            { text: 'Curator 工具', link: '/04-ops/curator' },
+                                            { text: '监控 Cerebro', link: '/04-ops/monitoring' },
+                                            { text: '慢日志', link: '/04-ops/slow-log' },
+                                            { text: '集群重启', link: '/04-ops/restart' },
+                                            { text: '_cat API', link: '/04-ops/cat-api' },
+                                            { text: '索引模板', link: '/04-ops/index-template' },
+                                            { text: '别名 Alias', link: '/04-ops/alias' }
+                                          ]
+                                        }
+                                      ],
+                                      '/05-tools/': [
+                                        {
+                                          text: '🛠️ 工具 Tools',
+                                          items: [
+                                            { text: '🚀 请求调试器', link: '/05-tools/curl-client' },
+                                            { text: '📚 Query DSL 速查', link: '/05-tools/dsl' },
+                                            { text: '☕ Java SDK 速查', link: '/05-tools/java' },
+                                            { text: '📚 使用场景与最佳实践', link: '/05-tools/scenarios' },
+                                            { text: '📊 集群监控仪表板', link: '/05-tools/dashboard' },
+                                            { text: '⚙️ 部署与生产配置', link: '/05-tools/deploy' }
+                                          ]
+                                        }
+                                      ],
+                                      '/99-compare/': [
+                                        {
+                                          text: '版本对比',
+                                          items: [
+                                            { text: '7 vs 8 差异', link: '/99-compare/diff' }
+                                          ]
+                                        }
+                                      ]
     },
 
     socialLinks: [

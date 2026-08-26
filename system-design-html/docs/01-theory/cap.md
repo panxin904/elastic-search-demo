@@ -4,6 +4,9 @@ title: CAP 定理
 
 # CAP 定理
 
+
+![CAP 定理 — 分布式系统三选二](/cap-theorem.svg)
+
 > Eric Brewer 2000 年提出，2002 年 Gilbert & Lynch 给出形式化证明。
 
 ## 1. 一句话定义

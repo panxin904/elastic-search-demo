@@ -4,6 +4,9 @@ title: Kafka 是什么
 
 # ❓ Kafka 是什么
 
+
+![Kafka 集群拓扑 — Broker / Partition / Consumer Group](/kafka-topology.svg)
+
 > **Apache Kafka** 最初是由 LinkedIn 开发，后捐赠给 Apache 基金会的**分布式发布订阅消息系统**。现已成为大数据、实时计算、微服务领域的事实标准。
 
 ## 🎯 Kafka 核心定位

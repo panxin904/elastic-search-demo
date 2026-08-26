@@ -3,6 +3,9 @@ title: CAP 定理
 ---
 # CAP 定理
 
+
+![CAP 定理 — 分布式系统三选二](/cap-theorem.svg)
+
 ## 1. 三选二（不可能三角）
 
 Eric Brewer 2000 年提出，2002 年 Gilbert & Lynch 证明：

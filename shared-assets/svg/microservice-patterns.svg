@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 460" font-family="-appleSystem,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <rect width="600" height="460" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">微服务韧性模式全景</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">断路器 / 舱壁 / 限流 / 重试 · 防止级联失败</text>
+
+  <defs>
+    <marker id="arrow-ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- Client -->
+  <rect x="40" y="200" width="100" height="60" rx="6" fill="#1e293b"/>
+  <text x="90" y="225" text-anchor="middle" font-size="13" font-weight="700" fill="white">客户端</text>
+  <text x="90" y="243" text-anchor="middle" font-size="10" fill="#cbd5e1">Client</text>
+
+  <!-- Circuit Breaker -->
+  <rect x="170" y="100" width="120" height="70" rx="6" fill="#fee2e2" stroke="#ef4444"/>
+  <text x="230" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#b91c1c">🔌 断路器</text>
+  <text x="230" y="143" text-anchor="middle" font-size="10" fill="#7f1d1d">Circuit Breaker</text>
+  <text x="230" y="158" text-anchor="middle" font-size="10" fill="#7f1d1d">CLOSED → OPEN → HALF_OPEN</text>
+
+  <!-- Bulkhead -->
+  <rect x="170" y="200" width="120" height="70" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="230" y="225" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">🧱 舱壁隔离</text>
+  <text x="230" y="243" text-anchor="middle" font-size="10" fill="#78350f">Bulkhead</text>
+  <text x="230" y="258" text-anchor="middle" font-size="10" fill="#78350f">线程池 / 连接池分离</text>
+
+  <!-- Rate Limiter -->
+  <rect x="170" y="300" width="120" height="70" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="230" y="325" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">🚦 限流</text>
+  <text x="230" y="343" text-anchor="middle" font-size="10" fill="#1e3a8a">Rate Limiter</text>
+  <text x="230" y="358" text-anchor="middle" font-size="10" fill="#1e3a8a">令牌桶 / 滑动窗口</text>
+
+  <!-- Service -->
+  <rect x="370" y="200" width="100" height="60" rx="6" fill="#dcfce7" stroke="#10b981"/>
+  <text x="420" y="225" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">依赖服务</text>
+  <text x="420" y="243" text-anchor="middle" font-size="10" fill="#14532d">Downstream</text>
+
+  <!-- Retry -->
+  <rect x="500" y="200" width="60" height="60" rx="6" fill="#e0e7ff" stroke="#6366f1"/>
+  <text x="530" y="225" text-anchor="middle" font-size="12" font-weight="700" fill="#3730a3">重试</text>
+  <text x="530" y="243" text-anchor="middle" font-size="9" fill="#312e81">Retry</text>
+  <text x="530" y="258" text-anchor="middle" font-size="9" fill="#312e81">+退避</text>
+
+  <!-- arrows -->
+  <line x1="140" y1="220" x2="170" y2="220" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow-ms)"/>
+  <line x1="290" y1="220" x2="370" y2="220" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow-ms)"/>
+  <line x1="470" y1="220" x2="500" y2="220" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow-ms)"/>
+
+  <!-- 模式关系说明 -->
+  <text x="300" y="405" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">断路器：检测故障 → 快速失败 → 避免雪崩</text>
+  <text x="300" y="425" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">舱壁：隔离故障域 → 一个慢服务拖垮整体</text>
+  <text x="300" y="445" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">限流：保护后端 → 超出阈值直接拒绝 · 重试：补偿瞬时故障</text>
+</svg>

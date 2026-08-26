@@ -4,6 +4,9 @@ title: 5 大基础类型
 
 # 📦 5 大基础类型
 
+
+![Redis 五大数据类型 + 底层编码](/redis-data-structures.svg)
+
 > Redis 不是简单的 key-value 缓存，**value 可以是 5 种不同的数据结构**，每种都针对特定场景优化。
 
 ## 🎯 5 大类型一览

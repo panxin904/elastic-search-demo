@@ -412,7 +412,10 @@ def main():
                     target_base / 'index.html' if target_base.is_dir() else None,
                 ]
                 candidates = [c for c in candidates if c is not None]
-                if not any(c.exists() for c in candidates):
+                # §8.72：豁免指向 .svg / .png / .jpg 等静态资源（由 VitePress publicDir 复制）
+                if href.endswith(('.svg', '.png', '.jpg', '.jpeg', '.gif', '.webp', '.ico', '.pdf')):
+                    pass
+                elif not any(c.exists() for c in candidates):
                     s['broken_links'] += 1
                     broken_links.append(f"{site_short}/{path.relative_to(SITE_DOCS[site])} -> {href}")
 

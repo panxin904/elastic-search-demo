@@ -108,6 +108,9 @@ const relatedSites = [
 
 # MySQL 知识图谱
 
+
+![MySQL 分层架构 — 连接层/服务层/存储引擎层/文件系统层](/mysql-architecture.svg)
+
 > **11 个核心主题** + **50 个关键概念节点** + **知识图谱** + **思维导图** + **SQL Playground**
 > 系统化学习 MySQL 的知识体系
 

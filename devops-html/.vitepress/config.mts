@@ -25,6 +25,8 @@ export default defineConfig({
         { find: '@shared', replacement: SHARED_ASSETS },
       ],
     },
+    // §8.72：shared-assets/svg/ 共享 SVG 资产（CAP / Saga / 一致性 hash 等）
+    publicDir: fileURLToPath(new URL('../../shared-assets', import.meta.url)),
   },
   base: '/devops/',
   title: 'DevOps',
@@ -99,61 +101,62 @@ export default defineConfig({
     
         
             
-                              '/': [
-                                {
-                                  text: '⚙️ CI/CD Pipeline', collapsed: false, items: [
-                                    { text: 'Pipeline 总览', link: '/01-pipeline/overview' },
-                                    { text: 'GitHub Actions', link: '/01-pipeline/github-actions' },
-                                    { text: 'GitLab CI', link: '/01-pipeline/gitlab-ci' },
-                                    { text: 'Jenkins', link: '/01-pipeline/jenkins' },
-                                    { text: 'Tekton', link: '/01-pipeline/tekton' },
-                                    { text: 'Pipeline 最佳实践', link: '/01-pipeline/best-practices' }
-                                  ]
-                                },
-                                {
-                                  text: '🏗️ IaC 基础设施即代码', collapsed: false, items: [
-                                    { text: 'IaC 总览', link: '/02-iac/overview' },
-                                    { text: 'Terraform', link: '/02-iac/terraform' },
-                                    { text: 'Pulumi', link: '/02-iac/pulumi' },
-                                    { text: 'Ansible', link: '/02-iac/ansible' },
-                                    { text: 'Terraform vs Pulumi', link: '/02-iac/terraform-vs-pulumi' }
-                                  ]
-                                },
-                                {
-                                  text: '🔄 GitOps', collapsed: false, items: [
-                                    { text: 'GitOps 总览', link: '/03-gitops/overview' },
-                                    { text: 'ArgoCD', link: '/03-gitops/argocd' },
-                                    { text: 'Flux', link: '/03-gitops/flux' },
-                                    { text: 'Progressive Delivery', link: '/03-gitops/progressive-delivery' }
-                                  ]
-                                },
-                                {
-                                  text: '🚀 发布策略', collapsed: false, items: [
-                                    { text: '发布策略总览', link: '/04-release/overview' },
-                                    { text: '蓝绿部署', link: '/04-release/blue-green' },
-                                    { text: '金丝雀发布', link: '/04-release/canary' },
-                                    { text: 'Feature Flag', link: '/04-release/feature-flag' },
-                                    { text: '回滚机制', link: '/04-release/rollback' }
-                                  ]
-                                },
-                                {
-                                  text: '📊 CI/CD 可观测性', collapsed: false, items: [
-                                    { text: '流水线可观测性', link: '/05-cicd-observability/overview' },
-                                    { text: 'DORA Metrics', link: '/05-cicd-observability/dora-metrics' },
-                                    { text: 'Flaky Test', link: '/05-cicd-observability/flaky-test' },
-                                    { text: 'Pipeline 监控', link: '/05-cicd-observability/pipeline-monitoring' }
-                                  ]
-                                },
-                                {
-                                  text: '⭐ 最佳实践', collapsed: false, items: [
-                                    { text: '构建缓存', link: '/06-best-practices/caching' },
-                                    { text: '安全流水线', link: '/06-best-practices/secure-pipeline' },
-                                    { text: 'Secrets 管理', link: '/06-best-practices/secrets-management' },
-                                    { text: 'OIDC 联邦', link: '/06-best-practices/oidc-federation' },
-                                    { text: '案例研究', link: '/06-best-practices/case-study' }
-                                  ]
-                                }
-                              ]
+                
+                                      '/': [
+                                        {
+                                          text: '⚙️ CI/CD Pipeline', collapsed: false, items: [
+                                            { text: 'Pipeline 总览', link: '/01-pipeline/overview' },
+                                            { text: 'GitHub Actions', link: '/01-pipeline/github-actions' },
+                                            { text: 'GitLab CI', link: '/01-pipeline/gitlab-ci' },
+                                            { text: 'Jenkins', link: '/01-pipeline/jenkins' },
+                                            { text: 'Tekton', link: '/01-pipeline/tekton' },
+                                            { text: 'Pipeline 最佳实践', link: '/01-pipeline/best-practices' }
+                                          ]
+                                        },
+                                        {
+                                          text: '🏗️ IaC 基础设施即代码', collapsed: false, items: [
+                                            { text: 'IaC 总览', link: '/02-iac/overview' },
+                                            { text: 'Terraform', link: '/02-iac/terraform' },
+                                            { text: 'Pulumi', link: '/02-iac/pulumi' },
+                                            { text: 'Ansible', link: '/02-iac/ansible' },
+                                            { text: 'Terraform vs Pulumi', link: '/02-iac/terraform-vs-pulumi' }
+                                          ]
+                                        },
+                                        {
+                                          text: '🔄 GitOps', collapsed: false, items: [
+                                            { text: 'GitOps 总览', link: '/03-gitops/overview' },
+                                            { text: 'ArgoCD', link: '/03-gitops/argocd' },
+                                            { text: 'Flux', link: '/03-gitops/flux' },
+                                            { text: 'Progressive Delivery', link: '/03-gitops/progressive-delivery' }
+                                          ]
+                                        },
+                                        {
+                                          text: '🚀 发布策略', collapsed: false, items: [
+                                            { text: '发布策略总览', link: '/04-release/overview' },
+                                            { text: '蓝绿部署', link: '/04-release/blue-green' },
+                                            { text: '金丝雀发布', link: '/04-release/canary' },
+                                            { text: 'Feature Flag', link: '/04-release/feature-flag' },
+                                            { text: '回滚机制', link: '/04-release/rollback' }
+                                          ]
+                                        },
+                                        {
+                                          text: '📊 CI/CD 可观测性', collapsed: false, items: [
+                                            { text: '流水线可观测性', link: '/05-cicd-observability/overview' },
+                                            { text: 'DORA Metrics', link: '/05-cicd-observability/dora-metrics' },
+                                            { text: 'Flaky Test', link: '/05-cicd-observability/flaky-test' },
+                                            { text: 'Pipeline 监控', link: '/05-cicd-observability/pipeline-monitoring' }
+                                          ]
+                                        },
+                                        {
+                                          text: '⭐ 最佳实践', collapsed: false, items: [
+                                            { text: '构建缓存', link: '/06-best-practices/caching' },
+                                            { text: '安全流水线', link: '/06-best-practices/secure-pipeline' },
+                                            { text: 'Secrets 管理', link: '/06-best-practices/secrets-management' },
+                                            { text: 'OIDC 联邦', link: '/06-best-practices/oidc-federation' },
+                                            { text: '案例研究', link: '/06-best-practices/case-study' }
+                                          ]
+                                        }
+                                      ]
     },
 
     socialLinks: [],

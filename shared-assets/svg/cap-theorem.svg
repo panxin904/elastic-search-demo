@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <!-- 背景 -->
+  <rect width="600" height="480" fill="#fafafa"/>
+  <!-- 标题 -->
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">CAP 定理：分布式系统三选二</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Eric Brewer (2000) · 任何分布式系统最多同时满足其中两项</text>
+
+  <!-- 三角形 -->
+  <polygon points="300,100 130,360 470,360" fill="none" stroke="#94a3b8" stroke-width="2"/>
+
+  <!-- C 顶点 (Consistency) -->
+  <circle cx="300" cy="100" r="60" fill="#3b82f6" opacity="0.9"/>
+  <text x="300" y="92" text-anchor="middle" font-size="22" font-weight="700" fill="white">C</text>
+  <text x="300" y="118" text-anchor="middle" font-size="13" font-weight="600" fill="white">Consistency</text>
+  <text x="300" y="135" text-anchor="middle" font-size="11" fill="#cbd5e1">一致性</text>
+
+  <!-- A 顶点 (Availability) -->
+  <circle cx="130" cy="360" r="60" fill="#10b981" opacity="0.9"/>
+  <text x="130" y="352" text-anchor="middle" font-size="22" font-weight="700" fill="white">A</text>
+  <text x="130" y="378" text-anchor="middle" font-size="13" font-weight="600" fill="white">Availability</text>
+  <text x="130" y="395" text-anchor="middle" font-size="11" fill="#d1fae5">可用性</text>
+
+  <!-- P 顶点 (Partition tolerance) -->
+  <circle cx="470" cy="360" r="60" fill="#f59e0b" opacity="0.9"/>
+  <text x="470" y="352" text-anchor="middle" font-size="22" font-weight="700" fill="white">P</text>
+  <text x="470" y="378" text-anchor="middle" font-size="13" font-weight="600" fill="white">Partition</text>
+  <text x="470" y="395" text-anchor="middle" font-size="11" fill="#fef3c7">分区容错</text>
+
+  <!-- 边说明 -->
+  <text x="215" y="280" font-size="12" fill="#475569">CA: 传统单机数据库</text>
+  <text x="385" y="280" text-anchor="end" font-size="12" fill="#475569">CP: ZooKeeper / etcd</text>
+  <text x="300" y="425" text-anchor="middle" font-size="12" fill="#475569">AP: Cassandra / DynamoDB</text>
+
+  <!-- 注释 -->
+  <text x="300" y="460" text-anchor="middle" font-size="11" fill="#94a3b8">P 必选（网络分区不可避免）→ 实际是 CP vs AP 的选择</text>
+</svg>

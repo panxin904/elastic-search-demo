@@ -4,6 +4,9 @@ title: Raft 共识算法
 
 # Raft 共识算法
 
+
+![Raft 协议流程 — Leader 选举 + 日志复制](/raft-flow.svg)
+
 > Diego Ongaro & John Ousterhout 2014 年提出。"一种易于理解的共识算法"。
 
 ## 1. 为什么 Raft？

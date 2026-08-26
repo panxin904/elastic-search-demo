@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 460" font-family="-appleSystem,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <rect width="600" height="460" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Kafka 集群拓扑</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Broker 集群 + 分区副本 + Consumer Group</text>
+
+  <defs>
+    <marker id="arrow-kafka" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- 3 个 Broker -->
+  <rect x="50" y="100" width="160" height="220" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="130" y="125" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">Broker 1</text>
+  <!-- partitions of broker 1 -->
+  <rect x="65" y="145" width="60" height="20" rx="2" fill="#f59e0b"/>
+  <text x="95" y="159" text-anchor="middle" font-size="10" font-weight="600" fill="white">P0 (L)</text>
+  <rect x="135" y="145" width="60" height="20" rx="2" fill="#fbbf24"/>
+  <text x="165" y="159" text-anchor="middle" font-size="10" font-weight="600" fill="white">P1 (F)</text>
+  <rect x="65" y="175" width="60" height="20" rx="2" fill="#fbbf24"/>
+  <text x="95" y="189" text-anchor="middle" font-size="10" font-weight="600" fill="white">P1 (F)</text>
+  <rect x="135" y="175" width="60" height="20" rx="2" fill="#f59e0b"/>
+  <text x="165" y="189" text-anchor="middle" font-size="10" font-weight="600" fill="white">P2 (L)</text>
+  <rect x="65" y="205" width="60" height="20" rx="2" fill="#f59e0b"/>
+  <text x="95" y="219" text-anchor="middle" font-size="10" font-weight="600" fill="white">P2 (L)</text>
+  <rect x="135" y="205" width="60" height="20" rx="2" fill="#fbbf24"/>
+  <text x="165" y="219" text-anchor="middle" font-size="10" font-weight="600" fill="white">P0 (F)</text>
+
+  <rect x="220" y="100" width="160" height="220" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="300" y="125" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">Broker 2</text>
+  <rect x="235" y="145" width="60" height="20" rx="2" fill="#fbbf24"/>
+  <text x="265" y="159" text-anchor="middle" font-size="10" font-weight="600" fill="white">P0 (F)</text>
+  <rect x="305" y="145" width="60" height="20" rx="2" fill="#f59e0b"/>
+  <text x="335" y="159" text-anchor="middle" font-size="10" font-weight="600" fill="white">P1 (L)</text>
+  <rect x="235" y="175" width="60" height="20" rx="2" fill="#f59e0b"/>
+  <text x="265" y="189" text-anchor="middle" font-size="10" font-weight="600" fill="white">P1 (L)</text>
+  <rect x="305" y="175" width="60" height="20" rx="2" fill="#fbbf24"/>
+  <text x="335" y="189" text-anchor="middle" font-size="10" font-weight="600" fill="white">P2 (F)</text>
+  <rect x="235" y="205" width="60" height="20" rx="2" fill="#fbbf24"/>
+  <text x="265" y="219" text-anchor="middle" font-size="10" font-weight="600" fill="white">P2 (F)</text>
+  <rect x="305" y="205" width="60" height="20" rx="2" fill="#f59e0b"/>
+  <text x="335" y="219" text-anchor="middle" font-size="10" font-weight="600" fill="white">P0 (L)</text>
+
+  <rect x="390" y="100" width="160" height="220" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="470" y="125" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">Broker 3</text>
+  <rect x="405" y="145" width="60" height="20" rx="2" fill="#fbbf24"/>
+  <text x="435" y="159" text-anchor="middle" font-size="10" font-weight="600" fill="white">P0 (F)</text>
+  <rect x="475" y="145" width="60" height="20" rx="2" fill="#fbbf24"/>
+  <text x="505" y="159" text-anchor="middle" font-size="10" font-weight="600" fill="white">P1 (F)</text>
+  <rect x="405" y="175" width="60" height="20" rx="2" fill="#fbbf24"/>
+  <text x="435" y="189" text-anchor="middle" font-size="10" font-weight="600" fill="white">P2 (F)</text>
+  <rect x="475" y="175" width="60" height="20" rx="2" fill="#f59e0b"/>
+  <text x="505" y="189" text-anchor="middle" font-size="10" font-weight="600" fill="white">P0 (L)</text>
+  <rect x="405" y="205" width="60" height="20" rx="2" fill="#f59e0b"/>
+  <text x="435" y="219" text-anchor="middle" font-size="10" font-weight="600" fill="white">P1 (L)</text>
+  <rect x="475" y="205" width="60" height="20" rx="2" fill="#f59e0b"/>
+  <text x="505" y="219" text-anchor="middle" font-size="10" font-weight="600" fill="white">P2 (L)</text>
+
+  <!-- Consumer Group -->
+  <rect x="100" y="370" width="400" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="300" y="392" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">Consumer Group "order-service"</text>
+  <text x="300" y="410" text-anchor="middle" font-size="11" fill="#475569">3 个 Consumer 实例分别消费 P0 / P1 / P2</text>
+  <text x="300" y="425" text-anchor="middle" font-size="10" fill="#64748b">组内每个分区只被一个 Consumer 消费 · 扩容时自动 rebalance</text>
+
+  <line x1="300" y1="320" x2="300" y2="365" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow-kafka)"/>
+
+  <!-- 图例 -->
+  <rect x="50" y="445" width="14" height="14" fill="#f59e0b"/>
+  <text x="70" y="457" font-size="11" fill="#475569">Leader</text>
+  <rect x="160" y="445" width="14" height="14" fill="#fbbf24"/>
+  <text x="180" y="457" font-size="11" fill="#475569">Follower</text>
+  <text x="280" y="457" font-size="11" fill="#94a3b8">ISR = Leader + 所有 Follower</text>
+</svg>

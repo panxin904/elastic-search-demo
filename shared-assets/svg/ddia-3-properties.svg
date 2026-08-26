@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 460" font-family="-appleSystem,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <rect width="600" height="460" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">DDIA 三大数据系统属性</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">可靠性 (Reliability) · 可扩展性 (Scalability) · 可维护性 (Maintainability)</text>
+
+  <!-- 可靠性 -->
+  <rect x="50" y="100" width="500" height="80" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="70" y="125" font-size="16" font-weight="700" fill="#1e40af">① 可靠性 (Reliability)</text>
+  <text x="70" y="148" font-size="11" fill="#475569">系统在<tspan font-weight="600">困境（硬件/软件故障、人为错误</tspan>）中仍能持续正确运转</text>
+  <text x="70" y="165" font-size="11" fill="#475569">关键指标：MTBF（平均无故障时间）、MTTR（平均修复时间）</text>
+
+  <!-- 可扩展性 -->
+  <rect x="50" y="195" width="500" height="80" rx="6" fill="#dcfce7" stroke="#10b981"/>
+  <text x="70" y="220" font-size="16" font-weight="700" fill="#065f46">② 可扩展性 (Scalability)</text>
+  <text x="70" y="243" font-size="11" fill="#475569">系统能<tspan font-weight="600">保持性能</tspan>应对负载增长（用户量 / 数据量 / 流量）</text>
+  <text x="70" y="260" font-size="11" fill="#475569">关键指标：吞吐量（throughput）、响应时间百分位（P50/P99/P999）</text>
+
+  <!-- 可维护性 -->
+  <rect x="50" y="290" width="500" height="80" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="70" y="315" font-size="16" font-weight="700" fill="#92400e">③ 可维护性 (Maintainability)</text>
+  <text x="70" y="338" font-size="11" fill="#475569">系统能被<tspan font-weight="600">当前和未来的工程师</tspan>维护：可运维性 / 简单性 / 可演化性</text>
+  <text x="70" y="355" font-size="11" fill="#475569">关键指标：MTTR（包含代码维护时间）、新功能开发周期</text>
+
+  <!-- 总结 -->
+  <rect x="50" y="390" width="500" height="50" rx="6" fill="#1e293b"/>
+  <text x="300" y="412" text-anchor="middle" font-size="13" font-weight="600" fill="white">三者的权衡</text>
+  <text x="300" y="430" text-anchor="middle" font-size="11" fill="#cbd5e1">过度追求可靠性 → 复杂度↑ 可维护性↓ · 设计要找当前阶段的平衡点</text>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" font-family="-appleSystem,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <rect width="600" height="320" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Saga 分布式事务时序图</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">每个本地事务 Tᵢ 有对应的补偿 Cᵢ · 失败时按反序回滚</text>
+
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- 时间线 -->
+  <line x1="80" y1="90" x2="80" y2="280" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="240" y1="90" x2="240" y2="280" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="400" y1="90" x2="400" y2="280" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <text x="80" y="105" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">Order</text>
+  <text x="80" y="120" text-anchor="middle" font-size="10" fill="#64748b">订单服务</text>
+
+  <text x="240" y="105" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">Payment</text>
+  <text x="240" y="120" text-anchor="middle" font-size="10" fill="#64748b">支付服务</text>
+
+  <text x="400" y="105" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">Stock</text>
+  <text x="400" y="120" text-anchor="middle" font-size="10" fill="#64748b">库存服务</text>
+
+  <!-- 正常流程（实线） -->
+  <line x1="92" y1="145" x2="228" y2="145" stroke="#10b981" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="160" y="138" text-anchor="middle" font-size="11" fill="#065f46">T₁: 创建订单</text>
+
+  <line x1="252" y1="175" x2="388" y2="175" stroke="#10b981" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="320" y="168" text-anchor="middle" font-size="11" fill="#065f46">T₂: 扣减库存</text>
+
+  <line x1="388" y1="205" x2="252" y2="205" stroke="#10b981" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="320" y="198" text-anchor="middle" font-size="11" fill="#065f46">T₃: 扣款</text>
+
+  <line x1="252" y1="235" x2="92" y2="235" stroke="#10b981" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="160" y="228" text-anchor="middle" font-size="11" fill="#065f46">T₄: 订单完成</text>
+
+  <!-- 失败回滚（虚线） -->
+  <line x1="92" y1="270" x2="228" y2="270" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#ar)"/>
+  <text x="160" y="262" text-anchor="middle" font-size="11" fill="#b91c1c">C₁: 补偿订单（失败回滚）</text>
+
+  <!-- 说明 -->
+  <rect x="40" y="295" width="14" height="14" fill="#10b981"/>
+  <text x="60" y="306" font-size="11" fill="#475569">正向事务</text>
+  <rect x="180" y="295" width="14" height="14" fill="#ef4444"/>
+  <text x="200" y="306" font-size="11" fill="#475569">补偿事务（失败回滚）</text>
+</svg>

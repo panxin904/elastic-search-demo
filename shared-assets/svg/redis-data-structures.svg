@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 460" font-family="-appleSystem,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <rect width="600" height="460" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Redis 五大数据类型</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">每种类型有独立的底层编码（encoding）</text>
+
+  <defs>
+    <marker id="arrow-redis" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- String -->
+  <rect x="40" y="90" width="160" height="65" rx="6" fill="#fef2f2" stroke="#ef4444"/>
+  <text x="120" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#b91c1c">String</text>
+  <text x="120" y="132" text-anchor="middle" font-size="10" fill="#7f1d1d">int / embstr / raw</text>
+  <text x="120" y="148" text-anchor="middle" font-size="10" fill="#7f1d1d">缓存 / 计数器 / 分布式锁</text>
+
+  <!-- Hash -->
+  <rect x="220" y="90" width="160" height="65" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="300" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">Hash</text>
+  <text x="300" y="132" text-anchor="middle" font-size="10" fill="#78350f">listpack / hashtable</text>
+  <text x="300" y="148" text-anchor="middle" font-size="10" fill="#78350f">对象属性 / 用户画像</text>
+
+  <!-- List -->
+  <rect x="400" y="90" width="160" height="65" rx="6" fill="#dcfce7" stroke="#10b981"/>
+  <text x="480" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#065f46">List</text>
+  <text x="480" y="132" text-anchor="middle" font-size="10" fill="#14532d">listpack / quicklist</text>
+  <text x="480" y="148" text-anchor="middle" font-size="10" fill="#14532d">消息队列 / 最新列表</text>
+
+  <!-- Set -->
+  <rect x="40" y="180" width="160" height="65" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="120" y="205" text-anchor="middle" font-size="14" font-weight="700" fill="#1e40af">Set</text>
+  <text x="120" y="222" text-anchor="middle" font-size="10" fill="#1e3a8a">intset / hashtable</text>
+  <text x="120" y="238" text-anchor="middle" font-size="10" fill="#1e3a8a">标签 / 共同好友</text>
+
+  <!-- Sorted Set -->
+  <rect x="220" y="180" width="160" height="65" rx="6" fill="#e0e7ff" stroke="#6366f1"/>
+  <text x="300" y="205" text-anchor="middle" font-size="14" font-weight="700" fill="#3730a3">Sorted Set</text>
+  <text x="300" y="222" text-anchor="middle" font-size="10" fill="#312e81">listpack / skiplist+dict</text>
+  <text x="300" y="238" text-anchor="middle" font-size="10" fill="#312e81">排行榜 / 滑动窗口限流</text>
+
+  <!-- Stream (Redis 5+) -->
+  <rect x="400" y="180" width="160" height="65" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="480" y="205" text-anchor="middle" font-size="14" font-weight="700" fill="#9f1239c">Stream</text>
+  <text x="480" y="222" text-anchor="middle" font-size="10" fill="#831843">radix tree + listpack</text>
+  <text x="480" y="238" text-anchor="middle" font-size="10" fill="#831843">消息流 / 事件溯源</text>
+
+  <!-- 底层编码说明 -->
+  <rect x="40" y="270" width="520" height="170" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="60" y="295" font-size="13" font-weight="700" fill="#1e293b">编码自动转换（节省内存）：</text>
+  <text x="60" y="320" font-size="11" fill="#475569">· 元素数量 &lt; 128 且每个 value &lt; 64 字节 → listpack / intset / embstr（紧凑编码）</text>
+  <text x="60" y="338" font-size="11" fill="#475569">· 超过阈值 → hashtable / skiplist / quicklist（标准编码）</text>
+  <text x="60" y="356" font-size="11" fill="#475569">· 双向转换，不可逆（大 → 小 需要重新创建）</text>
+
+  <text x="60" y="385" font-size="13" font-weight="700" fill="#1e293b">使用建议：</text>
+  <text x="60" y="405" font-size="11" fill="#10b981">✓ 优先用 listpack 编码的场景（小数据）：Hash / List / Sorted Set</text>
+  <text x="60" y="423" font-size="11" fill="#ef4444">✗ 大 Value 建议拆成多个 key（避免 bigkey 卡单线程）</text>
+</svg>

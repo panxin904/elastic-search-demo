@@ -5,6 +5,9 @@ description: Metrics / Logs / Traces / Events 信号体系
 
 # 可观测性四大支柱
 
+
+![可观测性三大支柱 — Metrics / Logs / Traces](/observability-pillars.svg)
+
 > **TL;DR**：四大支柱不是死规定，是经验总结。**Metrics 告诉你"是什么"，Logs 告诉你"发生了什么"，Traces 告诉你"经过了哪些节点"，Events 告诉你"什么时间发生了什么变更"**。四者关联，才是完整的可观测性。
 
 ## 一图看懂
