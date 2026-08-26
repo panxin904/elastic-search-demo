@@ -6394,3 +6394,82 @@ LINKS_PER_PAGE = 3   # 每页注入几条跨站链接
 - **剩余低密度站**：postgresql 0.18 / linux 0.22 / go 0.22 / observability 0.23（未在 §8.76 v2 范围，可后续扩展）
 - **扩 §8.71 目标**：xsite 525 → 800+ 需更激进策略（每章 overview 注入、关键词自动转链）
 - **CI 校验**：可加"xsite < 阈值"告警（不动 CI，长期观察）
+
+# §8.76 扩展 · 11 站 66 子页面批量注入跨站链接
+
+> 日期：2026-08-26 · 第六十九次 · 工作量：30 分钟
+> 范围：扩 LOW_DENSITY_SITES 4 站（postgresql/linux/go/observability），复用脚本逻辑
+
+## 8.76.6 背景
+
+§8.76 v2 完成 7 站（cloud/python/system-design/redis/design-pattern/filesystem/network），
+仍有 4 站密度 < 0.30：
+- postgresql: 0.18
+- linux:      0.22
+- go:         0.22
+- observability: 0.23
+
+## 8.76.7 实施
+
+仅修改 `LOW_DENSITY_SITES` 字典加 4 个 dir→short 映射，xlink-terms.json 中这 4 站
+已有配置，无需改动。复用 marker 逻辑，脚本自动跳过已注入的 top-6 子页面，
+为每站再选次 top-6（前 7 站）和 top-6（4 新站）共 66 个新文件注入。
+
+## 8.76.8 效果
+
+| 指标 | §8.76 v2 后 | §8.76 扩展后 | Δ |
+|---|---:|---:|---:|
+| 总 xsite | 525 | **723** | **+198（+37.7%）** |
+| 全局密度（链接/千字）| 0.40 | 0.55 | +37.5% |
+
+### 4 新站密度（全部 ≥0.50）
+
+| 子站 | 改前 | 改后 | Δ 链接 |
+|---|---:|---:|---:|
+| postgresql | 0.18 | **0.50** | +18 |
+| linux | 0.22 | **0.58** | +18 |
+| go | 0.22 | **0.62** | +18 |
+| observability | 0.23 | **0.63** | +18 |
+
+### 7 老站密度（次 top-6 注入后再涨）
+
+| 子站 | v2 后 | 扩展后 | Δ |
+|---|---:|---:|---:|
+| cloud | 0.55 | **0.97** | +18 |
+| network | 0.54 | **0.89** | +18 |
+| design-pattern | 0.45 | **0.75** | +18 |
+| python | 0.38 | **0.62** | +18 |
+| redis | 0.38 | **0.61** | +18 |
+| filesystem | 0.39 | **0.61** | +18 |
+| system-design | 0.36 | **0.58** | +18 |
+
+11 站全部进入"安全区"（密度 ≥0.50）。
+
+### 副作用验证
+
+| 指标 | baseline | §8.76 扩展后 | 状态 |
+|---|---:|---:|:-:|
+| broken | 0 | 0 | ✓ |
+| cross-site dups | 0 | 0 | ✓ |
+| intra-site dups | 58 | 58 | ✓ |
+| imgs | 10 | 10 | ✓ |
+| thin | 0 | 0 | ✓ |
+| heading_jump | 0 | 0 | ✓ |
+
+## 8.76.9 复用
+
+### 加新低密度站（流程）
+
+```bash
+# 1. 在 xlink-terms.json 加该站配置（如需）
+# 2. 在脚本 LOW_DENSITY_SITES 加 dir -> short
+# 3. 跑脚本 + audit
+python3 sites-hub/scripts/xlink-inject-subpages.py --apply
+python3 sites-hub/scripts/audit-content.py
+```
+
+### 后续按需
+
+- **剩余低密度站**（密度 < 0.30）：已清零，所有 31 站都 ≥0.30
+- **§8.71 目标** xsite ≥ 800：当前 723，可考虑"每章 overview 注入"或"关键词自动转链"激进策略
+- **CI 校验**：可加"xsite < 阈值"告警（不动 CI，长期观察）
