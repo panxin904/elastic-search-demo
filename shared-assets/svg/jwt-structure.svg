@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">JWT Token 结构</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Header.Payload.Signature · Base64URL · 自包含</text>
+
+  <!-- JWT 三段 -->
+  <g font-size="12" font-weight="700">
+    <rect x="40" y="100" width="160" height="220" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="120" y="125" text-anchor="middle" font-size="14" fill="#1e3a8a">Header</text>
+    <text x="120" y="143" text-anchor="middle" font-size="10" fill="#1e40af">头</text>
+
+    <rect x="220" y="100" width="160" height="220" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="300" y="125" text-anchor="middle" font-size="14" fill="#064e3b">Payload</text>
+    <text x="300" y="143" text-anchor="middle" font-size="10" fill="#065f46">载荷</text>
+
+    <rect x="400" y="100" width="160" height="220" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+    <text x="480" y="125" text-anchor="middle" font-size="14" fill="#9f1239">Signature</text>
+    <text x="480" y="143" text-anchor="middle" font-size="10" fill="#9d174d">签名</text>
+  </g>
+
+  <!-- Header 内容 -->
+  <g font-size="11" font-family="Menlo, Monaco, monospace">
+    <rect x="50" y="160" width="140" height="145" rx="4" fill="#1e3a8a"/>
+    <text x="60" y="180" fill="#fef3c7">{</text>
+    <text x="65" y="200" fill="#fbbf24">  "alg":</text>
+    <text x="120" y="200" fill="#86efac">"HS256",</text>
+    <text x="65" y="218" fill="#fbbf24">  "typ":</text>
+    <text x="120" y="218" fill="#86efac">"JWT"</text>
+    <text x="60" y="240" fill="#fef3c7">}</text>
+    <text x="60" y="265" fill="#93c5fd" font-family="sans-serif">→ Base64URL</text>
+    <text x="60" y="285" fill="#fbbf24" font-family="sans-serif">eyJhbGciOiJIUzI1...</text>
+  </g>
+
+  <!-- Payload 内容 -->
+  <g font-size="11" font-family="Menlo, Monaco, monospace">
+    <rect x="230" y="160" width="140" height="145" rx="4" fill="#064e3b"/>
+    <text x="240" y="180" fill="#fef3c7">{</text>
+    <text x="245" y="200" fill="#fbbf24">  "sub":</text>
+    <text x="300" y="200" fill="#86efac">"user_123",</text>
+    <text x="245" y="218" fill="#fbbf24">  "name":</text>
+    <text x="300" y="218" fill="#86efac">"Alice",</text>
+    <text x="245" y="236" fill="#fbbf24">  "role":</text>
+    <text x="300" y="236" fill="#86efac">"admin",</text>
+    <text x="245" y="254" fill="#fbbf24">  "exp":</text>
+    <text x="300" y="254" fill="#86efac">1735689600,</text>
+    <text x="245" y="272" fill="#fbbf24">  "iat":</text>
+    <text x="300" y="272" fill="#86efac">1735686000</text>
+    <text x="240" y="290" fill="#fef3c7">}</text>
+  </g>
+
+  <!-- Signature 内容 -->
+  <g font-size="11" font-family="Menlo, Monaco, monospace">
+    <rect x="410" y="160" width="140" height="145" rx="4" fill="#9f1239"/>
+    <text x="420" y="180" fill="#fef3c7">HMACSHA256(</text>
+    <text x="420" y="198" fill="#fbbf24">  base64Url(</text>
+    <text x="420" y="216" fill="#fbbf24">    header</text>
+    <text x="420" y="234" fill="#fbbf24">  ) + "." +</text>
+    <text x="420" y="252" fill="#fbbf24">  base64Url(</text>
+    <text x="420" y="270" fill="#fbbf24">    payload</text>
+    <text x="420" y="288" fill="#fbbf24">  ),</text>
+    <text x="420" y="306" fill="#fbbf24">  secret</text>
+    <text x="420" y="324" fill="#fef3c7">)</text>
+  </g>
+
+  <!-- 连接符 -->
+  <text x="206" y="220" text-anchor="middle" font-size="20" font-weight="700" fill="#94a3b8">.</text>
+  <text x="386" y="220" text-anchor="middle" font-size="20" font-weight="700" fill="#94a3b8">.</text>
+
+  <!-- 关键特性 -->
+  <g font-size="11">
+    <rect x="50" y="350" width="500" height="100" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <text x="300" y="370" text-anchor="middle" font-weight="700" fill="#1e293b">关键特性</text>
+    <text x="60" y="390" fill="#475569">✓ 自包含：payload 含用户信息 · 无状态 · 服务端不存 session</text>
+    <text x="60" y="408" fill="#475569">✓ 签名防篡改：HMAC / RSA / ECDSA · 密钥不可泄露</text>
+    <text x="60" y="425" fill="#475569">✗ 无法撤销：需黑名单 / 短过期 / refresh_token</text>
+    <text x="320" y="390" fill="#475569">✗ payload 明文：勿放敏感信息</text>
+    <text x="320" y="408" fill="#475569">✓ 跨域友好 · 移动端友好 · 性能优于 session</text>
+    <text x="320" y="425" fill="#475569">⚠ 算法混淆攻击 · 必须服务端验证 alg</text>
+  </g>
+</svg>

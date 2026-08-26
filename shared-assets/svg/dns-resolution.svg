@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">DNS 解析流程（递归查询）</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">根 → 顶级域 → 权威 · 多级缓存</text>
+
+  <!-- 4 层节点 -->
+  <g font-size="12" font-weight="600">
+    <rect x="60" y="120" width="100" height="50" rx="8" fill="#3b82f6" opacity="0.9"/>
+    <text x="110" y="142" text-anchor="middle" fill="white">本地解析器</text>
+    <text x="110" y="158" text-anchor="middle" font-size="10" fill="#dbeafe">Resolver</text>
+
+    <rect x="200" y="120" width="100" height="50" rx="8" fill="#10b981" opacity="0.9"/>
+    <text x="250" y="142" text-anchor="middle" fill="white">根 DNS</text>
+    <text x="250" y="158" text-anchor="middle" font-size="10" fill="#d1fae5">Root (.)</text>
+
+    <rect x="340" y="120" width="100" height="50" rx="8" fill="#f59e0b" opacity="0.9"/>
+    <text x="390" y="142" text-anchor="middle" fill="white">顶级域 DNS</text>
+    <text x="390" y="158" text-anchor="middle" font-size="10" fill="#fef3c7">TLD (.com)</text>
+
+    <rect x="480" y="120" width="100" height="50" rx="8" fill="#ec4899" opacity="0.9"/>
+    <text x="530" y="142" text-anchor="middle" fill="white">权威 DNS</text>
+    <text x="530" y="158" text-anchor="middle" font-size="10" fill="#fce7f3">Authoritative</text>
+  </g>
+
+  <!-- 查询箭头（向下） -->
+  <g stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <line x1="160" y1="200" x2="190" y2="240"/>
+    <line x1="290" y1="200" x2="330" y2="240"/>
+    <line x1="440" y1="200" x2="470" y2="240"/>
+  </g>
+  <g stroke="#94a3b8" stroke-width="1" fill="none" stroke-dasharray="2 2">
+    <line x1="160" y1="200" x2="190" y2="240" opacity="0"/>
+  </g>
+
+  <!-- 步骤标签（向下） -->
+  <text x="120" y="225" font-size="10" fill="#64748b" font-weight="600">查询1</text>
+  <text x="250" y="225" font-size="10" fill="#64748b" font-weight="600">查询2</text>
+  <text x="395" y="225" font-size="10" fill="#64748b" font-weight="600">查询3</text>
+
+  <!-- 响应箭头（向上） -->
+  <g stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <line x1="480" y1="290" x2="450" y2="330"/>
+    <line x1="340" y1="290" x2="310" y2="330"/>
+    <line x1="200" y1="290" x2="170" y2="330"/>
+  </g>
+  <text x="475" y="315" font-size="10" fill="#065f46" font-weight="600">返回 IP</text>
+  <text x="335" y="315" font-size="10" fill="#065f46" font-weight="600">返回 NS</text>
+  <text x="195" y="315" font-size="10" fill="#065f46" font-weight="600">返回 NS</text>
+
+  <!-- 解析步骤（底部） -->
+  <g font-size="11">
+    <rect x="50" y="380" width="500" height="70" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <text x="300" y="403" text-anchor="middle" font-weight="700" fill="#1e293b">完整链路</text>
+    <text x="300" y="423" text-anchor="middle" fill="#475569">浏览器 → 操作系统缓存 → 本地 Resolver → ISP 缓存 → 根 → TLD → 权威</text>
+    <text x="300" y="438" text-anchor="middle" fill="#475569">每级缓存 TTL 不等：浏览器 1min / OS 5min / ISP 1hr / 权威 NS 24hr</text>
+  </g>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">TCP 三次握手</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">SYN / SYN+ACK / ACK · 全双工建立</text>
+
+  <!-- Client / Server -->
+  <g font-size="13" font-weight="600">
+    <rect x="80" y="100" width="120" height="40" rx="8" fill="#3b82f6" opacity="0.9"/>
+    <text x="140" y="125" text-anchor="middle" fill="white">Client</text>
+
+    <rect x="400" y="100" width="120" height="40" rx="8" fill="#10b981" opacity="0.9"/>
+    <text x="460" y="125" text-anchor="middle" fill="white">Server</text>
+  </g>
+
+  <!-- 时间线 -->
+  <line x1="140" y1="160" x2="140" y2="380" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 3"/>
+  <line x1="460" y1="160" x2="460" y2="380" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 3"/>
+
+  <!-- 3 次握手箭头 -->
+  <g stroke="#3b82f6" stroke-width="2.5" fill="none" marker-end="url(#arrow)">
+    <line x1="140" y1="200" x2="460" y2="200"/>
+  </g>
+  <text x="300" y="195" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">① SYN (seq=x)</text>
+  <text x="300" y="220" text-anchor="middle" font-size="10" fill="#64748b">Client → Server · 同步序号 · CLOSED → SYN_SENT</text>
+
+  <g stroke="#10b981" stroke-width="2.5" fill="none" marker-end="url(#arrow)">
+    <line x1="460" y1="270" x2="140" y2="270"/>
+  </g>
+  <text x="300" y="265" text-anchor="middle" font-size="13" font-weight="700" fill="#064e3b">② SYN + ACK (seq=y, ack=x+1)</text>
+  <text x="300" y="290" text-anchor="middle" font-size="10" fill="#64748b">Server → Client · 同步+确认 · LISTEN → SYN_RCVD</text>
+
+  <g stroke="#3b82f6" stroke-width="2.5" fill="none" marker-end="url(#arrow)">
+    <line x1="140" y1="340" x2="460" y2="340"/>
+  </g>
+  <text x="300" y="335" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">③ ACK (seq=x+1, ack=y+1)</text>
+  <text x="300" y="360" text-anchor="middle" font-size="10" fill="#64748b">Client → Server · 确认 · SYN_SENT → ESTABLISHED</text>
+
+  <!-- 状态说明 -->
+  <g font-size="11">
+    <rect x="50" y="395" width="500" height="55" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+    <text x="300" y="415" text-anchor="middle" font-weight="700" fill="#1e3a8a">为什么是 3 次？</text>
+    <text x="300" y="433" text-anchor="middle" fill="#1e40af">双向确认：双方各自确认对方的发送/接收能力 · 防失效 SYN 报文</text>
+    <text x="300" y="448" text-anchor="middle" fill="#1e40af">2 次不够（无法确认 Client 接收能力）· 4 次冗余（合并为 3 次）</text>
+  </g>
+</svg>

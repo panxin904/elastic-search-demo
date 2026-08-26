@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">MySQL InnoDB MVCC 机制</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">多版本并发控制 · 读不阻塞写 · 写不阻塞读</text>
+
+  <!-- 隐藏字段 -->
+  <g font-size="12" font-weight="600">
+    <text x="40" y="105" fill="#475569">数据行隐藏字段：</text>
+    <rect x="40" y="115" width="100" height="35" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <text x="90" y="138" text-anchor="middle" fill="white">DB_TRX_ID</text>
+
+    <rect x="150" y="115" width="100" height="35" rx="6" fill="#10b981" opacity="0.9"/>
+    <text x="200" y="138" text-anchor="middle" fill="white">DB_ROLL_PTR</text>
+
+    <rect x="260" y="115" width="100" height="35" rx="6" fill="#f59e0b" opacity="0.9"/>
+    <text x="310" y="138" text-anchor="middle" fill="white">DB_ROW_ID</text>
+
+    <rect x="370" y="115" width="120" height="35" rx="6" fill="#ec4899" opacity="0.9"/>
+    <text x="430" y="138" text-anchor="middle" fill="white">undolog 旧版本</text>
+  </g>
+
+  <!-- Read View 组成 -->
+  <g font-size="11">
+    <rect x="40" y="170" width="520" height="65" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="60" y="190" font-weight="700" fill="#1e3a8a">Read View（一致性视图）</text>
+    <text x="60" y="208" fill="#1e40af">m_ids：生成 ReadView 时活跃事务 ID 列表</text>
+    <text x="60" y="223" fill="#1e40af">min_trx_id / max_trx_id：活跃事务最小/最大 ID</text>
+    <text x="380" y="208" fill="#1e40af">creator_trx_id：当前事务自身 ID</text>
+  </g>
+
+  <!-- 版本可见性规则 -->
+  <g font-size="12" font-weight="600">
+    <text x="40" y="265" fill="#1e293b">版本可见性判断：</text>
+
+    <rect x="40" y="275" width="510" height="42" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+    <text x="50" y="293" font-weight="700" fill="#92400e">trx_id &lt; min_trx_id</text>
+    <text x="50" y="308" fill="#78350f">已提交事务 → 可见</text>
+    <text x="220" y="293" font-weight="700" fill="#92400e">trx_id ∈ m_ids</text>
+    <text x="220" y="308" fill="#78350f">活跃事务 → 不可见</text>
+    <text x="390" y="293" font-weight="700" fill="#92400e">trx_id &gt; max_trx_id</text>
+    <text x="390" y="308" fill="#78350f">未来事务 → 不可见</text>
+  </g>
+
+  <!-- 隔离级别 -->
+  <g font-size="11">
+    <rect x="40" y="335" width="160" height="55" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
+    <text x="120" y="355" text-anchor="middle" font-weight="700" fill="#064e3b">RC（读已提交）</text>
+    <text x="120" y="372" text-anchor="middle" fill="#065f46">每次 SELECT 新 ReadView</text>
+
+    <rect x="220" y="335" width="160" height="55" rx="6" fill="#fce7f3" stroke="#ec4899" stroke-width="1"/>
+    <text x="300" y="355" text-anchor="middle" font-weight="700" fill="#9f1239">RR（可重复读）</text>
+    <text x="300" y="372" text-anchor="middle" fill="#9d174d">事务首个 SELECT ReadView</text>
+
+    <rect x="400" y="335" width="160" height="55" rx="6" fill="#e9d5ff" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="480" y="355" text-anchor="middle" font-weight="700" fill="#5b21b6">SERIALIZABLE</text>
+    <text x="480" y="372" text-anchor="middle" fill="#6b21a8">MVCC 失效 · 锁机制</text>
+  </g>
+
+  <text x="300" y="425" text-anchor="middle" font-size="11" fill="#94a3b8">Snapshot 隔离 · 写操作仍需行锁 · 幻读靠 Next-Key Lock（RR 下）</text>
+  <text x="300" y="445" text-anchor="middle" font-size="11" fill="#94a3b8">undolog 链式回溯旧版本 · purge 线程清理不再需要的旧版本</text>
+</svg>

@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">MySQL InnoDB WAL 机制</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Write-Ahead Log · 顺序写 · redo + undo</text>
+
+  <!-- 顶部：SQL -->
+  <rect x="240" y="100" width="120" height="40" rx="8" fill="#3b82f6" opacity="0.9"/>
+  <text x="300" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="white">SQL 执行</text>
+
+  <g stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <line x1="300" y1="140" x2="300" y2="170"/>
+  </g>
+
+  <!-- 内存层 -->
+  <rect x="40" y="170" width="520" height="100" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="60" y="190" font-size="13" font-weight="700" fill="#1e3a8a">InnoDB 内存</text>
+
+  <g font-size="11" font-weight="700">
+    <rect x="60" y="200" width="100" height="50" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <text x="110" y="222" text-anchor="middle" fill="white">Buffer Pool</text>
+    <text x="110" y="237" text-anchor="middle" font-size="10" fill="#dbeafe">数据页缓存</text>
+
+    <rect x="180" y="200" width="100" height="50" rx="6" fill="#10b981" opacity="0.9"/>
+    <text x="230" y="222" text-anchor="middle" fill="white">Log Buffer</text>
+    <text x="230" y="237" text-anchor="middle" font-size="10" fill="#d1fae5">redo log 缓冲</text>
+
+    <rect x="300" y="200" width="120" height="50" rx="6" fill="#f59e0b" opacity="0.9"/>
+    <text x="360" y="222" text-anchor="middle" fill="white">Change Buffer</text>
+    <text x="360" y="237" text-anchor="middle" font-size="10" fill="#fef3c7">二级索引变更</text>
+
+    <rect x="440" y="200" width="100" height="50" rx="6" fill="#ec4899" opacity="0.9"/>
+    <text x="490" y="222" text-anchor="middle" fill="white">自适应哈希</text>
+    <text x="490" y="237" text-anchor="middle" font-size="10" fill="#fce7f3">热点页索引</text>
+  </g>
+
+  <!-- 写入 redo log -->
+  <g stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <path d="M230,250 Q230,300 230,310"/>
+  </g>
+  <text x="240" y="280" font-size="10" fill="#065f46" font-weight="700">顺序写</text>
+
+  <!-- 磁盘层 -->
+  <rect x="40" y="310" width="520" height="120" rx="10" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+  <text x="60" y="330" font-size="13" font-weight="700" fill="#064e3b">磁盘</text>
+
+  <g font-size="11" font-weight="700">
+    <rect x="60" y="340" width="220" height="65" rx="6" fill="#10b981" opacity="0.9"/>
+    <text x="170" y="358" text-anchor="middle" font-size="13" fill="white">Redo Log（ib_logfile）</text>
+    <text x="170" y="378" text-anchor="middle" font-size="10" fill="#d1fae5">物理日志 · 循环写</text>
+    <text x="170" y="394" text-anchor="middle" font-size="10" fill="#d1fae5">innodb_log_file_size</text>
+
+    <rect x="300" y="340" width="120" height="65" rx="6" fill="#94a3b8" opacity="0.85"/>
+    <text x="360" y="358" text-anchor="middle" font-size="13" fill="white">数据文件</text>
+    <text x="360" y="378" text-anchor="middle" font-size="10" fill="#f1f5f9">ibdata / .ibd</text>
+    <text x="360" y="394" text-anchor="middle" font-size="10" fill="#f1f5f9">随机写（延迟）</text>
+
+    <rect x="440" y="340" width="100" height="65" rx="6" fill="#94a3b8" opacity="0.85"/>
+    <text x="490" y="358" text-anchor="middle" font-size="13" fill="white">Undo Log</text>
+    <text x="490" y="378" text-anchor="middle" font-size="10" fill="#f1f5f9">逻辑日志</text>
+    <text x="490" y="394" text-anchor="middle" font-size="10" fill="#f1f5f9">MVCC 回滚</text>
+  </g>
+
+  <!-- 关键机制 -->
+  <g font-size="11">
+    <rect x="50" y="440" width="155" height="35" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+    <text x="127" y="455" text-anchor="middle" font-weight="700" fill="#92400e">两阶段提交</text>
+    <text x="127" y="468" text-anchor="middle" fill="#78350f">redo → binlog</text>
+
+    <rect x="222" y="440" width="155" height="35" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+    <text x="299" y="455" text-anchor="middle" font-weight="700" fill="#1e3a8a">Checkpoint</text>
+    <text x="299" y="468" text-anchor="middle" fill="#1e40af">定期刷脏页</text>
+
+    <rect x="394" y="440" width="166" height="35" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
+    <text x="477" y="455" text-anchor="middle" font-weight="700" fill="#064e3b">fsync 策略</text>
+    <text x="477" y="468" text-anchor="middle" fill="#065f46">0/1/2 三档</text>
+  </g>
+</svg>
