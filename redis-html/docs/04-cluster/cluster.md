@@ -262,3 +262,7 @@ public class RedisClusterConfig {
 - ⚠️ 跨槽位操作受限（用 hash tag 解决）
 
 **下一步：** [🎰 哈希槽分片](/04-cluster/slots) — 深入理解 CRC16 与槽位分配
+
+<!-- svg-injected:do-not-edit -->
+
+![cluster slot](/cluster-slot.svg)

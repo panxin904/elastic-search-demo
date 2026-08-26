@@ -339,3 +339,7 @@ DELETE FROM users WHERE id = 1;
 - ✅ 读不阻塞写
 
 **下一步：** [📊 EXPLAIN 解读](../05-optimization/explain) — 进入性能调优的世界
+
+<!-- svg-injected:do-not-edit -->
+
+![mvcc flow](/mvcc-flow.svg)

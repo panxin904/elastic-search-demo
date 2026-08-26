@@ -176,3 +176,7 @@ host example.com
 4. **DNS 缓存多久？** 由记录的 TTL 决定。
 5. **CNAME 与 A 区别？** CNAME 是别名（需要再解析一次），A 直接给 IP。
 6. **DNS 攻击常见？** 缓存投毒、DDoS、域名劫持。
+
+<!-- svg-injected:do-not-edit -->
+
+![dns resolution](/dns-resolution.svg)

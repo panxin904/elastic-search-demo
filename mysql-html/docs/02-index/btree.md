@@ -267,3 +267,7 @@ SELECT * FROM users WHERE non_indexed_col = 'x';
 - ❌ 大字段（TEXT/BLOB）不能建索引
 
 **下一步：** [📑 聚簇索引 vs 二级索引](../02-index/clustered) — 深入 InnoDB 的索引存储模型
+
+<!-- svg-injected:do-not-edit -->
+
+![btree index](/btree-index.svg)

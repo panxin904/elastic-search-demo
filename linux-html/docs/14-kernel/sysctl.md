@@ -319,3 +319,7 @@ ls -la /proc/sys/<path>
 - [devops](https://java-px.bot.cd/devops/):DevOps 自动化
 - [cloud-native](https://java-px.bot.cd/cloud-native/):云原生
 - [network](https://java-px.bot.cd/network/):Linux 网络
+
+<!-- svg-injected:do-not-edit -->
+
+![virtual memory](/virtual-memory.svg)

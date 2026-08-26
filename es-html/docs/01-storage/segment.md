@@ -59,3 +59,7 @@ POST /products/_forcemerge?max_num_segments=1
 - [分片 Shard](/01-storage/shard)
 - [Refresh 机制](/01-storage/refresh)
 - [Translog](/01-storage/translog)
+
+<!-- svg-injected:do-not-edit -->
+
+![inverted index](/inverted-index.svg)

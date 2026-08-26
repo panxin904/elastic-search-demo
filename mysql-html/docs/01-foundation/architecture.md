@@ -271,3 +271,7 @@ SHOW STATUS LIKE 'Slow_queries';
 - 文件系统：磁盘 IO / 文件系统选择
 
 **下一步：** [🔧 存储引擎 InnoDB/MyISAM](../01-foundation/storage-engine) — 深入理解 InnoDB 的内部机制
+
+<!-- svg-injected:do-not-edit -->
+
+![wal architecture](/wal-architecture.svg)

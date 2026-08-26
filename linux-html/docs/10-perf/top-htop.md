@@ -200,3 +200,7 @@ top -n 30 -b > /tmp/top.log
 - [vmstat / mpstat](/10-perf/vmstat)
 - [iostat / iotop](/10-perf/iostat)
 - [perf / strace](/10-perf/perf-strace)
+
+<!-- svg-injected:do-not-edit -->
+
+![process scheduler](/process-scheduler.svg)
