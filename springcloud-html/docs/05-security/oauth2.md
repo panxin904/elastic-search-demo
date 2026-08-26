@@ -389,3 +389,13 @@ Refresh Token 只在 Auth Center 使用，且可以撤销。
 - ✅ 用户信息用 Header 传递
 
 **下一步：** [🏛️ 统一认证中心](/05-security/auth-center) — 完整的 Auth Center 实现
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [architecture](https://java-px.bot.cd/architecture/):微服务架构
+- [system-design](https://java-px.bot.cd/system-design/):系统设计
+- [cloud-native](https://java-px.bot.cd/cloud-native/):Docker / K8s 落地

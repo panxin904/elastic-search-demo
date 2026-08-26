@@ -287,3 +287,13 @@ strace -e trace=read,write -p $(pidof hello-fs)
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [linux](https://java-px.bot.cd/linux/):Linux 文件系统
+- [observability](https://java-px.bot.cd/observability/):存储监控
+- [postgresql](https://java-px.bot.cd/postgresql/):PG 存储引擎

@@ -204,3 +204,13 @@ location /ws {
 4. **心跳机制？** ping/pong 帧 + 应用层心跳。
 5. **断线重连策略？** 指数退避 + 抖动。
 6. **WebSocket 与 Socket.IO？** Socket.IO 是 WebSocket 之上的库，有降级（轮询）和重连机制。
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [linux](https://java-px.bot.cd/linux/):Linux 网络栈
+- [security](https://java-px.bot.cd/security/):网络安全
+- [cloud-native](https://java-px.bot.cd/cloud-native/):K8s 网络

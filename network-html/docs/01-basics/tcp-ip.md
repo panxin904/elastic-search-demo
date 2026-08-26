@@ -142,3 +142,13 @@ OSI 层                TCP/IP 层          协议示例
 
 - 上一章：[🌐 OSI 七层模型](/01-basics/osi)
 - 下一章：[📦 数据封装与解封装](/01-basics/encapsulation)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [linux](https://java-px.bot.cd/linux/):Linux 网络栈
+- [security](https://java-px.bot.cd/security/):网络安全
+- [cloud-native](https://java-px.bot.cd/cloud-native/):K8s 网络

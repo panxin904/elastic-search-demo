@@ -411,3 +411,13 @@ public Order findById(long id) {
 - 阅读每篇单独的反模式细节：[God Object](./god-object) / [Anemic Model](./anemic-model) / [Big Ball of Mud](./big-ball-of-mud) / [Callback Hell](./callback-hell) / [Circular Dependency](./circular-dependency) / [Magic Number](./magic-number) / [Premature Optimization](./premature-optimization)
 - 进阶：[现代模式 · DI](../04-modern-patterns/dependency-injection)（避免 God Object 的工具）
 - 返回首页：[设计模式总览](../index.md)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [java-language](https://java-px.bot.cd/java-language/):Java 设计模式
+- [java](https://java-px.bot.cd/java-web-manual/):Java 实现
+- [architecture](https://java-px.bot.cd/architecture/):架构模式

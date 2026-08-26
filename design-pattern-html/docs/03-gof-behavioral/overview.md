@@ -551,3 +551,13 @@ console.log(expr.interpret());  // 6
 - 阅读每篇单独的 GoF 11 行为型模式细节：[Chain of Responsibility](./chain-of-responsibility) / [Command](./command) / [Iterator](./iterator) / [Mediator](./mediator) / [Memento](./memento) / [Observer](./observer) / [State](./state) / [Strategy](./strategy) / [Template Method](./template-method) / [Visitor](./visitor) / [Interpreter](./interpreter)
 - 进阶：[架构模式 · CQRS](../05-architectural-patterns/cqrs)（Command 的架构升级版）
 - 反向自查：[反模式 · 回调地狱](../06-anti-patterns/callback-hell)（Observer / Callback 滥用）
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [java-language](https://java-px.bot.cd/java-language/):Java 设计模式
+- [java](https://java-px.bot.cd/java-web-manual/):Java 实现
+- [architecture](https://java-px.bot.cd/architecture/):架构模式

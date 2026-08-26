@@ -599,3 +599,13 @@ flowchart TD
 > **Q：长轮询和 Server Push 的区别？**
 >
 > A：长轮询本质还是客户端主动拉取，但连接始终保留，服务端有变更时立即响应。真正的 Server Push（如 gRPC Stream）需要双向流，实现更复杂。Nacos 2.x 新增了 gRPC 双向流支持，但长轮询仍是主要的容灾兜底方案。
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [architecture](https://java-px.bot.cd/architecture/):微服务架构
+- [system-design](https://java-px.bot.cd/system-design/):系统设计
+- [cloud-native](https://java-px.bot.cd/cloud-native/):Docker / K8s 落地

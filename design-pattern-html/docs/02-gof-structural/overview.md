@@ -352,3 +352,13 @@ resp, err := orderClient.CreateOrder(ctx, req)
 - 阅读每篇单独的 GoF 7 结构型模式细节：[Adapter](./adapter) / [Bridge](./bridge) / [Composite](./composite) / [Decorator](./decorator) / [Facade](./facade) / [Flyweight](./flyweight) / [Proxy](./proxy)
 - 进阶：[现代模式 · Null Object](../04-modern-patterns/null-object)
 - 反向自查：[反模式 · 大泥球](../06-anti-patterns/big-ball-of-mud)（结构混乱的常见病）
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [java-language](https://java-px.bot.cd/java-language/):Java 设计模式
+- [java](https://java-px.bot.cd/java-web-manual/):Java 实现
+- [architecture](https://java-px.bot.cd/architecture/):架构模式

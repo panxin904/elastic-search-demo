@@ -680,3 +680,13 @@ Functions 还支持异步函数（`redis.register_function` 配合 `redis.fcall_
 到这里 20 道进阶题结束。下一篇进入真正的**手撕代码**环节：从分布式锁到 LRU，从跳表到缓存三大问题。
 
 **下一步：** [🔒 分布式锁手撕](/08-interview/lock-coding)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [mysql](https://java-px.bot.cd/mysql/):MySQL 主存
+- [kafka](https://java-px.bot.cd/kafka/):Kafka 异步队列
+- [java](https://java-px.bot.cd/java-web-manual/):Java 客户端（Redisson / Jedis）

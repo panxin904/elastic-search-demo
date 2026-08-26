@@ -278,3 +278,13 @@ ctr tasks rm $(ctr tasks ls -q)
 - containerd 文档：<https://containerd.io/docs/
 - CRI 规范：<https://github.com/containerd/containerd/tree/main/pkg/cri
 - nerdctl：<https://github.com/containerd/nerdctl>
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [linux](https://java-px.bot.cd/linux/):Linux 文件系统
+- [observability](https://java-px.bot.cd/observability/):存储监控
+- [postgresql](https://java-px.bot.cd/postgresql/):PG 存储引擎
