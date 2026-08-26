@@ -6688,3 +6688,100 @@ cd {site}-html && npx vitepress build
 - **加 Vue 组件**：三站都缺 Vue 组件，按需补强
 - **子页加 mermaid**：每章挑 1-2 个核心子页加 mermaid 子结构图
 - **跨站链接**：三站当前密度已较高（0.66/1.14/0.86），可暂缓
+
+# §8.72+ SVG 大规模扩展（13 张）
+
+> 日期：2026-08-26 · 第七十二次 · 工作量：2 小时
+> 范围：手画 13 张关键架构 SVG（覆盖 7 站核心概念页）
+
+## 8.72.1 背景与根因
+
+§8.71 路线图 imgs ≥ 200 目标，进度 16/200 (8%)。
+§8.72 完成 10 张基础 SVG（架构 / kafka / mysql / redis / observability），
+§8.77 v2 完成 6 张三新站 SVG，
+§8.72+ 完成 13 张覆盖核心协议的 SVG（TCP / HTTPS / DNS / OAuth2 / JWT / MVCC / B+Tree / WAL / Cluster / Rebalance / CFS / 虚拟内存 / 倒排索引）。
+
+## 8.72.2 13 张 SVG
+
+### Network（3 张）
+- `tcp-handshake.svg`        → network/01-basics/tcp-ip      TCP 三次握手 + 双向确认
+- `https-handshake.svg`      → network/06-application/https  TLS 1.3 1-RTT + ECDHE PFS
+- `dns-resolution.svg`       → network/06-application/dns    根→TLD→权威 4 级递归
+
+### Security（2 张）
+- `oauth2-flow.svg`          → security/02-auth/oauth2        Authorization Code 7 步
+- `jwt-structure.svg`        → security/02-auth/jwt           Header.Payload.Signature
+
+### MySQL（3 张）
+- `mvcc-flow.svg`            → mysql/04-transaction/mvcc     ReadView + 4 隔离级别
+- `btree-index.svg`          → mysql/02-index/btree           B+Tree 4 层 + 叶子链表
+- `wal-architecture.svg`     → mysql/01-foundation/architecture  InnoDB 内存 + redo
+
+### Redis（1 张）
+- `cluster-slot.svg`         → redis/04-cluster/cluster       16384 slot + MOVED/ASK
+
+### Kafka（1 张）
+- `partition-rebalance.svg`  → kafka/05-consumer/rebalance    Range/RR/Sticky + Stop-the-world
+
+### Linux（2 张）
+- `process-scheduler.svg`    → linux/10-perf/top-htop         CFS + vruntime + 红黑树
+- `virtual-memory.svg`       → linux/14-kernel/sysctl         虚拟地址 + MMU + TLB
+
+### Elasticsearch（1 张）
+- `inverted-index.svg`       → es/01-storage/segment          Term Dict + Postings + FST
+
+## 8.72.3 效果
+
+| 指标 | §8.77 v2 后 | §8.72+ 后 | Δ |
+|---|---:|---:|---:|
+| 总 imgs | 16 | **29** | **+13** |
+| 跨站 dups | 0 | 0 | ✓ |
+| broken | 0 | 0 | ✓ |
+
+### 各站 imgs 分布变化
+
+| 站 | §8.77 v2 后 | §8.72+ 后 | Δ |
+|---|---:|---:|---:|
+| architecture | 3 | 3 | — |
+| observability | 1 | 1 | — |
+| system-design | 3 | 3 | — |
+| kafka | 1 | **2** | +1 |
+| mysql | 1 | **4** | +3 |
+| redis | 1 | **2** | +1 |
+| game | 2 | 2 | — |
+| android | 2 | 2 | — |
+| iot | 2 | 2 | — |
+| network | 0 | **3** | +3 |
+| security | 0 | **2** | +2 |
+| linux | 0 | **2** | +2 |
+| es | 0 | **1** | +1 |
+
+§8.71 路线图 imgs ≥200 进度：**29/200 (14.5%)**
+
+## 8.72.4 副作用验证
+
+| 指标 | baseline | §8.72+ 后 |
+|---|---:|---:|
+| broken | 0 | 0 ✓ |
+| cross-site dups | 0 | 0 ✓ |
+| intra-site dups | 58 | 58 ✓ |
+| heading_jump | 0 | 0 ✓ |
+| mermaid_unclosed | 0 | 0 ✓ |
+
+## 8.72.5 复用
+
+### 加新 SVG
+
+```bash
+# 1. 在 shared-assets/svg/ 加新 SVG
+# 2. 在对应站核心页加 <img> 引用（marker 保护）
+# 3. 重 build（无需改 config）
+cd {site}-html && npx vitepress build
+```
+
+### §8.71 imgs 200+ 后续路径
+
+- 加 30-50 张手画 SVG（每天 5-10 张，2 周可达 200）
+- 自动化生成 mermaid 转 SVG（mmdc 路径，已避成本）
+- 每站加 OG image（社交分享预览，1 周）
+- 自动截图工具界面（kubectl / Grafana，2-3 周）
