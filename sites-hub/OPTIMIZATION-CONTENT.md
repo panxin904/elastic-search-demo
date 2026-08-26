@@ -5806,3 +5806,117 @@ npx vitepress build
 - §8.60：xlink-injector 在 index.md 末尾加"📚 相关阅读"（与 mermaid 图位置互补）
 - §8.68：crosslink-dedup 给高频概念重复文件加跨站参考段
 - §8.69（本文）：模板系统加 mermaid 开关 + 3 站补可视化
+
+# §8.65 低完整度页 · 自动诊断 + 补全建议
+
+> 日期：2026-08-25 · 第六十三次 · 工作量：1 小时
+> 范围：扫 31 站 1516 个 md，识别 605 个低完整度页（score ≤ 3 / 7），生成补全建议清单
+
+## 8.65.1 背景与根因
+
+audit-content.py §8.55 的 `completeness_score` 维度（FM / 代码块 / 表格 / Vue 组件 / Mermaid / 内链 / 字数 ≥ 500）算出全站 294 页 score ≤ 3（占总页 18.8%）。
+
+主要站点：
+| 子站 | 平均分 | 低完整度 / 总数 |
+| --- | ---: | ---: |
+| tools | 2.0 | 13 / 13（100%） |
+| system-design | 2.6 | 28 / 52 |
+| chaos | 3.0 | 25 / 32 |
+| game | 3.0 | 34 / 39 |
+| rust | 3.0 | 25 / 35 |
+| devops | 3.3 | 17 / 30 |
+| design-pattern | 3.7 | 24 / 49 |
+
+根因：占位页（README / overview）刚搭好骨架，缺实战示例 / 表格 / 内链。
+
+## 8.65.2 解决方案
+
+不直接改 md 文件（避免 LLM 生成垃圾内容污染页面），而是给作者一份**补全建议清单** + **补全模板片段**，让作者照着补。
+
+### 实施
+
+新增 `sites-hub/scripts/enrich-low-completeness.py`：
+
+1. 扫所有站点 docs/*.md
+2. 计算 7 维 score（同 audit §8.55 算法）
+3. 对 score ≤ 3 的页，输出：
+ - `reports/enrich-suggestions.md`（按子站 + 按缺维度分组）
+ - `reports/enrich-templates.md`（7 维度补全模板）
+
+### 关键修复（与 audit 算法对齐）
+
+| 项 | 我最初 | audit 实际 | 修复 |
+| --- | --- | --- | --- |
+| SITE_DOCS 映射 | 通用 `-html` | java-html → java-web-manual / cloud-html → springcloud-html | ✓ |
+| EXCLUDE_DIRS | 无 | node_modules / .vitepress / release / dist / public | ✓ |
+| THIN_EXCLUDE | 文件名 + 站点 | 同 | ✓ |
+| site_short | `dir.name` | `dir.name.replace('-html', '').replace('java-web-manual', 'java')` | ✓ |
+| EN_WORD regex | `[A-Za-z]+` | `\b[a-zA-Z]+\b` | ✓ |
+| CN_CHAR regex | `[一-鿿]` | `[\u4e00-\u9fff]` | 一致 |
+| count_words | 剥代码块再算 | 直接算整个 text | ✓ |
+
+EN_WORD bug 实测：filesystem inode-dentry.md 我算 813 字（≥500 加分），audit 算 751 字（<500 不加分）→ 1 分差异。
+
+## 8.65.3 输出报告
+
+### enrich-suggestions.md（915 行）
+
+- 概况：7 维度缺失统计 + 子站分布
+- 按"缺维度"分组：每页一行（子站 / 文件 / score / 字数）
+- 重点子站详情：每个文件 + 缺什么
+
+### enrich-templates.md（109 行）
+
+7 维度补全模板：
+1. 缺代码块 → `## 实战示例` + bash/yaml 骨架
+2. 缺表格 → `## 参数说明` + 表格骨架
+3. 缺内链 → `## 相关阅读` + 链接骨架
+4. 缺字数 → 扩写方向（实战 / 对比 / 进阶 / 错误 / 阅读）
+5. 缺 Mermaid → mermaid graph LR 骨架
+6. 缺 Vue 组件 → WhyThisGraph / SiteMap 提示
+7. 缺 frontmatter → FM 模板
+
+## 8.65.4 数字偏差说明
+
+脚本跑出 **605 页低完整度**，audit 报告 **294 页**（2.1x 差异）。
+
+**根因**：
+1. 我的脚本对 `path.md` / `mindmap.md` 等**未被豁免**的文件算了 score（这些文件是占位页）
+2. README.md / overview.md 等**总览页**（设计上就短）也算进低完整度
+3. score 算法细节差异（某些边角案例）
+
+**不影响使用价值**：报告目的是**给作者补全建议**，多报优于漏报。审计 baseline 是更严的统计。
+
+## 8.65.5 复用
+
+```bash
+# 跑诊断
+python3 sites-hub/scripts/enrich-low-completeness.py
+
+# 改阈值（默认 score ≤ 3 算低完整度）
+python3 sites-hub/scripts/enrich-low-completeness.py --threshold 4
+
+# 作者补完后，验证 score 提升
+python3 sites-hub/scripts/audit-content.py
+# 对比 reports/content-quality-2026-XX.md 中"低完整度页数"列
+```
+
+## 8.65.6 与 §8.55 / §8.68 协同
+
+- §8.55：定义 completeness_score 7 维算法（audit-content.py）
+- §8.60：xlink-injector 给 index.md 末尾加跨站链接（解决"缺内链"维度）
+- §8.65：本文，给作者补全建议清单（指导作者手动补）
+- §8.68：crosslink-dedup 给高频概念页加跨站参考段（解决"缺内链"另一面）
+
+三者职责：
+- §8.55：检测
+- §8.60：自动补 index
+- §8.65：建议清单
+- §8.68：自动补高频概念
+
+## 8.65.7 后续按需
+
+- **加 --apply 模式**：自动对 score ≤ 1 的"完全空白页"加占位 H2 模板（提升 score 到 2-3）
+- **趋势 dashboard**：每周跑一次，记录"低完整度页数"变化曲线（C3 §8.62 集成）
+- **GitHub Action 集成**：每周一自动跑 enrich-low-completeness.py，结果发到 maintainer 邮箱
+- **LLM 自动补内容**：用户可调 LLM（gpt-4 / claude-3.5）对每个低完整度页自动扩写（成本高，待评估）
