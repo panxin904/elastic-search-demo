@@ -28,6 +28,11 @@ LOW_DENSITY_SITES = {
     'design-pattern-html': 'design-pattern',
     'filesystem-html': 'filesystem',
     'network-html': 'network',
+    # §8.76 扩展：第二批 4 站（密度 0.18 ~ 0.23）
+    'postgresql-html': 'postgresql',
+    'linux-html': 'linux',
+    'go-html': 'go',
+    'observability-html': 'observability',
 }
 
 # 跳过的 shell 页（已有跨站段或不该注入的页面）
