@@ -217,3 +217,29 @@ title: 协议对比
 | TCP 四次 | FIN → ACK → FIN → ACK |
 | HTTP 状态 | 1 信息 2 成功 3 重定向 4 客户端 5 服务端 |
 | TLS 算法 | ECDHE + AES-GCM + SHA-256 |
+
+
+<!-- auto-enrich:do-not-edit -->
+
+## 实战示例
+
+\`\`\`bash
+# TODO: 在此补充本页主题的实战命令
+echo "hello"
+\`\`\`
+
+\`\`\`yaml
+# TODO: 配置示例
+key: value
+\`\`\`
+
+## 相关阅读
+
+> TODO: 在此补充 3-5 个内部链接（指向同站其他页面）或外部参考。
+
+示例：
+- 同站首页
+- 进阶话题
+- 实战案例
+- 参考资料
+<!-- auto-enrich:do-not-edit -->

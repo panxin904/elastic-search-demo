@@ -257,3 +257,29 @@ description: 12 个真实生产级 ClickHouse 案例：Uber / Cloudflare / 字�
 6. **生态**：Grafana 数据源、Prometheus remote_write、dbt-clickhouse、Airbyte Source/Destination 全链路打通。
 
 > 一句话：**ClickHouse 已经从单一 OLAP 引擎演进为「实时数仓操作系统」**，是日志/埋点/指标场景的事实标准。
+
+
+<!-- auto-enrich:do-not-edit -->
+
+## 实战示例
+
+\`\`\`bash
+# TODO: 在此补充本页主题的实战命令
+echo "hello"
+\`\`\`
+
+\`\`\`yaml
+# TODO: 配置示例
+key: value
+\`\`\`
+
+## 相关阅读
+
+> TODO: 在此补充 3-5 个内部链接（指向同站其他页面）或外部参考。
+
+示例：
+- 同站首页
+- 进阶话题
+- 实战案例
+- 参考资料
+<!-- auto-enrich:do-not-edit -->

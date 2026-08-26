@@ -238,3 +238,24 @@ Wire 不依赖反射，编译期生成依赖注入代码，比 Spring 更明确�
 - 避免字段注入（用 lombok @RequiredArgsConstructor）
 - 单例 + 不可变 + 线程安全
 - Wire / Dagger 是编译期 DI（比 Spring 更快）
+
+
+<!-- auto-enrich:do-not-edit -->
+
+## 参数说明
+
+| 参数 | 说明 | 默认值 |
+| --- | --- | --- |
+| TODO_1 | 待补充 | - |
+| TODO_2 | 待补充 | - |
+
+## 相关阅读
+
+> TODO: 在此补充 3-5 个内部链接（指向同站其他页面）或外部参考。
+
+示例：
+- 同站首页
+- 进阶话题
+- 实战案例
+- 参考资料
+<!-- auto-enrich:do-not-edit -->

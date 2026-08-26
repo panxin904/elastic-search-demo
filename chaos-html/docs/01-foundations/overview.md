@@ -215,3 +215,29 @@ Principles of Chaos 白皮书 2015 提出四大原则：
 - **design-pattern 站**：Circuit Breaker / Bulkhead / Outbox 是混沌实验要验证的代码层模式 → 引用 design-pattern/05-architectural-patterns
 - **architecture 站**：微服务韧性 / 服务网格（Service Mesh）→ 引用 architecture/05-microservices
 
+
+
+<!-- auto-enrich:do-not-edit -->
+
+## 实战示例
+
+\`\`\`bash
+# TODO: 在此补充本页主题的实战命令
+echo "hello"
+\`\`\`
+
+\`\`\`yaml
+# TODO: 配置示例
+key: value
+\`\`\`
+
+## 相关阅读
+
+> TODO: 在此补充 3-5 个内部链接（指向同站其他页面）或外部参考。
+
+示例：
+- 同站首页
+- 进阶话题
+- 实战案例
+- 参考资料
+<!-- auto-enrich:do-not-edit -->

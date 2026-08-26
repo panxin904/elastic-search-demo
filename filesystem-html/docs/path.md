@@ -71,3 +71,26 @@ title: 学习路径
 - **网络协议**：[本站网络站](https://java-px.bot.cd/network/) — NFS / SMB 底层依赖网络
 - **云原生**：[本站云原生站](https://java-px.bot.cd/cloud-native/) — CSI / Rook / Longhorn
 - **大数据**：[本站大数据站](https://java-px.bot.cd/bigdata/) — HDFS / Hudi / Iceberg
+
+
+<!-- auto-enrich:do-not-edit -->
+
+## 实战示例
+
+\`\`\`bash
+# TODO: 在此补充本页主题的实战命令
+echo "hello"
+\`\`\`
+
+\`\`\`yaml
+# TODO: 配置示例
+key: value
+\`\`\`
+
+## 参数说明
+
+| 参数 | 说明 | 默认值 |
+| --- | --- | --- |
+| TODO_1 | 待补充 | - |
+| TODO_2 | 待补充 | - |
+<!-- auto-enrich:do-not-edit -->

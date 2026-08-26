@@ -91,3 +91,27 @@ Q3: 是配置管理还是基础设施？
 - **01-pipeline** → Pipeline 如何调用 IaC 工具
 - **03-gitops** → IaC 状态文件如何进入 Git
 - **06-best-practices/secrets-management** → Terraform 变量如何管理 Secrets
+
+
+<!-- auto-enrich:do-not-edit -->
+
+## 相关阅读
+
+> TODO: 在此补充 3-5 个内部链接（指向同站其他页面）或外部参考。
+
+示例：
+- 同站首页
+- 进阶话题
+- 实战案例
+- 参考资料
+
+## 进阶话题
+
+> TODO: 此节可补充 3-5 段深度内容（如生产环境实战 / 常见错误 / 对比其他方案 / 未来演进）。
+
+补充方向：
+- 在生产环境如何配置 / 调优
+- 与同类方案的对比（如 A vs B）
+- 常见 3-5 个错误及排查
+- 进阶阅读资料链接
+<!-- auto-enrich:do-not-edit -->

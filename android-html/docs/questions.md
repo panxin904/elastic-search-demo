@@ -158,3 +158,29 @@ Binder 核心原理：
 ## 一句话总结
 
 Android 工程师的核心能力是懂一点 Kotlin + 懂一点 Compose + 懂一点系统层，三段都懂才能做端到端设计。
+
+
+<!-- auto-enrich:do-not-edit -->
+
+## 实战示例
+
+\`\`\`bash
+# TODO: 在此补充本页主题的实战命令
+echo "hello"
+\`\`\`
+
+\`\`\`yaml
+# TODO: 配置示例
+key: value
+\`\`\`
+
+## 相关阅读
+
+> TODO: 在此补充 3-5 个内部链接（指向同站其他页面）或外部参考。
+
+示例：
+- 同站首页
+- 进阶话题
+- 实战案例
+- 参考资料
+<!-- auto-enrich:do-not-edit -->

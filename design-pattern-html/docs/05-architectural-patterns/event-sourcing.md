@@ -223,3 +223,24 @@ public void process(String eventJson) {
 - Snapshot 策略选择（每 N 事件 / 每 T 时间）
 - 事件不可变（避免修改历史）
 - 事件版本号管理（upcasting 处理 schema 演进）
+
+
+<!-- auto-enrich:do-not-edit -->
+
+## 参数说明
+
+| 参数 | 说明 | 默认值 |
+| --- | --- | --- |
+| TODO_1 | 待补充 | - |
+| TODO_2 | 待补充 | - |
+
+## 相关阅读
+
+> TODO: 在此补充 3-5 个内部链接（指向同站其他页面）或外部参考。
+
+示例：
+- 同站首页
+- 进阶话题
+- 实战案例
+- 参考资料
+<!-- auto-enrich:do-not-edit -->

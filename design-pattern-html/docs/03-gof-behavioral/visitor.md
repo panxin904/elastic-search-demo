@@ -217,3 +217,24 @@ new FileCollector().visitDirectory(root);    // ['src', 'index.ts', 'README.md']
 - 用泛型让 Visitor 返回不同类型（`visitX(): R`）
 - Go / TS 没有重载，可以用 `accept` 方法避免双重分派
 - 警惕 Visitor 膨胀（操作太多 Visitor 难维护）
+
+
+<!-- auto-enrich:do-not-edit -->
+
+## 参数说明
+
+| 参数 | 说明 | 默认值 |
+| --- | --- | --- |
+| TODO_1 | 待补充 | - |
+| TODO_2 | 待补充 | - |
+
+## 相关阅读
+
+> TODO: 在此补充 3-5 个内部链接（指向同站其他页面）或外部参考。
+
+示例：
+- 同站首页
+- 进阶话题
+- 实战案例
+- 参考资料
+<!-- auto-enrich:do-not-edit -->

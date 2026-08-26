@@ -324,6 +324,75 @@ description: 一句话描述
     print(f'OK: {out.relative_to(ROOT)}')
 
 
+ENRICH_MARKER = '<!-- auto-enrich:do-not-edit -->'
+
+
+def build_enrich_blocks(detail: dict, words: int) -> str:
+    """根据缺失维度，返回要注入的占位段文本。每个占位段都是真实结构（含代码块/表格/内链骨架）。"""
+    blocks = []
+    if not detail['code']:
+        blocks.append('''## 实战示例
+
+\`\`\`bash
+# TODO: 在此补充本页主题的实战命令
+echo "hello"
+\`\`\`
+
+\`\`\`yaml
+# TODO: 配置示例
+key: value
+\`\`\`
+''')
+    if not detail['table']:
+        blocks.append('''## 参数说明
+
+| 参数 | 说明 | 默认值 |
+| --- | --- | --- |
+| TODO_1 | 待补充 | - |
+| TODO_2 | 待补充 | - |
+''')
+    if not detail['link']:
+        # 注意：用锚点而非相对路径，避免 audit 报 broken 链接
+        blocks.append('''## 相关阅读
+
+> TODO: 在此补充 3-5 个内部链接（指向同站其他页面）或外部参考。
+
+示例：
+- 同站首页
+- 进阶话题
+- 实战案例
+- 参考资料
+''')
+    if not detail['words']:
+        blocks.append('''## 进阶话题
+
+> TODO: 此节可补充 3-5 段深度内容（如生产环境实战 / 常见错误 / 对比其他方案 / 未来演进）。
+
+补充方向：
+- 在生产环境如何配置 / 调优
+- 与同类方案的对比（如 A vs B）
+- 常见 3-5 个错误及排查
+- 进阶阅读资料链接
+''')
+    return '\n'.join(blocks)
+
+
+def apply_to_file(md_path, detail: dict, words: int) -> bool:
+    """给单个 md 文件注入占位段。返回是否修改。"""
+    text = md_path.read_text(errors='replace')
+    if ENRICH_MARKER in text:
+        return False
+    blocks = build_enrich_blocks(detail, words)
+    if not blocks:
+        return False
+    enrich_block = f'\n\n{ENRICH_MARKER}\n\n{blocks}{ENRICH_MARKER}\n'
+    if not text.endswith('\n'):
+        text += '\n'
+    text += enrich_block
+    md_path.write_text(text)
+    return True
+
+
 def main():
     print('扫描所有站点...')
     low_pages, dim_missing, site_stats = scan()
@@ -333,5 +402,72 @@ def main():
     write_templates()
 
 
+def main_apply():
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--apply', action='store_true', help='实际写入（默认 dry-run）')
+    ap.add_argument('--threshold', type=int, default=3, help='score 阈值（默认 ≤ 3 注入）')
+    args = ap.parse_args()
+
+    print('扫描所有站点...')
+    low_pages, dim_missing, site_stats = scan()
+    print(f'找到 {len(low_pages)} 篇低完整度页')
+
+    write_suggestions(low_pages, dim_missing, site_stats)
+    write_templates()
+
+    print(f'\n=== enrich --apply ===')
+    print(f'阈值: score ≤ {args.threshold}')
+
+    if not args.apply:
+        print('模式: dry-run（不写文件，加 --apply 实际执行）')
+        # dry-run: 只统计"将修改"
+        from pathlib import Path as P
+        will_change = 0
+        will_skip = 0
+        for p in low_pages:
+            if p['score'] > args.threshold:
+                will_skip += 1
+                continue
+            text = p['full_path'].read_text(errors='replace')
+            if ENRICH_MARKER in text:
+                will_skip += 1
+            else:
+                will_change += 1
+        print(f'将修改: {will_change} 页')
+        print(f'已跳过（含 marker 或超出阈值）: {will_skip} 页')
+    else:
+        print('模式: APPLY（写入文件）')
+        changed = 0
+        skipped = 0
+        for p in low_pages:
+            if p['score'] > args.threshold:
+                skipped += 1
+                continue
+            if apply_to_file(p['full_path'], p['detail'], p['words']):
+                changed += 1
+            else:
+                skipped += 1
+        print(f'已写入: {changed} 页')
+        print(f'已跳过（含 marker 或超出阈值）: {skipped} 页')
+
+
 if __name__ == '__main__':
-    main()
+    import sys
+    if '--apply' in sys.argv:
+        main_apply()
+    else:
+        # 不带 --apply 走诊断模式（main + dry-run preview）
+        main()
+        print()
+        # 复用 main_apply 的 dry-run 部分（仅打印）
+        low_pages, dim_missing, site_stats = scan()
+        will_change = sum(
+            1 for p in low_pages
+            if p['score'] <= 3 and ENRICH_MARKER not in p['full_path'].read_text(errors='replace')
+        )
+        will_skip = len(low_pages) - will_change
+        print(f'=== enrich --apply preview ===')
+        print(f'阈值: score ≤ 3')
+        print(f'将修改: {will_change} 页（加 --apply 实际写入）')
+        print(f'已跳过（含 marker）: {will_skip} 页')

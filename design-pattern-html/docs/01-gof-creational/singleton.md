@@ -207,3 +207,24 @@ Singleton hacked = ctor.newInstance();  // 绕过私有构造器
 - **Factory Method**：工厂方法返回的可以是单例
 - **Abstract Factory**：抽象工厂的每个具体工厂通常实现为单例
 - **Facade**：外观类经常用单例实现
+
+
+<!-- auto-enrich:do-not-edit -->
+
+## 参数说明
+
+| 参数 | 说明 | 默认值 |
+| --- | --- | --- |
+| TODO_1 | 待补充 | - |
+| TODO_2 | 待补充 | - |
+
+## 相关阅读
+
+> TODO: 在此补充 3-5 个内部链接（指向同站其他页面）或外部参考。
+
+示例：
+- 同站首页
+- 进阶话题
+- 实战案例
+- 参考资料
+<!-- auto-enrich:do-not-edit -->

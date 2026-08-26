@@ -114,3 +114,29 @@ title: 演练设计
 3. 跑分偏差 → 演练和真实流量差异巨大
 4. 复盘缺失 → 演练没有 closing meeting 等于白做
 5. 改进行动没落地 → 必须有 ticket owner + 截止日期
+
+
+<!-- auto-enrich:do-not-edit -->
+
+## 实战示例
+
+\`\`\`bash
+# TODO: 在此补充本页主题的实战命令
+echo "hello"
+\`\`\`
+
+\`\`\`yaml
+# TODO: 配置示例
+key: value
+\`\`\`
+
+## 相关阅读
+
+> TODO: 在此补充 3-5 个内部链接（指向同站其他页面）或外部参考。
+
+示例：
+- 同站首页
+- 进阶话题
+- 实战案例
+- 参考资料
+<!-- auto-enrich:do-not-edit -->

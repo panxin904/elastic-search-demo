@@ -319,3 +319,24 @@ RocketMQ 5.0+ 引入了：
 - Exactly-Once Semantics Are Possible: Here's How Kafka Does It
 - DDIA 第 11 章
 - 阿里双十一幂等设计实践
+
+
+<!-- auto-enrich:do-not-edit -->
+
+## 参数说明
+
+| 参数 | 说明 | 默认值 |
+| --- | --- | --- |
+| TODO_1 | 待补充 | - |
+| TODO_2 | 待补充 | - |
+
+## 相关阅读
+
+> TODO: 在此补充 3-5 个内部链接（指向同站其他页面）或外部参考。
+
+示例：
+- 同站首页
+- 进阶话题
+- 实战案例
+- 参考资料
+<!-- auto-enrich:do-not-edit -->

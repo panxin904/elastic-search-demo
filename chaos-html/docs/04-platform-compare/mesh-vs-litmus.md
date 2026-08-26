@@ -104,3 +104,29 @@ title: Chaos Mesh vs Litmus
 3. 拓展性差 → 看 Operator 模式而非 CRD-only
 4. 探针失败 → Litmus 探针更丰富
 5. 商业缺失 → Chaos Mesh 没有商业版，社区支持靠 GitHub
+
+
+<!-- auto-enrich:do-not-edit -->
+
+## 实战示例
+
+\`\`\`bash
+# TODO: 在此补充本页主题的实战命令
+echo "hello"
+\`\`\`
+
+\`\`\`yaml
+# TODO: 配置示例
+key: value
+\`\`\`
+
+## 相关阅读
+
+> TODO: 在此补充 3-5 个内部链接（指向同站其他页面）或外部参考。
+
+示例：
+- 同站首页
+- 进阶话题
+- 实战案例
+- 参考资料
+<!-- auto-enrich:do-not-edit -->

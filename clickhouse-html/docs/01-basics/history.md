@@ -80,3 +80,26 @@ ClickHouse 的设计哲学至今未变：
 - **实战场景**：见 [04-olap-scenarios/overview.md](../04-olap-scenarios/overview.md)
 - **生态**：见 [05-ecosystem/overview.md](../05-ecosystem/overview.md)
 - **对比选型**：见 [06-compare/overview.md](../06-compare/overview.md)
+
+
+<!-- auto-enrich:do-not-edit -->
+
+## 实战示例
+
+\`\`\`bash
+# TODO: 在此补充本页主题的实战命令
+echo "hello"
+\`\`\`
+
+\`\`\`yaml
+# TODO: 配置示例
+key: value
+\`\`\`
+
+## 参数说明
+
+| 参数 | 说明 | 默认值 |
+| --- | --- | --- |
+| TODO_1 | 待补充 | - |
+| TODO_2 | 待补充 | - |
+<!-- auto-enrich:do-not-edit -->

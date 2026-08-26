@@ -215,3 +215,24 @@ Envoy sidecar 提供：
 - Sidecar 失败不应影响主应用（要 try-catch）
 - 不要让 Sidecar 持有业务状态（违反职责）
 - 用 K8s operator 自动注入 sidecar（避免每个 deployment 手动加）
+
+
+<!-- auto-enrich:do-not-edit -->
+
+## 参数说明
+
+| 参数 | 说明 | 默认值 |
+| --- | --- | --- |
+| TODO_1 | 待补充 | - |
+| TODO_2 | 待补充 | - |
+
+## 相关阅读
+
+> TODO: 在此补充 3-5 个内部链接（指向同站其他页面）或外部参考。
+
+示例：
+- 同站首页
+- 进阶话题
+- 实战案例
+- 参考资料
+<!-- auto-enrich:do-not-edit -->

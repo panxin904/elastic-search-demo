@@ -43,3 +43,24 @@ predictions = interpreter.get_tensor(output_details[0]["index"])
 - **模型量化**：INT8 / FP16（牺牲精度换速度）
 **硬件**：NPU（神经网络处理器）加速推理
 **硬件加速**：NPU / GPU / VPU 按场景选，NPU 能效比最高。
+
+
+<!-- auto-enrich:do-not-edit -->
+
+## 参数说明
+
+| 参数 | 说明 | 默认值 |
+| --- | --- | --- |
+| TODO_1 | 待补充 | - |
+| TODO_2 | 待补充 | - |
+
+## 进阶话题
+
+> TODO: 此节可补充 3-5 段深度内容（如生产环境实战 / 常见错误 / 对比其他方案 / 未来演进）。
+
+补充方向：
+- 在生产环境如何配置 / 调优
+- 与同类方案的对比（如 A vs B）
+- 常见 3-5 个错误及排查
+- 进阶阅读资料链接
+<!-- auto-enrich:do-not-edit -->

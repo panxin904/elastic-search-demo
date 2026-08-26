@@ -244,3 +244,27 @@ struct MyStruct { field1: i32, field2: String }
 | 自定义属性（如 `#[trace]`、`#[test]`） | **proc_macro_attribute** |
 | DSL（sql!, html!, json!） | **macro_rules!** 或 **function-like proc_macro** |
 | 需要访问类型信息（如字段名） | **proc_macro_derive** + `syn`/`quote` |
+
+
+<!-- auto-enrich:do-not-edit -->
+
+## 相关阅读
+
+> TODO: 在此补充 3-5 个内部链接（指向同站其他页面）或外部参考。
+
+示例：
+- 同站首页
+- 进阶话题
+- 实战案例
+- 参考资料
+
+## 进阶话题
+
+> TODO: 此节可补充 3-5 段深度内容（如生产环境实战 / 常见错误 / 对比其他方案 / 未来演进）。
+
+补充方向：
+- 在生产环境如何配置 / 调优
+- 与同类方案的对比（如 A vs B）
+- 常见 3-5 个错误及排查
+- 进阶阅读资料链接
+<!-- auto-enrich:do-not-edit -->

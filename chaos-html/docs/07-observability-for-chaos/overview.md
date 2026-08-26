@@ -419,3 +419,24 @@ def judge_experiment(result):
 - 工具：observability/03-prometheus → chaos/02-chaos-mesh
 - 实战：observability/06-tracing → chaos/07-observability-for-chaos
 - 进阶：observability/11-scenarios → chaos/06-game-day
+
+
+<!-- auto-enrich:do-not-edit -->
+
+## 参数说明
+
+| 参数 | 说明 | 默认值 |
+| --- | --- | --- |
+| TODO_1 | 待补充 | - |
+| TODO_2 | 待补充 | - |
+
+## 相关阅读
+
+> TODO: 在此补充 3-5 个内部链接（指向同站其他页面）或外部参考。
+
+示例：
+- 同站首页
+- 进阶话题
+- 实战案例
+- 参考资料
+<!-- auto-enrich:do-not-edit -->

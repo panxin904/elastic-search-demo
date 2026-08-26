@@ -148,3 +148,24 @@ database 拆分 = 终极拆分
 - [DDD 聚合 / 实体 / 值对象](/11-ddd/basics)
 - [服务发现](/06-microservice/discovery)
 - [Saga 模式](/07-distributed-tx/saga)
+
+
+<!-- auto-enrich:do-not-edit -->
+
+## 参数说明
+
+| 参数 | 说明 | 默认值 |
+| --- | --- | --- |
+| TODO_1 | 待补充 | - |
+| TODO_2 | 待补充 | - |
+
+## 进阶话题
+
+> TODO: 此节可补充 3-5 段深度内容（如生产环境实战 / 常见错误 / 对比其他方案 / 未来演进）。
+
+补充方向：
+- 在生产环境如何配置 / 调优
+- 与同类方案的对比（如 A vs B）
+- 常见 3-5 个错误及排查
+- 进阶阅读资料链接
+<!-- auto-enrich:do-not-edit -->
