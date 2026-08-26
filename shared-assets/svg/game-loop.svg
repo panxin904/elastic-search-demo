@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">游戏主循环（Game Loop）</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">60 FPS · 每帧 16.67ms · 输入 → 更新 → 渲染</text>
+
+  <!-- 中心圆 -->
+  <circle cx="300" cy="270" r="80" fill="#f1f5f9" stroke="#64748b" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="300" y="265" text-anchor="middle" font-size="14" fill="#64748b">1 frame</text>
+  <text x="300" y="285" text-anchor="middle" font-size="22" font-weight="700" fill="#1e293b">16.67ms</text>
+  <text x="300" y="305" text-anchor="middle" font-size="11" fill="#94a3b8">60 FPS · 33.3ms (30 FPS)</text>
+
+  <!-- 6 阶段 -->
+  <g font-size="13" font-weight="600">
+    <circle cx="100" cy="170" r="48" fill="#3b82f6" opacity="0.9"/>
+    <text x="100" y="167" text-anchor="middle" font-size="13" fill="white">输入</text>
+    <text x="100" y="184" text-anchor="middle" font-size="11" fill="#dbeafe">Input</text>
+    <text x="100" y="199" text-anchor="middle" font-size="11" fill="#dbeafe">Event</text>
+
+    <circle cx="240" cy="100" r="48" fill="#10b981" opacity="0.9"/>
+    <text x="240" y="97" text-anchor="middle" font-size="13" fill="white">AI</text>
+    <text x="240" y="114" text-anchor="middle" font-size="11" fill="#d1fae5">决策</text>
+    <text x="240" y="129" text-anchor="middle" font-size="11" fill="#d1fae5">路径</text>
+
+    <circle cx="400" cy="100" r="48" fill="#f59e0b" opacity="0.9"/>
+    <text x="400" y="97" text-anchor="middle" font-size="13" fill="white">物理</text>
+    <text x="400" y="114" text-anchor="middle" font-size="11" fill="#fef3c7">Physics</text>
+    <text x="400" y="129" text-anchor="middle" font-size="11" fill="#fef3c7">碰撞</text>
+
+    <circle cx="510" cy="170" r="48" fill="#8b5cf6" opacity="0.9"/>
+    <text x="510" y="167" text-anchor="middle" font-size="13" fill="white">动画</text>
+    <text x="510" y="184" text-anchor="middle" font-size="11" fill="#ede9fe">骨骼</text>
+    <text x="510" y="199" text-anchor="middle" font-size="11" fill="#ede9fe">插值</text>
+
+    <circle cx="510" cy="370" r="48" fill="#ec4899" opacity="0.9"/>
+    <text x="510" y="367" text-anchor="middle" font-size="13" fill="white">渲染</text>
+    <text x="510" y="384" text-anchor="middle" font-size="11" fill="#fce7f3">Render</text>
+    <text x="510" y="399" text-anchor="middle" font-size="11" fill="#fce7f3">DrawCall</text>
+
+    <circle cx="100" cy="370" r="48" fill="#06b6d4" opacity="0.9"/>
+    <text x="100" y="367" text-anchor="middle" font-size="13" fill="white">音频</text>
+    <text x="100" y="384" text-anchor="middle" font-size="11" fill="#cffafe">Audio</text>
+    <text x="100" y="399" text-anchor="middle" font-size="11" fill="#cffafe">混音</text>
+  </g>
+
+  <!-- 箭头 -->
+  <g stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+    <path d="M148,170 Q175,135 192,100"/>
+    <path d="M288,100 Q325,80 352,100"/>
+    <path d="M448,100 Q480,125 505,140"/>
+    <path d="M540,218 Q545,295 540,322"/>
+    <path d="M462,370 Q280,395 148,370"/>
+    <path d="M52,370 Q40,270 52,218"/>
+  </g>
+
+  <text x="300" y="445" text-anchor="middle" font-size="11" fill="#94a3b8">固定 / 可变步长 · 时间累积 · 多线程可并行（Job System / ECS）</text>
+</svg>

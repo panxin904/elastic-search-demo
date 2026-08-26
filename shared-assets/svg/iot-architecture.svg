@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">IoT 三层架构</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">感知层 · 网络层 · 应用层 · 端到端</text>
+
+  <!-- 应用层（云） -->
+  <rect x="50" y="90" width="500" height="100" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="70" y="115" font-size="14" font-weight="700" fill="#1e3a8a">应用层 · Application</text>
+  <g font-size="12" font-weight="600">
+    <rect x="70" y="130" width="90" height="45" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <text x="115" y="148" text-anchor="middle" fill="white">数据存储</text>
+    <text x="115" y="163" text-anchor="middle" font-size="10" fill="#dbeafe">TSDB</text>
+
+    <rect x="170" y="130" width="90" height="45" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <text x="215" y="148" text-anchor="middle" fill="white">分析引擎</text>
+    <text x="215" y="163" text-anchor="middle" font-size="10" fill="#dbeafe">Flink</text>
+
+    <rect x="270" y="130" width="90" height="45" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <text x="315" y="148" text-anchor="middle" fill="white">可视化</text>
+    <text x="315" y="163" text-anchor="middle" font-size="10" fill="#dbeafe">Grafana</text>
+
+    <rect x="370" y="130" width="90" height="45" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <text x="415" y="148" text-anchor="middle" fill="white">告警</text>
+    <text x="415" y="163" text-anchor="middle" font-size="10" fill="#dbeafe">规则引擎</text>
+  </g>
+
+  <!-- 网络层 -->
+  <rect x="50" y="210" width="500" height="100" rx="10" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+  <text x="70" y="235" font-size="14" font-weight="700" fill="#064e3b">网络层 · Network</text>
+  <g font-size="12" font-weight="600">
+    <rect x="70" y="250" width="90" height="45" rx="6" fill="#10b981" opacity="0.9"/>
+    <text x="115" y="268" text-anchor="middle" fill="white">网关</text>
+    <text x="115" y="283" text-anchor="middle" font-size="10" fill="#d1fae5">Edge GW</text>
+
+    <rect x="170" y="250" width="90" height="45" rx="6" fill="#10b981" opacity="0.9"/>
+    <text x="215" y="268" text-anchor="middle" fill="white">MQTT Broker</text>
+    <text x="215" y="283" text-anchor="middle" font-size="10" fill="#d1fae5">EMQX</text>
+
+    <rect x="270" y="250" width="90" height="45" rx="6" fill="#10b981" opacity="0.9"/>
+    <text x="315" y="268" text-anchor="middle" fill="white">协议适配</text>
+    <text x="315" y="283" text-anchor="middle" font-size="10" fill="#d1fae5">Modbus/CoAP</text>
+
+    <rect x="370" y="250" width="90" height="45" rx="6" fill="#10b981" opacity="0.9"/>
+    <text x="415" y="268" text-anchor="middle" fill="white">消息队列</text>
+    <text x="415" y="283" text-anchor="middle" font-size="10" fill="#d1fae5">Kafka</text>
+  </g>
+
+  <!-- 感知层 -->
+  <rect x="50" y="330" width="500" height="100" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="70" y="355" font-size="14" font-weight="700" fill="#92400e">感知层 · Perception</text>
+  <g font-size="12" font-weight="600">
+    <rect x="70" y="370" width="90" height="45" rx="6" fill="#f59e0b" opacity="0.9"/>
+    <text x="115" y="388" text-anchor="middle" fill="white">传感器</text>
+    <text x="115" y="403" text-anchor="middle" font-size="10" fill="#fef3c7">温湿度/IMU</text>
+
+    <rect x="170" y="370" width="90" height="45" rx="6" fill="#f59e0b" opacity="0.9"/>
+    <text x="215" y="388" text-anchor="middle" fill="white">执行器</text>
+    <text x="215" y="403" text-anchor="middle" font-size="10" fill="#fef3c7">电机/继电器</text>
+
+    <rect x="270" y="370" width="90" height="45" rx="6" fill="#f59e0b" opacity="0.9"/>
+    <text x="315" y="388" text-anchor="middle" fill="white">MCU</text>
+    <text x="315" y="403" text-anchor="middle" font-size="10" fill="#fef3c7">ESP32/STM32</text>
+
+    <rect x="370" y="370" width="90" height="45" rx="6" fill="#f59e0b" opacity="0.9"/>
+    <text x="415" y="388" text-anchor="middle" fill="white">通信模组</text>
+    <text x="415" y="403" text-anchor="middle" font-size="10" fill="#fef3c7">WiFi/LoRa/NB</text>
+  </g>
+
+  <!-- 边缘计算标识 -->
+  <rect x="475" y="370" width="60" height="45" rx="6" fill="#ec4899" opacity="0.9"/>
+  <text x="505" y="388" text-anchor="middle" font-size="11" font-weight="600" fill="white">边缘</text>
+  <text x="505" y="403" text-anchor="middle" font-size="10" fill="#fce7f3">K3s/Node</text>
+
+  <text x="300" y="450" text-anchor="middle" font-size="11" fill="#94a3b8">数据流：感知层 → MQTT → Kafka → Flink → TSDB → Grafana · 反向控制：API → 设备影子</text>
+</svg>
