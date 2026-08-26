@@ -228,3 +228,13 @@ kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
 4. **Service Mesh 是什么？** 微服务通信基础设施层。
 5. **Istio 数据面？** Envoy。
 6. **mTLS 作用？** 自动双向加密，无需业务改代码。
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [linux](https://java-px.bot.cd/linux/):Linux 网络栈
+- [security](https://java-px.bot.cd/security/):网络安全
+- [cloud-native](https://java-px.bot.cd/cloud-native/):K8s 网络

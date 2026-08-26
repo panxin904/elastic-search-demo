@@ -364,3 +364,13 @@ public class SecurityConfig {
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [architecture](https://java-px.bot.cd/architecture/):微服务架构
+- [system-design](https://java-px.bot.cd/system-design/):系统设计
+- [cloud-native](https://java-px.bot.cd/cloud-native/):Docker / K8s 落地

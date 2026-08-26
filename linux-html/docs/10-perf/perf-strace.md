@@ -256,3 +256,13 @@ perf report -i /tmp/perf.data
 - [top / htop](/10-perf/top-htop)
 - [iostat / iotop](/10-perf/iostat)
 - [vmstat / mpstat](/10-perf/vmstat)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [devops](https://java-px.bot.cd/devops/):DevOps 自动化
+- [cloud-native](https://java-px.bot.cd/cloud-native/):云原生
+- [network](https://java-px.bot.cd/network/):Linux 网络

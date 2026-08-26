@@ -456,3 +456,13 @@ Redis 7: Sharded Pub/Sub，只在 1 个节点传播，带宽 50Mbps
 ## 下一步
 
 Redis 运维的所有知识点都在这里了。下一步到 [📝 高频面试题（上）](/08-interview/basic)，把这些核心知识点串成面试题答案。
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [mysql](https://java-px.bot.cd/mysql/):MySQL 主存
+- [kafka](https://java-px.bot.cd/kafka/):Kafka 异步队列
+- [java](https://java-px.bot.cd/java-web-manual/):Java 客户端（Redisson / Jedis）

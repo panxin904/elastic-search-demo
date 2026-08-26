@@ -195,3 +195,13 @@ derived_key = HKDF(hashes.SHA256(), 32, None, b'app').derive(shared_key)
 4. **数字签名怎么验？** 公钥解密签名得到 hash，对比原文 hash。
 5. **MD5 为什么不再安全？** 已被碰撞攻击破解。
 6. **密钥长度推荐？** RSA ≥ 2048，ECC ≥ 256，对称 ≥ 128。
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [linux](https://java-px.bot.cd/linux/):Linux 网络栈
+- [security](https://java-px.bot.cd/security/):网络安全
+- [cloud-native](https://java-px.bot.cd/cloud-native/):K8s 网络

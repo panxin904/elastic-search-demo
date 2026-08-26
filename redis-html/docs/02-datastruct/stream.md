@@ -298,3 +298,13 @@ OK
 Stream 让 Redis 第一次拥有消息中间件的能力，但这一切的"持久化保证"仍然依赖 RDB / AOF。下一篇我们系统梳理 Redis 的两种持久化机制。
 
 **下一步：** [💾 持久化总览](/03-persistence/overview)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [mysql](https://java-px.bot.cd/mysql/):MySQL 主存
+- [kafka](https://java-px.bot.cd/kafka/):Kafka 异步队列
+- [java](https://java-px.bot.cd/java-web-manual/):Java 客户端（Redisson / Jedis）

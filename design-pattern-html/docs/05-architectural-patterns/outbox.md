@@ -247,3 +247,13 @@ CREATE INDEX idx_outbox_cleanup ON outbox (published_at);
 - 配置清理策略（30 天前的已发布事件）
 - 监控 outbox 表堆积（未发布 > 1 万告警）
 - 给下游消费者设置幂等
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [java-language](https://java-px.bot.cd/java-language/):Java 设计模式
+- [java](https://java-px.bot.cd/java-web-manual/):Java 实现
+- [architecture](https://java-px.bot.cd/architecture/):架构模式

@@ -263,3 +263,13 @@ NTP 偏差 > 500ms 时 TLS 证书校验可能失败。
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [linux](https://java-px.bot.cd/linux/):Linux 网络栈
+- [security](https://java-px.bot.cd/security/):网络安全
+- [cloud-native](https://java-px.bot.cd/cloud-native/):K8s 网络

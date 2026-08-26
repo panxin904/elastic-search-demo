@@ -237,3 +237,13 @@ public void verify() {
 - 每个迁移步骤都有回滚预案
 - 监控新旧两套系统的指标差异
 - 优先迁移非核心业务，最后迁移核心
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [java-language](https://java-px.bot.cd/java-language/):Java 设计模式
+- [java](https://java-px.bot.cd/java-web-manual/):Java 实现
+- [architecture](https://java-px.bot.cd/architecture/):架构模式

@@ -29,15 +29,15 @@ Kubernetes 时代的存储抽象——CSI、PV/PVC、Operator。
 
 ## 实战示例
 
-\`\`\`bash
+```bash
 # TODO: 在此补充本页主题的实战命令
 echo "hello"
-\`\`\`
+```
 
-\`\`\`yaml
+```yaml
 # TODO: 配置示例
 key: value
-\`\`\`
+```
 
 ## 进阶话题
 

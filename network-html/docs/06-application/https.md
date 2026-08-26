@@ -177,3 +177,13 @@ No.  Time   Source     Dest       Protocol  Info
 4. **CA 干什么？** 第三方签发证书，建立信任链。
 5. **前向保密？** 长期密钥泄露不影响历史会话。
 6. **TLS 1.3 优势？** 1-RTT、强制 PFS、移除不安全算法。
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [linux](https://java-px.bot.cd/linux/):Linux 网络栈
+- [security](https://java-px.bot.cd/security/):网络安全
+- [cloud-native](https://java-px.bot.cd/cloud-native/):K8s 网络

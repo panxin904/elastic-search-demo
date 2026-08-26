@@ -224,3 +224,13 @@ sudo ausearch -k passwd_changes --interpret
 - [SELinux](/13-security/selinux)
 - [sshd_config 加固](/13-security/sshd-config)
 - [lynis 合规](/13-security/lynis)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [devops](https://java-px.bot.cd/devops/):DevOps 自动化
+- [cloud-native](https://java-px.bot.cd/cloud-native/):云原生
+- [network](https://java-px.bot.cd/network/):Linux 网络

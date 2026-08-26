@@ -243,3 +243,13 @@ try (Jedis jedis = pool.getResource()) {
 如果你的业务数据能装进单台机器（内存够大），Sentinel 是首选；如果数据量膨胀到单机装不下，就必须上 Cluster。
 
 **下一步：** [🌐 Cluster 集群](/04-cluster/cluster)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [mysql](https://java-px.bot.cd/mysql/):MySQL 主存
+- [kafka](https://java-px.bot.cd/kafka/):Kafka 异步队列
+- [java](https://java-px.bot.cd/java-web-manual/):Java 客户端（Redisson / Jedis）

@@ -252,3 +252,13 @@ bantime  = 3600
 - [sshd_config 加固](/13-security/sshd-config)
 - [auditd 审计](/13-security/auditd)
 - [OpenSSH 配置](/08-firewall-ssh/openssh)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [devops](https://java-px.bot.cd/devops/):DevOps 自动化
+- [cloud-native](https://java-px.bot.cd/cloud-native/):云原生
+- [network](https://java-px.bot.cd/network/):Linux 网络

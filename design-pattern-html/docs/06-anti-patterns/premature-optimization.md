@@ -356,3 +356,13 @@ OrderModule { /* 5 个 Service 放一起 */ }
 - **A/B 测试**：优化前后对比
 - **回滚预案**：优化可能引入 bug
 - **文档记录**：每个优化都有 ADR
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [java-language](https://java-px.bot.cd/java-language/):Java 设计模式
+- [java](https://java-px.bot.cd/java-web-manual/):Java 实现
+- [architecture](https://java-px.bot.cd/architecture/):架构模式

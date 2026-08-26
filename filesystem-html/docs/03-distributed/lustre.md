@@ -212,3 +212,13 @@ lctl set_param osc.*.max_rpcs_in_flight=32
 - 官方文档：<https://wiki.lustre.org/>
 - Intel Lustre 用户指南（OpenSFS 镜像）
 - DDN EXAScaler（商业版）
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [linux](https://java-px.bot.cd/linux/):Linux 文件系统
+- [observability](https://java-px.bot.cd/observability/):存储监控
+- [postgresql](https://java-px.bot.cd/postgresql/):PG 存储引擎

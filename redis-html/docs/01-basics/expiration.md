@@ -362,3 +362,13 @@ TTL greeting
 - ⚠️ Redis 7.4 之前没有主动清理，过期 key 会一直占用内存直到被淘汰
 
 **下一步：** [🎯 RedisObject](/02-datastruct/object) — 深入了解 5 大类型的底层 RedisObject 结构
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [mysql](https://java-px.bot.cd/mysql/):MySQL 主存
+- [kafka](https://java-px.bot.cd/kafka/):Kafka 异步队列
+- [java](https://java-px.bot.cd/java-web-manual/):Java 客户端（Redisson / Jedis）
