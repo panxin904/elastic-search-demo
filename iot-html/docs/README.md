@@ -63,3 +63,7 @@ graph LR
   questions["IoT 面试与常见问题"]
   ROOT --> questions
 ```
+
+<!-- svg-injected:do-not-edit -->
+
+![iot architecture](/iot-architecture.svg)

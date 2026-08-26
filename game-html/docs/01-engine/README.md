@@ -83,3 +83,7 @@ graph LR
   decision["选型决策"]
   ROOT --> decision
 ```
+
+<!-- svg-injected:do-not-edit -->
+
+![game loop](/game-loop.svg)

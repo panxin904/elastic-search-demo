@@ -72,3 +72,7 @@ graph LR
   mqtt["MQTT 5.0"]
   ROOT --> mqtt
 ```
+
+<!-- svg-injected:do-not-edit -->
+
+![iot mqtt flow](/iot-mqtt-flow.svg)

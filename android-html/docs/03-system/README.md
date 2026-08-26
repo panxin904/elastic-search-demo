@@ -79,3 +79,7 @@ graph LR
   startup["启动流程"]
   ROOT --> startup
 ```
+
+<!-- svg-injected:do-not-edit -->
+
+![android lifecycle](/android-lifecycle.svg)

@@ -85,3 +85,7 @@ graph LR
   shader["着色器"]
   ROOT --> shader
 ```
+
+<!-- svg-injected:do-not-edit -->
+
+![game render pipeline](/game-render-pipeline.svg)

@@ -84,3 +84,7 @@ graph LR
   publish["发布与上架"]
   ROOT --> publish
 ```
+
+<!-- svg-injected:do-not-edit -->
+
+![android gradle build](/android-gradle-build.svg)
