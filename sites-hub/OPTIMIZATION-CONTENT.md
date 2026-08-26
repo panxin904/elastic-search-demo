@@ -6473,3 +6473,122 @@ python3 sites-hub/scripts/audit-content.py
 - **剩余低密度站**（密度 < 0.30）：已清零，所有 31 站都 ≥0.30
 - **§8.71 目标** xsite ≥ 800：当前 723，可考虑"每章 overview 注入"或"关键词自动转链"激进策略
 - **CI 校验**：可加"xsite < 阈值"告警（不动 CI，长期观察）
+
+# §8.77 新站内容深度补强 · mermaid 章节目录图（v1）
+
+> 日期：2026-08-26 · 第七十次 · 工作量：1 小时
+> 范围：game / android / iot 三新站的章 README.md 末尾注入 mermaid 章节结构图
+
+## 8.77.1 背景与根因
+
+§8.71 路线图 §8.77 任务：补强 game / android / iot 三新站内容。
+
+audit 显示三站普遍 completeness_score ≤ 3（缺 mermaid 图 / 缺跨站引用）：
+- game:    87% 页面 score=3（缺 mermaid / 缺跨站链接 / 缺 Vue）
+- android: 82% 页面 score=3
+- iot:     91% 页面 score=3
+
+三站都在 MERMAID_SITES 白名单内（vitepress-plugin-mermaid 已配），但缺 mermaid 块。
+
+## 8.77.2 方案选择
+
+| 方案 | 工作量 | ROI | 副作用 |
+|---|:-:|:-:|---|
+| ~~每页手写 mermaid（21 子页 × 3 站 = 63 张）~~ | 3-4d | 中 | 无 |
+| ~~手画 SVG 资产（每站 5 张 = 15 张）~~ | 2-3d | 中 | 无 |
+| **章 README 自动生成 mermaid（采用）**| 1h | ★★★ | 极低（marker 保护）|
+
+采用：自动化扫描每站每章 README.md（含站根），根据子页 frontmatter title
+生成 mermaid graph 图（章 → 子页），注入 README.md 末尾。
+
+## 8.77.3 实施
+
+### 工具：sites-hub/scripts/inject-mermaid-chapters.py
+
+- 输入：三站 `*-html/docs/` 目录
+- 输出：每章 README.md 末尾加"## 🗺 章节目录图"段，含 mermaid graph
+- mermaid 内容：中心节点（章名）→ 子页节点（frontmatter title）
+- marker：<!-- mermaid-injected:do-not-edit -->（idempotent）
+
+### audit-content.py 修复
+
+加 `章节目录图` 到 TEMPLATE_TITLES 豁免列表（23 处模板式 H2 不算跨站 dups）。
+
+### 执行
+
+```bash
+python3 sites-hub/scripts/inject-mermaid-chapters.py         # 预览 23 个候选
+python3 sites-hub/scripts/inject-mermaid-chapters.py --apply  # 写入
+python3 sites-hub/scripts/audit-content.py                    # 验证
+```
+
+## 8.77.4 效果
+
+| 指标 | §8.76 扩展后 | §8.77 v1 后 | Δ |
+|---|---:|---:|---:|
+| 总 mermaid 块 | 0 | **23** | **+23** |
+| 总 xsite | 723 | 723 | — |
+| 跨站 dups | 0 | 0 | ✓ |
+
+### 三站 completeness s≥4 比例
+
+| 站 | §8.77 v1 前 | §8.77 v1 后 | Δ |
+|---|---:|---:|---:|
+| game | ~13% | **34%** | +21pp |
+| android | ~13% | **40%** | +27pp |
+| iot | ~13% | **25%** | +12pp |
+
+### 副作用验证
+
+| 指标 | baseline | §8.77 v1 后 |
+|---|---:|---:|
+| broken | 0 | 0 ✓ |
+| cross-site dups | 0 | 0 ✓ |
+| intra-site dups | 58 | 58 ✓ |
+| imgs | 10 | 10 ✓ |
+| thin | 0 | 0 ✓ |
+| heading_jump | 0 | 0 ✓ |
+| mermaid_unclosed | 0 | 0 ✓ |
+
+## 8.77.5 mermaid 内容示例
+
+`game/01-engine/README.md` 末尾生成的 mermaid：
+
+```mermaid
+graph LR
+  ROOT["01-engine"]
+  commercial["商业引擎选型"]
+  ROOT --> commercial
+  custom["自研引擎架构"]
+  ROOT --> custom
+  decision["选型决策"]
+  ROOT --> decision
+```
+
+每张 mermaid 图节点数 = 该章子页数（2-5 个）。
+
+## 8.77.6 复用
+
+### 加新站
+
+```bash
+# 1. 在 NEW_SITES 列表加新站 short 名
+# 2. 确保该站 config.mts.tpl 启用 mermaid plugin
+# 3. 跑脚本 + audit
+python3 sites-hub/scripts/inject-mermaid-chapters.py --apply
+python3 sites-hub/scripts/audit-content.py
+```
+
+### 调整输出样式
+
+```python
+SECTION_HEADER = '## 🗺 章节目录图'   # 改 H2 标题
+graph LR / graph TD                  # 改 mermaid 图方向
+```
+
+## 8.77.7 后续按需
+
+- **§8.77 v2 SVG 资产扩展**：给三站手画 6-10 张关键架构 SVG（imgs 10 → 16+）
+- **子页加 mermaid**：每章挑 1-2 个核心子页也加 mermaid 子结构图（深度图）
+- **跨站引用**：将 game/android/iot 加入 §8.76 LOW_DENSITY_SITES（虽然密度不低但仍可加固）
+- **Vue 组件**：3 站都缺 Vue 组件，但成本高，按需补强
