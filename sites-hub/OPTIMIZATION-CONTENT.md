@@ -6284,3 +6284,113 @@ cd xxx-html && npx vitepress build
 - §8.69：Mermaid 治理（与 SVG 互补：mermaid 适合时序/状态机，SVG 适合静态架构）
 - §8.71：路线图（§8.72 是 §8.71 P0 任务之一）
 - §8.74：低完整度自动占位（SVG 概念图可作为占位段的"实战示例"素材）
+
+# §8.76 跨站引用密度补强 · 子页面批量注入
+
+> 日期：2026-08-26 · 第六十八次 · 工作量：2 小时
+> 范围：7 个低密度站（cloud/python/system-design/redis/design-pattern/filesystem/network）的 top-6 子页面批量注入跨站链接段
+
+## 8.76.1 背景与根因
+
+§8.71 路线图跨站引用目标 ≥500，全局 399（每千字 0.30）。
+29 站中有 7 站密度 < 0.20：
+
+| 子站 | 密度 | xsite | 字数 |
+|---|---:|---:|---:|
+| cloud | 0.12 | 5 | 41k |
+| system-design | 0.14 | 11 | 80k |
+| python | 0.14 | 10 | 73k |
+| redis | 0.14 | 11 | 76k |
+| design-pattern | 0.15 | 9 | 59k |
+| filesystem | 0.16 | 13 | 79k |
+| network | 0.18 | 9 | 50k |
+
+根因：§8.60 xlink-injector 只在每站 index.md 末尾注入"📚 相关阅读"段（4-8 个链接），
+子页面之间无跨站链接。字数大的站（filesystem 79k / system-design 80k）密度自然低。
+
+## 8.76.2 方案选择
+
+| 方案 | 工作量 | ROI | 副作用 |
+|---|:-:|:-:|---|
+| ~~手写跨站段（每页人工）~~ | 2-3d | 中 | 无 |
+| ~~扫描全文关键词自动转链~~ | 1d | 高 | 易误注入破坏阅读 |
+| **top-N 子页面批量注入**（采用）| 2h | ★★★ | 极低（marker 保护）|
+
+采用：复用 xlink-terms.json，每站挑 top-6 子页面（按字节），注入精简版"🔗 相关阅读"段。
+
+## 8.76.3 实施
+
+### 工具：sites-hub/scripts/xlink-inject-subpages.py
+
+- 输入：`sites-hub/data/xlink-terms.json`（每站 4-8 个目标站）
+- 范围：7 个低密度站
+- 规则：每站按字节排序取 top-6，跳过 6 个 shell 页（index/mindmap/cheatsheet/path/questions/comparison）
+- 注入：每页末尾追加"## 🔗 相关阅读"段，每页 3 条链接（精简版，避免长尾）
+- 保护：`<!-- xlink-subpage-injected:do-not-edit -->` marker，重跑不重复
+- 模式：默认 dry-run，加 `--apply` 才写入
+
+### 执行
+
+```bash
+python3 sites-hub/scripts/xlink-inject-subpages.py           # 预览 42 个候选
+python3 sites-hub/scripts/xlink-inject-subpages.py --apply    # 写入
+python3 sites-hub/scripts/audit-content.py                    # 验证
+```
+
+## 8.76.4 效果
+
+| 指标 | baseline | §8.76 v2 后 | Δ |
+|---|---:|---:|---:|
+| 总 xsite | 399 | **525** | **+126（+31.6%）** |
+| 跨站密度（全局） | 0.30 | 0.40 | +33% |
+
+### 各站密度变化
+
+| 子站 | 改前 | 改后 | Δ 密度 | Δ xsite |
+|---|---:|---:|---:|---:|
+| cloud | 0.12 | **0.55** | +0.43 | +18 |
+| design-pattern | 0.15 | **0.45** | +0.30 | +18 |
+| filesystem | 0.16 | **0.39** | +0.23 | +18 |
+| network | 0.18 | **0.54** | +0.36 | +18 |
+| python | 0.14 | **0.38** | +0.24 | +18 |
+| redis | 0.14 | **0.38** | +0.24 | +18 |
+| system-design | 0.14 | **0.36** | +0.22 | +18 |
+
+7 站全部从"极低密度"（<0.20）提升到"安全区"（≥0.36），超越 §8.71 路线图 ≥0.30 目标。
+
+### 副作用验证
+
+| 指标 | baseline | §8.76 v2 后 | 状态 |
+|---|---:|---:|:-:|
+| broken | 0 | 0 | ✓ |
+| cross-site dups | 0 | 0 | ✓ |
+| intra-site dups | 58 | 58 | ✓ |
+| imgs | 10 | 10 | ✓ |
+| thin | 0 | 0 | ✓ |
+| heading_jump | 0 | 0 | ✓ |
+
+## 8.76.5 复用
+
+### 加新低密度站
+
+```bash
+# 1. 在脚本 LOW_DENSITY_SITES 加 dir -> short
+# 2. 在 xlink-terms.json 加该站配置
+# 3. 跑脚本 + audit
+python3 sites-hub/scripts/xlink-inject-subpages.py --apply
+python3 sites-hub/scripts/audit-content.py
+```
+
+### 调整 TOP_N 或 LINKS_PER_PAGE
+
+脚本顶部常量：
+```python
+TOP_N_PER_SITE = 6   # 每站挑几个子页面
+LINKS_PER_PAGE = 3   # 每页注入几条跨站链接
+```
+
+### 后续按需
+
+- **剩余低密度站**：postgresql 0.18 / linux 0.22 / go 0.22 / observability 0.23（未在 §8.76 v2 范围，可后续扩展）
+- **扩 §8.71 目标**：xsite 525 → 800+ 需更激进策略（每章 overview 注入、关键词自动转链）
+- **CI 校验**：可加"xsite < 阈值"告警（不动 CI，长期观察）
