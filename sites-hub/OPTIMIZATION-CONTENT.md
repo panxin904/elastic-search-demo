@@ -6592,3 +6592,99 @@ graph LR / graph TD                  # 改 mermaid 图方向
 - **子页加 mermaid**：每章挑 1-2 个核心子页也加 mermaid 子结构图（深度图）
 - **跨站引用**：将 game/android/iot 加入 §8.76 LOW_DENSITY_SITES（虽然密度不低但仍可加固）
 - **Vue 组件**：3 站都缺 Vue 组件，但成本高，按需补强
+
+# §8.77 v2 三新站 SVG 资产扩展（6 张）
+
+> 日期：2026-08-26 · 第七十一次 · 工作量：1 小时
+> 范围：game / android / iot 三新站每站手画 2 张关键架构 SVG（共 6 张）
+
+## 8.77.8 背景与根因
+
+§8.72 C11 图片优化完成 10 张 SVG，覆盖 architecture / kafka / redis / mysql / observability
+等核心站。但 game / android / iot 三新站 imgs = 0：
+- §8.77 v1 注入 23 张章节目录图（mermaid，不计入 imgs）
+- §8.77 v2 补充 6 张关键架构 SVG（计入 imgs）
+
+## 8.77.9 实施
+
+### 6 张 SVG 资产
+
+| 文件 | 主题 | 站点引用 | 核心内容 |
+|---|---|---|---|
+| `game-loop.svg` | 游戏主循环 | game/01-engine | 6 阶段（输入/AI/物理/动画/渲染/音频）+ 16.67ms 中心圆 |
+| `game-render-pipeline.svg` | 实时渲染管线 | game/02-render | CPU→GPU 4 阶段 + 3 优化点（DrawCall/Z-Buffer/PBR）|
+| `android-lifecycle.svg` | Activity 生命周期 | android/03-system | 7 回调流转 + 2 异常场景（旋转/系统回收）|
+| `android-gradle-build.svg` | Gradle 构建流水线 | android/05-toolchain | 5 阶段（合并/编译/dex/打包/签名）+ 3 优化 + 多模块 |
+| `iot-architecture.svg` | IoT 三层架构 | iot/ | 应用层（TSDB/Flink/Grafana）+ 网络层（MQTT/Kafka）+ 感知层（MCU/传感器）+ 边缘 |
+| `iot-mqtt-flow.svg` | MQTT 通信流程 | iot/01-protocol | Pub/Sub + Broker + QoS 三档对比（0/1/2）|
+
+每张 60-80 行手写 SVG，viewBox 600x480，统一配色：
+- 蓝 #3b82f6 / 绿 #10b981 / 橙 #f59e0b / 粉 #ec4899 / 紫 #8b5cf6
+
+### 插入章 README.md
+
+每张 SVG 通过 `<img src="/xxx.svg">` 引用，注入到对应章 README.md 末尾（mermaid 之后）：
+- marker: <!-- svg-injected:do-not-edit -->
+- 4 行/文件（marker + 空行 + img + 空行）
+
+### 自动生效机制
+
+`shared-assets/vitepress-template/config.mts.tpl` 已配 `publicDir: shared-assets/svg/`，
+所有 27+ 站 build 时自动复制整个目录到 `dist/`，无需改 config。
+
+## 8.77.10 效果
+
+| 指标 | §8.77 v1 后 | §8.77 v2 后 | Δ |
+|---|---:|---:|---:|
+| 总 imgs | 10 | **16** | **+6** |
+| 三站 imgs | 0 | 2/2/2 | +2/+2/+2 |
+| 跨站 dups | 0 | 0 | ✓ |
+| broken | 0 | 0 | ✓ |
+
+### 各站 imgs 分布
+
+| 站 | §8.77 v2 后 |
+|---|---:|
+| game | 2 |
+| android | 2 |
+| iot | 2 |
+
+加上 §8.72 已有的 10 张，分布：
+- architecture 3 / kafka 1 / mysql 1 / redis 1 / observability 1 / system-design 3
+- + game 2 / android 2 / iot 2（v2 新增）
+
+## 8.77.11 副作用验证
+
+| 指标 | baseline | §8.77 v2 后 |
+|---|---:|---:|
+| broken | 0 | 0 ✓ |
+| cross-site dups | 0 | 0 ✓ |
+| intra-site dups | 58 | 58 ✓ |
+| heading_jump | 0 | 0 ✓ |
+| mermaid_unclosed | 0 | 0 ✓ |
+
+## 8.77.12 复用
+
+### 加新 SVG
+
+```bash
+# 1. 在 shared-assets/svg/ 加新 SVG（手写或设计工具）
+# 2. 在对应 md 页面插入引用
+echo '![说明](/xxx.svg)' >> {site}-html/docs/{path}.md
+# 3. 重 build（无需改 config，publicDir 自动复制）
+cd {site}-html && npx vitepress build
+```
+
+### §8.71 路线图 imgs ≥200 进度
+
+- baseline（§8.72 前）：0
+- §8.72 后：10
+- §8.77 v2 后：16
+- 还需 +184 张达成目标（高 ROI 长期任务）
+
+## 8.77.13 后续按需
+
+- **§8.72+** SVG 大规模扩展：再补 30-50 张关键图（imgs 16 → 50+）
+- **加 Vue 组件**：三站都缺 Vue 组件，按需补强
+- **子页加 mermaid**：每章挑 1-2 个核心子页加 mermaid 子结构图
+- **跨站链接**：三站当前密度已较高（0.66/1.14/0.86），可暂缓
