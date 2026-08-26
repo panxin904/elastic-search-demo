@@ -40,15 +40,15 @@ title: 04 · 设备管理
 
 ## 实战示例
 
-\`\`\`bash
+```bash
 # TODO: 在此补充本页主题的实战命令
 echo "hello"
-\`\`\`
+```
 
-\`\`\`yaml
+```yaml
 # TODO: 配置示例
 key: value
-\`\`\`
+```
 
 ## 进阶话题
 
@@ -60,3 +60,18 @@ key: value
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+## 🗺 章节目录图
+
+<!-- mermaid-injected:do-not-edit -->
+
+```mermaid
+graph LR
+  ROOT["04-management"]
+  ota["固件 OTA"]
+  ROOT --> ota
+  security["设备安全"]
+  ROOT --> security
+  shadow["设备影子 / 物模型"]
+  ROOT --> shadow
+```

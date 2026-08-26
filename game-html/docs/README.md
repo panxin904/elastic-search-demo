@@ -92,3 +92,22 @@ graph LR
 | [06 · 音频](./06-audio/) | 空间 / 混音 / 引擎 | 沉浸感设计 |
 | [07 · 工具链](./07-toolchain/) | 资产 / VCS / 构建 | 工程化基础 |
 | [08 · 性能与上线](./08-ship/) | 性能 / 多平台 / 运营 | 上线运营 |
+
+## 🗺 章节目录图
+
+<!-- mermaid-injected:do-not-edit -->
+
+```mermaid
+graph LR
+  ROOT["game"]
+  cheatsheet["游戏开发速查表"]
+  ROOT --> cheatsheet
+  index["index"]
+  ROOT --> index
+  mindmap["游戏开发知识图谱"]
+  ROOT --> mindmap
+  path["游戏开发学习路径"]
+  ROOT --> path
+  questions["游戏开发面试与常见问题"]
+  ROOT --> questions
+```

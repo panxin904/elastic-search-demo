@@ -47,3 +47,20 @@ IoT 数据的存储 / 处理 / 可视化。
 - **生产**：考虑数据生命周期（原始 → 1m 聚合 → 1h 聚合 → 归档），按 7d / 30d / 365d 分级存储
 
 - **小贴士**：Grafana 用 Flux / InfluxQL 查 InfluxDB，用 SQL 查 TDengine。
+
+## 🗺 章节目录图
+
+<!-- mermaid-injected:do-not-edit -->
+
+```mermaid
+graph LR
+  ROOT["05-timeseries"]
+  database["时序库选型"]
+  ROOT --> database
+  integration["Grafana / Kafka"]
+  ROOT --> integration
+  processing["流处理 / Downsampling"]
+  ROOT --> processing
+  schema["数据模型"]
+  ROOT --> schema
+```

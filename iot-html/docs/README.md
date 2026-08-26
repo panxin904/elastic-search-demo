@@ -44,3 +44,22 @@ graph LR
 | architecture | 千万级 IoT 平台是高可用 + 微服务架构 |
 | postgresql | 设备元数据 / 影子存 PG（不是时序库） |
 | redis | 设备影子 / 在线状态 / 限流热点数据 |
+
+## 🗺 章节目录图
+
+<!-- mermaid-injected:do-not-edit -->
+
+```mermaid
+graph LR
+  ROOT["iot"]
+  cheatsheet["IoT 速查表"]
+  ROOT --> cheatsheet
+  index["index"]
+  ROOT --> index
+  mindmap["IoT 知识图谱"]
+  ROOT --> mindmap
+  path["IoT 学习路径"]
+  ROOT --> path
+  questions["IoT 面试与常见问题"]
+  ROOT --> questions
+```

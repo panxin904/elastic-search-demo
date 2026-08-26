@@ -49,15 +49,15 @@ title: 性能与上线
 
 ## 实战示例
 
-\`\`\`bash
+```bash
 # TODO: 在此补充本页主题的实战命令
 echo "hello"
-\`\`\`
+```
 
-\`\`\`yaml
+```yaml
 # TODO: 配置示例
 key: value
-\`\`\`
+```
 
 ## 进阶话题
 
@@ -69,3 +69,16 @@ key: value
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+## 🗺 章节目录图
+
+<!-- mermaid-injected:do-not-edit -->
+
+```mermaid
+graph LR
+  ROOT["08-ship"]
+  launch["上线运营"]
+  ROOT --> launch
+  perf["性能优化"]
+  ROOT --> perf
+```

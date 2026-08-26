@@ -50,15 +50,15 @@ title: 音频
 
 ## 实战示例
 
-\`\`\`bash
+```bash
 # TODO: 在此补充本页主题的实战命令
 echo "hello"
-\`\`\`
+```
 
-\`\`\`yaml
+```yaml
 # TODO: 配置示例
 key: value
-\`\`\`
+```
 
 ## 进阶话题
 
@@ -70,3 +70,18 @@ key: value
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+## 🗺 章节目录图
+
+<!-- mermaid-injected:do-not-edit -->
+
+```mermaid
+graph LR
+  ROOT["06-audio"]
+  engine["音频引擎"]
+  ROOT --> engine
+  mix["动态混音"]
+  ROOT --> mix
+  spatial["空间音频"]
+  ROOT --> spatial
+```

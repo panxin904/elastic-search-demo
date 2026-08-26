@@ -63,3 +63,22 @@ Android 是少数几个"贯穿应用 + 系统 + 跨端"三层的技术栈之一�
 | [04 · 跨平台](./04-cross/) | Flutter / RN / KMP | 跨端方案决策 |
 | [05 · 工具链](./05-toolchain/) | Gradle / IDE / 发布 | 工程化与上架 |
 | [06 · 性能与安全](./06-perf/) | 启动 / 内存 / ANR / 权限 | 性能基线与安全合规 |
+
+## 🗺 章节目录图
+
+<!-- mermaid-injected:do-not-edit -->
+
+```mermaid
+graph LR
+  ROOT["android"]
+  cheatsheet["Android 速查表"]
+  ROOT --> cheatsheet
+  index["index"]
+  ROOT --> index
+  mindmap["Android 知识图谱"]
+  ROOT --> mindmap
+  path["Android 学习路径"]
+  ROOT --> path
+  questions["Android 面试与常见问题"]
+  ROOT --> questions
+```

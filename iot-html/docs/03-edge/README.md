@@ -36,15 +36,15 @@ title: 03 · 边缘计算
 
 ## 实战示例
 
-\`\`\`bash
+```bash
 # TODO: 在此补充本页主题的实战命令
 echo "hello"
-\`\`\`
+```
 
-\`\`\`yaml
+```yaml
 # TODO: 配置示例
 key: value
-\`\`\`
+```
 
 ## 进阶话题
 
@@ -56,3 +56,20 @@ key: value
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+## 🗺 章节目录图
+
+<!-- mermaid-injected:do-not-edit -->
+
+```mermaid
+graph LR
+  ROOT["03-edge"]
+  ai_edge["边缘智能 AI"]
+  ROOT --> ai_edge
+  framework["EdgeX / KubeEdge"]
+  ROOT --> framework
+  k8s_edge["K8s 边缘"]
+  ROOT --> k8s_edge
+  offline["离线自治"]
+  ROOT --> offline
+```

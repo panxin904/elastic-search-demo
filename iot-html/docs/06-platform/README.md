@@ -35,15 +35,15 @@ title: 06 · 云平台与行业落地
 
 ## 实战示例
 
-\`\`\`bash
+```bash
 # TODO: 在此补充本页主题的实战命令
 echo "hello"
-\`\`\`
+```
 
-\`\`\`yaml
+```yaml
 # TODO: 配置示例
 key: value
-\`\`\`
+```
 
 ## 进阶话题
 
@@ -55,3 +55,20 @@ key: value
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+## 🗺 章节目录图
+
+<!-- mermaid-injected:do-not-edit -->
+
+```mermaid
+graph LR
+  ROOT["06-platform"]
+  iiot["工业互联网 IIoT"]
+  ROOT --> iiot
+  public_cloud["公有云 IoT"]
+  ROOT --> public_cloud
+  self_hosted["自建 IoT 平台"]
+  ROOT --> self_hosted
+  smart_home["智能家居 Matter"]
+  ROOT --> smart_home
+```

@@ -49,15 +49,15 @@ title: 网络
 
 ## 实战示例
 
-\`\`\`bash
+```bash
 # TODO: 在此补充本页主题的实战命令
 echo "hello"
-\`\`\`
+```
 
-\`\`\`yaml
+```yaml
 # TODO: 配置示例
 key: value
-\`\`\`
+```
 
 ## 进阶话题
 
@@ -69,3 +69,20 @@ key: value
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+## 🗺 章节目录图
+
+<!-- mermaid-injected:do-not-edit -->
+
+```mermaid
+graph LR
+  ROOT["05-network"]
+  anticheat["反外挂"]
+  ROOT --> anticheat
+  arch["联机架构"]
+  ROOT --> arch
+  consistency["一致性"]
+  ROOT --> consistency
+  sync["同步模型"]
+  ROOT --> sync
+```

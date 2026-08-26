@@ -42,15 +42,15 @@ title: 系统层
 
 ## 实战示例
 
-\`\`\`bash
+```bash
 # TODO: 在此补充本页主题的实战命令
 echo "hello"
-\`\`\`
+```
 
-\`\`\`yaml
+```yaml
 # TODO: 配置示例
 key: value
-\`\`\`
+```
 
 ## 进阶话题
 
@@ -62,3 +62,20 @@ key: value
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+## 🗺 章节目录图
+
+<!-- mermaid-injected:do-not-edit -->
+
+```mermaid
+graph LR
+  ROOT["03-system"]
+  ipc["IPC 机制"]
+  ROOT --> ipc
+  runtime["ART 运行时"]
+  ROOT --> runtime
+  services["框架服务"]
+  ROOT --> services
+  startup["启动流程"]
+  ROOT --> startup
+```
