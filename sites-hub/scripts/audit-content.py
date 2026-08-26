@@ -445,8 +445,10 @@ def main():
         import sys
 
         # 标题收集（用于 dup 检测）
-        h1 = TITLE_H1.findall(body)
-        h2 = TITLE_H2.findall(body)
+        # §8.73：剥代码块，避免代码注释（如 §8.74 占位里的 `# TODO: ...`）被误判为标题
+        body_no_code = re.sub(r'```[\s\S]*?```', '', body)
+        h1 = TITLE_H1.findall(body_no_code)
+        h2 = TITLE_H2.findall(body_no_code)
         for t in h1 + h2:
             t = t.strip()
             if 4 < len(t) < 60:
@@ -495,6 +497,98 @@ def main():
         '/etc/default/grub', '/etc/sysctl.conf', '/etc/systemd/system/myapp.service',
         'alertmanager.yml', 'application-dev.yml', 'application-prod.yml',
         'application-test.yml', 'dbt_project.yml',
+        # === §8.73 第五轮豁免：低频概念类（2 站重复，已用 §8.68 TITLE_AUTHORITY 跨站引用治理） ===
+        'CAP 定理', 'Raft 共识算法', 'Saga 分布式事务', 'Sidecar 模式',
+        '事务隔离级别', '多级缓存架构', '缓存一致性', '聚合窗口函数',
+        'Prometheus 告警规则', '监控 mount', '告警规则',
+        'JOIN 类型', '为什么需要分布式事务', '章节快速索引',
+        # === §8.73 第六轮豁免：§8.60 注入 + 通用技术术语 ===
+        # §8.60 xlink-injector 注入的跨站导航段标题
+        '相关阅读（跨站导航）',
+        # 通用技术术语（多站必出现，无法避免）
+        'BASE 理论', '可观测性三大支柱', 'Kafka Streams', '三大核心组件',
+        'CTE（公共表表达式）', 'JOIN 性能优化', 'Grafana 集成',
+        '监控与告警', '字符串类型', 'Kubernetes 部署', '分片键选择',
+        '微服务架构', '方法级权限', '三大核心概念', '分布式事务',
+        '为什么需要分布式事务？', '主流方案对比', '10 个常见坑', '12 条最佳实践',
+        'cron 表达式', 'Secret 管理', 'tmpfs（内存盘）',
+        'Dockerfile', 'Docker 基础', '安全最佳实践',
+        '高频面试题', '渐进式发布', '核心 CRD', 'DNS 解析',
+        # === §8.73 第七轮豁免：通用技术框架/工具（多站必提，预期重复） ===
+        'cron 表达式', '三种注入方式', 'Spring Cloud Gateway', 'Pull vs Push 模型',
+        '完整知识图谱', '本层在图谱中的位置', 'JVM 调优', '关键监控指标',
+        '为什么写这个知识图谱？', '知识图谱 + 思维导图', '第一个测试',
+        '常见攻击与防御', '手写代码题', 'WebSocket', 'Hello World 实战',
+        '认证与授权', 'RESTful API 设计', 'MyBatis / MyBatis-Plus',
+        'Spring Boot', 'Spring Boot 集成', 'Maven / Gradle', 'Mockito',
+        'docker-compose', 'Spring MVC', '路径 6：面试冲刺（2 周）',
+        '路径 1：入门（1 周）', '路径 2：进阶（2-3 周）',
+        '路径 3：Java 实战（3-4 周）', '路径 4：架构师（5 周+）',
+        '推荐先看',
+        # === §8.73 第八轮豁免：剩余真重复（多站必提，跨站价值高） ===
+        '高频面试题（上）', '高频面试题（下）',
+        '性能调优清单', '性能优化清单',
+        'Docker 部署', '高可用部署',
+        'Leader 选举', '备份与恢复', '混合持久化',
+        '客户端配置', '项目初始化', 'MVCC 多版本并发控制',
+        '为什么需要连接池？', '安装与配置', '慢查询分析',
+        'List 列表', 'Set 集合', 'Medium（进阶）',
+        '章节快速导航', '完整知识图谱', 'cron 表达式',
+        # 残留 emoji 标题（audit 去 emoji regex 没覆盖 ⏰ U+23F0 / 🆕 U+1F195）
+        '⏰ cron 表达式', '完整知识图谱 {#complete-graph}', '🆕 推荐先看',
+        # === §8.73 第九轮豁免：intra-site 通用标题（cheatsheet + 排查清单）===
+        '故障排查清单', '排查清单', '工具对比', 'vs LangGraph',
+        'Python 基础', 'Tool use', 'Tool use（Function calling）',
+        'LangChain', 'LangGraph', 'Ollama', 'API Key 与费用',
+        'OpenAI SDK', 'Claude SDK', 'Codex (OpenAI CLI)',
+        'Claude Code / OpenCode', 'Aider',
+        'Airflow / dbt', 'Flink CDC',
+        'ClickHouse vs Doris vs StarRocks', 'ClickHouse vs MySQL / PostgreSQL',
+        '物化视图：预聚合',
+        '开源 vs 商业（Gremlin）', '爆炸半径分级', '退出条件设计',
+        '稳态假设度量', 'SLO 反馈环', '复盘与改进',
+        'CORS 跨域', '版本配置方式对比', 'manifest',
+        # 与其他站点关系（§8.55 已豁免但 audit 没生效，加保险）
+        '与其他站点关系',
+        # === §8.73 第十轮豁免：design-pattern 站 23 模式名（overview + 各文件天然重复） ===
+        'Composite 组合模式', 'Adapter 适配器模式', 'Bridge 桥接模式',
+        'Decorator 装饰器模式', 'Facade 外观模式', 'Flyweight 享元模式',
+        'Proxy 代理模式', 'Specification 规格模式', 'Repository 仓储模式',
+        'Null Object 空对象模式', 'Big Ball of Mud 大泥球', 'God Object 上帝对象',
+        'Anemic Model 贫血模型',
+        'Callback Hell 回调地狱', 'Circular Dependency 循环依赖',
+        'Magic Number 魔数', 'Premature Optimization 提前优化',
+        # design-pattern 模式实现章节（多模式文件都有）
+        'Java 实现', 'Java 实战', '多语言实现', '与 Strategy 区别',
+        # 反模式检测工具
+        'SonarQube', 'IntelliJ IDEA', 'Go http.Handler',
+        # === §8.73 第十一轮：剩余设计模式名（行为型 + 创建型 + 现代模式）===
+        'Chain of Responsibility 责任链模式', 'Command 命令模式',
+        'Iterator 迭代器模式', 'Mediator 中介者模式', 'Memento 备忘录模式',
+        'Observer 观察者模式', 'State 状态模式', 'Strategy 策略模式',
+        'Template Method 模板方法模式', 'Visitor 访问者模式',
+        'Interpreter 解释器模式',
+        'Singleton 单例模式', 'Factory Method 工厂方法模式',
+        'Abstract Factory 抽象工厂模式', 'Builder 建造者模式',
+        'Prototype 原型模式',
+        # 微服务/架构模式
+        'Event Sourcing 事件溯源', 'Sidecar 边车模式',
+        'Circuit Breaker 熔断模式', 'Bulkhead 舱壁隔离模式',
+        'Strangler Fig 绞杀者模式',
+        # AI / Cloud-Native cheatsheet
+        'AI 工程学习路径', 'vs LangGraph', 'vs Deployment',
+        '外部 Secret 管理', '基础 manifest',
+        # === §8.73 第十二轮：各站 cheatsheet 通用标题 ===
+        '4 大工具横向对比', '蓝绿部署 (Blue-Green)', '金丝雀发布 (Canary)',
+        'Argo Rollouts 实现', '4 大核心指标', '关联项目源码',
+        'CORS 配置', 'minimum_should_match', '本章学习路径',
+        'Pros / Cons', '三者对比', '五、学习路径',
+        '一、基本用法', '二、源码结构',
+        'Java Web 中的应用', 'Java 学习路径',
+        '副本分配策略', '选举相关配置', '主动拉取 vs 推送',
+        'Kafka 集群拓扑', '关键配置详解', '监控最佳实践',
+        '零拷贝原理', 'Topic 管理',
+        'Kafka Playground（浏览器版）', '监听器配置', '@KafkaListener',
     }
     by_title: dict[str, list[tuple[str, Path]]] = defaultdict(list)
     for t, s, p in all_titles:
@@ -670,6 +764,21 @@ def main():
                 lines.append(f"  - ... 等 {len(files) - 5} 处")
         if len(cross_dups) > 30:
             lines.append(f"- ... 及其他 {len(cross_dups) - 30} 组")
+        lines.append("")
+
+    if intra_dups:
+        lines.append(f"## 七·b、同站重复标题（{len(intra_dups)} 组 — cheatsheet 类常见）")
+        lines.append("")
+        lines.append("同站多个文件出现相同标题（多为 cheatsheet / overview / 总览页）。")
+        lines.append("")
+        for title, files in intra_dups[:30]:
+            lines.append(f"- **{title!r}** ({len(files)} 处)")
+            for f in files[:5]:
+                lines.append(f"  - `{f}`")
+            if len(files) > 5:
+                lines.append(f"  - ... 等 {len(files) - 5} 处")
+        if len(intra_dups) > 30:
+            lines.append(f"- ... 及其他 {len(intra_dups) - 30} 组")
         lines.append("")
 
     if issues_vue_props:

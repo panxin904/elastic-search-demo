@@ -23,7 +23,7 @@
 | Vue 组件缺失（md 引用无 .vue） | 0 | 0 | ✅ |
 | Mermaid 代码块未闭合 | 0 | 0 | ✅ |
 | 标题层级跳级 | 0 | 0 | ✅ |
-| 跨子站重复标题 | 143 | ≤ 20 | ⚠️ |
+| 跨子站重复标题 | 0 | ≤ 20 | ✅ |
 
 ## 一、各子站统计
 
@@ -97,139 +97,111 @@
 
 **建议**：这些站当前主要靠 index.md 末尾的 📚 相关阅读 段落带跨站链接，子文档间应互相引用。可参考 §8.60 xlink-injector 注入术语映射。
 
-### 〇·b、内容完整度低（59 篇，completeness_score ≤ 3）
+### 〇·b、内容完整度低（13 篇，completeness_score ≤ 3）
 
 | 子站 | 平均分 | 低完整度 / 总数 | 建议 |
 |------|------:|------:|------|
-| tools-html | 3.2 | 11 / 13 | 加代码示例 / 表格 / Vue 组件 |
-| android-html | 3.5 | 7 / 29 | 加代码示例 / 表格 / Vue 组件 |
-| iot-html | 3.6 | 6 / 35 | 加代码示例 / 表格 / Vue 组件 |
-| game-html | 3.6 | 8 / 39 | 加代码示例 / 表格 / Vue 组件 |
-| chaos-html | 3.7 | 9 / 32 | 加代码示例 / 表格 / Vue 组件 |
-| filesystem-html | 3.7 | 14 / 94 | 加代码示例 / 表格 / Vue 组件 |
-| network-html | 4.0 | 2 / 66 | 加代码示例 / 表格 / Vue 组件 |
-| java-html | 4.1 | 1 / 53 | 加代码示例 / 表格 / Vue 组件 |
-| clickhouse-html | 4.8 | 1 / 36 | 加代码示例 / 表格 / Vue 组件 |
+| filesystem-html | 3.8 | 13 / 94 | 加代码示例 / 表格 / Vue 组件 |
 
-## 七、跨子站重复标题（143 组 — 候选合并/跨站引用）
+## 七·b、同站重复标题（58 组 — cheatsheet 类常见）
 
-模板 词已在检测中过滤（在图谱中的位置 / 一句话定义 / 关键 takeaway 等）
+同站多个文件出现相同标题（多为 cheatsheet / overview / 总览页）。
 
-- **'相关阅读（跨站导航）'** (30 处)
-  - `ai/index.md`
-  - `architecture/index.md`
-  - `bigdata/index.md`
-  - `chaos/index.md`
-  - `clickhouse/index.md`
-  - ... 等 25 处
-- **'Saga 分布式事务'** (2 处)
-  - `architecture/saga.md`
-  - `design-pattern/saga.md`
-- **'Sidecar 模式'** (3 处)
-  - `architecture/sidecar.md`
-  - `cloud-native/sidecar.md`
-  - `cloud-native/sidecar.md`
-- **'多级缓存架构'** (2 处)
-  - `architecture/architecture.md`
-  - `system-design/multi-level.md`
-- **'缓存一致性'** (3 处)
-  - `architecture/consistency.md`
-  - `redis/cache-consistency.md`
-  - `system-design/consistency.md`
-- **'BASE 理论'** (2 处)
-  - `architecture/base.md`
-  - `cloud/cap-base.md`
-- **'Raft 共识算法'** (2 处)
-  - `architecture/raft.md`
-  - `system-design/raft.md`
-- **'CAP 定理'** (3 处)
-  - `architecture/cap.md`
-  - `cloud/cap-base.md`
-  - `system-design/cap.md`
-- **'可观测性三大支柱'** (2 处)
-  - `architecture/three-pillars.md`
-  - `python/logging.md`
-- **'Kafka Streams'** (2 处)
-  - `bigdata/streams.md`
-  - `kafka/streams.md`
-- **'TODO: 在此补充本页主题的实战命令'** (64 处)
-  - `bigdata/lineage.md`
-  - `chaos/overview.md`
-  - `chaos/decision-tree.md`
-  - `chaos/mesh-vs-litmus.md`
-  - `chaos/open-vs-commercial.md`
-  - ... 等 59 处
-- **'TODO: 配置示例'** (64 处)
-  - `bigdata/lineage.md`
-  - `chaos/overview.md`
-  - `chaos/decision-tree.md`
-  - `chaos/mesh-vs-litmus.md`
-  - `chaos/open-vs-commercial.md`
-  - ... 等 59 处
-- **'三大核心组件'** (2 处)
-  - `chaos/architecture.md`
-  - `cloud-native/control-plane.md`
-- **'聚合窗口函数'** (2 处)
-  - `clickhouse/window-functions.md`
-  - `postgresql/window.md`
-- **'CTE（公共表表达式）'** (2 处)
-  - `clickhouse/window-functions.md`
-  - `mysql/functions.md`
-- **'JOIN 类型'** (2 处)
-  - `clickhouse/join.md`
-  - `postgresql/planner.md`
-- **'JOIN 性能优化'** (2 处)
-  - `clickhouse/join.md`
-  - `mysql/join.md`
-- **'Grafana 数据源'** (2 处)
-  - `clickhouse/log-analysis.md`
-  - `observability/tempo.md`
-- **'Grafana 集成'** (5 处)
-  - `clickhouse/log-analysis.md`
-  - `clickhouse/grafana.md`
-  - `cloud-native/loki.md`
-  - `observability/pyroscope.md`
-  - `observability/tempo.md`
-- **'监控与告警'** (3 处)
-  - `clickhouse/realtime-warehouse.md`
-  - `clickhouse/dbt-airbyte.md`
-  - `kafka/recovery.md`
-- **'Prometheus 配置'** (3 处)
-  - `clickhouse/metrics-storage.md`
-  - `kafka/backlog.md`
-  - `mysql/prometheus.md`
-- **'字符串类型'** (3 处)
-  - `clickhouse/data-types.md`
-  - `mysql/data-types.md`
-  - `postgresql/built-in.md`
-- **'验证集群状态'** (2 处)
-  - `clickhouse/installation.md`
-  - `kafka/install.md`
-- **'备份到 S3'** (2 处)
-  - `clickhouse/installation.md`
-  - `mysql/mysqldump.md`
-- **'Kubernetes 部署'** (5 处)
-  - `clickhouse/installation.md`
-  - `design-pattern/sidecar.md`
+- **'🆚 vs LangGraph'** (4 处)
+  - `ai/langchain.md`
+  - `ai/dify-coze.md`
+  - `ai/autogen.md`
+  - `ai/crewai.md`
+- **'🆚 vs Deployment'** (2 处)
+  - `cloud-native/daemonset.md`
+  - `cloud-native/statefulset.md`
+- **'与 Decorator 区别'** (2 处)
+  - `design-pattern/proxy.md`
+  - `design-pattern/chain-of-responsibility.md`
+- **'🆚 三者对比'** (2 处)
+  - `frontend/package-manager.md`
+  - `frontend/svelte.md`
+- **'KafkaTemplate'** (2 处)
+  - `kafka/intro.md`
+  - `kafka/kafka-template.md`
+- **'htop - top 的升级版'** (2 处)
+  - `linux/top-htop.md`
+  - `linux/ps-top.md`
+- **'🆚 替代品'** (4 处)
+  - `linux/find.md`
+  - `linux/xargs.md`
+  - `linux/grep.md`
+  - `linux/ss.md`
+- **'关联数组（map）'** (2 处)
+  - `linux/bash-syntax.md`
+  - `linux/arrays.md`
+- **'开启慢查询日志'** (2 处)
+  - `mysql/slow-log.md`
+  - `mysql/slow-query.md`
+- **'慢查询日志格式'** (2 处)
+  - `mysql/slow-log.md`
+  - `mysql/slow-query.md`
+- **'性能提升数据'** (2 处)
+  - `mysql/proxysql.md`
+  - `mysql/read-write-split.md`
+- **'自动填充（create_time / update_time）'** (2 处)
+  - `mysql/advanced.md`
+  - `mysql/mybatis-plus.md`
+- **'ShardingSphere 是什么？'** (2 处)
+  - `mysql/shardingsphere.md`
+  - `mysql/sharding-jdbc.md`
+- **'Saga 模式详解'** (2 处)
+  - `mysql/saga-pattern.md`
+  - `mysql/db-pattern.md`
+- **'为什么需要读写分离？'** (2 处)
+  - `mysql/read-write-split.md`
+  - `mysql/read-write-split.md`
+- **'实战案例：定位锁竞争'** (2 处)
+  - `observability/pprof.md`
+  - `observability/async-profiler.md`
+- **'OTel Collector 详解'** (2 处)
+  - `observability/overview.md`
   - `observability/collector.md`
-  - `observability/jaeger.md`
-  - `python/docker.md`
-- **'客户端连接'** (2 处)
-  - `clickhouse/client.md`
-  - `redis/install.md`
-- **'指定数据库'** (2 处)
-  - `clickhouse/client.md`
-  - `mysql/mysql-client.md`
-- **'分片键选择'** (2 处)
-  - `clickhouse/distributed.md`
-  - `mysql/sharding-strategy.md`
-- **'微服务架构'** (2 处)
-  - `cloud/intro.md`
-  - `java/microservices.md`
-- **'选举超时（毫秒）'** (2 处)
-  - `cloud/nacos-principle.md`
-  - `kafka/controller.md`
-- ... 及其他 113 组
+- **'三大指标详解'** (2 处)
+  - `observability/red-method.md`
+  - `observability/use-method.md`
+- **'何时选 PG'** (2 处)
+  - `postgresql/oracle-vs-postgresql.md`
+  - `postgresql/mongodb-vs-postgresql.md`
+- **'COPY 协议（最快）'** (2 处)
+  - `postgresql/jdbc.md`
+  - `postgresql/psycopg.md`
+- **'数据分析实战'** (2 处)
+  - `python/analysis.md`
+  - `python/pandas.md`
+- **'创建 DataFrame'** (2 处)
+  - `python/pandas.md`
+  - `python/pandas.md`
+- **'第一个爬虫'** (2 处)
+  - `python/basics.md`
+  - `python/scrapy.md`
+- **'实战：登录 + 爬取'** (2 处)
+  - `python/dynamic.md`
+  - `python/requests-bs4.md`
+- **'Hugging Face'** (2 处)
+  - `python/huggingface.md`
+  - `python/overview.md`
+- **'计算机视觉'** (2 处)
+  - `python/cv.md`
+  - `python/overview.md`
+- **'LLM 应用开发'** (2 处)
+  - `python/overview.md`
+  - `python/llm-apps.md`
+- **'自然语言处理'** (2 处)
+  - `python/overview.md`
+  - `python/nlp.md`
+- **'Fixture（测试夹具）'** (2 处)
+  - `python/pytest.md`
+  - `python/testing.md`
+- **'参数化测试'** (2 处)
+  - `python/pytest.md`
+  - `python/testing.md`
+- ... 及其他 28 组
 
 ## 八、关键发现与建议
 
