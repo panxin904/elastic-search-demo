@@ -26,7 +26,7 @@ export default defineConfig({
       ],
     },
     // §8.72：shared-assets/svg/ 共享 SVG 资产（CAP / Saga / 一致性 hash 等）
-    publicDir: fileURLToPath(new URL('../../shared-assets', import.meta.url)),
+    publicDir: fileURLToPath(new URL('../../shared-assets/svg', import.meta.url)),
   },
   base: '/devops/',
   title: 'DevOps',
