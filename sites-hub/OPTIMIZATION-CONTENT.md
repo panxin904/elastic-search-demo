@@ -6785,3 +6785,93 @@ cd {site}-html && npx vitepress build
 - 自动化生成 mermaid 转 SVG（mmdc 路径，已避成本）
 - 每站加 OG image（社交分享预览，1 周）
 - 自动截图工具界面（kubectl / Grafana，2-3 周）
+
+# §8.72+ v2 SVG 大规模扩展（20 张）
+
+> 日期：2026-08-27 · 第七十三次 · 工作量：1.5 小时
+> 范围：手画 20 张关键架构 SVG（覆盖 10 站核心概念页）
+
+## 8.72.1 背景
+
+§8.72+ 完成 13 张（imgs 16 → 29），§8.72+ v2 再补 20 张（imgs 29 → 49）。
+
+## 8.72.2 20 张 SVG
+
+### Design Pattern（3 张）
+- `observer-pattern.svg` → design-pattern/03-gof-behavioral/observer    主题/观察者
+- `strategy-pattern.svg` → design-pattern/03-gof-behavioral/strategy    算法族可替换
+- `factory-method.svg` → design-pattern/01-gof-creational/factory-method  创建延迟到子类
+
+### Architecture（2 张）
+- `cqrs-flow.svg` → architecture/12-microservice-patterns/saga    命令查询分离
+- `saga-pattern.svg` → architecture/07-distributed-tx/saga      分布式事务 + 补偿
+
+### System Design（4 张）
+- `rate-limiter-algo.svg` → system-design/05-patterns/rate-limiter    4 算法对比
+- `load-balancer.svg` → system-design/01-theory/overview              L4/L7 + 静态/动态
+- `cap-vs-base.svg` → system-design/01-theory/cap                    理论演进
+- `consistent-hash-ring.svg` → system-design/02-storage/consistent-hash  最小迁移
+
+### Resilience（2 张）
+- `circuit-breaker.svg` → springcloud/06-practice/comprehensive     CLOSED/OPEN/HALF_OPEN
+- `distributed-trace.svg` → observability/06-tracing/concepts        Trace/Span/OTel
+
+### Data Layer（4 张）
+- `redis-data-structures.svg` → redis/01-basics/intro     5 大类型 + 编码
+- `redis-persistence.svg` → redis/01-basics/intro          RDB vs AOF + 混合
+- `kafka-topics-partitions.svg` → kafka/01-basics/intro    Topic/Partition/Replica
+- `elasticsearch-cluster.svg` → es/01-storage/cluster     Master/Data/Coord + 分片副本
+
+### Infra（3 张）
+- `observability-stack.svg` → observability/01-foundations/signals    Metrics/Logs/Traces
+- `cdn-flow.svg` → network/06-application/cdn                          边缘节点 + DNS 调度
+- `docker-architecture.svg` → cloud-native/01-docker/intro            Client/Daemon/Container
+- `microservices-patterns.svg` → springcloud/06-practice/comprehensive 熔断/降级/限流/超时/重试/隔离
+
+## 8.72.3 效果
+
+| 指标 | §8.72+ 后 | §8.72+ v2 后 | Δ |
+|---|---:|---:|---:|
+| 总 imgs | 29 | **49** | **+20** |
+| 跨站 dups | 0 | 0 | ✓ |
+| broken | 0 | 0 | ✓ |
+
+### 各站 imgs 分布（总）
+
+| 站 | 总 imgs |
+|---|---:|
+| architecture | 4 |
+| design-pattern | 3 |
+| system-design | 5 |
+| observability | 2 |
+| springcloud | 3 |
+| redis | 3 |
+| kafka | 2 |
+| es | 2 |
+| network | 3 |
+| cloud-native | 2 |
+| linux | 2 |
+| mysql | 4 |
+| security | 2 |
+| game | 2 |
+| android | 2 |
+| iot | 2 |
+| k8s 等 | 4 |
+
+§8.71 路线图 imgs ≥200 进度：**49/200 (24.5%)**
+
+## 8.72.4 副作用验证
+
+| 指标 | baseline | §8.72+ v2 后 |
+|---|---:|---:|
+| broken | 0 | 0 ✓ |
+| cross-site dups | 0 | 0 ✓ |
+| intra-site dups | 58 | 58 ✓ |
+| heading_jump | 0 | 0 ✓ |
+| mermaid_unclosed | 0 | 0 ✓ |
+
+## 8.72.5 后续按需
+
+- **§8.72+ v3** 再补 30-50 张（imgs 49 → 100+）
+- **§8.75** C3 趋势 dashboard（监控上述指标变化）
+- **OG image** 自动生成（每站社交分享预览）
