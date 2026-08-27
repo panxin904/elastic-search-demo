@@ -22,6 +22,8 @@
 
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 TARBALL="${1:-}"
 if [[ -z "$TARBALL" ]]; then
   echo "Usage: sudo $0 <path-to-sites-hub-static.tar.gz>" >&2
