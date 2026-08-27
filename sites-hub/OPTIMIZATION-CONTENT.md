@@ -6875,3 +6875,81 @@ cd {site}-html && npx vitepress build
 - **§8.72+ v3** 再补 30-50 张（imgs 49 → 100+）
 - **§8.75** C3 趋势 dashboard（监控上述指标变化）
 - **OG image** 自动生成（每站社交分享预览）
+
+# §8.75 C3 趋势 Dashboard
+
+> 日期：2026-08-27 · 第七十四次 · 工作量：30 分钟
+> 范围：自动采集 4 核心指标 + 历史 JSON + HTML 可视化
+
+## 8.75.1 背景
+
+§8.71 路线图 C3 趋势 dashboard：每周一自动跑 audit，记录
+"imgs / xsite / dups / 低完整度" 4 指标变化曲线。
+
+## 8.75.2 实施
+
+### 工具：sites-hub/scripts/audit-trend.py
+
+- 调用 `audit-content.py` 解析 stdout 提取指标
+- 解析 md 报告提取低完整度页数
+- 追加历史到 `sites-hub/reports/history/audit-YYYYMMDD.json`
+- 生成 `sites-hub/reports/trend-dashboard.html`（4 卡片 + 趋势表格 + sparkline）
+
+### Dashboard 输出
+
+4 个核心卡片：
+- 📷 图片数 (imgs)
+- 🔗 跨站引用 (xsite)
+- 🔁 重复标题 (dups)
+- ⚠️ 低完整度
+
+趋势明细表格 + sparkline 字符（▁▂▃▄▅▆▇█）。
+
+## 8.75.3 历史数据回填
+
+| 日期 | imgs | xsite | dups | 低完整度 |
+|---|---:|---:|---:|---:|
+| 2026-08-15 | 0 | 399 | 513 | 294 |
+| 2026-08-18 | 0 | 399 | 513 | 294 |
+| 2026-08-22 | 10 | 525 | 58 | 59 |
+| 2026-08-25 | 16 | 723 | 58 | 13 |
+| 2026-08-27 | **49** | **723** | 58 | **13** |
+
+12 天内：
+- imgs: 0 → 49（+49）
+- xsite: 399 → 723（+324，+81.2%）
+- dups: 513 → 58（-455，-88.7%）
+- 低完整度: 294 → 13（-281，-95.6%）
+
+## 8.75.4 复用
+
+### 手动跑
+
+```bash
+# 每次 audit 后跑一次，自动更新 dashboard
+python3 sites-hub/scripts/audit-content.py
+python3 sites-hub/scripts/audit-trend.py
+```
+
+### 自动化（GitHub Actions · 不动现有 CI）
+
+可加独立 workflow 每周一 cron 跑：
+```yaml
+name: weekly-audit-trend
+on:
+  schedule: [{ cron: '0 0 * * 1' }]
+jobs:
+  trend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 sites-hub/scripts/audit-content.py
+      - run: python3 sites-hub/scripts/audit-trend.py
+      - run: git add sites-hub/reports/ && git commit -m "chore: weekly audit trend" && git push
+```
+
+## 8.75.5 后续按需
+
+- **§8.75 v2**：加更细的 per-site 维度（每个站的 imgs/dups/完整度）
+- **邮件/IM 通知**：指标超阈值时告警
+- **可视化升级**：用 ECharts 替代 sparkline（避免引入依赖，按需）
