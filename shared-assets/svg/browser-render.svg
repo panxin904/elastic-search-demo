@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">浏览器渲染流程</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">URL 请求 → DOM · CSSOM → Render Tree → Layout → Paint → Composite</text>
+
+  <!-- 左列输入 -->
+  <g>
+    <rect x="30" y="100" width="120" height="55" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="90" y="123" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">URL 请求</text>
+    <text x="90" y="142" text-anchor="middle" font-size="10" fill="#475569">DNS · TCP · TLS</text>
+
+    <rect x="30" y="200" width="120" height="55" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="90" y="223" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">HTML 字节</text>
+    <text x="90" y="242" text-anchor="middle" font-size="10" fill="#475569">Token · Node</text>
+
+    <rect x="30" y="300" width="120" height="55" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <text x="90" y="323" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">CSS 字节</text>
+    <text x="90" y="342" text-anchor="middle" font-size="10" fill="#475569">Rule · CSSOM</text>
+  </g>
+
+  <!-- 中列处理 -->
+  <g>
+    <rect x="220" y="140" width="160" height="50" rx="8" fill="#ecfeff" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="300" y="163" text-anchor="middle" font-size="12" font-weight="700" fill="#155e75">DOM Tree</text>
+    <text x="300" y="180" text-anchor="middle" font-size="10" fill="#475569">HTML → 节点树</text>
+
+    <rect x="220" y="240" width="160" height="50" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="300" y="263" text-anchor="middle" font-size="12" font-weight="700" fill="#5b21b6">CSSOM Tree</text>
+    <text x="300" y="280" text-anchor="middle" font-size="10" fill="#475569">CSS → 样式树</text>
+
+    <rect x="220" y="340" width="160" height="50" rx="8" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="300" y="363" text-anchor="middle" font-size="12" font-weight="700" fill="#991b1b">Render Tree</text>
+    <text x="300" y="380" text-anchor="middle" font-size="10" fill="#475569">DOM + CSSOM 合并</text>
+  </g>
+
+  <!-- 右列输出 -->
+  <g>
+    <rect x="450" y="80" width="120" height="55" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="510" y="103" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">Layout</text>
+    <text x="510" y="122" text-anchor="middle" font-size="10" fill="#475569">盒模型 · 坐标</text>
+
+    <rect x="450" y="160" width="120" height="55" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <text x="510" y="183" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">Paint</text>
+    <text x="510" y="202" text-anchor="middle" font-size="10" fill="#475569">位图层 · 像素</text>
+
+    <rect x="450" y="240" width="120" height="55" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="510" y="263" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">Composite</text>
+    <text x="510" y="282" text-anchor="middle" font-size="10" fill="#475569">GPU 层合并</text>
+
+    <rect x="450" y="320" width="120" height="55" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+    <text x="510" y="343" text-anchor="middle" font-size="12" font-weight="700" fill="#9d174d">Display</text>
+    <text x="510" y="362" text-anchor="middle" font-size="10" fill="#475569">最终像素输出</text>
+  </g>
+
+  <!-- 连接箭头 -->
+  <g stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)">
+    <path d="M150,127 L220,162"/>
+    <path d="M150,225 L220,252"/>
+    <path d="M150,325 L220,262"/>
+    <path d="M380,162 L450,107"/>
+    <path d="M380,262 L450,185"/>
+    <path d="M380,360 L450,265"/>
+    <path d="M510,135 L510,160"/>
+    <path d="M510,215 L510,240"/>
+    <path d="M510,295 L510,320"/>
+  </g>
+
+  <!-- 底部说明 -->
+  <g font-size="10" fill="#64748b">
+    <rect x="30" y="410" width="540" height="50" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-dasharray="4"/>
+    <text x="50" y="430">⚡ 关键路径：DOM + CSSOM 同时构建 → Render Tree → Layout → Paint → Composite</text>
+    <text x="50" y="448">⚠ 阻塞：script 默认阻塞解析；stylesheet 阻塞渲染；CSS 不阻塞已 inline 的 script 执行</text>
+  </g>
+</svg>

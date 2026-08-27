@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">ClickHouse MergeTree 引擎</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">列存 + LSM 思想 · 后台合并 · 高压缩</text>
+
+  <!-- 数据写入 -->
+  <rect x="40" y="100" width="120" height="35" rx="6" fill="#3b82f6" opacity="0.9"/>
+  <text x="100" y="123" text-anchor="middle" font-size="13" font-weight="700" fill="white">INSERT</text>
+
+  <!-- Part 1 -->
+  <g font-size="11" font-weight="700">
+    <rect x="200" y="100" width="120" height="40" rx="4" fill="#10b981" opacity="0.85"/>
+    <text x="260" y="118" text-anchor="middle" fill="white">Part 1</text>
+    <text x="260" y="132" text-anchor="middle" font-size="9" fill="#d1fae5">1000 行</text>
+
+    <rect x="340" y="100" width="120" height="40" rx="4" fill="#10b981" opacity="0.85"/>
+    <text x="400" y="118" text-anchor="middle" fill="white">Part 2</text>
+    <text x="400" y="132" text-anchor="middle" font-size="9" fill="#d1fae5">5000 行</text>
+
+    <rect x="480" y="100" width="100" height="40" rx="4" fill="#10b981" opacity="0.85"/>
+    <text x="530" y="118" text-anchor="middle" fill="white">Part 3</text>
+    <text x="530" y="132" text-anchor="middle" font-size="9" fill="#d1fae5">8000 行</text>
+  </g>
+
+  <!-- 写入箭头 -->
+  <g stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <line x1="160" y1="120" x2="195" y2="120"/>
+  </g>
+
+  <!-- 列存 -->
+  <g font-size="10">
+    <text x="60" y="160" font-weight="700" fill="#475569">Part 列存结构：</text>
+    <rect x="60" y="170" width="40" height="20" fill="#f59e0b" opacity="0.85"/>
+    <text x="80" y="184" text-anchor="middle" fill="white">id</text>
+    <rect x="100" y="170" width="50" height="20" fill="#3b82f6" opacity="0.85"/>
+    <text x="125" y="184" text-anchor="middle" fill="white">ts</text>
+    <rect x="150" y="170" width="50" height="20" fill="#ec4899" opacity="0.85"/>
+    <text x="175" y="184" text-anchor="middle" fill="white">value</text>
+
+    <text x="60" y="200" font-weight="700" fill="#475569">稀疏索引：</text>
+    <rect x="120" y="190" width="40" height="18" fill="#10b981" opacity="0.85"/>
+    <text x="140" y="203" text-anchor="middle" fill="white">primary</text>
+    <text x="200" y="204" fill="#475569">mark</text>
+    <text x="240" y="204" fill="#475569">→ 8192 行粒度</text>
+  </g>
+
+  <!-- 后台合并 -->
+  <rect x="200" y="240" width="380" height="50" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="390" y="263" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">Background Merge（后台合并）</text>
+  <text x="390" y="280" text-anchor="middle" font-size="10" fill="#78350f">Part 1+2+3 → Merged Part（按主键排序 + 压缩）</text>
+
+  <g stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <line x1="260" y1="142" x2="260" y2="240"/>
+    <line x1="400" y1="142" x2="400" y2="240"/>
+    <line x1="530" y1="142" x2="530" y2="240"/>
+  </g>
+
+  <!-- Merged -->
+  <rect x="220" y="320" width="340" height="40" rx="4" fill="#10b981" opacity="0.95"/>
+  <text x="390" y="338" text-anchor="middle" fill="white">Merged Part（排序 + 压缩）</text>
+  <text x="390" y="352" text-anchor="middle" font-size="9" fill="#d1fae5">14000 行 · 1 列存储</text>
+
+  <g stroke="#f59e0b" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <line x1="390" y1="290" x2="390" y2="320"/>
+  </g>
+
+  <!-- SELECT -->
+  <rect x="240" y="400" width="120" height="35" rx="6" fill="#3b82f6" opacity="0.9"/>
+  <text x="300" y="423" text-anchor="middle" font-size="13" font-weight="700" fill="white">SELECT</text>
+
+  <g stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <line x1="390" y1="360" x2="300" y2="400"/>
+  </g>
+
+  <!-- 关键能力 -->
+  <g font-size="10">
+    <rect x="40" y="400" width="120" height="35" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
+    <text x="100" y="416" text-anchor="middle" font-weight="700" fill="#064e3b">向量化</text>
+    <text x="100" y="430" text-anchor="middle" font-size="9" fill="#065f46">SIMD</text>
+
+    <rect x="450" y="400" width="120" height="35" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+    <text x="510" y="416" text-anchor="middle" font-weight="700" fill="#1e3a8a">压缩</text>
+    <text x="510" y="430" text-anchor="middle" font-size="9" fill="#1e40af">LZ4 / ZSTD</text>
+  </g>
+</svg>

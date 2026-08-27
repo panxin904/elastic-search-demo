@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Git 分支策略对比</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Git Flow · GitHub Flow · Trunk-Based</text>
+
+  <!-- Git Flow -->
+  <rect x="40" y="90" width="160" height="290" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="120" y="115" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">Git Flow</text>
+  <text x="120" y="130" text-anchor="middle" font-size="10" fill="#1e40af">Vincent Driessen 2010</text>
+
+  <g stroke="#64748b" stroke-width="2" fill="none">
+    <line x1="120" y1="145" x2="120" y2="370"/>
+    <line x1="80" y1="180" x2="160" y2="180"/>
+    <line x1="80" y1="220" x2="160" y2="220"/>
+    <line x1="80" y1="260" x2="160" y2="260"/>
+    <line x1="80" y1="300" x2="160" y2="300"/>
+  </g>
+  <g font-size="10" font-weight="700">
+    <text x="120" y="170" text-anchor="middle" fill="#3b82f6">main</text>
+    <text x="120" y="210" text-anchor="middle" fill="#10b981">develop</text>
+    <text x="120" y="250" text-anchor="middle" fill="#f59e0b">feature</text>
+    <text x="120" y="290" text-anchor="middle" fill="#ec4899">release</text>
+    <text x="120" y="330" text-anchor="middle" fill="#ef4444">hotfix</text>
+  </g>
+
+  <text x="120" y="350" text-anchor="middle" font-size="9" fill="#1e40af">✓ 适合版本化产品</text>
+  <text x="120" y="365" text-anchor="middle" font-size="9" fill="#1e40af">⚠ 分支多 / 复杂</text>
+
+  <!-- GitHub Flow -->
+  <rect x="220" y="90" width="160" height="290" rx="10" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+  <text x="300" y="115" text-anchor="middle" font-size="13" font-weight="700" fill="#064e3b">GitHub Flow</text>
+  <text x="300" y="130" text-anchor="middle" font-size="10" fill="#065f46">轻量 · 持续部署</text>
+
+  <g stroke="#64748b" stroke-width="2" fill="none">
+    <line x1="300" y1="145" x2="300" y2="370"/>
+    <line x1="260" y1="200" x2="340" y2="200"/>
+    <line x1="260" y1="260" x2="340" y2="260"/>
+  </g>
+  <g font-size="10" font-weight="700">
+    <text x="300" y="180" text-anchor="middle" fill="#10b981">main</text>
+    <text x="300" y="240" text-anchor="middle" fill="#3b82f6">feature/*</text>
+    <text x="300" y="300" text-anchor="middle" fill="#f59e0b">PR + review</text>
+  </g>
+
+  <text x="300" y="335" text-anchor="middle" font-size="9" fill="#065f46">✓ 简单 / CI/CD 友好</text>
+  <text x="300" y="350" text-anchor="middle" font-size="9" fill="#065f46">✓ 适合 SaaS 持续发布</text>
+  <text x="300" y="365" text-anchor="middle" font-size="9" fill="#065f46">⚠ main 必须稳定</text>
+
+  <!-- Trunk-Based -->
+  <rect x="400" y="90" width="160" height="290" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="480" y="115" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">Trunk-Based</text>
+  <text x="480" y="130" text-anchor="middle" font-size="10" fill="#78350f">Google · Facebook</text>
+
+  <g stroke="#64748b" stroke-width="2" fill="none">
+    <line x1="480" y1="145" x2="480" y2="370"/>
+    <line x1="450" y1="200" x2="510" y2="200"/>
+    <line x1="450" y1="240" x2="510" y2="240"/>
+    <line x1="450" y1="280" x2="510" y2="280"/>
+  </g>
+  <g font-size="10" font-weight="700">
+    <text x="480" y="180" text-anchor="middle" fill="#f59e0b">trunk (main)</text>
+    <text x="480" y="220" text-anchor="middle" fill="#3b82f6">短分支</text>
+    <text x="480" y="260" text-anchor="middle" fill="#10b981">feature flag</text>
+    <text x="480" y="300" text-anchor="middle" fill="#ec4899">几小时内合并</text>
+  </g>
+
+  <text x="480" y="335" text-anchor="middle" font-size="9" fill="#78350f">✓ 持续集成最佳</text>
+  <text x="480" y="350" text-anchor="middle" font-size="9" fill="#78350f">✓ 减少合并冲突</text>
+  <text x="480" y="365" text-anchor="middle" font-size="9" fill="#78350f">⚠ 需强 CI 流水线</text>
+
+  <text x="300" y="430" text-anchor="middle" font-size="11" fill="#94a3b8">选型：版本化产品用 Git Flow · 互联网产品用 GitHub Flow · 微服务用 Trunk-Based</text>
+  <text x="300" y="450" text-anchor="middle" font-size="11" fill="#94a3b8">commit 规范：feat/fix/docs/refactor/test/chore · Conventional Commits</text>
+</svg>

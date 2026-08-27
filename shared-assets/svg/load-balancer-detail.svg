@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Nginx 负载均衡配置</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">upstream · 权重 · 健康检查 · 会话保持</text>
+
+  <!-- nginx.conf 模拟 -->
+  <g font-size="11" font-family="Menlo, Monaco, monospace">
+    <rect x="40" y="100" width="520" height="240" rx="8" fill="#1e293b"/>
+    <text x="60" y="120" fill="#86efac">upstream</text>
+    <text x="120" y="120" fill="#fef3c7"> backend_app {</text>
+
+    <text x="80" y="138" fill="#86efac">ip_hash;</text>
+    <text x="80" y="156" fill="#94a3b8"># 同一 IP 路由到固定后端</text>
+
+    <text x="80" y="178" fill="#86efac">server</text>
+    <text x="160" y="178" fill="#fbbf24"> 10.0.0.1:8080</text>
+    <text x="290" y="178" fill="#86efac"> weight=3</text>
+    <text x="380" y="178" fill="#fbbf24"> max_fails=3</text>
+
+    <text x="80" y="196" fill="#86efac">server</text>
+    <text x="160" y="196" fill="#fbbf24"> 10.0.0.2:8080</text>
+    <text x="290" y="196" fill="#86efac"> weight=2</text>
+    <text x="380" y="196" fill="#fbbf24"> max_fails=3</text>
+
+    <text x="80" y="214" fill="#86efac">server</text>
+    <text x="160" y="214" fill="#fbbf24"> 10.0.0.3:8080</text>
+    <text x="290" y="214" fill="#86efac"> weight=1</text>
+    <text x="380" y="214" fill="#fbbf24"> backup</text>
+    <text x="80" y="232" fill="#94a3b8"># backup：其他全挂时启用</text>
+
+    <text x="80" y="252" fill="#86efac">keepalive</text>
+    <text x="160" y="252" fill="#fbbf24"> 32;</text>
+    <text x="80" y="270" fill="#94a3b8"># 长连接池 · 减少握手</text>
+
+    <text x="80" y="290" fill="#86efac">health_check</text>
+    <text x="160" y="290" fill="#fbbf24"> interval=2s</text>
+    <text x="290" y="290" fill="#fbbf24"> uri=/health</text>
+    <text x="80" y="308" fill="#94a3b8"># 主动健康检查（nginx plus）</text>
+
+    <text x="60" y="328" fill="#fef3c7">}</text>
+  </g>
+
+  <!-- 关键参数 -->
+  <g font-size="11">
+    <rect x="40" y="360" width="160" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+    <text x="120" y="378" text-anchor="middle" font-weight="700" fill="#1e3a8a">负载算法</text>
+    <text x="120" y="395" text-anchor="middle" font-size="9" fill="#1e40af">round-robin / weight</text>
+    <text x="120" y="405" text-anchor="middle" font-size="9" fill="#1e40af">ip_hash / least_conn</text>
+
+    <rect x="220" y="360" width="160" height="50" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
+    <text x="300" y="378" text-anchor="middle" font-weight="700" fill="#064e3b">健康检查</text>
+    <text x="300" y="395" text-anchor="middle" font-size="9" fill="#065f46">max_fails / fail_timeout</text>
+    <text x="300" y="405" text-anchor="middle" font-size="9" fill="#065f46">被动 vs 主动</text>
+
+    <rect x="400" y="360" width="160" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+    <text x="480" y="378" text-anchor="middle" font-weight="700" fill="#92400e">会话保持</text>
+    <text x="480" y="395" text-anchor="middle" font-size="9" fill="#78350f">ip_hash / sticky</text>
+    <text x="480" y="405" text-anchor="middle" font-size="9" fill="#78350f">session 共享</text>
+  </g>
+
+  <text x="300" y="440" text-anchor="middle" font-size="11" fill="#94a3b8">upstream 模块 · ngx_http_upstream_module · 默认 RR · 支持 weight / down / backup</text>
+  <text x="300" y="455" text-anchor="middle" font-size="11" fill="#94a3b8">upstream_check_module · ngx_http_upstream_check_module（淘宝开源）</text>
+</svg>

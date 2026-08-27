@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">MySQL 主从复制</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">binlog + relay log · 异步 / 半同步 / GTID</text>
+
+  <!-- Master -->
+  <rect x="40" y="100" width="180" height="220" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="130" y="125" text-anchor="middle" font-size="14" font-weight="700" fill="#1e3a8a">Master（主库）</text>
+
+  <g font-size="11" font-weight="700">
+    <rect x="55" y="140" width="150" height="40" rx="6" fill="#3b82f6" opacity="0.95"/>
+    <text x="130" y="158" text-anchor="middle" font-size="11" fill="white">写入请求</text>
+    <text x="130" y="172" text-anchor="middle" font-size="9" fill="#dbeafe">INSERT / UPDATE / DELETE</text>
+
+    <rect x="55" y="190" width="150" height="40" rx="6" fill="#10b981" opacity="0.95"/>
+    <text x="130" y="208" text-anchor="middle" fill="white">binlog（ROW/STATEMENT）</text>
+    <text x="130" y="222" text-anchor="middle" font-size="9" fill="#d1fae5">逻辑日志 · 全量</text>
+
+    <rect x="55" y="240" width="150" height="40" rx="6" fill="#f59e0b" opacity="0.95"/>
+    <text x="130" y="258" text-anchor="middle" font-size="10" fill="white">Dump Thread</text>
+    <text x="130" y="272" text-anchor="middle" font-size="9" fill="#fef3c7">推 binlog</text>
+  </g>
+
+  <!-- Replica 1 -->
+  <rect x="320" y="100" width="120" height="220" rx="10" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+  <text x="380" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#064e3b">Replica 1</text>
+
+  <g font-size="11" font-weight="700">
+    <rect x="335" y="140" width="90" height="40" rx="6" fill="#10b981" opacity="0.95"/>
+    <text x="380" y="158" text-anchor="middle" font-size="10" fill="white">I/O Thread</text>
+    <text x="380" y="172" text-anchor="middle" font-size="9" fill="#d1fae5">拉 binlog</text>
+
+    <rect x="335" y="190" width="90" height="40" rx="6" fill="#3b82f6" opacity="0.95"/>
+    <text x="380" y="208" text-anchor="middle" font-size="10" fill="white">relay log</text>
+
+    <rect x="335" y="240" width="90" height="40" rx="6" fill="#f59e0b" opacity="0.95"/>
+    <text x="380" y="258" text-anchor="middle" font-size="10" fill="white">SQL Thread</text>
+    <text x="380" y="272" text-anchor="middle" font-size="9" fill="#fef3c7">回放</text>
+  </g>
+
+  <!-- Replica 2 -->
+  <rect x="460" y="100" width="120" height="220" rx="10" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+  <text x="520" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#064e3b">Replica 2</text>
+
+  <g font-size="11" font-weight="700">
+    <rect x="475" y="140" width="90" height="40" rx="6" fill="#10b981" opacity="0.95"/>
+    <text x="520" y="158" text-anchor="middle" font-size="10" fill="white">I/O Thread</text>
+
+    <rect x="475" y="190" width="90" height="40" rx="6" fill="#3b82f6" opacity="0.95"/>
+    <text x="520" y="208" text-anchor="middle" font-size="10" fill="white">relay log</text>
+
+    <rect x="475" y="240" width="90" height="40" rx="6" fill="#f59e0b" opacity="0.95"/>
+    <text x="520" y="258" text-anchor="middle" font-size="10" fill="white">SQL Thread</text>
+  </g>
+
+  <!-- 箭头 -->
+  <g stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <path d="M205,260 Q270,260 335,260"/>
+    <path d="M205,260 Q340,220 475,260"/>
+  </g>
+
+  <!-- 复制模式 -->
+  <g font-size="11">
+    <rect x="40" y="350" width="520" height="105" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <text x="300" y="370" text-anchor="middle" font-weight="700" fill="#1e293b">复制模式</text>
+
+    <rect x="55" y="383" width="155" height="55" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+    <text x="132" y="400" text-anchor="middle" font-weight="700" fill="#92400e">异步（默认）</text>
+    <text x="132" y="416" text-anchor="middle" font-size="9" fill="#78350f">Master 不等从 ack</text>
+    <text x="132" y="430" text-anchor="middle" font-size="9" fill="#78350f">性能高 · 可能丢数据</text>
+
+    <rect x="222" y="383" width="155" height="55" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+    <text x="300" y="400" text-anchor="middle" font-weight="700" fill="#1e3a8a">半同步</text>
+    <text x="300" y="416" text-anchor="middle" font-size="9" fill="#1e40af">等 ≥1 从 ack</text>
+    <text x="300" y="430" text-anchor="middle" font-size="9" fill="#1e40af">rpl_semi_sync_master</text>
+
+    <rect x="390" y="383" width="155" height="55" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
+    <text x="467" y="400" text-anchor="middle" font-weight="700" fill="#064e3b">GTID 模式</text>
+    <text x="467" y="416" text-anchor="middle" font-size="9" fill="#065f46">全局事务 ID · 强一致</text>
+    <text x="467" y="430" text-anchor="middle" font-size="9" fill="#065f46">主从切换自动化</text>
+  </g>
+</svg>

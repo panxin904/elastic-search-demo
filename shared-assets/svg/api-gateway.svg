@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">API 网关模式</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">统一入口 · 鉴权 · 限流 · 路由 · 聚合</text>
+
+  <!-- 客户端 -->
+  <rect x="40" y="200" width="100" height="40" rx="6" fill="#3b82f6" opacity="0.9"/>
+  <text x="90" y="225" text-anchor="middle" font-size="12" font-weight="700" fill="white">客户端</text>
+
+  <!-- Gateway -->
+  <rect x="180" y="100" width="240" height="280" rx="10" fill="#ec4899" opacity="0.95"/>
+  <text x="300" y="125" text-anchor="middle" font-size="14" font-weight="700" fill="white">API Gateway</text>
+
+  <g font-size="11" font-weight="700">
+    <rect x="200" y="140" width="200" height="32" rx="4" fill="#fff" opacity="0.95"/>
+    <text x="300" y="160" text-anchor="middle" fill="#9f1239">路由 · 负载均衡</text>
+
+    <rect x="200" y="178" width="200" height="32" rx="4" fill="#fff" opacity="0.95"/>
+    <text x="300" y="198" text-anchor="middle" fill="#9f1239">鉴权 · OAuth2 / JWT</text>
+
+    <rect x="200" y="216" width="200" height="32" rx="4" fill="#fff" opacity="0.95"/>
+    <text x="300" y="236" text-anchor="middle" fill="#9f1239">限流 · 熔断</text>
+
+    <rect x="200" y="254" width="200" height="32" rx="4" fill="#fff" opacity="0.95"/>
+    <text x="300" y="274" text-anchor="middle" fill="#9f1239">日志 · 监控 · 链路</text>
+
+    <rect x="200" y="292" width="200" height="32" rx="4" fill="#fff" opacity="0.95"/>
+    <text x="300" y="312" text-anchor="middle" fill="#9f1239">协议转换 · 灰度</text>
+
+    <rect x="200" y="330" width="200" height="32" rx="4" fill="#fff" opacity="0.95"/>
+    <text x="300" y="350" text-anchor="middle" fill="#9f1239">聚合 · 缓存 · 重试</text>
+  </g>
+
+  <!-- 微服务 -->
+  <g font-size="11" font-weight="700">
+    <rect x="450" y="110" width="120" height="40" rx="6" fill="#10b981" opacity="0.9"/>
+    <text x="510" y="135" text-anchor="middle" fill="white">用户服务</text>
+
+    <rect x="450" y="160" width="120" height="40" rx="6" fill="#f59e0b" opacity="0.9"/>
+    <text x="510" y="185" text-anchor="middle" fill="white">订单服务</text>
+
+    <rect x="450" y="210" width="120" height="40" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <text x="510" y="235" text-anchor="middle" fill="white">商品服务</text>
+
+    <rect x="450" y="260" width="120" height="40" rx="6" fill="#f59e0b" opacity="0.9"/>
+    <text x="510" y="285" text-anchor="middle" fill="white">支付服务</text>
+
+    <rect x="450" y="310" width="120" height="40" rx="6" fill="#10b981" opacity="0.9"/>
+    <text x="510" y="335" text-anchor="middle" fill="white">库存服务</text>
+  </g>
+
+  <g stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <line x1="140" y1="220" x2="180" y2="220"/>
+  </g>
+  <g stroke="#ec4899" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+    <line x1="420" y1="140" x2="450" y2="130"/>
+    <line x1="420" y1="180" x2="450" y2="180"/>
+    <line x1="420" y1="220" x2="450" y2="230"/>
+    <line x1="420" y1="260" x2="450" y2="280"/>
+    <line x1="420" y1="300" x2="450" y2="330"/>
+  </g>
+
+  <!-- 选型 -->
+  <g font-size="11">
+    <rect x="40" y="400" width="520" height="60" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <text x="300" y="420" text-anchor="middle" font-weight="700" fill="#1e293b">开源网关对比</text>
+    <text x="60" y="438" fill="#475569">Spring Cloud Gateway（响应式）</text>
+    <text x="60" y="453" fill="#475569">Kong（OpenResty + Lua）</text>
+    <text x="320" y="438" fill="#475569">APISIX（Apache · 高性能）</text>
+    <text x="320" y="453" fill="#475569">Envoy（数据面 · Istio）</text>
+  </g>
+</svg>

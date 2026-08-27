@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Grafana 数据源与查询</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">多数据源 · PromQL/Loki/ES · 仪表盘</text>
+
+  <!-- 数据源层 -->
+  <rect x="40" y="100" width="520" height="80" rx="10" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+  <text x="60" y="120" font-size="13" font-weight="700" fill="#1e293b">数据源（Data Sources）</text>
+
+  <g font-size="11" font-weight="700">
+    <rect x="60" y="135" width="100" height="35" rx="6" fill="#ef4444" opacity="0.85"/>
+    <text x="110" y="153" text-anchor="middle" fill="white">Prometheus</text>
+    <text x="110" y="166" text-anchor="middle" font-size="9" fill="#fee2e2">时序指标</text>
+
+    <rect x="170" y="135" width="100" height="35" rx="6" fill="#10b981" opacity="0.85"/>
+    <text x="220" y="153" text-anchor="middle" fill="white">Loki</text>
+    <text x="220" y="166" text-anchor="middle" font-size="9" fill="#d1fae5">日志聚合</text>
+
+    <rect x="280" y="135" width="100" height="35" rx="6" fill="#f59e0b" opacity="0.85"/>
+    <text x="330" y="153" text-anchor="middle" fill="white">Elasticsearch</text>
+    <text x="330" y="166" text-anchor="middle" font-size="9" fill="#fef3c7">搜索/日志</text>
+
+    <rect x="390" y="135" width="100" height="35" rx="6" fill="#3b82f6" opacity="0.85"/>
+    <text x="440" y="153" text-anchor="middle" fill="white">InfluxDB</text>
+    <text x="440" y="166" text-anchor="middle" font-size="9" fill="#dbeafe">时序</text>
+
+    <rect x="60" y="145" width="0" height="0" fill="none"/>
+  </g>
+
+  <g font-size="11" font-weight="700">
+    <rect x="60" y="100" width="0" height="0" fill="none"/>
+  </g>
+
+  <!-- 中间：Grafana -->
+  <rect x="200" y="220" width="200" height="60" rx="10" fill="#ec4899" opacity="0.95"/>
+  <text x="300" y="245" text-anchor="middle" font-size="14" font-weight="700" fill="white">Grafana</text>
+  <text x="300" y="263" text-anchor="middle" font-size="10" fill="#fce7f3">查询 · 可视化 · 告警</text>
+
+  <!-- 数据流 -->
+  <g stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+    <line x1="110" y1="170" x2="240" y2="220"/>
+    <line x1="220" y1="170" x2="290" y2="220"/>
+    <line x1="330" y1="170" x2="320" y2="220"/>
+    <line x1="440" y1="170" x2="370" y2="220"/>
+  </g>
+
+  <!-- 下游：仪表盘 -->
+  <rect x="40" y="320" width="520" height="80" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+  <text x="60" y="340" font-size="13" font-weight="700" fill="#92400e">仪表盘（Dashboards）</text>
+
+  <g font-size="11" font-weight="700">
+    <rect x="60" y="355" width="100" height="35" rx="6" fill="#f59e0b" opacity="0.85"/>
+    <text x="110" y="372" text-anchor="middle" fill="white">Overview</text>
+    <text x="110" y="384" text-anchor="middle" font-size="9" fill="#fef3c7">系统大盘</text>
+
+    <rect x="170" y="355" width="100" height="35" rx="6" fill="#3b82f6" opacity="0.85"/>
+    <text x="220" y="372" text-anchor="middle" fill="white">业务</text>
+    <text x="220" y="384" text-anchor="middle" font-size="9" fill="#dbeafe">订单/支付</text>
+
+    <rect x="280" y="355" width="100" height="35" rx="6" fill="#10b981" opacity="0.85"/>
+    <text x="330" y="372" text-anchor="middle" fill="white">告警</text>
+    <text x="330" y="384" text-anchor="middle" font-size="9" fill="#d1fae5">阈值规则</text>
+
+    <rect x="390" y="355" width="100" height="35" rx="6" fill="#8b5cf6" opacity="0.85"/>
+    <text x="440" y="372" text-anchor="middle" fill="white">Trace</text>
+    <text x="440" y="384" text-anchor="middle" font-size="9" fill="#ede9fe">链路</text>
+  </g>
+
+  <g stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+    <line x1="300" y1="280" x2="110" y2="355"/>
+    <line x1="300" y1="280" x2="220" y2="355"/>
+    <line x1="300" y1="280" x2="330" y2="355"/>
+    <line x1="300" y1="280" x2="440" y2="355"/>
+  </g>
+
+  <!-- 关键能力 -->
+  <g font-size="11">
+    <rect x="40" y="420" width="520" height="50" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <text x="300" y="438" text-anchor="middle" font-weight="700" fill="#1e293b">关键能力</text>
+    <text x="60" y="455" fill="#475569">✓ 统一面板 · 跨数据源 JOIN（traceId → log → metric）</text>
+    <text x="60" y="466" fill="#475569">✓ 变量模板（$app / $env）· 复用 dashboard</text>
+  </g>
+</svg>
