@@ -92,3 +92,9 @@ print(ask("你好", task="chinese"))
 - [GPT / OpenAI](/01-models/gpt)
 - [Gemini](/01-models/gemini)
 - [DeepSeek](/01-models/deepseek)
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：LLM 训练 6 阶段流水线
+
+![LLM 训练 6 阶段流水线](/llm-training-pipeline.svg)

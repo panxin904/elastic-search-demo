@@ -160,3 +160,9 @@ spec:
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：Chaos Mesh 控制面 + 注入面
+
+![Chaos Mesh 控制面 + 注入面](/chaos-mesh-arch.svg)

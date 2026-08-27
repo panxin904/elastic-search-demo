@@ -237,3 +237,9 @@ ls /sys/kernel/debug/
 - [GRUB 引导](/14-kernel/grub)
 - [initramfs](/14-kernel/initramfs)
 - [sysctl 调参](/14-kernel/sysctl)
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：Linux Kernel 子系统全景
+
+![Linux Kernel 子系统全景](/linux-kernel-arch.svg)

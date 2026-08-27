@@ -216,3 +216,9 @@ langgraph dev
 - [AutoGen / Semantic Kernel](/04-agents/autogen)
 - [LangChain](/03-sdks/langchain)
 - [Tool Use 模式](/11-tools/tool-use)
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：Agent 推理循环（ReAct）
+
+![Agent 推理循环（ReAct）](/agent-loop.svg)

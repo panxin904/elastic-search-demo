@@ -136,3 +136,9 @@ systemd 还会按 `KillSignal=` 配置（默认 SIGTERM）+ `TimeoutStopSec=`（
 - [ps / top / htop](/04-process/ps-top)
 - [前台后台 jobs](/04-process/jobs)
 - [systemd](/04-process/systemd)
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：read() 系统调用全链路
+
+![read() 系统调用全链路](/linux-syscall-flow.svg)

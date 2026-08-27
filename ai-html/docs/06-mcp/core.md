@@ -265,3 +265,9 @@ async def call(name, args):
 - [MCP Server / Client 开发](/06-mcp/dev)
 - [Codex MCP 集成](/06-mcp/codex-integration)
 - [Tool Use 模式](/11-tools/tool-use)
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：MCP Host/Client/Server 三层
+
+![MCP Host/Client/Server 三层](/mcp-architecture.svg)

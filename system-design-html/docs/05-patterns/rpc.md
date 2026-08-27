@@ -487,3 +487,9 @@ Sentinel：
 - [architecture](https://java-px.bot.cd/architecture/):企业架构
 - [java](https://java-px.bot.cd/java-web-manual/):Java 实现
 - [kafka](https://java-px.bot.cd/kafka/):消息
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：gRPC 调用链路（HTTP/2 + Protobuf）
+
+![gRPC 调用链路（HTTP/2 + Protobuf）](/grpc-flow.svg)

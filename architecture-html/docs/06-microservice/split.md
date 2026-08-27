@@ -169,3 +169,9 @@ database 拆分 = 终极拆分
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：单体 vs 微服务对比
+
+![单体 vs 微服务对比](/microservices-vs-monolith.svg)

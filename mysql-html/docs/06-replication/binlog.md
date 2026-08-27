@@ -343,3 +343,9 @@ PURGE BINARY LOGS BEFORE '2025-07-01';
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：CDC 变更数据捕获全链路
+
+![CDC 变更数据捕获全链路](/cdc-flow.svg)

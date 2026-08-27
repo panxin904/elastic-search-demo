@@ -195,3 +195,9 @@ counts.limit(10).show()
 - [Spark SQL / DataFrame](/04-spark/dataframe)
 - [Spark Structured Streaming](/04-spark/streaming)
 - [Spark 调优](/04-spark/tuning)
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：Spark Driver/Executor 与 RDD DAG
+
+![Spark Driver/Executor 与 RDD DAG](/spark-architecture.svg)

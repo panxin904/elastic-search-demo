@@ -194,3 +194,9 @@ mount 把 FS 的根 dentry 接到 VFS 树的某个目录，从此该 FS 的文�
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：VFS 四大对象与具体文件系统
+
+![VFS 四大对象与具体文件系统](/linux-vfs.svg)

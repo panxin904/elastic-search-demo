@@ -201,3 +201,9 @@ stream.keyBy(...)
 - [状态与 Checkpoint](/05-flink/state)
 - [Exactly-once](/05-flink/exactly-once)
 - [Flink CDC](/05-flink/cdc)
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：Flink 运行时架构（JobManager/TaskManager）
+
+![Flink 运行时架构（JobManager/TaskManager）](/flink-architecture.svg)

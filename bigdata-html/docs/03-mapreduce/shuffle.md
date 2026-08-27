@@ -121,3 +121,9 @@ http://driver:4040
 ## 🔗 下一步
 - [MapReduce 原理](/03-mapreduce/principle)
 - [Combiner 与 Partitioner](/03-mapreduce/optimize)
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：MapReduce Shuffle 全流程
+
+![MapReduce Shuffle 全流程](/mapreduce-shuffle.svg)

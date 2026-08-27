@@ -187,3 +187,9 @@ HDFS → 对象存储迁移是趋势
 - [副本机制](/02-hdfs/replication)
 - [NameNode HA](/02-hdfs/ha)
 - [HDFS 命令](/02-hdfs/commands)
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：HDFS NameNode/DataNode 副本策略
+
+![HDFS NameNode/DataNode 副本策略](/hdfs-architecture.svg)

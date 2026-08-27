@@ -254,3 +254,9 @@ openssl s_client -connect example.com:443 -cipher 'ECDHE-RSA-AES256-GCM-SHA384'
 - [linux](https://java-px.bot.cd/linux/):Linux 网络栈
 - [security](https://java-px.bot.cd/security/):网络安全
 - [cloud-native](https://java-px.bot.cd/cloud-native/):K8s 网络
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：TLS 1.3 1-RTT 握手
+
+![TLS 1.3 1-RTT 握手](/tls-handshake-detail.svg)

@@ -180,3 +180,9 @@ cat /sys/block/sda/queue/discard_max_bytes
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：ext4 块组 + Journal + Extent
+
+![ext4 块组 + Journal + Extent](/ext4-layout.svg)

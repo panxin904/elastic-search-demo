@@ -216,20 +216,19 @@ Principles of Chaos 白皮书 2015 提出四大原则：
 - **architecture 站**：微服务韧性 / 服务网格（Service Mesh）→ 引用 architecture/05-microservices
 
 
-
 <!-- auto-enrich:do-not-edit -->
 
 ## 实战示例
 
-\`\`\`bash
+```bash
 # TODO: 在此补充本页主题的实战命令
 echo "hello"
-\`\`\`
+```
 
-\`\`\`yaml
+```yaml
 # TODO: 配置示例
 key: value
-\`\`\`
+```
 
 ## 相关阅读
 
@@ -241,3 +240,9 @@ key: value
 - 实战案例
 - 参考资料
 <!-- auto-enrich:do-not-edit -->
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：混沌实验 5 阶段流程
+
+![混沌实验 5 阶段流程](/chaos-experiment.svg)

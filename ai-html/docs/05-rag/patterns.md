@@ -193,3 +193,9 @@ print(results)
 - [嵌入模型 Embedding](/05-rag/embedding)
 - [LangChain](/03-sdks/langchain)
 - [LlamaIndex](/03-sdks/llamaindex)
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：RAG 离线索引 + 在线查询
+
+![RAG 离线索引 + 在线查询](/rag-architecture.svg)
