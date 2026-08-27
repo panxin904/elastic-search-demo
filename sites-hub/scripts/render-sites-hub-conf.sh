@@ -217,12 +217,16 @@ server {
     # 导致 assets 401 → JS 不执行 → 用户看到纯 SSR 裸文字
     # 主体内容（HTML）仍需 auth，公开 assets 不泄露内容（只是样式/JS）
     location ~* "^/[^/]+/assets/.*\.(js|css|woff2|woff|ttf|otf|svg|png|webp|avif|ico)$" {
+        # P0 fix: 加 root（正则 location 不继承 server root，否则 try_files $uri =404 按字面路径找文件 → 404）
+        # /X/assets/xxx  →  /var/www/sites-hub/current/X/assets/xxx
+        root ${CURRENT_LINK};
         auth_basic off;
         access_log off;
         add_header Cache-Control "public, max-age=31536000, immutable";
         try_files \$uri =404;
     }
     location ~* "^/[^/]+/assets/chunks/.*$" {
+        root ${CURRENT_LINK};
         auth_basic off;
         access_log off;
         add_header Cache-Control "public, max-age=31536000, immutable";
