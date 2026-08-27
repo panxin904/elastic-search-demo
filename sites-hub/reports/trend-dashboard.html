@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Audit Trend Dashboard</title>
+<style>
+  body { font-family: -apple-system, sans-serif; max-width: 960px; margin: 32px auto; padding: 0 16px; color: #1e293b; }
+  h1 { font-size: 24px; }
+  .meta { color: #64748b; font-size: 13px; margin-bottom: 32px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px; }
+  .card { border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; background: #fafafa; }
+  .card .label { font-size: 12px; color: #64748b; }
+  .card .value { font-size: 28px; font-weight: 700; margin: 8px 0; }
+  .card .delta { font-size: 12px; color: #10b981; }
+  .card .delta.down { color: #ef4444; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { padding: 6px 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+  th { background: #f1f5f9; font-weight: 600; }
+  .spark { font-family: monospace; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+<h1>📊 Content Quality Trend</h1>
+<p class="meta">来源：sites-hub/reports/content-quality-*.md · 自动采集 · 共 5 条记录</p>
+
+<div class="grid">
+  <div class="card">
+    <div class="label">📷 图片数 (imgs)</div>
+    <div class="value">49</div>
+    <div class="delta">+39 vs 上次</div>
+  </div>
+  <div class="card">
+    <div class="label">🔗 跨站引用 (xsite)</div>
+    <div class="value">723</div>
+    <div class="delta">+198 vs 上次</div>
+  </div>
+  <div class="card">
+    <div class="label">🔁 重复标题 (dups)</div>
+    <div class="value">58</div>
+    <div class="delta">±0 vs 上次</div>
+  </div>
+  <div class="card">
+    <div class="label">⚠️ 低完整度</div>
+    <div class="value">13</div>
+    <div class="delta">-46 vs 上次</div>
+  </div>
+</div>
+
+<h2>趋势明细（按日期）</h2>
+<table>
+<tr><th>日期</th><th>imgs</th><th>xsite</th><th>dups</th><th>低完整度</th><th>Sparkline</th></tr>
+<tr><td>2026-08-15</td><td>0</td><td>399</td><td>513</td><td>294</td><td class="spark">▁▄██</td></tr>
+<tr><td>2026-08-18</td><td>0</td><td>399</td><td>513</td><td>294</td><td class="spark">▁▄██</td></tr>
+<tr><td>2026-08-22</td><td>10</td><td>525</td><td>58</td><td>59</td><td class="spark">▂▆▁▂</td></tr>
+<tr><td>2026-08-25</td><td>16</td><td>723</td><td>58</td><td>13</td><td class="spark">▃█▁▁</td></tr>
+<tr><td>2026-08-27</td><td>49</td><td>723</td><td>58</td><td>13</td><td class="spark">██▁▁</td></tr>
+</table>
+
+<p class="meta">每次 audit-content.py 运行后会自动更新本页面</p>
+</body>
+</html>
