@@ -191,7 +191,11 @@ wait_any() {
 echo "==> Parallel build (PARALLEL=$PARALLEL, sites=${#SITES[@]}, mode=wait_any)..."
 for s in "${SITES[@]}"; do
   log_file="$TMPDIR_BUILD/$s.log"
-  build_one_site "$s" "$log_file" &
+  # 子 shell 解除 EXIT trap，避免 4 个并行 build 共享 TMPDIR_BUILD 时第一个完成的 rm -rf 把别人日志目录干掉
+  (
+    trap - EXIT
+    build_one_site "$s" "$log_file"
+  ) &
   pid=$!
   running_pids+=("$pid")
   running_sites+=("$s")
