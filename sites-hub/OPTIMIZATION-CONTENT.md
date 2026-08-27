@@ -6988,3 +6988,30 @@ jobs:
 - 当前 imgs=69 / 目标 ≥200 = **34.5%**
 - 下一批 §8.72+ v4 计划：再补 ~20 张（重点：混沌工程/消息中间件/前端框架/移动端/游戏引擎）
 
+
+## §8.72+ v4 — SVG 大规模扩展（第四批 20 张）
+
+**日期**：2026-08-27  
+**目标**：把 SVG 图示密度从 69 提到 89，路线图进度 34.5% → 44.5%
+
+### 变更明细
+
+- **媒体层**：`feat(media)` commit，新增 20 张 SVG：
+  - 大数据：flink-architecture / spark-architecture / hdfs-architecture / mapreduce-shuffle
+  - 混沌：chaos-experiment / chaos-mesh-arch
+  - Linux/FS：linux-kernel-arch / linux-syscall-flow / linux-vfs / ext4-layout
+  - AI/LLM：llm-training-pipeline / rag-architecture / agent-loop / mcp-architecture
+  - 架构：microservices-vs-monolith
+  - 数据：cdc-flow
+  - 安全：tls-handshake-detail
+  - 游戏：ecs-architecture
+  - 移动：android-jetpack-arch
+  - RPC：grpc-flow
+- **内容层**：`feat(content)` commit，注入到 14 站核心页
+- **审计基线**：imgs 69 → 89（+20），broken=0，cross-site dups=0 持平
+
+### 路线图进度
+
+- 当前 imgs=89 / 目标 ≥200 = **44.5%**
+- 下一批 §8.72+ v5 计划：覆盖剩余空白站点（kafka 内部、elasticsearch shard 细化、redis cluster slot、iot-mqtt 时序、video-html 等）+ 高频概念补图
+
