@@ -322,3 +322,9 @@ Prometheus ──→ remote_write → Mimir / Cortex（统一存储 + 多租户�
 ---
 
 🏠 <a href="https://java-px.bot.cd/" target="_blank">返回门户首页</a>
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：Prometheus 监控架构
+
+![Prometheus 监控架构](/prometheus-architecture.svg)

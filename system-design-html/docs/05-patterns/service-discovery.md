@@ -310,3 +310,9 @@ K8s Ingress：
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：Service Mesh 架构
+
+![Service Mesh 架构](/service-mesh.svg)

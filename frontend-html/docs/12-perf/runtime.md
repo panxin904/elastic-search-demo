@@ -153,3 +153,9 @@ worker.onmessage = (e) => setResult(e.data)
 
 - [Core Web Vitals](/12-perf/cwv)
 - [加载性能](/12-perf/loading)
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：浏览器渲染流水线
+
+![浏览器渲染流水线](/browser-render.svg)

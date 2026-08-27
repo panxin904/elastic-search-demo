@@ -255,3 +255,9 @@ GROUP BY event_minute, country
 
 - 学习 Kafka 引擎：见 [kafka-engine.md](./kafka-engine.md)
 - 学习物化视图：见 [materialized-view.md](./materialized-view.md)
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：ClickHouse MergeTree 原理
+
+![ClickHouse MergeTree 原理](/clickhouse-mergetree.svg)

@@ -400,3 +400,9 @@ Negative matches:
 - [architecture](https://java-px.bot.cd/architecture/):微服务架构
 - [system-design](https://java-px.bot.cd/system-design/):系统设计
 - [cloud-native](https://java-px.bot.cd/cloud-native/):Docker / K8s 落地
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：Spring Bean 生命周期
+
+![Spring Bean 生命周期](/spring-ioc-lifecycle.svg)

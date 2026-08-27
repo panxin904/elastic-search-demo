@@ -190,3 +190,9 @@ Kafka 默认 acks=1（仅 leader 写成功就返回）：
 <!-- svg-injected:do-not-edit -->
 
 ![load balancer](/load-balancer.svg)
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：六边形架构
+
+![六边形架构](/hexagonal-arch.svg)

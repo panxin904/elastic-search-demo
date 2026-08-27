@@ -186,3 +186,9 @@ WHERE backend_type = 'client backend';
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：PostgreSQL 进程与内存
+
+![PostgreSQL 进程与内存](/postgres-architecture.svg)

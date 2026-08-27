@@ -253,3 +253,9 @@ try (Jedis jedis = pool.getResource()) {
 - [mysql](https://java-px.bot.cd/mysql/):MySQL 主存
 - [kafka](https://java-px.bot.cd/kafka/):Kafka 异步队列
 - [java](https://java-px.bot.cd/java-web-manual/):Java 客户端（Redisson / Jedis）
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：Redis Sentinel 高可用
+
+![Redis Sentinel 高可用](/redis-sentinel.svg)

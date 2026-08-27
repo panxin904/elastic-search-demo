@@ -199,3 +199,9 @@ Grafana 多租户模型：
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：Grafana 数据源与仪表盘
+
+![Grafana 数据源与仪表盘](/grafana-flow.svg)

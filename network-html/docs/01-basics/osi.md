@@ -102,3 +102,9 @@ title: OSI 七层模型
 ---
 
 - 下一章：[🔌 TCP/IP 四层模型](/01-basics/tcp-ip)
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：5 种 IO 模型对比
+
+![5 种 IO 模型对比](/io-models.svg)

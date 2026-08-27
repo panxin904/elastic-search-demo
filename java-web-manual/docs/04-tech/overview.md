@@ -85,3 +85,9 @@ Spring Boot + Spring Cloud Alibaba (Nacos + Sentinel + Seata)
 ## 本层在图谱中的位置
 
 <KnowledgeGraph mode="full" :height="500" />
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：JVM 运行时内存模型
+
+![JVM 运行时内存模型](/jvm-memory-model.svg)

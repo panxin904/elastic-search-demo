@@ -434,3 +434,9 @@ SHOW SLAVE STATUS\G
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：MySQL 主从复制原理
+
+![MySQL 主从复制原理](/mysql-replication.svg)

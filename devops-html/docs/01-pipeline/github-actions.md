@@ -172,3 +172,9 @@ strategy:
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：Git 三种工作流对比
+
+![Git 三种工作流对比](/git-workflow.svg)

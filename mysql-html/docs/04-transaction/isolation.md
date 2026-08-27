@@ -287,3 +287,9 @@ SELECT * FROM performance_schema.data_lock_waits;
 - SERIALIZABLE：全部避免（性能差）
 
 **下一步：** [🔐 InnoDB 锁机制](../04-transaction/locks) — 深入理解行锁、表锁、意向锁
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：SQL 事务隔离级别
+
+![SQL 事务隔离级别](/transaction-isolation.svg)
