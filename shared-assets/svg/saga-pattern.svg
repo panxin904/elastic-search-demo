@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+    <marker id="arrow-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#ef4444"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Saga 分布式事务</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">长事务拆子事务 · 失败补偿 · 最终一致</text>
+
+  <!-- 时间线 -->
+  <line x1="40" y1="270" x2="560" y2="270" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 3"/>
+
+  <!-- 4 个服务节点 -->
+  <g font-size="11" font-weight="700">
+    <circle cx="100" cy="270" r="35" fill="#10b981" opacity="0.95"/>
+    <text x="100" y="265" text-anchor="middle" fill="white">订单</text>
+    <text x="100" y="280" text-anchor="middle" font-size="9" fill="#d1fae5">Create</text>
+
+    <circle cx="230" cy="270" r="35" fill="#10b981" opacity="0.95"/>
+    <text x="230" y="265" text-anchor="middle" fill="white">库存</text>
+    <text x="230" y="280" text-anchor="middle" font-size="9" fill="#d1fae5">Reserve</text>
+
+    <circle cx="360" cy="270" r="35" fill="#10b981" opacity="0.95"/>
+    <text x="360" y="265" text-anchor="middle" fill="white">支付</text>
+    <text x="360" y="280" text-anchor="middle" font-size="9" fill="#d1fae5">Charge</text>
+
+    <circle cx="490" cy="270" r="35" fill="#10b981" opacity="0.95"/>
+    <text x="490" y="265" text-anchor="middle" fill="white">物流</text>
+    <text x="490" y="280" text-anchor="middle" font-size="9" fill="#d1fae5">Ship</text>
+  </g>
+
+  <!-- 成功路径 -->
+  <g stroke="#10b981" stroke-width="2.5" fill="none" marker-end="url(#arrow)">
+    <line x1="135" y1="270" x2="195" y2="270"/>
+    <line x1="265" y1="270" x2="325" y2="270"/>
+    <line x1="395" y1="270" x2="455" y2="270"/>
+  </g>
+  <text x="165" y="260" text-anchor="middle" font-size="10" font-weight="600" fill="#065f46">T1</text>
+  <text x="295" y="260" text-anchor="middle" font-size="10" font-weight="600" fill="#065f46">T2</text>
+  <text x="425" y="260" text-anchor="middle" font-size="10" font-weight="600" fill="#065f46">T3</text>
+
+  <!-- 失败点 -->
+  <circle cx="360" cy="270" r="42" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="3 2"/>
+  <text x="360" y="160" text-anchor="middle" font-size="12" font-weight="700" fill="#dc2626">✗ 支付失败</text>
+
+  <!-- 补偿路径（反向） -->
+  <g stroke="#ef4444" stroke-width="2" fill="none" stroke-dasharray="4 3" marker-end="url(#arrow-r)">
+    <path d="M395,290 Q328,330 265,290"/>
+    <path d="M265,290 Q198,330 135,290"/>
+  </g>
+  <text x="295" y="360" text-anchor="middle" font-size="10" font-weight="600" fill="#dc2626">C2 库存释放</text>
+  <text x="165" y="360" text-anchor="middle" font-size="10" font-weight="600" fill="#dc2626">C1 订单取消</text>
+
+  <!-- 编排 vs 协同 -->
+  <g font-size="11">
+    <rect x="40" y="395" width="510" height="65" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <text x="300" y="415" text-anchor="middle" font-weight="700" fill="#1e293b">两种实现</text>
+    <text x="60" y="435" fill="#475569">编排（Orchestration）：中央协调器 · 简单 · 耦合</text>
+    <text x="60" y="452" fill="#475569">协同（Choreography）：事件驱动 · 去中心 · 复杂</text>
+    <text x="320" y="435" fill="#475569">需幂等：每个子事务支持重复执行</text>
+    <text x="320" y="452" fill="#475569">隔离性弱：不保证全局视图一致</text>
+  </g>
+</svg>

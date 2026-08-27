@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">微服务韧性模式</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">熔断 · 降级 · 限流 · 超时 · 重试 · 隔离</text>
+
+  <!-- 6 个模式卡片 -->
+  <g font-size="11" font-weight="700">
+    <!-- 熔断 -->
+    <rect x="40" y="100" width="160" height="110" rx="8" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="120" y="125" text-anchor="middle" font-size="13" fill="#dc2626">熔断</text>
+    <text x="120" y="145" text-anchor="middle" font-size="10" fill="#991b1b">Circuit Breaker</text>
+    <text x="120" y="170" text-anchor="middle" fill="#991b1b">失败 ≥ 阈值</text>
+    <text x="120" y="188" text-anchor="middle" fill="#991b1b">→ 快速失败</text>
+    <text x="120" y="206" text-anchor="middle" fill="#991b1b">Resilience4j</text>
+
+    <!-- 降级 -->
+    <rect x="220" y="100" width="160" height="110" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="300" y="125" text-anchor="middle" font-size="13" fill="#92400e">降级</text>
+    <text x="300" y="145" text-anchor="middle" font-size="10" fill="#78350f">Fallback</text>
+    <text x="300" y="170" text-anchor="middle" fill="#78350f">返回兜底值</text>
+    <text x="300" y="188" text-anchor="middle" fill="#78350f">保护核心链路</text>
+    <text x="300" y="206" text-anchor="middle" fill="#78350f">默认 / 缓存 / null</text>
+
+    <!-- 限流 -->
+    <rect x="400" y="100" width="160" height="110" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="480" y="125" text-anchor="middle" font-size="13" fill="#1e3a8a">限流</text>
+    <text x="480" y="145" text-anchor="middle" font-size="10" fill="#1e40af">Rate Limit</text>
+    <text x="480" y="170" text-anchor="middle" fill="#1e40af">令牌桶 / 漏桶</text>
+    <text x="480" y="188" text-anchor="middle" fill="#1e40af">Sentinel / Guava</text>
+    <text x="480" y="206" text-anchor="middle" fill="#1e40af">保护系统容量</text>
+
+    <!-- 超时 -->
+    <rect x="40" y="230" width="160" height="110" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <text x="120" y="255" text-anchor="middle" font-size="13" fill="#064e3b">超时</text>
+    <text x="120" y="275" text-anchor="middle" font-size="10" fill="#065f46">Timeout</text>
+    <text x="120" y="300" text-anchor="middle" fill="#065f46">合理设置</text>
+    <text x="120" y="318" text-anchor="middle" fill="#065f46">避免资源堆积</text>
+    <text x="120" y="336" text-anchor="middle" fill="#065f46">P99 + buffer</text>
+
+    <!-- 重试 -->
+    <rect x="220" y="230" width="160" height="110" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+    <text x="300" y="255" text-anchor="middle" font-size="13" fill="#9f1239">重试</text>
+    <text x="300" y="275" text-anchor="middle" font-size="10" fill="#9d174d">Retry</text>
+    <text x="300" y="300" text-anchor="middle" fill="#9d174d">指数退避</text>
+    <text x="300" y="318" text-anchor="middle" fill="#9d174d">幂等保证</text>
+    <text x="300" y="336" text-anchor="middle" fill="#9d174d">限定次数</text>
+
+    <!-- 隔离 -->
+    <rect x="400" y="230" width="160" height="110" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="480" y="255" text-anchor="middle" font-size="13" fill="#5b21b6">隔离</text>
+    <text x="480" y="275" text-anchor="middle" font-size="10" fill="#6b21a8">Bulkhead</text>
+    <text x="480" y="300" text-anchor="middle" fill="#6b21a8">资源池独立</text>
+    <text x="480" y="318" text-anchor="middle" fill="#6b21a8">故障不蔓延</text>
+    <text x="480" y="336" text-anchor="middle" fill="#6b21a8">舱壁模式</text>
+  </g>
+
+  <!-- 关键经验 -->
+  <g font-size="11">
+    <rect x="40" y="360" width="520" height="95" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <text x="300" y="380" text-anchor="middle" font-weight="700" fill="#1e293b">关键原则</text>
+    <text x="60" y="402" fill="#475569">✓ 设计时考虑失败：任何依赖都不可靠</text>
+    <text x="60" y="420" fill="#475569">✓ 失败快速扩散优于资源耗尽：fail-fast</text>
+    <text x="60" y="438" fill="#475569">✓ 组合使用：熔断 + 降级 + 限流 + 超时</text>
+    <text x="320" y="402" fill="#475569">✓ 监控每个模式的触发频率和效果</text>
+    <text x="320" y="420" fill="#475569">✓ 混沌工程（Chaos Monkey）验证</text>
+    <text x="320" y="438" fill="#475569">✓ 库：Resilience4j · Hystrix（停维）· Sentinel</text>
+  </g>
+</svg>

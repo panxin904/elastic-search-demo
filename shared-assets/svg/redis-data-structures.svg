@@ -1,58 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 460" font-family="-appleSystem,BlinkMacSystemFont,'PingFang SC',sans-serif">
-  <rect width="600" height="460" fill="#fafafa"/>
-  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Redis 五大数据类型</text>
-  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">每种类型有独立的底层编码（encoding）</text>
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
   <defs>
-    <marker id="arrow-redis" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
     </marker>
   </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Redis 5 大数据类型</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">底层编码 · sds / listpack / skiplist</text>
 
-  <!-- String -->
-  <rect x="40" y="90" width="160" height="65" rx="6" fill="#fef2f2" stroke="#ef4444"/>
-  <text x="120" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#b91c1c">String</text>
-  <text x="120" y="132" text-anchor="middle" font-size="10" fill="#7f1d1d">int / embstr / raw</text>
-  <text x="120" y="148" text-anchor="middle" font-size="10" fill="#7f1d1d">缓存 / 计数器 / 分布式锁</text>
+  <g font-size="11" font-weight="700">
+    <!-- String -->
+    <rect x="40" y="100" width="100" height="100" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="90" y="120" text-anchor="middle" font-size="12" fill="#1e3a8a">String</text>
+    <text x="90" y="140" text-anchor="middle" font-size="10" fill="#1e40af">SET / GET</text>
+    <text x="90" y="158" text-anchor="middle" font-size="9" fill="#3b82f6">int / embstr</text>
+    <text x="90" y="172" font-size="9" fill="#3b82f6" text-anchor="middle">raw</text>
+    <text x="90" y="190" text-anchor="middle" font-size="9" fill="#1e40af">场景：缓存</text>
 
-  <!-- Hash -->
-  <rect x="220" y="90" width="160" height="65" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="300" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">Hash</text>
-  <text x="300" y="132" text-anchor="middle" font-size="10" fill="#78350f">listpack / hashtable</text>
-  <text x="300" y="148" text-anchor="middle" font-size="10" fill="#78350f">对象属性 / 用户画像</text>
+    <!-- Hash -->
+    <rect x="160" y="100" width="100" height="100" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="210" y="120" text-anchor="middle" font-size="12" fill="#064e3b">Hash</text>
+    <text x="210" y="140" text-anchor="middle" font-size="10" fill="#065f46">HSET / HGET</text>
+    <text x="210" y="158" text-anchor="middle" font-size="9" fill="#10b981">listpack</text>
+    <text x="210" y="172" font-size="9" fill="#10b981" text-anchor="middle">hashtable</text>
+    <text x="210" y="190" text-anchor="middle" font-size="9" fill="#065f46">场景：对象</text>
 
-  <!-- List -->
-  <rect x="400" y="90" width="160" height="65" rx="6" fill="#dcfce7" stroke="#10b981"/>
-  <text x="480" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#065f46">List</text>
-  <text x="480" y="132" text-anchor="middle" font-size="10" fill="#14532d">listpack / quicklist</text>
-  <text x="480" y="148" text-anchor="middle" font-size="10" fill="#14532d">消息队列 / 最新列表</text>
+    <!-- List -->
+    <rect x="280" y="100" width="100" height="100" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="330" y="120" text-anchor="middle" font-size="12" fill="#92400e">List</text>
+    <text x="330" y="140" text-anchor="middle" font-size="10" fill="#78350f">LPUSH / RPOP</text>
+    <text x="330" y="158" text-anchor="middle" font-size="9" fill="#f59e0b">listpack</text>
+    <text x="330" y="172" font-size="9" fill="#f59e0b" text-anchor="middle">quicklist</text>
+    <text x="330" y="190" text-anchor="middle" font-size="9" fill="#78350f">场景：队列</text>
 
-  <!-- Set -->
-  <rect x="40" y="180" width="160" height="65" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="120" y="205" text-anchor="middle" font-size="14" font-weight="700" fill="#1e40af">Set</text>
-  <text x="120" y="222" text-anchor="middle" font-size="10" fill="#1e3a8a">intset / hashtable</text>
-  <text x="120" y="238" text-anchor="middle" font-size="10" fill="#1e3a8a">标签 / 共同好友</text>
+    <!-- Set -->
+    <rect x="400" y="100" width="100" height="100" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+    <text x="450" y="120" text-anchor="middle" font-size="12" fill="#9f1239">Set</text>
+    <text x="450" y="140" text-anchor="middle" font-size="10" fill="#9d174d">SADD / SMEMBERS</text>
+    <text x="450" y="158" text-anchor="middle" font-size="9" fill="#ec4899">intset</text>
+    <text x="450" y="172" font-size="9" fill="#ec4899" text-anchor="middle">hashtable</text>
+    <text x="450" y="190" text-anchor="middle" font-size="9" fill="#9d174d">场景：标签</text>
 
-  <!-- Sorted Set -->
-  <rect x="220" y="180" width="160" height="65" rx="6" fill="#e0e7ff" stroke="#6366f1"/>
-  <text x="300" y="205" text-anchor="middle" font-size="14" font-weight="700" fill="#3730a3">Sorted Set</text>
-  <text x="300" y="222" text-anchor="middle" font-size="10" fill="#312e81">listpack / skiplist+dict</text>
-  <text x="300" y="238" text-anchor="middle" font-size="10" fill="#312e81">排行榜 / 滑动窗口限流</text>
+    <!-- Sorted Set -->
+    <rect x="100" y="240" width="200" height="100" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="200" y="260" text-anchor="middle" font-size="12" fill="#5b21b6">Sorted Set</text>
+    <text x="200" y="280" text-anchor="middle" font-size="10" fill="#6b21a8">ZADD / ZRANGEBYSCORE</text>
+    <text x="200" y="298" text-anchor="middle" font-size="9" fill="#8b5cf6">listpack + skiplist</text>
+    <text x="200" y="315" text-anchor="middle" font-size="9" fill="#6b21a8">场景：排行榜</text>
+    <text x="200" y="330" text-anchor="middle" font-size="9" fill="#6b21a8">延迟队列</text>
 
-  <!-- Stream (Redis 5+) -->
-  <rect x="400" y="180" width="160" height="65" rx="6" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="480" y="205" text-anchor="middle" font-size="14" font-weight="700" fill="#9f1239c">Stream</text>
-  <text x="480" y="222" text-anchor="middle" font-size="10" fill="#831843">radix tree + listpack</text>
-  <text x="480" y="238" text-anchor="middle" font-size="10" fill="#831843">消息流 / 事件溯源</text>
+    <!-- 高级 -->
+    <rect x="320" y="240" width="200" height="100" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="420" y="260" text-anchor="middle" font-size="12" fill="#92400e">Stream / Bitmap / Geo</text>
+    <text x="420" y="280" text-anchor="middle" font-size="10" fill="#78350f">XADD / SETBIT / GEOADD</text>
+    <text x="420" y="298" text-anchor="middle" font-size="9" fill="#78350f">消息流 / 位图 / 地理位置</text>
+    <text x="420" y="315" text-anchor="middle" font-size="9" fill="#78350f">Redis 6+ 模块化</text>
+    <text x="420" y="330" text-anchor="middle" font-size="9" fill="#78350f">RedisJSON / RediSearch</text>
+  </g>
 
   <!-- 底层编码说明 -->
-  <rect x="40" y="270" width="520" height="170" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
-  <text x="60" y="295" font-size="13" font-weight="700" fill="#1e293b">编码自动转换（节省内存）：</text>
-  <text x="60" y="320" font-size="11" fill="#475569">· 元素数量 &lt; 128 且每个 value &lt; 64 字节 → listpack / intset / embstr（紧凑编码）</text>
-  <text x="60" y="338" font-size="11" fill="#475569">· 超过阈值 → hashtable / skiplist / quicklist（标准编码）</text>
-  <text x="60" y="356" font-size="11" fill="#475569">· 双向转换，不可逆（大 → 小 需要重新创建）</text>
-
-  <text x="60" y="385" font-size="13" font-weight="700" fill="#1e293b">使用建议：</text>
-  <text x="60" y="405" font-size="11" fill="#10b981">✓ 优先用 listpack 编码的场景（小数据）：Hash / List / Sorted Set</text>
-  <text x="60" y="423" font-size="11" fill="#ef4444">✗ 大 Value 建议拆成多个 key（避免 bigkey 卡单线程）</text>
+  <g font-size="11">
+    <rect x="40" y="375" width="520" height="80" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <text x="300" y="395" text-anchor="middle" font-weight="700" fill="#1e293b">底层编码演进</text>
+    <text x="60" y="415" fill="#475569">SDS：Simple Dynamic String · 替代 C 字符串 · O(1) 取长度</text>
+    <text x="60" y="432" fill="#475569">listpack：紧凑列表 · 替代 ziplist · 节省内存</text>
+    <text x="60" y="449" fill="#475569">skiplist：跳跃表 · ZSet 排序 · 范围查询 O(logN)</text>
+    <text x="320" y="415" fill="#475569">embstr：≤44 字节内嵌 · 减少分配</text>
+    <text x="320" y="432" fill="#475569">quicklist：list + zlist 组合</text>
+    <text x="320" y="449" fill="#475569">编码自动切换 · 阈值由 redis.conf 配置</text>
+  </g>
 </svg>

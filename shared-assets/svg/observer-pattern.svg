@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">观察者模式（Observer Pattern）</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">一对多依赖 · 主题变更自动通知</text>
+
+  <!-- Subject 中心 -->
+  <rect x="230" y="180" width="140" height="80" rx="10" fill="#3b82f6" opacity="0.95"/>
+  <text x="300" y="210" text-anchor="middle" font-size="16" font-weight="700" fill="white">Subject</text>
+  <text x="300" y="230" text-anchor="middle" font-size="11" fill="#dbeafe">主题 / 被观察者</text>
+  <text x="300" y="248" text-anchor="middle" font-size="10" fill="#dbeafe">attach / detach / notify</text>
+
+  <!-- 5 个 Observer -->
+  <g font-size="11" font-weight="700">
+    <rect x="40" y="100" width="120" height="45" rx="6" fill="#10b981" opacity="0.9"/>
+    <text x="100" y="123" text-anchor="middle" fill="white">Observer A</text>
+    <text x="100" y="138" text-anchor="middle" font-size="10" fill="#d1fae5">update()</text>
+
+    <rect x="40" y="200" width="120" height="45" rx="6" fill="#10b981" opacity="0.9"/>
+    <text x="100" y="223" text-anchor="middle" fill="white">Observer B</text>
+    <text x="100" y="238" text-anchor="middle" font-size="10" fill="#d1fae5">update()</text>
+
+    <rect x="40" y="300" width="120" height="45" rx="6" fill="#10b981" opacity="0.9"/>
+    <text x="100" y="323" text-anchor="middle" fill="white">Observer C</text>
+    <text x="100" y="338" text-anchor="middle" font-size="10" fill="#d1fae5">update()</text>
+
+    <rect x="440" y="100" width="120" height="45" rx="6" fill="#f59e0b" opacity="0.9"/>
+    <text x="500" y="123" text-anchor="middle" fill="white">Observer D</text>
+    <text x="500" y="138" text-anchor="middle" font-size="10" fill="#fef3c7">update()</text>
+
+    <rect x="440" y="200" width="120" height="45" rx="6" fill="#f59e0b" opacity="0.9"/>
+    <text x="500" y="223" text-anchor="middle" fill="white">Observer E</text>
+    <text x="500" y="238" text-anchor="middle" font-size="10" fill="#fef3c7">update()</text>
+  </g>
+
+  <!-- attach 箭头（左） -->
+  <g stroke="#10b981" stroke-width="1.5" fill="none" marker-end="url(#arrow)" stroke-dasharray="3 2">
+    <line x1="160" y1="123" x2="225" y2="200"/>
+    <line x1="160" y1="223" x2="225" y2="220"/>
+    <line x1="160" y1="323" x2="225" y2="240"/>
+  </g>
+  <!-- attach 箭头（右） -->
+  <g stroke="#f59e0b" stroke-width="1.5" fill="none" marker-end="url(#arrow)" stroke-dasharray="3 2">
+    <line x1="375" y1="200" x2="440" y2="123"/>
+    <line x1="375" y1="220" x2="440" y2="223"/>
+  </g>
+
+  <!-- notify 箭头（实线） -->
+  <g stroke="#3b82f6" stroke-width="2.5" fill="none" marker-end="url(#arrow)">
+    <line x1="230" y1="200" x2="160" y2="123"/>
+    <line x1="230" y1="220" x2="160" y2="223"/>
+    <line x1="230" y1="240" x2="160" y2="323"/>
+    <line x1="370" y1="200" x2="440" y2="123"/>
+    <line x1="370" y1="220" x2="440" y2="223"/>
+  </g>
+
+  <!-- 时序 -->
+  <g font-size="11">
+    <rect x="40" y="370" width="520" height="80" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <text x="300" y="390" text-anchor="middle" font-weight="700" fill="#1e293b">推/拉模型</text>
+    <text x="60" y="410" fill="#475569">推：Subject 主动 send data 给 observer · 实时 · 浪费带宽</text>
+    <text x="60" y="428" fill="#475569">拉：Observer 主动 pull · Subject 只 notify 编号 · 灵活</text>
+    <text x="320" y="410" fill="#475569">变体：Listener（Java AWT）/ Signal（Vue）/ Event（DOM）/ Hook（Git）</text>
+    <text x="320" y="428" fill="#475569">反模式：循环依赖 · 内存泄漏 · 同步通知慢</text>
+  </g>
+</svg>

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">CQRS 架构模式</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">命令查询分离 · 读写分离优化</text>
+
+  <!-- 客户端 -->
+  <rect x="250" y="95" width="100" height="35" rx="6" fill="#3b82f6" opacity="0.9"/>
+  <text x="300" y="118" text-anchor="middle" font-size="12" font-weight="700" fill="white">Client</text>
+
+  <!-- 命令侧（左侧） -->
+  <rect x="40" y="150" width="220" height="200" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="150" y="170" text-anchor="middle" font-weight="700" fill="#1e3a8a">写侧（Command）</text>
+
+  <g font-size="11" font-weight="700">
+    <rect x="60" y="180" width="180" height="40" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <text x="150" y="204" text-anchor="middle" fill="white">Command API</text>
+    <text x="150" y="218" text-anchor="middle" font-size="10" fill="#dbeafe">校验 · 鉴权 · 限流</text>
+
+    <rect x="60" y="230" width="180" height="40" rx="6" fill="#10b981" opacity="0.9"/>
+    <text x="150" y="254" text-anchor="middle" fill="white">Domain Model</text>
+    <text x="150" y="268" text-anchor="middle" font-size="10" fill="#d1fae5">聚合根 · 业务规则</text>
+
+    <rect x="60" y="280" width="180" height="40" rx="6" fill="#f59e0b" opacity="0.9"/>
+    <text x="150" y="304" text-anchor="middle" fill="white">Event Store</text>
+    <text x="150" y="318" text-anchor="middle" font-size="10" fill="#fef3c7">领域事件溯源</text>
+  </g>
+
+  <!-- 查询侧（右侧） -->
+  <rect x="320" y="150" width="240" height="200" rx="10" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+  <text x="440" y="170" text-anchor="middle" font-weight="700" fill="#064e3b">读侧（Query）</text>
+
+  <g font-size="11" font-weight="700">
+    <rect x="340" y="180" width="200" height="40" rx="6" fill="#10b981" opacity="0.9"/>
+    <text x="440" y="204" text-anchor="middle" fill="white">Query API</text>
+    <text x="440" y="218" text-anchor="middle" font-size="10" fill="#d1fae5">读模型 · DTO</text>
+
+    <rect x="340" y="230" width="200" height="40" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <text x="440" y="254" text-anchor="middle" fill="white">Read DB（投影）</text>
+    <text x="440" y="268" text-anchor="middle" font-size="10" fill="#dbeafe">最终一致</text>
+
+    <rect x="340" y="280" width="200" height="40" rx="6" fill="#f59e0b" opacity="0.9"/>
+    <text x="440" y="304" text-anchor="middle" fill="white">ES / 物化视图</text>
+    <text x="440" y="318" text-anchor="middle" font-size="10" fill="#fef3c7">反范式优化读</text>
+  </g>
+
+  <!-- 事件总线 -->
+  <g stroke="#ec4899" stroke-width="2" fill="none" stroke-dasharray="4 3" marker-end="url(#arrow)">
+    <path d="M260,300 Q310,380 360,300"/>
+  </g>
+  <text x="310" y="395" text-anchor="middle" font-size="11" font-weight="700" fill="#9f1239">Event Bus · 异步同步</text>
+
+  <text x="300" y="430" text-anchor="middle" font-size="11" fill="#94a3b8">适用：复杂业务 / 高读写比 / 审计要求 · 不适用：简单 CRUD / 强一致性</text>
+  <text x="300" y="450" text-anchor="middle" font-size="11" fill="#94a3b8">常见组合：CQRS + Event Sourcing + Saga · 配合 Outbox 模式保证事件不丢</text>
+</svg>

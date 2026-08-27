@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">事件驱动架构（EDA）</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">事件生产者 → Broker → 消费者 · 异步解耦</text>
+
+  <!-- 3 个生产者 -->
+  <g font-size="11" font-weight="700">
+    <rect x="40" y="110" width="120" height="50" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <text x="100" y="135" text-anchor="middle" fill="white">订单服务</text>
+
+    <rect x="40" y="170" width="120" height="50" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <text x="100" y="195" text-anchor="middle" fill="white">支付服务</text>
+
+    <rect x="40" y="230" width="120" height="50" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <text x="100" y="255" text-anchor="middle" fill="white">库存服务</text>
+  </g>
+
+  <!-- Broker 中央 -->
+  <rect x="220" y="160" width="160" height="80" rx="12" fill="#ec4899" opacity="0.95"/>
+  <text x="300" y="190" text-anchor="middle" font-size="16" font-weight="700" fill="white">Event Broker</text>
+  <text x="300" y="210" text-anchor="middle" font-size="11" fill="#fce7f3">Kafka / RabbitMQ</text>
+  <text x="300" y="225" text-anchor="middle" font-size="10" fill="#fbcfe8">Topic: order.* / payment.*</text>
+
+  <!-- 箭头到 Broker -->
+  <g stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <line x1="160" y1="135" x2="220" y2="180"/>
+    <line x1="160" y1="195" x2="220" y2="200"/>
+    <line x1="160" y1="255" x2="220" y2="220"/>
+  </g>
+
+  <!-- 3 个消费者 -->
+  <g font-size="11" font-weight="700">
+    <rect x="440" y="110" width="120" height="50" rx="6" fill="#10b981" opacity="0.9"/>
+    <text x="500" y="135" text-anchor="middle" fill="white">通知服务</text>
+
+    <rect x="440" y="170" width="120" height="50" rx="6" fill="#10b981" opacity="0.9"/>
+    <text x="500" y="195" text-anchor="middle" fill="white">报表服务</text>
+
+    <rect x="440" y="230" width="120" height="50" rx="6" fill="#10b981" opacity="0.9"/>
+    <text x="500" y="255" text-anchor="middle" fill="white">搜索索引</text>
+  </g>
+
+  <!-- 箭头从 Broker -->
+  <g stroke="#f59e0b" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <line x1="380" y1="180" x2="440" y2="135"/>
+    <line x1="380" y1="200" x2="440" y2="195"/>
+    <line x1="380" y1="220" x2="440" y2="255"/>
+  </g>
+
+  <!-- 关键特性 -->
+  <g font-size="11">
+    <rect x="40" y="320" width="520" height="130" rx="10" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <text x="300" y="343" text-anchor="middle" font-weight="700" fill="#1e293b">核心特性</text>
+    <text x="60" y="368" fill="#475569">✓ 异步解耦：生产者无需知道消费者存在</text>
+    <text x="60" y="386" fill="#475569">✓ 扩展性强：消费者独立扩缩容</text>
+    <text x="60" y="404" fill="#475569">✓ 容错好：消费者宕机不影响生产者</text>
+    <text x="60" y="422" fill="#475569">✓ 可重放：新消费者可订阅历史事件回放</text>
+    <text x="320" y="368" fill="#475569">⚠ 一致性：最终一致 · 需幂等保证</text>
+    <text x="320" y="386" fill="#475569">⚠ 复杂度：链路追踪难 · 调试成本高</text>
+    <text x="320" y="404" fill="#475569">⚠ 顺序：分区有序 · 全局无序</text>
+    <text x="320" y="422" fill="#475569">⚠ 事件 schema 演进：需兼容性设计</text>
+  </g>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">熔断器模式（Circuit Breaker）</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">CLOSED / OPEN / HALF_OPEN 三态机</text>
+
+  <!-- 3 个状态圆 -->
+  <g font-size="13" font-weight="700">
+    <circle cx="120" cy="250" r="55" fill="#10b981" opacity="0.95"/>
+    <text x="120" y="246" text-anchor="middle" fill="white">CLOSED</text>
+    <text x="120" y="266" text-anchor="middle" font-size="11" fill="#d1fae5">关闭 · 正常</text>
+
+    <circle cx="300" cy="250" r="55" fill="#ef4444" opacity="0.95"/>
+    <text x="300" y="246" text-anchor="middle" fill="white">OPEN</text>
+    <text x="300" y="266" text-anchor="middle" font-size="11" fill="#fee2e2">打开 · 拒绝请求</text>
+
+    <circle cx="480" cy="250" r="55" fill="#f59e0b" opacity="0.95"/>
+    <text x="480" y="246" text-anchor="middle" fill="white">HALF_OPEN</text>
+    <text x="480" y="266" text-anchor="middle" font-size="11" fill="#fef3c7">半开 · 探测</text>
+  </g>
+
+  <!-- 状态转换箭头 -->
+  <g stroke="#64748b" stroke-width="2.5" fill="none" marker-end="url(#arrow)">
+    <line x1="175" y1="250" x2="245" y2="250"/>
+    <line x1="355" y1="250" x2="425" y2="250"/>
+    <path d="M450,205 Q370,140 150,205"/>
+  </g>
+
+  <!-- 转换条件 -->
+  <g font-size="11" font-weight="600">
+    <text x="210" y="245" text-anchor="middle" fill="#475569">失败 ≥ 阈值</text>
+    <text x="390" y="245" text-anchor="middle" fill="#475569">sleep 窗口过</text>
+    <text x="300" y="135" text-anchor="middle" fill="#475569">探测成功</text>
+  </g>
+
+  <!-- 状态详细说明 -->
+  <g font-size="11">
+    <rect x="40" y="340" width="520" height="115" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <text x="300" y="360" text-anchor="middle" font-weight="700" fill="#1e293b">关键参数</text>
+    <text x="60" y="380" fill="#475569">failureThreshold：触发熔断的失败次数（如 5/10s 内 50% 失败）</text>
+    <text x="60" y="398" fill="#475569">sleepWindow：熔断持续时间（如 30s）· 之后进入 HALF_OPEN</text>
+    <text x="60" y="416" fill="#475569">halfOpenPermits：探测请求数（如 3）· 成功率达阈值则关闭</text>
+    <text x="60" y="434" fill="#475569">fallback：熔断后兜底（缓存值 / 默认值 / 错误响应）</text>
+    <text x="60" y="452" fill="#475569">滑动窗口：统计区间（计数 / 时间）· 避免瞬时尖刺误判</text>
+  </g>
+</svg>

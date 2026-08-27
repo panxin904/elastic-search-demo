@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Redis 持久化：RDB vs AOF</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">快照 vs 日志 · 混合模式</text>
+
+  <!-- RDB 左侧 -->
+  <rect x="40" y="100" width="240" height="280" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="160" y="125" text-anchor="middle" font-size="16" font-weight="700" fill="#1e3a8a">RDB（快照）</text>
+  <text x="160" y="142" text-anchor="middle" font-size="11" fill="#1e40af">Redis Database</text>
+
+  <g font-size="11" font-weight="700">
+    <rect x="60" y="155" width="200" height="40" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <text x="160" y="180" text-anchor="middle" fill="white">save / bgsave</text>
+    <text x="160" y="195" text-anchor="middle" font-size="10" fill="#dbeafe">fork 子进程</text>
+
+    <rect x="60" y="205" width="200" height="40" rx="6" fill="#10b981" opacity="0.9"/>
+    <text x="160" y="230" text-anchor="middle" fill="white">dump.rdb</text>
+    <text x="160" y="245" text-anchor="middle" font-size="10" fill="#d1fae5">二进制压缩</text>
+
+    <rect x="60" y="255" width="200" height="40" rx="6" fill="#f59e0b" opacity="0.9"/>
+    <text x="160" y="280" text-anchor="middle" fill="white">触发策略</text>
+    <text x="160" y="295" text-anchor="middle" font-size="10" fill="#fef3c7">900s 1 次 / 300s 10 / 60s 10000</text>
+
+    <rect x="60" y="305" width="200" height="40" rx="6" fill="#ec4899" opacity="0.9"/>
+    <text x="160" y="330" text-anchor="middle" fill="white">优点 / 缺点</text>
+    <text x="160" y="345" text-anchor="middle" font-size="10" fill="#fce7f3">快 / 可能丢分钟级数据</text>
+
+    <text x="160" y="365" text-anchor="middle" font-size="10" font-weight="700" fill="#1e3a8a">适合：备份 · 容灾</text>
+  </g>
+
+  <!-- AOF 右侧 -->
+  <rect x="320" y="100" width="240" height="280" rx="10" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+  <text x="440" y="125" text-anchor="middle" font-size="16" font-weight="700" fill="#064e3b">AOF（日志）</text>
+  <text x="440" y="142" text-anchor="middle" font-size="11" fill="#065f46">Append Only File</text>
+
+  <g font-size="11" font-weight="700">
+    <rect x="340" y="155" width="200" height="40" rx="6" fill="#10b981" opacity="0.9"/>
+    <text x="440" y="180" text-anchor="middle" fill="white">everysec / always</text>
+    <text x="440" y="195" text-anchor="middle" font-size="10" fill="#d1fae5">fsync 策略</text>
+
+    <rect x="340" y="205" width="200" height="40" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <text x="440" y="230" text-anchor="middle" fill="white">appendonly.aof</text>
+    <text x="440" y="245" text-anchor="middle" font-size="10" fill="#dbeafe">RESP 协议文本</text>
+
+    <rect x="340" y="255" width="200" height="40" rx="6" fill="#f59e0b" opacity="0.9"/>
+    <text x="440" y="280" text-anchor="middle" fill="white">rewrite 重写</text>
+    <text x="440" y="295" text-anchor="middle" font-size="10" fill="#fef3c7">bgrewriteaof</text>
+
+    <rect x="340" y="305" width="200" height="40" rx="6" fill="#ec4899" opacity="0.9"/>
+    <text x="440" y="330" text-anchor="middle" fill="white">优点 / 缺点</text>
+    <text x="440" y="345" text-anchor="middle" font-size="10" fill="#fce7f3">丢 ≤1s 数据 / 文件大</text>
+
+    <text x="440" y="365" text-anchor="middle" font-size="10" font-weight="700" fill="#064e3b">适合：金融 · 关键数据</text>
+  </g>
+
+  <!-- 混合模式 -->
+  <g font-size="11">
+    <rect x="40" y="400" width="520" height="60" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="60" y="420" font-weight="700" fill="#92400e">Redis 4+ 混合持久化（推荐）</text>
+    <text x="60" y="438" fill="#78350f">RDB 全量 + AOF 增量：RDB 记录快照点 · AOF 记录快照后的增量</text>
+    <text x="60" y="455" fill="#78350f">恢复快 + 数据全 · 配置 aof-use-rdb-preamble yes</text>
+  </g>
+</svg>

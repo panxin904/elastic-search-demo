@@ -1,55 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-appleSystem,BlinkMacSystemFont,'PingFang SC',sans-serif">
-  <rect width="600" height="480" fill="#fafafa"/>
-  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">一致性 Hash 环</text>
-  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">节点 / 数据都映射到 2³² 环上 · 数据顺时针找到的第一个节点即归属</text>
-
-  <!-- 大圆环 -->
-  <circle cx="300" cy="260" r="160" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4,3"/>
-
-  <!-- 4 个节点（圆周上的点）-->
-  <!-- 0° (右) -->
-  <circle cx="460" cy="260" r="12" fill="#3b82f6"/>
-  <text x="478" y="252" font-size="12" font-weight="600" fill="#1e293b">Node A</text>
-  <text x="478" y="266" font-size="10" fill="#64748b">hash(A)</text>
-  <!-- 90° (下) -->
-  <circle cx="300" cy="420" r="12" fill="#3b82f6"/>
-  <text x="318" y="435" font-size="12" font-weight="600" fill="#1e293b">Node B</text>
-  <text x="318" y="449" font-size="10" fill="#64748b">hash(B)</text>
-  <!-- 180° (左) -->
-  <circle cx="140" cy="260" r="12" fill="#3b82f6"/>
-  <text x="80" y="252" font-size="12" font-weight="600" fill="#1e293b">Node C</text>
-  <text x="80" y="266" font-size="10" fill="#64748b">hash(C)</text>
-  <!-- 270° (上) -->
-  <circle cx="300" cy="100" r="12" fill="#3b82f6"/>
-  <text x="318" y="80" font-size="12" font-weight="600" fill="#1e293b">Node D</text>
-  <text x="318" y="94" font-size="10" fill="#64748b">hash(D)</text>
-
-  <!-- 3 个数据 key -->
-  <!-- key1 → Node B -->
-  <circle cx="370" cy="350" r="8" fill="#f59e0b"/>
-  <text x="378" y="358" font-size="10" font-weight="600" fill="#92400e">key1</text>
-  <path d="M 370,350 A 90,90 0 0,1 300,420" stroke="#f59e0b" stroke-width="1.5" fill="none" marker-end="url(#arrow-cap)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
   <defs>
-    <marker id="arrow-cap" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
     </marker>
   </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">一致性 Hash 环</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">节点变化最小化数据迁移 · 虚拟节点平衡</text>
 
-  <!-- key2 → Node C -->
-  <circle cx="220" cy="180" r="8" fill="#10b981"/>
-  <text x="180" y="172" font-size="10" font-weight="600" fill="#065f46">key2</text>
-  <path d="M 220,180 A 100,100 0 0,1 140,260" stroke="#10b981" stroke-width="1.5" fill="none" marker-end="url(#arrow-cap)"/>
+  <!-- 大圆（Hash 环） -->
+  <circle cx="300" cy="280" r="180" fill="none" stroke="#94a3b8" stroke-width="2"/>
 
-  <!-- key3 → Node A -->
-  <circle cx="400" cy="180" r="8" fill="#8b5cf6"/>
-  <text x="412" y="172" font-size="10" font-weight="600" fill="#5b21b6">key3</text>
-  <path d="M 400,180 A 80,80 0 0,1 460,260" stroke="#8b5cf6" stroke-width="1.5" fill="none" marker-end="url(#arrow-cap)"/>
+  <!-- 4 个节点 -->
+  <g font-size="12" font-weight="700">
+    <circle cx="300" cy="100" r="30" fill="#3b82f6" opacity="0.95"/>
+    <text x="300" y="105" text-anchor="middle" fill="white">Node A</text>
+
+    <circle cx="480" cy="280" r="30" fill="#10b981" opacity="0.95"/>
+    <text x="480" y="285" text-anchor="middle" fill="white">Node B</text>
+
+    <circle cx="300" cy="460" r="30" fill="#f59e0b" opacity="0.95"/>
+    <text x="300" y="465" text-anchor="middle" fill="white">Node C</text>
+
+    <circle cx="120" cy="280" r="30" fill="#ec4899" opacity="0.95"/>
+    <text x="120" y="285" text-anchor="middle" fill="white">Node D</text>
+  </g>
+
+  <!-- 4 个数据 key -->
+  <g font-size="10" font-weight="700">
+    <circle cx="180" cy="180" r="14" fill="#fbbf24"/>
+    <text x="180" y="184" text-anchor="middle" fill="white">k1</text>
+
+    <circle cx="430" cy="160" r="14" fill="#fbbf24"/>
+    <text x="430" y="164" text-anchor="middle" fill="white">k2</text>
+
+    <circle cx="430" cy="400" r="14" fill="#fbbf24"/>
+    <text x="430" y="404" text-anchor="middle" fill="white">k3</text>
+
+    <circle cx="180" cy="380" r="14" fill="#fbbf24"/>
+    <text x="180" y="384" text-anchor="middle" fill="white">k4</text>
+  </g>
+
+  <!-- 数据归属（顺时针找到最近节点） -->
+  <g stroke="#64748b" stroke-width="1.5" fill="none" stroke-dasharray="3 2" marker-end="url(#arrow)">
+    <path d="M180,180 A 100,100 0 0,1 270,110"/>
+    <path d="M430,160 A 100,100 0 0,1 470,260"/>
+    <path d="M430,400 A 100,100 0 0,1 320,440"/>
+    <path d="M180,380 A 100,100 0 0,1 130,300"/>
+  </g>
 
   <!-- 图例 -->
-  <rect x="40" y="430" width="14" height="14" fill="#3b82f6"/>
-  <text x="60" y="442" font-size="11" fill="#475569">节点 (Node)</text>
-  <rect x="180" y="430" width="14" height="14" fill="#f59e0b"/>
-  <text x="200" y="442" font-size="11" fill="#475569">数据 key · 顺时针第一个 = 归属</text>
+  <g font-size="11">
+    <rect x="40" y="100" width="50" height="14" rx="3" fill="#3b82f6"/>
+    <text x="105" y="111" font-weight="700" fill="#1e3a8a">Node 物理节点</text>
 
-  <text x="300" y="465" text-anchor="middle" font-size="11" fill="#94a3b8">优势：增删节点只影响相邻 key 段 · 虚拟节点（VN）解决数据倾斜</text>
+    <rect x="40" y="125" width="50" height="14" rx="3" fill="#fbbf24"/>
+    <text x="105" y="136" font-weight="700" fill="#92400e">Data Key</text>
+  </g>
+
+  <!-- 优势说明 -->
+  <g font-size="11">
+    <rect x="40" y="370" width="520" height="90" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <text x="300" y="390" text-anchor="middle" font-weight="700" fill="#1e293b">关键优势</text>
+    <text x="60" y="412" fill="#475569">✓ 节点增删：仅影响相邻区间 · 最小化数据迁移</text>
+    <text x="60" y="430" fill="#475569">✓ 传统 hash 取模：节点变化 → 几乎全部数据重映射</text>
+    <text x="60" y="448" fill="#475569">✓ 虚拟节点（VNode）：每物理节点 100~200 个副本 · 平衡负载</text>
+    <text x="320" y="412" fill="#475569">✓ 应用：Redis Cluster · DynamoDB · Cassandra</text>
+    <text x="320" y="430" fill="#475569">✓ 偏斜问题：节点少时分布不均 · 需 VNode 缓解</text>
+    <text x="320" y="448" fill="#475569">✓ 一致性 hash + VNode 是分布式存储标配</text>
+  </g>
 </svg>
