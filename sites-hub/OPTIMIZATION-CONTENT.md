@@ -6953,3 +6953,38 @@ jobs:
 - **§8.75 v2**：加更细的 per-site 维度（每个站的 imgs/dups/完整度）
 - **邮件/IM 通知**：指标超阈值时告警
 - **可视化升级**：用 ECharts 替代 sparkline（避免引入依赖，按需）
+
+## §8.72+ v3 — SVG 大规模扩展（第三批 20 张）
+
+**日期**：2026-08-27  
+**目标**：把 SVG 图示密度从 49 提到 69，路线图进度 24.5% → 34.5%
+
+### 变更明细
+
+- **媒体层**：`feat(media)` commit，新增 20 张 SVG：
+  - devops-stack / git-workflow / k8s-architecture
+  - jvm-memory-model / spring-ioc-lifecycle
+  - mysql-replication / postgres-architecture / clickhouse-mergetree / redis-sentinel
+  - io-models / transaction-isolation / load-balancer-detail
+  - api-gateway / service-mesh / hexagonal-arch
+  - grafana-flow / prometheus-architecture
+  - go-goroutine / browser-render / rust-ownership
+- **内容层**：`feat(content)` commit，注入到 15 站核心页（覆盖 15 个主题站点）：
+  - devops / java-web-manual / springcloud / mysql / postgresql / clickhouse / redis
+  - network / observability / system-design / go / frontend / rust
+- **审计基线**：imgs 49 → 69（+20），broken=0，cross-site dups=0 持平
+
+### 风格统一
+
+所有 SVG 沿用 v1/v2 风格模板：
+- viewBox 600×480 + `#fafafa` 背景
+- 字体栈 `-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif`
+- 配色蓝 `#3b82f6` / 绿 `#10b981` / 橙 `#f59e0b` / 红 `#ef4444` / 紫 `#8b5cf6` / 粉 `#ec4899` / 灰 `#94a3b8`
+- 顶部标题 + 副标题 + 主图 + 底部说明（结构稳定）
+- marker 保护：`<!-- svg-injected:do-not-edit -->` 幂等
+
+### 路线图进度
+
+- 当前 imgs=69 / 目标 ≥200 = **34.5%**
+- 下一批 §8.72+ v4 计划：再补 ~20 张（重点：混沌工程/消息中间件/前端框架/移动端/游戏引擎）
+
