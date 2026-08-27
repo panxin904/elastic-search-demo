@@ -204,3 +204,7 @@ CAP 只讨论分区期间；PACELC 补了**正常时**的取舍：
 - CAP Twelve Years Later: How the "Rules" Have Changed (Brewer, 2012)
 - Consistency Tradeoffs in Modern Distributed Database System Design (Daniel Abadi, 2012) —— PACELC
 - DDIA 第 9 章
+
+<!-- svg-injected:do-not-edit -->
+
+![cap vs base](/cap-vs-base.svg)

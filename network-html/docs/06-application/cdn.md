@@ -155,3 +155,7 @@ curl -I -H "Cache-Control: no-cache" https://example.com/
 4. **CDN 回源怎么配置？** 协议、HTTPS 证书、回源 Host、Range。
 5. **CDN 缓存更新怎么办？** 主动刷新 URL / 目录 / 预热。
 6. **动静分离原则？** 静态走 CDN，动态回源。
+
+<!-- svg-injected:do-not-edit -->
+
+![cdn flow](/cdn-flow.svg)

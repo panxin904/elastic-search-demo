@@ -56,3 +56,7 @@ GET /_cluster/health
 - [节点 Node](/01-storage/node)
 - [集群健康](/04-ops/cluster-health)
 - [分片分配](/04-ops/shard-allocation)
+
+<!-- svg-injected:do-not-edit -->
+
+![elasticsearch cluster](/elasticsearch-cluster.svg)

@@ -432,3 +432,11 @@ $ curl -X POST http://localhost:8080/api/order/create \
 - [architecture](https://java-px.bot.cd/architecture/):微服务架构
 - [system-design](https://java-px.bot.cd/system-design/):系统设计
 - [cloud-native](https://java-px.bot.cd/cloud-native/):Docker / K8s 落地
+
+<!-- svg-injected:do-not-edit -->
+
+![circuit breaker](/circuit-breaker.svg)
+
+<!-- svg-injected:do-not-edit -->
+
+![microservices patterns](/microservices-patterns.svg)

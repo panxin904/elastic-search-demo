@@ -253,3 +253,7 @@ sum(http_request_duration_seconds_bucket)  # 漏了 by (le)
 ---
 
 🏠 <a href="https://java-px.bot.cd/" target="_blank">返回门户首页</a>
+
+<!-- svg-injected:do-not-edit -->
+
+![observability stack](/observability-stack.svg)

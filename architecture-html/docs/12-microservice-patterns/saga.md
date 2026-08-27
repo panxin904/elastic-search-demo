@@ -136,3 +136,7 @@ Order 聚合：@EventListener onPaymentCompleted() { confirm() }
 - [Service Mesh](/12-microservice-patterns/service-mesh)
 - [Sidecar 模式](/12-microservice-patterns/sidecar)
 - [Saga 模式](/07-distributed-tx/saga)
+
+<!-- svg-injected:do-not-edit -->
+
+![cqrs flow](/cqrs-flow.svg)

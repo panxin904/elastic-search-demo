@@ -171,3 +171,7 @@ public void onInventoryFrozen(InventoryFrozenEvent e) {
 - [TCC 模式](/07-distributed-tx/tcc)
 - [本地消息表](/07-distributed-tx/local-table)
 - [幂等性设计](/03-ha-theory/idempotency)
+
+<!-- svg-injected:do-not-edit -->
+
+![saga pattern](/saga-pattern.svg)

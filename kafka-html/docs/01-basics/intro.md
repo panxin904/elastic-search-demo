@@ -143,3 +143,7 @@ ZooKeeper       早期版本依赖（KRaft 已移除）
 - ✅ 大数据、微服务、实时计算的标配
 
 **下一步：** [📥 安装部署](/01-basics/install) — 5 分钟跑起来
+
+<!-- svg-injected:do-not-edit -->
+
+![kafka topics partitions](/kafka-topics-partitions.svg)

@@ -118,3 +118,11 @@ redis-cli -h 127.0.0.1 -p 6379 INFO replication | grep role
 - 选型时优先 Redis，因为生态更完整；只有"纯 KV + 极致吞吐"的极端场景才考虑 Memcached。
 
 **下一步：** [📥 安装部署](/01-basics/install)
+
+<!-- svg-injected:do-not-edit -->
+
+![redis data structures](/redis-data-structures.svg)
+
+<!-- svg-injected:do-not-edit -->
+
+![redis persistence](/redis-persistence.svg)

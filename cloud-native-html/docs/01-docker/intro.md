@@ -128,3 +128,7 @@ docker top web
 - [容器 container](/01-docker/container)
 - [Docker 网络](/01-docker/network)
 - [Docker Compose](/01-docker/compose)
+
+<!-- svg-injected:do-not-edit -->
+
+![docker architecture](/docker-architecture.svg)

@@ -178,3 +178,7 @@ RPC：RabbitMQ（AMQP 标准）
 - [顺序 / 幂等](/08-message-queue/idempotency)
 - [死信 / 重试](/08-message-queue/dlq)
 - [Saga 模式](/07-distributed-tx/saga)
+
+<!-- svg-injected:do-not-edit -->
+
+![event driven](/event-driven.svg)

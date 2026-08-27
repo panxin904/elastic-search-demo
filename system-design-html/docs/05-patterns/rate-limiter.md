@@ -422,3 +422,7 @@ Sentinel 实现：
 - [architecture](https://java-px.bot.cd/architecture/):企业架构
 - [java](https://java-px.bot.cd/java-web-manual/):Java 实现
 - [kafka](https://java-px.bot.cd/kafka/):消息
+
+<!-- svg-injected:do-not-edit -->
+
+![rate limiter algo](/rate-limiter-algo.svg)

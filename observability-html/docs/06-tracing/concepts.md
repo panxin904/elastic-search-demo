@@ -368,3 +368,7 @@ A：降采样（1%）+ 尾采样保留错误 + 限制 span 数（避免一个 tr
 - [devops](https://java-px.bot.cd/devops/):DevOps 监控
 - [cloud-native](https://java-px.bot.cd/cloud-native/):K8s 监控
 - [kafka](https://java-px.bot.cd/kafka/):日志收集
+
+<!-- svg-injected:do-not-edit -->
+
+![distributed trace](/distributed-trace.svg)

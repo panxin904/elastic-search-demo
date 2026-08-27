@@ -186,3 +186,7 @@ Kafka 默认 acks=1（仅 leader 写成功就返回）：
 - **《数据密集型应用系统设计》** 中译本
 - **MIT 6.824 分布式系统课程**（含 Paxos / Raft / GFS 论文导读）
 - **etcd 源码**（Raft 的工业级实现）
+
+<!-- svg-injected:do-not-edit -->
+
+![load balancer](/load-balancer.svg)
