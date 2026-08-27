@@ -162,24 +162,25 @@ wait_any() {
   # 扫 running_pids，找到第一个已完成的 PID，处理日志，从队列移除
   # 返回 0（找到了完成的 PID）
   while :; do
-    for i in "${!running_pids[@]:-}"; do
-      local pid="${running_pids[$i]}"
+    # 用数字索引而非 ${!arr[@]:-}（后者在 bash 3.2 下对 declare -a 但非空数组返回空 i=''  导致 unset 错位）
+    local n=${#running_pids[@]}
+    for ((idx=0; idx<n; idx++)); do
+      local pid="${running_pids[$idx]}"
       # kill -0 不发信号，仅检测 process 是否存活（返回 0 = 存活，1 = 已死）
       if ! kill -0 "$pid" 2>/dev/null; then
         # 已死 → wait 回收（不阻塞，因为 process 已死）
         wait "$pid" 2>/dev/null || true
-        process_log "$pid" "${running_sites[$i]}"
-        # 从队列移除（用临时数组避免 splice 错位）
-        unset 'running_pids[i]' 'running_sites[i]'
-        # bash 3.2 兼容：空数组 + set -u → ${arr[@]} 报 unbound variable
-        # 用 ${arr[@]+"${arr[@]}"} 展开式：数组存在（即使空）才展开
-        if [[ ${#running_pids[@]} -gt 0 ]]; then
-          running_pids=("${running_pids[@]}")
-          running_sites=("${running_sites[@]}")
-        else
-          running_pids=()
-          running_sites=()
-        fi
+        process_log "$pid" "${running_sites[$idx]}"
+        # 从队列移除：splice idx（重建数组避免 unset 索引漂移）
+        local new_pids=() new_sites=()
+        for ((j=0; j<n; j++)); do
+          if [[ $j -ne $idx ]]; then
+            new_pids+=("${running_pids[$j]}")
+            new_sites+=("${running_sites[$j]}")
+          fi
+        done
+        running_pids=("${new_pids[@]+"${new_pids[@]}"}")
+        running_sites=("${new_sites[@]+"${new_sites[@]}"}")
         return 0
       fi
     done
