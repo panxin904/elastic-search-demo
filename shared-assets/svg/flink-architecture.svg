@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Flink 运行时架构</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">JobManager · TaskManager · Stream Graph → JobGraph → ExecutionGraph</text>
+
+  <!-- Client -->
+  <g>
+    <rect x="30" y="100" width="100" height="50" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="80" y="123" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">Client</text>
+    <text x="80" y="140" text-anchor="middle" font-size="10" fill="#475569">提交 Job</text>
+  </g>
+
+  <!-- JobManager -->
+  <g>
+    <rect x="200" y="80" width="400" height="160" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3"/>
+    <text x="400" y="103" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">JobManager (Master)</text>
+
+    <rect x="220" y="118" width="110" height="40" rx="6" fill="white" stroke="#f59e0b"/>
+    <text x="275" y="135" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Dispatcher</text>
+    <text x="275" y="150" text-anchor="middle" font-size="9" fill="#475569">作业接收</text>
+
+    <rect x="345" y="118" width="110" height="40" rx="6" fill="white" stroke="#f59e0b"/>
+    <text x="400" y="135" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">ResourceMgr</text>
+    <text x="400" y="150" text-anchor="middle" font-size="9" fill="#475569">slot 分配</text>
+
+    <rect x="470" y="118" width="110" height="40" rx="6" fill="white" stroke="#f59e0b"/>
+    <text x="525" y="135" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Checkpoints</text>
+    <text x="525" y="150" text-anchor="middle" font-size="9" fill="#475569">协调 + 容错</text>
+
+    <rect x="220" y="183" width="360" height="42" rx="6" fill="white" stroke="#f59e0b"/>
+    <text x="400" y="200" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">JobMaster</text>
+    <text x="400" y="216" text-anchor="middle" font-size="9" fill="#475569">StreamGraph → JobGraph → ExecutionGraph（调度）</text>
+  </g>
+
+  <!-- TaskManagers -->
+  <g>
+    <rect x="30" y="280" width="160" height="120" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <text x="110" y="303" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">TaskManager 1</text>
+    <rect x="45" y="315" width="50" height="22" rx="3" fill="white" stroke="#10b981"/>
+    <text x="70" y="330" text-anchor="middle" font-size="9" fill="#065f46">Slot 1</text>
+    <rect x="105" y="315" width="50" height="22" rx="3" fill="white" stroke="#10b981"/>
+    <text x="130" y="330" text-anchor="middle" font-size="9" fill="#065f46">Slot 2</text>
+    <rect x="45" y="345" width="50" height="22" rx="3" fill="white" stroke="#10b981"/>
+    <text x="70" y="360" text-anchor="middle" font-size="9" fill="#065f46">Slot 3</text>
+    <rect x="105" y="345" width="50" height="22" rx="3" fill="white" stroke="#10b981"/>
+    <text x="130" y="360" text-anchor="middle" font-size="9" fill="#065f46">Slot 4</text>
+    <text x="110" y="390" text-anchor="middle" font-size="9" fill="#475569">Task · Network Buf</text>
+
+    <rect x="220" y="280" width="160" height="120" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <text x="300" y="303" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">TaskManager 2</text>
+    <rect x="235" y="315" width="50" height="22" rx="3" fill="white" stroke="#10b981"/>
+    <rect x="295" y="315" width="50" height="22" rx="3" fill="white" stroke="#10b981"/>
+    <rect x="235" y="345" width="50" height="22" rx="3" fill="white" stroke="#10b981"/>
+    <rect x="295" y="345" width="50" height="22" rx="3" fill="white" stroke="#10b981"/>
+    <text x="300" y="390" text-anchor="middle" font-size="9" fill="#475569">并行子任务</text>
+
+    <rect x="410" y="280" width="160" height="120" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <text x="490" y="303" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">TaskManager N</text>
+    <rect x="425" y="315" width="50" height="22" rx="3" fill="white" stroke="#10b981"/>
+    <rect x="485" y="315" width="50" height="22" rx="3" fill="white" stroke="#10b981"/>
+    <rect x="425" y="345" width="50" height="22" rx="3" fill="white" stroke="#10b981"/>
+    <rect x="485" y="345" width="50" height="22" rx="3" fill="white" stroke="#10b981"/>
+    <text x="490" y="390" text-anchor="middle" font-size="9" fill="#475569">可弹性伸缩</text>
+  </g>
+
+  <!-- 数据源/汇 -->
+  <g>
+    <rect x="30" y="420" width="120" height="40" rx="6" fill="#ede9fe" stroke="#8b5cf6"/>
+    <text x="90" y="445" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">Source (Kafka)</text>
+
+    <rect x="450" y="420" width="120" height="40" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+    <text x="510" y="445" text-anchor="middle" font-size="11" font-weight="700" fill="#9d174d">Sink (DB/CK)</text>
+  </g>
+
+  <!-- 箭头 -->
+  <g stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)">
+    <path d="M130,125 L200,125"/>
+    <path d="M110,280 L110,150"/>
+    <path d="M300,280 L300,225"/>
+    <path d="M490,280 L490,225"/>
+    <path d="M90,420 L110,400"/>
+    <path d="M490,400 L510,420"/>
+  </g>
+
+  <g font-size="10" fill="#64748b">
+    <rect x="30" y="380" width="540" height="0"/>
+  </g>
+</svg>

@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">单体 vs 微服务</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">部署单元 · 团队边界 · 技术异构 · 故障隔离 · 复杂度迁移</text>
+
+  <!-- 单体 -->
+  <g>
+    <text x="135" y="90" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">Monolith（单体）</text>
+    <rect x="30" y="100" width="210" height="220" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+
+    <rect x="45" y="115" width="180" height="40" rx="6" fill="white" stroke="#3b82f6"/>
+    <text x="135" y="132" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">UI + 业务 + 数据</text>
+    <text x="135" y="148" text-anchor="middle" font-size="9" fill="#475569">一个 War 包</text>
+
+    <rect x="45" y="165" width="85" height="40" rx="6" fill="white" stroke="#3b82f6"/>
+    <text x="87" y="182" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">订单</text>
+    <text x="87" y="197" text-anchor="middle" font-size="9" fill="#475569">模块</text>
+
+    <rect x="140" y="165" width="85" height="40" rx="6" fill="white" stroke="#3b82f6"/>
+    <text x="183" y="182" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">用户</text>
+    <text x="183" y="197" text-anchor="middle" font-size="9" fill="#475569">模块</text>
+
+    <rect x="45" y="215" width="85" height="40" rx="6" fill="white" stroke="#3b82f6"/>
+    <text x="87" y="232" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">库存</text>
+    <text x="87" y="247" text-anchor="middle" font-size="9" fill="#475569">模块</text>
+
+    <rect x="140" y="215" width="85" height="40" rx="6" fill="white" stroke="#3b82f6"/>
+    <text x="183" y="232" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">支付</text>
+    <text x="183" y="247" text-anchor="middle" font-size="9" fill="#475569">模块</text>
+
+    <rect x="45" y="265" width="180" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="135" y="290" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">共享 DB（耦合重灾区）</text>
+
+    <!-- 优缺点 -->
+    <text x="30" y="335" font-size="10" font-weight="700" fill="#065f46">✓ 优点</text>
+    <text x="30" y="350" font-size="9" fill="#475569">启动快 · 调试简单</text>
+    <text x="30" y="362" font-size="9" fill="#475569">事务一致（本地 ACID）</text>
+    <text x="30" y="374" font-size="9" fill="#475569">小团队高产出</text>
+
+    <text x="30" y="392" font-size="10" font-weight="700" fill="#ef4444">✗ 缺点</text>
+    <text x="30" y="407" font-size="9" fill="#475569">代码腐化（war 越来越大）</text>
+    <text x="30" y="419" font-size="9" fill="#475569">全量发布风险大</text>
+    <text x="30" y="431" font-size="9" fill="#475569">技术栈锁定 · 单点故障</text>
+  </g>
+
+  <!-- 分隔 -->
+  <line x1="300" y1="90" x2="300" y2="445" stroke="#94a3b8" stroke-dasharray="4"/>
+
+  <!-- 微服务 -->
+  <g>
+    <text x="465" y="90" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">Microservices（微服务）</text>
+
+    <rect x="320" y="105" width="90" height="60" rx="6" fill="#d1fae5" stroke="#10b981"/>
+    <text x="365" y="128" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">订单服务</text>
+    <text x="365" y="143" text-anchor="middle" font-size="9" fill="#475569">Java · Postgres</text>
+    <text x="365" y="155" text-anchor="middle" font-size="9" fill="#475569">独立部署</text>
+
+    <rect x="425" y="105" width="90" height="60" rx="6" fill="#d1fae5" stroke="#10b981"/>
+    <text x="470" y="128" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">用户服务</text>
+    <text x="470" y="143" text-anchor="middle" font-size="9" fill="#475569">Go · MySQL</text>
+    <text x="470" y="155" text-anchor="middle" font-size="9" fill="#475569">独立部署</text>
+
+    <rect x="530" y="105" width="55" height="60" rx="6" fill="#d1fae5" stroke="#10b981"/>
+    <text x="557" y="135" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">库存</text>
+
+    <rect x="320" y="180" width="90" height="60" rx="6" fill="#d1fae5" stroke="#10b981"/>
+    <text x="365" y="203" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">支付服务</text>
+    <text x="365" y="218" text-anchor="middle" font-size="9" fill="#475569">Python · Redis</text>
+    <text x="365" y="230" text-anchor="middle" font-size="9" fill="#475569">独立部署</text>
+
+    <rect x="425" y="180" width="160" height="60" rx="6" fill="#ede9fe" stroke="#8b5cf6"/>
+    <text x="505" y="203" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">API Gateway</text>
+    <text x="505" y="218" text-anchor="middle" font-size="9" fill="#475569">路由 · 鉴权 · 限流</text>
+    <text x="505" y="230" text-anchor="middle" font-size="9" fill="#475569">聚合 · 协议转换</text>
+
+    <rect x="320" y="255" width="90" height="35" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="365" y="277" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">DB-A</text>
+
+    <rect x="425" y="255" width="90" height="35" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="470" y="277" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">DB-B</text>
+
+    <rect x="530" y="180" width="55" height="35" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="557" y="200" text-anchor="middle" font-size="9" font-weight="700" fill="#92400e">DB-C</text>
+
+    <!-- 优缺点 -->
+    <text x="320" y="335" font-size="10" font-weight="700" fill="#065f46">✓ 优点</text>
+    <text x="320" y="350" font-size="9" fill="#475569">独立伸缩 + 独立发布</text>
+    <text x="320" y="362" font-size="9" fill="#475569">故障隔离 · 技术异构</text>
+    <text x="320" y="374" font-size="9" fill="#475569">团队自治（康威定律）</text>
+
+    <text x="320" y="392" font-size="10" font-weight="700" fill="#ef4444">✗ 缺点</text>
+    <text x="320" y="407" font-size="9" fill="#475569">分布式事务 · 服务发现</text>
+    <text x="320" y="419" font-size="9" fill="#475569">链路追踪 · 测试复杂</text>
+    <text x="320" y="431" font-size="9" fill="#475569">运维成本陡增</text>
+  </g>
+
+  <g font-size="10" fill="#64748b">
+    <rect x="20" y="450" width="555" height="22" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-dasharray="4"/>
+    <text x="40" y="465">⚡ Martin Fowler：单体优先（MonolithFirst），业务复杂后再拆；避免过早微服务</text>
+  </g>
+
+  <!-- 箭头（Gateway → services） -->
+  <g stroke="#64748b" stroke-width="1.2" fill="none" marker-end="url(#arr)">
+    <path d="M450,180 L380,165"/>
+    <path d="M470,180 L470,165"/>
+    <path d="M500,180 L555,165"/>
+    <path d="M450,240 L365,215"/>
+  </g>
+</svg>

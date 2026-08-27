@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Linux VFS 虚拟文件系统</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">统一接口 · 4 大对象 · super_block / inode / dentry / file</text>
+
+  <!-- 应用层 -->
+  <g>
+    <rect x="30" y="80" width="540" height="50" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="300" y="110" text-anchor="middle" font-size="13" font-weight="700" fill="#475569">应用层：open() / read() / write() / close()</text>
+  </g>
+
+  <!-- VFS -->
+  <g>
+    <rect x="30" y="145" width="540" height="160" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="300" y="168" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">VFS 抽象层</text>
+
+    <!-- 4 对象 -->
+    <g>
+      <rect x="50" y="185" width="115" height="100" rx="6" fill="white" stroke="#3b82f6"/>
+      <text x="107" y="207" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">super_block</text>
+      <text x="107" y="227" text-anchor="middle" font-size="9" fill="#475569">已挂载 FS</text>
+      <text x="107" y="245" text-anchor="middle" font-size="9" fill="#475569">s_op 操作集</text>
+      <text x="107" y="263" text-anchor="middle" font-size="9" fill="#475569">s_root 根 dentry</text>
+      <text x="107" y="278" text-anchor="middle" font-size="9" font-style="italic" fill="#94a3b8">每 FS 一个</text>
+
+      <rect x="180" y="185" width="115" height="100" rx="6" fill="white" stroke="#10b981"/>
+      <text x="237" y="207" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">inode</text>
+      <text x="237" y="227" text-anchor="middle" font-size="9" fill="#475569">文件元数据</text>
+      <text x="237" y="245" text-anchor="middle" font-size="9" fill="#475569">i_op 操作集</text>
+      <text x="237" y="263" text-anchor="middle" font-size="9" fill="#475569">权限 · 大小 · 块号</text>
+      <text x="237" y="278" text-anchor="middle" font-size="9" font-style="italic" fill="#94a3b8">每文件一个</text>
+
+      <rect x="310" y="185" width="115" height="100" rx="6" fill="white" stroke="#8b5cf6"/>
+      <text x="367" y="207" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">dentry</text>
+      <text x="367" y="227" text-anchor="middle" font-size="9" fill="#475569">目录项（缓存）</text>
+      <text x="367" y="245" text-anchor="middle" font-size="9" fill="#475569">路径 → inode 映射</text>
+      <text x="367" y="263" text-anchor="middle" font-size="9" fill="#475569">树形结构</text>
+      <text x="367" y="278" text-anchor="middle" font-size="9" font-style="italic" fill="#94a3b8">dcache 哈希</text>
+
+      <rect x="440" y="185" width="115" height="100" rx="6" fill="white" stroke="#ec4899"/>
+      <text x="497" y="207" text-anchor="middle" font-size="11" font-weight="700" fill="#9d174d">file</text>
+      <text x="497" y="227" text-anchor="middle" font-size="9" fill="#475569">进程打开实例</text>
+      <text x="497" y="245" text-anchor="middle" font-size="9" fill="#475569">f_op 操作集</text>
+      <text x="497" y="263" text-anchor="middle" font-size="9" fill="#475569">偏移量 · flags</text>
+      <text x="497" y="278" text-anchor="middle" font-size="9" font-style="italic" fill="#94a3b8">每 fd 一个</text>
+    </g>
+  </g>
+
+  <!-- 具体 FS -->
+  <g>
+    <rect x="30" y="320" width="540" height="100" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <text x="300" y="343" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">具体文件系统实现</text>
+
+    <rect x="50" y="355" width="80" height="50" rx="6" fill="white" stroke="#10b981"/>
+    <text x="90" y="375" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">ext4</text>
+    <text x="90" y="395" text-anchor="middle" font-size="9" fill="#475569">磁盘 FS</text>
+
+    <rect x="140" y="355" width="80" height="50" rx="6" fill="white" stroke="#10b981"/>
+    <text x="180" y="375" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">xfs</text>
+    <text x="180" y="395" text-anchor="middle" font-size="9" fill="#475569">磁盘 FS</text>
+
+    <rect x="230" y="355" width="80" height="50" rx="6" fill="white" stroke="#10b981"/>
+    <text x="270" y="375" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">btrfs</text>
+    <text x="270" y="395" text-anchor="middle" font-size="9" fill="#475569">CoW FS</text>
+
+    <rect x="320" y="355" width="80" height="50" rx="6" fill="white" stroke="#10b981"/>
+    <text x="360" y="375" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">NFS</text>
+    <text x="360" y="395" text-anchor="middle" font-size="9" fill="#475569">网络 FS</text>
+
+    <rect x="410" y="355" width="80" height="50" rx="6" fill="white" stroke="#10b981"/>
+    <text x="450" y="375" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">proc</text>
+    <text x="450" y="395" text-anchor="middle" font-size="9" fill="#475569">虚拟 FS</text>
+
+    <rect x="500" y="355" width="55" height="50" rx="6" fill="white" stroke="#10b981"/>
+    <text x="527" y="375" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">tmpfs</text>
+    <text x="527" y="395" text-anchor="middle" font-size="9" fill="#475569">内存</text>
+  </g>
+
+  <!-- 硬件 -->
+  <g>
+    <rect x="30" y="435" width="540" height="35" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="300" y="456" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">通用块设备层 → 磁盘 / SSD / 网络块设备</text>
+  </g>
+
+  <!-- 箭头 -->
+  <g stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)">
+    <path d="M300,130 L300,145"/>
+    <path d="M300,305 L300,320"/>
+    <path d="M300,420 L300,435"/>
+  </g>
+</svg>

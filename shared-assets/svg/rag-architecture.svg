@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">RAG 检索增强生成</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Query → Embedding → 向量检索 → Top-K 文档 → LLM 生成</text>
+
+  <!-- 离线索引 -->
+  <g>
+    <rect x="20" y="85" width="260" height="200" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3"/>
+    <text x="150" y="108" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">离线索引（Off-line Indexing）</text>
+
+    <rect x="35" y="120" width="70" height="40" rx="6" fill="white" stroke="#3b82f6"/>
+    <text x="70" y="138" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">文档</text>
+    <text x="70" y="153" text-anchor="middle" font-size="9" fill="#475569">PDF/MD</text>
+
+    <rect x="35" y="170" width="70" height="40" rx="6" fill="white" stroke="#3b82f6"/>
+    <text x="70" y="188" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">切分</text>
+    <text x="70" y="203" text-anchor="middle" font-size="9" fill="#475569">chunk 512</text>
+
+    <rect x="35" y="220" width="70" height="40" rx="6" fill="white" stroke="#10b981"/>
+    <text x="70" y="238" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">Embedding</text>
+    <text x="70" y="253" text-anchor="middle" font-size="9" fill="#065f46">→ 1536维</text>
+
+    <rect x="115" y="170" width="155" height="115" rx="6" fill="#ede9fe" stroke="#8b5cf6"/>
+    <text x="192" y="193" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">向量数据库</text>
+    <text x="192" y="215" text-anchor="middle" font-size="9" fill="#475569">Milvus · Qdrant</text>
+    <text x="192" y="232" text-anchor="middle" font-size="9" fill="#475569">Pinecone · Weaviate</text>
+    <text x="192" y="255" text-anchor="middle" font-size="9" fill="#475569">ANN 索引 HNSW/IVF</text>
+    <text x="192" y="272" text-anchor="middle" font-size="9" font-style="italic" fill="#94a3b8">支持元数据过滤</text>
+  </g>
+
+  <!-- 在线查询 -->
+  <g>
+    <rect x="320" y="85" width="260" height="200" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3"/>
+    <text x="450" y="108" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">在线查询（On-line Query）</text>
+
+    <rect x="335" y="120" width="80" height="35" rx="6" fill="white" stroke="#3b82f6"/>
+    <text x="375" y="142" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">Query</text>
+
+    <rect x="425" y="120" width="80" height="35" rx="6" fill="white" stroke="#10b981"/>
+    <text x="465" y="142" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">Embed</text>
+
+    <rect x="515" y="120" width="50" height="35" rx="6" fill="white" stroke="#8b5cf6"/>
+    <text x="540" y="142" text-anchor="middle" font-size="9" font-weight="700" fill="#5b21b6">检索</text>
+
+    <rect x="335" y="165" width="230" height="40" rx="6" fill="white" stroke="#8b5cf6"/>
+    <text x="450" y="183" text-anchor="middle" font-size="10" font-weight="700" fill="#5b21b6">Top-K 文档（K=5-20）</text>
+    <text x="450" y="198" text-anchor="middle" font-size="9" fill="#475569">余弦相似度 · MMR · 重排序</text>
+
+    <rect x="335" y="215" width="230" height="60" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+    <text x="450" y="237" text-anchor="middle" font-size="11" font-weight="700" fill="#9d174d">LLM 生成</text>
+    <text x="450" y="253" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">Prompt: Context + Question</text>
+    <text x="450" y="268" text-anchor="middle" font-size="9" fill="#475569">→ 引用来源 + 答案</text>
+  </g>
+
+  <!-- 重排序 -->
+  <g>
+    <rect x="20" y="305" width="560" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="40" y="327" font-size="11" font-weight="700" fill="#1e40af">进阶：Re-rank（重排序）</text>
+    <text x="40" y="345" font-size="10" fill="#475569">第一阶段 ANN 召回 Top-100 → 第二阶段 Cross-Encoder 精排 Top-K · 精度 ↑ · 延迟 ↑</text>
+    <text x="40" y="358" font-size="10" fill="#475569">框架：Cohere Rerank · bge-reranker · Jina Reranker</text>
+  </g>
+
+  <!-- 优化 -->
+  <g>
+    <rect x="20" y="365" width="180" height="50" rx="6" fill="#d1fae5" stroke="#10b981"/>
+    <text x="110" y="385" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">Hybrid Search</text>
+    <text x="110" y="402" text-anchor="middle" font-size="9" fill="#475569">BM25 + 向量</text>
+    <text x="110" y="415" text-anchor="middle" font-size="9" fill="#475569">关键词不能丢</text>
+
+    <rect x="210" y="365" width="180" height="50" rx="6" fill="#ede9fe" stroke="#8b5cf6"/>
+    <text x="300" y="385" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">Query Rewrite</text>
+    <text x="300" y="402" text-anchor="middle" font-size="9" fill="#475569">HyDE · Multi-Query</text>
+    <text x="300" y="415" text-anchor="middle" font-size="9" fill="#475569">Step-back Prompt</text>
+
+    <rect x="400" y="365" width="180" height="50" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+    <text x="490" y="385" text-anchor="middle" font-size="11" font-weight="700" fill="#9d174d">Agentic RAG</text>
+    <text x="490" y="402" text-anchor="middle" font-size="9" fill="#475569">工具调用 + 多跳</text>
+    <text x="490" y="415" text-anchor="middle" font-size="9" fill="#475569">Self-RAG · CRAG</text>
+  </g>
+
+  <g font-size="10" fill="#64748b">
+    <rect x="20" y="425" width="560" height="40" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-dasharray="4"/>
+    <text x="40" y="445" font-weight="700" fill="#1e293b">⚡ 评估指标</text>
+    <text x="40" y="462">Context Precision/Recall · Answer Relevance · Faithfulness（无幻觉）</text>
+  </g>
+</svg>
