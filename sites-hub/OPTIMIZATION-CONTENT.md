@@ -7015,3 +7015,31 @@ jobs:
 - 当前 imgs=89 / 目标 ≥200 = **44.5%**
 - 下一批 §8.72+ v5 计划：覆盖剩余空白站点（kafka 内部、elasticsearch shard 细化、redis cluster slot、iot-mqtt 时序、video-html 等）+ 高频概念补图
 
+
+## §8.72+ v5 — SVG 大规模扩展（第五批 12 张）
+
+**日期**：2026-08-28
+**目标**：把 SVG 图示密度从 89 提到 101，路线图进度 44.5% → 50.5%
+
+### 变更明细
+
+- **媒体层**：`feat(media)` commit，新增 12 张 SVG：
+  - 补空白站（4 站 × 2 张）：
+    - java-language：jdk-architecture / java-classloader
+    - python：python-cpython-arch / python-asyncio-loop
+    - tools：tool-pipeline
+    - video：video-codec-stack
+  - 深化高频站（6 站）：
+    - kafka：kafka-rebalance-protocol（JoinGroup→SyncGroup 时序）
+    - redis：redis-cluster-gossip（ping/pong 故障检测）
+    - es：es-shard-routing-detail（hash 公式 + 副本拓扑）
+    - nginx（java-web-manual）：nginx-master-worker
+    - system-design：circuit-breaker-state-machine / saga-compensation-flow
+- **内容层**：`feat(content)` commit，注入到 11 站核心页
+- **审计基线**：imgs 89 → 101（+12），broken=0，cross-site dups=0 持平
+
+### 路线图进度
+
+- 当前 imgs=101 / 目标 ≥200 = **50.5%**（过半！）
+- 下一批 §8.72+ v6 计划：剩余空白概念补充 + 高频站第 3 轮深化（如 redis cluster slot 细节、kafka controller 选举、nginx upstream 高级配置、k8s RBAC、mysql InnoDB buffer pool 等）
+
