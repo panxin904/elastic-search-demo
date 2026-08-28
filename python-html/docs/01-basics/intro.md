@@ -160,3 +160,9 @@ Python 哲学：**代码可读性 > 一切**
 - ⚠️ GIL 是多线程的限制
 
 **下一步：** [📥 安装与环境](/01-basics/install) — 5 分钟跑起来
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：CPython 解释器架构（解析→编译→PVM→内存）
+
+![CPython 解释器架构（解析→编译→PVM→内存）](/python-cpython-arch.svg)

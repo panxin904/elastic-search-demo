@@ -102,3 +102,9 @@ class UserService {
 - [数据类型 / 包装类](/01-basics/datatypes)
 - [异常处理](/01-basics/exceptions)
 - [泛型 / 注解 / 反射](/01-basics/generics)
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：Java 类加载器层级与 7 阶段生命周期
+
+![Java 类加载器层级与 7 阶段生命周期](/java-classloader.svg)

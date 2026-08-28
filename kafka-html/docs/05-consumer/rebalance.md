@@ -473,3 +473,9 @@ long lastRebalanceTimestampMs;       // 上次 Rebalance 时间
 <!-- svg-injected:do-not-edit -->
 
 ![partition rebalance](/partition-rebalance.svg)
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：Kafka Consumer Rebalance 时序（JoinGroup→SyncGroup）
+
+![Kafka Consumer Rebalance 时序（JoinGroup→SyncGroup）](/kafka-rebalance-protocol.svg)

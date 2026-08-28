@@ -153,15 +153,15 @@ const relatedSites = [
 
 ## 实战示例
 
-\`\`\`bash
+```bash
 # TODO: 在此补充本页主题的实战命令
 echo "hello"
-\`\`\`
+```
 
-\`\`\`yaml
+```yaml
 # TODO: 配置示例
 key: value
-\`\`\`
+```
 
 ## 参数说明
 
@@ -180,3 +180,9 @@ key: value
 - 实战案例
 - 参考资料
 <!-- auto-enrich:do-not-edit -->
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：Unix 工具哲学与管道组合
+
+![Unix 工具哲学与管道组合](/tool-pipeline.svg)

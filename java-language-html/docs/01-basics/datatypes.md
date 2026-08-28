@@ -56,3 +56,9 @@ BigDecimal c = a.add(b);         // 0.3
 - [OOP / 类与对象](/01-basics/oop)
 - [异常处理](/01-basics/exceptions)
 - [泛型 / 注解 / 反射](/01-basics/generics)
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：JDK 平台架构（开发工具 + JRE + JPMS + JVM）
+
+![JDK 平台架构（开发工具 + JRE + JPMS + JVM）](/jdk-architecture.svg)

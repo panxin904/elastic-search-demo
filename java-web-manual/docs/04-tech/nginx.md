@@ -145,3 +145,9 @@ server {
 ## 图示：Nginx upstream 负载均衡
 
 ![Nginx upstream 负载均衡](/load-balancer-detail.svg)
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：Nginx Master-Worker 模型与 reload 机制
+
+![Nginx Master-Worker 模型与 reload 机制](/nginx-master-worker.svg)

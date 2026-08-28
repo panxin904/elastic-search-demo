@@ -266,3 +266,9 @@ public class RedisClusterConfig {
 <!-- svg-injected:do-not-edit -->
 
 ![cluster slot](/cluster-slot.svg)
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：Redis Cluster Gossip 协议与故障检测
+
+![Redis Cluster Gossip 协议与故障检测](/redis-cluster-gossip.svg)

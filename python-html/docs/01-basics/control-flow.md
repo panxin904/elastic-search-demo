@@ -403,3 +403,9 @@ except ValueError as e:
 - ⚠️ 不要捕获所有异常（用具体异常类型）
 
 **下一步：** [🔬 底层原理 - 解释器](/02-principles/interpreter) — 深入理解 Python
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：Python asyncio 事件循环与协程状态
+
+![Python asyncio 事件循环与协程状态](/python-asyncio-loop.svg)

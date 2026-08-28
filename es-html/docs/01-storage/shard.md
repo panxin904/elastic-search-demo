@@ -64,3 +64,9 @@ Index: products (3 shards)
 - [副本 Replica](/01-storage/replica)
 - [段 Segment](/01-storage/segment)
 - [分片分配](/04-ops/shard-allocation)
+
+<!-- svg-injected:do-not-edit -->
+
+## 图示：ES 分片路由公式与副本拓扑
+
+![ES 分片路由公式与副本拓扑](/es-shard-routing-detail.svg)
