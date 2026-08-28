@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Redis Cluster Gossip 协议</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">去中心化集群 · ping/pong 消息 · 16384 slot · 故障检测</text>
+
+  <!-- 6 节点 -->
+  <g>
+    <circle cx="120" cy="160" r="35" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="120" y="158" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Master 1</text>
+    <text x="120" y="172" text-anchor="middle" font-size="9" fill="#475569">slots 0-5460</text>
+
+    <circle cx="300" cy="100" r="35" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="300" y="98" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">Master 2</text>
+    <text x="300" y="112" text-anchor="middle" font-size="9" fill="#475569">slots 5461-10922</text>
+
+    <circle cx="480" cy="160" r="35" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="480" y="158" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Master 3</text>
+    <text x="480" y="172" text-anchor="middle" font-size="9" fill="#475569">slots 10923-16383</text>
+
+    <circle cx="120" cy="280" r="30" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5" stroke-dasharray="3"/>
+    <text x="120" y="280" text-anchor="middle" font-size="10" font-weight="700" fill="#9d174d">Replica</text>
+    <text x="120" y="293" text-anchor="middle" font-size="9" fill="#475569">M1 副本</text>
+
+    <circle cx="300" cy="340" r="30" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="3"/>
+    <text x="300" y="340" text-anchor="middle" font-size="10" font-weight="700" fill="#5b21b6">Replica</text>
+    <text x="300" y="353" text-anchor="middle" font-size="9" fill="#475569">M2 副本</text>
+
+    <circle cx="480" cy="280" r="30" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3"/>
+    <text x="480" y="280" text-anchor="middle" font-size="10" font-weight="700" fill="#475569">Replica</text>
+    <text x="480" y="293" text-anchor="middle" font-size="9" fill="#475569">M3 副本</text>
+  </g>
+
+  <!-- Gossip 连线（双向 ping/pong） -->
+  <g stroke="#64748b" stroke-width="1.2" fill="none" stroke-dasharray="4">
+    <path d="M155,160 L265,100" marker-end="url(#arr)" marker-start="url(#arr)"/>
+    <path d="M335,100 L445,160" marker-end="url(#arr)" marker-start="url(#arr)"/>
+    <path d="M120,195 L120,250" marker-end="url(#arr)" marker-start="url(#arr)"/>
+    <path d="M300,135 L300,310" marker-end="url(#arr)" marker-start="url(#arr)"/>
+    <path d="M480,195 L480,250" marker-end="url(#arr)" marker-start="url(#arr)"/>
+    <path d="M150,280 L270,340" marker-end="url(#arr)" marker-start="url(#arr)"/>
+    <path d="M450,280 L330,340" marker-end="url(#arr)" marker-start="url(#arr)"/>
+  </g>
+  <text x="300" y="80" text-anchor="middle" font-size="9" fill="#64748b">ping / pong（每 100ms）</text>
+
+  <!-- Gossip 消息内容 -->
+  <g>
+    <rect x="20" y="395" width="560" height="75" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="40" y="418" font-size="11" font-weight="700" fill="#1e293b">⚡ Gossip 消息字段（ping/pong 共享）</text>
+    <text x="40" y="438" font-size="10" fill="#475569">node.id · node.ip:port · node.flags（PFAIL/FAIL）· hash slot（cluster slots 16384）</text>
+    <text x="40" y="455" font-size="10" fill="#475569">⚡ PFAIL → FAIL：半数以上 master 在 gossip 超时内（cluster-node-timeout）确认某节点不可达</text>
+    <text x="40" y="467" font-size="10" font-style="italic" fill="#94a3b8">⚡ 故障转移：master FAIL 后，其副本之一被晋升；其他 master 通过 gossip 感知新拓扑</text>
+  </g>
+</svg>

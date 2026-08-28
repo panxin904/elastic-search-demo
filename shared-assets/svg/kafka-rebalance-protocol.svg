@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Kafka Consumer Rebalance 时序</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">JoinGroup → SyncGroup → HEARTBEAT · Eager / Cooperative 协议</text>
+
+  <!-- 三个角色 -->
+  <g>
+    <rect x="20" y="85" width="100" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="70" y="110" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Consumer A</text>
+
+    <rect x="250" y="85" width="100" height="40" rx="6" fill="#d1fae5" stroke="#10b981"/>
+    <text x="300" y="110" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">GroupCoordinator</text>
+
+    <rect x="480" y="85" width="100" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="530" y="110" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Consumer B</text>
+  </g>
+
+  <!-- 时序 -->
+  <g>
+    <line x1="70" y1="125" x2="70" y2="450" stroke="#3b82f6" stroke-dasharray="3"/>
+    <line x1="300" y1="125" x2="300" y2="450" stroke="#10b981" stroke-dasharray="3"/>
+    <line x1="530" y1="125" x2="530" y2="450" stroke="#f59e0b" stroke-dasharray="3"/>
+
+    <!-- 1. FindCoordinator -->
+    <line x1="70" y1="155" x2="300" y2="155" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+    <text x="185" y="148" text-anchor="middle" font-size="9" font-weight="700" fill="#1e40af">① FindCoordinator</text>
+
+    <line x1="530" y1="180" x2="300" y2="180" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+    <text x="415" y="173" text-anchor="middle" font-size="9" font-weight="700" fill="#92400e">① FindCoordinator</text>
+
+    <!-- 2. JoinGroup -->
+    <line x1="70" y1="210" x2="300" y2="210" stroke="#3b82f6" stroke-width="1.8" marker-end="url(#arr)"/>
+    <text x="185" y="203" text-anchor="middle" font-size="9" font-weight="700" fill="#1e40af">② JoinGroup(subscribe)</text>
+
+    <line x1="530" y1="230" x2="300" y2="230" stroke="#f59e0b" stroke-width="1.8" marker-end="url(#arr)"/>
+    <text x="415" y="223" text-anchor="middle" font-size="9" font-weight="700" fill="#92400e">② JoinGroup(subscribe)</text>
+
+    <!-- 3. Coordinator 选 leader -->
+    <rect x="220" y="240" width="160" height="30" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="300" y="260" text-anchor="middle" font-size="9" font-weight="700" fill="#92400e">③ 选 Leader（先到者）</text>
+
+    <!-- 4. SyncGroup -->
+    <line x1="300" y1="290" x2="70" y2="290" stroke="#10b981" stroke-width="1.8" marker-end="url(#arr)"/>
+    <text x="185" y="283" text-anchor="middle" font-size="9" font-weight="700" fill="#065f46">④ SyncGroup(partition assign)</text>
+
+    <line x1="300" y1="310" x2="530" y2="310" stroke="#10b981" stroke-width="1.8" marker-end="url(#arr)"/>
+
+    <!-- 5. Heartbeat -->
+    <line x1="70" y1="345" x2="300" y2="345" stroke="#3b82f6" stroke-width="1.2" stroke-dasharray="3" marker-end="url(#arr)"/>
+    <text x="185" y="338" text-anchor="middle" font-size="9" fill="#1e40af">⑤ Heartbeat（每 3s）</text>
+
+    <line x1="530" y1="365" x2="300" y2="365" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="3" marker-end="url(#arr)"/>
+
+    <!-- 6. 数据消费 -->
+    <line x1="300" y1="395" x2="70" y2="395" stroke="#10b981" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="185" y="388" text-anchor="middle" font-size="9" font-weight="700" fill="#065f46">⑥ Fetch(p0, p1) → poll()</text>
+
+    <line x1="300" y1="420" x2="530" y2="420" stroke="#10b981" stroke-width="2" marker-end="url(#arr)"/>
+  </g>
+
+  <!-- 触发条件 -->
+  <g>
+    <rect x="20" y="455" width="560" height="20" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="40" y="468" font-size="10" fill="#475569">⚡ 触发 Rebalance：消费者上线 / 下线 · 心跳超时（session.timeout=10s）· 订阅主题变更 · 分区数变化</text>
+  </g>
+</svg>

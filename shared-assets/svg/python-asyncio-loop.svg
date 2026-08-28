@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Python asyncio 事件循环</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">单线程协作并发 · await 挂起点 · 任务调度</text>
+
+  <!-- 中心事件循环 -->
+  <g>
+    <circle cx="300" cy="240" r="60" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="300" y="232" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">Event</text>
+    <text x="300" y="250" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">Loop</text>
+    <text x="300" y="266" text-anchor="middle" font-size="9" font-style="italic" fill="#475569">单线程主循环</text>
+  </g>
+
+  <!-- 4 个协程 -->
+  <g>
+    <rect x="40" y="100" width="160" height="55" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="120" y="123" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Coroutine A</text>
+    <text x="120" y="140" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">await fetch('a')</text>
+    <text x="120" y="152" text-anchor="middle" font-size="9" fill="#475569">等响应...</text>
+
+    <rect x="400" y="100" width="160" height="55" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <text x="480" y="123" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">Coroutine B</text>
+    <text x="480" y="140" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">await db.query()</text>
+    <text x="480" y="152" text-anchor="middle" font-size="9" fill="#475569">等查询...</text>
+
+    <rect x="40" y="335" width="160" height="55" rx="6" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="120" y="358" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">Coroutine C</text>
+    <text x="120" y="375" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">await sleep(2)</text>
+    <text x="120" y="387" text-anchor="middle" font-size="9" fill="#475569">休眠 2s...</text>
+
+    <rect x="400" y="335" width="160" height="55" rx="6" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+    <text x="480" y="358" text-anchor="middle" font-size="11" font-weight="700" fill="#9d174d">Coroutine D</text>
+    <text x="480" y="375" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">await file.read()</text>
+    <text x="480" y="387" text-anchor="middle" font-size="9" fill="#475569">等 IO...</text>
+  </g>
+
+  <!-- 箭头（往返） -->
+  <g stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)">
+    <path d="M200,127 L250,200"/>
+    <path d="M400,127 L350,200"/>
+    <path d="M200,362 L250,280"/>
+    <path d="M400,362 L350,280"/>
+  </g>
+
+  <!-- 状态机 -->
+  <g>
+    <text x="300" y="405" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">协程生命周期</text>
+
+    <g>
+      <rect x="30" y="420" width="80" height="32" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+      <text x="70" y="441" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">READY</text>
+
+      <rect x="135" y="420" width="80" height="32" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+      <text x="175" y="441" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">RUNNING</text>
+
+      <rect x="240" y="420" width="80" height="32" rx="6" fill="#ede9fe" stroke="#8b5cf6"/>
+      <text x="280" y="441" text-anchor="middle" font-size="10" font-weight="700" fill="#5b21b6">WAITING</text>
+
+      <rect x="345" y="420" width="80" height="32" rx="6" fill="#d1fae5" stroke="#10b981"/>
+      <text x="385" y="441" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">DONE</text>
+
+      <rect x="450" y="420" width="120" height="32" rx="6" fill="#fee2e2" stroke="#ef4444"/>
+      <text x="510" y="441" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">CANCELLED</text>
+    </g>
+
+    <g stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)">
+      <path d="M110,436 L135,436"/>
+      <path d="M215,436 L240,436"/>
+      <path d="M320,436 L345,436"/>
+      <path d="M425,436 L450,436"/>
+    </g>
+  </g>
+</svg>

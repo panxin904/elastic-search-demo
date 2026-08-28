@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+    <marker id="arr-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#ef4444"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Circuit Breaker 状态机</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Closed → Open → Half-Open · 阈值/滑动窗口/恢复探测</text>
+
+  <!-- 3 状态 -->
+  <g>
+    <circle cx="120" cy="200" r="50" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="120" y="195" text-anchor="middle" font-size="14" font-weight="700" fill="#065f46">CLOSED</text>
+    <text x="120" y="212" text-anchor="middle" font-size="9" fill="#475569">正常</text>
+    <text x="120" y="225" text-anchor="middle" font-size="9" fill="#475569">请求直达后端</text>
+
+    <circle cx="300" cy="120" r="50" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+    <text x="300" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#991b1b">OPEN</text>
+    <text x="300" y="132" text-anchor="middle" font-size="9" fill="#475569">熔断</text>
+    <text x="300" y="145" text-anchor="middle" font-size="9" fill="#475569">快速失败</text>
+
+    <circle cx="480" cy="200" r="50" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="480" y="195" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">HALF-OPEN</text>
+    <text x="480" y="212" text-anchor="middle" font-size="9" fill="#475569">探测</text>
+    <text x="480" y="225" text-anchor="middle" font-size="9" fill="#475569">放 N 个请求</text>
+  </g>
+
+  <!-- 转换箭头 -->
+  <g>
+    <!-- CLOSED → OPEN -->
+    <line x1="155" y1="170" x2="265" y2="135" stroke="#ef4444" stroke-width="2" marker-end="url(#arr-red)"/>
+    <text x="210" y="148" font-size="9" fill="#ef4444">失败率 ≥ 阈值</text>
+
+    <!-- OPEN → HALF-OPEN -->
+    <line x1="350" y1="135" x2="445" y2="170" stroke="#3b82f6" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="397" y="148" font-size="9" fill="#3b82f6">sleep window 到期</text>
+
+    <!-- HALF-OPEN → CLOSED -->
+    <line x1="445" y1="225" x2="160" y2="225" stroke="#10b981" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="300" y="218" text-anchor="middle" font-size="9" fill="#10b981">探测请求全部成功</text>
+
+    <!-- HALF-OPEN → OPEN -->
+    <path d="M465,165 Q480,135 350,90" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4" fill="none" marker-end="url(#arr-red)"/>
+    <text x="440" y="85" font-size="9" fill="#ef4444">探测失败</text>
+  </g>
+
+  <!-- 配置参数 -->
+  <g>
+    <text x="300" y="305" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">关键配置参数（Resilience4j / Hystrix）</text>
+
+    <rect x="20" y="320" width="270" height="140" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="40" y="343" font-size="11" font-weight="700" fill="#1e293b">统计窗口</text>
+    <text x="40" y="362" font-size="10" fill="#475569">slidingWindowSize: 100（请求数）</text>
+    <text x="40" y="377" font-size="10" fill="#475569">slidingWindowType: COUNT_BASED</text>
+    <text x="40" y="395" font-size="11" font-weight="700" fill="#1e293b">触发条件</text>
+    <text x="40" y="414" font-size="10" fill="#475569">failureRateThreshold: 50%</text>
+    <text x="40" y="429" font-size="10" fill="#475569">minimumNumberOfCalls: 10</text>
+    <text x="40" y="447" font-size="10" fill="#475569">slowCallRateThreshold: 50%</text>
+    <text x="40" y="461" font-size="10" font-style="italic" fill="#94a3b8">慢调用 = duration &gt; slowCallDurationThreshold</text>
+
+    <rect x="310" y="320" width="270" height="140" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="330" y="343" font-size="11" font-weight="700" fill="#1e293b">恢复机制</text>
+    <text x="330" y="362" font-size="10" fill="#475569">waitDurationInOpenState: 60s</text>
+    <text x="330" y="377" font-size="10" fill="#475569">permittedNumberOfCallsInHalfOpenState: 10</text>
+    <text x="330" y="395" font-size="11" font-weight="700" fill="#1e293b">降级策略</text>
+    <text x="330" y="414" font-size="10" fill="#475569">fallback: 返回默认值 / 缓存 / 错误</text>
+    <text x="330" y="432" font-size="11" font-weight="700" fill="#1e293b">事件钩子</text>
+    <text x="330" y="451" font-size="10" fill="#475569">onStateTransition: 监控/告警/打点</text>
+    <text x="330" y="461" font-size="10" font-style="italic" fill="#94a3b8">调用方拿 CircuitBreaker 名字定位</text>
+  </g>
+</svg>
