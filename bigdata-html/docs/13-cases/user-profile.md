@@ -269,3 +269,13 @@ MySQL（属性） → Spark（离线 ETL） → Hive（离线画像 ODS / DWD / 
 - [推荐系统](/13-cases/recommendation)
 - [风控案例](/13-cases/risk-control)
 - [实时数仓](/10-data-lake/lakehouse)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [kafka](https://java-px.bot.cd/kafka/):Kafka 流处理
+- [es](https://java-px.bot.cd/es/):Elasticsearch
+- [clickhouse](https://java-px.bot.cd/clickhouse/):ClickHouse OLAP

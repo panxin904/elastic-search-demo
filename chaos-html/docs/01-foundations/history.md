@@ -82,15 +82,15 @@ title: 历史与哲学
 
 ## 实战示例
 
-\`\`\`bash
+```bash
 # TODO: 在此补充本页主题的实战命令
 echo "hello"
-\`\`\`
+```
 
-\`\`\`yaml
+```yaml
 # TODO: 配置示例
 key: value
-\`\`\`
+```
 
 ## 参数说明
 

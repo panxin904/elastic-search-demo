@@ -404,3 +404,13 @@ func main() {
 ## 下一步
 
 - 学习 dbt 集成：见 [dbt-airbyte.md](./dbt-airbyte.md)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [es](https://java-px.bot.cd/es/):ES 对比
+- [bigdata](https://java-px.bot.cd/bigdata/):大数据生态
+- [postgresql](https://java-px.bot.cd/postgresql/):PostgreSQL 对比

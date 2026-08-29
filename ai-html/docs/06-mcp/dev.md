@@ -332,3 +332,13 @@ asyncio.run(main())
 - [MCP 核心概念](/06-mcp/core)
 - [Codex MCP 集成](/06-mcp/codex-integration)
 - [Function Calling](/11-tools/function-calling)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [python](https://java-px.bot.cd/python/):Python AI
+- [bigdata](https://java-px.bot.cd/bigdata/):大数据训练
+- [system-design](https://java-px.bot.cd/system-design/):AI 系统架构

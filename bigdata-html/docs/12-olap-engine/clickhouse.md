@@ -317,3 +317,13 @@ ORDER BY query_duration_ms DESC LIMIT 10;
 - [Doris / StarRocks](/12-olap-engine/doris-starrocks)
 - [OLAP 选型](/12-olap-engine/selection)
 - [Snowflake 架构](/09-dw-architecture/snowflake)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [kafka](https://java-px.bot.cd/kafka/):Kafka 流处理
+- [es](https://java-px.bot.cd/es/):Elasticsearch
+- [clickhouse](https://java-px.bot.cd/clickhouse/):ClickHouse OLAP

@@ -416,3 +416,13 @@ game_day:
 - **architecture**：应急 Runbook → 引用 architecture/05-microservices
 - **design-pattern**：韧性模式验证 → 引用 design-pattern/05-architectural-patterns
 - **system-design**：可用性原则演练 → 引用 system-design/08-availability
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [cloud-native](https://java-px.bot.cd/cloud-native/):K8s 混沌
+- [observability](https://java-px.bot.cd/observability/):故障注入监控
+- [system-design](https://java-px.bot.cd/system-design/):系统韧性

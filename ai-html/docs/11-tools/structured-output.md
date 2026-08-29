@@ -261,3 +261,13 @@ class LeadInfo(BaseModel):
 - [Function Calling](/11-tools/function-calling)
 - [Tool Use 模式](/11-tools/tool-use)
 - [LangChain](/03-sdks/langchain)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [python](https://java-px.bot.cd/python/):Python AI
+- [bigdata](https://java-px.bot.cd/bigdata/):大数据训练
+- [system-design](https://java-px.bot.cd/system-design/):AI 系统架构

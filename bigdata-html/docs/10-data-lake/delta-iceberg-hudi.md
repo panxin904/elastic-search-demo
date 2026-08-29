@@ -270,3 +270,13 @@ df = table.scan().to_df()
 - [数据湖三剑客](/10-data-lake/three-pillars)
 - [Lakehouse 架构](/10-data-lake/lakehouse)
 - [Doris / StarRocks](/12-olap-engine/doris-starrocks)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [kafka](https://java-px.bot.cd/kafka/):Kafka 流处理
+- [es](https://java-px.bot.cd/es/):Elasticsearch
+- [clickhouse](https://java-px.bot.cd/clickhouse/):ClickHouse OLAP

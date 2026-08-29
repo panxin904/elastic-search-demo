@@ -193,3 +193,13 @@ ClickHouse       ★★★★★        ★★★★★       ★★★         
 - **大厂案例**：见 [case-study](../case-study.md) 12 个真实生产案例的深度剖析。
 
 > 一句话总结：**默认选 ClickHouse，除非你的场景命中 Doris/StarRocks/TiDB 的赢面。**
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [es](https://java-px.bot.cd/es/):ES 对比
+- [bigdata](https://java-px.bot.cd/bigdata/):大数据生态
+- [postgresql](https://java-px.bot.cd/postgresql/):PostgreSQL 对比

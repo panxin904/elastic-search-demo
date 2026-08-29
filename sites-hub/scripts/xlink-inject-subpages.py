@@ -33,6 +33,12 @@ LOW_DENSITY_SITES = {
     'linux-html': 'linux',
     'go-html': 'go',
     'observability-html': 'observability',
+    # §8.79 A 任务：第三批 5 站（密度 0.26 ~ 0.29）
+    'cloud-native-html': 'cloud-native',
+    'ai-html': 'ai',
+    'bigdata-html': 'bigdata',
+    'clickhouse-html': 'clickhouse',
+    'chaos-html': 'chaos',
 }
 
 # 跳过的 shell 页（已有跨站段或不该注入的页面）

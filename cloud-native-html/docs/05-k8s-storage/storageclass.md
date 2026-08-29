@@ -255,3 +255,13 @@ kubectl describe pvc data
 - [PV / PVC](/05-k8s-storage/pv-pvc)
 - [ConfigMap / Secret](/05-k8s-storage/configmap-secret)
 - [StatefulSet](/03-k8s-workload/statefulset)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [cloud](https://java-px.bot.cd/cloud/):Spring Cloud 微服务
+- [linux](https://java-px.bot.cd/linux/):Linux 内核基础
+- [devops](https://java-px.bot.cd/devops/):DevOps 流程

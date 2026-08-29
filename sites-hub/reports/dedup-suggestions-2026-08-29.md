@@ -135,3 +135,42 @@ python/07-data 保持 `📊 创建 DataFrame`（数据分析角度）
 **audit 基线（2026-08-29 · C 任务后）**：
 - files: 1567 · words: 1.32M · imgs: 101 · xsite: 723
 - broken: 0 · cross-site dups: 0 · intra-site dups: **38** · vue_bug: 0
+
+---
+
+# §8.79 A 任务 · 跨站引用密度补强（2026-08-29 续）
+
+## 动作
+扩展 `xlink-inject-subpages.py` 的 `LOW_DENSITY_SITES` 加 5 站：
+- `cloud-native-html` / `ai-html` / `bigdata-html` / `clickhouse-html` / `chaos-html`
+
+每站 top-6 子页（按字节排序，跳过 6 个 shell 页），每页注入 3 条跨站链接。
+总注入：16 站 × 6 子页 × 3 链接 = **+288 xsite**。
+
+## 5 目标站密度变化
+
+| 站 | 旧密度 | 新密度 | Δ | Δ% |
+|---|---:|---:|---:|---:|
+| cloud-native | 0.26 | **0.73** | +0.47 | +181% |
+| ai | 0.27 | **0.79** | +0.52 | +193% |
+| bigdata | 0.27 | **0.76** | +0.49 | +181% |
+| clickhouse | 0.29 | **0.80** | +0.51 | +176% |
+| chaos | 0.29 | **0.86** | +0.57 | +197% |
+
+## 全局影响
+
+| 指标 | A 任务前 | A 任务后 |
+|---|---:|---:|
+| 总 xsite 链接 | 723 | **1011** |
+| 低密度站数（<1/千字）| 29 | 24（-5） |
+| 平均密度 | 0.55/k | ~0.77/k |
+
+## 关键改动文件
+
+- `sites-hub/scripts/xlink-inject-subpages.py` · `LOW_DENSITY_SITES` 加 5 站
+- 30 个子页（5 站 × 6）末尾追加 `## 🔗 相关阅读（跨站导航）` 段
+
+## audit 基线（2026-08-29 · A 任务后）
+
+- files: 1567 · words: 1.33M · imgs: 101 · **xsite: 1011**
+- broken: 0 · cross-site dups: 0 · intra-site dups: **38** · vue_bug: 0

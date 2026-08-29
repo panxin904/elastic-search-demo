@@ -323,3 +323,13 @@ argocd app create web-dev \
 - [GitOps 思想](/09-cicd/gitops)
 - [Tekton / JenkinsX](/09-cicd/tekton)
 - [Helm Chart](/06-helm/chart)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [cloud](https://java-px.bot.cd/cloud/):Spring Cloud 微服务
+- [linux](https://java-px.bot.cd/linux/):Linux 内核基础
+- [devops](https://java-px.bot.cd/devops/):DevOps 流程

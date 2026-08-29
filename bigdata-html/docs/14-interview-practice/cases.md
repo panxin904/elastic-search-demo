@@ -479,3 +479,13 @@ GROUP BY TUMBLE(ts, INTERVAL '1' MINUTE), user_id;
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [kafka](https://java-px.bot.cd/kafka/):Kafka 流处理
+- [es](https://java-px.bot.cd/es/):Elasticsearch
+- [clickhouse](https://java-px.bot.cd/clickhouse/):ClickHouse OLAP

@@ -365,3 +365,13 @@ func main() {
 - **chaos-engineering 04-platform-compare**：Litmus vs Chaos Mesh 选型
 - **system-design**：实验验证可用性原则 → 引用 system-design/08-availability
 - **architecture**：服务网格 + Litmus 集成 → 引用 architecture/05-microservices
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [cloud-native](https://java-px.bot.cd/cloud-native/):K8s 混沌
+- [observability](https://java-px.bot.cd/observability/):故障注入监控
+- [system-design](https://java-px.bot.cd/system-design/):系统韧性

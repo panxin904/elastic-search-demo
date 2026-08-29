@@ -290,3 +290,13 @@ kubectl get pods -A --field-selector=status.phase!=Running
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [cloud](https://java-px.bot.cd/cloud/):Spring Cloud 微服务
+- [linux](https://java-px.bot.cd/linux/):Linux 内核基础
+- [devops](https://java-px.bot.cd/devops/):DevOps 流程

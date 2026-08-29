@@ -292,15 +292,15 @@ title: 混沌工程工具对比
 
 ## 实战示例
 
-\`\`\`bash
+```bash
 # TODO: 在此补充本页主题的实战命令
 echo "hello"
-\`\`\`
+```
 
-\`\`\`yaml
+```yaml
 # TODO: 配置示例
 key: value
-\`\`\`
+```
 
 ## 相关阅读
 
@@ -312,3 +312,13 @@ key: value
 - 实战案例
 - 参考资料
 <!-- auto-enrich:do-not-edit -->
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [cloud-native](https://java-px.bot.cd/cloud-native/):K8s 混沌
+- [observability](https://java-px.bot.cd/observability/):故障注入监控
+- [system-design](https://java-px.bot.cd/system-design/):系统韧性

@@ -396,3 +396,13 @@ spec:
 - **chaos-engineering 04-platform-compare**：与 Litmus / Gremlin 对比
 - **system-design**：可用性原则验证 → 引用 system-design/08-availability
 - **design-pattern**：Circuit Breaker / Bulkhead 验证 → 引用 design-pattern/05-architectural-patterns
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [cloud-native](https://java-px.bot.cd/cloud-native/):K8s 混沌
+- [observability](https://java-px.bot.cd/observability/):故障注入监控
+- [system-design](https://java-px.bot.cd/system-design/):系统韧性
