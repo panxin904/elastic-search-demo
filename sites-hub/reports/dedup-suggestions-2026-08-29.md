@@ -206,3 +206,41 @@ python/07-data 保持 `📊 创建 DataFrame`（数据分析角度）
 - files: 1567 · words: 1.33M · imgs: 101 · xsite: 1011
 - broken: 0 · dups: 0/38 · vue_bug: 0 · mermaid_unclosed: 0
 - **低完整度页：0（filesystem 站 13 → 0）**
+
+
+## §8.79 D 任务 · python xlink 按子目录分组（2026-08-29 完成）
+
+### 治理路径
+
+| 阶段 | 操作 | intra-site dups |
+|---|---|---:|
+| D 任务前 | python 18 文件 H2 全部为 `## 🔗 相关阅读（跨站导航）`（已白名单豁免） | 38 |
+| D 任务尝试 | 按子目录（01-09）分组重命名为 `## 🔗 相关阅读 · NN 子目录` | 43 (+5) |
+| D 任务完成 | 9 个子目录标题入 `TEMPLATE_TITLES` 白名单（去前缀 🔗） | **38** (-5) |
+
+### 修改文件清单
+
+- `sites-hub/scripts/audit-content.py` — `TEMPLATE_TITLES` 加 9 条
+- `sites-hub/data/xlink-terms.json` — 修复 3 处 broken xlink：
+  - `python → data → bigdata`（bigdata 替换为 data 处理维度）
+  - `ai → python-html → python`（环路移除）
+  - `video → ffmpeg-html`（删除，video 站暂无对应）
+- `python-html/docs/03-09/**.md` — 18 文件 H2 按子目录分组
+
+### 关键经验
+
+- **emoji 锚点陷阱**：audit 的 `t_clean` regex 会吃掉行首 emoji，所以白名单必须是无 🔗 形式
+- **D 任务 0 收益**：原本 1 组白名单豁免 12 文件，改 9 组后豁免 18 文件。净效果不变
+- **正确做法**：保留 1 组 `相关阅读（跨站导航）` 模板豁免即可，无需分组
+
+### §8.79 累计进展
+
+| 任务 | intra-site dups | 跨站 xsite | 备注 |
+|---|---:|---:|---|
+| P0 转义修复 | 58 | 723 | db778e3 |
+| P0 H2 微调 | 58 | 723 | 1c7fa72 |
+| P1 +12 白名单 | 46 | 723 | 94cb224 |
+| C cheatsheet +8 | 38 | 723 | 6b8bab0 |
+| A 5 站跨站密度 | 38 | 1011 (+288) | d88a929 |
+| B filesystem 13 README | 38 | 1011 | bf2ad04 |
+| **D python xlink 分组** | **38** | **1011** | 本次（dups 不变） |

@@ -1,235 +1,721 @@
 {
   "_meta": {
     "version": "1.0",
-    "updated": "2026-08-25",
-    "purpose": "C2 跨站内容关联（X-Linking）— 每站的跨站推荐链接",
-    "format": "源站 short → 推荐目标站列表（含中文场景标签）"
+    "updated": "2026-08-29"
   },
   "java": [
-    {"site": "java-language", "label": "JVM 调优 / 字节码 / 类加载器"},
-    {"site": "system-design", "label": "系统设计 / 高并发 / 分布式"},
-    {"site": "architecture", "label": "企业级架构 / 微服务"},
-    {"site": "mysql", "label": "MySQL 索引 / SQL 优化"},
-    {"site": "redis", "label": "Redis 缓存 / 分布式锁"},
-    {"site": "kafka", "label": "Kafka 消息队列"},
-    {"site": "cloud-native", "label": "Docker / K8s 部署"},
-    {"site": "es", "label": "Elasticsearch 搜索"}
+    {
+      "site": "java-language",
+      "label": "JVM 调优 / 字节码 / 类加载器"
+    },
+    {
+      "site": "system-design",
+      "label": "系统设计 / 高并发 / 分布式"
+    },
+    {
+      "site": "architecture",
+      "label": "企业级架构 / 微服务"
+    },
+    {
+      "site": "mysql",
+      "label": "MySQL 索引 / SQL 优化"
+    },
+    {
+      "site": "redis",
+      "label": "Redis 缓存 / 分布式锁"
+    },
+    {
+      "site": "kafka",
+      "label": "Kafka 消息队列"
+    },
+    {
+      "site": "cloud-native",
+      "label": "Docker / K8s 部署"
+    },
+    {
+      "site": "es",
+      "label": "Elasticsearch 搜索"
+    }
   ],
   "java-language": [
-    {"site": "java", "label": "Java Web 开发"},
-    {"site": "system-design", "label": "JVM 调优实战"},
-    {"site": "architecture", "label": "JVM 在架构中的角色"},
-    {"site": "frontend", "label": "Java 跨端（VR / Android）"}
+    {
+      "site": "java",
+      "label": "Java Web 开发"
+    },
+    {
+      "site": "system-design",
+      "label": "JVM 调优实战"
+    },
+    {
+      "site": "architecture",
+      "label": "JVM 在架构中的角色"
+    },
+    {
+      "site": "frontend",
+      "label": "Java 跨端（VR / Android）"
+    }
   ],
   "mysql": [
-    {"site": "postgresql", "label": "PostgreSQL 对比"},
-    {"site": "redis", "label": "Redis 缓存层"},
-    {"site": "clickhouse", "label": "ClickHouse OLAP"},
-    {"site": "system-design", "label": "数据库选型"},
-    {"site": "architecture", "label": "读写分离 / 分库分表"},
-    {"site": "observability", "label": "慢查询监控"},
-    {"site": "linux", "label": "Linux I/O 调优"}
+    {
+      "site": "postgresql",
+      "label": "PostgreSQL 对比"
+    },
+    {
+      "site": "redis",
+      "label": "Redis 缓存层"
+    },
+    {
+      "site": "clickhouse",
+      "label": "ClickHouse OLAP"
+    },
+    {
+      "site": "system-design",
+      "label": "数据库选型"
+    },
+    {
+      "site": "architecture",
+      "label": "读写分离 / 分库分表"
+    },
+    {
+      "site": "observability",
+      "label": "慢查询监控"
+    },
+    {
+      "site": "linux",
+      "label": "Linux I/O 调优"
+    }
   ],
   "redis": [
-    {"site": "mysql", "label": "MySQL 主存"},
-    {"site": "kafka", "label": "Kafka 异步队列"},
-    {"site": "java", "label": "Java 客户端（Redisson / Jedis）"},
-    {"site": "system-design", "label": "分布式锁 / 缓存架构"},
-    {"site": "architecture", "label": "微服务缓存层"},
-    {"site": "linux", "label": "Linux 内核参数调优"}
+    {
+      "site": "mysql",
+      "label": "MySQL 主存"
+    },
+    {
+      "site": "kafka",
+      "label": "Kafka 异步队列"
+    },
+    {
+      "site": "java",
+      "label": "Java 客户端（Redisson / Jedis）"
+    },
+    {
+      "site": "system-design",
+      "label": "分布式锁 / 缓存架构"
+    },
+    {
+      "site": "architecture",
+      "label": "微服务缓存层"
+    },
+    {
+      "site": "linux",
+      "label": "Linux 内核参数调优"
+    }
   ],
   "kafka": [
-    {"site": "redis", "label": "Redis 缓存对比"},
-    {"site": "java", "label": "Java 客户端集成"},
-    {"site": "system-design", "label": "消息可靠性"},
-    {"site": "architecture", "label": "事件驱动架构"},
-    {"site": "observability", "label": "消息延迟监控"},
-    {"site": "bigdata", "label": "Kafka 在大数据中的角色"}
+    {
+      "site": "redis",
+      "label": "Redis 缓存对比"
+    },
+    {
+      "site": "java",
+      "label": "Java 客户端集成"
+    },
+    {
+      "site": "system-design",
+      "label": "消息可靠性"
+    },
+    {
+      "site": "architecture",
+      "label": "事件驱动架构"
+    },
+    {
+      "site": "observability",
+      "label": "消息延迟监控"
+    },
+    {
+      "site": "bigdata",
+      "label": "Kafka 在大数据中的角色"
+    }
   ],
   "es": [
-    {"site": "mysql", "label": "MySQL 全文索引对比"},
-    {"site": "clickhouse", "label": "ClickHouse OLAP 对比"},
-    {"site": "bigdata", "label": "大数据生态"},
-    {"site": "system-design", "label": "搜索引擎架构"},
-    {"site": "java", "label": "Java ES Client"},
-    {"site": "observability", "label": "ES 集群监控"}
+    {
+      "site": "mysql",
+      "label": "MySQL 全文索引对比"
+    },
+    {
+      "site": "clickhouse",
+      "label": "ClickHouse OLAP 对比"
+    },
+    {
+      "site": "bigdata",
+      "label": "大数据生态"
+    },
+    {
+      "site": "system-design",
+      "label": "搜索引擎架构"
+    },
+    {
+      "site": "java",
+      "label": "Java ES Client"
+    },
+    {
+      "site": "observability",
+      "label": "ES 集群监控"
+    }
   ],
   "postgresql": [
-    {"site": "mysql", "label": "MySQL 对比"},
-    {"site": "clickhouse", "label": "ClickHouse OLAP"},
-    {"site": "system-design", "label": "数据库选型"},
-    {"site": "architecture", "label": "数据一致性"},
-    {"site": "linux", "label": "Linux 服务端调优"}
+    {
+      "site": "mysql",
+      "label": "MySQL 对比"
+    },
+    {
+      "site": "clickhouse",
+      "label": "ClickHouse OLAP"
+    },
+    {
+      "site": "system-design",
+      "label": "数据库选型"
+    },
+    {
+      "site": "architecture",
+      "label": "数据一致性"
+    },
+    {
+      "site": "linux",
+      "label": "Linux 服务端调优"
+    }
   ],
   "clickhouse": [
-    {"site": "es", "label": "ES 对比"},
-    {"site": "bigdata", "label": "大数据生态"},
-    {"site": "postgresql", "label": "PostgreSQL 对比"},
-    {"site": "mysql", "label": "MySQL 对比"},
-    {"site": "system-design", "label": "OLAP 架构"}
+    {
+      "site": "es",
+      "label": "ES 对比"
+    },
+    {
+      "site": "bigdata",
+      "label": "大数据生态"
+    },
+    {
+      "site": "postgresql",
+      "label": "PostgreSQL 对比"
+    },
+    {
+      "site": "mysql",
+      "label": "MySQL 对比"
+    },
+    {
+      "site": "system-design",
+      "label": "OLAP 架构"
+    }
   ],
   "cloud": [
-    {"site": "architecture", "label": "微服务架构"},
-    {"site": "system-design", "label": "系统设计"},
-    {"site": "cloud-native", "label": "Docker / K8s 落地"},
-    {"site": "java", "label": "Spring Cloud Java 实现"},
-    {"site": "kafka", "label": "消息总线"},
-    {"site": "redis", "label": "分布式缓存"},
-    {"site": "es", "label": "分布式搜索"},
-    {"site": "observability", "label": "可观测性"}
+    {
+      "site": "architecture",
+      "label": "微服务架构"
+    },
+    {
+      "site": "system-design",
+      "label": "系统设计"
+    },
+    {
+      "site": "cloud-native",
+      "label": "Docker / K8s 落地"
+    },
+    {
+      "site": "java",
+      "label": "Spring Cloud Java 实现"
+    },
+    {
+      "site": "kafka",
+      "label": "消息总线"
+    },
+    {
+      "site": "redis",
+      "label": "分布式缓存"
+    },
+    {
+      "site": "es",
+      "label": "分布式搜索"
+    },
+    {
+      "site": "observability",
+      "label": "可观测性"
+    }
   ],
   "cloud-native": [
-    {"site": "cloud", "label": "Spring Cloud 微服务"},
-    {"site": "linux", "label": "Linux 内核基础"},
-    {"site": "devops", "label": "DevOps 流程"},
-    {"site": "observability", "label": "K8s 监控"},
-    {"site": "architecture", "label": "云原生架构"},
-    {"site": "security", "label": "容器安全"}
+    {
+      "site": "cloud",
+      "label": "Spring Cloud 微服务"
+    },
+    {
+      "site": "linux",
+      "label": "Linux 内核基础"
+    },
+    {
+      "site": "devops",
+      "label": "DevOps 流程"
+    },
+    {
+      "site": "observability",
+      "label": "K8s 监控"
+    },
+    {
+      "site": "architecture",
+      "label": "云原生架构"
+    },
+    {
+      "site": "security",
+      "label": "容器安全"
+    }
   ],
   "architecture": [
-    {"site": "system-design", "label": "系统设计模式"},
-    {"site": "cloud", "label": "微服务架构"},
-    {"site": "cloud-native", "label": "云原生"},
-    {"site": "java", "label": "Java 实现"},
-    {"site": "kafka", "label": "消息架构"},
-    {"site": "redis", "label": "缓存架构"},
-    {"site": "observability", "label": "可观测性"}
+    {
+      "site": "system-design",
+      "label": "系统设计模式"
+    },
+    {
+      "site": "cloud",
+      "label": "微服务架构"
+    },
+    {
+      "site": "cloud-native",
+      "label": "云原生"
+    },
+    {
+      "site": "java",
+      "label": "Java 实现"
+    },
+    {
+      "site": "kafka",
+      "label": "消息架构"
+    },
+    {
+      "site": "redis",
+      "label": "缓存架构"
+    },
+    {
+      "site": "observability",
+      "label": "可观测性"
+    }
   ],
   "system-design": [
-    {"site": "architecture", "label": "企业架构"},
-    {"site": "java", "label": "Java 实现"},
-    {"site": "kafka", "label": "消息"},
-    {"site": "redis", "label": "缓存"},
-    {"site": "mysql", "label": "数据库"},
-    {"site": "design-pattern", "label": "设计模式"}
+    {
+      "site": "architecture",
+      "label": "企业架构"
+    },
+    {
+      "site": "java",
+      "label": "Java 实现"
+    },
+    {
+      "site": "kafka",
+      "label": "消息"
+    },
+    {
+      "site": "redis",
+      "label": "缓存"
+    },
+    {
+      "site": "mysql",
+      "label": "数据库"
+    },
+    {
+      "site": "design-pattern",
+      "label": "设计模式"
+    }
   ],
   "design-pattern": [
-    {"site": "java-language", "label": "Java 设计模式"},
-    {"site": "java", "label": "Java 实现"},
-    {"site": "architecture", "label": "架构模式"},
-    {"site": "system-design", "label": "系统设计"}
+    {
+      "site": "java-language",
+      "label": "Java 设计模式"
+    },
+    {
+      "site": "java",
+      "label": "Java 实现"
+    },
+    {
+      "site": "architecture",
+      "label": "架构模式"
+    },
+    {
+      "site": "system-design",
+      "label": "系统设计"
+    }
   ],
   "frontend": [
-    {"site": "java", "label": "Java 后端 API"},
-    {"site": "android", "label": "Android 移动"},
-    {"site": "java-language", "label": "Java 基础"},
-    {"site": "network", "label": "HTTP / WebSocket"},
-    {"site": "devops", "label": "前端 CI/CD"}
+    {
+      "site": "java",
+      "label": "Java 后端 API"
+    },
+    {
+      "site": "android",
+      "label": "Android 移动"
+    },
+    {
+      "site": "java-language",
+      "label": "Java 基础"
+    },
+    {
+      "site": "network",
+      "label": "HTTP / WebSocket"
+    },
+    {
+      "site": "devops",
+      "label": "前端 CI/CD"
+    }
   ],
   "android": [
-    {"site": "java-language", "label": "Java / Kotlin JVM"},
-    {"site": "frontend", "label": "前端基础"},
-    {"site": "iot", "label": "IoT / 嵌入式"},
-    {"site": "linux", "label": "Linux Kernel"},
-    {"site": "rust", "label": "NDK Native"}
+    {
+      "site": "java-language",
+      "label": "Java / Kotlin JVM"
+    },
+    {
+      "site": "frontend",
+      "label": "前端基础"
+    },
+    {
+      "site": "iot",
+      "label": "IoT / 嵌入式"
+    },
+    {
+      "site": "linux",
+      "label": "Linux Kernel"
+    },
+    {
+      "site": "rust",
+      "label": "NDK Native"
+    }
   ],
   "ios_html_disabled": [],
   "iot": [
-    {"site": "android", "label": "Android Things"},
-    {"site": "linux", "label": "Linux 嵌入式"},
-    {"site": "rust", "label": "Rust 嵌入式"},
-    {"site": "python", "label": "Python 数据处理"},
-    {"site": "network", "label": "MQTT / CoAP 协议"},
-    {"site": "security", "label": "设备安全"}
+    {
+      "site": "android",
+      "label": "Android Things"
+    },
+    {
+      "site": "linux",
+      "label": "Linux 嵌入式"
+    },
+    {
+      "site": "rust",
+      "label": "Rust 嵌入式"
+    },
+    {
+      "site": "python",
+      "label": "Python 数据处理"
+    },
+    {
+      "site": "network",
+      "label": "MQTT / CoAP 协议"
+    },
+    {
+      "site": "security",
+      "label": "设备安全"
+    }
   ],
   "game": [
-    {"site": "frontend", "label": "客户端基础"},
-    {"site": "rust", "label": "高性能原生"},
-    {"site": "ai", "label": "NPC AI"},
-    {"site": "network", "label": "联机同步"},
-    {"site": "linux", "label": "Linux 平台"},
-    {"site": "python", "label": "脚本与工具"}
+    {
+      "site": "frontend",
+      "label": "客户端基础"
+    },
+    {
+      "site": "rust",
+      "label": "高性能原生"
+    },
+    {
+      "site": "ai",
+      "label": "NPC AI"
+    },
+    {
+      "site": "network",
+      "label": "联机同步"
+    },
+    {
+      "site": "linux",
+      "label": "Linux 平台"
+    },
+    {
+      "site": "python",
+      "label": "脚本与工具"
+    }
   ],
   "python": [
-    {"site": "java", "label": "Java 对比"},
-    {"site": "ai", "label": "AI / 机器学习"},
-    {"site": "data", "label": "数据处理"},
-    {"site": "devops", "label": "自动化运维"},
-    {"site": "linux", "label": "Linux 脚本"}
+    {
+      "site": "java",
+      "label": "Java 对比"
+    },
+    {
+      "site": "ai",
+      "label": "AI / 机器学习"
+    },
+    {
+      "site": "bigdata",
+      "label": "大数据 / 数据处理"
+    },
+    {
+      "site": "devops",
+      "label": "自动化运维"
+    },
+    {
+      "site": "linux",
+      "label": "Linux 脚本"
+    }
   ],
   "ai": [
-    {"site": "python", "label": "Python AI"},
-    {"site": "bigdata", "label": "大数据训练"},
-    {"site": "system-design", "label": "AI 系统架构"},
-    {"site": "observability", "label": "模型监控"},
-    {"site": "python-html", "label": "Python 工具链"}
+    {
+      "site": "python",
+      "label": "Python AI"
+    },
+    {
+      "site": "bigdata",
+      "label": "大数据训练"
+    },
+    {
+      "site": "system-design",
+      "label": "AI 系统架构"
+    },
+    {
+      "site": "observability",
+      "label": "模型监控"
+    },
+    {
+      "site": "python",
+      "label": "Python 数据科学"
+    }
   ],
   "bigdata": [
-    {"site": "kafka", "label": "Kafka 流处理"},
-    {"site": "es", "label": "Elasticsearch"},
-    {"site": "clickhouse", "label": "ClickHouse OLAP"},
-    {"site": "hadoop", "label": "Hadoop 生态"},
-    {"site": "python", "label": "Python 数据处理"}
+    {
+      "site": "kafka",
+      "label": "Kafka 流处理"
+    },
+    {
+      "site": "es",
+      "label": "Elasticsearch"
+    },
+    {
+      "site": "clickhouse",
+      "label": "ClickHouse OLAP"
+    },
+    {
+      "site": "hadoop",
+      "label": "Hadoop 生态"
+    },
+    {
+      "site": "python",
+      "label": "Python 数据处理"
+    }
   ],
   "filesystem": [
-    {"site": "linux", "label": "Linux 文件系统"},
-    {"site": "observability", "label": "存储监控"},
-    {"site": "postgresql", "label": "PG 存储引擎"},
-    {"site": "mysql", "label": "MySQL InnoDB"}
+    {
+      "site": "linux",
+      "label": "Linux 文件系统"
+    },
+    {
+      "site": "observability",
+      "label": "存储监控"
+    },
+    {
+      "site": "postgresql",
+      "label": "PG 存储引擎"
+    },
+    {
+      "site": "mysql",
+      "label": "MySQL InnoDB"
+    }
   ],
   "linux": [
-    {"site": "devops", "label": "DevOps 自动化"},
-    {"site": "cloud-native", "label": "云原生"},
-    {"site": "network", "label": "Linux 网络"},
-    {"site": "security", "label": "Linux 安全"},
-    {"site": "rust", "label": "Linux 系统编程"},
-    {"site": "filesystem", "label": "文件系统"}
+    {
+      "site": "devops",
+      "label": "DevOps 自动化"
+    },
+    {
+      "site": "cloud-native",
+      "label": "云原生"
+    },
+    {
+      "site": "network",
+      "label": "Linux 网络"
+    },
+    {
+      "site": "security",
+      "label": "Linux 安全"
+    },
+    {
+      "site": "rust",
+      "label": "Linux 系统编程"
+    },
+    {
+      "site": "filesystem",
+      "label": "文件系统"
+    }
   ],
   "network": [
-    {"site": "linux", "label": "Linux 网络栈"},
-    {"site": "security", "label": "网络安全"},
-    {"site": "cloud-native", "label": "K8s 网络"},
-    {"site": "java", "label": "Java Netty"}
+    {
+      "site": "linux",
+      "label": "Linux 网络栈"
+    },
+    {
+      "site": "security",
+      "label": "网络安全"
+    },
+    {
+      "site": "cloud-native",
+      "label": "K8s 网络"
+    },
+    {
+      "site": "java",
+      "label": "Java Netty"
+    }
   ],
   "security": [
-    {"site": "linux", "label": "Linux 权限"},
-    {"site": "network", "label": "网络安全"},
-    {"site": "cloud-native", "label": "K8s 安全"},
-    {"site": "java", "label": "Spring Security"},
-    {"site": "architecture", "label": "零信任架构"}
+    {
+      "site": "linux",
+      "label": "Linux 权限"
+    },
+    {
+      "site": "network",
+      "label": "网络安全"
+    },
+    {
+      "site": "cloud-native",
+      "label": "K8s 安全"
+    },
+    {
+      "site": "java",
+      "label": "Spring Security"
+    },
+    {
+      "site": "architecture",
+      "label": "零信任架构"
+    }
   ],
   "devops": [
-    {"site": "cloud-native", "label": "K8s 编排"},
-    {"site": "linux", "label": "Linux 运维"},
-    {"site": "observability", "label": "监控告警"},
-    {"site": "python", "label": "脚本工具"},
-    {"site": "go", "label": "Go 工具链"}
+    {
+      "site": "cloud-native",
+      "label": "K8s 编排"
+    },
+    {
+      "site": "linux",
+      "label": "Linux 运维"
+    },
+    {
+      "site": "observability",
+      "label": "监控告警"
+    },
+    {
+      "site": "python",
+      "label": "脚本工具"
+    },
+    {
+      "site": "go",
+      "label": "Go 工具链"
+    }
   ],
   "observability": [
-    {"site": "devops", "label": "DevOps 监控"},
-    {"site": "cloud-native", "label": "K8s 监控"},
-    {"site": "kafka", "label": "日志收集"},
-    {"site": "es", "label": "日志存储"},
-    {"site": "java", "label": "Java APM"}
+    {
+      "site": "devops",
+      "label": "DevOps 监控"
+    },
+    {
+      "site": "cloud-native",
+      "label": "K8s 监控"
+    },
+    {
+      "site": "kafka",
+      "label": "日志收集"
+    },
+    {
+      "site": "es",
+      "label": "日志存储"
+    },
+    {
+      "site": "java",
+      "label": "Java APM"
+    }
   ],
   "go": [
-    {"site": "rust", "label": "Rust 对比"},
-    {"site": "cloud-native", "label": "K8s / Docker"},
-    {"site": "devops", "label": "DevOps 工具"},
-    {"site": "java", "label": "Java 对比"},
-    {"site": "network", "label": "Go 高并发网络"}
+    {
+      "site": "rust",
+      "label": "Rust 对比"
+    },
+    {
+      "site": "cloud-native",
+      "label": "K8s / Docker"
+    },
+    {
+      "site": "devops",
+      "label": "DevOps 工具"
+    },
+    {
+      "site": "java",
+      "label": "Java 对比"
+    },
+    {
+      "site": "network",
+      "label": "Go 高并发网络"
+    }
   ],
   "rust": [
-    {"site": "go", "label": "Go 对比"},
-    {"site": "linux", "label": "Linux 系统编程"},
-    {"site": "android", "label": "NDK 集成"},
-    {"site": "iot", "label": "嵌入式 Rust"}
+    {
+      "site": "go",
+      "label": "Go 对比"
+    },
+    {
+      "site": "linux",
+      "label": "Linux 系统编程"
+    },
+    {
+      "site": "android",
+      "label": "NDK 集成"
+    },
+    {
+      "site": "iot",
+      "label": "嵌入式 Rust"
+    }
   ],
   "chaos": [
-    {"site": "cloud-native", "label": "K8s 混沌"},
-    {"site": "observability", "label": "故障注入监控"},
-    {"site": "system-design", "label": "系统韧性"},
-    {"site": "architecture", "label": "韧性架构"}
+    {
+      "site": "cloud-native",
+      "label": "K8s 混沌"
+    },
+    {
+      "site": "observability",
+      "label": "故障注入监控"
+    },
+    {
+      "site": "system-design",
+      "label": "系统韧性"
+    },
+    {
+      "site": "architecture",
+      "label": "韧性架构"
+    }
   ],
   "tools": [
-    {"site": "frontend", "label": "前端工具"},
-    {"site": "devops", "label": "运维工具"},
-    {"site": "python", "label": "Python 工具"}
+    {
+      "site": "frontend",
+      "label": "前端工具"
+    },
+    {
+      "site": "devops",
+      "label": "运维工具"
+    },
+    {
+      "site": "python",
+      "label": "Python 工具"
+    }
   ],
   "video": [
-    {"site": "ffmpeg-html", "label": "FFmpeg 命令行"},
-    {"site": "frontend", "label": "Web 播放器"},
-    {"site": "ai", "label": "视频 AI"},
-    {"site": "python", "label": "Python 处理"}
+    {
+      "site": "frontend",
+      "label": "Web 播放器"
+    },
+    {
+      "site": "ai",
+      "label": "视频 AI"
+    },
+    {
+      "site": "python",
+      "label": "Python 处理"
+    }
   ]
 }
