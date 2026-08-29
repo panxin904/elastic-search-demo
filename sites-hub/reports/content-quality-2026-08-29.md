@@ -103,7 +103,7 @@
 |------|------:|------:|------|
 | filesystem-html | 3.9 | 13 / 94 | 加代码示例 / 表格 / Vue 组件 |
 
-## 七·b、同站重复标题（46 组 — cheatsheet 类常见）
+## 七·b、同站重复标题（38 组 — cheatsheet 类常见）
 
 同站多个文件出现相同标题（多为 cheatsheet / overview / 总览页）。
 
@@ -164,48 +164,41 @@
 - **'Mock（模拟对象）'** (2 处)
   - `python/pytest.md`
   - `python/testing.md`
-- **'生产监控案例'** (6 处)
-  - `redis/redis7-features.md`
-  - `redis/bigkey-hotkey.md`
-  - `redis/slowlog.md`
-  - `redis/memory.md`
-  - `redis/eviction.md`
-  - ... 等 1 处
-- **'八、面试追问清单'** (2 处)
-  - `redis/lru.md`
-  - `redis/consistent-hash.md`
-- **'九、下一步'** (3 处)
-  - `redis/lru.md`
-  - `redis/consistent-hash.md`
-  - `redis/stream.md`
-- **'十、下一步'** (2 处)
-  - `redis/consensus.md`
-  - `redis/object.md`
-- **'八、下一步'** (3 处)
-  - `redis/avalanche.md`
-  - `redis/listpack.md`
-  - `redis/quicklist.md`
-- **'Cluster 集群'** (4 处)
-  - `redis/spring-data-redis.md`
-  - `redis/jedis.md`
-  - `redis/lettuce.md`
-  - `redis/cluster.md`
 - **'Lettuce 连接池（可选）'** (2 处)
   - `redis/connection-pool.md`
   - `redis/lettuce.md`
-- **'七、生产案例'** (2 处)
-  - `redis/replication.md`
-  - `redis/sentinel.md`
-- **'七、面试要点'** (2 处)
-  - `redis/listpack.md`
-  - `redis/quicklist.md`
 - **'嵌入式 Rust'** (2 处)
   - `rust/overview.md`
   - `rust/embedded.md`
 - **'WebAssembly'** (2 处)
   - `rust/overview.md`
   - `rust/wasm.md`
-- ... 及其他 16 组
+- **'Cargo.toml'** (2 处)
+  - `rust/hello-world.md`
+  - `rust/cargo.md`
+- **'实战：Ed25519 签名'** (2 处)
+  - `security/signature.md`
+  - `security/asymmetric.md`
+- **'Python API'** (3 处)
+  - `video/gstreamer.md`
+  - `video/super-res-ai.md`
+  - `video/super-res.md`
+- **'Wav2Lip 使用'** (2 处)
+  - `video/digital-human.md`
+  - `video/lip-sync.md`
+- **'视频批量超分'** (2 处)
+  - `video/super-res-ai.md`
+  - `video/super-res.md`
+- **'MPS 核心能力'** (2 处)
+  - `video/aliyun-mps.md`
+  - `video/tencent-mps.md`
+- **'SDK 调用'** (2 处)
+  - `video/aliyun-mps.md`
+  - `video/tencent-mps.md`
+- **'FFmpeg 实操'** (2 处)
+  - `video/color-space.md`
+  - `video/audio-codec.md`
+- ... 及其他 8 组
 
 ## 八、关键发现与建议
 

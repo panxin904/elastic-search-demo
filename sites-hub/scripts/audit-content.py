@@ -609,6 +609,17 @@ def main():
         # === §8.79 P0 治理（已通过文件侧 H2 微调消除，但加白名单做保险）===
         '为什么需要读写分离？',
         '创建 DataFrame',
+        # === §8.79 C 任务：cheatsheet 模板词豁免（8 个 · 2026-08-29）===
+        # redis 站 / 多站 cheatsheet 模板章节标题，统一起来必重
+        '八、面试追问清单',
+        '九、下一步',
+        '十、下一步',
+        '八、下一步',
+        '七、生产案例',
+        '七、面试要点',
+        # 实战模板：redis 多文件都有同名模板段
+        '生产监控案例',
+        'Cluster 集群',
     }
     by_title: dict[str, list[tuple[str, Path]]] = defaultdict(list)
     for t, s, p in all_titles:

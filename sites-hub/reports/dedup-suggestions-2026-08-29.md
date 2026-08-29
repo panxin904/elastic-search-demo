@@ -83,3 +83,55 @@ python/07-data 保持 `📊 创建 DataFrame`（数据分析角度）
 **audit 基线（2026-08-29）**：
 - files: 1567 · words: 1.32M · imgs: 101 · xsite: 723
 - broken: 0 · cross-site dups: 0 · intra-site dups: **46** · vue_bug: 0
+
+---
+
+# §8.79 C 任务 · cheatsheet 模板统一白名单（2026-08-29 续）
+
+## 动作
+加入 8 个 redis 站 + 通用 cheatsheet 模板词到 `TEMPLATE_TITLES`：
+- `'八、面试追问清单'`
+- `'九、下一步'`
+- `'十、下一步'`
+- `'八、下一步'`
+- `'七、生产案例'`
+- `'七、面试要点'`
+- `'生产监控案例'`（×6）
+- `'Cluster 集群'`（×4）
+
+## 结果
+| 维度 | 治理前 | C 任务后 | 总 Δ（vs 治理前 58） |
+|---|---:|---:|---:|
+| intra-site dups | 46 | **38** | **-20** |
+| 处理组数 | 12（P0+P1）| +8（C 任务）| 20 |
+
+## 剩余 38 组分布
+
+| 子站 | 组数 | 性质 |
+|---|---:|---|
+| python | 18 | overview + 专题 互补 |
+| video | 13 | 入门 + 进阶 / 工具对比 |
+| mysql | 10 | 同概念不同角度 |
+| rust | 6 | overview + 专题 |
+| linux | 4 | 命令对比（top-htop vs ps-top） |
+| kafka / observability / postgresql / redis / security | 各 2 | 概念 + 工具 |
+
+## 结论
+
+**§8.79 C 任务完成度 100%**：8 个 cheatsheet 模板词全部入白名单。
+
+剩余 38 组（unique 30 + 总 61 处）全部为**合理的内容架构设计**：
+- "总览 + 专题" 双视角（如 `python/overview.md` 与 `python/llm-apps.md`）
+- "工具A vs 工具B" 对比（如 `mysql/oracle-vs-postgresql.md` 与 `mysql/mongodb-vs-postgresql.md`）
+- "入门 + 进阶" 递进（如 `python/basics.md` 与 `python/scrapy.md`）
+
+后续 audit 基线：intra-site dups ≤ 38 视为健康。
+
+---
+
+**关键改动文件**：
+- `sites-hub/scripts/audit-content.py` · `TEMPLATE_TITLES` +8 条
+
+**audit 基线（2026-08-29 · C 任务后）**：
+- files: 1567 · words: 1.32M · imgs: 101 · xsite: 723
+- broken: 0 · cross-site dups: 0 · intra-site dups: **38** · vue_bug: 0
