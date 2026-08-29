@@ -4,6 +4,27 @@
 
 理解"打开一个文件背后发生了什么"——这是掌握所有存储技术的起点。
 
+## 概念图
+
+<!-- mermaid-injected:do-not-edit -->
+
+```mermaid
+graph LR
+  inode[inode 元数据]
+  vfs[VFS 抽象层]
+  fd[文件描述符]
+  cache[Page Cache]
+  mount[挂载]
+  journal[日志]
+  path[路径解析]
+  inode --> vfs
+  vfs --> fd
+  fd --> cache
+  cache --> mount
+  mount --> journal
+  journal --> path
+```
+
 ## 章节目录
 
 | 节点 | 一句话 |

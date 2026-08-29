@@ -4,6 +4,21 @@
 
 求职导向的高频题、系统设计、对比表。
 
+## 概念图
+
+<!-- mermaid-injected:do-not-edit -->
+
+```mermaid
+graph LR
+  basic[基础题]
+  design[设计题]
+  case[场景题]
+  opt[优化题]
+  basic --> design
+  design --> case
+  case --> opt
+```
+
 ## 章节目录
 
 | 节点 | 一句话 |

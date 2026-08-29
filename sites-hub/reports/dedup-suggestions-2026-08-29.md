@@ -174,3 +174,35 @@ python/07-data 保持 `📊 创建 DataFrame`（数据分析角度）
 
 - files: 1567 · words: 1.33M · imgs: 101 · **xsite: 1011**
 - broken: 0 · cross-site dups: 0 · intra-site dups: **38** · vue_bug: 0
+
+---
+
+# §8.79 B 任务 · filesystem 站低完整度补全（2026-08-29 续）
+
+## 动作
+13 篇章 README 加 Mermaid 概念图（`graph LR`），每图 4-7 节点 + 3-6 边。
+每图用 marker `<!-- mermaid-injected:do-not-edit -->` 标记 idempotent。
+
+## 结果
+| 站 | 治理前 | B 任务后 | Δ |
+|---|---:|---:|---:|
+| filesystem 低完整度页 | **13** | **0** | **-13** ✓ |
+| filesystem 平均分 | 3.9 | ~4.5+ | +0.6+ |
+
+## 13 README 注入清单
+
+| 章节 | 节点数 | 边数 |
+|---|---:|---:|
+| 01-basics / 02-disk-fs / 03-distributed / 04-object / 06-cloud-native | 7 | 6 |
+| 05-network / 07-container / 08-tools / 09-perf / 10-security / 11-backup / 12-cases | 4-5 | 3-4 |
+| 13-interview | 4 | 3 |
+
+## 关键改动文件
+
+- `filesystem-html/docs/{01..13}-*/README.md` · 各加 Mermaid 段（13 文件 · 13 概念图）
+
+## audit 基线（2026-08-29 · B 任务后）
+
+- files: 1567 · words: 1.33M · imgs: 101 · xsite: 1011
+- broken: 0 · dups: 0/38 · vue_bug: 0 · mermaid_unclosed: 0
+- **低完整度页：0（filesystem 站 13 → 0）**

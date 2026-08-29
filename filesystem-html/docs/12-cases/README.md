@@ -4,6 +4,23 @@
 
 真实世界的大型存储架构演进。
 
+## 概念图
+
+<!-- mermaid-injected:do-not-edit -->
+
+```mermaid
+graph LR
+  meta[Meta HDFS]
+  snow[Snowflake]
+  s3[Netflix S3]
+  eos[CERN EOS]
+  jf[JuiceFS]
+  meta --> snow
+  snow --> s3
+  s3 --> eos
+  eos --> jf
+```
+
 ## 章节目录
 
 | 节点 | 一句话 |

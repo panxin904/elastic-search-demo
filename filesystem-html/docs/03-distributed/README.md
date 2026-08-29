@@ -4,6 +4,27 @@
 
 文件不再局限于单台机器——本章介绍跨节点的文件系统。
 
+## 概念图
+
+<!-- mermaid-injected:do-not-edit -->
+
+```mermaid
+graph LR
+  hdfs[HDFS]
+  cephfs[CephFS]
+  gluster[GlusterFS]
+  juicefs[JuiceFS]
+  moosefs[MooseFS]
+  lustre[Lustre]
+  compare[对比选型]
+  hdfs --> compare
+  cephfs --> compare
+  gluster --> compare
+  juicefs --> compare
+  moosefs --> compare
+  lustre --> compare
+```
+
 ## 章节目录
 
 | 节点 | 一句话 |

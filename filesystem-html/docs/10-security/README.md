@@ -4,6 +4,23 @@
 
 文件系统层面的访问控制、加密、审计。
 
+## 概念图
+
+<!-- mermaid-injected:do-not-edit -->
+
+```mermaid
+graph LR
+  perm[POSIX 权限]
+  xattr[扩展属性]
+  acl[ACL]
+  caps[Capabilities]
+  enc[加密]
+  perm --> acl
+  acl --> xattr
+  xattr --> caps
+  caps --> enc
+```
+
 ## 章节目录
 
 | 节点 | 一句话 |

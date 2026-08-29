@@ -4,6 +4,23 @@
 
 跨机器访问文件的标准协议。
 
+## 概念图
+
+<!-- mermaid-injected:do-not-edit -->
+
+```mermaid
+graph LR
+  nfs[NFS Unix]
+  smb[SMB Windows]
+  webdav[WebDAV]
+  ftp[FTP 系列]
+  rsync[rsync 增量]
+  nfs --> webdav
+  smb --> webdav
+  webdav --> ftp
+  ftp --> rsync
+```
+
 ## 章节目录
 
 | 节点 | 一句话 |

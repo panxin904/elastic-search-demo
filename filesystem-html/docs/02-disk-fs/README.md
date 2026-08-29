@@ -4,6 +4,27 @@
 
 单块磁盘上的文件系统——从 ext4 到 ZFS，每种 FS 都是一组权衡。
 
+## 概念图
+
+<!-- mermaid-injected:do-not-edit -->
+
+```mermaid
+graph LR
+  ext4[ext4 默认]
+  xfs[XFS 高性能]
+  btrfs[Btrfs COW]
+  zfs[ZFS 企业级]
+  ntfs[NTFS Windows]
+  apfs[APFS Apple]
+  compare[对比选型]
+  ext4 --> compare
+  xfs --> compare
+  btrfs --> compare
+  zfs --> compare
+  ntfs --> compare
+  apfs --> compare
+```
+
 ## 章节目录
 
 | 节点 | 一句话 |

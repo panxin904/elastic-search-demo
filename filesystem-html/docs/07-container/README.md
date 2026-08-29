@@ -4,6 +4,23 @@
 
 Docker 镜像背后——OverlayFS 与分层原理。
 
+## 概念图
+
+<!-- mermaid-injected:do-not-edit -->
+
+```mermaid
+graph LR
+  overlay[OverlayFS]
+  docker[Docker 分层]
+  ctrd[containerd]
+  buildkit[BuildKit]
+  driver[存储驱动]
+  overlay --> docker
+  docker --> ctrd
+  ctrd --> buildkit
+  buildkit --> driver
+```
+
 ## 章节目录
 
 | 节点 | 一句话 |

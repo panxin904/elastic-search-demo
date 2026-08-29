@@ -4,6 +4,27 @@
 
 Kubernetes 时代的存储抽象——CSI、PV/PVC、Operator。
 
+## 概念图
+
+<!-- mermaid-injected:do-not-edit -->
+
+```mermaid
+graph LR
+  csi[CSI 接口]
+  pvc[PV/PVC]
+  dyn[动态供给]
+  rook[Rook Ceph]
+  longhorn[Longhorn]
+  openebs[OpenEBS]
+  snap[快照克隆]
+  csi --> pvc
+  pvc --> dyn
+  dyn --> rook
+  rook --> longhorn
+  longhorn --> openebs
+  openebs --> snap
+```
+
 ## 章节目录
 
 | 节点 | 一句话 |

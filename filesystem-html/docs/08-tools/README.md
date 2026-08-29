@@ -4,6 +4,22 @@
 
 日常必备的文件操作、调试、监控工具。
 
+## 概念图
+
+<!-- mermaid-injected:do-not-edit -->
+
+```mermaid
+graph LR
+  du[du/df]
+  debugfs[debugfs]
+  strace[strace]
+  inotify[inotify]
+  lsof[lsof]
+  du --> lsof
+  debugfs --> strace
+  strace --> inotify
+```
+
 ## 章节目录
 
 | 节点 | 一句话 |

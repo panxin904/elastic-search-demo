@@ -4,6 +4,23 @@
 
 数据保护——从快照到异地容灾。
 
+## 概念图
+
+<!-- mermaid-injected:do-not-edit -->
+
+```mermaid
+graph LR
+  snap[快照]
+  321[3-2-1 原则]
+  dr[灾难恢复]
+  rsnap[rsnapshot]
+  borg[Borg]
+  snap --> 321
+  321 --> dr
+  dr --> rsnap
+  rsnap --> borg
+```
+
 ## 章节目录
 
 | 节点 | 一句话 |

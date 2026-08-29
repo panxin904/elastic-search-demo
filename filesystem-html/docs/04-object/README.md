@@ -4,6 +4,27 @@
 
 通过 HTTP API 访问的"桶+对象"模型——云时代的存储基石。
 
+## 概念图
+
+<!-- mermaid-injected:do-not-edit -->
+
+```mermaid
+graph LR
+  s3[S3 协议]
+  minio[MinIO]
+  oss[阿里 OSS]
+  cos[腾讯 COS]
+  ec[纠删码]
+  lc[生命周期]
+  cons[一致性]
+  s3 --> minio
+  s3 --> oss
+  s3 --> cos
+  minio --> ec
+  oss --> lc
+  cos --> cons
+```
+
 ## 章节目录
 
 | 节点 | 一句话 |

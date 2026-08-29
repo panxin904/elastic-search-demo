@@ -4,6 +4,23 @@
 
 让文件系统跑得更快的核心方法论。
 
+## 概念图
+
+<!-- mermaid-injected:do-not-edit -->
+
+```mermaid
+graph LR
+  method[方法论]
+  io[IO 调度]
+  read[readahead]
+  fsync[fsync]
+  dio[Direct I/O]
+  method --> io
+  io --> read
+  read --> fsync
+  fsync --> dio
+```
+
 ## 章节目录
 
 | 节点 | 一句话 |
