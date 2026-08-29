@@ -1,4 +1,5 @@
 ---
+
 date: 2026-08-15  # date-auto-injected
 layout: home
 
@@ -16,42 +17,6 @@ hero:
     - theme: alt
       text: 🧠 思维导图
       link: /mindmap
----
-
-<script setup>
-// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
-// 改为 script setup 形式。
-const painPoints = [
-      "HTML / CSS 基础不扎实，遇到复杂布局就懵？",
-      "React / Vue / Angular / Svelte 选哪个？",
-      "浏览器渲染原理、Event Loop 讲不清？",
-      "TypeScript 类型系统、泛型、条件类型卡壳？",
-      "Node 后端怎么写、怎么部署、怎么调优？"
-    ]
-const goals = [
-      "HTML / CSS / 浏览器渲染 / Event Loop 全链路打通",
-      "JS 核心 + TypeScript 类型系统深入",
-      "React Hooks + Vue 3 组合式 API + 选型矩阵",
-      "构建工具链（Vite / Webpack / Turbopack）",
-      "Node 后端（Express / Koa / NestJS / Fastify）"
-    ]
-const relatedSites = [
-      { site: "tools", path: "/json", label: "JSON 工具" },
-      { site: "network", path: "/01-fundamentals/tcp-ip", label: "TCP/IP 协议" },
-      { site: "system-design", path: "/01-theory/cap-theorem", label: "CAP 定理" },
-      { site: "ai", path: "/06-mcp/core", label: "MCP 协议" },
-      { site: "go", path: "/04-cloud-native/overview", label: "Go 云原生" }
-    ]
-</script>
-
-<ClientOnly>
-  <WhyThisGraph
-    :pain-points="painPoints"
-    :goals="goals"
-    :related-sites="relatedSites"
-    title="🎯 为什么写这个图谱？"
-  />
-</ClientOnly>
 
 features:
   - icon: 🌐
@@ -125,7 +90,44 @@ features:
     link: /14-tools/lint
     linkText: 看工程化 →
 
+
 ---
+<script setup>
+// WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
+// 改为 script setup 形式。
+const painPoints = [
+      "HTML / CSS 基础不扎实，遇到复杂布局就懵？",
+      "React / Vue / Angular / Svelte 选哪个？",
+      "浏览器渲染原理、Event Loop 讲不清？",
+      "TypeScript 类型系统、泛型、条件类型卡壳？",
+      "Node 后端怎么写、怎么部署、怎么调优？"
+    ]
+const goals = [
+      "HTML / CSS / 浏览器渲染 / Event Loop 全链路打通",
+      "JS 核心 + TypeScript 类型系统深入",
+      "React Hooks + Vue 3 组合式 API + 选型矩阵",
+      "构建工具链（Vite / Webpack / Turbopack）",
+      "Node 后端（Express / Koa / NestJS / Fastify）"
+    ]
+const relatedSites = [
+      { site: "tools", path: "/json", label: "JSON 工具" },
+      { site: "network", path: "/01-fundamentals/tcp-ip", label: "TCP/IP 协议" },
+      { site: "system-design", path: "/01-theory/cap-theorem", label: "CAP 定理" },
+      { site: "ai", path: "/06-mcp/core", label: "MCP 协议" },
+      { site: "go", path: "/04-cloud-native/overview", label: "Go 云原生" }
+    ]
+</script>
+
+<ClientOnly>
+  <WhyThisGraph
+    :pain-points="painPoints"
+    :goals="goals"
+    :related-sites="relatedSites"
+    title="🎯 为什么写这个图谱？"
+  />
+</ClientOnly>
+
+
 
 ## 🎯 为什么写这个知识图谱？
 

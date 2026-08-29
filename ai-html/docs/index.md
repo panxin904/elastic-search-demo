@@ -1,4 +1,5 @@
 ---
+
 date: 2026-08-15  # date-auto-injected
 layout: home
 
@@ -19,7 +20,6 @@ hero:
     - theme: alt
       text: 📋 命令速查
       link: /cheatsheet
----
 
 features:
   - icon: 🧠
@@ -93,7 +93,9 @@ features:
     link: /14-interview/questions
     linkText: 看面试 →
 
+
 ---
+
 
 <script setup>
 // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），

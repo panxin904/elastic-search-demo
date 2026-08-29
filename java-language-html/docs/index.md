@@ -1,4 +1,5 @@
 ---
+
 date: 2026-08-15  # date-auto-injected
 layout: home
 
@@ -19,16 +20,6 @@ hero:
     - theme: alt
       text: 📋 命令速查
       link: /cheatsheet
-
----
-
-::: tip 💡 关于本站定位
-本站是 **14 章速查手册合集**（不是系统化教程）：
-- 每篇 30-200 字 cheat sheet 风格（代码示例 + 关键参数）
-- 14 章覆盖基础语法 → JVM → 并发 → Spring → 微服务 → 面试
-- 详细讲解请配合各章 [Reference](#references) 链接的官方文档
-- 薄页豁免已配置在 `audit-content.py §8.55`，audit 不会误报
-:::
 
 features:
   - icon: 📐
@@ -101,7 +92,17 @@ features:
     details: 高频面试题 · 手写代码 · 学习路径
     link: /14-interview/questions
     linkText: 看面试 →
+
 ---
+::: tip 💡 关于本站定位
+本站是 **14 章速查手册合集**（不是系统化教程）：
+- 每篇 30-200 字 cheat sheet 风格（代码示例 + 关键参数）
+- 14 章覆盖基础语法 → JVM → 并发 → Spring → 微服务 → 面试
+- 详细讲解请配合各章 [Reference](#references) 链接的官方文档
+- 薄页豁免已配置在 `audit-content.py §8.55`，audit 不会误报
+:::
+
+
 
 <script setup>
 // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组），
