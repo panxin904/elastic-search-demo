@@ -150,7 +150,7 @@ export default withMermaid( defineConfig({
                                           { text: 'PACELC 扩展', link: '/01-theory/pacelc' },
                                           { text: 'FLP 不可能', link: '/01-theory/consensus-problem' },
                                           { text: '一致性级别谱', link: '/01-theory/consistency-model' },
-                                          { text: '共识问题', link: '/01-theory/consensus' }
+                                          { text: '共识问题', link: '/01-theory/consensus-problem' }
                                         ]},
                                         { text: '💾 分布式存储', items: [
                                           { text: '数据分片策略', link: '/02-storage/sharding' },

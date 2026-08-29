@@ -242,7 +242,7 @@ export default withMermaid( defineConfig({
                                                   items: [
                                                     { text: 'FUSE 用户态 FS', link: '/08-tools/fuse' },
                                                     { text: 'debugfs 调试工具', link: '/08-tools/debugfs' },
-                                                    { text: 'rsync 同步备份', link: '/08-tools/rsync' },
+                                                    { text: 'rsync 同步备份', link: '/05-network/rsync' },
                                                     { text: 'find / fd / ripgrep', link: '/08-tools/find-fd' },
                                                     { text: 'inotify / fanotify', link: '/08-tools/inotify' },
                                                     { text: 'du / df / ncdu', link: '/08-tools/du-df' },
