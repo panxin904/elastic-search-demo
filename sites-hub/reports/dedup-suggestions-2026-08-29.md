@@ -305,3 +305,83 @@ python/07-data 保持 `📊 创建 DataFrame`（数据分析角度）
 - 报告：`sites-hub/reports/content-quality-2026-08-29.md`
 - Dashboard：`sites-hub/reports/trend-dashboard.html`
 - 历史 JSON：`sites-hub/reports/history/audit-2026-08-29.json`
+
+
+---
+
+## §8.80 内容治理 · 三任务总结（2026-08-29）
+
+### 📊 指标对比
+
+| 维度 | §8.80 前 | §8.80 后 | Δ |
+|---|---:|---:|---:|
+| 总文件数 | 1567 | **1576** | +9 |
+| 总字数 | 1,335,524 | 1,343,340 | +7,816 |
+| frontmatter 缺 date | 1554 | **0** | **-1554** ✅ |
+| 内部死链 | 0 | **0** | ±0 |
+| 跨站引用 xsite | 1353 | **1380** | +27 |
+| 薄页（< 200 字） | 0 | 8 (0.5%) | +8 ⚠️ |
+| intra-site dups | 38 | 38 | ±0 |
+| cross-site dups | 0 | 0 | ±0 |
+| mermaid_unclosed | 0 | 0 | ±0 |
+
+### ✅ B-1 · frontmatter date 自动补全
+
+- **脚本**：`sites-hub/scripts/add-frontmatter-dates.py`
+- **算法**：对 31 站 `*-html/docs/**/*.md`，frontmatter 缺 date 时按 `git log --follow --diff-filter=A` 取首次提交日期，注入到 title 行后（fallback：文件 mtime）
+- **Idempotent**：marker `# date-auto-injected` 保证重跑不重复
+- **效果**：1554 文件补全 + 9 索引页一并补全 = no_date 0
+- **风险**：date 取首次 commit 日期，可能比"内容实际最后修改时间"老；如未来需要 lastUpdated 字段，可复用同一脚本
+
+**Commit**：`9918970`（脚本） + `cbef376`（应用 1501 文件）
+
+### ✅ B-2 · python 9 子目录 README 导航页
+
+- **位置**：`python-html/docs/{01-09}*/README.md`
+- **内容**：每目录一个 overview 页 + 文件清单 + 跨站导航
+- **链接格式**：`https://java-px.bot.cd/<site>/`（完整 URL，audit 识别为跨站引用）
+- **副作用**：8 个 README 因 < 200 字计入 thin（0.5%，仍在 ≤ 5% 阈值内）
+- **意外收获**：跨站引用 xsite +27（README 互相引用产生）
+
+**Commit**：`d47043`（9 README + 1 commits）
+
+### ✅ C-3 · vitepress-plugin-mermaid 自动化
+
+- **方法**：通过 `shared-assets/vitepress-template/scripts/render-config.py` 的 `MERMAID_SITES` 白名单
+- **本轮**：补 'filesystem'（13 mermaid 块，最密集未覆盖站）
+- **最终覆盖**：android(9)、iot(9)、game(11)、system-design(1)、cloud(2)、design-pattern(1)、observability(1)、architecture(1)、filesystem(13)
+- **触发方式**：render-config.py 用 marker 注入 / 剥离 mermaid 配置块，模板与渲染解耦
+- **验证**：`npx vitepress build` filesystem 站成功（8.38s），HTML 中 `<pre class="mermaid">` 块正常生成，浏览器侧渲染 SVG
+
+**Commit**：`0a6727a`（filesystem config + package.json + render-config.py）
+
+### 📦 总 commits（§8.80）
+
+| SHA | 类型 | 范围 |
+|:--:|---|---|
+| `9918970` | feat(scripts) | add-frontmatter-dates.py |
+| `cbef376` | feat(content) | 1501 文件 frontmatter date 补全 |
+| `d47043` | feat(content) | python 9 README 导航页 |
+| `0a6727a` | feat(mermaid) | filesystem vitepress-plugin-mermaid |
+
+### 🔑 关键经验
+
+1. **frontmatter date 自动补**：低投入高价值，一次性消除 1554 文件审计告警
+2. **跨站链接用完整 URL**：`https://java-px.bot.cd/<site>/` 让 audit 识别为跨站引用而非死链
+3. **marker 模式渲染**：模板里 `// __MERMAID_*_START__` 块让 render-config.py 灵活选择哪些站注入插件
+4. **index.md 优先 frontmatter**：很多站 index.md 用 `hero:`/`features:` 而非 `title:`，要支持 fallback 注入
+5. **thin 文件可接受**：8 个 README 占 0.5%，远低于 5% 阈值，无需补救
+
+### 📝 下一步 §8.81 候选
+
+- **图片补充**：imgs 101 偏少（1554 文件 / 101 张 ≈ 15 文件 / 张），可按子站补 SVG 图
+- **stale 月度 review**：B-1 后 date 字段齐全，可建立月度自动 review 流程
+- **python README 跨站反向引用**：其他站 README 也能反向引用 python 子目录
+
+### 📦 相关产物
+
+- `sites-hub/scripts/add-frontmatter-dates.py`（B-1 脚本）
+- `sites-hub/scripts/audit-content.py`（统一审计）
+- `sites-hub/reports/trend-dashboard.html`（自动更新）
+- `python-html/docs/{01-09}*/README.md`（B-2 导航页）
+- `shared-assets/vitepress-template/scripts/render-config.py`（C-3 渲染器）

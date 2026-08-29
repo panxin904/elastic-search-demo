@@ -1,12 +1,13 @@
 {
   "date": "2026-08-29",
   "source": "content-quality-2026-08-29.md",
-  "files": 1567,
-  "words": 1335524,
-  "thin": 0,
+  "files": 1576,
+  "words": 1343340,
+  "thin": 8,
   "imgs": 101,
-  "xsite": 1353,
+  "xsite": 1380,
   "broken": 0,
   "dups_cross": 0,
-  "dups_intra": 38
+  "dups_intra": 38,
+  "low_completeness": 9
 }
