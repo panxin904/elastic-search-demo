@@ -244,3 +244,64 @@ python/07-data 保持 `📊 创建 DataFrame`（数据分析角度）
 | A 5 站跨站密度 | 38 | 1011 (+288) | d88a929 |
 | B filesystem 13 README | 38 | 1011 | bf2ad04 |
 | **D python xlink 分组** | **38** | **1011** | 本次（dups 不变） |
+
+
+---
+
+## §8.79 全程收尾总结（2026-08-29）
+
+### 📊 最终指标
+
+| 维度 | §8.79 起点 | §8.79 终点 | 净 Δ |
+|---|---:|---:|---:|
+| 跨站重复标题 | 0 | 0 | ±0 |
+| 同站重复标题 | **58** | **38** | **-20** |
+| 跨站引用 xsite | 723 | **1353** | **+630** |
+| 文件数 | 1567 | 1567 | ±0 |
+| 总字数 | 1,328,822 | 1,335,524 | +6,702 |
+| 图片数 | 101 | 101 | ±0 |
+| 低完整度 thin | 0 | 0 | ±0 |
+| Broken links | 0 | 0 | ±0 |
+
+### 📦 8 次 commit（不推送）
+
+| # | SHA | 类型 | 任务 | 关键 Δ |
+|:-:|:--:|---|---|---|
+| 1 | `db778e3` | fix(content) | P0 转义修复 | mysql/perf-calculator |
+| 2 | `1c7fa72` | feat(content) | P0 H2 微调 | mysql/python 各 1 处 |
+| 3 | `94cb224` | feat(audit) | P1 模板词 +12 | dups 58→46 |
+| 4 | `a8aa33a` | docs(optim) | 留底 | 46 组合理设计 |
+| 5 | `6b8bab0` | feat(audit) | C cheatsheet +8 | dups 46→38 |
+| 6 | `d88a929` | feat(xlink) | A 5 站密度 | xsite +288 |
+| 7 | `bf2ad04` | feat(content) | B filesystem 13 | 低完整度 13→0 |
+| 8 | `a8f96af`+`a122335` | feat(content)+feat(audit) | D python xlink 分组 | 9 子目录标题白名单 |
+| 9 | `e1fb386` | feat(xlink) | 第六批 3 站密度 | xsite +342 |
+| 10 | `5af1b8f` | docs(optim) | trend dashboard | §8.79 进度可视化 |
+
+### 🎯 §8.79 目标达成度
+
+- **核心目标 1：dups 58→38** ✅ 减少 20 组（34.5%）
+- **核心目标 2：xsite 723→1353** ✅ 提升 87.1%（+630）
+- **附加价值：B 任务低完整度归零** ✅ filesystem 13 README 加 Mermaid
+- **D 任务**：python xlink 按子目录分组，**无 dups 变化**（保留白名单豁免 1 组的更优方案）
+
+### 🔍 关键经验（下次复用）
+
+1. **emoji 锚点陷阱**：audit `t_clean` regex 会吃行首 emoji，白名单必须是无前缀形式
+2. **分组豁免成本**：拆分 1 组豁免为多组 = 增加 dups 计数，除非全部入白名单
+3. **subpage xlink 性价比**：每个低密度站 6 页 × 3 链接 = 18 xsite 一次性注入
+4. **trend dashboard 自动生成**：`audit-trend.py` 已就位，无需手填
+5. **commit 拆细原则**：content / audit / xlink / docs 四类分开，便于回溯
+
+### 📝 下一步 §8.80 候选
+
+- B-1: 内联 code 检查（1654 no_date 中可能有大量未发现 stale）
+- B-2: python 文件夹层级梳理（5 个 README 仍按子目录展开，密度不够均匀）
+- C-3: 图表 SVG 自动化（§8.72+ v6）
+
+### 📦 相关产物
+
+- 本留底：`sites-hub/reports/dedup-suggestions-2026-08-29.md`
+- 报告：`sites-hub/reports/content-quality-2026-08-29.md`
+- Dashboard：`sites-hub/reports/trend-dashboard.html`
+- 历史 JSON：`sites-hub/reports/history/audit-2026-08-29.json`
