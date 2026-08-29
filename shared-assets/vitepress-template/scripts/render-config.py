@@ -81,7 +81,8 @@ SITE_NAMES = {
 # §8.69：需要 mermaid 渲染的站集合（其他站不注入 plugin，避免 dead config）
 # 来源：docs/ 内 ```mermaid 块数 ≥ 1 的站
 MERMAID_SITES = {'android', 'iot', 'game', 'system-design', 'cloud',
-                   'design-pattern', 'observability', 'architecture'}  # §8.69：补 3 站（加 mermaid 图）
+                   'design-pattern', 'observability', 'architecture',
+                   'filesystem'}  # §8.80 C-3：filesystem 13 mermaid 文件（之前最高优先级未覆盖）
 
 
 
