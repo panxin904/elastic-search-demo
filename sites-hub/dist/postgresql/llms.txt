@@ -1,8 +1,8 @@
 # postgresql 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 53 个文档页 · 257,704 字
-> 生成时间：2026-08-25T20:49:52
+> 53 个文档页 · 273,563 字
+> 生成时间：2026-08-27T21:42:04
 
 ## [进程架构](https://java-px.bot.cd/postgresql/01-basics/architecture)
 > PostgreSQL 进程模型与内存结构

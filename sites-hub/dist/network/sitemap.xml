@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://java-px.bot.cd/network/01-basics/encapsulation</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/01-basics/metrics</loc>
@@ -10,11 +10,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/01-basics/osi</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/01-basics/tcp-ip</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/02-physical/media</loc>
@@ -54,7 +54,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/04-network/icmp</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/04-network/ip-address</loc>
@@ -62,7 +62,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/04-network/ipv6</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/04-network/nat</loc>
@@ -78,7 +78,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/05-transport/socket</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/05-transport/tcp-congestion</loc>
@@ -106,11 +106,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/06-application/cdn</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/06-application/dns</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/06-application/http</loc>
@@ -122,7 +122,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/06-application/https</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/06-application/restful</loc>
@@ -130,15 +130,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/06-application/rpc</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/06-application/websocket</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/07-security/encryption</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/07-security/firewall-vpn</loc>
@@ -150,7 +150,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/07-security/pki-tls</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/07-security/siem-waf</loc>
@@ -170,7 +170,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/08-wireless/bluetooth</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/08-wireless/iot</loc>
@@ -186,7 +186,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/09-cloud-network/sdn-service-mesh</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/09-cloud-network/slb</loc>
@@ -202,15 +202,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/10-tools/performance-test</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/10-tools/tcpdump-curl</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/10-tools/troubleshooting</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/10-tools/wireshark</loc>
@@ -226,23 +226,23 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/11-cases/https-https</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/11-cases/microservice-network</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/12-interview-practice/cases</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/12-interview-practice/comparison</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/12-interview-practice/questions</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/cheatsheet</loc>
@@ -254,7 +254,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/mindmap</loc>
@@ -262,6 +262,6 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/path</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
 </urlset>

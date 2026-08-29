@@ -1,8 +1,8 @@
 # kafka 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 73 个文档页 · 573,961 字
-> 生成时间：2026-08-25T20:49:52
+> 73 个文档页 · 590,163 字
+> 生成时间：2026-08-27T21:42:04
 
 ## [核心概念](https://java-px.bot.cd/kafka/01-basics/concepts)
 > > Kafka 的术语多但不难。理解 **Broker / Topic / Partition / Producer / Consumer / Consumer Group / Offset** 这 7 个核心概念就够了。 | 概念 | 数量 | 作用 | 比喻 | |------|------|------|------| | Cluster | 1 个 | 整体服务 | 公司 | | Brok
@@ -11,7 +11,7 @@
 > > 5 分钟搭建一个本地 Kafka 集群。本章涵盖 JDK 安装、Kafka 下载、单机/集群模式、KRaft 配置。 **安装部署核心要点**： - ✅ 单机：KRaft 模式 + 1 个节点 - ✅ 集群：3 节点 KRaft + 2 副本 - ✅ Docker：docker-compose 快速启动 - ✅ 生产：3 节点起步 + 多副本 + 监控 - ⚠️ Kafka 3.x 用 KRa
 
 ## [Kafka 是什么](https://java-px.bot.cd/kafka/01-basics/intro)
-> > **Apache Kafka** 最初是由 LinkedIn 开发，后捐赠给 Apache 基金会的**分布式发布订阅消息系统**。现已成为大数据、实时计算、微服务领域的事实标准。 | 维度 | Kafka 的特点 | |------|-------------| | **吞吐** | 单机 100w+ msg/s（顺序写盘 + 零拷贝） | | **持久化** | 消息持久化到磁盘，可保留
+> ![Kafka 集群拓扑 — Broker / Partition / Consumer Group](/kafka-topology.svg) > **Apache Kafka** 最初是由 LinkedIn 开发，后捐赠给 Apache 基金会的**分布式发布订阅消息系统**。现已成为大数据、实时计算、微服务领域的事实标准。 | 维度 | Kafka 的特点 | |------|-------
 
 ## [消息模型](https://java-px.bot.cd/kafka/01-basics/message-model)
 > > Kafka 的消息模型结合了**点对点**和**发布订阅**两种模式。本章对比主流消息模型，帮助理解 Kafka 的设计哲学。 > Kafka 通过 **Consumer Group** 巧妙地同时支持两种模型。 | 维度 | Kafka | RabbitMQ | RocketMQ | ActiveMQ | |------|-------|----------|----------|-----

@@ -6,13 +6,132 @@
     <atom:link href="https://java-px.bot.cd/linux/feed.xml" rel="self" type="application/rss+xml" />
     <description>linux 知识图谱（71 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 21:42:04 -0000</lastBuildDate>
+    <item>
+      <title>信号 (kill)</title>
+      <link>https://java-px.bot.cd/linux/04-process/signals</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/linux/04-process/signals</guid>
+      <description>&gt; Linux 进程间通讯靠**信号**。 | 信号 | 数字 | 行为 | 是否可捕获 | |------|------|------|-----------| | `SIGHUP` | 1 | 终端断开 / 重新加载配置 | ✅ | | `SIGINT` | 2 | Ctrl+C 中断 | ✅ | | `SIGQUIT` | 3 | Ctrl+\ 退出 + core | ✅ | | `SIGK</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
+    </item>
+    <item>
+      <title>内核模块</title>
+      <link>https://java-px.bot.cd/linux/14-kernel/modules</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/linux/14-kernel/modules</guid>
+      <description>&gt; Linux 内核按需加载 / 卸载的能力（LKM = Loadable Kernel Module）。 第一列：模块名 第二列：占内存大小 第三列：使用计数 + 谁在用 驱动源码在**内核升级时自动重编译**： | | 模块（默认） | 编译进内核（CONFIG_Y=y） | |--|------------|------------------------| | 灵活性 | 高，可动态加 |</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
+    </item>
+    <item>
+      <title>sysctl 调参</title>
+      <link>https://java-px.bot.cd/linux/14-kernel/sysctl</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/linux/14-kernel/sysctl</guid>
+      <description>&gt; 修改 `/proc/sys/` 下的内核参数，**运行时生效**，无需重启。 - [GRUB 引导](/14-kernel/grub) - [initramfs](/14-kernel/initramfs) - [内核模块](/14-kernel/modules) &lt;!-- auto-enrich:do-not-edit --&gt; | 参数 | 说明 | 默认值 | | --- | --- |</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>top / htop</title>
+      <link>https://java-px.bot.cd/linux/10-perf/top-htop</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/linux/10-perf/top-htop</guid>
+      <description>&gt; 看 CPU / 内存 / 负载。Linux 性能排查的起点。 - 单核 CPU：load &lt; 1 健康，&gt; 1 有任务排队 - N 核 CPU：load &lt; N 健康 - &gt; 5min 持续高 = 真实瓶颈 - load 高但 CPU idle 高 → IO 瓶颈 - `zombie` &gt; 0 → 父进程没 wait 子进程（杀父进程） | 字段 | 含义 | |------|------|</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>sshd_config 加固</title>
+      <link>https://java-px.bot.cd/linux/13-security/sshd-config</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/linux/13-security/sshd-config</guid>
+      <description>&gt; SSH 是云时代服务器对外最常见的服务。配错 = 全网可登录 root。 | 项 | 推荐值 | 默认 | 备注 | |----|--------|------|------| | `PermitRootLogin` | `no` | `prohibit-password` | 禁 root 直登 | | `PasswordAuthentication` | `no` | `yes` | 强制</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>lynis 合规检查</title>
+      <link>https://java-px.bot.cd/linux/13-security/lynis</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/linux/13-security/lynis</guid>
+      <description>&gt; 开源安全审计工具。给出"哪些项不符合 CIS / 等保 / GDPR 等基线"。 或最新版（GitHub）： 输出在 `/var/log/lynis.log` 和 `/var/log/lynis-report.dat`。 最后是 **Hardening index**（硬化指数）。 | | Warnings | Suggestions | |--|----------|------------</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>auditd 审计</title>
+      <link>https://java-px.bot.cd/linux/13-security/auditd</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/linux/13-security/auditd</guid>
+      <description>&gt; 内核级审计：谁在何时对哪个文件做了什么。**合规、等保、追溯**必备。 规则在 `/etc/audit/rules.d/`（按字典序加载，数字越大越后）。 | 字段 | 含义 | |------|------| | `type=` | SYSCALL / PATH / CONFIG_CHANGE / USER_AUTH … | | `msg=audit(...)` | 时间戳 + 序列号 |</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>Unit 文件</title>
+      <link>https://java-px.bot.cd/linux/12-systemd/unit</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/linux/12-systemd/unit</guid>
+      <description>&gt; Unit 是 systemd 管理的对象。配置即声明（不写过程）。 同名 Unit 优先级：`/etc &gt; /run &gt; /usr/lib`。 | 类型 | 后缀 | 用途 | |------|------|------| | Service | `.service` | 后台服务 | | Socket | `.socket` | socket 激活 | | Target | `.target</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>perf / strace</title>
+      <link>https://java-px.bot.cd/linux/10-perf/perf-strace</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/linux/10-perf/perf-strace</guid>
+      <description>&gt; 性能剖析（perf）+ 系统调用跟踪（strace）。**深入**层工具。 格式：`syscall名(参数...) = 返回值` | 字段 | 含义 | |------|------| | `task-clock` | 实际使用 CPU 时间 | | `context-switches` | 上下文切换（多 = 线程/进程切换频繁） | | `cpu-migrations` | 进程在不同 C</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>initramfs</title>
+      <link>https://java-px.bot.cd/linux/14-kernel/initramfs</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/linux/14-kernel/initramfs</guid>
+      <description>&gt; 内核启动到挂载真实根目录之间的"小"Linux 运行环境。 **initramfs** = 把驱动 / 必要工具 / 启动脚本打包成 cpio 镜像，内核启动时**先解压到 tmpfs**运行，挂载真根后再 chroot 进去。 如果根分区在 LVM 上，initramfs **必须**包含 lvm 模块： 旧机器 initramfs 不带新驱动 → 启动不了： - 升级内核时 initram</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>bash 基础语法</title>
+      <link>https://java-px.bot.cd/linux/11-shell/bash-syntax</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/linux/11-shell/bash-syntax</guid>
+      <description>&gt; 写 shell 脚本的第一步。 - [变量与参数](/11-shell/variables) - [数组与字符串](/11-shell/arrays) - [函数与脚本组织](/11-shell/functions) - [调试与陷阱](/11-shell/debug) &lt;!-- auto-enrich:do-not-edit --&gt; | 参数 | 说明 | 默认值 | | --- | ---</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>数组与字符串</title>
+      <link>https://java-px.bot.cd/linux/11-shell/arrays</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/linux/11-shell/arrays</guid>
+      <description>&gt; shell 的字符串处理比 Python 弱，但日常够用。 - [bash 基础语法](/11-shell/bash-syntax) - [变量与参数](/11-shell/variables) - [函数与脚本组织](/11-shell/functions) - [调试与陷阱](/11-shell/debug) &lt;!-- auto-enrich:do-not-edit --&gt; | 参数 |</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>swap 交换分区</title>
+      <link>https://java-px.bot.cd/linux/09-storage/swap</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/linux/09-storage/swap</guid>
+      <description>&gt; Linux "虚拟内存"：把磁盘当内存用。**慢但救命**。 内存不够时，kernel 把不活跃的内存页换到 swap（磁盘）上。 何时用 swap： - 内存不足（OOM 杀手介入前的缓冲） - 休眠（hibernate）需要写入 swap - 大内存但程序有小 bug 内存泄漏 老经验（2010s）： 现代（2020s+）： - 服务器 **不需要 swap**（足够内存 + OOM ki</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>SSH 隧道 / 代理</title>
+      <link>https://java-px.bot.cd/linux/08-firewall-ssh/ssh-tunnel</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/linux/08-firewall-ssh/ssh-tunnel</guid>
+      <description>&gt; SSH 不只是"登录"——还能穿透防火墙、做端口转发、代理上网。 把远端服务"拉"到本地访问。 把本地服务"推"到远端。 把 SSH 当作 SOCKS 5 代理，整个流量走 SSH 隧道。 让 SSH 通过另一个代理连接。 服务器上保持 SSH 连接： `-N` 不开远程 shell（仅做转发）。 - [OpenSSH 配置](/08-firewall-ssh/openssh) - [ssh-</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>OpenSSH 配置</title>
+      <link>https://java-px.bot.cd/linux/08-firewall-ssh/openssh</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/linux/08-firewall-ssh/openssh</guid>
+      <description>&gt; sshd 是 Linux 服务器对外最重要的服务。配置不当 = 全网可登录 root。 建议改成非 22（减少自动化扫描），但用非标端口 ≠ 安全，只是"躲"。 权限必须严格： 会生成： - `~/.ssh/id_ed25519` (私钥，**永不外传**) - `~/.ssh/id_ed25519.pub` (公钥，可分享) ⚠️ **先测**：`PasswordAuthentication</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>chown / chgrp</title>
+      <link>https://java-px.bot.cd/linux/05-user/chown</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/linux/05-user/chown</guid>
+      <description>&gt; 改属主 / 属组。chmod 改的是"谁能做什么"，chown 改的是"文件属于谁"。 `chown :group file` 等价 `chgrp group file`。 - [chmod 权限](/05-user/chmod) - [用户 / 用户组](/05-user/users-groups) - [sudo 提权](/05-user/sudo) &lt;!-- auto-enrich:do</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>sort / uniq</title>
+      <link>https://java-px.bot.cd/linux/03-text/sort-uniq</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/linux/03-text/sort-uniq</guid>
+      <description>&gt; 排序与去重，看似简单，组合起来是日志分析的利器。 uniq **只能去重相邻行**，所以先 sort。 - [grep](/03-text/grep) - [awk](/03-text/awk) - [xargs / find 配合](/03-text/xargs) &lt;!-- auto-enrich:do-not-edit --&gt; | 参数 | 说明 | 默认值 | | --- | --- |</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
     <item>
       <title>linux 知识图谱</title>
       <link>https://java-px.bot.cd/linux/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/linux/</guid>
       <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "常用命令（ls / find / grep / awk）记不牢？", "Shell 脚本（bash / zsh）写不出来？", "systemd / 服务管</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>调试与陷阱</title>
@@ -22,53 +141,11 @@
       <pubDate>Sat, 15 Aug 2026 18:23:19 -0000</pubDate>
     </item>
     <item>
-      <title>sysctl 调参</title>
-      <link>https://java-px.bot.cd/linux/14-kernel/sysctl</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/linux/14-kernel/sysctl</guid>
-      <description>&gt; 修改 `/proc/sys/` 下的内核参数，**运行时生效**，无需重启。 - [GRUB 引导](/14-kernel/grub) - [initramfs](/14-kernel/initramfs) - [内核模块](/14-kernel/modules)</description>
-      <pubDate>Sat, 25 Jul 2026 20:52:14 -0000</pubDate>
-    </item>
-    <item>
-      <title>内核模块</title>
-      <link>https://java-px.bot.cd/linux/14-kernel/modules</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/linux/14-kernel/modules</guid>
-      <description>&gt; Linux 内核按需加载 / 卸载的能力（LKM = Loadable Kernel Module）。 第一列：模块名 第二列：占内存大小 第三列：使用计数 + 谁在用 驱动源码在**内核升级时自动重编译**： | | 模块（默认） | 编译进内核（CONFIG_Y=y） | |--|------------|------------------------| | 灵活性 | 高，可动态加 |</description>
-      <pubDate>Sat, 25 Jul 2026 20:51:44 -0000</pubDate>
-    </item>
-    <item>
-      <title>initramfs</title>
-      <link>https://java-px.bot.cd/linux/14-kernel/initramfs</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/linux/14-kernel/initramfs</guid>
-      <description>&gt; 内核启动到挂载真实根目录之间的"小"Linux 运行环境。 **initramfs** = 把驱动 / 必要工具 / 启动脚本打包成 cpio 镜像，内核启动时**先解压到 tmpfs**运行，挂载真根后再 chroot 进去。 如果根分区在 LVM 上，initramfs **必须**包含 lvm 模块： 旧机器 initramfs 不带新驱动 → 启动不了： - 升级内核时 initram</description>
-      <pubDate>Sat, 25 Jul 2026 20:51:19 -0000</pubDate>
-    </item>
-    <item>
       <title>GRUB 引导</title>
       <link>https://java-px.bot.cd/linux/14-kernel/grub</link>
       <guid isPermaLink="true">https://java-px.bot.cd/linux/14-kernel/grub</guid>
       <description>&gt; GRUB = **GR**and **U**nified **B**ootloader。Linux 开机第一阶段。 &gt; 配置**不要直接编辑** `/boot/grub/grub.cfg`，改 `/etc/default/grub` + `/etc/grub.d/` 然后 `update-grub`。 启动时按 `e` 编辑菜单条目。在 `linux` 行末尾加参数。 | 参数 | 作用 |</description>
       <pubDate>Sat, 25 Jul 2026 20:50:53 -0000</pubDate>
-    </item>
-    <item>
-      <title>lynis 合规检查</title>
-      <link>https://java-px.bot.cd/linux/13-security/lynis</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/linux/13-security/lynis</guid>
-      <description>&gt; 开源安全审计工具。给出"哪些项不符合 CIS / 等保 / GDPR 等基线"。 或最新版（GitHub）： 输出在 `/var/log/lynis.log` 和 `/var/log/lynis-report.dat`。 最后是 **Hardening index**（硬化指数）。 | | Warnings | Suggestions | |--|----------|------------</description>
-      <pubDate>Sat, 25 Jul 2026 20:50:27 -0000</pubDate>
-    </item>
-    <item>
-      <title>auditd 审计</title>
-      <link>https://java-px.bot.cd/linux/13-security/auditd</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/linux/13-security/auditd</guid>
-      <description>&gt; 内核级审计：谁在何时对哪个文件做了什么。**合规、等保、追溯**必备。 规则在 `/etc/audit/rules.d/`（按字典序加载，数字越大越后）。 | 字段 | 含义 | |------|------| | `type=` | SYSCALL / PATH / CONFIG_CHANGE / USER_AUTH … | | `msg=audit(...)` | 时间戳 + 序列号 |</description>
-      <pubDate>Sat, 25 Jul 2026 20:49:57 -0000</pubDate>
-    </item>
-    <item>
-      <title>sshd_config 加固</title>
-      <link>https://java-px.bot.cd/linux/13-security/sshd-config</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/linux/13-security/sshd-config</guid>
-      <description>&gt; SSH 是云时代服务器对外最常见的服务。配错 = 全网可登录 root。 | 项 | 推荐值 | 默认 | 备注 | |----|--------|------|------| | `PermitRootLogin` | `no` | `prohibit-password` | 禁 root 直登 | | `PasswordAuthentication` | `no` | `yes` | 强制</description>
-      <pubDate>Sat, 25 Jul 2026 20:49:27 -0000</pubDate>
     </item>
     <item>
       <title>AppArmor</title>
@@ -99,13 +176,6 @@
       <pubDate>Sat, 25 Jul 2026 11:59:55 -0000</pubDate>
     </item>
     <item>
-      <title>Unit 文件</title>
-      <link>https://java-px.bot.cd/linux/12-systemd/unit</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/linux/12-systemd/unit</guid>
-      <description>&gt; Unit 是 systemd 管理的对象。配置即声明（不写过程）。 同名 Unit 优先级：`/etc &gt; /run &gt; /usr/lib`。 | 类型 | 后缀 | 用途 | |------|------|------| | Service | `.service` | 后台服务 | | Socket | `.socket` | socket 激活 | | Target | `.target</description>
-      <pubDate>Sat, 25 Jul 2026 11:59:29 -0000</pubDate>
-    </item>
-    <item>
       <title>systemctl 命令</title>
       <link>https://java-px.bot.cd/linux/12-systemd/systemctl</link>
       <guid isPermaLink="true">https://java-px.bot.cd/linux/12-systemd/systemctl</guid>
@@ -120,32 +190,11 @@
       <pubDate>Sat, 25 Jul 2026 11:57:57 -0000</pubDate>
     </item>
     <item>
-      <title>数组与字符串</title>
-      <link>https://java-px.bot.cd/linux/11-shell/arrays</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/linux/11-shell/arrays</guid>
-      <description>&gt; shell 的字符串处理比 Python 弱，但日常够用。 - [bash 基础语法](/11-shell/bash-syntax) - [变量与参数](/11-shell/variables) - [函数与脚本组织](/11-shell/functions) - [调试与陷阱](/11-shell/debug)</description>
-      <pubDate>Sat, 25 Jul 2026 11:57:27 -0000</pubDate>
-    </item>
-    <item>
       <title>变量与参数</title>
       <link>https://java-px.bot.cd/linux/11-shell/variables</link>
       <guid isPermaLink="true">https://java-px.bot.cd/linux/11-shell/variables</guid>
       <description>&gt; 脚本接收外界信息 + 在内部传递数据的核心。 | 变量 | 含义 | |------|------| | `$0` | 脚本名 | | `$1` ... `$9` | 位置参数 | | `${10}` | 第 10 个参数（要花括号） | | `$#` | 参数个数 | | `$@` | 所有参数（推荐） | | `$*` | 所有参数（合并为字符串） | | `$?` | 上一条命令退出码（</description>
       <pubDate>Sat, 25 Jul 2026 11:56:57 -0000</pubDate>
-    </item>
-    <item>
-      <title>bash 基础语法</title>
-      <link>https://java-px.bot.cd/linux/11-shell/bash-syntax</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/linux/11-shell/bash-syntax</guid>
-      <description>&gt; 写 shell 脚本的第一步。 - [变量与参数](/11-shell/variables) - [数组与字符串](/11-shell/arrays) - [函数与脚本组织](/11-shell/functions) - [调试与陷阱](/11-shell/debug)</description>
-      <pubDate>Sat, 25 Jul 2026 11:56:30 -0000</pubDate>
-    </item>
-    <item>
-      <title>perf / strace</title>
-      <link>https://java-px.bot.cd/linux/10-perf/perf-strace</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/linux/10-perf/perf-strace</guid>
-      <description>&gt; 性能剖析（perf）+ 系统调用跟踪（strace）。**深入**层工具。 格式：`syscall名(参数...) = 返回值` | 字段 | 含义 | |------|------| | `task-clock` | 实际使用 CPU 时间 | | `context-switches` | 上下文切换（多 = 线程/进程切换频繁） | | `cpu-migrations` | 进程在不同 C</description>
-      <pubDate>Sat, 25 Jul 2026 11:55:55 -0000</pubDate>
     </item>
     <item>
       <title>sar 持续监控</title>
@@ -167,20 +216,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/linux/10-perf/vmstat</guid>
       <description>&gt; 计数器式的性能工具：每秒打一行，便于看趋势。 | 列 | 含义 | 警告 | |----|------|------| | `r` | 等待运行的进程数 | &gt; CPU 核心数 → 满载 | | `b` | 不可中断睡眠（IO） | &gt; 0 → IO 瓶颈 | | 列 | 含义 | |----|------| | `swpd` | swap 使用 | | `free` | 完全空闲内存 | |</description>
       <pubDate>Sat, 25 Jul 2026 11:54:25 -0000</pubDate>
-    </item>
-    <item>
-      <title>top / htop</title>
-      <link>https://java-px.bot.cd/linux/10-perf/top-htop</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/linux/10-perf/top-htop</guid>
-      <description>&gt; 看 CPU / 内存 / 负载。Linux 性能排查的起点。 - 单核 CPU：load &lt; 1 健康，&gt; 1 有任务排队 - N 核 CPU：load &lt; N 健康 - &gt; 5min 持续高 = 真实瓶颈 - load 高但 CPU idle 高 → IO 瓶颈 - `zombie` &gt; 0 → 父进程没 wait 子进程（杀父进程） | 字段 | 含义 | |------|------|</description>
-      <pubDate>Sat, 25 Jul 2026 11:53:51 -0000</pubDate>
-    </item>
-    <item>
-      <title>swap 交换分区</title>
-      <link>https://java-px.bot.cd/linux/09-storage/swap</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/linux/09-storage/swap</guid>
-      <description>&gt; Linux "虚拟内存"：把磁盘当内存用。**慢但救命**。 内存不够时，kernel 把不活跃的内存页换到 swap（磁盘）上。 何时用 swap： - 内存不足（OOM 杀手介入前的缓冲） - 休眠（hibernate）需要写入 swap - 大内存但程序有小 bug 内存泄漏 老经验（2010s）： 现代（2020s+）： - 服务器 **不需要 swap**（足够内存 + OOM ki</description>
-      <pubDate>Sat, 25 Jul 2026 11:53:19 -0000</pubDate>
     </item>
     <item>
       <title>ext4 / xfs / btrfs</title>
@@ -211,25 +246,11 @@
       <pubDate>Sat, 25 Jul 2026 11:51:04 -0000</pubDate>
     </item>
     <item>
-      <title>SSH 隧道 / 代理</title>
-      <link>https://java-px.bot.cd/linux/08-firewall-ssh/ssh-tunnel</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/linux/08-firewall-ssh/ssh-tunnel</guid>
-      <description>&gt; SSH 不只是"登录"——还能穿透防火墙、做端口转发、代理上网。 把远端服务"拉"到本地访问。 把本地服务"推"到远端。 把 SSH 当作 SOCKS 5 代理，整个流量走 SSH 隧道。 让 SSH 通过另一个代理连接。 服务器上保持 SSH 连接： `-N` 不开远程 shell（仅做转发）。 - [OpenSSH 配置](/08-firewall-ssh/openssh) - [ssh-</description>
-      <pubDate>Sat, 25 Jul 2026 11:50:22 -0000</pubDate>
-    </item>
-    <item>
       <title>ssh-keygen / ssh-copy-id</title>
       <link>https://java-px.bot.cd/linux/08-firewall-ssh/ssh-keys</link>
       <guid isPermaLink="true">https://java-px.bot.cd/linux/08-firewall-ssh/ssh-keys</guid>
       <description>&gt; 公私钥配对，免密码登录更安全。 | | ed25519 | RSA-4096 | ECDSA-P256 | |--|---------|----------|-------------| | 长度 | 256-bit | 4096-bit | 256-bit | | 安全 | ✅ 强 | ✅ 强 | ⚠ 某些实现被怀疑 NSA 留后门 | | 速度 | 极快 | 慢 | 快 | | 兼容 |</description>
       <pubDate>Sat, 25 Jul 2026 11:49:54 -0000</pubDate>
-    </item>
-    <item>
-      <title>OpenSSH 配置</title>
-      <link>https://java-px.bot.cd/linux/08-firewall-ssh/openssh</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/linux/08-firewall-ssh/openssh</guid>
-      <description>&gt; sshd 是 Linux 服务器对外最重要的服务。配置不当 = 全网可登录 root。 建议改成非 22（减少自动化扫描），但用非标端口 ≠ 安全，只是"躲"。 权限必须严格： 会生成： - `~/.ssh/id_ed25519` (私钥，**永不外传**) - `~/.ssh/id_ed25519.pub` (公钥，可分享) ⚠️ **先测**：`PasswordAuthentication</description>
-      <pubDate>Sat, 25 Jul 2026 11:49:23 -0000</pubDate>
     </item>
     <item>
       <title>ufw / firewalld</title>
@@ -323,13 +344,6 @@
       <pubDate>Sat, 25 Jul 2026 11:43:30 -0000</pubDate>
     </item>
     <item>
-      <title>chown / chgrp</title>
-      <link>https://java-px.bot.cd/linux/05-user/chown</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/linux/05-user/chown</guid>
-      <description>&gt; 改属主 / 属组。chmod 改的是"谁能做什么"，chown 改的是"文件属于谁"。 `chown :group file` 等价 `chgrp group file`。 - [chmod 权限](/05-user/chmod) - [用户 / 用户组](/05-user/users-groups) - [sudo 提权](/05-user/sudo)</description>
-      <pubDate>Sat, 25 Jul 2026 11:43:03 -0000</pubDate>
-    </item>
-    <item>
       <title>chmod 权限</title>
       <link>https://java-px.bot.cd/linux/05-user/chmod</link>
       <guid isPermaLink="true">https://java-px.bot.cd/linux/05-user/chmod</guid>
@@ -365,13 +379,6 @@
       <pubDate>Sat, 25 Jul 2026 11:41:07 -0000</pubDate>
     </item>
     <item>
-      <title>信号 (kill)</title>
-      <link>https://java-px.bot.cd/linux/04-process/signals</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/linux/04-process/signals</guid>
-      <description>&gt; Linux 进程间通讯靠**信号**。 | 信号 | 数字 | 行为 | 是否可捕获 | |------|------|------|-----------| | `SIGHUP` | 1 | 终端断开 / 重新加载配置 | ✅ | | `SIGINT` | 2 | Ctrl+C 中断 | ✅ | | `SIGQUIT` | 3 | Ctrl+\ 退出 + core | ✅ | | `SIGK</description>
-      <pubDate>Sat, 25 Jul 2026 11:40:43 -0000</pubDate>
-    </item>
-    <item>
       <title>ps / top / htop</title>
       <link>https://java-px.bot.cd/linux/04-process/ps-top</link>
       <guid isPermaLink="true">https://java-px.bot.cd/linux/04-process/ps-top</guid>
@@ -384,13 +391,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/linux/03-text/xargs</guid>
       <description>&gt; 把 **stdin 转成参数**，传给其他命令。配合 find / grep / cp 是经典用法。 | | `-exec` | `xargs` | |--|---------|---------| | 语法 | `find ... -exec cmd {} \;` | `find ... | xargs cmd` | | 批量 | 用 `{} +` 一次传多文件 | 默认一次传多（更快） |</description>
       <pubDate>Sat, 25 Jul 2026 11:39:56 -0000</pubDate>
-    </item>
-    <item>
-      <title>sort / uniq</title>
-      <link>https://java-px.bot.cd/linux/03-text/sort-uniq</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/linux/03-text/sort-uniq</guid>
-      <description>&gt; 排序与去重，看似简单，组合起来是日志分析的利器。 uniq **只能去重相邻行**，所以先 sort。 - [grep](/03-text/grep) - [awk](/03-text/awk) - [xargs / find 配合](/03-text/xargs)</description>
-      <pubDate>Sat, 25 Jul 2026 11:39:34 -0000</pubDate>
     </item>
     <item>
       <title>sed</title>

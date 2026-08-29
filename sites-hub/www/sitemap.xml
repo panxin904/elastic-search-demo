@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://java-px.bot.cd/es/01-storage/cluster</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/es/01-storage/document</loc>
@@ -38,7 +38,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/es/01-storage/segment</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/es/01-storage/shard</loc>
@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/es/01-storage/translog</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/es/02-query/aggregation</loc>
@@ -94,7 +94,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/es/02-query/range</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/es/02-query/rewrite</loc>
@@ -110,7 +110,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/es/02-query/sort</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/es/02-query/term</loc>
@@ -250,11 +250,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/es/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/01-foundation/architecture</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/01-foundation/charset</loc>
@@ -270,7 +270,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/02-index/btree</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/02-index/clustered</loc>
@@ -278,7 +278,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/02-index/covering</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/02-index/icp</loc>
@@ -286,11 +286,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/03-sql/crud</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/03-sql/functions</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/03-sql/join</loc>
@@ -302,11 +302,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/04-transaction/deadlock</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/04-transaction/isolation</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/04-transaction/locks</loc>
@@ -314,7 +314,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/04-transaction/mvcc</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/05-optimization/explain</loc>
@@ -334,19 +334,19 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/06-replication/binlog</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/06-replication/lag</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/06-replication/read-write-split</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/06-replication/replication</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/07-ha/mgr</loc>
@@ -354,19 +354,19 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/07-ha/mha</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/07-ha/proxysql</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/08-backup/binlog-recovery</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/08-backup/mysqldump</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/08-backup/xtrabackup</loc>
@@ -378,7 +378,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/09-monitoring/prometheus</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/09-monitoring/slow-log</loc>
@@ -390,11 +390,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/10-sharding/sharding-key</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/10-sharding/shardingsphere</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/10-sharding/strategy</loc>
@@ -410,7 +410,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/11-tools/perf-calculator</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/11-tools/pt-toolkit</loc>
@@ -430,7 +430,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/12-mybatis/generator</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/12-mybatis/mybatis-plus</loc>
@@ -442,19 +442,19 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/12-mybatis/pitfalls</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/12-mybatis/plugins</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/12-mybatis/quickstart</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/12-mybatis/spring-boot</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/13-multids/connection-pool</loc>
@@ -462,11 +462,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/13-multids/dynamic-datasource</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/13-multids/multi-datasource</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/13-multids/read-write-split</loc>
@@ -474,7 +474,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/13-multids/sharding-jdbc</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/13-multids/sharding-strategy</loc>
@@ -498,7 +498,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/14-microservice/saga-pattern</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/cheatsheet</loc>
@@ -510,7 +510,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/mysql/mindmap</loc>
@@ -522,11 +522,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/01-basics/datatypes</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/01-basics/expiration</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/01-basics/install</loc>
@@ -534,7 +534,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/01-basics/intro</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/01-basics/keys</loc>
@@ -566,7 +566,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/02-datastruct/stream</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/03-persistence/aof</loc>
@@ -590,7 +590,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/04-cluster/cluster</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/04-cluster/gossip</loc>
@@ -598,7 +598,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/04-cluster/migration</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/04-cluster/replication</loc>
@@ -610,7 +610,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/04-cluster/sentinel</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/04-cluster/slots</loc>
@@ -618,7 +618,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/05-jdk/connection-pool</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/05-jdk/jedis</loc>
@@ -630,11 +630,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/05-jdk/redisson</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/05-jdk/spring-cache</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/05-jdk/spring-data-redis</loc>
@@ -642,11 +642,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/06-practice/cache-consistency</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/06-practice/counter</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/06-practice/delay-queue</loc>
@@ -694,11 +694,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/07-ops/monitoring</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/07-ops/redis7-features</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/07-ops/slowlog</loc>
@@ -706,27 +706,27 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/08-interview/advanced</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/08-interview/avalanche</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/08-interview/basic</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/08-interview/consensus</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/08-interview/consistent-hash</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/08-interview/lock-coding</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/08-interview/lru</loc>
@@ -738,7 +738,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/cheatsheet</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/graph</loc>
@@ -746,7 +746,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/redis/mindmap</loc>
@@ -758,11 +758,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/01-springboot/auto-config</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/01-springboot/data</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/01-springboot/quickstart</loc>
@@ -774,7 +774,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/01-springboot/web</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/02-overview/intro</loc>
@@ -782,15 +782,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/02-overview/nacos-config</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/02-overview/nacos-discovery</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/02-overview/nacos-principle</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/03-gateway/basic</loc>
@@ -814,19 +814,19 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/05-security/auth-center</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/05-security/basic</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/05-security/oauth2</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/06-practice/comprehensive</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/06-practice/interview</loc>
@@ -834,7 +834,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/06-practice/pitfalls</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/07-distributed/architecture</loc>
@@ -858,7 +858,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/07-distributed/distributed-mq</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/07-distributed/distributed-storage</loc>
@@ -874,7 +874,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/07-distributed/high-availability</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/cheatsheet</loc>
@@ -906,7 +906,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/01-basics/install</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/01-basics/intro</loc>
@@ -922,7 +922,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/02-principles/gc</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/02-principles/gil</loc>
@@ -934,15 +934,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/02-principles/memory</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/02-principles/object-model</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/02-principles/profiling</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/03-libraries/beautifulsoup</loc>
@@ -950,27 +950,27 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/03-libraries/pandas</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/03-libraries/pytest</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/03-libraries/requests</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/03-libraries/sqlalchemy</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/03-libraries/stdlib</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/04-concurrency/asyncio</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/04-concurrency/multiprocessing</loc>
@@ -978,7 +978,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/04-concurrency/patterns</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/04-concurrency/pool</loc>
@@ -986,19 +986,19 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/04-concurrency/sync-primitives</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/04-concurrency/threading</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/05-scraping/anti-crawl</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/05-scraping/basics</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/05-scraping/dynamic</loc>
@@ -1006,31 +1006,31 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/05-scraping/requests-bs4</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/05-scraping/scrapy</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/06-ai-ml/cv</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/06-ai-ml/huggingface</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/06-ai-ml/llm-apps</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/06-ai-ml/ml-basics</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/06-ai-ml/nlp</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/06-ai-ml/overview</loc>
@@ -1038,7 +1038,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/07-data/analysis</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/07-data/big-data</loc>
@@ -1046,23 +1046,23 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/07-data/cleaning</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/07-data/matplotlib</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/07-data/numpy</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/07-data/pandas</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/08-algorithms/builtin</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/08-algorithms/complexity</loc>
@@ -1070,11 +1070,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/08-algorithms/dp</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/08-algorithms/search</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/08-algorithms/sort</loc>
@@ -1082,7 +1082,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/08-algorithms/tree-graph</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/09-enterprise/dependencies</loc>
@@ -1090,27 +1090,27 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/09-enterprise/docker</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/09-enterprise/fastapi</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/09-enterprise/logging</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/09-enterprise/performance</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/09-enterprise/security</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/09-enterprise/structure</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/09-enterprise/testing</loc>
@@ -1118,7 +1118,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/cheatsheet</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/graph</loc>
@@ -1126,7 +1126,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/mindmap</loc>
@@ -1142,19 +1142,19 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/01-basics/install</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/01-basics/intro</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/01-basics/message-model</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/01-basics/topic-partition</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/02-architecture/controller-evolution</loc>
@@ -1162,19 +1162,19 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/02-architecture/controller</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/02-architecture/leader-election</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/02-architecture/log-storage</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/02-architecture/overview</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/02-architecture/replica</loc>
@@ -1186,7 +1186,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/03-cli/consumer-group</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/03-cli/overview</loc>
@@ -1202,7 +1202,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/03-persistence/aof</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/03-persistence/mixed</loc>
@@ -1214,11 +1214,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/03-persistence/rdb</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/03-persistence/recovery</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/04-producer/idempotent</loc>
@@ -1230,7 +1230,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/04-producer/principle</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/04-producer/send-flow</loc>
@@ -1254,79 +1254,79 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/05-consumer/multi-thread</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/05-consumer/offset</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/05-consumer/principle</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/05-consumer/rebalance</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/06-jdk/admin-client</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/06-jdk/consumer-api</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/06-jdk/exception</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/06-jdk/partitioner</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/06-jdk/producer-api</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/06-jdk/serialization</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/07-spring/intro</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/07-spring/kafka-template</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/07-spring/listener</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/07-spring/spring-boot</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/07-spring/transaction</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/08-enterprise/backlog</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/08-enterprise/cluster</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/08-enterprise/connect</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/08-enterprise/dead-letter</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/08-enterprise/delay</loc>
@@ -1338,7 +1338,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/08-enterprise/monitoring</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/08-enterprise/multi-env</loc>
@@ -1350,23 +1350,23 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/08-enterprise/streams</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/09-ops/benchmark</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/09-ops/capacity</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/09-ops/disaster-recovery</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/09-ops/jvm</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/09-ops/log-cleanup</loc>
@@ -1374,11 +1374,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/09-ops/metrics</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/10-interview/advanced</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/10-interview/basic</loc>
@@ -1386,7 +1386,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/10-interview/election</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/10-interview/exactly-once</loc>
@@ -1398,7 +1398,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/10-interview/message-loss</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/10-interview/replica-sync</loc>
@@ -1410,7 +1410,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/cheatsheet</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/graph</loc>
@@ -1418,7 +1418,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/mindmap</loc>
@@ -1426,7 +1426,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/kafka/path</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/01-process/api-design</loc>
@@ -1486,7 +1486,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/02-design/chain-of-responsibility</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/02-design/ddd</loc>
@@ -1494,11 +1494,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/02-design/dependency-injection</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/02-design/factory-pattern</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/02-design/layered-architecture</loc>
@@ -1506,11 +1506,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/02-design/microservices</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/02-design/mvc-pattern</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/02-design/overview</loc>
@@ -1518,7 +1518,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/02-design/proxy-pattern</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/02-design/restful-api</loc>
@@ -1526,11 +1526,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/02-design/strategy-pattern</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/02-design/template-method</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/03-practice/cache-strategy</loc>
@@ -1546,7 +1546,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/03-practice/data-masking</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/03-practice/exception-handling</loc>
@@ -1554,7 +1554,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/03-practice/idempotency</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/03-practice/logging</loc>
@@ -1594,7 +1594,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/04-tech/docker</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/04-tech/message-queue</loc>
@@ -1610,11 +1610,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/04-tech/nginx</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/04-tech/overview</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/04-tech/redis</loc>
@@ -1626,7 +1626,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/04-tech/spring-mvc</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/04-tech/spring-security</loc>
@@ -1634,63 +1634,63 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/04-tech/testing</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/tools/base64</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/tools/cron</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/tools/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/tools/iso</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/tools/json-csv</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/tools/json-diff</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/tools/json-yaml</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/tools/json</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/tools/relative</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/tools/timestamp</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/tools/timezone</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/tools/url</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/tools/uuid</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/frontend/01-foundation/browser</loc>
@@ -1714,7 +1714,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/frontend/02-language/esnext</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/frontend/02-language/javascript</loc>
@@ -1758,7 +1758,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/frontend/04-meta/nuxt</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/frontend/04-meta/remix</loc>
@@ -1766,7 +1766,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/frontend/04-meta/sveltekit</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/frontend/05-build/esbuild</loc>
@@ -1794,7 +1794,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/frontend/06-style/css-modules</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/frontend/06-style/design-system</loc>
@@ -1802,7 +1802,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/frontend/06-style/preprocessor</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/frontend/06-style/tailwind</loc>
@@ -1838,7 +1838,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/frontend/08-routing/vue-router</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/frontend/09-data/graphql</loc>
@@ -1906,7 +1906,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/frontend/12-perf/runtime</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/frontend/13-interview/basic</loc>
@@ -1914,7 +1914,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/frontend/13-interview/coding</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/frontend/13-interview/system</loc>
@@ -1942,7 +1942,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/frontend/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/frontend/mindmap</loc>
@@ -2002,7 +2002,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/03-text/sort-uniq</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/03-text/xargs</loc>
@@ -2022,7 +2022,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/04-process/signals</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/04-process/systemd</loc>
@@ -2038,7 +2038,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/05-user/chown</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/05-user/sudo</loc>
@@ -2090,7 +2090,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/08-firewall-ssh/openssh</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/08-firewall-ssh/ssh-keys</loc>
@@ -2098,7 +2098,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/08-firewall-ssh/ssh-tunnel</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/08-firewall-ssh/ufw-firewalld</loc>
@@ -2122,7 +2122,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/09-storage/swap</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/10-perf/iostat</loc>
@@ -2130,7 +2130,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/10-perf/perf-strace</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/10-perf/sar</loc>
@@ -2138,7 +2138,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/10-perf/top-htop</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/10-perf/vmstat</loc>
@@ -2146,11 +2146,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/11-shell/arrays</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/11-shell/bash-syntax</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/11-shell/debug</loc>
@@ -2178,7 +2178,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/12-systemd/unit</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/13-security/apparmor</loc>
@@ -2186,11 +2186,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/13-security/auditd</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/13-security/lynis</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/13-security/selinux</loc>
@@ -2198,7 +2198,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/13-security/sshd-config</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/14-kernel/grub</loc>
@@ -2206,15 +2206,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/14-kernel/initramfs</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/14-kernel/modules</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/14-kernel/sysctl</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/cheatsheet</loc>
@@ -2226,7 +2226,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/linux/mindmap</loc>
@@ -2250,7 +2250,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/01-docker/intro</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/01-docker/network</loc>
@@ -2266,11 +2266,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/02-k8s-arch/etcd</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/02-k8s-arch/kubectl</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/02-k8s-arch/node</loc>
@@ -2286,7 +2286,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/03-k8s-workload/deployment</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/03-k8s-workload/job</loc>
@@ -2414,11 +2414,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/13-troubleshooting/debug</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/13-troubleshooting/network</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/13-troubleshooting/pod-trouble</loc>
@@ -2446,7 +2446,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/mindmap</loc>
@@ -2462,7 +2462,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/ai/01-models/compare</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/ai/01-models/deepseek</loc>
@@ -2490,7 +2490,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/ai/02-coding-tools/commands</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/ai/02-coding-tools/continue-cody</loc>
@@ -2506,7 +2506,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/ai/03-sdks/claude-sdk</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/ai/03-sdks/gemini-sdk</loc>
@@ -2538,7 +2538,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/ai/04-agents/langgraph</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/ai/05-rag/embedding</loc>
@@ -2546,7 +2546,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/ai/05-rag/patterns</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/ai/05-rag/vector-db</loc>
@@ -2558,7 +2558,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/ai/06-mcp/core</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/ai/06-mcp/dev</loc>
@@ -2634,7 +2634,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/ai/12-install/docker</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/ai/12-install/package-managers</loc>
@@ -2674,7 +2674,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/ai/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/ai/mindmap</loc>
@@ -2702,11 +2702,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/02-hdfs/architecture</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/02-hdfs/commands</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/02-hdfs/ha</loc>
@@ -2726,7 +2726,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/03-mapreduce/shuffle</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/04-spark/dataframe</loc>
@@ -2734,7 +2734,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/04-spark/rdd</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/04-spark/streaming</loc>
@@ -2746,7 +2746,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/05-flink/architecture</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/05-flink/cdc</loc>
@@ -2830,7 +2830,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/11-elt-pipeline/lineage</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/12-olap-engine/clickhouse</loc>
@@ -2862,11 +2862,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/14-interview-practice/cases</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/14-interview-practice/questions</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/cheatsheet</loc>
@@ -2878,7 +2878,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/mindmap</loc>
@@ -2890,7 +2890,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/01-basics/encapsulation</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/01-basics/metrics</loc>
@@ -2898,11 +2898,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/01-basics/osi</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/01-basics/tcp-ip</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/02-physical/media</loc>
@@ -2942,7 +2942,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/04-network/icmp</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/04-network/ip-address</loc>
@@ -2950,7 +2950,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/04-network/ipv6</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/04-network/nat</loc>
@@ -2966,7 +2966,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/05-transport/socket</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/05-transport/tcp-congestion</loc>
@@ -2994,11 +2994,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/06-application/cdn</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/06-application/dns</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/06-application/http</loc>
@@ -3010,7 +3010,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/06-application/https</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/06-application/restful</loc>
@@ -3018,15 +3018,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/06-application/rpc</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/06-application/websocket</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/07-security/encryption</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/07-security/firewall-vpn</loc>
@@ -3038,7 +3038,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/07-security/pki-tls</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/07-security/siem-waf</loc>
@@ -3058,7 +3058,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/08-wireless/bluetooth</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/08-wireless/iot</loc>
@@ -3074,7 +3074,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/09-cloud-network/sdn-service-mesh</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/09-cloud-network/slb</loc>
@@ -3090,15 +3090,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/10-tools/performance-test</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/10-tools/tcpdump-curl</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/10-tools/troubleshooting</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/10-tools/wireshark</loc>
@@ -3114,23 +3114,23 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/11-cases/https-https</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/11-cases/microservice-network</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/12-interview-practice/cases</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/12-interview-practice/comparison</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/12-interview-practice/questions</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/cheatsheet</loc>
@@ -3142,7 +3142,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/mindmap</loc>
@@ -3150,7 +3150,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/network/path</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/video/01-basics/codec-overview</loc>
@@ -3346,7 +3346,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/video/09-cloud/serverless</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/video/09-cloud/tencent-mps</loc>
@@ -3366,7 +3366,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/video/10-application/short-video</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/video/10-application/surveillance</loc>
@@ -3382,15 +3382,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/video/11-cases/tencent-live</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/video/11-cases/video-arch</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/video/12-interview/cases</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/video/12-interview/comparison</loc>
@@ -3410,7 +3410,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/video/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/video/mindmap</loc>
@@ -3422,15 +3422,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/01-basics/README</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/01-basics/file-descriptor</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/01-basics/inode-dentry</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/01-basics/journal</loc>
@@ -3438,23 +3438,23 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/01-basics/mount</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/01-basics/page-cache</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/01-basics/path-resolution</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/01-basics/vfs</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/02-disk-fs/README</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/02-disk-fs/apple-fs</loc>
@@ -3462,15 +3462,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/02-disk-fs/btrfs</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/02-disk-fs/compare</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/02-disk-fs/ext4</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/02-disk-fs/windows-fs</loc>
@@ -3478,7 +3478,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/02-disk-fs/xfs</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/02-disk-fs/zfs</loc>
@@ -3486,11 +3486,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/03-distributed/README</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/03-distributed/cephfs</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/03-distributed/compare</loc>
@@ -3498,7 +3498,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/03-distributed/glusterfs</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/03-distributed/hdfs</loc>
@@ -3510,15 +3510,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/03-distributed/lustre</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/03-distributed/moosefs</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/04-object/README</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/04-object/consistency</loc>
@@ -3550,7 +3550,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/05-network/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/05-network/ftp-sftp</loc>
@@ -3562,7 +3562,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/05-network/rsync</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/05-network/smb</loc>
@@ -3574,31 +3574,31 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/06-cloud-native/README</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/06-cloud-native/csi</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/06-cloud-native/dynamic</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/06-cloud-native/longhorn</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/06-cloud-native/openebs</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/06-cloud-native/pv-pvc</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/06-cloud-native/rook</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/06-cloud-native/snapshot</loc>
@@ -3606,19 +3606,19 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/07-container/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/07-container/buildkit</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/07-container/containerd</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/07-container/docker-layers</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/07-container/overlayfs</loc>
@@ -3630,23 +3630,23 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/08-tools/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/08-tools/debugfs</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/08-tools/du-df</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/08-tools/find-fd</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/08-tools/fuse</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/08-tools/inotify</loc>
@@ -3654,15 +3654,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/08-tools/lsof</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/08-tools/strace</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/09-perf/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/09-perf/direct-io</loc>
@@ -3674,7 +3674,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/09-perf/io-scheduler</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/09-perf/methodology</loc>
@@ -3682,23 +3682,23 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/09-perf/page-cache-tune</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/09-perf/readahead</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/10-security/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/10-security/acl</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/10-security/auditd</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/10-security/encryption</loc>
@@ -3710,19 +3710,19 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/10-security/xattr</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/11-backup/3-2-1</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/11-backup/README</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/11-backup/borg</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/11-backup/dr</loc>
@@ -3730,15 +3730,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/11-backup/restic</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/11-backup/snapshot</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/12-cases/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/12-cases/cern-eos</loc>
@@ -3754,19 +3754,19 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/12-cases/netflix-s3</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/12-cases/snowflake</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/13-interview/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/13-interview/comparison</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/13-interview/questions</loc>
@@ -3786,7 +3786,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/mindmap</loc>
@@ -3794,7 +3794,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/path</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java-language/01-basics/datatypes</loc>
@@ -4006,7 +4006,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/java-language/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/java-language/mindmap</loc>
@@ -4050,7 +4050,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/03-ha-theory/cap</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/03-ha-theory/idempotency</loc>
@@ -4066,7 +4066,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/04-rate-limit/distributed</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/04-rate-limit/leaky-bucket</loc>
@@ -4102,7 +4102,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/06-microservice/split</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/07-distributed-tx/2pc</loc>
@@ -4114,7 +4114,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/07-distributed-tx/saga</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/07-distributed-tx/tcc</loc>
@@ -4122,7 +4122,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/08-message-queue/compare</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/08-message-queue/dlq</loc>
@@ -4170,7 +4170,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/12-microservice-patterns/saga</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/12-microservice-patterns/service-mesh</loc>
@@ -4210,7 +4210,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/mindmap</loc>
@@ -4222,7 +4222,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/01-theory/cap</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/01-theory/consensus-problem</loc>
@@ -4234,247 +4234,247 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/01-theory/overview</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/01-theory/pacelc</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/02-storage/consistent-hash</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/02-storage/quorum</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/02-storage/replica</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/02-storage/sharding</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/03-coordination/distributed-lock</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/03-coordination/leader-election</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/03-coordination/paxos</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/03-coordination/raft</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/03-coordination/zab</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/04-transaction/2pc</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/04-transaction/3pc</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/04-transaction/local-message-table</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/04-transaction/saga</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/04-transaction/tcc</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/04-transaction/transactional-message</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/05-patterns/api-gateway</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/05-patterns/circuit-breaker</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/05-patterns/config-center</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/05-patterns/distributed-trace</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/05-patterns/rate-limiter</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/05-patterns/rpc</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/05-patterns/service-discovery</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/06-cache/cache-pattern</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/06-cache/consistency</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/06-cache/hotspot</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/06-cache/multi-level</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/06-cache/three-problems</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/07-messaging/backlog</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/07-messaging/idempotent</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/07-messaging/not-lost</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/07-messaging/order</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/08-availability/cluster</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/08-availability/disaster-recovery</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/08-availability/master-slave</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/08-availability/multi-idc</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/09-id/leaf</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/09-id/snowflake</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/09-id/uuid-vs-snowflake</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/10-cases/feed-stream</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/10-cases/grab-redpacket</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/10-cases/nearby</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/10-cases/notification</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/10-cases/ranking</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/10-cases/search-suggest</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/10-cases/seckill</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/10-cases/short-url</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/system-design/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/01-basics/architecture</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/01-basics/config</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/01-basics/overview</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/02-data-types/array</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/02-data-types/built-in</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/02-data-types/custom</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/02-data-types/jsonb</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/02-data-types/range</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/03-tables-and-indexes/brin</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/03-tables-and-indexes/btree</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/03-tables-and-indexes/gin</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/03-tables-and-indexes/gist</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/03-tables-and-indexes/hash</loc>
@@ -4482,43 +4482,43 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/03-tables-and-indexes/partition</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/03-tables-and-indexes/spgist</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/03-tables-and-indexes/table</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/04-query/cte</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/04-query/explain</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/04-query/fulltext-search</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/04-query/planner</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/04-query/recursive</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/04-query/window</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/05-transaction/deadlock</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/05-transaction/isolation</loc>
@@ -4526,47 +4526,47 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/05-transaction/lock</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/05-transaction/mvcc</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/06-advanced/function</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/06-advanced/generated</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/06-advanced/trigger</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/06-advanced/upsert</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/06-advanced/view</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/07-operations/backup</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/07-operations/slow-query</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/07-operations/stats</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/07-operations/upgrade</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/07-operations/vacuum</loc>
@@ -4574,15 +4574,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/08-replication/hot-standby</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/08-replication/logical</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/08-replication/patroni</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/08-replication/streaming</loc>
@@ -4590,39 +4590,39 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/09-connection/jdbc</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/09-connection/libpq</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/09-connection/pgbouncer</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/09-connection/psycopg</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/10-extensions/citus</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/10-extensions/pg_trgm</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/10-extensions/pgvector</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/10-extensions/postgis</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/10-extensions/timescaledb</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/11-compare/mongodb-vs-postgresql</loc>
@@ -4630,7 +4630,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/11-compare/mysql-vs-postgresql</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/11-compare/oracle-vs-postgresql</loc>
@@ -4638,11 +4638,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/01-foundations/four-pillars</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/01-foundations/observability-vs-monitoring</loc>
@@ -4650,7 +4650,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/01-foundations/signals</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/01-foundations/sli-slo</loc>
@@ -4662,7 +4662,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/02-opentelemetry/collector</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/02-opentelemetry/otlp</loc>
@@ -4678,11 +4678,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/03-prometheus/alert</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/03-prometheus/data-model</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/03-prometheus/exporter</loc>
@@ -4690,11 +4690,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/03-prometheus/overview</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/03-prometheus/promql</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/04-grafana/alerting</loc>
@@ -4702,15 +4702,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/04-grafana/annotation</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/04-grafana/dashboard</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/04-grafana/overview</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/04-grafana/variables</loc>
@@ -4718,11 +4718,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/05-loki/best-practice</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/05-loki/logql</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/05-loki/overview</loc>
@@ -4734,7 +4734,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/06-tracing/concepts</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/06-tracing/jaeger</loc>
@@ -4754,7 +4754,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/07-elk-efk/elasticsearch-logs</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/07-elk-efk/filebeat</loc>
@@ -4770,7 +4770,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/08-alerting/alertmanager</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/08-alerting/oncall</loc>
@@ -4778,7 +4778,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/08-alerting/severity</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/08-alerting/silence</loc>
@@ -4786,7 +4786,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/09-app-instrumentation/business-metrics</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/09-app-instrumentation/jvm-metrics</loc>
@@ -4794,7 +4794,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/09-app-instrumentation/k8s-metrics</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/09-app-instrumentation/red-method</loc>
@@ -4814,71 +4814,71 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/10-profiling/pprof</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/10-profiling/pyroscope</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/11-scenarios/cost-optimization</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/11-scenarios/database-monitor</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/11-scenarios/k8s-monitor</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/11-scenarios/microservice-trace</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/01-web-top10/a01-broken-access</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/01-web-top10/a02-crypto-failure</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/01-web-top10/a03-injection</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/01-web-top10/a04-insecure-design</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/01-web-top10/a05-misconfig</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/01-web-top10/a06-vulnerable-component</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/01-web-top10/a07-auth-failure</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/01-web-top10/a08-software-data-integrity</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/01-web-top10/a09-logging-failure</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/01-web-top10/a10-ssrf</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/01-web-top10/overview</loc>
@@ -4886,23 +4886,23 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/02-auth/jwt</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/02-auth/mfa</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/02-auth/oauth2</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/02-auth/oidc</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/02-auth/overview</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/02-auth/saml</loc>
@@ -4910,151 +4910,151 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/02-auth/session-attack</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/03-crypto/asymmetric</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/03-crypto/hash</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/03-crypto/overview</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/03-crypto/signature</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/03-crypto/symmetric</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/03-crypto/tls-deep-dive</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/04-network/cors</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/04-network/hsts-csp</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/04-network/mtls</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/04-network/tls-pki</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/05-container/image-scan</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/05-container/overview</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/05-container/runtime-security</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/05-container/supply-chain</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/06-zero-trust/implementation</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/06-zero-trust/overview</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/06-zero-trust/spiffe</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/security/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/01-pipeline/best-practices</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/01-pipeline/github-actions</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/01-pipeline/gitlab-ci</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/01-pipeline/jenkins</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/01-pipeline/overview</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/01-pipeline/tekton</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/02-iac/ansible</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/02-iac/overview</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/02-iac/pulumi</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/02-iac/terraform-vs-pulumi</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/02-iac/terraform</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/03-gitops/argocd</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/03-gitops/flux</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/03-gitops/overview</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/03-gitops/progressive-delivery</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/04-release/blue-green</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/04-release/canary</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/04-release/feature-flag</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/04-release/overview</loc>
@@ -5062,195 +5062,195 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/04-release/rollback</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/05-cicd-observability/dora-metrics</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/05-cicd-observability/flaky-test</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/05-cicd-observability/overview</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/05-cicd-observability/pipeline-monitoring</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/06-best-practices/caching</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/06-best-practices/case-study</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/06-best-practices/oidc-federation</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/06-best-practices/secrets-management</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/06-best-practices/secure-pipeline</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/01-basics/borrowing</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/01-basics/hello-world</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/01-basics/lifetimes</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/01-basics/overview</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/01-basics/ownership</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/01-basics/syntax-fundamentals</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/02-types-traits/advanced-types</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/02-types-traits/enum-and-pattern</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/02-types-traits/generics</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/02-types-traits/overview</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/02-types-traits/trait-objects</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/02-types-traits/trait</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/03-ecosystem/cargo</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/03-ecosystem/crates-io</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/03-ecosystem/overview</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/03-ecosystem/std-lib</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/03-ecosystem/tooling</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/04-concurrency/async-await</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/04-concurrency/channels</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/04-concurrency/overview</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/04-concurrency/threads</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/04-concurrency/tokio</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/05-systems/embedded</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/05-systems/ffi</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/05-systems/overview</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/05-systems/performance</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/05-systems/unsafe</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/05-systems/wasm</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/06-advanced/async-ecosystem</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/06-advanced/case-study</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/06-advanced/closure-and-iterator</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/06-advanced/error-handling</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/06-advanced/macro</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/06-advanced/smart-pointer</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/01-basics/error-handling</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/01-basics/hello-world</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/01-basics/overview</loc>
@@ -5258,27 +5258,27 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/01-basics/package-and-module</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/01-basics/syntax-fundamentals</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/01-basics/types-and-functions</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/02-concurrency/channel</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/02-concurrency/context</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/02-concurrency/goroutine</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/02-concurrency/overview</loc>
@@ -5286,19 +5286,19 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/02-concurrency/patterns</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/02-concurrency/sync-package</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/03-ecosystem/benchmark</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/03-ecosystem/go-toolchain</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/03-ecosystem/overview</loc>
@@ -5310,7 +5310,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/03-ecosystem/testing</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/04-cloud-native/cncf-ecosystem</loc>
@@ -5318,15 +5318,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/04-cloud-native/docker-internals</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/04-cloud-native/etcd-internals</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/04-cloud-native/kubernetes-internals</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/04-cloud-native/overview</loc>
@@ -5334,19 +5334,19 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/04-cloud-native/prometheus-internals</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/05-microservices/case-study</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/05-microservices/gin-framework</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/05-microservices/grpc</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/05-microservices/kratos</loc>
@@ -5354,15 +5354,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/05-microservices/overview</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/05-microservices/service-governance</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/06-advanced/cgo</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/06-advanced/gc</loc>
@@ -5370,11 +5370,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/06-advanced/overview</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/06-advanced/pprof</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/06-advanced/reflection</loc>
@@ -5382,11 +5382,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/06-advanced/runtime</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/01-basics/client</loc>
@@ -5398,7 +5398,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/01-basics/history</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/01-basics/installation</loc>
@@ -5422,11 +5422,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/02-sql/overview</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/02-sql/select-aggregate</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/02-sql/window-functions</loc>
@@ -5446,15 +5446,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/03-table-engine/materialized-view</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/03-table-engine/mergetree-family</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/03-table-engine/overview</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/04-olap-scenarios/bitmap</loc>
@@ -5470,7 +5470,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/04-olap-scenarios/overview</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/04-olap-scenarios/realtime-warehouse</loc>
@@ -5478,11 +5478,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/04-olap-scenarios/user-tracking</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/05-ecosystem/dbt-airbyte</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/05-ecosystem/go-client</loc>
@@ -5490,19 +5490,19 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/05-ecosystem/grafana</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/05-ecosystem/kafka-integration</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/05-ecosystem/overview</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/05-ecosystem/prometheus</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/06-compare/overview</loc>
@@ -5526,11 +5526,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/case-study</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/01-gof-creational/abstract-factory</loc>
@@ -5538,23 +5538,23 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/01-gof-creational/builder</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/01-gof-creational/factory-method</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/01-gof-creational/overview</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/01-gof-creational/prototype</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/01-gof-creational/singleton</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/02-gof-structural/adapter</loc>
@@ -5562,11 +5562,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/02-gof-structural/bridge</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/02-gof-structural/composite</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/02-gof-structural/decorator</loc>
@@ -5574,15 +5574,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/02-gof-structural/facade</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/02-gof-structural/flyweight</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/02-gof-structural/overview</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/02-gof-structural/proxy</loc>
@@ -5594,31 +5594,31 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/03-gof-behavioral/command</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/03-gof-behavioral/interpreter</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/03-gof-behavioral/iterator</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/03-gof-behavioral/mediator</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/03-gof-behavioral/memento</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/03-gof-behavioral/observer</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/03-gof-behavioral/overview</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/03-gof-behavioral/state</loc>
@@ -5626,7 +5626,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/03-gof-behavioral/strategy</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/03-gof-behavioral/template-method</loc>
@@ -5634,19 +5634,19 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/03-gof-behavioral/visitor</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/04-modern-patterns/dependency-injection</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/04-modern-patterns/null-object</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/04-modern-patterns/overview</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/04-modern-patterns/repository</loc>
@@ -5654,7 +5654,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/04-modern-patterns/specification</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/05-architectural-patterns/bulkhead</loc>
@@ -5670,87 +5670,87 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/05-architectural-patterns/event-sourcing</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/05-architectural-patterns/outbox</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/05-architectural-patterns/overview</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/05-architectural-patterns/saga</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/05-architectural-patterns/sidecar</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/05-architectural-patterns/strangler-fig</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/06-anti-patterns/anemic-model</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/06-anti-patterns/big-ball-of-mud</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/06-anti-patterns/callback-hell</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/06-anti-patterns/circular-dependency</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/06-anti-patterns/god-object</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/06-anti-patterns/magic-number</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/06-anti-patterns/overview</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/06-anti-patterns/premature-optimization</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/design-pattern/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/01-foundations/blast-radius</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/01-foundations/history</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/01-foundations/overview</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/01-foundations/steady-state</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/02-chaos-mesh/architecture</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/02-chaos-mesh/network-chaos</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/02-chaos-mesh/overview</loc>
@@ -5758,15 +5758,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/02-chaos-mesh/pod-chaos</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/02-chaos-mesh/workflow</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/03-litmus/chaos-experiment</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/03-litmus/overview</loc>
@@ -5774,39 +5774,39 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/03-litmus/probe-check</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/03-litmus/sdk</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/04-platform-compare/decision-tree</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/04-platform-compare/mesh-vs-litmus</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/04-platform-compare/open-vs-commercial</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/04-platform-compare/overview</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/05-resilience-patterns/bulkhead</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/05-resilience-patterns/circuit-breaker</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/05-resilience-patterns/multi-region-dr</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/05-resilience-patterns/overview</loc>
@@ -5814,15 +5814,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/05-resilience-patterns/rate-limit-degrade</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/05-resilience-patterns/retry-backoff</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/06-game-day/exercise-design</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/06-game-day/overview</loc>
@@ -5830,151 +5830,151 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/06-game-day/retro</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/06-game-day/roles</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/07-observability-for-chaos/case-study</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/07-observability-for-chaos/measure-steady-state</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/07-observability-for-chaos/overview</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/07-observability-for-chaos/slo-feedback-loop</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/01-protocol/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/01-protocol/coap</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/01-protocol/lpwan</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/01-protocol/modbus</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/01-protocol/mqtt</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/02-device/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/02-device/gateway</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/02-device/mcu</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/02-device/rtos</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/02-device/sensor</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/03-edge/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/03-edge/ai-edge</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/03-edge/framework</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/03-edge/k8s-edge</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/03-edge/offline</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/04-management/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/04-management/ota</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/04-management/security</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/04-management/shadow</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/05-timeseries/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/05-timeseries/database</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/05-timeseries/integration</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/05-timeseries/processing</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/05-timeseries/schema</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/06-platform/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/06-platform/iiot</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/06-platform/public-cloud</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/06-platform/self-hosted</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/06-platform/smart-home</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/README</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/cheatsheet</loc>
@@ -5982,7 +5982,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/mindmap</loc>
@@ -5990,7 +5990,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/path</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/iot/questions</loc>
@@ -5998,99 +5998,99 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/01-app/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/01-app/coroutine</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/01-app/jetpack</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/01-app/language</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/02-ui/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/02-ui/compose</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/02-ui/resource</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/02-ui/view-system</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/03-system/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/03-system/ipc</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/03-system/runtime</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/03-system/services</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/03-system/startup</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/04-cross/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/04-cross/decision</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/04-cross/frameworks</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/05-toolchain/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/05-toolchain/gradle</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/05-toolchain/ide</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/05-toolchain/publish</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/06-perf/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/06-perf/performance</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/06-perf/security</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/cheatsheet</loc>
@@ -6098,7 +6098,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/mindmap</loc>
@@ -6106,147 +6106,147 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/path</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/android/questions</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/01-engine/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/01-engine/commercial</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/01-engine/custom</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/01-engine/decision</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/02-render/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/02-render/lighting</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/02-render/pipeline</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/02-render/postprocess</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/02-render/shader</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/03-physics/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/03-physics/collision</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/03-physics/rigidbody</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/03-physics/softbody</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/04-ai/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/04-ai/decision</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/04-ai/ml</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/04-ai/pathfinding</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/05-network/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/05-network/anticheat</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/05-network/arch</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/05-network/consistency</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/05-network/sync</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/06-audio/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/06-audio/engine</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/06-audio/mix</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/06-audio/spatial</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/07-toolchain/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/07-toolchain/assets</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/07-toolchain/build</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/07-toolchain/vcs</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/08-ship/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/08-ship/launch</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/08-ship/perf</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/cheatsheet</loc>
@@ -6254,7 +6254,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/mindmap</loc>
@@ -6262,10 +6262,10 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/path</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/game/questions</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
 </urlset>

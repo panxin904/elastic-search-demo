@@ -34,7 +34,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/03-ha-theory/cap</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/03-ha-theory/idempotency</loc>
@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/04-rate-limit/distributed</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/04-rate-limit/leaky-bucket</loc>
@@ -86,7 +86,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/06-microservice/split</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/07-distributed-tx/2pc</loc>
@@ -98,7 +98,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/07-distributed-tx/saga</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/07-distributed-tx/tcc</loc>
@@ -106,7 +106,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/08-message-queue/compare</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/08-message-queue/dlq</loc>
@@ -154,7 +154,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/12-microservice-patterns/saga</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/12-microservice-patterns/service-mesh</loc>
@@ -194,7 +194,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/architecture/mindmap</loc>

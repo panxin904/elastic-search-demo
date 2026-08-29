@@ -6,20 +6,69 @@
     <atom:link href="https://java-px.bot.cd/bigdata/feed.xml" rel="self" type="application/rss+xml" />
     <description>bigdata 知识图谱（51 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 21:42:04 -0000</lastBuildDate>
     <item>
-      <title>bigdata 知识图谱</title>
-      <link>https://java-px.bot.cd/bigdata/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/bigdata/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Hadoop / Spark / Flink / Hive / Kafka 各自独立文档", "数据仓库 vs 数据湖 vs Lakehouse 怎么选",</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <title>Shuffle 详解</title>
+      <link>https://java-px.bot.cd/bigdata/03-mapreduce/shuffle</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/bigdata/03-mapreduce/shuffle</guid>
+      <description>Shuffle = Map 输出 → Reduce 输入的中间过程（网络 + 磁盘 IO）。 MR 程序 80% 时间在 Shuffle → Shuffle 优化 = 性能优化。 | 参数 | 默认 | 调优 | |------|------|------| | `mapreduce.task.io.sort.mb` | 100MB | 增大减少 spill | | `mapreduce.map.</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
+    </item>
+    <item>
+      <title>HDFS 架构</title>
+      <link>https://java-px.bot.cd/bigdata/02-hdfs/architecture</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/bigdata/02-hdfs/architecture</guid>
+      <description>**优点**：大块减少 NameNode 寻址开销 **缺点**：小文件浪费（一个块只放一个小文件） **rack awareness**：副本跨机架（默认） **NameNode 单点风险**：所有元数据在内存，挂了 = 数据丢失。 **解决**：Secondary NameNode → NameNode HA（JournalNode + ZooKeeper / ZKFC） 写 edit log</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
+    </item>
+    <item>
+      <title>Spark Core / RDD</title>
+      <link>https://java-px.bot.cd/bigdata/04-spark/rdd</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/bigdata/04-spark/rdd</guid>
+      <description>RDD（Resilient Distributed Dataset）= 不可变 + 分区 + 弹性 + 可并行。 | 类型 | 算子 | 影响 | |------|------|------| | **窄依赖** | map / filter / union | 不需 Shuffle，pipeline | | **宽依赖** | groupByKey / join / sortByKey | 触发</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
+    </item>
+    <item>
+      <title>Flink 架构</title>
+      <link>https://java-px.bot.cd/bigdata/05-flink/architecture</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/bigdata/05-flink/architecture</guid>
+      <description>| 场景 | 选 | |------|-----| | 实时低延迟 | Flink（强项） | | ETL + 流批一体 | Flink + Iceberg | | CEP（复杂事件） | Flink CEP | | 状态复杂（聚合 / 关联） | Flink + RocksDB State | | 高吞吐消息队列 | Kafka + Flink | | 简单实时 | Spark Streamin</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
     </item>
     <item>
       <title>数据血缘</title>
       <link>https://java-px.bot.cd/bigdata/11-elt-pipeline/lineage</link>
       <guid isPermaLink="true">https://java-px.bot.cd/bigdata/11-elt-pipeline/lineage</guid>
       <description>数据血缘（Data Lineage）追踪数据从源系统经过 ETL/ELT 到下游消费的全链路流转关系，是数据治理与可观测性的核心。 - **故障定位**：下游数据异常时，快速定位上游哪个任务/源表出问题 - **影响分析**：上游表 schema 变更时，识别所有受影响的下游任务和报表 - **合规审计**：满足 GDPR / 数据安全法规对"谁的数据流向哪里"的追溯要求 - **数据资产盘点**</description>
-      <pubDate>Tue, 18 Aug 2026 20:34:09 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>面试题</title>
+      <link>https://java-px.bot.cd/bigdata/14-interview-practice/questions</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/bigdata/14-interview-practice/questions</guid>
+      <description>- [面试案例](/14-interview-practice/cases) - [推荐系统](/13-cases/recommendation) - [用户画像](/13-cases/user-profile) &lt;!-- auto-enrich:do-not-edit --&gt; | 参数 | 说明 | 默认值 | | --- | --- | --- | | TODO_1 | 待补充 | - | |</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>面试案例</title>
+      <link>https://java-px.bot.cd/bigdata/14-interview-practice/cases</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/bigdata/14-interview-practice/cases</guid>
+      <description>**问题**：电商订单表 join 用户表时，99% 用户集中在少数几个 key（null / 0）。 **排查**： **解决**： **效果**：原 8 小时 → 优化后 1 小时。 **问题**：某 Reduce 任务跑了 6 小时仍未完成。 **解决**： **ODS（贴源）**： **DWD（清洗 + 规范化）**： **DWS（轻度聚合）**： **ADS（应用指标）**： **架构*</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>HDFS 命令速查</title>
+      <link>https://java-px.bot.cd/bigdata/02-hdfs/commands</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/bigdata/02-hdfs/commands</guid>
+      <description>- [HDFS 架构](/02-hdfs/architecture) &lt;!-- auto-enrich:do-not-edit --&gt; | 参数 | 说明 | 默认值 | | --- | --- | --- | | TODO_1 | 待补充 | - | | TODO_2 | 待补充 | - | &gt; TODO: 此节可补充 3-5 段深度内容（如生产环境实战 / 常见错误 / 对比其他方案 / 未来</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>bigdata 知识图谱</title>
+      <link>https://java-px.bot.cd/bigdata/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/bigdata/</guid>
+      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Hadoop / Spark / Flink / Hive / Kafka 各自独立文档", "数据仓库 vs 数据湖 vs Lakehouse 怎么选",</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>风控系统</title>
@@ -34,20 +83,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/bigdata/13-cases/user-profile</guid>
       <description>用户画像 = 通过多源数据（行为 / 属性 / 偏好），构建用户的多维特征体系（标签）。 核心价值： - 精准营销 - 个性化推荐 - 风控反欺诈 - 用户运营 | 类别 | 示例 | 加工方式 | |------|------|----------| | 人口属性 | 年龄 / 性别 / 地域 | 直接采集 | | 行为标签 | 浏览 / 收藏 / 加购 | 实时计算 | | 偏好标签 | 品类</description>
       <pubDate>Mon, 03 Aug 2026 21:10:05 -0000</pubDate>
-    </item>
-    <item>
-      <title>面试案例</title>
-      <link>https://java-px.bot.cd/bigdata/14-interview-practice/cases</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/bigdata/14-interview-practice/cases</guid>
-      <description>**问题**：电商订单表 join 用户表时，99% 用户集中在少数几个 key（null / 0）。 **排查**： **解决**： **效果**：原 8 小时 → 优化后 1 小时。 **问题**：某 Reduce 任务跑了 6 小时仍未完成。 **解决**： **ODS（贴源）**： **DWD（清洗 + 规范化）**： **DWS（轻度聚合）**： **ADS（应用指标）**： **架构*</description>
-      <pubDate>Mon, 03 Aug 2026 21:09:50 -0000</pubDate>
-    </item>
-    <item>
-      <title>面试题</title>
-      <link>https://java-px.bot.cd/bigdata/14-interview-practice/questions</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/bigdata/14-interview-practice/questions</guid>
-      <description>- [面试案例](/14-interview-practice/cases) - [推荐系统](/13-cases/recommendation) - [用户画像](/13-cases/user-profile)</description>
-      <pubDate>Mon, 03 Aug 2026 21:09:49 -0000</pubDate>
     </item>
     <item>
       <title>学习路径</title>
@@ -232,13 +267,6 @@
       <pubDate>Sat, 01 Aug 2026 16:23:29 -0000</pubDate>
     </item>
     <item>
-      <title>Flink 架构</title>
-      <link>https://java-px.bot.cd/bigdata/05-flink/architecture</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/bigdata/05-flink/architecture</guid>
-      <description>| 场景 | 选 | |------|-----| | 实时低延迟 | Flink（强项） | | ETL + 流批一体 | Flink + Iceberg | | CEP（复杂事件） | Flink CEP | | 状态复杂（聚合 / 关联） | Flink + RocksDB State | | 高吞吐消息队列 | Kafka + Flink | | 简单实时 | Spark Streamin</description>
-      <pubDate>Sat, 01 Aug 2026 16:23:29 -0000</pubDate>
-    </item>
-    <item>
       <title>Spark 调优</title>
       <link>https://java-px.bot.cd/bigdata/04-spark/tuning</link>
       <guid isPermaLink="true">https://java-px.bot.cd/bigdata/04-spark/tuning</guid>
@@ -260,24 +288,10 @@
       <pubDate>Sat, 01 Aug 2026 16:22:22 -0000</pubDate>
     </item>
     <item>
-      <title>Spark Core / RDD</title>
-      <link>https://java-px.bot.cd/bigdata/04-spark/rdd</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/bigdata/04-spark/rdd</guid>
-      <description>RDD（Resilient Distributed Dataset）= 不可变 + 分区 + 弹性 + 可并行。 | 类型 | 算子 | 影响 | |------|------|------| | **窄依赖** | map / filter / union | 不需 Shuffle，pipeline | | **宽依赖** | groupByKey / join / sortByKey | 触发</description>
-      <pubDate>Sat, 01 Aug 2026 16:22:22 -0000</pubDate>
-    </item>
-    <item>
       <title>Combiner / Partitioner</title>
       <link>https://java-px.bot.cd/bigdata/03-mapreduce/optimize</link>
       <guid isPermaLink="true">https://java-px.bot.cd/bigdata/03-mapreduce/optimize</guid>
       <description>满足**结合律**的算子： | 算子 | 适用 Combiner | |------|---------------| | sum / count | ✅ | | max / min | ✅ | | avg | ❌（需要分子分母分别加和） | | median | ❌ | | distinct | ❌ | **作用**：决定 K 到哪个 Reduce。 效果：job 时间从 30 min 减到 5</description>
-      <pubDate>Sat, 01 Aug 2026 16:21:12 -0000</pubDate>
-    </item>
-    <item>
-      <title>Shuffle 详解</title>
-      <link>https://java-px.bot.cd/bigdata/03-mapreduce/shuffle</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/bigdata/03-mapreduce/shuffle</guid>
-      <description>Shuffle = Map 输出 → Reduce 输入的中间过程（网络 + 磁盘 IO）。 MR 程序 80% 时间在 Shuffle → Shuffle 优化 = 性能优化。 | 参数 | 默认 | 调优 | |------|------|------| | `mapreduce.task.io.sort.mb` | 100MB | 增大减少 spill | | `mapreduce.map.</description>
       <pubDate>Sat, 01 Aug 2026 16:21:12 -0000</pubDate>
     </item>
     <item>
@@ -286,13 +300,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/bigdata/03-mapreduce/principle</guid>
       <description>| 改进 | 描述 | |------|------| | 无 sort 阶段 | Reduce 直接接 Map | | Combine 优化 | Map 端本地聚合，减少 shuffle | | 推测执行 | 慢任务备份，缩短总时间 | | YARN | 通用资源调度 | **Shuffle 是 MR 最慢的阶段**，80% 时间在 Shuffle。 控制 K → Reduce 的映射，**数据</description>
       <pubDate>Sat, 01 Aug 2026 16:21:12 -0000</pubDate>
-    </item>
-    <item>
-      <title>HDFS 命令速查</title>
-      <link>https://java-px.bot.cd/bigdata/02-hdfs/commands</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/bigdata/02-hdfs/commands</guid>
-      <description>- [HDFS 架构](/02-hdfs/architecture)</description>
-      <pubDate>Sat, 01 Aug 2026 11:46:50 -0000</pubDate>
     </item>
     <item>
       <title>HDFS NameNode HA</title>
@@ -306,13 +313,6 @@
       <link>https://java-px.bot.cd/bigdata/02-hdfs/replication</link>
       <guid isPermaLink="true">https://java-px.bot.cd/bigdata/02-hdfs/replication</guid>
       <description>**优点**：高可用（挂 2 个 DataNode 仍有 1 个副本） **缺点**：3 倍存储开销 **关键**：写本地 DN = "first replica" = "close pipe"。 不一致 → 标记 corrupt 副本 → 删 + 从其他副本复制 | 副本数 | 写吞吐 | 读吞吐 | 容错 | |--------|--------|--------|------| | 1 |</description>
-      <pubDate>Sat, 01 Aug 2026 11:46:50 -0000</pubDate>
-    </item>
-    <item>
-      <title>HDFS 架构</title>
-      <link>https://java-px.bot.cd/bigdata/02-hdfs/architecture</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/bigdata/02-hdfs/architecture</guid>
-      <description>**优点**：大块减少 NameNode 寻址开销 **缺点**：小文件浪费（一个块只放一个小文件） **rack awareness**：副本跨机架（默认） **NameNode 单点风险**：所有元数据在内存，挂了 = 数据丢失。 **解决**：Secondary NameNode → NameNode HA（JournalNode + ZooKeeper / ZKFC） 写 edit log</description>
       <pubDate>Sat, 01 Aug 2026 11:46:50 -0000</pubDate>
     </item>
     <item>

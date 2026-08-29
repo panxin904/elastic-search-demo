@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://java-px.bot.cd/cloud/01-springboot/auto-config</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/01-springboot/data</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/01-springboot/quickstart</loc>
@@ -18,7 +18,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/01-springboot/web</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/02-overview/intro</loc>
@@ -26,15 +26,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/02-overview/nacos-config</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/02-overview/nacos-discovery</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/02-overview/nacos-principle</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/03-gateway/basic</loc>
@@ -58,19 +58,19 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/05-security/auth-center</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/05-security/basic</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/05-security/oauth2</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/06-practice/comprehensive</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/06-practice/interview</loc>
@@ -78,7 +78,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/06-practice/pitfalls</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/07-distributed/architecture</loc>
@@ -102,7 +102,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/07-distributed/distributed-mq</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/07-distributed/distributed-storage</loc>
@@ -118,7 +118,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/07-distributed/high-availability</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud/cheatsheet</loc>

@@ -6,13 +6,286 @@
     <atom:link href="https://java-px.bot.cd/python/feed.xml" rel="self" type="application/rss+xml" />
     <description>python 知识图谱（60 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 21:42:04 -0000</lastBuildDate>
+    <item>
+      <title>Docker 部署</title>
+      <link>https://java-px.bot.cd/python/09-enterprise/docker</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/09-enterprise/docker</guid>
+      <description>&gt; **Docker** 是 Python 应用**容器化部署**的标准方式。本章详解 Python 应用的 Docker 实践。 **Docker 部署核心要点**： - ✅ 多阶段构建（减小镜像） - ✅ .dockerignore 排除不必要文件 - ✅ 非 root 用户（安全） - ✅ Docker Compose（多容器编排） - ✅ 健康检查 - ✅ 环境变量管理（.env） - ✅</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>搜索算法</title>
+      <link>https://java-px.bot.cd/python/08-algorithms/search</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/08-algorithms/search</guid>
+      <description>&gt; 搜索是**在数据集合中查找特定元素**的算法。本章详解**二分搜索、DFS、BFS**等核心搜索算法。 | 场景 | 算法 | 时间复杂度 | |------|------|----------| | 有序数组查找 | 二分搜索 | O(log n) | | 均匀分布数据 | 插值搜索 | O(log log n) | | 图的遍历 | DFS / BFS | O(V + E) | | 最短路</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>机器学习基础</title>
+      <link>https://java-px.bot.cd/python/06-ai-ml/ml-basics</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/06-ai-ml/ml-basics</guid>
+      <description>&gt; **机器学习（Machine Learning）**让计算机从**数据中学习规律**，做出预测或决策。本章使用 **scikit-learn** 入门机器学习核心概念。 **机器学习基础核心要点**： - ✅ 监督学习（分类、回归） - ✅ 无监督学习（聚类、降维） - ✅ scikit-learn 标准 API（fit/predict） - ✅ 数据预处理（标准化、编码、缺失值） - ✅ 模</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>Scrapy 框架</title>
+      <link>https://java-px.bot.cd/python/05-scraping/scrapy</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/05-scraping/scrapy</guid>
+      <description>&gt; **Scrapy** 是 Python **最专业的爬虫框架**，专为**大规模网络爬取**设计。提供**Spider、Pipeline、Item、Middleware** 等完整组件。 **Scrapy 核心要点**： - ✅ 工业级爬虫框架 - ✅ 异步（基于 Twisted） - ✅ 完整组件：Spider + Item + Pipeline + Middleware - ✅ CSS /</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>并发模式</title>
+      <link>https://java-px.bot.cd/python/04-concurrency/patterns</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/04-concurrency/patterns</guid>
+      <description>&gt; 掌握**经典并发设计模式**能让你写出**高质量、高性能**的并发代码。本章介绍 8 种最常用的并发模式。 **经典并发模式核心要点**： - ✅ Future 模式：异步获取结果 - ✅ Producer-Consumer：解耦生产和消费 - ✅ Worker Pool：控制并发数 - ✅ Pipeline：多阶段流水线 - ✅ Pub-Sub：事件驱动 - ✅ Promise：链式异步操作</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>pytest 测试</title>
+      <link>https://java-px.bot.cd/python/03-libraries/pytest</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/03-libraries/pytest</guid>
+      <description>&gt; **pytest** 是 Python **最流行的测试框架**。简单、强大、可扩展，是几乎所有 Python 项目的首选。 运行结果： **pytest 核心要点**： - ✅ Python 最流行的测试框架 - ✅ 简单 `assert` 即可编写测试 - ✅ Fixture 强大（setup/teardown/参数化） - ✅ 参数化测试（@pytest.mark.parametrize</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>安全最佳实践</title>
+      <link>https://java-px.bot.cd/python/09-enterprise/security</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/09-enterprise/security</guid>
+      <description>&gt; Web 应用安全至关重要。本章总结 Python Web 开发中**最常见的安全威胁**和防护措施。 **安全最佳实践核心要点**： - ✅ SQL 注入：使用参数化查询 - ✅ XSS：输出编码 + CSP - ✅ CSRF：Token + SameSite Cookie - ✅ 密码：bcrypt / argon2 哈希 - ✅ 认证：JWT + 多因素 - ✅ 授权：RBAC + 资源所</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>日志与监控</title>
+      <link>https://java-px.bot.cd/python/09-enterprise/logging</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/09-enterprise/logging</guid>
+      <description>&gt; **可观测性（Observability）**是生产环境稳定运行的基石。本章详解 Python 应用的日志、监控和告警。 **日志与监控核心要点**： - ✅ 结构化日志（JSON） - ✅ 日志级别合理（DEBUG/INFO/WARNING/ERROR） - ✅ 上下文日志（request_id、user_id） - ✅ Prometheus 指标（RED/USE 方法） - ✅ 链路追踪（</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>FastAPI Web 实战</title>
+      <link>https://java-px.bot.cd/python/09-enterprise/fastapi</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/09-enterprise/fastapi</guid>
+      <description>&gt; **FastAPI** 是 Python **现代、高性能**的 Web 框架。基于 **Starlette**（ASGI）+ **Pydantic**（数据验证）+ **类型提示**，是构建 REST API 的**首选**。 **FastAPI 核心要点**： - ✅ 路径参数 + 查询参数 + 请求体 - ✅ Pydantic 自动数据验证 - ✅ 依赖注入（嵌套） - ✅ 自动 Ope</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>树与图</title>
+      <link>https://java-px.bot.cd/python/08-algorithms/tree-graph</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/08-algorithms/tree-graph</guid>
+      <description>&gt; **树和图**是计算机科学中最重要的**非线性数据结构**。本章详解核心树和图算法。 &gt; Python 的 `dict` 和 `set` 底层使用**红黑树**实现（Python 3.7+）。保证最坏 O(log n) 操作。 &gt; B 树是**数据库索引**的核心数据结构。MySQL InnoDB 用 B+ 树。 **树与图核心要点**： - ✅ 树的 4 种遍历（前序 / 中序 / 后序 /</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>LLM 应用开发</title>
+      <link>https://java-px.bot.cd/python/06-ai-ml/llm-apps</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/06-ai-ml/llm-apps</guid>
+      <description>&gt; **LLM（大语言模型）**应用开发是当前 AI 领域最热门的方向。本章讲解 **Prompt Engineering、RAG、Agent、Fine-tuning** 等核心概念和实战。 **LLM 应用开发核心要点**： - ✅ Prompt Engineering 是基础 - ✅ RAG 解决幻觉和私有数据问题 - ✅ Agent 实现多步推理 - ✅ LangChain / LlamaI</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>反爬对抗</title>
+      <link>https://java-px.bot.cd/python/05-scraping/anti-crawl</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/05-scraping/anti-crawl</guid>
+      <description>&gt; 现代网站部署了**各种反爬虫机制**（User-Agent 检测、IP 限制、验证码等）。爬虫工程师需要掌握**绕过反爬的策略**。 **反爬对抗核心要点**： - ✅ 设置 User-Agent（最基础） - ✅ 控制请求频率（限速） - ✅ 使用代理池（IP 轮换） - ✅ 处理 Cookie / Session - ✅ 验证码识别（打码平台 / ML） - ✅ 行为分析对抗（模拟真实用户</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>项目结构</title>
+      <link>https://java-px.bot.cd/python/09-enterprise/structure</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/09-enterprise/structure</guid>
+      <description>&gt; 良好的**项目结构**是 Python 企业级开发的基础。本章介绍主流项目组织方式和最佳实践。 **项目结构核心要点**： - ✅ 单一职责原则（SRP） - ✅ 分层架构（API / Service / Data / Infrastructure） - ✅ 依赖注入 - ✅ 配置管理（pydantic Settings） - ✅ 统一异常处理 - ✅ 日志配置（结构化） - ✅ 测试目录独立</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>性能优化</title>
+      <link>https://java-px.bot.cd/python/09-enterprise/performance</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/09-enterprise/performance</guid>
+      <description>&gt; **性能优化**是 Python 后端开发的重要课题。本章从**测量、原则、技术**三个层面讲解。 **性能优化核心要点**： - ✅ 先测量，后优化（cProfile） - ✅ 算法复杂度优先（O(n²) → O(n log n)） - ✅ 选择合适数据结构（O(1) vs O(n)） - ✅ 并发利用多核（线程 / 进程 / 异步） - ✅ 缓存减少计算 - ✅ 数据库索引和批量操作 -</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>动态规划</title>
+      <link>https://java-px.bot.cd/python/08-algorithms/dp</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/08-algorithms/dp</guid>
+      <description>&gt; **动态规划（Dynamic Programming, DP）**是解决**重叠子问题**和**最优子结构**问题的利器，是面试和算法竞赛的高频考点。 **动态规划核心要点**： - ✅ DP 适用：最优子结构 + 重叠子问题 - ✅ 三个关键：状态定义、转移方程、初始状态 - ✅ 空间优化：滚动数组降维 - ✅ 经典题目：背包、LIS、LCS、编辑距离 - ✅ 股票问题（DP 经典） - ✅</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>内置数据结构</title>
+      <link>https://java-px.bot.cd/python/08-algorithms/builtin</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/08-algorithms/builtin</guid>
+      <description>&gt; Python 内置数据结构是**所有算法的基础**。理解它们的时间和空间复杂度是写出高效代码的前提。 **内置数据结构核心要点**： - ✅ list：动态数组，O(1) append，O(n) 中间插入 - ✅ tuple：不可变序列，可哈希 - ✅ dict：哈希表实现，O(1) 平均操作 - ✅ set：哈希表实现，O(1) 平均操作 - ✅ Counter：计数器 - ✅ defaul</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>pandas 入门</title>
+      <link>https://java-px.bot.cd/python/07-data/pandas</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/07-data/pandas</guid>
+      <description>&gt; **pandas** 是 Python **数据分析的基石**。本章从基础开始讲解 pandas 核心数据结构 DataFrame 的使用。 **pandas 核心要点**： - ✅ DataFrame 是核心（二维表格） - ✅ 数据选择（loc / iloc / query） - ✅ 数据清洗（缺失值、重复） - ✅ 数据聚合（groupby / 透视表） - ✅ 数据合并（concat</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>NumPy 数值计算</title>
+      <link>https://java-px.bot.cd/python/07-data/numpy</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/07-data/numpy</guid>
+      <description>&gt; **NumPy** 是 Python **数值计算的基础库**。pandas、scikit-learn、TensorFlow 等都依赖 NumPy。 **NumPy 核心要点**： - ✅ ndarray 是核心数据结构 - ✅ 向量化计算（比 Python 列表快 50-100x） - ✅ 广播机制（不同形状数组运算） - ✅ 线性代数（矩阵乘法、求逆、特征值） - ✅ 随机数生成 - ✅</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Matplotlib 可视化</title>
+      <link>https://java-px.bot.cd/python/07-data/matplotlib</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/07-data/matplotlib</guid>
+      <description>&gt; **Matplotlib** 是 Python 最基础的**数据可视化库**。所有高级可视化库（Seaborn、Plotly）都构建在它之上。 **Matplotlib 核心要点**： - ✅ 基础图表：折线、柱状、散点、直方图、饼图 - ✅ 子图（subplots） - ✅ 主题美化（ggplot / seaborn） - ✅ 标注（annotate / text） - ✅ 3D 图表 -</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>数据清洗</title>
+      <link>https://java-px.bot.cd/python/07-data/cleaning</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/07-data/cleaning</guid>
+      <description>&gt; **数据清洗**是数据分析中最**耗时**的环节（占 60-80%）。本章介绍常见的数据质量问题及解决方案。 **数据清洗核心要点**： - ✅ 检测缺失值（isnull） - ✅ 处理缺失值（fillna / dropna / 插值） - ✅ 检测重复值（duplicated） - ✅ 检测异常值（Z-score / IQR / 箱线图） - ✅ 数据类型转换（astype / to_num</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>数据分析实战</title>
+      <link>https://java-px.bot.cd/python/07-data/analysis</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/07-data/analysis</guid>
+      <description>&gt; 本章用**真实案例**演示完整的数据分析流程：从数据加载、清洗、探索、可视化到建模。 **数据分析实战核心要点**： - ✅ 完整流程：加载 → 清洗 → EDA → 建模 → 可视化 - ✅ 案例 1：Titanic 生存预测（分类） - ✅ 案例 2：销售数据分析（业务分析） - ✅ 案例 3：金融时间序列 - ✅ 案例 4：用户行为漏斗 - ✅ 案例 5：A/B 测试 - ⚠️ 数据清洗</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>自然语言处理</title>
+      <link>https://java-px.bot.cd/python/06-ai-ml/nlp</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/06-ai-ml/nlp</guid>
+      <description>&gt; **自然语言处理（NLP）**让计算机**理解、分析、生成**自然语言。本章介绍 Python 主流 NLP 工具。 **NLP 核心要点**： - ✅ jieba：中文分词首选 - ✅ spaCy：工业级 NLP - ✅ NLTK：教学级 NLP - ✅ Hugging Face：预训练模型 - ✅ sentence-transformers：文本嵌入 - ✅ 文本分类、情感分析、NER -</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Hugging Face</title>
+      <link>https://java-px.bot.cd/python/06-ai-ml/huggingface</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/06-ai-ml/huggingface</guid>
+      <description>&gt; **Hugging Face** 是 **AI 社区的 GitHub**，提供 **Transformers、Datasets、Tokenizers** 等工具，是预训练模型时代的**事实标准**。 **Hugging Face 核心要点**： - ✅ 最大的 AI 社区和模型中心 - ✅ transformers 库一键加载预训练模型 - ✅ pipeline 任务抽象（情感分析、问答、生成</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>计算机视觉</title>
+      <link>https://java-px.bot.cd/python/06-ai-ml/cv</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/06-ai-ml/cv</guid>
+      <description>&gt; **计算机视觉（Computer Vision）**让计算机**理解和处理图像**。Python 有 OpenCV、Pillow、YOLO 等强大工具。 **计算机视觉核心要点**： - ✅ OpenCV：基础图像处理 - ✅ Pillow：简单图像 IO - ✅ YOLOv8：目标检测（最流行） - ✅ torchvision：PyTorch 视觉库 - ✅ 视频处理（摄像头、视频文件） -</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>requests + BeautifulSoup</title>
+      <link>https://java-px.bot.cd/python/05-scraping/requests-bs4</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/05-scraping/requests-bs4</guid>
+      <description>&gt; **requests + BeautifulSoup** 是 Python **静态页面爬取的经典组合**。简单、强大、稳定。 **requests + BeautifulSoup 核心要点**： - ✅ requests：最流行的 HTTP 库 - ✅ BeautifulSoup：最简单的 HTML 解析 - ✅ 组合：静态页面爬取的标准方案 - ✅ Session：保持 Cookie -</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>爬虫基础</title>
+      <link>https://java-px.bot.cd/python/05-scraping/basics</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/05-scraping/basics</guid>
+      <description>&gt; **网络爬虫**是**自动获取网页数据**的程序。Python 因其丰富的爬虫库（requests、BeautifulSoup、Scrapy、Playwright）成为爬虫的首选语言。 **爬虫基础核心要点**： - ✅ HTTP 基础（请求方法、Headers、Cookie） - ✅ robots.txt 协议 - ✅ requests + BeautifulSoup 基础爬虫 - ✅ 静态</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>threading 多线程</title>
+      <link>https://java-px.bot.cd/python/04-concurrency/threading</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/04-concurrency/threading</guid>
+      <description>&gt; Python **threading** 模块支持**多线程**编程。但因为 **GIL** 的存在，多线程只适合 **IO 密集型任务**。 **Python threading 核心要点**： - ✅ 适合 IO 密集型任务（HTTP、文件、数据库） - ✅ 不适合 CPU 密集型（GIL 限制） - ✅ Lock / RLock 保护共享资源 - ✅ Condition 实现等待/通知</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>同步原语</title>
+      <link>https://java-px.bot.cd/python/04-concurrency/sync-primitives</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/04-concurrency/sync-primitives</guid>
+      <description>&gt; 多线程/多进程编程中，**同步原语**用于**协调并发任务**、保护共享资源。本章详解 Python 中的同步原语。 **同步原语核心要点**： - ✅ Lock：互斥（最常用） - ✅ RLock：可重入锁（避免死锁） - ✅ Condition：等待/通知（生产者-消费者） - ✅ Semaphore：限制并发数 - ✅ Event：线程间通知 - ✅ Barrier：所有线程到齐才继续</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>asyncio 协程</title>
+      <link>https://java-px.bot.cd/python/04-concurrency/asyncio</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/04-concurrency/asyncio</guid>
+      <description>&gt; **asyncio** 是 Python 3.4+ 引入的**异步 I/O 框架**。用**协程（coroutine）**实现高并发，是 IO 密集型任务的**最佳选择**。 **asyncio 核心要点**： - ✅ async def 定义协程，await 调用 - ✅ asyncio.gather 并发执行 - ✅ asyncio.create_task 创建任务 - ✅ asyncio</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>标准库概览</title>
+      <link>https://java-px.bot.cd/python/03-libraries/stdlib</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/03-libraries/stdlib</guid>
+      <description>&gt; Python **自带丰富标准库**，无需安装任何第三方包就能完成**日常大部分任务**。本章精选 10 个最常用模块。 **Python 标准库核心要点**： - ✅ 10 个必学模块（os/sys/pathlib/json/re/collections/itertools/functools/datetime/logging） - ✅ pathlib 替代 os.path（推荐） - ✅</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>SQLAlchemy ORM</title>
+      <link>https://java-px.bot.cd/python/03-libraries/sqlalchemy</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/03-libraries/sqlalchemy</guid>
+      <description>&gt; **SQLAlchemy** 是 Python **最流行的 ORM 库**。提供 **Core（SQL 工具包）** 和 **ORM（对象关系映射）** 两层抽象。 **SQLAlchemy ORM 核心要点**： - ✅ Core + ORM 两层抽象 - ✅ 支持多种数据库（MySQL/PostgreSQL/SQLite/Oracle） - ✅ 类型映射（类 → 表，对象 → 行） -</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>requests HTTP</title>
+      <link>https://java-px.bot.cd/python/03-libraries/requests</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/03-libraries/requests</guid>
+      <description>&gt; **requests** 是 Python **最流行的 HTTP 客户端库**。简单优雅的 API，强大的功能，几乎所有 Python 项目都用它。 **requests 核心要点**： - ✅ 最流行的 Python HTTP 库 - ✅ 简单优雅的 API - ✅ Session 复用连接（性能提升） - ✅ 支持文件上传/下载、流式响应 - ✅ 自动处理 Cookie、重定向、SSL</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>pandas 数据分析</title>
+      <link>https://java-px.bot.cd/python/03-libraries/pandas</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/03-libraries/pandas</guid>
+      <description>&gt; **pandas** 是 Python **数据分析的基石**。提供高性能、易用的**数据结构**和**数据分析工具**。 **pandas 核心要点**： - ✅ DataFrame 是核心（二维表格） - ✅ Series 是一维带标签数组 - ✅ 强大 IO（CSV/Excel/SQL/JSON） - ✅ 数据清洗（缺失值、重复、类型） - ✅ groupby / 透视表 / 合并 -</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>性能剖析</title>
+      <link>https://java-px.bot.cd/python/02-principles/profiling</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/02-principles/profiling</guid>
+      <description>&gt; **性能剖析（Profiling）**是定位 Python 性能瓶颈的关键手段。本章介绍常用工具和最佳实践。 字段说明： - `ncalls`：调用次数 - `tottime`：函数自身耗时（不含子函数） - `percall`：平均每次调用耗时 - `cumtime`：累计耗时（含子函数） 输出： 输出： 输出（CPU + GPU + 内存）： **Python 性能剖析核心要点**： -</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>对象模型</title>
+      <link>https://java-px.bot.cd/python/02-principles/object-model</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/02-principles/object-model</guid>
+      <description>&gt; Python 中**一切皆对象**。理解 PyObject 底层结构是掌握 Python 内存管理和性能优化的基础。 **Python 对象模型核心要点**： - ✅ 一切皆对象（int、str、func、class 都是对象） - ✅ PyObject 包含 ob_refcnt 和 ob_type - ✅ 不可变对象：int、float、str、tuple - ✅ 可变对象：list、dic</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>内存管理</title>
+      <link>https://java-px.bot.cd/python/02-principles/memory</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/02-principles/memory</guid>
+      <description>&gt; Python 的**内存管理**由**引用计数**和**垃圾回收（GC）**共同完成。理解内存管理是**避免内存泄漏、优化内存占用**的关键。 **Python 内存管理核心要点**： - ✅ 引用计数：实时、精确、不能处理循环引用 - ✅ 垃圾回收：处理循环引用、分代收集 - ✅ 内存池：小对象预分配，提高效率 - ✅ `__slots__` 节省内存 - ✅ 生成器避免一次性加载 - ✅</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>垃圾回收</title>
+      <link>https://java-px.bot.cd/python/02-principles/gc</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/02-principles/gc</guid>
+      <description>&gt; Python 的**垃圾回收（GC）**机制主要解决**循环引用**问题。理解 GC 是**避免内存泄漏**的关键。 **Python GC 核心要点**： - ✅ 引用计数不能处理循环引用 - ✅ 分代 GC 解决循环引用（0/1/2 代） - ✅ 三色标记算法扫描可达性 - ✅ 调整 GC 阈值（trade-off） - ✅ 弱引用避免循环引用 - ✅ tracemalloc 追踪内存分配</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>安装与环境</title>
+      <link>https://java-px.bot.cd/python/01-basics/install</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/01-basics/install</guid>
+      <description>&gt; 5 分钟搭建 Python 开发环境。本章覆盖 Windows / macOS / Linux 三平台 + 虚拟环境 + 包管理。 &gt; **每个项目应有独立的虚拟环境**，避免依赖冲突。 **Python 环境搭建核心要点**： - ✅ Python 3.11+（推荐） - ✅ 每个项目独立虚拟环境 - ✅ pip 是包管理工具 - ✅ VS Code 或 PyCharm 作 IDE - ✅</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>速查表</title>
+      <link>https://java-px.bot.cd/python/cheatsheet</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/python/cheatsheet</guid>
+      <description>&gt; 50+ 高频 Python 语法速查，支持分类过滤和关键词搜索。 &lt;ClientOnly&gt; &lt;Cheatsheet /&gt; &lt;/ClientOnly&gt; | 场景 | 语法 | |------|------| | 列表排序 | `sorted(lst)` 或 `lst.sort()` | | 列表去重 | `list(set(lst))` | | 列表转字符串 | `','.join(['a',</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
     <item>
       <title>python 知识图谱</title>
       <link>https://java-px.bot.cd/python/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/python/</guid>
       <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "只懂基础语法，不了解底层原理（解释器 / 字节码 / 对象模型）", "用过 requests / pandas 但不知道内部实现", "写 GIL 多线程</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>学习路径</title>
@@ -20,41 +293,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/python/path</guid>
       <description>&gt; 根据你的角色选择对应路径，每条路径推荐了核心阅读顺序。 适合**刚接触 Python**的初学者。 1. [❓ Python 是什么](/01-basics/intro) - 5 分钟了解 Python 2. [📥 安装与环境](/01-basics/install) - 5 分钟跑起来 3. [🔤 基础语法](/01-basics/syntax) - 变量、运算符、字符串 4. [📦 数据结</description>
       <pubDate>Sat, 15 Aug 2026 11:59:50 -0000</pubDate>
-    </item>
-    <item>
-      <title>安全最佳实践</title>
-      <link>https://java-px.bot.cd/python/09-enterprise/security</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/09-enterprise/security</guid>
-      <description>&gt; Web 应用安全至关重要。本章总结 Python Web 开发中**最常见的安全威胁**和防护措施。 **安全最佳实践核心要点**： - ✅ SQL 注入：使用参数化查询 - ✅ XSS：输出编码 + CSP - ✅ CSRF：Token + SameSite Cookie - ✅ 密码：bcrypt / argon2 哈希 - ✅ 认证：JWT + 多因素 - ✅ 授权：RBAC + 资源所</description>
-      <pubDate>Wed, 22 Jul 2026 19:05:25 -0000</pubDate>
-    </item>
-    <item>
-      <title>日志与监控</title>
-      <link>https://java-px.bot.cd/python/09-enterprise/logging</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/09-enterprise/logging</guid>
-      <description>&gt; **可观测性（Observability）**是生产环境稳定运行的基石。本章详解 Python 应用的日志、监控和告警。 **日志与监控核心要点**： - ✅ 结构化日志（JSON） - ✅ 日志级别合理（DEBUG/INFO/WARNING/ERROR） - ✅ 上下文日志（request_id、user_id） - ✅ Prometheus 指标（RED/USE 方法） - ✅ 链路追踪（</description>
-      <pubDate>Wed, 22 Jul 2026 19:04:41 -0000</pubDate>
-    </item>
-    <item>
-      <title>Docker 部署</title>
-      <link>https://java-px.bot.cd/python/09-enterprise/docker</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/09-enterprise/docker</guid>
-      <description>&gt; **Docker** 是 Python 应用**容器化部署**的标准方式。本章详解 Python 应用的 Docker 实践。 **Docker 部署核心要点**： - ✅ 多阶段构建（减小镜像） - ✅ .dockerignore 排除不必要文件 - ✅ 非 root 用户（安全） - ✅ Docker Compose（多容器编排） - ✅ 健康检查 - ✅ 环境变量管理（.env） - ✅</description>
-      <pubDate>Wed, 22 Jul 2026 19:04:06 -0000</pubDate>
-    </item>
-    <item>
-      <title>FastAPI Web 实战</title>
-      <link>https://java-px.bot.cd/python/09-enterprise/fastapi</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/09-enterprise/fastapi</guid>
-      <description>&gt; **FastAPI** 是 Python **现代、高性能**的 Web 框架。基于 **Starlette**（ASGI）+ **Pydantic**（数据验证）+ **类型提示**，是构建 REST API 的**首选**。 **FastAPI 核心要点**： - ✅ 路径参数 + 查询参数 + 请求体 - ✅ Pydantic 自动数据验证 - ✅ 依赖注入（嵌套） - ✅ 自动 Ope</description>
-      <pubDate>Wed, 22 Jul 2026 19:03:30 -0000</pubDate>
-    </item>
-    <item>
-      <title>性能优化</title>
-      <link>https://java-px.bot.cd/python/09-enterprise/performance</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/09-enterprise/performance</guid>
-      <description>&gt; **性能优化**是 Python 后端开发的重要课题。本章从**测量、原则、技术**三个层面讲解。 **性能优化核心要点**： - ✅ 先测量，后优化（cProfile） - ✅ 算法复杂度优先（O(n²) → O(n log n)） - ✅ 选择合适数据结构（O(1) vs O(n)） - ✅ 并发利用多核（线程 / 进程 / 异步） - ✅ 缓存减少计算 - ✅ 数据库索引和批量操作 -</description>
-      <pubDate>Wed, 22 Jul 2026 19:02:53 -0000</pubDate>
     </item>
     <item>
       <title>单元测试</title>
@@ -71,46 +309,11 @@
       <pubDate>Wed, 22 Jul 2026 19:01:46 -0000</pubDate>
     </item>
     <item>
-      <title>项目结构</title>
-      <link>https://java-px.bot.cd/python/09-enterprise/structure</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/09-enterprise/structure</guid>
-      <description>&gt; 良好的**项目结构**是 Python 企业级开发的基础。本章介绍主流项目组织方式和最佳实践。 **项目结构核心要点**： - ✅ 单一职责原则（SRP） - ✅ 分层架构（API / Service / Data / Infrastructure） - ✅ 依赖注入 - ✅ 配置管理（pydantic Settings） - ✅ 统一异常处理 - ✅ 日志配置（结构化） - ✅ 测试目录独立</description>
-      <pubDate>Wed, 22 Jul 2026 19:01:17 -0000</pubDate>
-    </item>
-    <item>
-      <title>动态规划</title>
-      <link>https://java-px.bot.cd/python/08-algorithms/dp</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/08-algorithms/dp</guid>
-      <description>&gt; **动态规划（Dynamic Programming, DP）**是解决**重叠子问题**和**最优子结构**问题的利器，是面试和算法竞赛的高频考点。 **动态规划核心要点**： - ✅ DP 适用：最优子结构 + 重叠子问题 - ✅ 三个关键：状态定义、转移方程、初始状态 - ✅ 空间优化：滚动数组降维 - ✅ 经典题目：背包、LIS、LCS、编辑距离 - ✅ 股票问题（DP 经典） - ✅</description>
-      <pubDate>Wed, 22 Jul 2026 19:00:49 -0000</pubDate>
-    </item>
-    <item>
-      <title>树与图</title>
-      <link>https://java-px.bot.cd/python/08-algorithms/tree-graph</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/08-algorithms/tree-graph</guid>
-      <description>&gt; **树和图**是计算机科学中最重要的**非线性数据结构**。本章详解核心树和图算法。 &gt; Python 的 `dict` 和 `set` 底层使用**红黑树**实现（Python 3.7+）。保证最坏 O(log n) 操作。 &gt; B 树是**数据库索引**的核心数据结构。MySQL InnoDB 用 B+ 树。 **树与图核心要点**： - ✅ 树的 4 种遍历（前序 / 中序 / 后序 /</description>
-      <pubDate>Wed, 22 Jul 2026 19:00:13 -0000</pubDate>
-    </item>
-    <item>
-      <title>搜索算法</title>
-      <link>https://java-px.bot.cd/python/08-algorithms/search</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/08-algorithms/search</guid>
-      <description>&gt; 搜索是**在数据集合中查找特定元素**的算法。本章详解**二分搜索、DFS、BFS**等核心搜索算法。 | 场景 | 算法 | 时间复杂度 | |------|------|----------| | 有序数组查找 | 二分搜索 | O(log n) | | 均匀分布数据 | 插值搜索 | O(log log n) | | 图的遍历 | DFS / BFS | O(V + E) | | 最短路</description>
-      <pubDate>Wed, 22 Jul 2026 18:59:40 -0000</pubDate>
-    </item>
-    <item>
       <title>排序算法</title>
       <link>https://java-px.bot.cd/python/08-algorithms/sort</link>
       <guid isPermaLink="true">https://java-px.bot.cd/python/08-algorithms/sort</guid>
       <description>&gt; 排序是**最经典的算法问题**。本章用可视化详解 6 种主流排序算法。 | 算法 | 平均 | 最坏 | 空间 | 稳定 | 适用 | |------|------|------|------|------|------| | 冒泡排序 | O(n²) | O(n²) | O(1) | ✅ | 教学 | | 选择排序 | O(n²) | O(n²) | O(1) | ❌ | 教学 | | 插入</description>
       <pubDate>Wed, 22 Jul 2026 18:59:08 -0000</pubDate>
-    </item>
-    <item>
-      <title>内置数据结构</title>
-      <link>https://java-px.bot.cd/python/08-algorithms/builtin</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/08-algorithms/builtin</guid>
-      <description>&gt; Python 内置数据结构是**所有算法的基础**。理解它们的时间和空间复杂度是写出高效代码的前提。 **内置数据结构核心要点**： - ✅ list：动态数组，O(1) append，O(n) 中间插入 - ✅ tuple：不可变序列，可哈希 - ✅ dict：哈希表实现，O(1) 平均操作 - ✅ set：哈希表实现，O(1) 平均操作 - ✅ Counter：计数器 - ✅ defaul</description>
-      <pubDate>Wed, 22 Jul 2026 18:58:42 -0000</pubDate>
     </item>
     <item>
       <title>复杂度分析</title>
@@ -127,88 +330,11 @@
       <pubDate>Wed, 22 Jul 2026 18:57:40 -0000</pubDate>
     </item>
     <item>
-      <title>数据分析实战</title>
-      <link>https://java-px.bot.cd/python/07-data/analysis</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/07-data/analysis</guid>
-      <description>&gt; 本章用**真实案例**演示完整的数据分析流程：从数据加载、清洗、探索、可视化到建模。 **数据分析实战核心要点**： - ✅ 完整流程：加载 → 清洗 → EDA → 建模 → 可视化 - ✅ 案例 1：Titanic 生存预测（分类） - ✅ 案例 2：销售数据分析（业务分析） - ✅ 案例 3：金融时间序列 - ✅ 案例 4：用户行为漏斗 - ✅ 案例 5：A/B 测试 - ⚠️ 数据清洗</description>
-      <pubDate>Wed, 22 Jul 2026 18:57:08 -0000</pubDate>
-    </item>
-    <item>
-      <title>数据清洗</title>
-      <link>https://java-px.bot.cd/python/07-data/cleaning</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/07-data/cleaning</guid>
-      <description>&gt; **数据清洗**是数据分析中最**耗时**的环节（占 60-80%）。本章介绍常见的数据质量问题及解决方案。 **数据清洗核心要点**： - ✅ 检测缺失值（isnull） - ✅ 处理缺失值（fillna / dropna / 插值） - ✅ 检测重复值（duplicated） - ✅ 检测异常值（Z-score / IQR / 箱线图） - ✅ 数据类型转换（astype / to_num</description>
-      <pubDate>Wed, 22 Jul 2026 18:56:34 -0000</pubDate>
-    </item>
-    <item>
-      <title>Matplotlib 可视化</title>
-      <link>https://java-px.bot.cd/python/07-data/matplotlib</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/07-data/matplotlib</guid>
-      <description>&gt; **Matplotlib** 是 Python 最基础的**数据可视化库**。所有高级可视化库（Seaborn、Plotly）都构建在它之上。 **Matplotlib 核心要点**： - ✅ 基础图表：折线、柱状、散点、直方图、饼图 - ✅ 子图（subplots） - ✅ 主题美化（ggplot / seaborn） - ✅ 标注（annotate / text） - ✅ 3D 图表 -</description>
-      <pubDate>Wed, 22 Jul 2026 18:56:04 -0000</pubDate>
-    </item>
-    <item>
-      <title>NumPy 数值计算</title>
-      <link>https://java-px.bot.cd/python/07-data/numpy</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/07-data/numpy</guid>
-      <description>&gt; **NumPy** 是 Python **数值计算的基础库**。pandas、scikit-learn、TensorFlow 等都依赖 NumPy。 **NumPy 核心要点**： - ✅ ndarray 是核心数据结构 - ✅ 向量化计算（比 Python 列表快 50-100x） - ✅ 广播机制（不同形状数组运算） - ✅ 线性代数（矩阵乘法、求逆、特征值） - ✅ 随机数生成 - ✅</description>
-      <pubDate>Wed, 22 Jul 2026 18:55:32 -0000</pubDate>
-    </item>
-    <item>
-      <title>pandas 入门</title>
-      <link>https://java-px.bot.cd/python/07-data/pandas</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/07-data/pandas</guid>
-      <description>&gt; **pandas** 是 Python **数据分析的基石**。本章从基础开始讲解 pandas 核心数据结构 DataFrame 的使用。 **pandas 核心要点**： - ✅ DataFrame 是核心（二维表格） - ✅ 数据选择（loc / iloc / query） - ✅ 数据清洗（缺失值、重复） - ✅ 数据聚合（groupby / 透视表） - ✅ 数据合并（concat</description>
-      <pubDate>Tue, 21 Jul 2026 20:13:25 -0000</pubDate>
-    </item>
-    <item>
-      <title>自然语言处理</title>
-      <link>https://java-px.bot.cd/python/06-ai-ml/nlp</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/06-ai-ml/nlp</guid>
-      <description>&gt; **自然语言处理（NLP）**让计算机**理解、分析、生成**自然语言。本章介绍 Python 主流 NLP 工具。 **NLP 核心要点**： - ✅ jieba：中文分词首选 - ✅ spaCy：工业级 NLP - ✅ NLTK：教学级 NLP - ✅ Hugging Face：预训练模型 - ✅ sentence-transformers：文本嵌入 - ✅ 文本分类、情感分析、NER -</description>
-      <pubDate>Tue, 21 Jul 2026 20:12:54 -0000</pubDate>
-    </item>
-    <item>
-      <title>计算机视觉</title>
-      <link>https://java-px.bot.cd/python/06-ai-ml/cv</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/06-ai-ml/cv</guid>
-      <description>&gt; **计算机视觉（Computer Vision）**让计算机**理解和处理图像**。Python 有 OpenCV、Pillow、YOLO 等强大工具。 **计算机视觉核心要点**： - ✅ OpenCV：基础图像处理 - ✅ Pillow：简单图像 IO - ✅ YOLOv8：目标检测（最流行） - ✅ torchvision：PyTorch 视觉库 - ✅ 视频处理（摄像头、视频文件） -</description>
-      <pubDate>Tue, 21 Jul 2026 20:12:05 -0000</pubDate>
-    </item>
-    <item>
-      <title>LLM 应用开发</title>
-      <link>https://java-px.bot.cd/python/06-ai-ml/llm-apps</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/06-ai-ml/llm-apps</guid>
-      <description>&gt; **LLM（大语言模型）**应用开发是当前 AI 领域最热门的方向。本章讲解 **Prompt Engineering、RAG、Agent、Fine-tuning** 等核心概念和实战。 **LLM 应用开发核心要点**： - ✅ Prompt Engineering 是基础 - ✅ RAG 解决幻觉和私有数据问题 - ✅ Agent 实现多步推理 - ✅ LangChain / LlamaI</description>
-      <pubDate>Tue, 21 Jul 2026 20:11:21 -0000</pubDate>
-    </item>
-    <item>
-      <title>Hugging Face</title>
-      <link>https://java-px.bot.cd/python/06-ai-ml/huggingface</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/06-ai-ml/huggingface</guid>
-      <description>&gt; **Hugging Face** 是 **AI 社区的 GitHub**，提供 **Transformers、Datasets、Tokenizers** 等工具，是预训练模型时代的**事实标准**。 **Hugging Face 核心要点**： - ✅ 最大的 AI 社区和模型中心 - ✅ transformers 库一键加载预训练模型 - ✅ pipeline 任务抽象（情感分析、问答、生成</description>
-      <pubDate>Tue, 21 Jul 2026 20:10:30 -0000</pubDate>
-    </item>
-    <item>
-      <title>机器学习基础</title>
-      <link>https://java-px.bot.cd/python/06-ai-ml/ml-basics</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/06-ai-ml/ml-basics</guid>
-      <description>&gt; **机器学习（Machine Learning）**让计算机从**数据中学习规律**，做出预测或决策。本章使用 **scikit-learn** 入门机器学习核心概念。 **机器学习基础核心要点**： - ✅ 监督学习（分类、回归） - ✅ 无监督学习（聚类、降维） - ✅ scikit-learn 标准 API（fit/predict） - ✅ 数据预处理（标准化、编码、缺失值） - ✅ 模</description>
-      <pubDate>Tue, 21 Jul 2026 20:09:50 -0000</pubDate>
-    </item>
-    <item>
       <title>AI 应用概览</title>
       <link>https://java-px.bot.cd/python/06-ai-ml/overview</link>
       <guid isPermaLink="true">https://java-px.bot.cd/python/06-ai-ml/overview</guid>
       <description>&gt; Python 是 **AI/ML 领域的首选语言**，拥有最丰富的生态（PyTorch、TensorFlow、Hugging Face、LangChain 等）。本章概览 Python AI 应用的**主要方向**。 | 场景 | 工具 | 难度 | |------|------|------| | 文本分类 | scikit-learn | 入门 | | 情感分析 | Hugging Fac</description>
       <pubDate>Tue, 21 Jul 2026 20:09:17 -0000</pubDate>
-    </item>
-    <item>
-      <title>反爬对抗</title>
-      <link>https://java-px.bot.cd/python/05-scraping/anti-crawl</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/05-scraping/anti-crawl</guid>
-      <description>&gt; 现代网站部署了**各种反爬虫机制**（User-Agent 检测、IP 限制、验证码等）。爬虫工程师需要掌握**绕过反爬的策略**。 **反爬对抗核心要点**： - ✅ 设置 User-Agent（最基础） - ✅ 控制请求频率（限速） - ✅ 使用代理池（IP 轮换） - ✅ 处理 Cookie / Session - ✅ 验证码识别（打码平台 / ML） - ✅ 行为分析对抗（模拟真实用户</description>
-      <pubDate>Tue, 21 Jul 2026 20:08:49 -0000</pubDate>
     </item>
     <item>
       <title>动态渲染</title>
@@ -218,53 +344,11 @@
       <pubDate>Tue, 21 Jul 2026 20:08:14 -0000</pubDate>
     </item>
     <item>
-      <title>Scrapy 框架</title>
-      <link>https://java-px.bot.cd/python/05-scraping/scrapy</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/05-scraping/scrapy</guid>
-      <description>&gt; **Scrapy** 是 Python **最专业的爬虫框架**，专为**大规模网络爬取**设计。提供**Spider、Pipeline、Item、Middleware** 等完整组件。 **Scrapy 核心要点**： - ✅ 工业级爬虫框架 - ✅ 异步（基于 Twisted） - ✅ 完整组件：Spider + Item + Pipeline + Middleware - ✅ CSS /</description>
-      <pubDate>Tue, 21 Jul 2026 20:07:44 -0000</pubDate>
-    </item>
-    <item>
-      <title>requests + BeautifulSoup</title>
-      <link>https://java-px.bot.cd/python/05-scraping/requests-bs4</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/05-scraping/requests-bs4</guid>
-      <description>&gt; **requests + BeautifulSoup** 是 Python **静态页面爬取的经典组合**。简单、强大、稳定。 **requests + BeautifulSoup 核心要点**： - ✅ requests：最流行的 HTTP 库 - ✅ BeautifulSoup：最简单的 HTML 解析 - ✅ 组合：静态页面爬取的标准方案 - ✅ Session：保持 Cookie -</description>
-      <pubDate>Tue, 21 Jul 2026 20:07:10 -0000</pubDate>
-    </item>
-    <item>
-      <title>爬虫基础</title>
-      <link>https://java-px.bot.cd/python/05-scraping/basics</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/05-scraping/basics</guid>
-      <description>&gt; **网络爬虫**是**自动获取网页数据**的程序。Python 因其丰富的爬虫库（requests、BeautifulSoup、Scrapy、Playwright）成为爬虫的首选语言。 **爬虫基础核心要点**： - ✅ HTTP 基础（请求方法、Headers、Cookie） - ✅ robots.txt 协议 - ✅ requests + BeautifulSoup 基础爬虫 - ✅ 静态</description>
-      <pubDate>Tue, 21 Jul 2026 20:06:41 -0000</pubDate>
-    </item>
-    <item>
-      <title>并发模式</title>
-      <link>https://java-px.bot.cd/python/04-concurrency/patterns</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/04-concurrency/patterns</guid>
-      <description>&gt; 掌握**经典并发设计模式**能让你写出**高质量、高性能**的并发代码。本章介绍 8 种最常用的并发模式。 **经典并发模式核心要点**： - ✅ Future 模式：异步获取结果 - ✅ Producer-Consumer：解耦生产和消费 - ✅ Worker Pool：控制并发数 - ✅ Pipeline：多阶段流水线 - ✅ Pub-Sub：事件驱动 - ✅ Promise：链式异步操作</description>
-      <pubDate>Tue, 21 Jul 2026 20:06:12 -0000</pubDate>
-    </item>
-    <item>
       <title>线程池与进程池</title>
       <link>https://java-px.bot.cd/python/04-concurrency/pool</link>
       <guid isPermaLink="true">https://java-px.bot.cd/python/04-concurrency/pool</guid>
       <description>&gt; **concurrent.futures** 是 Python **统一的并发任务执行框架**，提供 **ThreadPoolExecutor**（线程池）和 **ProcessPoolExecutor**（进程池），简化并发编程。 | 维度 | ThreadPoolExecutor | ProcessPoolExecutor | |------|---------------------|-</description>
       <pubDate>Tue, 21 Jul 2026 20:05:40 -0000</pubDate>
-    </item>
-    <item>
-      <title>同步原语</title>
-      <link>https://java-px.bot.cd/python/04-concurrency/sync-primitives</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/04-concurrency/sync-primitives</guid>
-      <description>&gt; 多线程/多进程编程中，**同步原语**用于**协调并发任务**、保护共享资源。本章详解 Python 中的同步原语。 **同步原语核心要点**： - ✅ Lock：互斥（最常用） - ✅ RLock：可重入锁（避免死锁） - ✅ Condition：等待/通知（生产者-消费者） - ✅ Semaphore：限制并发数 - ✅ Event：线程间通知 - ✅ Barrier：所有线程到齐才继续</description>
-      <pubDate>Tue, 21 Jul 2026 20:05:14 -0000</pubDate>
-    </item>
-    <item>
-      <title>asyncio 协程</title>
-      <link>https://java-px.bot.cd/python/04-concurrency/asyncio</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/04-concurrency/asyncio</guid>
-      <description>&gt; **asyncio** 是 Python 3.4+ 引入的**异步 I/O 框架**。用**协程（coroutine）**实现高并发，是 IO 密集型任务的**最佳选择**。 **asyncio 核心要点**： - ✅ async def 定义协程，await 调用 - ✅ asyncio.gather 并发执行 - ✅ asyncio.create_task 创建任务 - ✅ asyncio</description>
-      <pubDate>Tue, 21 Jul 2026 20:04:45 -0000</pubDate>
     </item>
     <item>
       <title>multiprocessing</title>
@@ -274,34 +358,6 @@
       <pubDate>Tue, 21 Jul 2026 20:04:20 -0000</pubDate>
     </item>
     <item>
-      <title>threading 多线程</title>
-      <link>https://java-px.bot.cd/python/04-concurrency/threading</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/04-concurrency/threading</guid>
-      <description>&gt; Python **threading** 模块支持**多线程**编程。但因为 **GIL** 的存在，多线程只适合 **IO 密集型任务**。 **Python threading 核心要点**： - ✅ 适合 IO 密集型任务（HTTP、文件、数据库） - ✅ 不适合 CPU 密集型（GIL 限制） - ✅ Lock / RLock 保护共享资源 - ✅ Condition 实现等待/通知</description>
-      <pubDate>Tue, 21 Jul 2026 20:03:57 -0000</pubDate>
-    </item>
-    <item>
-      <title>pytest 测试</title>
-      <link>https://java-px.bot.cd/python/03-libraries/pytest</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/03-libraries/pytest</guid>
-      <description>&gt; **pytest** 是 Python **最流行的测试框架**。简单、强大、可扩展，是几乎所有 Python 项目的首选。 运行结果： **pytest 核心要点**： - ✅ Python 最流行的测试框架 - ✅ 简单 `assert` 即可编写测试 - ✅ Fixture 强大（setup/teardown/参数化） - ✅ 参数化测试（@pytest.mark.parametrize</description>
-      <pubDate>Tue, 21 Jul 2026 20:03:35 -0000</pubDate>
-    </item>
-    <item>
-      <title>pandas 数据分析</title>
-      <link>https://java-px.bot.cd/python/03-libraries/pandas</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/03-libraries/pandas</guid>
-      <description>&gt; **pandas** 是 Python **数据分析的基石**。提供高性能、易用的**数据结构**和**数据分析工具**。 **pandas 核心要点**： - ✅ DataFrame 是核心（二维表格） - ✅ Series 是一维带标签数组 - ✅ 强大 IO（CSV/Excel/SQL/JSON） - ✅ 数据清洗（缺失值、重复、类型） - ✅ groupby / 透视表 / 合并 -</description>
-      <pubDate>Tue, 21 Jul 2026 20:03:00 -0000</pubDate>
-    </item>
-    <item>
-      <title>SQLAlchemy ORM</title>
-      <link>https://java-px.bot.cd/python/03-libraries/sqlalchemy</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/03-libraries/sqlalchemy</guid>
-      <description>&gt; **SQLAlchemy** 是 Python **最流行的 ORM 库**。提供 **Core（SQL 工具包）** 和 **ORM（对象关系映射）** 两层抽象。 **SQLAlchemy ORM 核心要点**： - ✅ Core + ORM 两层抽象 - ✅ 支持多种数据库（MySQL/PostgreSQL/SQLite/Oracle） - ✅ 类型映射（类 → 表，对象 → 行） -</description>
-      <pubDate>Tue, 21 Jul 2026 20:02:29 -0000</pubDate>
-    </item>
-    <item>
       <title>BeautifulSoup</title>
       <link>https://java-px.bot.cd/python/03-libraries/beautifulsoup</link>
       <guid isPermaLink="true">https://java-px.bot.cd/python/03-libraries/beautifulsoup</guid>
@@ -309,53 +365,11 @@
       <pubDate>Tue, 21 Jul 2026 20:02:02 -0000</pubDate>
     </item>
     <item>
-      <title>requests HTTP</title>
-      <link>https://java-px.bot.cd/python/03-libraries/requests</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/03-libraries/requests</guid>
-      <description>&gt; **requests** 是 Python **最流行的 HTTP 客户端库**。简单优雅的 API，强大的功能，几乎所有 Python 项目都用它。 **requests 核心要点**： - ✅ 最流行的 Python HTTP 库 - ✅ 简单优雅的 API - ✅ Session 复用连接（性能提升） - ✅ 支持文件上传/下载、流式响应 - ✅ 自动处理 Cookie、重定向、SSL</description>
-      <pubDate>Tue, 21 Jul 2026 20:01:33 -0000</pubDate>
-    </item>
-    <item>
-      <title>标准库概览</title>
-      <link>https://java-px.bot.cd/python/03-libraries/stdlib</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/03-libraries/stdlib</guid>
-      <description>&gt; Python **自带丰富标准库**，无需安装任何第三方包就能完成**日常大部分任务**。本章精选 10 个最常用模块。 **Python 标准库核心要点**： - ✅ 10 个必学模块（os/sys/pathlib/json/re/collections/itertools/functools/datetime/logging） - ✅ pathlib 替代 os.path（推荐） - ✅</description>
-      <pubDate>Tue, 21 Jul 2026 20:00:58 -0000</pubDate>
-    </item>
-    <item>
-      <title>性能剖析</title>
-      <link>https://java-px.bot.cd/python/02-principles/profiling</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/02-principles/profiling</guid>
-      <description>&gt; **性能剖析（Profiling）**是定位 Python 性能瓶颈的关键手段。本章介绍常用工具和最佳实践。 字段说明： - `ncalls`：调用次数 - `tottime`：函数自身耗时（不含子函数） - `percall`：平均每次调用耗时 - `cumtime`：累计耗时（含子函数） 输出： 输出： 输出（CPU + GPU + 内存）： **Python 性能剖析核心要点**： -</description>
-      <pubDate>Tue, 21 Jul 2026 20:00:25 -0000</pubDate>
-    </item>
-    <item>
-      <title>垃圾回收</title>
-      <link>https://java-px.bot.cd/python/02-principles/gc</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/02-principles/gc</guid>
-      <description>&gt; Python 的**垃圾回收（GC）**机制主要解决**循环引用**问题。理解 GC 是**避免内存泄漏**的关键。 **Python GC 核心要点**： - ✅ 引用计数不能处理循环引用 - ✅ 分代 GC 解决循环引用（0/1/2 代） - ✅ 三色标记算法扫描可达性 - ✅ 调整 GC 阈值（trade-off） - ✅ 弱引用避免循环引用 - ✅ tracemalloc 追踪内存分配</description>
-      <pubDate>Tue, 21 Jul 2026 19:59:41 -0000</pubDate>
-    </item>
-    <item>
       <title>GIL 全局锁</title>
       <link>https://java-px.bot.cd/python/02-principles/gil</link>
       <guid isPermaLink="true">https://java-px.bot.cd/python/02-principles/gil</guid>
       <description>&gt; **GIL（Global Interpreter Lock）**是 CPython 最具争议的设计。它**限制 Python 多线程**的并行能力，但对**IO 密集型**任务影响有限。 | 场景 | threading | multiprocessing | asyncio | |------|-----------|-----------------|---------| | CPU 密集</description>
       <pubDate>Tue, 21 Jul 2026 19:59:15 -0000</pubDate>
-    </item>
-    <item>
-      <title>内存管理</title>
-      <link>https://java-px.bot.cd/python/02-principles/memory</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/02-principles/memory</guid>
-      <description>&gt; Python 的**内存管理**由**引用计数**和**垃圾回收（GC）**共同完成。理解内存管理是**避免内存泄漏、优化内存占用**的关键。 **Python 内存管理核心要点**： - ✅ 引用计数：实时、精确、不能处理循环引用 - ✅ 垃圾回收：处理循环引用、分代收集 - ✅ 内存池：小对象预分配，提高效率 - ✅ `__slots__` 节省内存 - ✅ 生成器避免一次性加载 - ✅</description>
-      <pubDate>Tue, 21 Jul 2026 19:58:49 -0000</pubDate>
-    </item>
-    <item>
-      <title>对象模型</title>
-      <link>https://java-px.bot.cd/python/02-principles/object-model</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/02-principles/object-model</guid>
-      <description>&gt; Python 中**一切皆对象**。理解 PyObject 底层结构是掌握 Python 内存管理和性能优化的基础。 **Python 对象模型核心要点**： - ✅ 一切皆对象（int、str、func、class 都是对象） - ✅ PyObject 包含 ob_refcnt 和 ob_type - ✅ 不可变对象：int、float、str、tuple - ✅ 可变对象：list、dic</description>
-      <pubDate>Tue, 21 Jul 2026 19:58:18 -0000</pubDate>
     </item>
     <item>
       <title>字节码与执行</title>
@@ -393,25 +407,11 @@
       <pubDate>Tue, 21 Jul 2026 19:56:07 -0000</pubDate>
     </item>
     <item>
-      <title>安装与环境</title>
-      <link>https://java-px.bot.cd/python/01-basics/install</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/01-basics/install</guid>
-      <description>&gt; 5 分钟搭建 Python 开发环境。本章覆盖 Windows / macOS / Linux 三平台 + 虚拟环境 + 包管理。 &gt; **每个项目应有独立的虚拟环境**，避免依赖冲突。 **Python 环境搭建核心要点**： - ✅ Python 3.11+（推荐） - ✅ 每个项目独立虚拟环境 - ✅ pip 是包管理工具 - ✅ VS Code 或 PyCharm 作 IDE - ✅</description>
-      <pubDate>Tue, 21 Jul 2026 19:55:34 -0000</pubDate>
-    </item>
-    <item>
       <title>Python 是什么</title>
       <link>https://java-px.bot.cd/python/01-basics/intro</link>
       <guid isPermaLink="true">https://java-px.bot.cd/python/01-basics/intro</guid>
       <description>&gt; **Python** 是一种**高级、解释型、动态类型、多范式**的通用编程语言。以**简洁优雅**的语法和**强大的生态**著称。 | 维度 | Python | Java | JavaScript | C++ | |------|--------|------|------------|-----| | 语法 | 简洁 | 啰嗦 | 中等 | 复杂 | | 类型 | 动态 | 静态 | 动</description>
       <pubDate>Tue, 21 Jul 2026 19:55:12 -0000</pubDate>
-    </item>
-    <item>
-      <title>速查表</title>
-      <link>https://java-px.bot.cd/python/cheatsheet</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/cheatsheet</guid>
-      <description>&gt; 50+ 高频 Python 语法速查，支持分类过滤和关键词搜索。 &lt;ClientOnly&gt; &lt;Cheatsheet /&gt; &lt;/ClientOnly&gt; | 场景 | 语法 | |------|------| | 列表排序 | `sorted(lst)` 或 `lst.sort()` | | 列表去重 | `list(set(lst))` | | 列表转字符串 | `','.join(['a',</description>
-      <pubDate>Tue, 21 Jul 2026 19:54:30 -0000</pubDate>
     </item>
     <item>
       <title>思维导图</title>

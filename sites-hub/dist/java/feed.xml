@@ -6,90 +6,118 @@
     <atom:link href="https://java-px.bot.cd/java/feed.xml" rel="self" type="application/rss+xml" />
     <description>java 知识图谱（53 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
-    <item>
-      <title>Java Web Dev Manual</title>
-      <link>https://java-px.bot.cd/java/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/java/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Java 知识图谱太广（基础 / JVM / 并发 / 框架 / 中间件）怎么系统学？", "JVM 内存模型（堆 / 栈 / Metaspace / 直接</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:12 -0000</pubDate>
-    </item>
-    <item>
-      <title>数据脱敏</title>
-      <link>https://java-px.bot.cd/java/03-practice/data-masking</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/java/03-practice/data-masking</guid>
-      <description>对手机号、身份证、银行卡等敏感信息进行部分遮蔽处理。 **静态脱敏**：DB 导出前就脱敏（备份、日志、BI 报表场景）。优点：调用方无感知。 **动态脱敏**：查询时按用户权限脱敏（金融 / 医疗合规场景）。常用 `@JsonSerialize` + 自定义 Serializer 屏蔽敏感字段。 **常见脱敏规则**： - 手机号 `138****1234` - 身份证 `110101*****</description>
-      <pubDate>Mon, 24 Aug 2026 21:00:07 -0000</pubDate>
-    </item>
+    <lastBuildDate>Thu, 27 Aug 2026 21:42:04 -0000</lastBuildDate>
     <item>
       <title>Nginx</title>
       <link>https://java-px.bot.cd/java/04-tech/nginx</link>
       <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/nginx</guid>
       <description>Nginx 是高性能的 HTTP 服务器和反向代理，常用于负载均衡、静态资源、HTTPS 终端。 **反向代理**：`proxy_pass http://backend;` + `proxy_set_header X-Real-IP $remote_addr;` **负载均衡策略**： - `round-robin`（默认，轮询） - `least_conn`（最少连接，适合长连接） - `ip_</description>
-      <pubDate>Mon, 24 Aug 2026 21:00:07 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
     </item>
     <item>
-      <title>Docker</title>
-      <link>https://java-px.bot.cd/java/04-tech/docker</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/docker</guid>
-      <description>Docker 实现应用容器化，解决"在我机器上能跑"的问题。 **多阶段构建**：减少镜像体积（builder stage + runtime stage），最终镜像只含运行时依赖。 **Dockerfile 最佳实践**： - 容器跑应用用非 root 用户（`USER appuser`） - .dockerignore 排除 target/、.git/、node_modules/ 等 - 健康</description>
-      <pubDate>Mon, 24 Aug 2026 21:00:07 -0000</pubDate>
-    </item>
-    <item>
-      <title>微服务架构</title>
-      <link>https://java-px.bot.cd/java/02-design/microservices</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/microservices</guid>
-      <description>微服务将单体应用拆分为一组独立部署的小服务，每个服务围绕特定业务能力构建。 | 组件 | 功能 | |---|---| | Nacos | 注册中心 + 配置中心 | | Sentinel | 流量控制、熔断降级 | | Seata | 分布式事务 | | Gateway | API 网关 | | RocketMQ | 消息队列 | | 原则 | 说明 | |---|---| | 单一职责 | 一</description>
-      <pubDate>Mon, 24 Aug 2026 20:59:47 -0000</pubDate>
-    </item>
-    <item>
-      <title>MVC 模式</title>
-      <link>https://java-px.bot.cd/java/02-design/mvc-pattern</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/mvc-pattern</guid>
-      <description>Spring MVC 是 Spring Web 框架的核心，基于 Model-View-Controller 模式。 | | Filter | Interceptor | |---|---|---| | 层面 | Servlet 容器 | Spring 框架 | | 能获取 Bean | 否 | 是 | | 能获取请求体 | 否（只能 request/response） | 是（HandlerMe</description>
-      <pubDate>Mon, 24 Aug 2026 20:59:47 -0000</pubDate>
-    </item>
-    <item>
-      <title>依赖注入</title>
-      <link>https://java-px.bot.cd/java/02-design/dependency-injection</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/dependency-injection</guid>
-      <description>Spring 通过 IoC 容器管理对象的创建和依赖关系，开发者只需声明需要什么。 | | @Autowired | @Resource | |---|---|---| | 来源 | Spring | JDK (JSR-250) | | 默认装配 | byType | byName | | 指定方式 | @Qualifier | name 属性 | **DI 优势**：依赖关系**显式可见**（构</description>
-      <pubDate>Mon, 24 Aug 2026 20:59:47 -0000</pubDate>
-    </item>
-    <item>
-      <title>责任链模式</title>
-      <link>https://java-px.bot.cd/java/02-design/chain-of-responsibility</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/chain-of-responsibility</guid>
-      <description>将请求沿着处理链传递，每个处理器决定处理或传递给下一个。 - **Servlet Filter 链**：每个 Filter 决定是否放行 - **Spring Interceptor**：preHandle → Controller → postHandle → afterCompletion - **审批流**：组长 → 经理 → 总监 逐级审批 **使用场景**：请求需要**多个处理者**依次</description>
-      <pubDate>Mon, 24 Aug 2026 20:59:47 -0000</pubDate>
-    </item>
-    <item>
-      <title>策略模式</title>
-      <link>https://java-px.bot.cd/java/02-design/strategy-pattern</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/strategy-pattern</guid>
-      <description>定义一组算法，分别封装，使其可以互相替换。 - **多种支付方式**：微信支付、支付宝、银行卡 - **多种通知渠道**：短信、邮件、App推送 - **多种计费规则**：普通用户、VIP、企业 **使用场景**：多种算法可以**互换**，且算法选择**在运行时决定**（如支付方式 选择、排序算法选择、压缩算法选择）。 **优势**：消除 if-else 链，新增算法只需新增 Strategy 实</description>
-      <pubDate>Mon, 24 Aug 2026 20:59:47 -0000</pubDate>
-    </item>
-    <item>
-      <title>模板方法模式</title>
-      <link>https://java-px.bot.cd/java/02-design/template-method</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/template-method</guid>
-      <description>在父类中定义算法骨架，子类实现具体步骤。 - **BaseService**：通用 CRUD 模板 - **JdbcTemplate / RestTemplate**：连接管理、异常处理已封装 - **数据导出**：查询数据 → 格式化 → 写入文件（子类实现格式化） **使用场景**：业务流程**整体固定**，但某些步骤需要子类定制（如 Spring `AbstractView.render()</description>
-      <pubDate>Mon, 24 Aug 2026 20:59:47 -0000</pubDate>
+      <title>技术栈 总览</title>
+      <link>https://java-px.bot.cd/java/04-tech/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/overview</guid>
+      <description>Java Web 开发的核心技术组件，涵盖**框架、数据库、中间件、工具链**。 | 技术 | 定位 | 核心功能 | |---|---|---| | [Spring Boot](/04-tech/spring-boot) | 开发框架 | 自动配置、起步依赖、内嵌容器、Actuator 监控 | | [Spring MVC](/04-tech/spring-mvc) | Web 层框架 | 请求</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
     </item>
     <item>
       <title>代理模式</title>
       <link>https://java-px.bot.cd/java/02-design/proxy-pattern</link>
       <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/proxy-pattern</guid>
       <description>为其他对象提供代理，控制对原对象的访问。 - **Spring AOP**：JDK 动态代理（接口代理）+ CGLIB（类代理） - **MyBatis Mapper**：接口没有实现类，运行时生成代理对象 - **@Transactional**：生成代理，在方法前后开启/提交/回滚事务 | | JDK 动态代理 | CGLIB | |---|---|---| | 机制 | 基于接口 | 基于继</description>
-      <pubDate>Mon, 24 Aug 2026 20:59:47 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>测试框架</title>
+      <link>https://java-px.bot.cd/java/04-tech/testing</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/testing</guid>
+      <description>Java 测试的核心组合：JUnit 5 + Mockito + SpringBootTest。 &lt;KnowledgeGraph mode="neighbor" focusNodeId="testing" :height="400" /&gt; &lt;!-- auto-enrich:do-not-edit --&gt; | 参数 | 说明 | 默认值 | | --- | --- | --- | | TODO_1</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Spring MVC</title>
+      <link>https://java-px.bot.cd/java/04-tech/spring-mvc</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/spring-mvc</guid>
+      <description>Spring MVC 处理 Web 层的请求分发、参数绑定、响应返回。 &lt;KnowledgeGraph mode="neighbor" focusNodeId="spring-mvc" :height="400" /&gt; &lt;!-- auto-enrich:do-not-edit --&gt; | 参数 | 说明 | 默认值 | | --- | --- | --- | | TODO_1 | 待补充 | -</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>接口幂等</title>
+      <link>https://java-px.bot.cd/java/03-practice/idempotency</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/03-practice/idempotency</guid>
+      <description>幂等：同一个操作执行一次和执行多次，结果相同。 - 用户手抖点多次提交按钮 - 网络超时，客户端自动重试 - MQ 消息重复消费 - 定时任务重复执行 &lt;KnowledgeGraph mode="neighbor" focusNodeId="idempotency" :height="400" /&gt; &lt;!-- auto-enrich:do-not-edit --&gt; | 参数 | 说明 | 默认值</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>模板方法模式</title>
+      <link>https://java-px.bot.cd/java/02-design/template-method</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/template-method</guid>
+      <description>在父类中定义算法骨架，子类实现具体步骤。 - **BaseService**：通用 CRUD 模板 - **JdbcTemplate / RestTemplate**：连接管理、异常处理已封装 - **数据导出**：查询数据 → 格式化 → 写入文件（子类实现格式化） **使用场景**：业务流程**整体固定**，但某些步骤需要子类定制（如 Spring `AbstractView.render()</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>策略模式</title>
+      <link>https://java-px.bot.cd/java/02-design/strategy-pattern</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/strategy-pattern</guid>
+      <description>定义一组算法，分别封装，使其可以互相替换。 - **多种支付方式**：微信支付、支付宝、银行卡 - **多种通知渠道**：短信、邮件、App推送 - **多种计费规则**：普通用户、VIP、企业 **使用场景**：多种算法可以**互换**，且算法选择**在运行时决定**（如支付方式 选择、排序算法选择、压缩算法选择）。 **优势**：消除 if-else 链，新增算法只需新增 Strategy 实</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>工厂模式</title>
       <link>https://java-px.bot.cd/java/02-design/factory-pattern</link>
       <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/factory-pattern</guid>
       <description>定义创建对象的接口，让子类决定实例化哪个类。 - **Spring BeanFactory**：IoC 容器本身就是巨型工厂 - **SqlSessionFactory**：MyBatis 创建 SqlSession - **ThreadPoolExecutor 工厂**：统一创建线程池 **使用场景**：创建逻辑较复杂（参数多 / 多种类型 / 需要缓存 / 需要单例管理）， 或者**调用方不想</description>
-      <pubDate>Mon, 24 Aug 2026 20:59:47 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>责任链模式</title>
+      <link>https://java-px.bot.cd/java/02-design/chain-of-responsibility</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/chain-of-responsibility</guid>
+      <description>将请求沿着处理链传递，每个处理器决定处理或传递给下一个。 - **Servlet Filter 链**：每个 Filter 决定是否放行 - **Spring Interceptor**：preHandle → Controller → postHandle → afterCompletion - **审批流**：组长 → 经理 → 总监 逐级审批 **使用场景**：请求需要**多个处理者**依次</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Java Web Dev Manual</title>
+      <link>https://java-px.bot.cd/java/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/</guid>
+      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Java 知识图谱太广（基础 / JVM / 并发 / 框架 / 中间件）怎么系统学？", "JVM 内存模型（堆 / 栈 / Metaspace / 直接</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>https://java-px.bot.cd/java/04-tech/docker</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/docker</guid>
+      <description>Docker 实现应用容器化，解决"在我机器上能跑"的问题。 **多阶段构建**：减少镜像体积（builder stage + runtime stage），最终镜像只含运行时依赖。 **Dockerfile 最佳实践**： - 容器跑应用用非 root 用户（`USER appuser`） - .dockerignore 排除 target/、.git/、node_modules/ 等 - 健康</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>数据脱敏</title>
+      <link>https://java-px.bot.cd/java/03-practice/data-masking</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/03-practice/data-masking</guid>
+      <description>对手机号、身份证、银行卡等敏感信息进行部分遮蔽处理。 **静态脱敏**：DB 导出前就脱敏（备份、日志、BI 报表场景）。优点：调用方无感知。 **动态脱敏**：查询时按用户权限脱敏（金融 / 医疗合规场景）。常用 `@JsonSerialize` + 自定义 Serializer 屏蔽敏感字段。 **常见脱敏规则**： - 手机号 `138****1234` - 身份证 `110101*****</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>MVC 模式</title>
+      <link>https://java-px.bot.cd/java/02-design/mvc-pattern</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/mvc-pattern</guid>
+      <description>Spring MVC 是 Spring Web 框架的核心，基于 Model-View-Controller 模式。 | | Filter | Interceptor | |---|---|---| | 层面 | Servlet 容器 | Spring 框架 | | 能获取 Bean | 否 | 是 | | 能获取请求体 | 否（只能 request/response） | 是（HandlerMe</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>微服务架构</title>
+      <link>https://java-px.bot.cd/java/02-design/microservices</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/microservices</guid>
+      <description>微服务将单体应用拆分为一组独立部署的小服务，每个服务围绕特定业务能力构建。 | 组件 | 功能 | |---|---| | Nacos | 注册中心 + 配置中心 | | Sentinel | 流量控制、熔断降级 | | Seata | 分布式事务 | | Gateway | API 网关 | | RocketMQ | 消息队列 | | 原则 | 说明 | |---|---| | 单一职责 | 一</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>依赖注入</title>
+      <link>https://java-px.bot.cd/java/02-design/dependency-injection</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/02-design/dependency-injection</guid>
+      <description>Spring 通过 IoC 容器管理对象的创建和依赖关系，开发者只需声明需要什么。 | | @Autowired | @Resource | |---|---|---| | 来源 | Spring | JDK (JSR-250) | | 默认装配 | byType | byName | | 指定方式 | @Qualifier | name 属性 | **DI 优势**：依赖关系**显式可见**（构</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>MyBatis / MyBatis-Plus</title>
@@ -111,13 +139,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/api-doc</guid>
       <description>自动生成在线 API 文档，支持在线调试，前端不用再对着静态文档开发。 Knife4j 是 Swagger 的增强版，UI 更好看，功能更丰富。 访问 `http://localhost:8080/doc.html` 即可看到在线文档。 | 注解 | 作用 | |---|---| | @Tag | Controller 分类标签 | | @Operation | 接口说明 | | @Paramet</description>
       <pubDate>Wed, 22 Jul 2026 20:53:18 -0000</pubDate>
-    </item>
-    <item>
-      <title>测试框架</title>
-      <link>https://java-px.bot.cd/java/04-tech/testing</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/testing</guid>
-      <description>Java 测试的核心组合：JUnit 5 + Mockito + SpringBootTest。 &lt;KnowledgeGraph mode="neighbor" focusNodeId="testing" :height="400" /&gt;</description>
-      <pubDate>Wed, 22 Jul 2026 20:53:10 -0000</pubDate>
     </item>
     <item>
       <title>构建工具 Maven/Gradle</title>
@@ -155,13 +176,6 @@
       <pubDate>Wed, 22 Jul 2026 20:52:11 -0000</pubDate>
     </item>
     <item>
-      <title>Spring MVC</title>
-      <link>https://java-px.bot.cd/java/04-tech/spring-mvc</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/spring-mvc</guid>
-      <description>Spring MVC 处理 Web 层的请求分发、参数绑定、响应返回。 &lt;KnowledgeGraph mode="neighbor" focusNodeId="spring-mvc" :height="400" /&gt;</description>
-      <pubDate>Wed, 22 Jul 2026 20:52:04 -0000</pubDate>
-    </item>
-    <item>
       <title>Spring Boot</title>
       <link>https://java-px.bot.cd/java/04-tech/spring-boot</link>
       <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/spring-boot</guid>
@@ -181,13 +195,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/java/03-practice/rate-limiting</guid>
       <description>限流控制流量入口，熔断保护下游服务，是系统稳定性的最后防线。 当某个服务持续失败，熔断器打开，直接返回降级结果而不是继续调用。 | 策略 | 说明 | 示例 | |---|---|---| | 返回默认值 | 返回兜底数据 | 推荐列表返回热门商品 | | 返回缓存 | 用缓存数据 | 商品详情返回缓存 | | 功能降级 | 关闭非核心功能 | 关闭推荐模块 | | 排队等待 | 提示用户稍后再试</description>
       <pubDate>Wed, 22 Jul 2026 20:51:40 -0000</pubDate>
-    </item>
-    <item>
-      <title>接口幂等</title>
-      <link>https://java-px.bot.cd/java/03-practice/idempotency</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/java/03-practice/idempotency</guid>
-      <description>幂等：同一个操作执行一次和执行多次，结果相同。 - 用户手抖点多次提交按钮 - 网络超时，客户端自动重试 - MQ 消息重复消费 - 定时任务重复执行 &lt;KnowledgeGraph mode="neighbor" focusNodeId="idempotency" :height="400" /&gt;</description>
-      <pubDate>Wed, 22 Jul 2026 20:51:24 -0000</pubDate>
     </item>
     <item>
       <title>代码规范</title>
@@ -349,13 +356,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/java/01-process/tech-solution</guid>
       <description>在理解需求之后，需要产出技术方案，明确怎么做、用什么技术、花多少时间。 | 层面 | 选项 | 选择理由 | |---|---|---| | 框架 | Spring Boot 2.x / 3.x | 公司技术栈统一 | | ORM | MyBatis-Plus | SQL 灵活、分页方便 | | 数据库 | MySQL 8.0 | 数据量合适、团队熟悉 | | 缓存 | Redis | 热点数据缓</description>
       <pubDate>Wed, 22 Jul 2026 20:47:53 -0000</pubDate>
-    </item>
-    <item>
-      <title>技术栈 总览</title>
-      <link>https://java-px.bot.cd/java/04-tech/overview</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/overview</guid>
-      <description>Java Web 开发的核心技术组件，涵盖**框架、数据库、中间件、工具链**。 | 技术 | 定位 | 核心功能 | |---|---|---| | [Spring Boot](/04-tech/spring-boot) | 开发框架 | 自动配置、起步依赖、内嵌容器、Actuator 监控 | | [Spring MVC](/04-tech/spring-mvc) | Web 层框架 | 请求</description>
-      <pubDate>Wed, 22 Jul 2026 20:46:57 -0000</pubDate>
     </item>
     <item>
       <title>重点关注 总览</title>

@@ -6,13 +6,181 @@
     <atom:link href="https://java-px.bot.cd/observability/feed.xml" rel="self" type="application/rss+xml" />
     <description>observability 知识图谱（50 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 21:42:04 -0000</lastBuildDate>
+    <item>
+      <title>Prometheus 架构</title>
+      <link>https://java-px.bot.cd/observability/03-prometheus/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/03-prometheus/overview</guid>
+      <description>Prometheus 整体架构与核心组件</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
+    </item>
+    <item>
+      <title>Grafana 概览</title>
+      <link>https://java-px.bot.cd/observability/04-grafana/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/04-grafana/overview</guid>
+      <description>数据源 / Dashboard / 告警</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
+    </item>
+    <item>
+      <title>Trace / Span 概念</title>
+      <link>https://java-px.bot.cd/observability/06-tracing/concepts</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/06-tracing/concepts</guid>
+      <description>链路追踪核心数据模型</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>信号类型</title>
+      <link>https://java-px.bot.cd/observability/01-foundations/signals</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/01-foundations/signals</guid>
+      <description>Counter / Gauge / Histogram / Summary 的本质与选型</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>K8s 全栈监控实战</title>
+      <link>https://java-px.bot.cd/observability/11-scenarios/k8s-monitor</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/11-scenarios/k8s-monitor</guid>
+      <description>ServiceMonitor + PrometheusRule + Grafana 完整 yaml</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>Elasticsearch 日志存储</title>
+      <link>https://java-px.bot.cd/observability/07-elk-efk/elasticsearch-logs</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/07-elk-efk/elasticsearch-logs</guid>
+      <description>ES 作为日志后端 + ILM + Index Template</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>Grafana Dashboard 设计</title>
+      <link>https://java-px.bot.cd/observability/04-grafana/dashboard</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/04-grafana/dashboard</guid>
+      <description>监控大盘设计原则与实战</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>PromQL 详解</title>
+      <link>https://java-px.bot.cd/observability/03-prometheus/promql</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/03-prometheus/promql</guid>
+      <description>Prometheus 查询语言实战</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>OTel Collector 详解</title>
+      <link>https://java-px.bot.cd/observability/02-opentelemetry/collector</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/02-opentelemetry/collector</guid>
+      <description>OpenTelemetry Collector 部署模式与配置实战</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>可观测性四大支柱</title>
+      <link>https://java-px.bot.cd/observability/01-foundations/four-pillars</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/01-foundations/four-pillars</guid>
+      <description>Metrics / Logs / Traces / Events 信号体系</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>微服务全链路追踪</title>
+      <link>https://java-px.bot.cd/observability/11-scenarios/microservice-trace</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/11-scenarios/microservice-trace</guid>
+      <description>跨服务 trace + 服务地图 + 依赖分析</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>数据库可观测性</title>
+      <link>https://java-px.bot.cd/observability/11-scenarios/database-monitor</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/11-scenarios/database-monitor</guid>
+      <description>MySQL / PostgreSQL / Redis 监控实践</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>可观测成本优化</title>
+      <link>https://java-px.bot.cd/observability/11-scenarios/cost-optimization</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/11-scenarios/cost-optimization</guid>
+      <description>存储成本 / 采样 / 保留期 / 标签基数</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Pyroscope 持续剖析实战</title>
+      <link>https://java-px.bot.cd/observability/10-profiling/pyroscope</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/10-profiling/pyroscope</guid>
+      <description>Grafana Labs 持续剖析平台</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Go pprof 剖析</title>
+      <link>https://java-px.bot.cd/observability/10-profiling/pprof</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/10-profiling/pprof</guid>
+      <description>Go 内置的性能剖析工具</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>K8s 指标采集</title>
+      <link>https://java-px.bot.cd/observability/09-app-instrumentation/k8s-metrics</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/09-app-instrumentation/k8s-metrics</guid>
+      <description>kube-state-metrics / cAdvisor / Prometheus Operator</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>业务指标设计</title>
+      <link>https://java-px.bot.cd/observability/09-app-instrumentation/business-metrics</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/09-app-instrumentation/business-metrics</guid>
+      <description>DAU / 转化率 / 漏斗 / 业务 SLO</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>告警分级</title>
+      <link>https://java-px.bot.cd/observability/08-alerting/severity</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/08-alerting/severity</guid>
+      <description>P0/P1/P2/P3 与响应 SLO</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Alertmanager 架构与配置</title>
+      <link>https://java-px.bot.cd/observability/08-alerting/alertmanager</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/08-alerting/alertmanager</guid>
+      <description>去重 / 分组 / 路由 / 抑制</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>LogQL 查询语言</title>
+      <link>https://java-px.bot.cd/observability/05-loki/logql</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/05-loki/logql</guid>
+      <description>Loki + Promtail + Grafana</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Loki 最佳实践</title>
+      <link>https://java-px.bot.cd/observability/05-loki/best-practice</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/05-loki/best-practice</guid>
+      <description>标签设计 / 存储优化 / 性能调优</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Grafana Annotation</title>
+      <link>https://java-px.bot.cd/observability/04-grafana/annotation</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/04-grafana/annotation</guid>
+      <description>时间轴标记 / 部署事件 / 告警叠加</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Prometheus 数据模型</title>
+      <link>https://java-px.bot.cd/observability/03-prometheus/data-model</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/03-prometheus/data-model</guid>
+      <description>Metric + Label + Sample</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Prometheus 告警规则</title>
+      <link>https://java-px.bot.cd/observability/03-prometheus/alert</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/03-prometheus/alert</guid>
+      <description>PromQL alert + 多窗口 burn rate</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
     <item>
       <title>Observability 知识图谱</title>
       <link>https://java-px.bot.cd/observability/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/observability/</guid>
       <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "单体时代（CPU/内存/磁盘）vs 微服务时代（调用链/性能瓶颈）监控差异？", "Metrics / Logs / Traces 三件套怎么选型（Prom</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>OTLP 协议</title>
@@ -29,45 +197,10 @@
       <pubDate>Sun, 09 Aug 2026 22:09:03 -0000</pubDate>
     </item>
     <item>
-      <title>可观测成本优化</title>
-      <link>https://java-px.bot.cd/observability/11-scenarios/cost-optimization</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/observability/11-scenarios/cost-optimization</guid>
-      <description>存储成本 / 采样 / 保留期 / 标签基数</description>
-      <pubDate>Sun, 09 Aug 2026 22:08:50 -0000</pubDate>
-    </item>
-    <item>
-      <title>微服务全链路追踪</title>
-      <link>https://java-px.bot.cd/observability/11-scenarios/microservice-trace</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/observability/11-scenarios/microservice-trace</guid>
-      <description>跨服务 trace + 服务地图 + 依赖分析</description>
-      <pubDate>Sun, 09 Aug 2026 22:08:50 -0000</pubDate>
-    </item>
-    <item>
-      <title>数据库可观测性</title>
-      <link>https://java-px.bot.cd/observability/11-scenarios/database-monitor</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/observability/11-scenarios/database-monitor</guid>
-      <description>MySQL / PostgreSQL / Redis 监控实践</description>
-      <pubDate>Sun, 09 Aug 2026 22:08:50 -0000</pubDate>
-    </item>
-    <item>
       <title>Java async-profiler</title>
       <link>https://java-px.bot.cd/observability/10-profiling/async-profiler</link>
       <guid isPermaLink="true">https://java-px.bot.cd/observability/10-profiling/async-profiler</guid>
       <description>Java 生产级低开销 profiler</description>
-      <pubDate>Sun, 09 Aug 2026 22:08:50 -0000</pubDate>
-    </item>
-    <item>
-      <title>Go pprof 剖析</title>
-      <link>https://java-px.bot.cd/observability/10-profiling/pprof</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/observability/10-profiling/pprof</guid>
-      <description>Go 内置的性能剖析工具</description>
-      <pubDate>Sun, 09 Aug 2026 22:08:50 -0000</pubDate>
-    </item>
-    <item>
-      <title>K8s 指标采集</title>
-      <link>https://java-px.bot.cd/observability/09-app-instrumentation/k8s-metrics</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/observability/09-app-instrumentation/k8s-metrics</guid>
-      <description>kube-state-metrics / cAdvisor / Prometheus Operator</description>
       <pubDate>Sun, 09 Aug 2026 22:08:50 -0000</pubDate>
     </item>
     <item>
@@ -82,13 +215,6 @@
       <link>https://java-px.bot.cd/observability/08-alerting/silence</link>
       <guid isPermaLink="true">https://java-px.bot.cd/observability/08-alerting/silence</guid>
       <description>Silence / 维护窗口 / 已知问题屏蔽</description>
-      <pubDate>Sun, 09 Aug 2026 22:08:50 -0000</pubDate>
-    </item>
-    <item>
-      <title>告警分级</title>
-      <link>https://java-px.bot.cd/observability/08-alerting/severity</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/observability/08-alerting/severity</guid>
-      <description>P0/P1/P2/P3 与响应 SLO</description>
       <pubDate>Sun, 09 Aug 2026 22:08:50 -0000</pubDate>
     </item>
     <item>
@@ -127,13 +253,6 @@
       <pubDate>Sun, 09 Aug 2026 22:08:50 -0000</pubDate>
     </item>
     <item>
-      <title>Loki 最佳实践</title>
-      <link>https://java-px.bot.cd/observability/05-loki/best-practice</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/observability/05-loki/best-practice</guid>
-      <description>标签设计 / 存储优化 / 性能调优</description>
-      <pubDate>Sun, 09 Aug 2026 22:08:50 -0000</pubDate>
-    </item>
-    <item>
       <title>Loki Pipeline 处理</title>
       <link>https://java-px.bot.cd/observability/05-loki/pipeline</link>
       <guid isPermaLink="true">https://java-px.bot.cd/observability/05-loki/pipeline</guid>
@@ -155,24 +274,10 @@
       <pubDate>Sun, 09 Aug 2026 22:08:50 -0000</pubDate>
     </item>
     <item>
-      <title>Grafana Annotation</title>
-      <link>https://java-px.bot.cd/observability/04-grafana/annotation</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/observability/04-grafana/annotation</guid>
-      <description>时间轴标记 / 部署事件 / 告警叠加</description>
-      <pubDate>Sun, 09 Aug 2026 22:08:50 -0000</pubDate>
-    </item>
-    <item>
       <title>Grafana 变量</title>
       <link>https://java-px.bot.cd/observability/04-grafana/variables</link>
       <guid isPermaLink="true">https://java-px.bot.cd/observability/04-grafana/variables</guid>
       <description>Variables / Templating / Dropdown</description>
-      <pubDate>Sun, 09 Aug 2026 22:08:50 -0000</pubDate>
-    </item>
-    <item>
-      <title>Grafana 概览</title>
-      <link>https://java-px.bot.cd/observability/04-grafana/overview</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/observability/04-grafana/overview</guid>
-      <description>数据源 / Dashboard / 告警</description>
       <pubDate>Sun, 09 Aug 2026 22:08:50 -0000</pubDate>
     </item>
     <item>
@@ -183,25 +288,11 @@
       <pubDate>Sun, 09 Aug 2026 22:08:50 -0000</pubDate>
     </item>
     <item>
-      <title>Prometheus 数据模型</title>
-      <link>https://java-px.bot.cd/observability/03-prometheus/data-model</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/observability/03-prometheus/data-model</guid>
-      <description>Metric + Label + Sample</description>
-      <pubDate>Sun, 09 Aug 2026 22:08:50 -0000</pubDate>
-    </item>
-    <item>
       <title>自动埋点</title>
       <link>https://java-px.bot.cd/observability/02-opentelemetry/auto-instrumentation</link>
       <guid isPermaLink="true">https://java-px.bot.cd/observability/02-opentelemetry/auto-instrumentation</guid>
       <description>Java agent / eBPF / 零代码埋点</description>
       <pubDate>Sun, 09 Aug 2026 22:08:50 -0000</pubDate>
-    </item>
-    <item>
-      <title>Elasticsearch 日志存储</title>
-      <link>https://java-px.bot.cd/observability/07-elk-efk/elasticsearch-logs</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/observability/07-elk-efk/elasticsearch-logs</guid>
-      <description>ES 作为日志后端 + ILM + Index Template</description>
-      <pubDate>Sun, 09 Aug 2026 22:01:16 -0000</pubDate>
     </item>
     <item>
       <title>Kibana 可视化</title>
@@ -211,25 +302,11 @@
       <pubDate>Sun, 09 Aug 2026 22:00:32 -0000</pubDate>
     </item>
     <item>
-      <title>Pyroscope 持续剖析实战</title>
-      <link>https://java-px.bot.cd/observability/10-profiling/pyroscope</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/observability/10-profiling/pyroscope</guid>
-      <description>Grafana Labs 持续剖析平台</description>
-      <pubDate>Sun, 09 Aug 2026 21:59:52 -0000</pubDate>
-    </item>
-    <item>
       <title>持续剖析</title>
       <link>https://java-px.bot.cd/observability/10-profiling/continuous-profiling</link>
       <guid isPermaLink="true">https://java-px.bot.cd/observability/10-profiling/continuous-profiling</guid>
       <description>Continuous Profiling — 生产环境不间断 profiling</description>
       <pubDate>Sun, 09 Aug 2026 21:59:25 -0000</pubDate>
-    </item>
-    <item>
-      <title>业务指标设计</title>
-      <link>https://java-px.bot.cd/observability/09-app-instrumentation/business-metrics</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/observability/09-app-instrumentation/business-metrics</guid>
-      <description>DAU / 转化率 / 漏斗 / 业务 SLO</description>
-      <pubDate>Sun, 09 Aug 2026 21:58:38 -0000</pubDate>
     </item>
     <item>
       <title>USE 方法</title>
@@ -260,69 +337,6 @@
       <pubDate>Sun, 09 Aug 2026 21:56:53 -0000</pubDate>
     </item>
     <item>
-      <title>LogQL 查询语言</title>
-      <link>https://java-px.bot.cd/observability/05-loki/logql</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/observability/05-loki/logql</guid>
-      <description>Loki + Promtail + Grafana</description>
-      <pubDate>Sun, 09 Aug 2026 21:56:38 -0000</pubDate>
-    </item>
-    <item>
-      <title>Prometheus 告警规则</title>
-      <link>https://java-px.bot.cd/observability/03-prometheus/alert</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/observability/03-prometheus/alert</guid>
-      <description>PromQL alert + 多窗口 burn rate</description>
-      <pubDate>Sun, 09 Aug 2026 21:56:26 -0000</pubDate>
-    </item>
-    <item>
-      <title>Alertmanager 架构与配置</title>
-      <link>https://java-px.bot.cd/observability/08-alerting/alertmanager</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/observability/08-alerting/alertmanager</guid>
-      <description>去重 / 分组 / 路由 / 抑制</description>
-      <pubDate>Sun, 09 Aug 2026 21:56:09 -0000</pubDate>
-    </item>
-    <item>
-      <title>OTel Collector 详解</title>
-      <link>https://java-px.bot.cd/observability/02-opentelemetry/collector</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/observability/02-opentelemetry/collector</guid>
-      <description>OpenTelemetry Collector 部署模式与配置实战</description>
-      <pubDate>Sun, 09 Aug 2026 16:38:51 -0000</pubDate>
-    </item>
-    <item>
-      <title>Prometheus 架构</title>
-      <link>https://java-px.bot.cd/observability/03-prometheus/overview</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/observability/03-prometheus/overview</guid>
-      <description>Prometheus 整体架构与核心组件</description>
-      <pubDate>Sun, 09 Aug 2026 16:38:36 -0000</pubDate>
-    </item>
-    <item>
-      <title>K8s 全栈监控实战</title>
-      <link>https://java-px.bot.cd/observability/11-scenarios/k8s-monitor</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/observability/11-scenarios/k8s-monitor</guid>
-      <description>ServiceMonitor + PrometheusRule + Grafana 完整 yaml</description>
-      <pubDate>Sun, 09 Aug 2026 16:38:19 -0000</pubDate>
-    </item>
-    <item>
-      <title>Grafana Dashboard 设计</title>
-      <link>https://java-px.bot.cd/observability/04-grafana/dashboard</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/observability/04-grafana/dashboard</guid>
-      <description>监控大盘设计原则与实战</description>
-      <pubDate>Sun, 09 Aug 2026 16:38:06 -0000</pubDate>
-    </item>
-    <item>
-      <title>Trace / Span 概念</title>
-      <link>https://java-px.bot.cd/observability/06-tracing/concepts</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/observability/06-tracing/concepts</guid>
-      <description>链路追踪核心数据模型</description>
-      <pubDate>Sun, 09 Aug 2026 16:37:48 -0000</pubDate>
-    </item>
-    <item>
-      <title>PromQL 详解</title>
-      <link>https://java-px.bot.cd/observability/03-prometheus/promql</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/observability/03-prometheus/promql</guid>
-      <description>Prometheus 查询语言实战</description>
-      <pubDate>Sun, 09 Aug 2026 16:37:31 -0000</pubDate>
-    </item>
-    <item>
       <title>OpenTelemetry 概览</title>
       <link>https://java-px.bot.cd/observability/02-opentelemetry/overview</link>
       <guid isPermaLink="true">https://java-px.bot.cd/observability/02-opentelemetry/overview</guid>
@@ -335,20 +349,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/observability/01-foundations/sli-slo</guid>
       <description>SRE 三件套</description>
       <pubDate>Sun, 09 Aug 2026 16:37:03 -0000</pubDate>
-    </item>
-    <item>
-      <title>信号类型</title>
-      <link>https://java-px.bot.cd/observability/01-foundations/signals</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/observability/01-foundations/signals</guid>
-      <description>Counter / Gauge / Histogram / Summary 的本质与选型</description>
-      <pubDate>Sun, 09 Aug 2026 16:36:48 -0000</pubDate>
-    </item>
-    <item>
-      <title>可观测性四大支柱</title>
-      <link>https://java-px.bot.cd/observability/01-foundations/four-pillars</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/observability/01-foundations/four-pillars</guid>
-      <description>Metrics / Logs / Traces / Events 信号体系</description>
-      <pubDate>Sun, 09 Aug 2026 16:36:37 -0000</pubDate>
     </item>
     <item>
       <title>监控 vs 可观测性</title>

@@ -6,7 +6,98 @@
     <atom:link href="https://java-px.bot.cd/cloud/feed.xml" rel="self" type="application/rss+xml" />
     <description>cloud 知识图谱（35 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 21:42:04 -0000</lastBuildDate>
+    <item>
+      <title>自动配置原理</title>
+      <link>https://java-px.bot.cd/cloud/01-springboot/auto-config</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud/01-springboot/auto-config</guid>
+      <description>&gt; 理解 `@SpringBootApplication` 背后的魔法，是掌握 Spring Boot 的关键。 Spring Boot 根据**类路径上的 jar 包**自动配置 Spring 应用： **核心思想：约定优于配置** **Spring Boot 内置 100+ 自动配置类** | 注解 | 作用 | |---|---| | `@AutoConfiguration` | 标记为自动</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
+    </item>
+    <item>
+      <title>综合实战项目</title>
+      <link>https://java-px.bot.cd/cloud/06-practice/comprehensive</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud/06-practice/comprehensive</guid>
+      <description>&gt; 整合 Spring Cloud Alibaba 全部组件，搭建一个**完整的电商微服务系统**。 构建一个包含以下微服务的电商系统： **实战项目核心：** - ✅ 微服务拆分（按业务边界） - ✅ Gateway 统一入口 - ✅ Nacos 服务发现 + 配置中心 - ✅ JWT 统一认证 - ✅ Seata 分布式事务 - ✅ Kafka 异步事件 - ✅ Sentinel 流控熔断 -</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>高可用与限流熔断</title>
+      <link>https://java-px.bot.cd/cloud/07-distributed/high-availability</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud/07-distributed/high-availability</guid>
+      <description>&gt; 保障分布式系统**在故障和高压下仍能提供服务**。 **可用性 = 系统可以正常服务的时间 / 总时间** | 可用性等级 | 年宕机时间 | 适用场景 | |---|---|---| | **99%** | 87.6 小时 | 一般业务 | | **99.9%** | 8.76 小时 | 互联网应用 | | **99.99%** | 52.6 分钟 | 金融级 | | **99.999%**</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>分布式消息队列</title>
+      <link>https://java-px.bot.cd/cloud/07-distributed/distributed-mq</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud/07-distributed/distributed-mq</guid>
+      <description>&gt; 用**异步消息**解耦分布式系统，是分布式架构的核心组件。 | 问题 | MQ 如何解决 | |---|---| | **服务耦合** | 上下游通过消息解耦，不需要直接调用 | | **流量削峰** | 突发流量写入 MQ，消费者按能力消费 | | **异步处理** | 非关键路径异步化，提升主链路响应速度 | | **数据同步** | 数据库变更 → MQ → 同步到 ES / 缓存 /</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>常见坑与最佳实践</title>
+      <link>https://java-px.bot.cd/cloud/06-practice/pitfalls</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud/06-practice/pitfalls</guid>
+      <description>&gt; 总结 Spring Boot + Spring Cloud Alibaba 开发中最常踩的 10 个坑，以及 12 条企业级最佳实践。 **解决：服务名严格统一，区分大小写敏感** **解决：路径完全一致，或用 StripPrefix 去掉** **解决：显式配置超时** **解决：资源名要规范** **解决：必须用 @GlobalTransactional + OpenFeign** **解</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>Spring Security 基础</title>
+      <link>https://java-px.bot.cd/cloud/05-security/basic</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud/05-security/basic</guid>
+      <description>&gt; Spring Security 是 Spring 生态的**安全框架**，处理认证（Authentication）和授权（Authorization）。 需要启用： **Spring Security 核心：** - ✅ 认证（Authentication）：你是谁 - ✅ 授权（Authorization）：你能做什么 - ✅ Filter Chain：请求拦截链 - ✅ SecurityC</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>Web 开发</title>
+      <link>https://java-px.bot.cd/cloud/01-springboot/web</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud/01-springboot/web</guid>
+      <description>&gt; 掌握 REST API 开发、参数校验、统一异常处理，是每个 Java 开发者必备技能。 | 注解 | 说明 | 示例 | |---|---|---| | `@GetMapping` | GET 请求 | 查询 | | `@PostMapping` | POST 请求 | 创建 | | `@PutMapping` | PUT 请求 | 全量更新 | | `@PatchMapping` | PA</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>OAuth2 + JWT 实战</title>
+      <link>https://java-px.bot.cd/cloud/05-security/oauth2</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud/05-security/oauth2</guid>
+      <description>&gt; OAuth2 + JWT 是**前后端分离 + 微服务**最主流的认证授权方案。本章从协议到代码完整实现。 | 模式 | 适用 | 流程 | |---|---|---| | **授权码模式** | **最常用**（第三方登录） | 用户 → 授权服务器 → 回调 code → 用 code 换 token | | 密码模式 | **自有应用**（推荐内部用） | 用户名密码直接换 token</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>统一认证中心</title>
+      <link>https://java-px.bot.cd/cloud/05-security/auth-center</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud/05-security/auth-center</guid>
+      <description>&gt; 多个微服务下，**统一认证中心（Auth Center）** 是标准方案。SSO 单点登录，所有服务共用一个 Token 颁发方。 **Auth Center 核心：** - ✅ 独立部署的认证服务 - ✅ 颁发 / 验证 / 刷新 JWT - ✅ Token 黑名单（登出失效） - ✅ 多端登录（Web / App / 小程序） - ✅ SSO 单点登录 - ✅ 暴力破解防护 **微服务集成</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>Nacos 底层原理</title>
+      <link>https://java-px.bot.cd/cloud/02-overview/nacos-principle</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud/02-overview/nacos-principle</guid>
+      <description>&gt; Nacos 同时作为**服务发现**和**配置中心**，在底层采用了**两套不同的一致性协议**： &gt; - **服务发现** → **Distro 协议**（AP，最终一致） &gt; - **配置中心** → **JRaft 协议**（CP，强一致） &gt; &gt; 理解这些底层机制，才能真正掌握 Nacos 的架构设计。 | 模块 | 职责 | 一致性协议 | |------|------|------</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>Nacos 服务发现</title>
+      <link>https://java-px.bot.cd/cloud/02-overview/nacos-discovery</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud/02-overview/nacos-discovery</guid>
+      <description>&gt; Nacos = **Na**ming and **Co**nfiguration **S**ervice，阿里巴巴开源的**服务发现 + 配置中心**，生产环境的标配。 | 维度 | Eureka | Nacos | Consul | |---|---|---|---| | 一致性 | AP | **AP/CP 可切换** | CP | | 健康检查 | 心跳 | **心跳 + HTTP/TP</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>Nacos 配置中心</title>
+      <link>https://java-px.bot.cd/cloud/02-overview/nacos-config</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud/02-overview/nacos-config</guid>
+      <description>&gt; Nacos 不只是服务发现，还是**配置中心**。配置变更可**实时推送**给应用，无需重启。 &gt; ⚠️ **重要**：Spring Boot 3.x / Spring Cloud Alibaba 2023.x **不再默认使用 bootstrap.yml**，改为 `spring.config.import`。如果仍在用 Spring Boot 2.x / 2021 版本，则需使用 boot</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>数据访问</title>
+      <link>https://java-px.bot.cd/cloud/01-springboot/data</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud/01-springboot/data</guid>
+      <description>&gt; Spring Boot 集成 MyBatis-Plus / Spring Data JPA 都极简。本章聚焦**企业最常用**的 MyBatis-Plus 集成。 **推荐方案：MyBatis-Plus** - ✅ 零 SQL CRUD（80% 场景） - ✅ 类型安全（Lambda 表达式） - ✅ 内置分页、逻辑删除、乐观锁 - ✅ 与 Spring Boot 完美集成 **vs Spri</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
     <item>
       <title>Spring Cloud Alibaba 知识图谱</title>
       <link>https://java-px.bot.cd/cloud/</link>
@@ -20,13 +111,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/cloud/path</guid>
       <description>&gt; 不知道从哪里开始？按照这个路径，**5 阶段从入门到精通**，每阶段 1-3 周。 掌握 Spring Boot 开发，能独立搭建 REST API 服务。 1. [🚀 快速开始](/01-springboot/quickstart) — 第一个 Spring Boot 应用 2. [⚙️ 自动配置原理](/01-springboot/auto-config) — @SpringBootApp</description>
       <pubDate>Wed, 05 Aug 2026 21:18:00 -0000</pubDate>
-    </item>
-    <item>
-      <title>高可用与限流熔断</title>
-      <link>https://java-px.bot.cd/cloud/07-distributed/high-availability</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/cloud/07-distributed/high-availability</guid>
-      <description>&gt; 保障分布式系统**在故障和高压下仍能提供服务**。 **可用性 = 系统可以正常服务的时间 / 总时间** | 可用性等级 | 年宕机时间 | 适用场景 | |---|---|---| | **99%** | 87.6 小时 | 一般业务 | | **99.9%** | 8.76 小时 | 互联网应用 | | **99.99%** | 52.6 分钟 | 金融级 | | **99.999%**</description>
-      <pubDate>Wed, 05 Aug 2026 21:16:17 -0000</pubDate>
     </item>
     <item>
       <title>分布式追踪</title>
@@ -48,13 +132,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/cloud/07-distributed/distributed-storage</guid>
       <description>&gt; 当单库**扛不住**写入或查询时，需要把数据**拆分到多个节点**存储。 | 单机 DB 瓶颈 | 量化指标 | |---|---| | **连接数** | MySQL 默认 151，最大 16384 | | **QPS** | 单机 5000 ~ 30000 | | **存储容量** | 单机磁盘有限（TB 级）| | **主从延迟** | 读写分离后从库延迟秒级 | **典型案例：** 淘</description>
       <pubDate>Wed, 05 Aug 2026 21:14:41 -0000</pubDate>
-    </item>
-    <item>
-      <title>分布式消息队列</title>
-      <link>https://java-px.bot.cd/cloud/07-distributed/distributed-mq</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/cloud/07-distributed/distributed-mq</guid>
-      <description>&gt; 用**异步消息**解耦分布式系统，是分布式架构的核心组件。 | 问题 | MQ 如何解决 | |---|---| | **服务耦合** | 上下游通过消息解耦，不需要直接调用 | | **流量削峰** | 突发流量写入 MQ，消费者按能力消费 | | **异步处理** | 非关键路径异步化，提升主链路响应速度 | | **数据同步** | 数据库变更 → MQ → 同步到 ES / 缓存 /</description>
-      <pubDate>Wed, 05 Aug 2026 21:14:15 -0000</pubDate>
     </item>
     <item>
       <title>分布式 ID</title>
@@ -92,67 +169,11 @@
       <pubDate>Wed, 05 Aug 2026 21:12:03 -0000</pubDate>
     </item>
     <item>
-      <title>Nacos 服务发现</title>
-      <link>https://java-px.bot.cd/cloud/02-overview/nacos-discovery</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/cloud/02-overview/nacos-discovery</guid>
-      <description>&gt; Nacos = **Na**ming and **Co**nfiguration **S**ervice，阿里巴巴开源的**服务发现 + 配置中心**，生产环境的标配。 | 维度 | Eureka | Nacos | Consul | |---|---|---|---| | 一致性 | AP | **AP/CP 可切换** | CP | | 健康检查 | 心跳 | **心跳 + HTTP/TP</description>
-      <pubDate>Sun, 19 Jul 2026 21:15:23 -0000</pubDate>
-    </item>
-    <item>
-      <title>Nacos 配置中心</title>
-      <link>https://java-px.bot.cd/cloud/02-overview/nacos-config</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/cloud/02-overview/nacos-config</guid>
-      <description>&gt; Nacos 不只是服务发现，还是**配置中心**。配置变更可**实时推送**给应用，无需重启。 &gt; ⚠️ **重要**：Spring Boot 3.x / Spring Cloud Alibaba 2023.x **不再默认使用 bootstrap.yml**，改为 `spring.config.import`。如果仍在用 Spring Boot 2.x / 2021 版本，则需使用 boot</description>
-      <pubDate>Sun, 19 Jul 2026 21:14:47 -0000</pubDate>
-    </item>
-    <item>
-      <title>Nacos 底层原理</title>
-      <link>https://java-px.bot.cd/cloud/02-overview/nacos-principle</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/cloud/02-overview/nacos-principle</guid>
-      <description>&gt; Nacos 同时作为**服务发现**和**配置中心**，在底层采用了**两套不同的一致性协议**： &gt; - **服务发现** → **Distro 协议**（AP，最终一致） &gt; - **配置中心** → **JRaft 协议**（CP，强一致） &gt; &gt; 理解这些底层机制，才能真正掌握 Nacos 的架构设计。 | 模块 | 职责 | 一致性协议 | |------|------|------</description>
-      <pubDate>Sun, 19 Jul 2026 21:04:47 -0000</pubDate>
-    </item>
-    <item>
       <title>高频面试题</title>
       <link>https://java-px.bot.cd/cloud/06-practice/interview</link>
       <guid isPermaLink="true">https://java-px.bot.cd/cloud/06-practice/interview</guid>
       <description>&gt; 整理 Spring Boot + Spring Cloud Alibaba 面试中**最高频**的 30 道题，含详细答案。 **答：** **答：** - Starter 是一个**空 jar 包**，只包含 `pom.xml`（依赖管理）+ `META-INF/spring/.../AutoConfiguration.imports`（自动配置声明） - 用户引入 starter → 自动</description>
       <pubDate>Sun, 19 Jul 2026 15:37:48 -0000</pubDate>
-    </item>
-    <item>
-      <title>常见坑与最佳实践</title>
-      <link>https://java-px.bot.cd/cloud/06-practice/pitfalls</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/cloud/06-practice/pitfalls</guid>
-      <description>&gt; 总结 Spring Boot + Spring Cloud Alibaba 开发中最常踩的 10 个坑，以及 12 条企业级最佳实践。 **解决：服务名严格统一，区分大小写敏感** **解决：路径完全一致，或用 StripPrefix 去掉** **解决：显式配置超时** **解决：资源名要规范** **解决：必须用 @GlobalTransactional + OpenFeign** **解</description>
-      <pubDate>Sun, 19 Jul 2026 15:37:06 -0000</pubDate>
-    </item>
-    <item>
-      <title>综合实战项目</title>
-      <link>https://java-px.bot.cd/cloud/06-practice/comprehensive</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/cloud/06-practice/comprehensive</guid>
-      <description>&gt; 整合 Spring Cloud Alibaba 全部组件，搭建一个**完整的电商微服务系统**。 构建一个包含以下微服务的电商系统： **实战项目核心：** - ✅ 微服务拆分（按业务边界） - ✅ Gateway 统一入口 - ✅ Nacos 服务发现 + 配置中心 - ✅ JWT 统一认证 - ✅ Seata 分布式事务 - ✅ Kafka 异步事件 - ✅ Sentinel 流控熔断 -</description>
-      <pubDate>Sun, 19 Jul 2026 15:36:33 -0000</pubDate>
-    </item>
-    <item>
-      <title>统一认证中心</title>
-      <link>https://java-px.bot.cd/cloud/05-security/auth-center</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/cloud/05-security/auth-center</guid>
-      <description>&gt; 多个微服务下，**统一认证中心（Auth Center）** 是标准方案。SSO 单点登录，所有服务共用一个 Token 颁发方。 **Auth Center 核心：** - ✅ 独立部署的认证服务 - ✅ 颁发 / 验证 / 刷新 JWT - ✅ Token 黑名单（登出失效） - ✅ 多端登录（Web / App / 小程序） - ✅ SSO 单点登录 - ✅ 暴力破解防护 **微服务集成</description>
-      <pubDate>Sun, 19 Jul 2026 15:36:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>OAuth2 + JWT 实战</title>
-      <link>https://java-px.bot.cd/cloud/05-security/oauth2</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/cloud/05-security/oauth2</guid>
-      <description>&gt; OAuth2 + JWT 是**前后端分离 + 微服务**最主流的认证授权方案。本章从协议到代码完整实现。 | 模式 | 适用 | 流程 | |---|---|---| | **授权码模式** | **最常用**（第三方登录） | 用户 → 授权服务器 → 回调 code → 用 code 换 token | | 密码模式 | **自有应用**（推荐内部用） | 用户名密码直接换 token</description>
-      <pubDate>Sun, 19 Jul 2026 15:35:27 -0000</pubDate>
-    </item>
-    <item>
-      <title>Spring Security 基础</title>
-      <link>https://java-px.bot.cd/cloud/05-security/basic</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/cloud/05-security/basic</guid>
-      <description>&gt; Spring Security 是 Spring 生态的**安全框架**，处理认证（Authentication）和授权（Authorization）。 需要启用： **Spring Security 核心：** - ✅ 认证（Authentication）：你是谁 - ✅ 授权（Authorization）：你能做什么 - ✅ Filter Chain：请求拦截链 - ✅ SecurityC</description>
-      <pubDate>Sun, 19 Jul 2026 15:34:57 -0000</pubDate>
     </item>
     <item>
       <title>负载均衡策略</title>
@@ -202,27 +223,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/cloud/01-springboot/transaction</guid>
       <description>&gt; 理解 `@Transactional` 的传播机制、隔离级别、回滚规则，是处理并发数据问题的关键。 | 传播行为 | 说明 | |---|---| | **REQUIRED**（默认） | 存在事务则加入，不存在则新建 | | SUPPORTS | 存在事务则加入，不存在则非事务执行 | | MANDATORY | 必须在事务中调用，否则抛异常 | | REQUIRES_NEW | 总是新建事</description>
       <pubDate>Sun, 19 Jul 2026 15:31:26 -0000</pubDate>
-    </item>
-    <item>
-      <title>数据访问</title>
-      <link>https://java-px.bot.cd/cloud/01-springboot/data</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/cloud/01-springboot/data</guid>
-      <description>&gt; Spring Boot 集成 MyBatis-Plus / Spring Data JPA 都极简。本章聚焦**企业最常用**的 MyBatis-Plus 集成。 **推荐方案：MyBatis-Plus** - ✅ 零 SQL CRUD（80% 场景） - ✅ 类型安全（Lambda 表达式） - ✅ 内置分页、逻辑删除、乐观锁 - ✅ 与 Spring Boot 完美集成 **vs Spri</description>
-      <pubDate>Sun, 19 Jul 2026 15:31:00 -0000</pubDate>
-    </item>
-    <item>
-      <title>Web 开发</title>
-      <link>https://java-px.bot.cd/cloud/01-springboot/web</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/cloud/01-springboot/web</guid>
-      <description>&gt; 掌握 REST API 开发、参数校验、统一异常处理，是每个 Java 开发者必备技能。 | 注解 | 说明 | 示例 | |---|---|---| | `@GetMapping` | GET 请求 | 查询 | | `@PostMapping` | POST 请求 | 创建 | | `@PutMapping` | PUT 请求 | 全量更新 | | `@PatchMapping` | PA</description>
-      <pubDate>Sun, 19 Jul 2026 15:30:43 -0000</pubDate>
-    </item>
-    <item>
-      <title>自动配置原理</title>
-      <link>https://java-px.bot.cd/cloud/01-springboot/auto-config</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/cloud/01-springboot/auto-config</guid>
-      <description>&gt; 理解 `@SpringBootApplication` 背后的魔法，是掌握 Spring Boot 的关键。 Spring Boot 根据**类路径上的 jar 包**自动配置 Spring 应用： **核心思想：约定优于配置** **Spring Boot 内置 100+ 自动配置类** | 注解 | 作用 | |---|---| | `@AutoConfiguration` | 标记为自动</description>
-      <pubDate>Sun, 19 Jul 2026 15:30:17 -0000</pubDate>
     </item>
     <item>
       <title>Spring Boot 快速开始</title>

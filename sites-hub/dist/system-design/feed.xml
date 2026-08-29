@@ -6,321 +6,356 @@
     <atom:link href="https://java-px.bot.cd/system-design/feed.xml" rel="self" type="application/rss+xml" />
     <description>system-design 知识图谱（52 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
-    <item>
-      <title>System Design 知识图谱</title>
-      <link>https://java-px.bot.cd/system-design/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "会写 CRUD 却讲不清 CAP", "调过 Redis 却说不出 cache-aside 的失效边界", "用过 Kafka 但说不清「不丢消息」需要哪几</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>UUID vs Snowflake</title>
-      <link>https://java-px.bot.cd/system-design/09-id/uuid-vs-snowflake</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/09-id/uuid-vs-snowflake</guid>
-      <description>&gt; 两种最常见的 ID 方案，本质差异是"信息 vs 顺序"。**看业务场景选**。 | 维度 | UUID | Snowflake | |---|---|---| | 位数 | 128 | 64 | | 长度 | 36 字符（带-） | 19 字符（最大） | | 类型 | 字符串 | 长整型 | | 有序性 | ❌（v4） | ✅ | | 趋势递增 | ❌ | ✅ | | DB 索引 | 不友</description>
-      <pubDate>Sun, 09 Aug 2026 13:07:03 -0000</pubDate>
-    </item>
-    <item>
-      <title>Leaf 美团方案</title>
-      <link>https://java-px.bot.cd/system-design/09-id/leaf</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/09-id/leaf</guid>
-      <description>&gt; 美团开源的分布式 ID 生成服务。**号段模式 + Snowflake 双模式**，生产验证。 字段说明： | 方案 | 性能 | 可靠性 | 复杂度 | 依赖 | |---|---|---|---|---| | **Leaf-segment** | 中（5w QPS） | 极高 | 低 | DB | | **Leaf-snowflake** | 高（10w QPS） | 高 | 中 | ZK</description>
-      <pubDate>Sun, 09 Aug 2026 13:06:42 -0000</pubDate>
-    </item>
-    <item>
-      <title>Snowflake 雪花算法</title>
-      <link>https://java-px.bot.cd/system-design/09-id/snowflake</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/09-id/snowflake</guid>
-      <description>&gt; Twitter 2010 年开源的分布式 ID 生成算法。**64 bit、趋势递增、高性能**。 容量： | 方案 | 性能 | 趋势递增 | 全局唯一 | 长度 | 信息安全 | |---|---|---|---|---|---| | **Snowflake** | 极高 | ✅ | ✅ | 64 bit | ❌（可推时间） | | **DB 自增** | 低 | ✅ | ✅ | 64 b</description>
-      <pubDate>Sun, 09 Aug 2026 13:06:17 -0000</pubDate>
-    </item>
-    <item>
-      <title>容灾演练</title>
-      <link>https://java-px.bot.cd/system-design/08-availability/disaster-recovery</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/08-availability/disaster-recovery</guid>
-      <description>&gt; "备胎不用 = 不知道备胎能不能用"。定期演练，确保真故障时能切换。**有备无患，临阵不乱**。 - GB/T 22239-2019 信息安全技术网络安全等级保护基本要求 - SHARE 78 容灾标准 - Chaos Engineering（O'Reilly 图书） - Netflix Chaos Monkey - 阿里 ChaosBlade - 字节跳动容灾演练实践</description>
-      <pubDate>Sun, 09 Aug 2026 13:05:45 -0000</pubDate>
-    </item>
-    <item>
-      <title>多活与单元化</title>
-      <link>https://java-px.bot.cd/system-design/08-availability/multi-idc</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/08-availability/multi-idc</guid>
-      <description>&gt; 多机房同时服务，故障时切流量；按用户分流避免跨机房调用。**异地容灾、就近接入、单元封闭**。 - "异地多活架构"（阿里中间件团队） - "单元化架构"（美团技术博客） - "字节跳动多活实践"（字节技术博客） - Canal / Debezium 数据同步 - Google Spanner TrueTime - DNSPod / AliDNS 调度方案</description>
-      <pubDate>Sun, 09 Aug 2026 13:05:12 -0000</pubDate>
-    </item>
-    <item>
-      <title>集群模式</title>
-      <link>https://java-px.bot.cd/system-design/08-availability/cluster</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/08-availability/cluster</guid>
-      <description>&gt; 多节点共同提供同一服务，任何一个挂了不影响整体。**水平扩展、故障转移、负载均衡**。 - "Designing Data-Intensive Applications" (Martin Kleppmann) - Redis Cluster 官方文档 - Apache Kafka KRaft 模式 - Elasticsearch Cluster 文档 - MongoDB Sharding 文档</description>
-      <pubDate>Sun, 09 Aug 2026 13:04:38 -0000</pubDate>
-    </item>
-    <item>
-      <title>主备与主从</title>
-      <link>https://java-px.bot.cd/system-design/08-availability/master-slave</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/08-availability/master-slave</guid>
-      <description>&gt; 1 主 1 备 / 1 主多从，最简单的高可用方案。**写主读从，备机待命**。 | 维度 | 主备 | 主从 | |---|---|---| | 机器数 | 2 | 2+ | | 备机/从机 | 不服务 | 可读 | | 资源利用率 | 低 | 高 | | 切换 | 简单 | 复杂 | | 性能 | 单机 | 多机 | | 适用 | 强一致 | 读多写少 | - MySQL High Ava</description>
-      <pubDate>Sun, 09 Aug 2026 13:04:10 -0000</pubDate>
-    </item>
+    <lastBuildDate>Thu, 27 Aug 2026 21:42:04 -0000</lastBuildDate>
     <item>
       <title>RPC 远程调用</title>
       <link>https://java-px.bot.cd/system-design/05-patterns/rpc</link>
       <guid isPermaLink="true">https://java-px.bot.cd/system-design/05-patterns/rpc</guid>
       <description>&gt; 像调用本地方法一样调用远程服务。**性能、序列化、服务发现、超时重试**。 详细步骤： | 框架 | 协议 | 序列化 | 跨语言 | 性能 | 生态 | |---|---|---|---|---|---| | gRPC | HTTP/2 | Protobuf | ✅ | 高 | 强 | | Dubbo | 自定义 | Hessian2 | 有限 | 高 | Java 强 | | Thrift</description>
-      <pubDate>Sun, 09 Aug 2026 13:03:48 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
     </item>
     <item>
-      <title>事务消息</title>
-      <link>https://java-px.bot.cd/system-design/04-transaction/transactional-message</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/04-transaction/transactional-message</guid>
-      <description>&gt; MQ 自己实现"业务 + 消息"的两阶段提交，简化分布式事务。**RocketMQ 首创，工业级标准**。 | 维度 | RocketMQ | Kafka | |---|---|---| | 业务事务 | 支持（executeLocalTransaction）| 不直接支持 | | 范围 | 跨服务事务 | Kafka 内事务 | | 回查 | 自动 | 手动 | | 性能 | 中 | 高 |</description>
-      <pubDate>Sun, 09 Aug 2026 13:03:18 -0000</pubDate>
-    </item>
-    <item>
-      <title>本地消息表</title>
-      <link>https://java-px.bot.cd/system-design/04-transaction/local-message-table</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/04-transaction/local-message-table</guid>
-      <description>&gt; 把分布式事务拆成本地事务 + 消息表，异步重试保证最终一致。**最简单、最广泛使用的分布式事务方案**。 要点： | 方案 | 一致性 | 性能 | 复杂度 | 侵入 | |---|---|---|---|---| | **本地消息表** | 最终一致 | 高 | 低 | 小 | | **事务消息** | 最终一致 | 高 | 中 | 中 | | **TCC** | 强一致 | 中 | 高 |</description>
-      <pubDate>Sun, 09 Aug 2026 13:02:50 -0000</pubDate>
-    </item>
-    <item>
-      <title>TCC 补偿事务</title>
-      <link>https://java-px.bot.cd/system-design/04-transaction/tcc</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/04-transaction/tcc</guid>
-      <description>&gt; Try-Confirm-Cancel，把分布式事务拆成 3 个阶段，业务自己写补偿逻辑。**性能高，代码侵入大**。 | 维度 | 2PC | TCC | |---|---|---| | 协议层 | DB 驱动 | 业务驱动 | | 锁 | 持锁到结束 | 几乎无锁 | | 性能 | 低（长事务） | 高（短事务） | | 代码侵入 | 小 | 大（3 个方法）| | 适用 | 强一致 | 高</description>
-      <pubDate>Sun, 09 Aug 2026 13:02:23 -0000</pubDate>
-    </item>
-    <item>
-      <title>Leader 选举</title>
-      <link>https://java-px.bot.cd/system-design/03-coordination/leader-election</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/03-coordination/leader-election</guid>
-      <description>&gt; 集群选出一个"主"负责协调，其他节点 standby。**唯一性 + 高可用**。 特点： 特点： - Raft 论文 (Diego Ongaro, 2014) - Paxos Made Simple (Lamport, 2001) - ZAB 协议论文 - etcd Raft 实现 - Curator LeaderLatch 文档</description>
-      <pubDate>Sun, 09 Aug 2026 13:01:51 -0000</pubDate>
-    </item>
-    <item>
-      <title>分布式锁</title>
-      <link>https://java-px.bot.cd/system-design/03-coordination/distributed-lock</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/03-coordination/distributed-lock</guid>
-      <description>&gt; 多台机器的进程 / 线程，对同一份资源进行互斥访问。**正确性 &gt; 性能 &gt; 实现复杂度**。 | 方案 | 性能 | 可靠性 | 复杂度 | 适用场景 | |---|---|---|---|---| | DB 唯一索引 | 低 | 高 | 低 | 锁竞争小，秒级业务 | | Redis SETNX | 极高 | 中（主从切换丢锁） | 低 | 高并发，性能敏感 | | ZooKeeper |</description>
-      <pubDate>Sun, 09 Aug 2026 13:01:15 -0000</pubDate>
-    </item>
-    <item>
-      <title>消息推送系统</title>
-      <link>https://java-px.bot.cd/system-design/10-cases/notification</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/10-cases/notification</guid>
-      <description>&gt; 给 1000 万用户推送一条系统消息，3 秒内到达率 99%。**多通道 + 可靠性 + 实时性**。 - Apple APNs 官方文档 - Google FCM 官方文档 - 国内厂商推送文档（HMS / Mi Push / OPPO / vivo） - Kafka 消息可靠性 - WebSocket 协议 (RFC 6455) - 系统设计面试 (Alex Xu, 2020) - 推送平</description>
-      <pubDate>Sun, 09 Aug 2026 12:24:54 -0000</pubDate>
-    </item>
-    <item>
-      <title>附近的人 LBS</title>
-      <link>https://java-px.bot.cd/system-design/10-cases/nearby</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/10-cases/nearby</guid>
-      <description>&gt; 用户打开 App，能看到周围 1 公里内的人 / 商家 / 优惠。**地理位置检索 + 实时性**。 - GeoHash 算法 (Niemeyer, 2008) - Redis GEO 命令文档 - MongoDB Geospatial Queries - Elasticsearch geo_point / geo_shape - Haversine 公式 (Wikipedia) - 系统设计</description>
-      <pubDate>Sun, 09 Aug 2026 12:24:14 -0000</pubDate>
-    </item>
-    <item>
-      <title>搜索建议系统</title>
-      <link>https://java-px.bot.cd/system-design/10-cases/search-suggest</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/10-cases/search-suggest</guid>
-      <description>&gt; 用户输入"ja"，提示"javascript / java / json"。**实时 + 准确 + 性能**。 - Trie 数据结构 (Wikipedia) - ES completion suggester 文档 - Lucene FST 实现 - BK-tree 编辑距离索引 - Google Suggest 公开论文 - 系统设计面试 (Alex Xu, 2020)</description>
-      <pubDate>Sun, 09 Aug 2026 12:22:26 -0000</pubDate>
-    </item>
-    <item>
-      <title>排行榜系统设计</title>
-      <link>https://java-px.bot.cd/system-design/10-cases/ranking</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/10-cases/ranking</guid>
-      <description>&gt; 几千万人竞争一个榜单。**实时性 + 高并发 + 公平性**。 - Redis Sorted Set 文档 - 游戏天梯设计（League of Legends / 王者荣耀） - 直播打赏架构（虎牙 / 抖音） - ClickHouse 排行榜实践 - Redis ZADD pipeline 优化</description>
-      <pubDate>Sun, 09 Aug 2026 12:22:02 -0000</pubDate>
-    </item>
-    <item>
-      <title>抢红包系统设计</title>
-      <link>https://java-px.bot.cd/system-design/10-cases/grab-redpacket</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/10-cases/grab-redpacket</guid>
-      <description>&gt; 群里发红包，几百人抢。**公平性 + 实时性 + 不超发**。 def split_redpacket(total, count): """二倍均值法""" min_amount = 0.01 max_amount = total / count * 2  # 二倍均值 amounts = [] remaining = total for i in range(count - 1): max_</description>
-      <pubDate>Sun, 09 Aug 2026 12:21:38 -0000</pubDate>
-    </item>
-    <item>
-      <title>秒杀系统设计</title>
-      <link>https://java-px.bot.cd/system-design/10-cases/seckill</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/10-cases/seckill</guid>
-      <description>&gt; 几万人在同一秒抢几百件商品。**避免超卖 + 高并发 + 用户体验**。 - 阿里双 11 秒杀系统演进 - 京东 618 秒杀架构 - Redis Lua 原子操作文档 - Seata 分布式事务在秒杀场景 - 系统设计面试 (Alex Xu, 2020) —— 秒杀章节</description>
-      <pubDate>Sun, 09 Aug 2026 12:21:08 -0000</pubDate>
-    </item>
-    <item>
-      <title>消息堆积处理</title>
-      <link>https://java-px.bot.cd/system-design/07-messaging/backlog</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/07-messaging/backlog</guid>
-      <description>&gt; 消费速度跟不上生产速度，消息堆积是**常态**。关键是**不爆盘**。 - Kafka Consumer Monitoring - RocketMQ 消费堆积处理 - Backpressure in Distributed Systems - 阿里双 11 消息堆积处理实践 - DDIA 第 11 章</description>
-      <pubDate>Sun, 09 Aug 2026 12:20:37 -0000</pubDate>
-    </item>
-    <item>
-      <title>消息顺序性</title>
-      <link>https://java-px.bot.cd/system-design/07-messaging/order</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/07-messaging/order</guid>
-      <description>&gt; 消息队列是**乱序**的，但有些业务必须**有序**。 - RocketMQ 顺序消息：官方文档 - Message Ordering in Distributed Systems (Microsoft 博客) - DDIA 第 11 章 - 阿里 RocketMQ 顺序消息实战</description>
-      <pubDate>Sun, 09 Aug 2026 12:20:18 -0000</pubDate>
-    </item>
-    <item>
-      <title>幂等性：消息去重</title>
-      <link>https://java-px.bot.cd/system-design/07-messaging/idempotent</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/07-messaging/idempotent</guid>
-      <description>&gt; 消息可能重复投递。**让重复消息不影响业务结果**。 CREATE TABLE processed_messages ( msg_id VARCHAR(64) PRIMARY KEY, processed_at TIMESTAMP ); 优点：强一致 缺点：每次处理多一次写 enable.idempotence=true（默认开启）： - Producer 自动给消息加 PID + seque</description>
-      <pubDate>Sun, 09 Aug 2026 12:19:58 -0000</pubDate>
-    </item>
-    <item>
-      <title>消息可靠性：不丢消息</title>
-      <link>https://java-px.bot.cd/system-design/07-messaging/not-lost</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/07-messaging/not-lost</guid>
-      <description>&gt; 消息队列最基础的承诺：**至少一次投递**。但工程上要付出很大代价。 - RocketMQ 官方文档：消息可靠性 - Designing Data-Intensive Applications 第 11 章 - 阿里 RocketMQ 不丢消息实践</description>
-      <pubDate>Sun, 09 Aug 2026 12:19:38 -0000</pubDate>
-    </item>
-    <item>
-      <title>热点 Key</title>
-      <link>https://java-px.bot.cd/system-design/06-cache/hotspot</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/06-cache/hotspot</guid>
-      <description>&gt; 少量 key 占据绝大部分流量，**单 key 性能成为瓶颈**。 - Redis Hot Keys (Redis Labs) - CacheCloud 搜狐开源 - 阿里热点 Key 防御实践 - 微博热点架构 - DDIA 第 5 章</description>
-      <pubDate>Sun, 09 Aug 2026 10:48:20 -0000</pubDate>
-    </item>
-    <item>
-      <title>缓存三大问题：雪崩 / 穿透 / 击穿</title>
-      <link>https://java-px.bot.cd/system-design/06-cache/three-problems</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/06-cache/three-problems</guid>
-      <description>&gt; 缓存系统中三类**会打爆数据库**的故障模式，及对应解决方案。 - Redis Best Practices (Redis Labs) - Bloom Filter (Wikipedia) - 阿里缓存防御实践 - Distributed Caching Patterns - DDIA 第 5 章</description>
-      <pubDate>Sun, 09 Aug 2026 10:47:59 -0000</pubDate>
-    </item>
-    <item>
-      <title>缓存一致性</title>
-      <link>https://java-px.bot.cd/system-design/06-cache/consistency</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/06-cache/consistency</guid>
-      <description>&gt; 当 DB 和缓存都有数据时，**如何保证两边一致**？ - Cache-Aside Pattern (Chris Richardson) - How to do cache invalidation (Microsoft Azure 文档) - 阿里 Canal 订阅 binlog - Distributed Caching (Redis Labs) - DDIA 第 5 章</description>
-      <pubDate>Sun, 09 Aug 2026 10:47:30 -0000</pubDate>
-    </item>
-    <item>
-      <title>缓存模式</title>
-      <link>https://java-px.bot.cd/system-design/06-cache/cache-pattern</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/06-cache/cache-pattern</guid>
-      <description>&gt; Cache-Aside、Read-Through、Write-Through、Write-Behind 四种经典模式，以及怎么选。 - Caching Strategies (Microsoft Azure 文档) - Redis Caching Patterns - Spring Cache 抽象 - Designing Data-Intensive Applications 第 5 章 -</description>
-      <pubDate>Sun, 09 Aug 2026 10:47:00 -0000</pubDate>
-    </item>
-    <item>
-      <title>多级缓存架构</title>
-      <link>https://java-px.bot.cd/system-design/06-cache/multi-level</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/06-cache/multi-level</guid>
-      <description>&gt; 从浏览器到数据库，每一层都有自己的缓存。**组合得当才能发挥最大效果**。 - Nginx proxy_cache 文档 - Redis maxmemory-policy 文档 - Web Caching (Varnish / Squid 经典) - DDIA 第 5 章 - Caching at Reddit (Reddit 工程博客)</description>
-      <pubDate>Sun, 09 Aug 2026 10:46:36 -0000</pubDate>
-    </item>
-    <item>
-      <title>分布式链路追踪</title>
-      <link>https://java-px.bot.cd/system-design/05-patterns/distributed-trace</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/05-patterns/distributed-trace</guid>
-      <description>&gt; 一个请求跨多个服务时，**如何追踪它从进入到返回的完整路径**。 - Distributed Tracing (Ben Sigelman, 2020) —— O'Reilly - Google Dapper Paper (2010) —— 链路追踪鼻祖</description>
-      <pubDate>Sun, 09 Aug 2026 10:46:04 -0000</pubDate>
-    </item>
-    <item>
-      <title>限流</title>
-      <link>https://java-px.bot.cd/system-design/05-patterns/rate-limiter</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/05-patterns/rate-limiter</guid>
-      <description>&gt; 保护系统不被突发流量冲垮。**有损服务优于系统崩溃**。 | 方案 | 语言 | 特点 | |---|---|---| | **Sentinel** | Java | 阿里，功能丰富（限流/熔断/热点/集群）| | **Resilience4j** | Java | 轻量，函数式 API | | **Guava RateLimiter** | Java | 令牌桶，单机 | | **Nginx</description>
-      <pubDate>Sun, 09 Aug 2026 10:45:32 -0000</pubDate>
-    </item>
-    <item>
-      <title>熔断器模式</title>
-      <link>https://java-px.bot.cd/system-design/05-patterns/circuit-breaker</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/05-patterns/circuit-breaker</guid>
-      <description>&gt; Martin Fowler 2014 年提出。当下游服务故障时，**快速失败**而不是傻等。 - CircuitBreaker (Martin Fowler, 2014) - Release It! (Michael Nygard, 2018) —— 稳定性设计圣经</description>
-      <pubDate>Sun, 09 Aug 2026 10:45:06 -0000</pubDate>
-    </item>
-    <item>
-      <title>API 网关</title>
-      <link>https://java-px.bot.cd/system-design/05-patterns/api-gateway</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/05-patterns/api-gateway</guid>
-      <description>&gt; 微服务的"门面"——所有外部请求的统一入口。 | 方案 | 性能 | 语言 | 特点 | |---|---|---|---| | **Nginx** | ★★★★★ | C | 高性能，需配置 Lua | | **Kong** | ★★★★ | OpenResty | Nginx + Lua，生态完善 | | **APISIX** | ★★★★ | OpenResty | 国产，云原生 | |</description>
-      <pubDate>Sun, 09 Aug 2026 10:44:39 -0000</pubDate>
-    </item>
-    <item>
-      <title>配置中心</title>
-      <link>https://java-px.bot.cd/system-design/05-patterns/config-center</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/05-patterns/config-center</guid>
-      <description>&gt; 把分散在各服务的配置文件集中管理，运行时动态推送变更。 | 方案 | 存储 | 一致性 | 特点 | |---|---|---|---| | **Spring Cloud Config** | Git | 弱 | 生态完善，需配合 Spring Cloud Bus | | **Nacos** | MySQL + 缓存 | 强 | 配置 + 注册中心二合一 | | **Apollo** | My</description>
-      <pubDate>Sun, 09 Aug 2026 10:44:15 -0000</pubDate>
+      <title>一致性与系统模型</title>
+      <link>https://java-px.bot.cd/system-design/01-theory/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/01-theory/overview</guid>
+      <description>![DDIA 三大属性 — 可靠性 / 可扩展性 / 可维护性](/ddia-3-properties.svg) &gt; 本章是系统设计全站的**索引页**。如果你只读一章，从这里开始。 分布式系统讨论的核心问题：**多个节点在不可靠网络上如何就某个值达成一致**。 围绕这个核心问题，衍生出： 从强到弱排列： &gt; 所有操作看起来像是**按某种全局顺序**依次执行的，且顺序与真实时间一致。 **代价**</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
     </item>
     <item>
       <title>服务发现</title>
       <link>https://java-px.bot.cd/system-design/05-patterns/service-discovery</link>
       <guid isPermaLink="true">https://java-px.bot.cd/system-design/05-patterns/service-discovery</guid>
       <description>&gt; 微服务架构下，**如何让一个服务找到另一个服务的网络地址**。 | 方案 | 类型 | 协议 | 特点 | |---|---|---|---| | **Consul** | 客户端 | HTTP/DNS | 健康检查强，多数据中心 | | **etcd** | 客户端 | HTTP/gRPC | 强一致（Raft），K8s 默认 | | **Eureka** | 客户端 | HTTP | Ne</description>
-      <pubDate>Sun, 09 Aug 2026 10:43:54 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
+    </item>
+    <item>
+      <title>API 网关</title>
+      <link>https://java-px.bot.cd/system-design/05-patterns/api-gateway</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/05-patterns/api-gateway</guid>
+      <description>&gt; 微服务的"门面"——所有外部请求的统一入口。 | 方案 | 性能 | 语言 | 特点 | |---|---|---|---| | **Nginx** | ★★★★★ | C | 高性能，需配置 Lua | | **Kong** | ★★★★ | OpenResty | Nginx + Lua，生态完善 | | **APISIX** | ★★★★ | OpenResty | 国产，云原生 | |</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
+    </item>
+    <item>
+      <title>限流</title>
+      <link>https://java-px.bot.cd/system-design/05-patterns/rate-limiter</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/05-patterns/rate-limiter</guid>
+      <description>&gt; 保护系统不被突发流量冲垮。**有损服务优于系统崩溃**。 | 方案 | 语言 | 特点 | |---|---|---| | **Sentinel** | Java | 阿里，功能丰富（限流/熔断/热点/集群）| | **Resilience4j** | Java | 轻量，函数式 API | | **Guava RateLimiter** | Java | 令牌桶，单机 | | **Nginx</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>一致性哈希</title>
+      <link>https://java-px.bot.cd/system-design/02-storage/consistent-hash</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/02-storage/consistent-hash</guid>
+      <description>&gt; 由 David Karger 于 1997 年在 MIT 提出，最初用于 Akamai CDN 和分布式缓存。是分布式存储系统的"地基"。 &gt; 让"节点的增减**只影响**相邻节点上的 key"，迁移量降到 O(K/N)。 | 系统 | 虚拟节点数 | |---|---| | DynamoDB | 256 | | Cassandra | 默认 256，可配置 | | Redis Cluster</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>CAP 定理</title>
+      <link>https://java-px.bot.cd/system-design/01-theory/cap</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/01-theory/cap</guid>
+      <description>![CAP 定理 — 分布式系统三选二](/cap-theorem.svg) &gt; Eric Brewer 2000 年提出，2002 年 Gilbert &amp; Lynch 给出形式化证明。 &gt; **在异步网络模型下，一个分布式系统不可能同时满足以下三项中的超过两项**： &gt; - **C**onsistency（一致性）：所有节点看到同一份数据 &gt; - **A**vailability（可用性）：每个</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>Snowflake 雪花算法</title>
+      <link>https://java-px.bot.cd/system-design/09-id/snowflake</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/09-id/snowflake</guid>
+      <description>&gt; Twitter 2010 年开源的分布式 ID 生成算法。**64 bit、趋势递增、高性能**。 容量： | 方案 | 性能 | 趋势递增 | 全局唯一 | 长度 | 信息安全 | |---|---|---|---|---|---| | **Snowflake** | 极高 | ✅ | ✅ | 64 bit | ❌（可推时间） | | **DB 自增** | 低 | ✅ | ✅ | 64 b</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>多活与单元化</title>
+      <link>https://java-px.bot.cd/system-design/08-availability/multi-idc</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/08-availability/multi-idc</guid>
+      <description>&gt; 多机房同时服务，故障时切流量；按用户分流避免跨机房调用。**异地容灾、就近接入、单元封闭**。 - "异地多活架构"（阿里中间件团队） - "单元化架构"（美团技术博客） - "字节跳动多活实践"（字节技术博客） - Canal / Debezium 数据同步 - Google Spanner TrueTime - DNSPod / AliDNS 调度方案 &lt;!-- auto-enrich:d</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>分布式链路追踪</title>
+      <link>https://java-px.bot.cd/system-design/05-patterns/distributed-trace</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/05-patterns/distributed-trace</guid>
+      <description>&gt; 一个请求跨多个服务时，**如何追踪它从进入到返回的完整路径**。 - Distributed Tracing (Ben Sigelman, 2020) —— O'Reilly - Google Dapper Paper (2010) —— 链路追踪鼻祖 &lt;!-- auto-enrich:do-not-edit --&gt; | 参数 | 说明 | 默认值 | | --- | --- | --- |</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>Raft 共识算法</title>
+      <link>https://java-px.bot.cd/system-design/03-coordination/raft</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/03-coordination/raft</guid>
+      <description>![Raft 协议流程 — Leader 选举 + 日志复制](/raft-flow.svg) &gt; Diego Ongaro &amp; John Ousterhout 2014 年提出。"一种易于理解的共识算法"。 - In Search of an Understandable Consensus Algorithm (Ongaro &amp; Ousterhout, USENIX 2014) - raft.</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>短链系统设计</title>
+      <link>https://java-px.bot.cd/system-design/10-cases/short-url</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/10-cases/short-url</guid>
+      <description>&gt; 短链是系统设计面试的"Hello World"。考察候选人对**高读 / 低写**场景下读写路径优化、缓存层级、短码生成等核心问题的把握。 **为什么需要短链**： - **短信字数限制**：短信有 70 字符限制，长链占用过多 - **美观**：微博 / Twitter 限制字符数 - **统计**：可以统计点击数据（替代长链直接发） - **防爬**：长链带参数可被恶意爬取 | 指标 |</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>消息推送系统</title>
+      <link>https://java-px.bot.cd/system-design/10-cases/notification</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/10-cases/notification</guid>
+      <description>&gt; 给 1000 万用户推送一条系统消息，3 秒内到达率 99%。**多通道 + 可靠性 + 实时性**。 - Apple APNs 官方文档 - Google FCM 官方文档 - 国内厂商推送文档（HMS / Mi Push / OPPO / vivo） - Kafka 消息可靠性 - WebSocket 协议 (RFC 6455) - 系统设计面试 (Alex Xu, 2020) - 推送平</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
     </item>
     <item>
       <title>Feed 流系统设计</title>
       <link>https://java-px.bot.cd/system-design/10-cases/feed-stream</link>
       <guid isPermaLink="true">https://java-px.bot.cd/system-design/10-cases/feed-stream</guid>
-      <description>&gt; 关注、被关注、被推荐的内容聚合流。推模式 vs 拉模式 vs 混合模式。 - Redis Sorted Set 实现 Feed 流 - Twitter 早期架构博客 - 抖音 / 微博公开演讲 - 美团 Feed 流架构演进 - DDIA 第 11 章</description>
-      <pubDate>Sun, 09 Aug 2026 10:13:00 -0000</pubDate>
+      <description>&gt; 关注、被关注、被推荐的内容聚合流。推模式 vs 拉模式 vs 混合模式。 - Redis Sorted Set 实现 Feed 流 - Twitter 早期架构博客 - 抖音 / 微博公开演讲 - 美团 Feed 流架构演进 - DDIA 第 11 章 &lt;!-- auto-enrich:do-not-edit --&gt; | 参数 | 说明 | 默认值 | | --- | --- | --- |</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>集群模式</title>
+      <link>https://java-px.bot.cd/system-design/08-availability/cluster</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/08-availability/cluster</guid>
+      <description>&gt; 多节点共同提供同一服务，任何一个挂了不影响整体。**水平扩展、故障转移、负载均衡**。 - "Designing Data-Intensive Applications" (Martin Kleppmann) - Redis Cluster 官方文档 - Apache Kafka KRaft 模式 - Elasticsearch Cluster 文档 - MongoDB Sharding 文档</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>多级缓存架构</title>
+      <link>https://java-px.bot.cd/system-design/06-cache/multi-level</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/06-cache/multi-level</guid>
+      <description>&gt; 从浏览器到数据库，每一层都有自己的缓存。**组合得当才能发挥最大效果**。 - Nginx proxy_cache 文档 - Redis maxmemory-policy 文档 - Web Caching (Varnish / Squid 经典) - DDIA 第 5 章 - Caching at Reddit (Reddit 工程博客) &lt;!-- auto-enrich:do-not-edi</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>事务消息</title>
+      <link>https://java-px.bot.cd/system-design/04-transaction/transactional-message</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/04-transaction/transactional-message</guid>
+      <description>&gt; MQ 自己实现"业务 + 消息"的两阶段提交，简化分布式事务。**RocketMQ 首创，工业级标准**。 | 维度 | RocketMQ | Kafka | |---|---|---| | 业务事务 | 支持（executeLocalTransaction）| 不直接支持 | | 范围 | 跨服务事务 | Kafka 内事务 | | 回查 | 自动 | 手动 | | 性能 | 中 | 高 |</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>秒杀系统设计</title>
+      <link>https://java-px.bot.cd/system-design/10-cases/seckill</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/10-cases/seckill</guid>
+      <description>&gt; 几万人在同一秒抢几百件商品。**避免超卖 + 高并发 + 用户体验**。 - 阿里双 11 秒杀系统演进 - 京东 618 秒杀架构 - Redis Lua 原子操作文档 - Seata 分布式事务在秒杀场景 - 系统设计面试 (Alex Xu, 2020) —— 秒杀章节 &lt;!-- auto-enrich:do-not-edit --&gt; | 参数 | 说明 | 默认值 | | --- | -</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>搜索建议系统</title>
+      <link>https://java-px.bot.cd/system-design/10-cases/search-suggest</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/10-cases/search-suggest</guid>
+      <description>&gt; 用户输入"ja"，提示"javascript / java / json"。**实时 + 准确 + 性能**。 - Trie 数据结构 (Wikipedia) - ES completion suggester 文档 - Lucene FST 实现 - BK-tree 编辑距离索引 - Google Suggest 公开论文 - 系统设计面试 (Alex Xu, 2020) &lt;!-- auto</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>排行榜系统设计</title>
+      <link>https://java-px.bot.cd/system-design/10-cases/ranking</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/10-cases/ranking</guid>
+      <description>&gt; 几千万人竞争一个榜单。**实时性 + 高并发 + 公平性**。 - Redis Sorted Set 文档 - 游戏天梯设计（League of Legends / 王者荣耀） - 直播打赏架构（虎牙 / 抖音） - ClickHouse 排行榜实践 - Redis ZADD pipeline 优化 &lt;!-- auto-enrich:do-not-edit --&gt; | 参数 | 说明 | 默认</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>附近的人 LBS</title>
+      <link>https://java-px.bot.cd/system-design/10-cases/nearby</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/10-cases/nearby</guid>
+      <description>&gt; 用户打开 App，能看到周围 1 公里内的人 / 商家 / 优惠。**地理位置检索 + 实时性**。 - GeoHash 算法 (Niemeyer, 2008) - Redis GEO 命令文档 - MongoDB Geospatial Queries - Elasticsearch geo_point / geo_shape - Haversine 公式 (Wikipedia) - 系统设计</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>抢红包系统设计</title>
+      <link>https://java-px.bot.cd/system-design/10-cases/grab-redpacket</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/10-cases/grab-redpacket</guid>
+      <description>&gt; 群里发红包，几百人抢。**公平性 + 实时性 + 不超发**。 def split_redpacket(total, count): """二倍均值法""" min_amount = 0.01 max_amount = total / count * 2  # 二倍均值 amounts = [] remaining = total for i in range(count - 1): max_</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>UUID vs Snowflake</title>
+      <link>https://java-px.bot.cd/system-design/09-id/uuid-vs-snowflake</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/09-id/uuid-vs-snowflake</guid>
+      <description>&gt; 两种最常见的 ID 方案，本质差异是"信息 vs 顺序"。**看业务场景选**。 | 维度 | UUID | Snowflake | |---|---|---| | 位数 | 128 | 64 | | 长度 | 36 字符（带-） | 19 字符（最大） | | 类型 | 字符串 | 长整型 | | 有序性 | ❌（v4） | ✅ | | 趋势递增 | ❌ | ✅ | | DB 索引 | 不友</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Leaf 美团方案</title>
+      <link>https://java-px.bot.cd/system-design/09-id/leaf</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/09-id/leaf</guid>
+      <description>&gt; 美团开源的分布式 ID 生成服务。**号段模式 + Snowflake 双模式**，生产验证。 字段说明： | 方案 | 性能 | 可靠性 | 复杂度 | 依赖 | |---|---|---|---|---| | **Leaf-segment** | 中（5w QPS） | 极高 | 低 | DB | | **Leaf-snowflake** | 高（10w QPS） | 高 | 中 | ZK</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>主备与主从</title>
+      <link>https://java-px.bot.cd/system-design/08-availability/master-slave</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/08-availability/master-slave</guid>
+      <description>&gt; 1 主 1 备 / 1 主多从，最简单的高可用方案。**写主读从，备机待命**。 | 维度 | 主备 | 主从 | |---|---|---| | 机器数 | 2 | 2+ | | 备机/从机 | 不服务 | 可读 | | 资源利用率 | 低 | 高 | | 切换 | 简单 | 复杂 | | 性能 | 单机 | 多机 | | 适用 | 强一致 | 读多写少 | - MySQL High Ava</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>容灾演练</title>
+      <link>https://java-px.bot.cd/system-design/08-availability/disaster-recovery</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/08-availability/disaster-recovery</guid>
+      <description>&gt; "备胎不用 = 不知道备胎能不能用"。定期演练，确保真故障时能切换。**有备无患，临阵不乱**。 - GB/T 22239-2019 信息安全技术网络安全等级保护基本要求 - SHARE 78 容灾标准 - Chaos Engineering（O'Reilly 图书） - Netflix Chaos Monkey - 阿里 ChaosBlade - 字节跳动容灾演练实践 &lt;!-- auto-e</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>消息顺序性</title>
+      <link>https://java-px.bot.cd/system-design/07-messaging/order</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/07-messaging/order</guid>
+      <description>&gt; 消息队列是**乱序**的，但有些业务必须**有序**。 - RocketMQ 顺序消息：官方文档 - Message Ordering in Distributed Systems (Microsoft 博客) - DDIA 第 11 章 - 阿里 RocketMQ 顺序消息实战 &lt;!-- auto-enrich:do-not-edit --&gt; | 参数 | 说明 | 默认值 | | ---</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>消息可靠性：不丢消息</title>
+      <link>https://java-px.bot.cd/system-design/07-messaging/not-lost</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/07-messaging/not-lost</guid>
+      <description>&gt; 消息队列最基础的承诺：**至少一次投递**。但工程上要付出很大代价。 - RocketMQ 官方文档：消息可靠性 - Designing Data-Intensive Applications 第 11 章 - 阿里 RocketMQ 不丢消息实践 &lt;!-- auto-enrich:do-not-edit --&gt; | 参数 | 说明 | 默认值 | | --- | --- | --- | |</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>幂等性：消息去重</title>
+      <link>https://java-px.bot.cd/system-design/07-messaging/idempotent</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/07-messaging/idempotent</guid>
+      <description>&gt; 消息可能重复投递。**让重复消息不影响业务结果**。 CREATE TABLE processed_messages ( msg_id VARCHAR(64) PRIMARY KEY, processed_at TIMESTAMP ); 优点：强一致 缺点：每次处理多一次写 enable.idempotence=true（默认开启）： - Producer 自动给消息加 PID + seque</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>消息堆积处理</title>
+      <link>https://java-px.bot.cd/system-design/07-messaging/backlog</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/07-messaging/backlog</guid>
+      <description>&gt; 消费速度跟不上生产速度，消息堆积是**常态**。关键是**不爆盘**。 - Kafka Consumer Monitoring - RocketMQ 消费堆积处理 - Backpressure in Distributed Systems - 阿里双 11 消息堆积处理实践 - DDIA 第 11 章 &lt;!-- auto-enrich:do-not-edit --&gt; | 参数 | 说明 | 默</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>缓存三大问题：雪崩 / 穿透 / 击穿</title>
+      <link>https://java-px.bot.cd/system-design/06-cache/three-problems</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/06-cache/three-problems</guid>
+      <description>&gt; 缓存系统中三类**会打爆数据库**的故障模式，及对应解决方案。 - Redis Best Practices (Redis Labs) - Bloom Filter (Wikipedia) - 阿里缓存防御实践 - Distributed Caching Patterns - DDIA 第 5 章 &lt;!-- auto-enrich:do-not-edit --&gt; | 参数 | 说明 | 默认值</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>热点 Key</title>
+      <link>https://java-px.bot.cd/system-design/06-cache/hotspot</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/06-cache/hotspot</guid>
+      <description>&gt; 少量 key 占据绝大部分流量，**单 key 性能成为瓶颈**。 - Redis Hot Keys (Redis Labs) - CacheCloud 搜狐开源 - 阿里热点 Key 防御实践 - 微博热点架构 - DDIA 第 5 章 &lt;!-- auto-enrich:do-not-edit --&gt; | 参数 | 说明 | 默认值 | | --- | --- | --- | | TODO_</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>缓存一致性</title>
+      <link>https://java-px.bot.cd/system-design/06-cache/consistency</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/06-cache/consistency</guid>
+      <description>&gt; 当 DB 和缓存都有数据时，**如何保证两边一致**？ - Cache-Aside Pattern (Chris Richardson) - How to do cache invalidation (Microsoft Azure 文档) - 阿里 Canal 订阅 binlog - Distributed Caching (Redis Labs) - DDIA 第 5 章 &lt;!-- aut</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>缓存模式</title>
+      <link>https://java-px.bot.cd/system-design/06-cache/cache-pattern</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/06-cache/cache-pattern</guid>
+      <description>&gt; Cache-Aside、Read-Through、Write-Through、Write-Behind 四种经典模式，以及怎么选。 - Caching Strategies (Microsoft Azure 文档) - Redis Caching Patterns - Spring Cache 抽象 - Designing Data-Intensive Applications 第 5 章 -</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>配置中心</title>
+      <link>https://java-px.bot.cd/system-design/05-patterns/config-center</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/05-patterns/config-center</guid>
+      <description>&gt; 把分散在各服务的配置文件集中管理，运行时动态推送变更。 | 方案 | 存储 | 一致性 | 特点 | |---|---|---|---| | **Spring Cloud Config** | Git | 弱 | 生态完善，需配合 Spring Cloud Bus | | **Nacos** | MySQL + 缓存 | 强 | 配置 + 注册中心二合一 | | **Apollo** | My</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>熔断器模式</title>
+      <link>https://java-px.bot.cd/system-design/05-patterns/circuit-breaker</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/05-patterns/circuit-breaker</guid>
+      <description>&gt; Martin Fowler 2014 年提出。当下游服务故障时，**快速失败**而不是傻等。 - CircuitBreaker (Martin Fowler, 2014) - Release It! (Michael Nygard, 2018) —— 稳定性设计圣经 &lt;!-- auto-enrich:do-not-edit --&gt; | 参数 | 说明 | 默认值 | | --- | --- |</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>TCC 补偿事务</title>
+      <link>https://java-px.bot.cd/system-design/04-transaction/tcc</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/04-transaction/tcc</guid>
+      <description>&gt; Try-Confirm-Cancel，把分布式事务拆成 3 个阶段，业务自己写补偿逻辑。**性能高，代码侵入大**。 | 维度 | 2PC | TCC | |---|---|---| | 协议层 | DB 驱动 | 业务驱动 | | 锁 | 持锁到结束 | 几乎无锁 | | 性能 | 低（长事务） | 高（短事务） | | 代码侵入 | 小 | 大（3 个方法）| | 适用 | 强一致 | 高</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>Saga 模式</title>
       <link>https://java-px.bot.cd/system-design/04-transaction/saga</link>
       <guid isPermaLink="true">https://java-px.bot.cd/system-design/04-transaction/saga</guid>
       <description>&gt; 把长事务拆成多个短事务，通过补偿操作保证最终一致。 - SAGAS (Garcia-Molina &amp; Salem, 1987) —— 原论文 - Applying Sagas Pattern (Microsoft, 2020) - Seata Saga 模式文档 - Microservices Patterns (Chris Richardson, 2018) —— Saga 章节 - Apa</description>
-      <pubDate>Sun, 09 Aug 2026 10:12:33 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>本地消息表</title>
+      <link>https://java-px.bot.cd/system-design/04-transaction/local-message-table</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/04-transaction/local-message-table</guid>
+      <description>&gt; 把分布式事务拆成本地事务 + 消息表，异步重试保证最终一致。**最简单、最广泛使用的分布式事务方案**。 要点： | 方案 | 一致性 | 性能 | 复杂度 | 侵入 | |---|---|---|---|---| | **本地消息表** | 最终一致 | 高 | 低 | 小 | | **事务消息** | 最终一致 | 高 | 中 | 中 | | **TCC** | 强一致 | 中 | 高 |</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>三阶段提交（3PC）</title>
       <link>https://java-px.bot.cd/system-design/04-transaction/3pc</link>
       <guid isPermaLink="true">https://java-px.bot.cd/system-design/04-transaction/3pc</guid>
       <description>&gt; Two-Phase Commit 的改进版。引入 PreCommit 阶段，但并未从根本上解决问题。 - Transaction Recovery in Distributed Database Systems (Gray, 1978) - Nonblocking Commit Protocols (Skeen, 1981) - 3PC 形式化定义 (Skeen &amp; Stonebraker,</description>
-      <pubDate>Sun, 09 Aug 2026 10:12:22 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>两阶段提交（2PC）</title>
       <link>https://java-px.bot.cd/system-design/04-transaction/2pc</link>
       <guid isPermaLink="true">https://java-px.bot.cd/system-design/04-transaction/2pc</guid>
       <description>&gt; Two-Phase Commit。最经典的分布式事务协议，也是最被诟病的协议。 - Transaction Recovery in Distributed Database Systems (Gray, 1978) - Distributed Recovery (Skeen, 1981) - XA Specification (X/Open) - Atomikos Documentation</description>
-      <pubDate>Sun, 09 Aug 2026 10:12:10 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>ZAB 协议（ZooKeeper Atomic Broadcast）</title>
       <link>https://java-px.bot.cd/system-design/03-coordination/zab</link>
       <guid isPermaLink="true">https://java-px.bot.cd/system-design/03-coordination/zab</guid>
-      <description>&gt; ZooKeeper 2010 年前后提出。专为协调服务设计的原子广播协议，类似于 Raft 但有差异。 - ZooKeeper's Atomic Broadcast Protocol (Junqueira, 2014) - Apache ZooKeeper 官方文档 - etcd vs ZooKeeper 对比文章 - DDIA 第 9 章</description>
-      <pubDate>Sun, 09 Aug 2026 10:11:51 -0000</pubDate>
-    </item>
-    <item>
-      <title>Raft 共识算法</title>
-      <link>https://java-px.bot.cd/system-design/03-coordination/raft</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/03-coordination/raft</guid>
-      <description>&gt; Diego Ongaro &amp; John Ousterhout 2014 年提出。"一种易于理解的共识算法"。 - In Search of an Understandable Consensus Algorithm (Ongaro &amp; Ousterhout, USENIX 2014) - raft.github.io （动画演示） - etcd Internals（GitHub） - DDIA</description>
-      <pubDate>Sun, 09 Aug 2026 10:11:41 -0000</pubDate>
+      <description>&gt; ZooKeeper 2010 年前后提出。专为协调服务设计的原子广播协议，类似于 Raft 但有差异。 - ZooKeeper's Atomic Broadcast Protocol (Junqueira, 2014) - Apache ZooKeeper 官方文档 - etcd vs ZooKeeper 对比文章 - DDIA 第 9 章 &lt;!-- auto-enrich:do-not-ed</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>Paxos 共识算法</title>
       <link>https://java-px.bot.cd/system-design/03-coordination/paxos</link>
       <guid isPermaLink="true">https://java-px.bot.cd/system-design/03-coordination/paxos</guid>
       <description>&gt; Lamport 1998 年提出。最经典的分布式共识算法，但因难懂闻名（"Paxos is beautiful but hard to understand"）。 - The Part-Time Parliament (Lamport, 1998) —— 原论文 - Paxos Made Simple (Lamport, 2001) —— 简化版 - Paxos Made Live (Chan</description>
-      <pubDate>Sun, 09 Aug 2026 10:11:30 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
-      <title>NWR 仲裁模型</title>
-      <link>https://java-px.bot.cd/system-design/02-storage/quorum</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/02-storage/quorum</guid>
-      <description>&gt; 写 W 副本、读 R 副本，通过 R + W &gt; N 保证至少读到最新值。 | N | W | R | 行为 | 一致性 | |---|---|---|---|---| | 3 | 1 | 1 | 全异步，无一致性 | Eventual | | 3 | 2 | 2 | 经典 Quorum | Strong | | 3 | 3 | 1 | 写全确认，读任意 | Strong Read | | 3</description>
-      <pubDate>Sun, 09 Aug 2026 10:11:13 -0000</pubDate>
+      <title>Leader 选举</title>
+      <link>https://java-px.bot.cd/system-design/03-coordination/leader-election</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/03-coordination/leader-election</guid>
+      <description>&gt; 集群选出一个"主"负责协调，其他节点 standby。**唯一性 + 高可用**。 特点： 特点： - Raft 论文 (Diego Ongaro, 2014) - Paxos Made Simple (Lamport, 2001) - ZAB 协议论文 - etcd Raft 实现 - Curator LeaderLatch 文档 &lt;!-- auto-enrich:do-not-edit -</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>分布式锁</title>
+      <link>https://java-px.bot.cd/system-design/03-coordination/distributed-lock</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/03-coordination/distributed-lock</guid>
+      <description>&gt; 多台机器的进程 / 线程，对同一份资源进行互斥访问。**正确性 &gt; 性能 &gt; 实现复杂度**。 | 方案 | 性能 | 可靠性 | 复杂度 | 适用场景 | |---|---|---|---|---| | DB 唯一索引 | 低 | 高 | 低 | 锁竞争小，秒级业务 | | Redis SETNX | 极高 | 中（主从切换丢锁） | 低 | 高并发，性能敏感 | | ZooKeeper |</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>数据分片策略</title>
+      <link>https://java-px.bot.cd/system-design/02-storage/sharding</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/02-storage/sharding</guid>
+      <description>&gt; 当单台机器存不下、扛不住时，把数据**水平切分**到多台机器上。 - Consistent Hashing and Random Trees (Karger et al., 1997) - DDIA 第 6 章 &lt;!-- auto-enrich:do-not-edit --&gt; | 参数 | 说明 | 默认值 | | --- | --- | --- | | TODO_1 | 待补充 | - |</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>主从复制与读写分离</title>
       <link>https://java-px.bot.cd/system-design/02-storage/replica</link>
       <guid isPermaLink="true">https://java-px.bot.cd/system-design/02-storage/replica</guid>
       <description>&gt; 复制是分布式的"双保险"——同一份数据存多份，一台挂了另一台顶上。 - MySQL High Availability (Charles Bell et al.) - PostgreSQL Replication Documentation - Designing Data-Intensive Applications 第 5 章 - Raft Consensus Algorithm (Ong</description>
-      <pubDate>Sun, 09 Aug 2026 10:11:02 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
-      <title>数据分片策略</title>
-      <link>https://java-px.bot.cd/system-design/02-storage/sharding</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/02-storage/sharding</guid>
-      <description>&gt; 当单台机器存不下、扛不住时，把数据**水平切分**到多台机器上。 - Consistent Hashing and Random Trees (Karger et al., 1997) - DDIA 第 6 章</description>
-      <pubDate>Sun, 09 Aug 2026 10:10:47 -0000</pubDate>
+      <title>NWR 仲裁模型</title>
+      <link>https://java-px.bot.cd/system-design/02-storage/quorum</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/02-storage/quorum</guid>
+      <description>&gt; 写 W 副本、读 R 副本，通过 R + W &gt; N 保证至少读到最新值。 | N | W | R | 行为 | 一致性 | |---|---|---|---|---| | 3 | 1 | 1 | 全异步，无一致性 | Eventual | | 3 | 2 | 2 | 经典 Quorum | Strong | | 3 | 3 | 1 | 写全确认，读任意 | Strong Read | | 3</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>PACELC 扩展</title>
+      <link>https://java-px.bot.cd/system-design/01-theory/pacelc</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/01-theory/pacelc</guid>
+      <description>&gt; Daniel Abadi 2012 年提出。CAP 的现代延伸，把"正常时的取舍"也纳入框架。 翻译： - **分区期间**：CAP（A vs C） - **正常时**：**L vs C**（延迟 vs 一致性） | 类型 | P 时 | E 时 | 含义 | |---|---|---|---| | **PA/EL** | 选 A | 选 L | 分区时保可用，正常时保低延迟 | | **PA</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>System Design 知识图谱</title>
+      <link>https://java-px.bot.cd/system-design/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/</guid>
+      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "会写 CRUD 却讲不清 CAP", "调过 Redis 却说不出 cache-aside 的失效边界", "用过 Kafka 但说不清「不丢消息」需要哪几</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>FLP 不可能定理</title>
@@ -335,41 +370,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/system-design/01-theory/consistency-model</guid>
       <description>&gt; 从最强到最弱的一致性等级，以及它们之间的工程取舍。 &gt; 任何一次读都能读到某一次写的结果，且**与真实时间顺序一致**。 也称为 **Linearizability** 或 **Strong Consistency**。 - 写入必须等所有副本确认（或多数派） - 通常引入同步协议（Raft / Paxos） - 延迟高，吞吐受限 - **etcd / ZooKeeper**（基于 Raft</description>
       <pubDate>Sun, 09 Aug 2026 10:10:23 -0000</pubDate>
-    </item>
-    <item>
-      <title>PACELC 扩展</title>
-      <link>https://java-px.bot.cd/system-design/01-theory/pacelc</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/01-theory/pacelc</guid>
-      <description>&gt; Daniel Abadi 2012 年提出。CAP 的现代延伸，把"正常时的取舍"也纳入框架。 翻译： - **分区期间**：CAP（A vs C） - **正常时**：**L vs C**（延迟 vs 一致性） | 类型 | P 时 | E 时 | 含义 | |---|---|---|---| | **PA/EL** | 选 A | 选 L | 分区时保可用，正常时保低延迟 | | **PA</description>
-      <pubDate>Sun, 09 Aug 2026 10:10:10 -0000</pubDate>
-    </item>
-    <item>
-      <title>短链系统设计</title>
-      <link>https://java-px.bot.cd/system-design/10-cases/short-url</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/10-cases/short-url</guid>
-      <description>&gt; 短链是系统设计面试的"Hello World"。考察候选人对**高读 / 低写**场景下读写路径优化、缓存层级、短码生成等核心问题的把握。 **为什么需要短链**： - **短信字数限制**：短信有 70 字符限制，长链占用过多 - **美观**：微博 / Twitter 限制字符数 - **统计**：可以统计点击数据（替代长链直接发） - **防爬**：长链带参数可被恶意爬取 | 指标 |</description>
-      <pubDate>Sun, 09 Aug 2026 09:46:52 -0000</pubDate>
-    </item>
-    <item>
-      <title>一致性哈希</title>
-      <link>https://java-px.bot.cd/system-design/02-storage/consistent-hash</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/02-storage/consistent-hash</guid>
-      <description>&gt; 由 David Karger 于 1997 年在 MIT 提出，最初用于 Akamai CDN 和分布式缓存。是分布式存储系统的"地基"。 &gt; 让"节点的增减**只影响**相邻节点上的 key"，迁移量降到 O(K/N)。 | 系统 | 虚拟节点数 | |---|---| | DynamoDB | 256 | | Cassandra | 默认 256，可配置 | | Redis Cluster</description>
-      <pubDate>Sun, 09 Aug 2026 09:46:28 -0000</pubDate>
-    </item>
-    <item>
-      <title>CAP 定理</title>
-      <link>https://java-px.bot.cd/system-design/01-theory/cap</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/01-theory/cap</guid>
-      <description>&gt; Eric Brewer 2000 年提出，2002 年 Gilbert &amp; Lynch 给出形式化证明。 &gt; **在异步网络模型下，一个分布式系统不可能同时满足以下三项中的超过两项**： &gt; - **C**onsistency（一致性）：所有节点看到同一份数据 &gt; - **A**vailability（可用性）：每个请求都能收到非错误响应 &gt; - **P**artition tolerance</description>
-      <pubDate>Sun, 09 Aug 2026 09:46:13 -0000</pubDate>
-    </item>
-    <item>
-      <title>一致性与系统模型</title>
-      <link>https://java-px.bot.cd/system-design/01-theory/overview</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/01-theory/overview</guid>
-      <description>&gt; 本章是系统设计全站的**索引页**。如果你只读一章，从这里开始。 分布式系统讨论的核心问题：**多个节点在不可靠网络上如何就某个值达成一致**。 围绕这个核心问题，衍生出： 从强到弱排列： &gt; 所有操作看起来像是**按某种全局顺序**依次执行的，且顺序与真实时间一致。 **代价**：延迟极高。需要多数派确认才返回。 **典型系统**：Google Spanner、etcd（Linearizab</description>
-      <pubDate>Sun, 09 Aug 2026 09:46:00 -0000</pubDate>
     </item>
   </channel>
 </rss>

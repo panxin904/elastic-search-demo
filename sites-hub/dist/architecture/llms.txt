@@ -1,8 +1,8 @@
 # architecture 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 51 个文档页 · 146,146 字
-> 生成时间：2026-08-25T20:49:52
+> 51 个文档页 · 148,573 字
+> 生成时间：2026-08-27T21:42:04
 
 ## [CAS / Lock-Free](https://java-px.bot.cd/architecture/01-concurrency-theory/cas)
 > **Compare-And-Swap**（比较并交换），CPU 硬件原语： **乐观锁**：不断重试直到成功。 **解决**：版本号（AtomicStampedReference）或加锁。 高竞争下 CAS 反复失败 → CPU 空转。**解决**：自适应自旋 / Exponential Backoff / 让出 CPU。 CAS 只能保护**一个**变量。多变量一致性需要**事务 / 锁**。
@@ -29,7 +29,7 @@
 > Eric Brewer 提出，CAP 的 AP 选择方案： - **B**asically **A**available（基本可用） - **S**oft state（软状态，状态可以暂时不一致） - **E**ventually consistent（最终一致） **核心思想**：放弃强一致，换可用性 + 最终一致。 | ACID（传统数据库） | BASE（分布式） | |----------
 
 ## [CAP 定理](https://java-px.bot.cd/architecture/03-ha-theory/cap)
-> Eric Brewer 2000 年提出，2002 年 Gilbert & Lynch 证明： - **C**onsistency（一致性）：所有节点同时看到同一份数据 - **A**vailability（可用性）：每个请求都能收到响应（不保证最新） - **P**artition tolerance（分区容忍）：网络分区时系统仍能继续工作 **实际含义**：分布式系统**必须容忍网络分区**（
+> ![CAP 定理 — 分布式系统三选二](/cap-theorem.svg) Eric Brewer 2000 年提出，2002 年 Gilbert & Lynch 证明： - **C**onsistency（一致性）：所有节点同时看到同一份数据 - **A**vailability（可用性）：每个请求都能收到响应（不保证最新） - **P**artition tolerance（分区容忍）：网络
 
 ## [幂等性设计](https://java-px.bot.cd/architecture/03-ha-theory/idempotency)
 > **f(f(x)) = f(x)**：执行一次和执行 N 次效果一样。 | 场景 | 方案 | |------|------| | 支付扣款 | Idempotency-Key + DB 唯一约束 | | 创建订单 | 业务订单号 + 唯一索引 | | 状态变更 | 当前状态校验（CAS） | | 异步任务 | 任务 ID + 结果缓存 | - **缓存幂等 = 不用幂等**：缓存可能丢，应该双写
@@ -77,7 +77,7 @@
 > **业务表和消息表写同一个本地事务** → 一定能发出去。 **保证**：业务成功 → 消息一定能被发出去（at-least-once 消息 + 业务强一致）。 ✅ **优点**： - **不丢消息**：业务和消息同事务 - **无 2PC**：纯本地事务，性能好 - **易实现**：一张表 + 一个定时器 ❌ **缺点**： - **轮询延迟**：秒级（可优化为 CDC / logtail） -
 
 ## [Saga 模式](https://java-px.bot.cd/architecture/07-distributed-tx/saga)
-> 把分布式事务拆成**多个本地事务**，每个本地事务有对应的**补偿操作**。 中央协调者（Orchestrator）管理事务流程。 **代表**：Apache ServiceComb Saga、Seata Saga 模式、Cadence（Uber）。 无中心协调者，服务间通过**事件**联动。 **代表**：Apache Eventuate、Saga Pattern（经典论文）。 | | 2PC
+> ![Saga 时序图 — 正向事务 + 补偿回滚](/saga-sequence.svg) 把分布式事务拆成**多个本地事务**，每个本地事务有对应的**补偿操作**。 中央协调者（Orchestrator）管理事务流程。 **代表**：Apache ServiceComb Saga、Seata Saga 模式、Cadence（Uber）。 无中心协调者，服务间通过**事件**联动。 **代表**
 
 ## [TCC 模式](https://java-px.bot.cd/architecture/07-distributed-tx/tcc)
 > TCC = **Try + Confirm + Cancel** 三阶段，把 2PC 的数据库层 prepare/commit 提到业务层。 协调者收到 A / B 都 "try ok" → 调 A / B 的 confirm 任何 try 失败 → 调 A / B 的 cancel 不是直接扣款，是"冻结" → 失败时可逆。 confirm 可能因网络重试 → 必须幂等（用业务 ID 去重）。

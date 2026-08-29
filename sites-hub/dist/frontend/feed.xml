@@ -6,20 +6,69 @@
     <atom:link href="https://java-px.bot.cd/frontend/feed.xml" rel="self" type="application/rss+xml" />
     <description>frontend 知识图谱（65 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 21:42:04 -0000</lastBuildDate>
+    <item>
+      <title>运行时性能</title>
+      <link>https://java-px.bot.cd/frontend/12-perf/runtime</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/frontend/12-perf/runtime</guid>
+      <description>&gt; 用户开始操作后，UI 是否快速响应。 - 把"输入 → state"放到受控组件自身 - 用 stable key（避免 index 当 key） - **派生状态用 useMemo**：处理昂贵计算 Context 全部消费者都会重渲染。最佳实践： - 拆小组件，**用 selector** - 大数据放 `useRef` 或外部 store 1 万行列表也只渲染可见的几十条。 React</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
+    </item>
+    <item>
+      <title>手写代码题</title>
+      <link>https://java-px.bot.cd/frontend/13-interview/coding</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/frontend/13-interview/coding</guid>
+      <description>&gt; 30 个手写代码题，按主题分类。 - [高频面试题](/13-interview/basic) - [系统设计题](/13-interview/system) &lt;!-- auto-enrich:do-not-edit --&gt; | 参数 | 说明 | 默认值 | | --- | --- | --- | | TODO_1 | 待补充 | - | | TODO_2 | 待补充 | - | &gt; TOD</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Vue Router 4</title>
+      <link>https://java-px.bot.cd/frontend/08-routing/vue-router</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/frontend/08-routing/vue-router</guid>
+      <description>- 适配 Vue 3 Composition API - `createRouter`、`createWebHistory` 替代类导出 - `&lt;router-link&gt;` / `&lt;router-view&gt;` 接口基本不变 也可以在路由表里： 或用 **defineAsyncComponent + Suspense** 思路（Nuxt 更自动化）。 实际项目通常用 **Nuxt** 自动生成路由，</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>CSS Modules</title>
+      <link>https://java-px.bot.cd/frontend/06-style/css-modules</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/frontend/06-style/css-modules</guid>
+      <description>把 CSS 文件 `import` 进 JS 中，并且**类名自动 scope** 的方案。由构建工具（Vite / webpack）支持。 构建后输出： - **作用域隔离**：不会出现全局污染 - **复用纯 CSS**：不依赖任何运行时 - **零运行时开销**：构建期 class 名 hash - **CSS 文件可读**：保持传统 CSS 心智 - 动态化不如 CSS-in-JS CSS</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>SvelteKit</title>
+      <link>https://java-px.bot.cd/frontend/04-meta/sveltekit</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/frontend/04-meta/sveltekit</guid>
+      <description>Svelte 团队出品的元框架。 - 文件路由（pages 目录） - 服务端钩子（hooks.server.ts） - `+page.server.ts` / `+page.ts` / `+page.svelte` - Forms 内置：`&lt;form method="POST"&gt;` - 适配器：`adapter-auto` / `adapter-vercel` / `adapter-node`</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Nuxt (Vue 元框架)</title>
+      <link>https://java-px.bot.cd/frontend/04-meta/nuxt</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/frontend/04-meta/nuxt</guid>
+      <description>Vue 生态最主流的元框架，类 Next.js 的能力 + Vue DX。 文件路由约定类似 Next.js + 自动按需加载。 Nitro 让 Nuxt 可以脱离 Node 部署（Cloudflare Workers / Vercel Edge）。 Nuxt 会自动导入 `components/`、`composables/`、`utils/` 下的导出： Nuxt 内置跨组件跨 SSR 的 `</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>ESNext 新特性</title>
+      <link>https://java-px.bot.cd/frontend/02-language/esnext</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/frontend/02-language/esnext</guid>
+      <description>&gt; 用到 ES2024 的关键语法、TC39 已进入 stage 4 的提案。 - **ES2015 (ES6)** — class, arrow, Promise, let/const, 解构, 模板字符串… - **ES2016** — `**` 幂、 `Array.includes` - **ES2017** — async/await, Object.values/entries - **</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
     <item>
       <title>frontend 知识图谱</title>
       <link>https://java-px.bot.cd/frontend/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/frontend/</guid>
       <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "HTML / CSS 基础不扎实，遇到复杂布局就懵？", "React / Vue / Angular / Svelte 选哪个？", "浏览器渲染原理、E</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>CSS 预处理器</title>
       <link>https://java-px.bot.cd/frontend/06-style/preprocessor</link>
       <guid isPermaLink="true">https://java-px.bot.cd/frontend/06-style/preprocessor</guid>
       <description>特性： - **变量** `$var` - **嵌套** `&amp;` - **mixin** `@mixin` / `@include` - **继承** `@extend` - **运算** `+`、`*`、`darken()` | 需求 | 旧（SCSS） | 现在 | |------|-----------|------| | 变量 | `$primary` | `--var-primary`</description>
-      <pubDate>Mon, 24 Aug 2026 21:00:23 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>微前端</title>
@@ -57,13 +106,6 @@
       <pubDate>Thu, 23 Jul 2026 20:07:39 -0000</pubDate>
     </item>
     <item>
-      <title>手写代码题</title>
-      <link>https://java-px.bot.cd/frontend/13-interview/coding</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/frontend/13-interview/coding</guid>
-      <description>&gt; 30 个手写代码题，按主题分类。 - [高频面试题](/13-interview/basic) - [系统设计题](/13-interview/system)</description>
-      <pubDate>Thu, 23 Jul 2026 20:07:20 -0000</pubDate>
-    </item>
-    <item>
       <title>高频面试题</title>
       <link>https://java-px.bot.cd/frontend/13-interview/basic</link>
       <guid isPermaLink="true">https://java-px.bot.cd/frontend/13-interview/basic</guid>
@@ -76,13 +118,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/frontend/12-perf/a11y</guid>
       <description>| 键 | 行为 | |----|------| | Tab | 下一个焦点 | | Shift+Tab | 上一个 | | Enter | 触发按钮 / 链接 | | Space | 切换复选框 / 按钮激活 | | Esc | 关闭弹窗 | | Arrow | 单选按钮 / tab / 菜单导航 | **焦点陷阱**：弹窗打开时把焦点限制在内部。 工具： - Chrome DevTools 颜</description>
       <pubDate>Thu, 23 Jul 2026 20:06:44 -0000</pubDate>
-    </item>
-    <item>
-      <title>运行时性能</title>
-      <link>https://java-px.bot.cd/frontend/12-perf/runtime</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/frontend/12-perf/runtime</guid>
-      <description>&gt; 用户开始操作后，UI 是否快速响应。 - 把"输入 → state"放到受控组件自身 - 用 stable key（避免 index 当 key） - **派生状态用 useMemo**：处理昂贵计算 Context 全部消费者都会重渲染。最佳实践： - 拆小组件，**用 selector** - 大数据放 `useRef` 或外部 store 1 万行列表也只渲染可见的几十条。 React</description>
-      <pubDate>Thu, 23 Jul 2026 20:06:30 -0000</pubDate>
     </item>
     <item>
       <title>加载性能</title>
@@ -204,13 +239,6 @@
       <pubDate>Thu, 23 Jul 2026 20:03:17 -0000</pubDate>
     </item>
     <item>
-      <title>Vue Router 4</title>
-      <link>https://java-px.bot.cd/frontend/08-routing/vue-router</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/frontend/08-routing/vue-router</guid>
-      <description>- 适配 Vue 3 Composition API - `createRouter`、`createWebHistory` 替代类导出 - `&lt;router-link&gt;` / `&lt;router-view&gt;` 接口基本不变 也可以在路由表里： 或用 **defineAsyncComponent + Suspense** 思路（Nuxt 更自动化）。 实际项目通常用 **Nuxt** 自动生成路由，</description>
-      <pubDate>Thu, 23 Jul 2026 20:03:07 -0000</pubDate>
-    </item>
-    <item>
       <title>React Router v6/v7</title>
       <link>https://java-px.bot.cd/frontend/08-routing/react-router</link>
       <guid isPermaLink="true">https://java-px.bot.cd/frontend/08-routing/react-router</guid>
@@ -251,13 +279,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/frontend/06-style/design-system</guid>
       <description>| 术语 | 含义 | |------|------| | **设计系统** (Design System) | 设计 token + 组件 + 文档 + 规范一整套（设计 + 工程） | | **UI 组件库** (Component Library) | 一套可复用 React/Vue 组件 | | 库 | 特点 | 适合 | |----|------|------| | **Ant Desi</description>
       <pubDate>Thu, 23 Jul 2026 20:02:03 -0000</pubDate>
-    </item>
-    <item>
-      <title>CSS Modules</title>
-      <link>https://java-px.bot.cd/frontend/06-style/css-modules</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/frontend/06-style/css-modules</guid>
-      <description>把 CSS 文件 `import` 进 JS 中，并且**类名自动 scope** 的方案。由构建工具（Vite / webpack）支持。 构建后输出： - **作用域隔离**：不会出现全局污染 - **复用纯 CSS**：不依赖任何运行时 - **零运行时开销**：构建期 class 名 hash - **CSS 文件可读**：保持传统 CSS 心智 - 动态化不如 CSS-in-JS CSS</description>
-      <pubDate>Thu, 23 Jul 2026 20:01:52 -0000</pubDate>
     </item>
     <item>
       <title>CSS-in-JS</title>
@@ -316,25 +337,11 @@
       <pubDate>Thu, 23 Jul 2026 20:00:20 -0000</pubDate>
     </item>
     <item>
-      <title>SvelteKit</title>
-      <link>https://java-px.bot.cd/frontend/04-meta/sveltekit</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/frontend/04-meta/sveltekit</guid>
-      <description>Svelte 团队出品的元框架。 - 文件路由（pages 目录） - 服务端钩子（hooks.server.ts） - `+page.server.ts` / `+page.ts` / `+page.svelte` - Forms 内置：`&lt;form method="POST"&gt;` - 适配器：`adapter-auto` / `adapter-vercel` / `adapter-node`</description>
-      <pubDate>Thu, 23 Jul 2026 20:00:11 -0000</pubDate>
-    </item>
-    <item>
       <title>Remix / RR v7</title>
       <link>https://java-px.bot.cd/frontend/04-meta/remix</link>
       <guid isPermaLink="true">https://java-px.bot.cd/frontend/04-meta/remix</guid>
       <description>Remix 已被合并回 **React Router v7**。两者现在共享代码库。 **Remix 的核心思想**： - Load in loader, mutate in action（数据流跟 URL 绑死） - 内置 form、`&lt;Link&gt;`、`&lt;Meta&gt;` 等组件 - 服务端渲染优先，无 RSC（v7 之前） | | Remix (v7) | Next.js | |--|------</description>
       <pubDate>Thu, 23 Jul 2026 20:00:02 -0000</pubDate>
-    </item>
-    <item>
-      <title>Nuxt (Vue 元框架)</title>
-      <link>https://java-px.bot.cd/frontend/04-meta/nuxt</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/frontend/04-meta/nuxt</guid>
-      <description>Vue 生态最主流的元框架，类 Next.js 的能力 + Vue DX。 文件路由约定类似 Next.js + 自动按需加载。 Nitro 让 Nuxt 可以脱离 Node 部署（Cloudflare Workers / Vercel Edge）。 Nuxt 会自动导入 `components/`、`composables/`、`utils/` 下的导出： Nuxt 内置跨组件跨 SSR 的 `</description>
-      <pubDate>Thu, 23 Jul 2026 19:59:54 -0000</pubDate>
     </item>
     <item>
       <title>Next.js (React 元框架)</title>
@@ -384,13 +391,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/frontend/02-language/wasm</guid>
       <description>Wasm 是**可移植、体积小、加载快、接近原生性能**的二进制指令格式。可以理解为浏览器的"汇编"。 主要用途： - 计算密集型任务（图像处理、视频编解码、CAD、加密、游戏） - 把 C/C++/Rust 编译到 Wasm，拿到浏览器跑 - 替代部分 JS "慢点" | 工具 | 来源语言 | 输出 | |------|---------|------| | Emscripten | C/C+</description>
       <pubDate>Thu, 23 Jul 2026 19:58:42 -0000</pubDate>
-    </item>
-    <item>
-      <title>ESNext 新特性</title>
-      <link>https://java-px.bot.cd/frontend/02-language/esnext</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/frontend/02-language/esnext</guid>
-      <description>&gt; 用到 ES2024 的关键语法、TC39 已进入 stage 4 的提案。 - **ES2015 (ES6)** — class, arrow, Promise, let/const, 解构, 模板字符串… - **ES2016** — `**` 幂、 `Array.includes` - **ES2017** — async/await, Object.values/entries - **</description>
-      <pubDate>Thu, 23 Jul 2026 19:58:31 -0000</pubDate>
     </item>
     <item>
       <title>TypeScript 类型系统</title>

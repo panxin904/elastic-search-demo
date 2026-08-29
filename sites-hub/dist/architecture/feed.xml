@@ -6,13 +6,55 @@
     <atom:link href="https://java-px.bot.cd/architecture/feed.xml" rel="self" type="application/rss+xml" />
     <description>architecture 知识图谱（51 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 21:42:04 -0000</lastBuildDate>
+    <item>
+      <title>服务拆分原则</title>
+      <link>https://java-px.bot.cd/architecture/06-microservice/split</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/06-microservice/split</guid>
+      <description>按**限界上下文（Bounded Context）**拆： - 订单上下文（OrderContext）：订单、支付、物流 - 商品上下文（CatalogueContext）：商品、类目、库存 - 用户上下文（IdentityContext）：用户、认证、权限 每个上下文 = 一个服务（或多个聚合服务）。 &gt; "设计系统的组织，受限于沟通结构" 团队结构 = 系统结构。微服务团队 = 2 个披萨团队</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
+    </item>
+    <item>
+      <title>Saga / Bulkhead</title>
+      <link>https://java-px.bot.cd/architecture/12-microservice-patterns/saga</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/12-microservice-patterns/saga</guid>
+      <description>详见 [Saga 模式](/07-distributed-tx/saga)。在微服务模式下： | | Saga | 同步 RPC | |--|------|----------| | 失败处理 | 自动补偿 | 需手动 try-catch | | 数据一致性 | 最终一致 | 强一致（锁） | | 性能 | 异步（快） | 同步（慢） | | 复杂度 | 中 | 低 | **实践**：用 Saga</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>Kafka vs RabbitMQ vs RocketMQ</title>
+      <link>https://java-px.bot.cd/architecture/08-message-queue/compare</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/08-message-queue/compare</guid>
+      <description>| | Kafka | RabbitMQ | RocketMQ | |--|-------|-----------|-----------| | 出品 | LinkedIn | RabbitMQ 公司（Pivotal） | 阿里 | | 定位 | 分布式日志（流处理） | 传统消息队列 | 阿里消息（金融级） | | 协议 | 自定义 TCP | AMQP 0-9-1 | 自定义 | | 性能 |</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>Saga 模式</title>
+      <link>https://java-px.bot.cd/architecture/07-distributed-tx/saga</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/07-distributed-tx/saga</guid>
+      <description>![Saga 时序图 — 正向事务 + 补偿回滚](/saga-sequence.svg) 把分布式事务拆成**多个本地事务**，每个本地事务有对应的**补偿操作**。 中央协调者（Orchestrator）管理事务流程。 **代表**：Apache ServiceComb Saga、Seata Saga 模式、Cadence（Uber）。 无中心协调者，服务间通过**事件**联动。 **代表**</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
     <item>
       <title>企业级架构知识图谱</title>
       <link>https://java-px.bot.cd/architecture/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/architecture/</guid>
       <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "会写 CRUD 却讲不清 CAP 定理", "知道消息队列但说不清幂等性设计", "调过限流却不懂令牌桶 vs 滑动窗口的区别", "用了 Seata 却不</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>CAP 定理</title>
+      <link>https://java-px.bot.cd/architecture/03-ha-theory/cap</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/03-ha-theory/cap</guid>
+      <description>![CAP 定理 — 分布式系统三选二](/cap-theorem.svg) Eric Brewer 2000 年提出，2002 年 Gilbert &amp; Lynch 证明： - **C**onsistency（一致性）：所有节点同时看到同一份数据 - **A**vailability（可用性）：每个请求都能收到响应（不保证最新） - **P**artition tolerance（分区容忍）：网络</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>分布式限流</title>
+      <link>https://java-px.bot.cd/architecture/04-rate-limit/distributed</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/04-rate-limit/distributed</guid>
+      <description>**优点**：单次 round-trip，原子，简单。 **缺点**：Redis 故障 → 限流失效（可降级到本地限流）。 按 key hash 到不同 slot，**分片**提升吞吐。 10 节点 Redis Cluster → 理论限流 RPS × 10。 分布式版本，状态在 Redis 共享，但用 sliding window log 而非 token bucket，更精确。 **降级原则*</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>BASE / 最终一致性</title>
@@ -83,13 +125,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/architecture/13-observability/three-pillars</guid>
       <description>| 支柱 | 回答什么问题 | 典型工具 | 数据形式 | |------|-------------|----------|---------| | **Metrics** | 系统在做什么 | Prometheus / Grafana | 数值 / 时序 | | **Tracing** | 请求经过哪些服务 | Jaeger / Zipkin / Tempo | span / trace |</description>
       <pubDate>Thu, 30 Jul 2026 20:01:43 -0000</pubDate>
-    </item>
-    <item>
-      <title>Saga / Bulkhead</title>
-      <link>https://java-px.bot.cd/architecture/12-microservice-patterns/saga</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/architecture/12-microservice-patterns/saga</guid>
-      <description>详见 [Saga 模式](/07-distributed-tx/saga)。在微服务模式下： | | Saga | 同步 RPC | |--|------|----------| | 失败处理 | 自动补偿 | 需手动 try-catch | | 数据一致性 | 最终一致 | 强一致（锁） | | 性能 | 异步（快） | 同步（慢） | | 复杂度 | 中 | 低 | **实践**：用 Saga</description>
-      <pubDate>Thu, 30 Jul 2026 19:26:17 -0000</pubDate>
     </item>
     <item>
       <title>Sidecar 模式</title>
@@ -183,24 +218,10 @@
       <pubDate>Thu, 30 Jul 2026 19:22:44 -0000</pubDate>
     </item>
     <item>
-      <title>Kafka vs RabbitMQ vs RocketMQ</title>
-      <link>https://java-px.bot.cd/architecture/08-message-queue/compare</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/architecture/08-message-queue/compare</guid>
-      <description>| | Kafka | RabbitMQ | RocketMQ | |--|-------|-----------|-----------| | 出品 | LinkedIn | RabbitMQ 公司（Pivotal） | 阿里 | | 定位 | 分布式日志（流处理） | 传统消息队列 | 阿里消息（金融级） | | 协议 | 自定义 TCP | AMQP 0-9-1 | 自定义 | | 性能 |</description>
-      <pubDate>Thu, 30 Jul 2026 19:22:44 -0000</pubDate>
-    </item>
-    <item>
       <title>本地消息表</title>
       <link>https://java-px.bot.cd/architecture/07-distributed-tx/local-table</link>
       <guid isPermaLink="true">https://java-px.bot.cd/architecture/07-distributed-tx/local-table</guid>
       <description>**业务表和消息表写同一个本地事务** → 一定能发出去。 **保证**：业务成功 → 消息一定能被发出去（at-least-once 消息 + 业务强一致）。 ✅ **优点**： - **不丢消息**：业务和消息同事务 - **无 2PC**：纯本地事务，性能好 - **易实现**：一张表 + 一个定时器 ❌ **缺点**： - **轮询延迟**：秒级（可优化为 CDC / logtail） -</description>
-      <pubDate>Thu, 30 Jul 2026 19:21:42 -0000</pubDate>
-    </item>
-    <item>
-      <title>Saga 模式</title>
-      <link>https://java-px.bot.cd/architecture/07-distributed-tx/saga</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/architecture/07-distributed-tx/saga</guid>
-      <description>把分布式事务拆成**多个本地事务**，每个本地事务有对应的**补偿操作**。 中央协调者（Orchestrator）管理事务流程。 **代表**：Apache ServiceComb Saga、Seata Saga 模式、Cadence（Uber）。 无中心协调者，服务间通过**事件**联动。 **代表**：Apache Eventuate、Saga Pattern（经典论文）。 | | 2PC</description>
       <pubDate>Thu, 30 Jul 2026 19:21:42 -0000</pubDate>
     </item>
     <item>
@@ -239,13 +260,6 @@
       <pubDate>Thu, 30 Jul 2026 19:20:42 -0000</pubDate>
     </item>
     <item>
-      <title>服务拆分原则</title>
-      <link>https://java-px.bot.cd/architecture/06-microservice/split</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/architecture/06-microservice/split</guid>
-      <description>按**限界上下文（Bounded Context）**拆： - 订单上下文（OrderContext）：订单、支付、物流 - 商品上下文（CatalogueContext）：商品、类目、库存 - 用户上下文（IdentityContext）：用户、认证、权限 每个上下文 = 一个服务（或多个聚合服务）。 &gt; "设计系统的组织，受限于沟通结构" 团队结构 = 系统结构。微服务团队 = 2 个披萨团队</description>
-      <pubDate>Thu, 30 Jul 2026 19:20:42 -0000</pubDate>
-    </item>
-    <item>
       <title>Fallback 设计</title>
       <link>https://java-px.bot.cd/architecture/05-circuit-breaker/fallback</link>
       <guid isPermaLink="true">https://java-px.bot.cd/architecture/05-circuit-breaker/fallback</guid>
@@ -264,13 +278,6 @@
       <link>https://java-px.bot.cd/architecture/05-circuit-breaker/states</link>
       <guid isPermaLink="true">https://java-px.bot.cd/architecture/05-circuit-breaker/states</guid>
       <description>Martin Fowler 2014 年提出。 | 状态 | 行为 | |------|------| | **CLOSED**（关闭） | 正常：所有请求通过；统计失败率 | | **OPEN**（断开） | 拒绝所有请求（fail fast）；超时后转 HALF_OPEN | | **HALF_OPEN**（半开）| 放少量探测请求；都成功 → CLOSED，有失败 → OPEN | | |</description>
-      <pubDate>Thu, 30 Jul 2026 19:18:32 -0000</pubDate>
-    </item>
-    <item>
-      <title>分布式限流</title>
-      <link>https://java-px.bot.cd/architecture/04-rate-limit/distributed</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/architecture/04-rate-limit/distributed</guid>
-      <description>**优点**：单次 round-trip，原子，简单。 **缺点**：Redis 故障 → 限流失效（可降级到本地限流）。 按 key hash 到不同 slot，**分片**提升吞吐。 10 节点 Redis Cluster → 理论限流 RPS × 10。 分布式版本，状态在 Redis 共享，但用 sliding window log 而非 token bucket，更精确。 **降级原则*</description>
       <pubDate>Thu, 30 Jul 2026 19:18:32 -0000</pubDate>
     </item>
     <item>
@@ -306,13 +313,6 @@
       <link>https://java-px.bot.cd/architecture/03-ha-theory/raft</link>
       <guid isPermaLink="true">https://java-px.bot.cd/architecture/03-ha-theory/raft</guid>
       <description>分布式系统多副本时，**所有节点必须对"某件事是否发生"达成一致**。例：leader 选举、配置变更、分布式锁。 - **Paxos**（Leslie Lamport 1990）：正确但**难懂难实现** - **Raft**（Diego Ongaro 2014）：**易于理解**，与 Paxos 等价 Raft 设计目标：**可理解性**。三种状态 + 三个子问题。 **Term（任期）单调递</description>
-      <pubDate>Thu, 30 Jul 2026 19:16:38 -0000</pubDate>
-    </item>
-    <item>
-      <title>CAP 定理</title>
-      <link>https://java-px.bot.cd/architecture/03-ha-theory/cap</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/architecture/03-ha-theory/cap</guid>
-      <description>Eric Brewer 2000 年提出，2002 年 Gilbert &amp; Lynch 证明： - **C**onsistency（一致性）：所有节点同时看到同一份数据 - **A**vailability（可用性）：每个请求都能收到响应（不保证最新） - **P**artition tolerance（分区容忍）：网络分区时系统仍能继续工作 **实际含义**：分布式系统**必须容忍网络分区**（</description>
       <pubDate>Thu, 30 Jul 2026 19:16:38 -0000</pubDate>
     </item>
     <item>

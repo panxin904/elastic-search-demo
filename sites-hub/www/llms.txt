@@ -1,8 +1,8 @@
 # Scholar's Atlas 跨站知识图谱
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 1567 个文档页 · 6,352,823 字
-> 生成时间：2026-08-25T20:49:52
+> 1567 个文档页 · 6,594,356 字
+> 生成时间：2026-08-27T21:42:04
 
 ## [集群 Cluster](https://java-px.bot.cd/es/01-storage/cluster)
 > <span class="kg-badge kg-badge-storage">存储层</span> ES 集群是由**一个或多个节点**组成的、能对外提供统一搜索服务的分布式系统。 - **水平扩展**：突破单机容量与吞吐上限 - **高可用**：节点故障时副本接管 - **并行处理**：查询与索引在多节点并行执行 返回： | 状态 | 含义 | |---|---| | 🟢 green | 所有
@@ -395,7 +395,7 @@
 > > 不知道从哪里开始？按照这个路径，**4 阶段从入门到精通**，每阶段 1-2 周时间。 理解 MySQL 是什么，能写出基本的 CRUD SQL。 1. **[🏛️ 体系结构](01-foundation/architecture.md)** — MySQL 是怎么运行的（连接器 / 查询缓存 / 分析器 / 优化器 / 执行器） 2. **[🔧 存储引擎](01-foundation/sto
 
 ## [5 大基础类型](https://java-px.bot.cd/redis/01-basics/datatypes)
-> > Redis 不是简单的 key-value 缓存，**value 可以是 5 种不同的数据结构**，每种都针对特定场景优化。 | 类型 | 描述 | 底层编码（Redis 7） | 适用场景 | |------|------|---------------------|---------| | **String** | 字符串 / 数字 / 二进制 | int / embstr / raw |
+> ![Redis 五大数据类型 + 底层编码](/redis-data-structures.svg) > Redis 不是简单的 key-value 缓存，**value 可以是 5 种不同的数据结构**，每种都针对特定场景优化。 | 类型 | 描述 | 底层编码（Redis 7） | 适用场景 | |------|------|---------------------|---------| |
 
 ## [过期策略](https://java-px.bot.cd/redis/01-basics/expiration)
 > > Redis 不是所有 key 都永久存在，**每个 key 都可以设置过期时间（TTL）**。理解 Redis 如何处理过期 key，是理解内存淘汰的前提。 如果不过期 → **内存无限增长** → Redis OOM（内存溢出）。 Redis 7+ 提供**精确过期**： - ✅ Redis 7.4+ 通过 hash table 多级索引实现精确过期 - ⚠️ Redis 7.4 之前是**
@@ -863,7 +863,7 @@
 > > 5 分钟搭建一个本地 Kafka 集群。本章涵盖 JDK 安装、Kafka 下载、单机/集群模式、KRaft 配置。 **安装部署核心要点**： - ✅ 单机：KRaft 模式 + 1 个节点 - ✅ 集群：3 节点 KRaft + 2 副本 - ✅ Docker：docker-compose 快速启动 - ✅ 生产：3 节点起步 + 多副本 + 监控 - ⚠️ Kafka 3.x 用 KRa
 
 ## [Kafka 是什么](https://java-px.bot.cd/kafka/01-basics/intro)
-> > **Apache Kafka** 最初是由 LinkedIn 开发，后捐赠给 Apache 基金会的**分布式发布订阅消息系统**。现已成为大数据、实时计算、微服务领域的事实标准。 | 维度 | Kafka 的特点 | |------|-------------| | **吞吐** | 单机 100w+ msg/s（顺序写盘 + 零拷贝） | | **持久化** | 消息持久化到磁盘，可保留
+> ![Kafka 集群拓扑 — Broker / Partition / Consumer Group](/kafka-topology.svg) > **Apache Kafka** 最初是由 LinkedIn 开发，后捐赠给 Apache 基金会的**分布式发布订阅消息系统**。现已成为大数据、实时计算、微服务领域的事实标准。 | 维度 | Kafka 的特点 | |------|-------
 
 ## [消息模型](https://java-px.bot.cd/kafka/01-basics/message-model)
 > > Kafka 的消息模型结合了**点对点**和**发布订阅**两种模式。本章对比主流消息模型，帮助理解 Kafka 的设计哲学。 > Kafka 通过 **Consumer Group** 巧妙地同时支持两种模型。 | 维度 | Kafka | RabbitMQ | RocketMQ | ActiveMQ | |------|-------|----------|----------|-----
@@ -1169,7 +1169,7 @@
 > 统一的异常处理是系统稳定的基石，确保错误信息清晰、可追踪、不泄露敏感信息。 | 原则 | 说明 | |---|---| | 不吞异常 | finally 块不要 return，catch 后要记录日志 | | 不暴露细节 | 生产环境不返回堆栈信息给前端 | | 分层处理 | ControllerAdvice 统一拦截，Service 层只管抛 | | 异常转换 | 第三方异常转为业务异常再抛出
 
 ## [接口幂等](https://java-px.bot.cd/java/03-practice/idempotency)
-> 幂等：同一个操作执行一次和执行多次，结果相同。 - 用户手抖点多次提交按钮 - 网络超时，客户端自动重试 - MQ 消息重复消费 - 定时任务重复执行 <KnowledgeGraph mode="neighbor" focusNodeId="idempotency" :height="400" />
+> 幂等：同一个操作执行一次和执行多次，结果相同。 - 用户手抖点多次提交按钮 - 网络超时，客户端自动重试 - MQ 消息重复消费 - 定时任务重复执行 <KnowledgeGraph mode="neighbor" focusNodeId="idempotency" :height="400" /> <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值
 
 ## [日志规范](https://java-px.bot.cd/java/03-practice/logging)
 > 日志是排查问题的核心手段，规范的日志让问题定位效率提升 10 倍。 | 级别 | 使用场景 | |---|---| | ERROR | 系统错误，需要人工介入（数据库挂了、第三方不可用） | | WARN | 潜在问题（参数异常但有兜底、降级触发、接近阈值） | | INFO | 关键业务流程节点（请求入参、调用外部接口、重要状态变更） | | DEBUG | 调试信息（方法入参出参、中间变量，生
@@ -1223,13 +1223,13 @@
 > Spring Boot 是 Java Web 开发的事实标准框架，核心价值是**约定大于配置**。 | 特性 | 说明 | |---|---| | 自动配置 | 根据依赖自动配置 Bean，减少 XML/注解配置 | | 起步依赖 | starter 包一站式引入相关依赖 | | 内嵌容器 | 内嵌 Tomcat/Jetty/Undertow，jar 包直接运行 | | Actuator | 生产
 
 ## [Spring MVC](https://java-px.bot.cd/java/04-tech/spring-mvc)
-> Spring MVC 处理 Web 层的请求分发、参数绑定、响应返回。 <KnowledgeGraph mode="neighbor" focusNodeId="spring-mvc" :height="400" />
+> Spring MVC 处理 Web 层的请求分发、参数绑定、响应返回。 <KnowledgeGraph mode="neighbor" focusNodeId="spring-mvc" :height="400" /> <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | --- | --- | | TODO_1 | 待补充 | -
 
 ## [Spring Security](https://java-px.bot.cd/java/04-tech/spring-security)
 > Spring Security 提供认证（你是谁）和授权（你能做什么）功能。 | 概念 | 说明 | |---|---| | Authentication | 认证：验证用户身份 | | Authorization | 授权：验证用户权限 | | Principal | 当前登录用户 | | GrantedAuthority | 权限/角色 | | SecurityContext | 安全上下文（
 
 ## [测试框架](https://java-px.bot.cd/java/04-tech/testing)
-> Java 测试的核心组合：JUnit 5 + Mockito + SpringBootTest。 <KnowledgeGraph mode="neighbor" focusNodeId="testing" :height="400" />
+> Java 测试的核心组合：JUnit 5 + Mockito + SpringBootTest。 <KnowledgeGraph mode="neighbor" focusNodeId="testing" :height="400" /> <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | --- | --- | | TODO_1
 
 ## [Java Web Dev Manual](https://java-px.bot.cd/java/index)
 > <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Java 知识图谱太广（基础 / JVM / 并发 / 框架 / 中间件）怎么系统学？", "JVM 内存模型（堆 / 栈 / Metaspace / 直接
@@ -1439,7 +1439,7 @@
 > > 2024-2026 春招 / 秋招常考题汇总。 1. **闭包**：原理 + 实战场景（防抖、Hooks、单次权限） 2. **原型链**：实现继承的几条路 3. **Event Loop**：浏览器 / Node 差别 4. **this 绑定**：call / apply / bind / new / 箭头函数 5. **Promise 全家桶**：all / allSettled / r
 
 ## [手写代码题](https://java-px.bot.cd/frontend/13-interview/coding)
-> > 30 个手写代码题，按主题分类。 - [高频面试题](/13-interview/basic) - [系统设计题](/13-interview/system)
+> > 30 个手写代码题，按主题分类。 - [高频面试题](/13-interview/basic) - [系统设计题](/13-interview/system) <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | --- | --- | | TODO_1 | 待补充 | - | | TODO_2 | 待补充 | - | > TOD
 
 ## [系统设计题](https://java-px.bot.cd/frontend/13-interview/system)
 > > 面试常考的"大型"题：电商 / 内容 / 协作 / 实时。 **关键设计**： - **发号器**：自增 ID / 雪花 / Hash - **Hash 算法**：MD5 → 取前 N 位 / CRC32 - **冲突处理**：追加 1 字符再 Hash - **存储**：MySQL / Redis（缓存）+ 异步落库 - **301 vs 302**：301 永久（缓存到浏览器），302 临
@@ -1505,7 +1505,7 @@
 > > **s**tream **ed**itor。批量改文本最常用。 | 场景 | 用 | |------|-----| | 简单替换 | sed | | 列操作 | awk | | 流式处理 | sed 更快 | | 复杂条件 | awk 更强 | - [awk](/03-text/awk) - [sort / uniq](/03-text/sort-uniq) - [xargs / find 配
 
 ## [sort / uniq](https://java-px.bot.cd/linux/03-text/sort-uniq)
-> > 排序与去重，看似简单，组合起来是日志分析的利器。 uniq **只能去重相邻行**，所以先 sort。 - [grep](/03-text/grep) - [awk](/03-text/awk) - [xargs / find 配合](/03-text/xargs)
+> > 排序与去重，看似简单，组合起来是日志分析的利器。 uniq **只能去重相邻行**，所以先 sort。 - [grep](/03-text/grep) - [awk](/03-text/awk) - [xargs / find 配合](/03-text/xargs) <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | --- |
 
 ## [xargs / find 配合](https://java-px.bot.cd/linux/03-text/xargs)
 > > 把 **stdin 转成参数**，传给其他命令。配合 find / grep / cp 是经典用法。 | | `-exec` | `xargs` | |--|---------|---------| | 语法 | `find ... -exec cmd {} \;` | `find ... | xargs cmd` | | 批量 | 用 `{} +` 一次传多文件 | 默认一次传多（更快） |
@@ -1532,7 +1532,7 @@
 > > 跟 [02-filesystem/permissions](/02-filesystem/permissions) 互补——这里更偏用户 / 安全场景。 详见 [02-filesystem/permissions](/02-filesystem/permissions)。 详见 [permissions](/02-filesystem/permissions)。 需要给特定用户 / 组额外授权
 
 ## [chown / chgrp](https://java-px.bot.cd/linux/05-user/chown)
-> > 改属主 / 属组。chmod 改的是"谁能做什么"，chown 改的是"文件属于谁"。 `chown :group file` 等价 `chgrp group file`。 - [chmod 权限](/05-user/chmod) - [用户 / 用户组](/05-user/users-groups) - [sudo 提权](/05-user/sudo)
+> > 改属主 / 属组。chmod 改的是"谁能做什么"，chown 改的是"文件属于谁"。 `chown :group file` 等价 `chgrp group file`。 - [chmod 权限](/05-user/chmod) - [用户 / 用户组](/05-user/users-groups) - [sudo 提权](/05-user/sudo) <!-- auto-enrich:do
 
 ## [sudo 提权](https://java-px.bot.cd/linux/05-user/sudo)
 > > 让普通用户在不共享 root 密码的情况下，做有限的高权限操作。 格式： | 字段 | 含义 | |------|------| | `who` | 用户 / %组 / User_Alias | | `where` | 主机（基本不用，全用 ALL） | | `(as_whom)` | 模拟身份（默认 ALL） | | `what` | 命令 / 命令别名 / Cmnd_Alias | | `
@@ -1613,10 +1613,10 @@
 > > 计数器式的性能工具：每秒打一行，便于看趋势。 | 列 | 含义 | 警告 | |----|------|------| | `r` | 等待运行的进程数 | > CPU 核心数 → 满载 | | `b` | 不可中断睡眠（IO） | > 0 → IO 瓶颈 | | 列 | 含义 | |----|------| | `swpd` | swap 使用 | | `free` | 完全空闲内存 | |
 
 ## [数组与字符串](https://java-px.bot.cd/linux/11-shell/arrays)
-> > shell 的字符串处理比 Python 弱，但日常够用。 - [bash 基础语法](/11-shell/bash-syntax) - [变量与参数](/11-shell/variables) - [函数与脚本组织](/11-shell/functions) - [调试与陷阱](/11-shell/debug)
+> > shell 的字符串处理比 Python 弱，但日常够用。 - [bash 基础语法](/11-shell/bash-syntax) - [变量与参数](/11-shell/variables) - [函数与脚本组织](/11-shell/functions) - [调试与陷阱](/11-shell/debug) <!-- auto-enrich:do-not-edit --> | 参数 |
 
 ## [bash 基础语法](https://java-px.bot.cd/linux/11-shell/bash-syntax)
-> > 写 shell 脚本的第一步。 - [变量与参数](/11-shell/variables) - [数组与字符串](/11-shell/arrays) - [函数与脚本组织](/11-shell/functions) - [调试与陷阱](/11-shell/debug)
+> > 写 shell 脚本的第一步。 - [变量与参数](/11-shell/variables) - [数组与字符串](/11-shell/arrays) - [函数与脚本组织](/11-shell/functions) - [调试与陷阱](/11-shell/debug) <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | ---
 
 ## [调试与陷阱](https://java-px.bot.cd/linux/11-shell/debug)
 > > shell 的"沉默失败"特性是最大杀手，这章讲怎么调试 + 常见坑。 输出： `PS4` 控制 trace 前缀： `-x` 更常用。 **生产脚本默认就开**。 | 选项 | 作用 | |------|------| | `-e` | 命令返回非 0 立即退出 | | `-u` | 用未定义变量报错 | | `-o pipefail` | 管道失败检测 | | `-x` | 打印每条命令
@@ -1664,7 +1664,7 @@
 > > Linux 内核按需加载 / 卸载的能力（LKM = Loadable Kernel Module）。 第一列：模块名 第二列：占内存大小 第三列：使用计数 + 谁在用 驱动源码在**内核升级时自动重编译**： | | 模块（默认） | 编译进内核（CONFIG_Y=y） | |--|------------|------------------------| | 灵活性 | 高，可动态加 |
 
 ## [sysctl 调参](https://java-px.bot.cd/linux/14-kernel/sysctl)
-> > 修改 `/proc/sys/` 下的内核参数，**运行时生效**，无需重启。 - [GRUB 引导](/14-kernel/grub) - [initramfs](/14-kernel/initramfs) - [内核模块](/14-kernel/modules)
+> > 修改 `/proc/sys/` 下的内核参数，**运行时生效**，无需重启。 - [GRUB 引导](/14-kernel/grub) - [initramfs](/14-kernel/initramfs) - [内核模块](/14-kernel/modules) <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | --- |
 
 ## [命令速查](https://java-px.bot.cd/linux/cheatsheet)
 > > 30+ 高频命令，分组速查。每条带常用示例，可以直接复制运行。 - [入门基础](/01-foundation/intro) — 理解 Linux 全貌 - [文件与目录](/02-filesystem/ls) — 高频命令详解 - [学习路径](/path) — 系统化学习路线
@@ -1871,7 +1871,7 @@
 > > Anthropic 官方的 **CLI Agent**。在终端里直接配 Claude 改代码 / 跑命令 / 看文件。是**最值得装**的 AI 编程工具之一。 | 命令 | 作用 | |------|------| | Edit files | 多文件编辑 | | Run commands | bash / 装包 / 跑测试 | | Search | ripgrep 风格搜索 | | Web
 
 ## [命令行速查](https://java-px.bot.cd/ai/02-coding-tools/commands)
-> > 30+ 高频命令速查。 - [Claude Code / OpenCode](/02-coding-tools/claude-code) - [Claude SDK / Anthropic](/03-sdks/claude-sdk) - [OpenAI SDK](/03-sdks/openai-sdk) - [Ollama 本地推理](/10-deploy/ollama)
+> > 30+ 高频命令速查。 - [Claude Code / OpenCode](/02-coding-tools/claude-code) - [Claude SDK / Anthropic](/03-sdks/claude-sdk) - [OpenAI SDK](/03-sdks/openai-sdk) - [Ollama 本地推理](/10-deploy/ollama) <!-- auto-
 
 ## [Continue / Cody / Aider](https://java-px.bot.cd/ai/02-coding-tools/continue-cody)
 > > 三个流行的**开源 / 跨编辑器** AI 编程工具。 Continue 是开源的 AI 编程助手，**完全可自托管**（配 Ollama / vLLM）。 Cody = Sourcegraph 的 AI 助手，**强在跨仓库代码搜索**（Code Graph）。 Cody 能理解 monorepo 多仓库上下文，答"这个函数在哪些地方被调用"。 Aider = 终端里的 AI 结对编程 +
@@ -1979,7 +1979,7 @@
 > > 微调 / 推理的 GPU 环境配置。**CUDA + cuDNN + PyTorch + 驱动**对齐。 | 场景 | 推荐 | |------|------| | 个人 / 学习 | RTX 4090 (24GB) / RTX 3090 | | 推理（70B INT4） | A100 80GB × 1 | | 推理（70B FP16） | H100 80GB × 2 | | LoRA 微调
 
 ## [Docker 一键部署](https://java-px.bot.cd/ai/12-install/docker)
-> > Ollama / vLLM / Dify / Open WebUI 等**都有官方 Docker 镜像**。一行命令起。 - [pip / brew / npm 安装](/12-install/package-managers) - [CUDA / GPU 环境](/12-install/cuda-gpu) - [Ollama 本地推理](/10-deploy/ollama)
+> > Ollama / vLLM / Dify / Open WebUI 等**都有官方 Docker 镜像**。一行命令起。 - [pip / brew / npm 安装](/12-install/package-managers) - [CUDA / GPU 环境](/12-install/cuda-gpu) - [Ollama 本地推理](/10-deploy/ollama) <!-- aut
 
 ## [pip / brew / npm 安装](https://java-px.bot.cd/ai/12-install/package-managers)
 > > 装 AI SDK / 工具集。**最常用**：pip（Python）/ brew（macOS）/ npm（Node.js）。 | | pip | pipx | venv | |--|-----|-------|------| | 系统装库 | ✅ | ❌ | ✅ | | CLI 工具 | ⚠ 污染系统 | ✅ 隔离 | ❌ | | 跨项目 | 全局 | 全局 | per-project | |
@@ -2033,7 +2033,7 @@
 > **优点**：大块减少 NameNode 寻址开销 **缺点**：小文件浪费（一个块只放一个小文件） **rack awareness**：副本跨机架（默认） **NameNode 单点风险**：所有元数据在内存，挂了 = 数据丢失。 **解决**：Secondary NameNode → NameNode HA（JournalNode + ZooKeeper / ZKFC） 写 edit log
 
 ## [HDFS 命令速查](https://java-px.bot.cd/bigdata/02-hdfs/commands)
-> - [HDFS 架构](/02-hdfs/architecture)
+> - [HDFS 架构](/02-hdfs/architecture) <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | --- | --- | | TODO_1 | 待补充 | - | | TODO_2 | 待补充 | - | > TODO: 此节可补充 3-5 段深度内容（如生产环境实战 / 常见错误 / 对比其他方案 / 未来
 
 ## [HDFS NameNode HA](https://java-px.bot.cd/bigdata/02-hdfs/ha)
 > NameNode 单点故障 = 整个集群挂（无元数据 = 不可用） **原理**：Active NN 写 edit log 到 JournalNode（多数副本成功才返回）。Standby NN 从 JournalNode 拉 edit log → 内存中重建元数据。 故障切换： 1. ZKFC 监控两个 NN 健康 2. Active NN 挂 → ZKFC 锁住旧 Active 3. 选 St
@@ -2153,7 +2153,7 @@
 > **问题**：电商订单表 join 用户表时，99% 用户集中在少数几个 key（null / 0）。 **排查**： **解决**： **效果**：原 8 小时 → 优化后 1 小时。 **问题**：某 Reduce 任务跑了 6 小时仍未完成。 **解决**： **ODS（贴源）**： **DWD（清洗 + 规范化）**： **DWS（轻度聚合）**： **ADS（应用指标）**： **架构*
 
 ## [面试题](https://java-px.bot.cd/bigdata/14-interview-practice/questions)
-> - [面试案例](/14-interview-practice/cases) - [推荐系统](/13-cases/recommendation) - [用户画像](/13-cases/user-profile)
+> - [面试案例](/14-interview-practice/cases) - [推荐系统](/13-cases/recommendation) - [用户画像](/13-cases/user-profile) <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | --- | --- | | TODO_1 | 待补充 | - | |
 
 ## [命令速查](https://java-px.bot.cd/bigdata/cheatsheet)
 > - [HDFS 架构](/02-hdfs/architecture) - [Spark Core / RDD](/04-spark/rdd) - [Flink 架构](/05-flink/architecture) - [Kafka Streams](/07-kafka-streaming/streams)
@@ -3008,7 +3008,7 @@
 > > 50+ 节点，14 大主题分类，节点可点击跳转。 <ClientOnly><KnowledgeGraph :height="820" /></ClientOnly> | 颜色 | 分类 | 节点数 | |------|------|--------| | 🔴 红 | 基础语法 | 5 | | 🔵 蓝 | 集合框架 | 5 | | 🟣 紫 | 并发编程 | 5 | | 🟧 橙 | JVM 内存模
 
 ## [java-language 知识图谱](https://java-px.bot.cd/java-language/index)
-> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "会用 HashMap 但不理解红黑树和 Hash 冲突", "写了 Spring 但不理解 IoC 容器如何工作", "遇到 GC 停顿只会调 Xmx",
+> ::: tip 💡 关于本站定位 本站是 **14 章速查手册合集**（不是系统化教程）： - 每篇 30-200 字 cheat sheet 风格（代码示例 + 关键参数） - 14 章覆盖基础语法 → JVM → 并发 → Spring → 微服务 → 面试 - 详细讲解请配合各章 [Reference](#references) 链接的官方文档 - 薄页豁免已配置在 `audit-conte
 
 ## [思维导图](https://java-px.bot.cd/java-language/mindmap)
 > <ClientOnly><MindMap :height="940" /></ClientOnly>
@@ -3041,7 +3041,7 @@
 > Eric Brewer 提出，CAP 的 AP 选择方案： - **B**asically **A**available（基本可用） - **S**oft state（软状态，状态可以暂时不一致） - **E**ventually consistent（最终一致） **核心思想**：放弃强一致，换可用性 + 最终一致。 | ACID（传统数据库） | BASE（分布式） | |----------
 
 ## [CAP 定理](https://java-px.bot.cd/architecture/03-ha-theory/cap)
-> Eric Brewer 2000 年提出，2002 年 Gilbert & Lynch 证明： - **C**onsistency（一致性）：所有节点同时看到同一份数据 - **A**vailability（可用性）：每个请求都能收到响应（不保证最新） - **P**artition tolerance（分区容忍）：网络分区时系统仍能继续工作 **实际含义**：分布式系统**必须容忍网络分区**（
+> ![CAP 定理 — 分布式系统三选二](/cap-theorem.svg) Eric Brewer 2000 年提出，2002 年 Gilbert & Lynch 证明： - **C**onsistency（一致性）：所有节点同时看到同一份数据 - **A**vailability（可用性）：每个请求都能收到响应（不保证最新） - **P**artition tolerance（分区容忍）：网络
 
 ## [幂等性设计](https://java-px.bot.cd/architecture/03-ha-theory/idempotency)
 > **f(f(x)) = f(x)**：执行一次和执行 N 次效果一样。 | 场景 | 方案 | |------|------| | 支付扣款 | Idempotency-Key + DB 唯一约束 | | 创建订单 | 业务订单号 + 唯一索引 | | 状态变更 | 当前状态校验（CAS） | | 异步任务 | 任务 ID + 结果缓存 | - **缓存幂等 = 不用幂等**：缓存可能丢，应该双写
@@ -3089,7 +3089,7 @@
 > **业务表和消息表写同一个本地事务** → 一定能发出去。 **保证**：业务成功 → 消息一定能被发出去（at-least-once 消息 + 业务强一致）。 ✅ **优点**： - **不丢消息**：业务和消息同事务 - **无 2PC**：纯本地事务，性能好 - **易实现**：一张表 + 一个定时器 ❌ **缺点**： - **轮询延迟**：秒级（可优化为 CDC / logtail） -
 
 ## [Saga 模式](https://java-px.bot.cd/architecture/07-distributed-tx/saga)
-> 把分布式事务拆成**多个本地事务**，每个本地事务有对应的**补偿操作**。 中央协调者（Orchestrator）管理事务流程。 **代表**：Apache ServiceComb Saga、Seata Saga 模式、Cadence（Uber）。 无中心协调者，服务间通过**事件**联动。 **代表**：Apache Eventuate、Saga Pattern（经典论文）。 | | 2PC
+> ![Saga 时序图 — 正向事务 + 补偿回滚](/saga-sequence.svg) 把分布式事务拆成**多个本地事务**，每个本地事务有对应的**补偿操作**。 中央协调者（Orchestrator）管理事务流程。 **代表**：Apache ServiceComb Saga、Seata Saga 模式、Cadence（Uber）。 无中心协调者，服务间通过**事件**联动。 **代表**
 
 ## [TCC 模式](https://java-px.bot.cd/architecture/07-distributed-tx/tcc)
 > TCC = **Try + Confirm + Cancel** 三阶段，把 2PC 的数据库层 prepare/commit 提到业务层。 协调者收到 A / B 都 "try ok" → 调 A / B 的 confirm 任何 try 失败 → 调 A / B 的 cancel 不是直接扣款，是"冻结" → 失败时可逆。 confirm 可能因网络重试 → 必须幂等（用业务 ID 去重）。
@@ -3170,7 +3170,7 @@
 > 1. [JMM 内存模型](/01-concurrency-theory/jmm) — 并发编程的根 2. [CAP 定理](/03-ha-theory/cap) — 分布式系统设计的基础 3. [限流令牌桶算法](/04-rate-limit/token-bucket) — 高可用三件套之 1 4. [熔断器三态](/05-circuit-breaker/states) — 高可用三件套之 2
 
 ## [CAP 定理](https://java-px.bot.cd/system-design/01-theory/cap)
-> > Eric Brewer 2000 年提出，2002 年 Gilbert & Lynch 给出形式化证明。 > **在异步网络模型下，一个分布式系统不可能同时满足以下三项中的超过两项**： > - **C**onsistency（一致性）：所有节点看到同一份数据 > - **A**vailability（可用性）：每个请求都能收到非错误响应 > - **P**artition tolerance
+> ![CAP 定理 — 分布式系统三选二](/cap-theorem.svg) > Eric Brewer 2000 年提出，2002 年 Gilbert & Lynch 给出形式化证明。 > **在异步网络模型下，一个分布式系统不可能同时满足以下三项中的超过两项**： > - **C**onsistency（一致性）：所有节点看到同一份数据 > - **A**vailability（可用性）：每个
 
 ## [FLP 不可能定理](https://java-px.bot.cd/system-design/01-theory/consensus-problem)
 > > Fischer, Lynch, Paterson 1985 年证明：**在异步网络模型下，不存在一个确定性算法能在有限时间内解决共识问题**。 > **在异步网络模型下，即使只有一个进程可能崩溃，也不存在一个确定性算法能保证所有诚实进程最终达成共识。** 拆解： - **异步网络**：消息可以延迟任意时间，但不能丢失（最终会到） - **确定性算法**：相同输入产生相同输出 - **单个进程崩
@@ -3179,7 +3179,7 @@
 > > 从最强到最弱的一致性等级，以及它们之间的工程取舍。 > 任何一次读都能读到某一次写的结果，且**与真实时间顺序一致**。 也称为 **Linearizability** 或 **Strong Consistency**。 - 写入必须等所有副本确认（或多数派） - 通常引入同步协议（Raft / Paxos） - 延迟高，吞吐受限 - **etcd / ZooKeeper**（基于 Raft
 
 ## [一致性与系统模型](https://java-px.bot.cd/system-design/01-theory/overview)
-> > 本章是系统设计全站的**索引页**。如果你只读一章，从这里开始。 分布式系统讨论的核心问题：**多个节点在不可靠网络上如何就某个值达成一致**。 围绕这个核心问题，衍生出： 从强到弱排列： > 所有操作看起来像是**按某种全局顺序**依次执行的，且顺序与真实时间一致。 **代价**：延迟极高。需要多数派确认才返回。 **典型系统**：Google Spanner、etcd（Linearizab
+> ![DDIA 三大属性 — 可靠性 / 可扩展性 / 可维护性](/ddia-3-properties.svg) > 本章是系统设计全站的**索引页**。如果你只读一章，从这里开始。 分布式系统讨论的核心问题：**多个节点在不可靠网络上如何就某个值达成一致**。 围绕这个核心问题，衍生出： 从强到弱排列： > 所有操作看起来像是**按某种全局顺序**依次执行的，且顺序与真实时间一致。 **代价**
 
 ## [PACELC 扩展](https://java-px.bot.cd/system-design/01-theory/pacelc)
 > > Daniel Abadi 2012 年提出。CAP 的现代延伸，把"正常时的取舍"也纳入框架。 翻译： - **分区期间**：CAP（A vs C） - **正常时**：**L vs C**（延迟 vs 一致性） | 类型 | P 时 | E 时 | 含义 | |---|---|---|---| | **PA/EL** | 选 A | 选 L | 分区时保可用，正常时保低延迟 | | **PA
@@ -3194,22 +3194,22 @@
 > > 复制是分布式的"双保险"——同一份数据存多份，一台挂了另一台顶上。 - MySQL High Availability (Charles Bell et al.) - PostgreSQL Replication Documentation - Designing Data-Intensive Applications 第 5 章 - Raft Consensus Algorithm (Ong
 
 ## [数据分片策略](https://java-px.bot.cd/system-design/02-storage/sharding)
-> > 当单台机器存不下、扛不住时，把数据**水平切分**到多台机器上。 - Consistent Hashing and Random Trees (Karger et al., 1997) - DDIA 第 6 章
+> > 当单台机器存不下、扛不住时，把数据**水平切分**到多台机器上。 - Consistent Hashing and Random Trees (Karger et al., 1997) - DDIA 第 6 章 <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | --- | --- | | TODO_1 | 待补充 | - |
 
 ## [分布式锁](https://java-px.bot.cd/system-design/03-coordination/distributed-lock)
 > > 多台机器的进程 / 线程，对同一份资源进行互斥访问。**正确性 > 性能 > 实现复杂度**。 | 方案 | 性能 | 可靠性 | 复杂度 | 适用场景 | |---|---|---|---|---| | DB 唯一索引 | 低 | 高 | 低 | 锁竞争小，秒级业务 | | Redis SETNX | 极高 | 中（主从切换丢锁） | 低 | 高并发，性能敏感 | | ZooKeeper |
 
 ## [Leader 选举](https://java-px.bot.cd/system-design/03-coordination/leader-election)
-> > 集群选出一个"主"负责协调，其他节点 standby。**唯一性 + 高可用**。 特点： 特点： - Raft 论文 (Diego Ongaro, 2014) - Paxos Made Simple (Lamport, 2001) - ZAB 协议论文 - etcd Raft 实现 - Curator LeaderLatch 文档
+> > 集群选出一个"主"负责协调，其他节点 standby。**唯一性 + 高可用**。 特点： 特点： - Raft 论文 (Diego Ongaro, 2014) - Paxos Made Simple (Lamport, 2001) - ZAB 协议论文 - etcd Raft 实现 - Curator LeaderLatch 文档 <!-- auto-enrich:do-not-edit -
 
 ## [Paxos 共识算法](https://java-px.bot.cd/system-design/03-coordination/paxos)
 > > Lamport 1998 年提出。最经典的分布式共识算法，但因难懂闻名（"Paxos is beautiful but hard to understand"）。 - The Part-Time Parliament (Lamport, 1998) —— 原论文 - Paxos Made Simple (Lamport, 2001) —— 简化版 - Paxos Made Live (Chan
 
 ## [Raft 共识算法](https://java-px.bot.cd/system-design/03-coordination/raft)
-> > Diego Ongaro & John Ousterhout 2014 年提出。"一种易于理解的共识算法"。 - In Search of an Understandable Consensus Algorithm (Ongaro & Ousterhout, USENIX 2014) - raft.github.io （动画演示） - etcd Internals（GitHub） - DDIA
+> ![Raft 协议流程 — Leader 选举 + 日志复制](/raft-flow.svg) > Diego Ongaro & John Ousterhout 2014 年提出。"一种易于理解的共识算法"。 - In Search of an Understandable Consensus Algorithm (Ongaro & Ousterhout, USENIX 2014) - raft.
 
 ## [ZAB 协议（ZooKeeper Atomic Broadcast）](https://java-px.bot.cd/system-design/03-coordination/zab)
-> > ZooKeeper 2010 年前后提出。专为协调服务设计的原子广播协议，类似于 Raft 但有差异。 - ZooKeeper's Atomic Broadcast Protocol (Junqueira, 2014) - Apache ZooKeeper 官方文档 - etcd vs ZooKeeper 对比文章 - DDIA 第 9 章
+> > ZooKeeper 2010 年前后提出。专为协调服务设计的原子广播协议，类似于 Raft 但有差异。 - ZooKeeper's Atomic Broadcast Protocol (Junqueira, 2014) - Apache ZooKeeper 官方文档 - etcd vs ZooKeeper 对比文章 - DDIA 第 9 章 <!-- auto-enrich:do-not-ed
 
 ## [两阶段提交（2PC）](https://java-px.bot.cd/system-design/04-transaction/2pc)
 > > Two-Phase Commit。最经典的分布式事务协议，也是最被诟病的协议。 - Transaction Recovery in Distributed Database Systems (Gray, 1978) - Distributed Recovery (Skeen, 1981) - XA Specification (X/Open) - Atomikos Documentation
@@ -3233,13 +3233,13 @@
 > > 微服务的"门面"——所有外部请求的统一入口。 | 方案 | 性能 | 语言 | 特点 | |---|---|---|---| | **Nginx** | ★★★★★ | C | 高性能，需配置 Lua | | **Kong** | ★★★★ | OpenResty | Nginx + Lua，生态完善 | | **APISIX** | ★★★★ | OpenResty | 国产，云原生 | |
 
 ## [熔断器模式](https://java-px.bot.cd/system-design/05-patterns/circuit-breaker)
-> > Martin Fowler 2014 年提出。当下游服务故障时，**快速失败**而不是傻等。 - CircuitBreaker (Martin Fowler, 2014) - Release It! (Michael Nygard, 2018) —— 稳定性设计圣经
+> > Martin Fowler 2014 年提出。当下游服务故障时，**快速失败**而不是傻等。 - CircuitBreaker (Martin Fowler, 2014) - Release It! (Michael Nygard, 2018) —— 稳定性设计圣经 <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | --- |
 
 ## [配置中心](https://java-px.bot.cd/system-design/05-patterns/config-center)
 > > 把分散在各服务的配置文件集中管理，运行时动态推送变更。 | 方案 | 存储 | 一致性 | 特点 | |---|---|---|---| | **Spring Cloud Config** | Git | 弱 | 生态完善，需配合 Spring Cloud Bus | | **Nacos** | MySQL + 缓存 | 强 | 配置 + 注册中心二合一 | | **Apollo** | My
 
 ## [分布式链路追踪](https://java-px.bot.cd/system-design/05-patterns/distributed-trace)
-> > 一个请求跨多个服务时，**如何追踪它从进入到返回的完整路径**。 - Distributed Tracing (Ben Sigelman, 2020) —— O'Reilly - Google Dapper Paper (2010) —— 链路追踪鼻祖
+> > 一个请求跨多个服务时，**如何追踪它从进入到返回的完整路径**。 - Distributed Tracing (Ben Sigelman, 2020) —— O'Reilly - Google Dapper Paper (2010) —— 链路追踪鼻祖 <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | --- | --- |
 
 ## [限流](https://java-px.bot.cd/system-design/05-patterns/rate-limiter)
 > > 保护系统不被突发流量冲垮。**有损服务优于系统崩溃**。 | 方案 | 语言 | 特点 | |---|---|---| | **Sentinel** | Java | 阿里，功能丰富（限流/熔断/热点/集群）| | **Resilience4j** | Java | 轻量，函数式 API | | **Guava RateLimiter** | Java | 令牌桶，单机 | | **Nginx
@@ -3254,40 +3254,40 @@
 > > Cache-Aside、Read-Through、Write-Through、Write-Behind 四种经典模式，以及怎么选。 - Caching Strategies (Microsoft Azure 文档) - Redis Caching Patterns - Spring Cache 抽象 - Designing Data-Intensive Applications 第 5 章 -
 
 ## [缓存一致性](https://java-px.bot.cd/system-design/06-cache/consistency)
-> > 当 DB 和缓存都有数据时，**如何保证两边一致**？ - Cache-Aside Pattern (Chris Richardson) - How to do cache invalidation (Microsoft Azure 文档) - 阿里 Canal 订阅 binlog - Distributed Caching (Redis Labs) - DDIA 第 5 章
+> > 当 DB 和缓存都有数据时，**如何保证两边一致**？ - Cache-Aside Pattern (Chris Richardson) - How to do cache invalidation (Microsoft Azure 文档) - 阿里 Canal 订阅 binlog - Distributed Caching (Redis Labs) - DDIA 第 5 章 <!-- aut
 
 ## [热点 Key](https://java-px.bot.cd/system-design/06-cache/hotspot)
-> > 少量 key 占据绝大部分流量，**单 key 性能成为瓶颈**。 - Redis Hot Keys (Redis Labs) - CacheCloud 搜狐开源 - 阿里热点 Key 防御实践 - 微博热点架构 - DDIA 第 5 章
+> > 少量 key 占据绝大部分流量，**单 key 性能成为瓶颈**。 - Redis Hot Keys (Redis Labs) - CacheCloud 搜狐开源 - 阿里热点 Key 防御实践 - 微博热点架构 - DDIA 第 5 章 <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | --- | --- | | TODO_
 
 ## [多级缓存架构](https://java-px.bot.cd/system-design/06-cache/multi-level)
-> > 从浏览器到数据库，每一层都有自己的缓存。**组合得当才能发挥最大效果**。 - Nginx proxy_cache 文档 - Redis maxmemory-policy 文档 - Web Caching (Varnish / Squid 经典) - DDIA 第 5 章 - Caching at Reddit (Reddit 工程博客)
+> > 从浏览器到数据库，每一层都有自己的缓存。**组合得当才能发挥最大效果**。 - Nginx proxy_cache 文档 - Redis maxmemory-policy 文档 - Web Caching (Varnish / Squid 经典) - DDIA 第 5 章 - Caching at Reddit (Reddit 工程博客) <!-- auto-enrich:do-not-edi
 
 ## [缓存三大问题：雪崩 / 穿透 / 击穿](https://java-px.bot.cd/system-design/06-cache/three-problems)
-> > 缓存系统中三类**会打爆数据库**的故障模式，及对应解决方案。 - Redis Best Practices (Redis Labs) - Bloom Filter (Wikipedia) - 阿里缓存防御实践 - Distributed Caching Patterns - DDIA 第 5 章
+> > 缓存系统中三类**会打爆数据库**的故障模式，及对应解决方案。 - Redis Best Practices (Redis Labs) - Bloom Filter (Wikipedia) - 阿里缓存防御实践 - Distributed Caching Patterns - DDIA 第 5 章 <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值
 
 ## [消息堆积处理](https://java-px.bot.cd/system-design/07-messaging/backlog)
-> > 消费速度跟不上生产速度，消息堆积是**常态**。关键是**不爆盘**。 - Kafka Consumer Monitoring - RocketMQ 消费堆积处理 - Backpressure in Distributed Systems - 阿里双 11 消息堆积处理实践 - DDIA 第 11 章
+> > 消费速度跟不上生产速度，消息堆积是**常态**。关键是**不爆盘**。 - Kafka Consumer Monitoring - RocketMQ 消费堆积处理 - Backpressure in Distributed Systems - 阿里双 11 消息堆积处理实践 - DDIA 第 11 章 <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默
 
 ## [幂等性：消息去重](https://java-px.bot.cd/system-design/07-messaging/idempotent)
 > > 消息可能重复投递。**让重复消息不影响业务结果**。 CREATE TABLE processed_messages ( msg_id VARCHAR(64) PRIMARY KEY, processed_at TIMESTAMP ); 优点：强一致 缺点：每次处理多一次写 enable.idempotence=true（默认开启）： - Producer 自动给消息加 PID + seque
 
 ## [消息可靠性：不丢消息](https://java-px.bot.cd/system-design/07-messaging/not-lost)
-> > 消息队列最基础的承诺：**至少一次投递**。但工程上要付出很大代价。 - RocketMQ 官方文档：消息可靠性 - Designing Data-Intensive Applications 第 11 章 - 阿里 RocketMQ 不丢消息实践
+> > 消息队列最基础的承诺：**至少一次投递**。但工程上要付出很大代价。 - RocketMQ 官方文档：消息可靠性 - Designing Data-Intensive Applications 第 11 章 - 阿里 RocketMQ 不丢消息实践 <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | --- | --- | |
 
 ## [消息顺序性](https://java-px.bot.cd/system-design/07-messaging/order)
-> > 消息队列是**乱序**的，但有些业务必须**有序**。 - RocketMQ 顺序消息：官方文档 - Message Ordering in Distributed Systems (Microsoft 博客) - DDIA 第 11 章 - 阿里 RocketMQ 顺序消息实战
+> > 消息队列是**乱序**的，但有些业务必须**有序**。 - RocketMQ 顺序消息：官方文档 - Message Ordering in Distributed Systems (Microsoft 博客) - DDIA 第 11 章 - 阿里 RocketMQ 顺序消息实战 <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | ---
 
 ## [集群模式](https://java-px.bot.cd/system-design/08-availability/cluster)
 > > 多节点共同提供同一服务，任何一个挂了不影响整体。**水平扩展、故障转移、负载均衡**。 - "Designing Data-Intensive Applications" (Martin Kleppmann) - Redis Cluster 官方文档 - Apache Kafka KRaft 模式 - Elasticsearch Cluster 文档 - MongoDB Sharding 文档
 
 ## [容灾演练](https://java-px.bot.cd/system-design/08-availability/disaster-recovery)
-> > "备胎不用 = 不知道备胎能不能用"。定期演练，确保真故障时能切换。**有备无患，临阵不乱**。 - GB/T 22239-2019 信息安全技术网络安全等级保护基本要求 - SHARE 78 容灾标准 - Chaos Engineering（O'Reilly 图书） - Netflix Chaos Monkey - 阿里 ChaosBlade - 字节跳动容灾演练实践
+> > "备胎不用 = 不知道备胎能不能用"。定期演练，确保真故障时能切换。**有备无患，临阵不乱**。 - GB/T 22239-2019 信息安全技术网络安全等级保护基本要求 - SHARE 78 容灾标准 - Chaos Engineering（O'Reilly 图书） - Netflix Chaos Monkey - 阿里 ChaosBlade - 字节跳动容灾演练实践 <!-- auto-e
 
 ## [主备与主从](https://java-px.bot.cd/system-design/08-availability/master-slave)
 > > 1 主 1 备 / 1 主多从，最简单的高可用方案。**写主读从，备机待命**。 | 维度 | 主备 | 主从 | |---|---|---| | 机器数 | 2 | 2+ | | 备机/从机 | 不服务 | 可读 | | 资源利用率 | 低 | 高 | | 切换 | 简单 | 复杂 | | 性能 | 单机 | 多机 | | 适用 | 强一致 | 读多写少 | - MySQL High Ava
 
 ## [多活与单元化](https://java-px.bot.cd/system-design/08-availability/multi-idc)
-> > 多机房同时服务，故障时切流量；按用户分流避免跨机房调用。**异地容灾、就近接入、单元封闭**。 - "异地多活架构"（阿里中间件团队） - "单元化架构"（美团技术博客） - "字节跳动多活实践"（字节技术博客） - Canal / Debezium 数据同步 - Google Spanner TrueTime - DNSPod / AliDNS 调度方案
+> > 多机房同时服务，故障时切流量；按用户分流避免跨机房调用。**异地容灾、就近接入、单元封闭**。 - "异地多活架构"（阿里中间件团队） - "单元化架构"（美团技术博客） - "字节跳动多活实践"（字节技术博客） - Canal / Debezium 数据同步 - Google Spanner TrueTime - DNSPod / AliDNS 调度方案 <!-- auto-enrich:d
 
 ## [Leaf 美团方案](https://java-px.bot.cd/system-design/09-id/leaf)
 > > 美团开源的分布式 ID 生成服务。**号段模式 + Snowflake 双模式**，生产验证。 字段说明： | 方案 | 性能 | 可靠性 | 复杂度 | 依赖 | |---|---|---|---|---| | **Leaf-segment** | 中（5w QPS） | 极高 | 低 | DB | | **Leaf-snowflake** | 高（10w QPS） | 高 | 中 | ZK
@@ -3299,7 +3299,7 @@
 > > 两种最常见的 ID 方案，本质差异是"信息 vs 顺序"。**看业务场景选**。 | 维度 | UUID | Snowflake | |---|---|---| | 位数 | 128 | 64 | | 长度 | 36 字符（带-） | 19 字符（最大） | | 类型 | 字符串 | 长整型 | | 有序性 | ❌（v4） | ✅ | | 趋势递增 | ❌ | ✅ | | DB 索引 | 不友
 
 ## [Feed 流系统设计](https://java-px.bot.cd/system-design/10-cases/feed-stream)
-> > 关注、被关注、被推荐的内容聚合流。推模式 vs 拉模式 vs 混合模式。 - Redis Sorted Set 实现 Feed 流 - Twitter 早期架构博客 - 抖音 / 微博公开演讲 - 美团 Feed 流架构演进 - DDIA 第 11 章
+> > 关注、被关注、被推荐的内容聚合流。推模式 vs 拉模式 vs 混合模式。 - Redis Sorted Set 实现 Feed 流 - Twitter 早期架构博客 - 抖音 / 微博公开演讲 - 美团 Feed 流架构演进 - DDIA 第 11 章 <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | --- | --- |
 
 ## [抢红包系统设计](https://java-px.bot.cd/system-design/10-cases/grab-redpacket)
 > > 群里发红包，几百人抢。**公平性 + 实时性 + 不超发**。 def split_redpacket(total, count): """二倍均值法""" min_amount = 0.01 max_amount = total / count * 2  # 二倍均值 amounts = [] remaining = total for i in range(count - 1): max_
@@ -3311,13 +3311,13 @@
 > > 给 1000 万用户推送一条系统消息，3 秒内到达率 99%。**多通道 + 可靠性 + 实时性**。 - Apple APNs 官方文档 - Google FCM 官方文档 - 国内厂商推送文档（HMS / Mi Push / OPPO / vivo） - Kafka 消息可靠性 - WebSocket 协议 (RFC 6455) - 系统设计面试 (Alex Xu, 2020) - 推送平
 
 ## [排行榜系统设计](https://java-px.bot.cd/system-design/10-cases/ranking)
-> > 几千万人竞争一个榜单。**实时性 + 高并发 + 公平性**。 - Redis Sorted Set 文档 - 游戏天梯设计（League of Legends / 王者荣耀） - 直播打赏架构（虎牙 / 抖音） - ClickHouse 排行榜实践 - Redis ZADD pipeline 优化
+> > 几千万人竞争一个榜单。**实时性 + 高并发 + 公平性**。 - Redis Sorted Set 文档 - 游戏天梯设计（League of Legends / 王者荣耀） - 直播打赏架构（虎牙 / 抖音） - ClickHouse 排行榜实践 - Redis ZADD pipeline 优化 <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认
 
 ## [搜索建议系统](https://java-px.bot.cd/system-design/10-cases/search-suggest)
-> > 用户输入"ja"，提示"javascript / java / json"。**实时 + 准确 + 性能**。 - Trie 数据结构 (Wikipedia) - ES completion suggester 文档 - Lucene FST 实现 - BK-tree 编辑距离索引 - Google Suggest 公开论文 - 系统设计面试 (Alex Xu, 2020)
+> > 用户输入"ja"，提示"javascript / java / json"。**实时 + 准确 + 性能**。 - Trie 数据结构 (Wikipedia) - ES completion suggester 文档 - Lucene FST 实现 - BK-tree 编辑距离索引 - Google Suggest 公开论文 - 系统设计面试 (Alex Xu, 2020) <!-- auto
 
 ## [秒杀系统设计](https://java-px.bot.cd/system-design/10-cases/seckill)
-> > 几万人在同一秒抢几百件商品。**避免超卖 + 高并发 + 用户体验**。 - 阿里双 11 秒杀系统演进 - 京东 618 秒杀架构 - Redis Lua 原子操作文档 - Seata 分布式事务在秒杀场景 - 系统设计面试 (Alex Xu, 2020) —— 秒杀章节
+> > 几万人在同一秒抢几百件商品。**避免超卖 + 高并发 + 用户体验**。 - 阿里双 11 秒杀系统演进 - 京东 618 秒杀架构 - Redis Lua 原子操作文档 - Seata 分布式事务在秒杀场景 - 系统设计面试 (Alex Xu, 2020) —— 秒杀章节 <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | -
 
 ## [短链系统设计](https://java-px.bot.cd/system-design/10-cases/short-url)
 > > 短链是系统设计面试的"Hello World"。考察候选人对**高读 / 低写**场景下读写路径优化、缓存层级、短码生成等核心问题的把握。 **为什么需要短链**： - **短信字数限制**：短信有 70 字符限制，长链占用过多 - **美观**：微博 / Twitter 限制字符数 - **统计**：可以统计点击数据（替代长链直接发） - **防爬**：长链带参数可被恶意爬取 | 指标 |

@@ -6,34 +6,48 @@
     <atom:link href="https://java-px.bot.cd/es/feed.xml" rel="self" type="application/rss+xml" />
     <description>es 知识图谱（63 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 21:42:04 -0000</lastBuildDate>
+    <item>
+      <title>集群 Cluster</title>
+      <link>https://java-px.bot.cd/es/01-storage/cluster</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/es/01-storage/cluster</guid>
+      <description>&lt;span class="kg-badge kg-badge-storage"&gt;存储层&lt;/span&gt; ES 集群是由**一个或多个节点**组成的、能对外提供统一搜索服务的分布式系统。 - **水平扩展**：突破单机容量与吞吐上限 - **高可用**：节点故障时副本接管 - **并行处理**：查询与索引在多节点并行执行 返回： | 状态 | 含义 | |---|---| | 🟢 green | 所有</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>段 Segment</title>
+      <link>https://java-px.bot.cd/es/01-storage/segment</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/es/01-storage/segment</guid>
+      <description>&lt;span class="kg-badge kg-badge-storage"&gt;存储层&lt;/span&gt; 段是分片内部的**不可变数据文件**（Lucene Index），是 ES 真正存储倒排索引的物理单位。 | 操作 | 频率 | 作用 | |---|---|---| | **Refresh** | 默认 1s | Memory Buffer → 新 Segment（可搜索） | | **Flus</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
     <item>
       <title>ES Knowledge Atlas</title>
       <link>https://java-px.bot.cd/es/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/es/</guid>
       <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="painPoints" :goals="goals" :related-sites="relatedSites" title="🎯 为什么写这个图谱？" /&gt; &lt;/ClientOnly&gt; &lt;script setup&gt; // WhyThisGraph 数据从 frontmatter 读不到（YAML 数组太复杂），放这</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>Translog</title>
-      <link>https://java-px.bot.cd/es/01-storage/translog</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/es/01-storage/translog</guid>
-      <description>&lt;span class="kg-badge kg-badge-storage"&gt;存储层&lt;/span&gt; Translog 是分片级别的**事务日志**，用于节点崩溃后**恢复尚未 flush 到磁盘的数据**。 | 参数 | 取值 | 说明 | |---|---|---| | `durability` | `request`（默认） | 每个请求 fsync，**安全但慢** | | `durabi</description>
-      <pubDate>Mon, 24 Aug 2026 21:00:23 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>排序</title>
       <link>https://java-px.bot.cd/es/02-query/sort</link>
       <guid isPermaLink="true">https://java-px.bot.cd/es/02-query/sort</guid>
       <description>&lt;span class="kg-badge kg-badge-query"&gt;查询层&lt;/span&gt; ES 默认按 **`_score` 降序**排序，可自定义。 &gt; 💡 排序会**禁用评分计算**（除非显式保留 `_score`）。 `search_after` 必须有**唯一性 tiebreaker**（推荐 `_id` 或带 doc_value 的字段）。 | mode | 行为 | |---|</description>
-      <pubDate>Mon, 24 Aug 2026 21:00:23 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>Range Query</title>
       <link>https://java-px.bot.cd/es/02-query/range</link>
       <guid isPermaLink="true">https://java-px.bot.cd/es/02-query/range</guid>
       <description>&lt;span class="kg-badge kg-badge-query"&gt;查询层&lt;/span&gt; Range Query 对**数值 / 日期 / 字符串**字段做范围匹配。 | 操作符 | 含义 | |---|---| | `gt`  | &gt; | | `gte` | ≥ | | `lt`  | &lt; | | `lte` | ≤ | 支持的日期数学表达式： - `now` / `now+1d` /</description>
-      <pubDate>Mon, 24 Aug 2026 21:00:23 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Translog</title>
+      <link>https://java-px.bot.cd/es/01-storage/translog</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/es/01-storage/translog</guid>
+      <description>&lt;span class="kg-badge kg-badge-storage"&gt;存储层&lt;/span&gt; Translog 是分片级别的**事务日志**，用于节点崩溃后**恢复尚未 flush 到磁盘的数据**。 | 参数 | 取值 | 说明 | |---|---|---| | `durability` | `request`（默认） | 每个请求 fsync，**安全但慢** | | `durabi</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>使用场景与最佳实践</title>
@@ -393,13 +407,6 @@
       <pubDate>Mon, 13 Jul 2026 21:11:58 -0000</pubDate>
     </item>
     <item>
-      <title>段 Segment</title>
-      <link>https://java-px.bot.cd/es/01-storage/segment</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/es/01-storage/segment</guid>
-      <description>&lt;span class="kg-badge kg-badge-storage"&gt;存储层&lt;/span&gt; 段是分片内部的**不可变数据文件**（Lucene Index），是 ES 真正存储倒排索引的物理单位。 | 操作 | 频率 | 作用 | |---|---|---| | **Refresh** | 默认 1s | Memory Buffer → 新 Segment（可搜索） | | **Flus</description>
-      <pubDate>Mon, 13 Jul 2026 21:11:50 -0000</pubDate>
-    </item>
-    <item>
       <title>副本 Replica</title>
       <link>https://java-px.bot.cd/es/01-storage/replica</link>
       <guid isPermaLink="true">https://java-px.bot.cd/es/01-storage/replica</guid>
@@ -433,13 +440,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/es/01-storage/node</guid>
       <description>&lt;span class="kg-badge kg-badge-storage"&gt;存储层&lt;/span&gt; 节点是运行一个 ES 进程（`org.elasticsearch.bootstrap.Elasticsearch`）的 JVM 实例。 | 角色 | 配置 | 职责 | |---|---|---| | Master-eligible | `node.master: true` | 参与主节点选举</description>
       <pubDate>Mon, 13 Jul 2026 21:11:20 -0000</pubDate>
-    </item>
-    <item>
-      <title>集群 Cluster</title>
-      <link>https://java-px.bot.cd/es/01-storage/cluster</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/es/01-storage/cluster</guid>
-      <description>&lt;span class="kg-badge kg-badge-storage"&gt;存储层&lt;/span&gt; ES 集群是由**一个或多个节点**组成的、能对外提供统一搜索服务的分布式系统。 - **水平扩展**：突破单机容量与吞吐上限 - **高可用**：节点故障时副本接管 - **并行处理**：查询与索引在多节点并行执行 返回： | 状态 | 含义 | |---|---| | 🟢 green | 所有</description>
-      <pubDate>Mon, 13 Jul 2026 21:11:15 -0000</pubDate>
     </item>
     <item>
       <title>存储层 总览</title>

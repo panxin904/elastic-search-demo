@@ -1,8 +1,8 @@
 # iot 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 35 个文档页 · 35,865 字
-> 生成时间：2026-08-25T20:49:52
+> 35 个文档页 · 46,775 字
+> 生成时间：2026-08-27T21:42:04
 
 ## [01 · 通信协议](https://java-px.bot.cd/iot/01-protocol/README)
 > IoT 设备互联的基础协议层。 | 节点 | 一句话 | |------|--------| | [MQTT 5.0](./mqtt) | IoT 事实标准，发布订阅 | | [CoAP](./coap) | 受限设备首选，UDP 上的 RESTful | | [Modbus / OPC-UA](./modbus) | 工业现场总线 | | [LoRaWAN / NB-IoT](./lpwan)

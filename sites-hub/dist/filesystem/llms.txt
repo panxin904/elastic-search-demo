@@ -1,8 +1,8 @@
 # filesystem 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 94 个文档页 · 326,007 字
-> 生成时间：2026-08-25T20:49:52
+> 94 个文档页 · 343,274 字
+> 生成时间：2026-08-27T21:42:04
 
 ## [01 · 文件系统基础](https://java-px.bot.cd/filesystem/01-basics/README)
 > <span class="kg-badge kg-badge-basics">基础</span> 理解"打开一个文件背后发生了什么"——这是掌握所有存储技术的起点。 | 节点 | 一句话 | |------|--------| | [inode 与 dentry](/01-basics/inode-dentry) | 文件的"身份证"——文件名背后的元数据 | | [VFS 虚拟文件系统](/01

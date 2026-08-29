@@ -1,8 +1,8 @@
 # ai 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 57 个文档页 · 212,529 字
-> 生成时间：2026-08-25T20:49:52
+> 57 个文档页 · 213,852 字
+> 生成时间：2026-08-27T21:42:04
 
 ## [Claude 模型家族](https://java-px.bot.cd/ai/01-models/claude)
 > > Anthropic 公司出品的闭源大模型，以 **Constitutional AI**（宪法 AI）和 **长上下文**（200K）著称。 | 模型 | 上下文 | 定位 | 何时用 | |------|--------|------|--------| | **Claude Opus 4.5** | 200K | 最强推理 | 复杂代码 / 研究 / 多步分析 | | **Claude S
@@ -29,7 +29,7 @@
 > > Anthropic 官方的 **CLI Agent**。在终端里直接配 Claude 改代码 / 跑命令 / 看文件。是**最值得装**的 AI 编程工具之一。 | 命令 | 作用 | |------|------| | Edit files | 多文件编辑 | | Run commands | bash / 装包 / 跑测试 | | Search | ripgrep 风格搜索 | | Web
 
 ## [命令行速查](https://java-px.bot.cd/ai/02-coding-tools/commands)
-> > 30+ 高频命令速查。 - [Claude Code / OpenCode](/02-coding-tools/claude-code) - [Claude SDK / Anthropic](/03-sdks/claude-sdk) - [OpenAI SDK](/03-sdks/openai-sdk) - [Ollama 本地推理](/10-deploy/ollama)
+> > 30+ 高频命令速查。 - [Claude Code / OpenCode](/02-coding-tools/claude-code) - [Claude SDK / Anthropic](/03-sdks/claude-sdk) - [OpenAI SDK](/03-sdks/openai-sdk) - [Ollama 本地推理](/10-deploy/ollama) <!-- auto-
 
 ## [Continue / Cody / Aider](https://java-px.bot.cd/ai/02-coding-tools/continue-cody)
 > > 三个流行的**开源 / 跨编辑器** AI 编程工具。 Continue 是开源的 AI 编程助手，**完全可自托管**（配 Ollama / vLLM）。 Cody = Sourcegraph 的 AI 助手，**强在跨仓库代码搜索**（Code Graph）。 Cody 能理解 monorepo 多仓库上下文，答"这个函数在哪些地方被调用"。 Aider = 终端里的 AI 结对编程 +
@@ -137,7 +137,7 @@
 > > 微调 / 推理的 GPU 环境配置。**CUDA + cuDNN + PyTorch + 驱动**对齐。 | 场景 | 推荐 | |------|------| | 个人 / 学习 | RTX 4090 (24GB) / RTX 3090 | | 推理（70B INT4） | A100 80GB × 1 | | 推理（70B FP16） | H100 80GB × 2 | | LoRA 微调
 
 ## [Docker 一键部署](https://java-px.bot.cd/ai/12-install/docker)
-> > Ollama / vLLM / Dify / Open WebUI 等**都有官方 Docker 镜像**。一行命令起。 - [pip / brew / npm 安装](/12-install/package-managers) - [CUDA / GPU 环境](/12-install/cuda-gpu) - [Ollama 本地推理](/10-deploy/ollama)
+> > Ollama / vLLM / Dify / Open WebUI 等**都有官方 Docker 镜像**。一行命令起。 - [pip / brew / npm 安装](/12-install/package-managers) - [CUDA / GPU 环境](/12-install/cuda-gpu) - [Ollama 本地推理](/10-deploy/ollama) <!-- aut
 
 ## [pip / brew / npm 安装](https://java-px.bot.cd/ai/12-install/package-managers)
 > > 装 AI SDK / 工具集。**最常用**：pip（Python）/ brew（macOS）/ npm（Node.js）。 | | pip | pipx | venv | |--|-----|-------|------| | 系统装库 | ✅ | ❌ | ✅ | | CLI 工具 | ⚠ 污染系统 | ✅ 隔离 | ❌ | | 跨项目 | 全局 | 全局 | per-project | |

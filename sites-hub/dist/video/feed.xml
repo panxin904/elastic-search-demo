@@ -6,13 +6,48 @@
     <atom:link href="https://java-px.bot.cd/video/feed.xml" rel="self" type="application/rss+xml" />
     <description>video 知识图谱（67 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 21:42:04 -0000</lastBuildDate>
+    <item>
+      <title>系统设计案例</title>
+      <link>https://java-px.bot.cd/video/12-interview/cases</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/video/12-interview/cases</guid>
+      <description>&lt;span class="kg-badge kg-badge-interview"&gt;面试&lt;/span&gt; &lt;span class="kg-badge kg-badge-cloud"&gt;架构&lt;/span&gt; &lt;span class="kg-badge kg-badge-tools"&gt;设计&lt;/span&gt; - 用户上传 100MB-5GB 视频 - 支持断点续传 - 转码多分辨率 (1080p / 720p</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>视频架构演进</title>
+      <link>https://java-px.bot.cd/video/11-cases/video-arch</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/video/11-cases/video-arch</guid>
+      <description>&lt;span class="kg-badge kg-badge-cases"&gt;案例&lt;/span&gt; &lt;span class="kg-badge kg-badge-cloud"&gt;架构&lt;/span&gt; &lt;span class="kg-badge kg-badge-protocol"&gt;演化&lt;/span&gt; 视频架构从 **单机服务 → 集群 → 微服务 → 云原生 → 边缘计算**，经历多个阶段。本篇梳理典型演</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>腾讯直播架构</title>
+      <link>https://java-px.bot.cd/video/11-cases/tencent-live</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/video/11-cases/tencent-live</guid>
+      <description>&lt;span class="kg-badge kg-badge-cases"&gt;案例&lt;/span&gt; &lt;span class="kg-badge kg-badge-cloud"&gt;直播&lt;/span&gt; &lt;span class="kg-badge kg-badge-protocol"&gt;互动&lt;/span&gt; 腾讯云 LVB（Live Video Broadcasting）是商业化直播服务，提供 **标准直播、快直</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>短视频处理</title>
+      <link>https://java-px.bot.cd/video/10-application/short-video</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/video/10-application/short-video</guid>
+      <description>&lt;span class="kg-badge kg-badge-app"&gt;应用&lt;/span&gt; &lt;span class="kg-badge kg-badge-tools"&gt;端云协同&lt;/span&gt; &lt;span class="kg-badge kg-badge-cloud"&gt;云端转码&lt;/span&gt; 短视频 App（抖音、快手、TikTok、Reels）的技术体系覆盖 **客户端采集 / 上传 / 云端转码</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Serverless 视频处理</title>
+      <link>https://java-px.bot.cd/video/09-cloud/serverless</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/video/09-cloud/serverless</guid>
+      <description>&lt;span class="kg-badge kg-badge-cloud"&gt;云服务&lt;/span&gt; &lt;span class="kg-badge kg-badge-tools"&gt;函数计算&lt;/span&gt; &lt;span class="kg-badge kg-badge-codec"&gt;转码&lt;/span&gt; Serverless 视频处理通过 **事件触发 + 函数计算** 实现按需伸缩、无需运维。 | 优势 |</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
     <item>
       <title>视频处理知识库</title>
       <link>https://java-px.bot.cd/video/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/video/</guid>
       <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "像素 / 色彩 / 帧率 / 容器格式基础概念混？", "帧内 / 帧间 / DCT / 熵编码 原理讲不清？", "H.264 / H.265 / AV1</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>环路滤波</title>
@@ -29,32 +64,11 @@
       <pubDate>Thu, 06 Aug 2026 20:55:10 -0000</pubDate>
     </item>
     <item>
-      <title>系统设计案例</title>
-      <link>https://java-px.bot.cd/video/12-interview/cases</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/video/12-interview/cases</guid>
-      <description>&lt;span class="kg-badge kg-badge-interview"&gt;面试&lt;/span&gt; &lt;span class="kg-badge kg-badge-cloud"&gt;架构&lt;/span&gt; &lt;span class="kg-badge kg-badge-tools"&gt;设计&lt;/span&gt; - 用户上传 100MB-5GB 视频 - 支持断点续传 - 转码多分辨率 (1080p / 720p</description>
-      <pubDate>Thu, 06 Aug 2026 20:55:10 -0000</pubDate>
-    </item>
-    <item>
       <title>高频面试题</title>
       <link>https://java-px.bot.cd/video/12-interview/questions</link>
       <guid isPermaLink="true">https://java-px.bot.cd/video/12-interview/questions</guid>
       <description>&lt;span class="kg-badge kg-badge-interview"&gt;面试&lt;/span&gt; &lt;span class="kg-badge kg-badge-codec"&gt;理论&lt;/span&gt; &lt;span class="kg-badge kg-badge-tools"&gt;实战&lt;/span&gt; 音视频岗位面试覆盖 **理论原理 + 工程实践 + 性能调优 + 系统设计**。 A: 视频 = **连</description>
       <pubDate>Thu, 06 Aug 2026 20:55:10 -0000</pubDate>
-    </item>
-    <item>
-      <title>视频架构演进</title>
-      <link>https://java-px.bot.cd/video/11-cases/video-arch</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/video/11-cases/video-arch</guid>
-      <description>&lt;span class="kg-badge kg-badge-cases"&gt;案例&lt;/span&gt; &lt;span class="kg-badge kg-badge-cloud"&gt;架构&lt;/span&gt; &lt;span class="kg-badge kg-badge-protocol"&gt;演化&lt;/span&gt; 视频架构从 **单机服务 → 集群 → 微服务 → 云原生 → 边缘计算**，经历多个阶段。本篇梳理典型演</description>
-      <pubDate>Thu, 06 Aug 2026 20:53:50 -0000</pubDate>
-    </item>
-    <item>
-      <title>腾讯直播架构</title>
-      <link>https://java-px.bot.cd/video/11-cases/tencent-live</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/video/11-cases/tencent-live</guid>
-      <description>&lt;span class="kg-badge kg-badge-cases"&gt;案例&lt;/span&gt; &lt;span class="kg-badge kg-badge-cloud"&gt;直播&lt;/span&gt; &lt;span class="kg-badge kg-badge-protocol"&gt;互动&lt;/span&gt; 腾讯云 LVB（Live Video Broadcasting）是商业化直播服务，提供 **标准直播、快直</description>
-      <pubDate>Thu, 06 Aug 2026 20:53:50 -0000</pubDate>
     </item>
     <item>
       <title>抖音 / TikTok 视频架构</title>
@@ -96,20 +110,6 @@
       <link>https://java-px.bot.cd/video/10-application/live</link>
       <guid isPermaLink="true">https://java-px.bot.cd/video/10-application/live</guid>
       <description>&lt;span class="kg-badge kg-badge-app"&gt;应用&lt;/span&gt; &lt;span class="kg-badge kg-badge-protocol"&gt;实时&lt;/span&gt; &lt;span class="kg-badge kg-badge-cloud"&gt;云端&lt;/span&gt; 直播是 **实时音视频传输** 场景的代表，覆盖 **娱乐 / 带货 / 教育 / 体育** 等行业。 | 类</description>
-      <pubDate>Thu, 06 Aug 2026 20:51:07 -0000</pubDate>
-    </item>
-    <item>
-      <title>短视频处理</title>
-      <link>https://java-px.bot.cd/video/10-application/short-video</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/video/10-application/short-video</guid>
-      <description>&lt;span class="kg-badge kg-badge-app"&gt;应用&lt;/span&gt; &lt;span class="kg-badge kg-badge-tools"&gt;端云协同&lt;/span&gt; &lt;span class="kg-badge kg-badge-cloud"&gt;云端转码&lt;/span&gt; 短视频 App（抖音、快手、TikTok、Reels）的技术体系覆盖 **客户端采集 / 上传 / 云端转码</description>
-      <pubDate>Thu, 06 Aug 2026 20:51:07 -0000</pubDate>
-    </item>
-    <item>
-      <title>Serverless 视频处理</title>
-      <link>https://java-px.bot.cd/video/09-cloud/serverless</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/video/09-cloud/serverless</guid>
-      <description>&lt;span class="kg-badge kg-badge-cloud"&gt;云服务&lt;/span&gt; &lt;span class="kg-badge kg-badge-tools"&gt;函数计算&lt;/span&gt; &lt;span class="kg-badge kg-badge-codec"&gt;转码&lt;/span&gt; Serverless 视频处理通过 **事件触发 + 函数计算** 实现按需伸缩、无需运维。 | 优势 |</description>
       <pubDate>Thu, 06 Aug 2026 20:51:07 -0000</pubDate>
     </item>
     <item>

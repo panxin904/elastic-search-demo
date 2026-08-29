@@ -6,97 +6,97 @@
     <atom:link href="https://java-px.bot.cd/tools/feed.xml" rel="self" type="application/rss+xml" />
     <description>tools 知识图谱（13 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
-    <item>
-      <title>tools 知识图谱</title>
-      <link>https://java-px.bot.cd/tools/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/tools/</guid>
-      <description>&lt;div id="all-tools"&gt;&lt;/div&gt; &lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "日常 JSON 格式化 / 压缩 / 校验每次都开在线工具？", "时间戳 / 时区 / ISO 86</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>Cron 表达式</title>
-      <link>https://java-px.bot.cd/tools/cron</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/tools/cron</guid>
-      <description>解析 5/6 字段 Cron 表达式，描述字段含义，并列出接下来 5 次运行时间。 &lt;script setup&gt; import { ref, computed } from 'vue' const expr = ref('0 */2 * * *') const status = ref({ kind: 'muted', text: '' }) // 解析为 6 字段（缺少年份则补 *） const</description>
-      <pubDate>Thu, 23 Jul 2026 19:36:13 -0000</pubDate>
-    </item>
+    <lastBuildDate>Thu, 27 Aug 2026 21:42:04 -0000</lastBuildDate>
     <item>
       <title>UUID 生成</title>
       <link>https://java-px.bot.cd/tools/uuid</link>
       <guid isPermaLink="true">https://java-px.bot.cd/tools/uuid</guid>
       <description>生成 v1 / v4 / v7 风格的 UUID，支持批量。 &lt;script setup&gt; import { ref } from 'vue' const version = ref('v4') const count = ref(5) const upper = ref(false) const list = ref([]) const status = ref('') function uui</description>
-      <pubDate>Thu, 23 Jul 2026 19:35:56 -0000</pubDate>
-    </item>
-    <item>
-      <title>Base64 编解码</title>
-      <link>https://java-px.bot.cd/tools/base64</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/tools/base64</guid>
-      <description>字符串与 Base64 互转，支持 UTF-8（中文）。 &lt;script setup&gt; import { ref } from 'vue' const input = ref('你好，世界！Hello, World!') const direction = ref('encode') const status = ref({ kind: 'muted', text: '' }) const out</description>
-      <pubDate>Thu, 23 Jul 2026 19:35:41 -0000</pubDate>
-    </item>
-    <item>
-      <title>JSON Diff</title>
-      <link>https://java-px.bot.cd/tools/json-diff</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/tools/json-diff</guid>
-      <description>对比两个 JSON 的差异并以行级方式展示。 &lt;script setup&gt; import { ref, computed } from 'vue' const left = ref(`{\n  "name": "alice",\n  "age": 30,\n  "city": "Beijing"\n}`) const right = ref(`{\n  "name": "alice",\n  "a</description>
-      <pubDate>Thu, 23 Jul 2026 19:35:33 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
     </item>
     <item>
       <title>URL 编解码</title>
       <link>https://java-px.bot.cd/tools/url</link>
       <guid isPermaLink="true">https://java-px.bot.cd/tools/url</guid>
       <description>URL / URI 组件编码、解码，以及查询字符串解析。 &lt;script setup&gt; import { ref, computed } from 'vue' const input = ref('https://example.com/search?q=你好 世界&amp;page=2&amp;sort=desc') const direction = ref('encode') const safeMode</description>
-      <pubDate>Thu, 23 Jul 2026 19:35:20 -0000</pubDate>
-    </item>
-    <item>
-      <title>相对时间</title>
-      <link>https://java-px.bot.cd/tools/relative</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/tools/relative</guid>
-      <description>计算两个时间之间的相对时间，例如 "3 小时 25 分钟"。也支持"X 之前"/"X 之后"。 &lt;script setup&gt; import { ref, computed } from 'vue' // 默认现在 const now = ref(new Date().toISOString().slice(0, 19)) // 默认 1 小时前 const target = ref(new Dat</description>
-      <pubDate>Thu, 23 Jul 2026 19:35:09 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
     </item>
     <item>
       <title>时区转换</title>
       <link>https://java-px.bot.cd/tools/timezone</link>
       <guid isPermaLink="true">https://java-px.bot.cd/tools/timezone</guid>
       <description>把一个时刻在不同时区之间互转。 &lt;script setup&gt; import { ref, computed } from 'vue' const allZones = [ 'UTC', 'Asia/Shanghai', 'Asia/Tokyo', 'Asia/Seoul', 'Asia/Singapore', 'Asia/Hong_Kong', 'Asia/Taipei', 'Asia/Kolka</description>
-      <pubDate>Thu, 23 Jul 2026 19:34:56 -0000</pubDate>
-    </item>
-    <item>
-      <title>ISO / RFC 格式化</title>
-      <link>https://java-px.bot.cd/tools/iso</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/tools/iso</guid>
-      <description>把一个日期转换为多种 ISO / RFC 字符串格式。 &lt;script setup&gt; import { ref, computed } from 'vue' const input = ref(new Date().toISOString().slice(0, 19)) const status = ref('') const parsed = ref(null) function parse()</description>
-      <pubDate>Thu, 23 Jul 2026 19:34:12 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
     </item>
     <item>
       <title>时间戳 ↔ 日期</title>
       <link>https://java-px.bot.cd/tools/timestamp</link>
       <guid isPermaLink="true">https://java-px.bot.cd/tools/timestamp</guid>
       <description>Unix 时间戳（秒/毫秒）与人类可读日期互转。 &lt;script setup&gt; import { ref, computed, onMounted } from 'vue' const now = ref(Date.now()) const timestamp = ref(Math.floor(Date.now() / 1000)) const unit = ref('s') const loca</description>
-      <pubDate>Thu, 23 Jul 2026 19:34:00 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
     </item>
     <item>
-      <title>JSON ↔ CSV</title>
-      <link>https://java-px.bot.cd/tools/json-csv</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/tools/json-csv</guid>
-      <description>JSON 数组（对象数组）转换为 CSV，反之亦然。 &lt;script setup&gt; import { ref } from 'vue' const sampleJson = `[\n  {"name":"alice","age":30,"city":"Beijing"},\n  {"name":"bob","age":25,"city":"Shanghai"},\n  {"name":"carol</description>
-      <pubDate>Thu, 23 Jul 2026 19:33:46 -0000</pubDate>
-    </item>
-    <item>
-      <title>JSON ↔ YAML</title>
-      <link>https://java-px.bot.cd/tools/json-yaml</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/tools/json-yaml</guid>
-      <description>JSON 与 YAML 互相转换。 &lt;script setup&gt; import { ref, computed } from 'vue' const sampleJson = `{\n  "service": "api",\n  "port": 8080,\n  "tags": ["prod", "v2"],\n  "db": { "host": "localhost", "user": "roo</description>
-      <pubDate>Thu, 23 Jul 2026 19:33:32 -0000</pubDate>
+      <title>相对时间</title>
+      <link>https://java-px.bot.cd/tools/relative</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/tools/relative</guid>
+      <description>计算两个时间之间的相对时间，例如 "3 小时 25 分钟"。也支持"X 之前"/"X 之后"。 &lt;script setup&gt; import { ref, computed } from 'vue' // 默认现在 const now = ref(new Date().toISOString().slice(0, 19)) // 默认 1 小时前 const target = ref(new Dat</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
     </item>
     <item>
       <title>JSON 格式化 / 校验</title>
       <link>https://java-px.bot.cd/tools/json</link>
       <guid isPermaLink="true">https://java-px.bot.cd/tools/json</guid>
       <description>格式化、压缩、校验 JSON，错误位置高亮。 &lt;script setup&gt; import { ref, computed } from 'vue' const sample = `{"name":"alice","age":30,"skills":["js","ts"],"address":{"city":"Beijing","zip":"100000"},"active":true,"score</description>
-      <pubDate>Thu, 23 Jul 2026 19:33:11 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>JSON ↔ YAML</title>
+      <link>https://java-px.bot.cd/tools/json-yaml</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/tools/json-yaml</guid>
+      <description>JSON 与 YAML 互相转换。 &lt;script setup&gt; import { ref, computed } from 'vue' const sampleJson = `{\n  "service": "api",\n  "port": 8080,\n  "tags": ["prod", "v2"],\n  "db": { "host": "localhost", "user": "roo</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>JSON Diff</title>
+      <link>https://java-px.bot.cd/tools/json-diff</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/tools/json-diff</guid>
+      <description>对比两个 JSON 的差异并以行级方式展示。 &lt;script setup&gt; import { ref, computed } from 'vue' const left = ref(`{\n  "name": "alice",\n  "age": 30,\n  "city": "Beijing"\n}`) const right = ref(`{\n  "name": "alice",\n  "a</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>JSON ↔ CSV</title>
+      <link>https://java-px.bot.cd/tools/json-csv</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/tools/json-csv</guid>
+      <description>JSON 数组（对象数组）转换为 CSV，反之亦然。 &lt;script setup&gt; import { ref } from 'vue' const sampleJson = `[\n  {"name":"alice","age":30,"city":"Beijing"},\n  {"name":"bob","age":25,"city":"Shanghai"},\n  {"name":"carol</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>ISO / RFC 格式化</title>
+      <link>https://java-px.bot.cd/tools/iso</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/tools/iso</guid>
+      <description>把一个日期转换为多种 ISO / RFC 字符串格式。 &lt;script setup&gt; import { ref, computed } from 'vue' const input = ref(new Date().toISOString().slice(0, 19)) const status = ref('') const parsed = ref(null) function parse()</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>tools 知识图谱</title>
+      <link>https://java-px.bot.cd/tools/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/tools/</guid>
+      <description>&lt;div id="all-tools"&gt;&lt;/div&gt; &lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "日常 JSON 格式化 / 压缩 / 校验每次都开在线工具？", "时间戳 / 时区 / ISO 86</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>Cron 表达式</title>
+      <link>https://java-px.bot.cd/tools/cron</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/tools/cron</guid>
+      <description>解析 5/6 字段 Cron 表达式，描述字段含义，并列出接下来 5 次运行时间。 &lt;script setup&gt; import { ref, computed } from 'vue' const expr = ref('0 */2 * * *') const status = ref({ kind: 'muted', text: '' }) // 解析为 6 字段（缺少年份则补 *） const</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>Base64 编解码</title>
+      <link>https://java-px.bot.cd/tools/base64</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/tools/base64</guid>
+      <description>字符串与 Base64 互转，支持 UTF-8（中文）。 &lt;script setup&gt; import { ref } from 'vue' const input = ref('你好，世界！Hello, World!') const direction = ref('encode') const status = ref({ kind: 'muted', text: '' }) const out</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
     </item>
   </channel>
 </rss>

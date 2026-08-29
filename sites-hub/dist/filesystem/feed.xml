@@ -6,69 +6,412 @@
     <atom:link href="https://java-px.bot.cd/filesystem/feed.xml" rel="self" type="application/rss+xml" />
     <description>filesystem 知识图谱（94 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 21:42:04 -0000</lastBuildDate>
     <item>
-      <title>文件系统 / 文件服务 / 存储全栈</title>
-      <link>https://java-px.bot.cd/filesystem/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "从单块磁盘的 inode 到跨数据中心的对象存储，怎么系统学？", "POSIX 权限 / ACL / Capabilities 到底有什么区别？", "本</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <title>ext4 经典之选</title>
+      <link>https://java-px.bot.cd/filesystem/02-disk-fs/ext4</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/02-disk-fs/ext4</guid>
+      <description>&lt;span class="kg-badge kg-badge-disk-fs"&gt;本地盘&lt;/span&gt; Linux 的默认文件系统——ext2/3/4 家族的集大成者。 - **ext2** (1993)：最早的可扩展 FS，无日志 - **ext3** (2001)：加日志，兼容 ext2 - **ext4** (2008)：extent、B+ tree、延迟分配、大文件支持 ext3 用**直接</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
     </item>
     <item>
-      <title>13 · 面试 / 实战</title>
-      <link>https://java-px.bot.cd/filesystem/13-interview/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/13-interview/README</guid>
-      <description>&lt;span class="kg-badge kg-badge-interview"&gt;面试&lt;/span&gt; 求职导向的高频题、系统设计、对比表。 | 节点 | 一句话 | |------|--------| | [高频面试题](/13-interview/questions) | 50+ 道（含要点答案） | | [系统设计题](/13-interview/system-design) | 6 大经典</description>
-      <pubDate>Mon, 24 Aug 2026 21:00:15 -0000</pubDate>
-    </item>
-    <item>
-      <title>12 · 企业案例</title>
-      <link>https://java-px.bot.cd/filesystem/12-cases/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/12-cases/README</guid>
-      <description>&lt;span class="kg-badge kg-badge-cases"&gt;案例&lt;/span&gt; 真实世界的大型存储架构演进。 | 节点 | 一句话 | |------|--------| | [Netflix S3 架构](/12-cases/netflix-s3) | 每天 1.4 万亿次 S3 操作 | | [ByteDance JuiceFS](/12-cases/juicefs-byted</description>
-      <pubDate>Mon, 24 Aug 2026 21:00:15 -0000</pubDate>
-    </item>
-    <item>
-      <title>10 · 安全与权限</title>
-      <link>https://java-px.bot.cd/filesystem/10-security/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/10-security/README</guid>
-      <description>&lt;span class="kg-badge kg-badge-security"&gt;安全&lt;/span&gt; 文件系统层面的访问控制、加密、审计。 | 节点 | 一句话 | |------|--------| | [POSIX 权限位](/10-security/posix-perm) | rwx 三组九位 | | [ACL 访问控制列表](/10-security/acl) | 细粒度权限 | | [x</description>
-      <pubDate>Mon, 24 Aug 2026 21:00:15 -0000</pubDate>
-    </item>
-    <item>
-      <title>09 · 性能调优</title>
-      <link>https://java-px.bot.cd/filesystem/09-perf/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/09-perf/README</guid>
-      <description>&lt;span class="kg-badge kg-badge-perf"&gt;性能&lt;/span&gt; 让文件系统跑得更快的核心方法论。 | 节点 | 一句话 | |------|--------| | [IO 调度器选型](/09-perf/io-scheduler) | SSD vs HDD 的调度器差异 | | [Page Cache 调优](/09-perf/page-cache-tune) | `</description>
-      <pubDate>Mon, 24 Aug 2026 21:00:15 -0000</pubDate>
-    </item>
-    <item>
-      <title>08 · 文件工具集</title>
-      <link>https://java-px.bot.cd/filesystem/08-tools/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/08-tools/README</guid>
-      <description>&lt;span class="kg-badge kg-badge-tools"&gt;工具&lt;/span&gt; 日常必备的文件操作、调试、监控工具。 | 节点 | 一句话 | |------|--------| | [FUSE 用户态 FS](/08-tools/fuse) | 让用户态程序实现文件系统 | | [debugfs 调试工具](/08-tools/debugfs) | ext 系列底层调试器 | |</description>
-      <pubDate>Mon, 24 Aug 2026 21:00:15 -0000</pubDate>
-    </item>
-    <item>
-      <title>07 · 容器文件系统</title>
-      <link>https://java-px.bot.cd/filesystem/07-container/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/07-container/README</guid>
-      <description>&lt;span class="kg-badge kg-badge-container"&gt;容器&lt;/span&gt; Docker 镜像背后——OverlayFS 与分层原理。 | 节点 | 一句话 | |------|--------| | [OverlayFS 联合挂载](/07-container/overlayfs) | 镜像层的底层技术 | | [Docker 镜像分层](/07-container/</description>
-      <pubDate>Mon, 24 Aug 2026 21:00:15 -0000</pubDate>
-    </item>
-    <item>
-      <title>05 · 网络文件协议</title>
-      <link>https://java-px.bot.cd/filesystem/05-network/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/05-network/README</guid>
-      <description>&lt;span class="kg-badge kg-badge-network"&gt;网络&lt;/span&gt; 跨机器访问文件的标准协议。 | 节点 | 一句话 | |------|--------| | [NFS Unix 经典](/05-network/nfs) | 网络文件系统的事实标准 | | [SMB / CIFS Windows](/05-network/smb) | Windows 共享 / S</description>
-      <pubDate>Mon, 24 Aug 2026 21:00:15 -0000</pubDate>
+      <title>VFS 虚拟文件系统</title>
+      <link>https://java-px.bot.cd/filesystem/01-basics/vfs</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/01-basics/vfs</guid>
+      <description>&lt;span class="kg-badge kg-badge-basics"&gt;基础&lt;/span&gt; Linux 的"万能适配器"——同一套系统调用接口支持 ext4 / NTFS / NFS / procfs / sysfs ... **VFS**（Virtual File System）是 Linux 内核中的一层抽象，让上层应用看到的是"统一的文件操作接口"，下层可以接入任何具体文件系统。 **</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
     </item>
     <item>
       <title>学习路径</title>
       <link>https://java-px.bot.cd/filesystem/path</link>
       <guid isPermaLink="true">https://java-px.bot.cd/filesystem/path</guid>
       <description>根据不同角色与目标，规划差异化学习路线。 1. [inode 与 dentry](/01-basics/inode-dentry) — 理解文件的本质（不是文件名，是 inode） 2. [VFS 虚拟文件系统](/01-basics/vfs) — Linux 如何用统一接口抽象不同 FS 3. [文件描述符](/01-basics/file-descriptor) — open/read/wri</description>
-      <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>文件系统 / 文件服务 / 存储全栈</title>
+      <link>https://java-px.bot.cd/filesystem/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/</guid>
+      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "从单块磁盘的 inode 到跨数据中心的对象存储，怎么系统学？", "POSIX 权限 / ACL / Capabilities 到底有什么区别？", "本</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>全维度对比</title>
+      <link>https://java-px.bot.cd/filesystem/13-interview/comparison</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/13-interview/comparison</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--interview"&gt;面试对比&lt;/span&gt; &gt; 17 个 FS / 存储 一张表看全 本章把本站涉及的所有文件系统 / 存储做一个**终极对比**，作为面试 / 选型的最后参考。 | FS / 存储 | 类型 | 主战场 | POSIX | 一致性 | 主从 | 推荐度 | |-----------|------|-------</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>12 · 企业案例</title>
+      <link>https://java-px.bot.cd/filesystem/12-cases/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/12-cases/README</guid>
+      <description>&lt;span class="kg-badge kg-badge-cases"&gt;案例&lt;/span&gt; 真实世界的大型存储架构演进。 | 节点 | 一句话 | |------|--------| | [Netflix S3 架构](/12-cases/netflix-s3) | 每天 1.4 万亿次 S3 操作 | | [ByteDance JuiceFS](/12-cases/juicefs-byted</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>08 · 文件工具集</title>
+      <link>https://java-px.bot.cd/filesystem/08-tools/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/08-tools/README</guid>
+      <description>&lt;span class="kg-badge kg-badge-tools"&gt;工具&lt;/span&gt; 日常必备的文件操作、调试、监控工具。 | 节点 | 一句话 | |------|--------| | [FUSE 用户态 FS](/08-tools/fuse) | 让用户态程序实现文件系统 | | [debugfs 调试工具](/08-tools/debugfs) | ext 系列底层调试器 | |</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>Docker 镜像分层</title>
+      <link>https://java-px.bot.cd/filesystem/07-container/docker-layers</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/07-container/docker-layers</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--container"&gt;容器 FS&lt;/span&gt; &gt; Dockerfile 指令 → 层 · 缓存复用 · 关键优化点 Docker 镜像本质是**一系列只读层**的叠加，每一层对应 Dockerfile 的一条（或几条）指令。理解分层 = 理解镜像体积、构建速度、缓存效率。 一个镜像由**多层只读目录** + **配置（manif</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>BuildKit</title>
+      <link>https://java-px.bot.cd/filesystem/07-container/buildkit</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/07-container/buildkit</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--container"&gt;容器 FS&lt;/span&gt; &gt; 并行构建 · 缓存优化 · 多前端多后端 BuildKit 是 Docker 公司开发、Moby 项目孵化的下一代镜像构建工具。它有： - **并行构建**：依赖自动 DAG 化 - **高级缓存**：本地 / registry / inline 多种 - **mount / s</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>PV 与 PVC</title>
+      <link>https://java-px.bot.cd/filesystem/06-cloud-native/pv-pvc</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/06-cloud-native/pv-pvc</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--cloud-native"&gt;云原生&lt;/span&gt; &gt; PV 资源池 · PVC 申请单 · StorageClass 动态分配 K8s 把存储分成**供应者（PV）**和**消费者（PVC）**两个抽象： - **PV（PersistentVolume）**：集群里的"一块存储" - **PVC（PersistentVolumeC</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>动态卷供给</title>
+      <link>https://java-px.bot.cd/filesystem/06-cloud-native/dynamic</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/06-cloud-native/dynamic</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--cloud-native"&gt;云原生&lt;/span&gt; &gt; 模板化创建 · 按需扩容 · 延迟绑定 动态卷供给（Dynamic Provisioning）是 K8s 存储的最佳实践：用户**只声明需求**（StorageClass + 容量），K8s 通过 CSI Driver **按需创建**实际卷。 静态 PV 的痛点： - 集群管</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>06 · 云原生存储</title>
+      <link>https://java-px.bot.cd/filesystem/06-cloud-native/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/06-cloud-native/README</guid>
+      <description>&lt;span class="kg-badge kg-badge-cloud-native"&gt;云原生&lt;/span&gt; Kubernetes 时代的存储抽象——CSI、PV/PVC、Operator。 | 节点 | 一句话 | |------|--------| | [CSI 容器存储接口](/06-cloud-native/csi) | K8s 存储标准 | | [PV / PVC / StorageC</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>05 · 网络文件协议</title>
+      <link>https://java-px.bot.cd/filesystem/05-network/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/05-network/README</guid>
+      <description>&lt;span class="kg-badge kg-badge-network"&gt;网络&lt;/span&gt; 跨机器访问文件的标准协议。 | 节点 | 一句话 | |------|--------| | [NFS Unix 经典](/05-network/nfs) | 网络文件系统的事实标准 | | [SMB / CIFS Windows](/05-network/smb) | Windows 共享 / S</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>04 · 对象存储</title>
+      <link>https://java-px.bot.cd/filesystem/04-object/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/04-object/README</guid>
+      <description>&lt;span class="kg-badge kg-badge-object"&gt;对象&lt;/span&gt; 通过 HTTP API 访问的"桶+对象"模型——云时代的存储基石。 | 节点 | 一句话 | |------|--------| | [S3 协议规范](/04-object/s3-protocol) | 事实标准，RESTful API | | [MinIO 自建对象存储](/04-object/</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>MooseFS</title>
+      <link>https://java-px.bot.cd/filesystem/03-distributed/moosefs</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/03-distributed/moosefs</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--distributed"&gt;分布式 FS&lt;/span&gt; &gt; 中心元数据 · chunk server · 易上手 MooseFS（MFS）借鉴了 Google File System 的设计思路，提供 POSIX 兼容的分布式文件存储。它因**架构简洁、运维简单**而被中小企业广泛使用，是入门分布式 FS 的优选。 | 特性 | 说</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>Lustre</title>
+      <link>https://java-px.bot.cd/filesystem/03-distributed/lustre</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/03-distributed/lustre</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--distributed"&gt;分布式 FS&lt;/span&gt; &gt; MDS + OSS · RDMA · HPC 专属 Lustre 名字源自 "Linux + Cluster"，专为 **HPC（高性能计算）** 设计：在 Top 500 超算里，70%+ 的系统曾使用 Lustre 作为主存储。它是**吞吐量之王**，但前提是"专为大文</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>03 · 分布式文件系统</title>
+      <link>https://java-px.bot.cd/filesystem/03-distributed/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/03-distributed/README</guid>
+      <description>&lt;span class="kg-badge kg-badge-distributed"&gt;分布式&lt;/span&gt; 文件不再局限于单台机器——本章介绍跨节点的文件系统。 | 节点 | 一句话 | |------|--------| | [HDFS 大数据基石](/03-distributed/hdfs) | Hadoop 默认 FS，PB 级顺序写 | | [CephFS 统一存储](/03-distr</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>01 · 文件系统基础</title>
+      <link>https://java-px.bot.cd/filesystem/01-basics/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/01-basics/README</guid>
+      <description>&lt;span class="kg-badge kg-badge-basics"&gt;基础&lt;/span&gt; 理解"打开一个文件背后发生了什么"——这是掌握所有存储技术的起点。 | 节点 | 一句话 | |------|--------| | [inode 与 dentry](/01-basics/inode-dentry) | 文件的"身份证"——文件名背后的元数据 | | [VFS 虚拟文件系统](/01</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>FUSE</title>
+      <link>https://java-px.bot.cd/filesystem/08-tools/fuse</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/08-tools/fuse</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--tools"&gt;工具集&lt;/span&gt; &gt; 用户态驱动 · 容器存储 · 灵活扩展 FUSE（Filesystem in Userspace）是 Linux 内核提供的一个**用户态文件系统框架**。它允许你**在用户进程**里实现一个完整文件系统，挂载到 VFS 上。**S3FS、GlusterFS、sshfs、JuiceFS、fu</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>containerd</title>
+      <link>https://java-px.bot.cd/filesystem/07-container/containerd</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/07-container/containerd</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--container"&gt;容器 FS&lt;/span&gt; &gt; K8s 默认 CRI · CNCF 毕业项目 · 高性能 containerd 是 Docker 公司开源的容器运行时（2015 年），现由 CNCF 管理，是 **Kubernetes 1.0+ 的默认 CRI 运行时**。它从 Docker daemon 中剥离，专注容器生命</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>Rook</title>
+      <link>https://java-px.bot.cd/filesystem/06-cloud-native/rook</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/06-cloud-native/rook</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--cloud-native"&gt;云原生&lt;/span&gt; &gt; Operator 模式 · Ceph / NFS / Cassandra · 云原生存储管家 Rook 把**分布式存储系统**变成 Kubernetes 上的"原生"服务。它通过 Operator 模式，把 Ceph、NFS、Cassandra、MinIO、EdgeFS 等部</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>Longhorn</title>
+      <link>https://java-px.bot.cd/filesystem/06-cloud-native/longhorn</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/06-cloud-native/longhorn</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--cloud-native"&gt;云原生&lt;/span&gt; &gt; 微服务架构 · 增量快照 · 简单好用 Longhorn 是 Rancher 出品的 K8s 块存储系统。它**专为 K8s 设计**： - 100% 微服务化（每个卷一个 Pod） - 增量快照 / 备份 - 内置 Dashboard - 比 Ceph 简单 90%，比 Op</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>CSI</title>
+      <link>https://java-px.bot.cd/filesystem/06-cloud-native/csi</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/06-cloud-native/csi</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--cloud-native"&gt;云原生&lt;/span&gt; &gt; 标准驱动接口 · 跨存储系统 · 解耦供应商 CSI（Container Storage Interface）是 Kubernetes 在 1.13 后 GA 的存储驱动标准。它把"卷的提供 / 挂载 / 快照 / 扩"做成统一的 gRPC 接口，任何厂商按这个接口实现 dri</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>GlusterFS</title>
+      <link>https://java-px.bot.cd/filesystem/03-distributed/glusterfs</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/03-distributed/glusterfs</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--distributed"&gt;分布式 FS&lt;/span&gt; &gt; 无元数据节点 · 弹性哈希 · 用户态 FUSE GlusterFS（现属 Red Hat / Gluster.org）是一款**完全运行在用户态**的横向扩展文件系统。它不依赖独立的元数据服务器，靠 **弹性哈希（DHT）** 把目录映射到具体 brick，是"轻量、好上</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>13 · 面试 / 实战</title>
+      <link>https://java-px.bot.cd/filesystem/13-interview/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/13-interview/README</guid>
+      <description>&lt;span class="kg-badge kg-badge-interview"&gt;面试&lt;/span&gt; 求职导向的高频题、系统设计、对比表。 | 节点 | 一句话 | |------|--------| | [高频面试题](/13-interview/questions) | 50+ 道（含要点答案） | | [系统设计题](/13-interview/system-design) | 6 大经典</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Snowflake 云数仓</title>
+      <link>https://java-px.bot.cd/filesystem/12-cases/snowflake</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/12-cases/snowflake</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--cases"&gt;企业案例&lt;/span&gt; &gt; S3 + 微服务 · 多云 · 计算存储分离 Snowflake 是 2020 年最成功的 SaaS 公司之一，**云原生数据仓库**的开创者。它的存储架构是"计算 / 存储完全分离"的典范。 | 指标 | 数值 | |------|------| | 客户 | 7000+ | | 数据</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Netflix S3 数据湖</title>
+      <link>https://java-px.bot.cd/filesystem/12-cases/netflix-s3</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/12-cases/netflix-s3</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--cases"&gt;企业案例&lt;/span&gt; &gt; S3 + Iceberg + IceD  ·  AWS 极致实践 Netflix 是全球最大的流媒体公司，也是 AWS 上**最大的对象存储用户之一**。他们在 S3 上构建了**EB 级数据湖**，是"云时代数据湖架构"的典范。 | 指标 | 数值 | |------|------| |</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>快照与备份</title>
+      <link>https://java-px.bot.cd/filesystem/11-backup/snapshot</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/11-backup/snapshot</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--backup"&gt;备份快照&lt;/span&gt; &gt; 快照 = 瞬时副本 · 备份 = 异地持久 · 组合最佳 快照（Snapshot）与备份（Backup）是不同的概念，本质差别： - **快照**：在同一存储上的"瞬时副本"，几乎零延迟恢复 - **备份**：把数据复制到独立位置，跨故障、跨地域 | 维度 | 快照 | 备份 | |--</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>restic</title>
+      <link>https://java-px.bot.cd/filesystem/11-backup/restic</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/11-backup/restic</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--backup"&gt;备份快照&lt;/span&gt; &gt; 多后端 · 增量 · Go 编写 · 易上手 restic 是一款 Go 写的备份工具。它的杀手锏是**支持 12+ 后端**——S3、SFTP、Backblaze B2、Azure Blob、Google Cloud Storage、本地、rclone mount 等等。 | 特性 |</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>BorgBackup</title>
+      <link>https://java-px.bot.cd/filesystem/11-backup/borg</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/11-backup/borg</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--backup"&gt;备份快照&lt;/span&gt; &gt; 增量 · 去重 · 加密 · 服务器备份首选 BorgBackup（borg）是一款用 Python 写的去重、压缩、加密备份工具。它是**服务器备份**的事实标准之一，主打"增量去重，备份越大越省空间"。 | 特性 | 含义 | |------|------| | **去重** | 块</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>11 · 备份与快照</title>
+      <link>https://java-px.bot.cd/filesystem/11-backup/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/11-backup/README</guid>
+      <description>&lt;span class="kg-badge kg-badge-backup"&gt;备份&lt;/span&gt; 数据保护——从快照到异地容灾。 | 节点 | 一句话 | |------|--------| | [快照技术对比](/11-backup/snapshot) | LVM / ZFS / Btrfs / EBS | | [Borg 增量备份](/11-backup/borg) | 去重压缩 + 加密 |</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>3-2-1 备份原则</title>
+      <link>https://java-px.bot.cd/filesystem/11-backup/3-2-1</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/11-backup/3-2-1</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--backup"&gt;备份快照&lt;/span&gt; &gt; 3 份副本 · 2 种介质 · 1 份异地 **3-2-1 规则**是数据保护的事实标准： - **3 份**数据副本（1 原始 + 2 备份） - **2 种**存储介质（防介质级故障） - **1 份**异地（防灾难级故障） 源自 2000 年代摄影业： - 3 份：照片重要 - 2</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>xattr 扩展属性</title>
+      <link>https://java-px.bot.cd/filesystem/10-security/xattr</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/10-security/xattr</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--security"&gt;安全权限&lt;/span&gt; &gt; user / trusted / system / security · 实战标签 xattr（Extended Attributes）是文件的**额外元数据**，以 `key=value` 形式存在。 | 命名空间 | 含义 | 谁可读写 | |----------|------|</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>auditd 文件审计</title>
+      <link>https://java-px.bot.cd/filesystem/10-security/auditd</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/10-security/auditd</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--security"&gt;安全权限&lt;/span&gt; &gt; 文件访问审计 · 合规 · 入侵检测 auditd 是 Linux 内核审计系统（audit subsystem）的用户态守护进程。它记录**谁**、**何时**、**对什么**文件做了什么操作——是合规、入侵检测的关键工具。 **关键选项**： | 选项 | 含义 | |-----</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>ACL 访问控制列表</title>
+      <link>https://java-px.bot.cd/filesystem/10-security/acl</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/10-security/acl</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--security"&gt;安全权限&lt;/span&gt; &gt; 用户级 · 组级 · 默认 ACL · 实战场景 POSIX 权限只有三类用户（owner/group/other），太粗。ACL（Access Control List）允许**任意多用户**、**任意多组**的细粒度权限控制。 | ACL 类型 | 含义 | |---------</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>10 · 安全与权限</title>
+      <link>https://java-px.bot.cd/filesystem/10-security/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/10-security/README</guid>
+      <description>&lt;span class="kg-badge kg-badge-security"&gt;安全&lt;/span&gt; 文件系统层面的访问控制、加密、审计。 | 节点 | 一句话 | |------|--------| | [POSIX 权限位](/10-security/posix-perm) | rwx 三组九位 | | [ACL 访问控制列表](/10-security/acl) | 细粒度权限 | | [x</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>readahead</title>
+      <link>https://java-px.bot.cd/filesystem/09-perf/readahead</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/09-perf/readahead</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--perf"&gt;性能调优&lt;/span&gt; &gt; 内核预读 · 用户态预读 · 实战取舍 readahead（预读）是 OS 提前把后续数据从磁盘读到 Page Cache 的机制。对**顺序读**场景（视频、备份、大数据查询），合理 readahead 能把 IO 性能提升 5-50 倍。 **核心算法**： - 连续顺序读 → 加大 r</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Page Cache 调优</title>
+      <link>https://java-px.bot.cd/filesystem/09-perf/page-cache-tune</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/09-perf/page-cache-tune</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--perf"&gt;性能调优&lt;/span&gt; &gt; 内存缓存 · 内核参数 · 性能方法论 Linux 把"未刷盘"的数据缓存在 **Page Cache**（页缓存）。调整 Page Cache 的参数能让普通业务轻松获得 10-100 倍性能提升。 **关键**： - **读**：先查 Page Cache，没命中才读盘 - **写**：</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>IO 调度器</title>
+      <link>https://java-px.bot.cd/filesystem/09-perf/io-scheduler</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/09-perf/io-scheduler</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--perf"&gt;性能调优&lt;/span&gt; &gt; mq-deadline / kyber / bfq · 决定磁盘延迟 IO 调度器（IO Scheduler）是 Linux 内核在**块设备驱动之上**的一层。它决定： - **顺序**：先处理哪个 IO - **合并**：相邻 IO 合并 - **限流**：避免单一进程打爆磁盘 | 调度</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>09 · 性能调优</title>
+      <link>https://java-px.bot.cd/filesystem/09-perf/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/09-perf/README</guid>
+      <description>&lt;span class="kg-badge kg-badge-perf"&gt;性能&lt;/span&gt; 让文件系统跑得更快的核心方法论。 | 节点 | 一句话 | |------|--------| | [IO 调度器选型](/09-perf/io-scheduler) | SSD vs HDD 的调度器差异 | | [Page Cache 调优](/09-perf/page-cache-tune) | `</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>strace / ltrace</title>
+      <link>https://java-px.bot.cd/filesystem/08-tools/strace</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/08-tools/strace</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--tools"&gt;工具集&lt;/span&gt; &gt; syscall 跟踪 · IO 调试 · 性能瓶颈定位 strace 跟踪**系统调用**，ltrace 跟踪**库函数调用**。它们是 IO / FS 调试的"核武器"——能看到程序究竟做了什么 syscall，性能瓶颈在哪。 输出示例： | 选项 | 含义 | |------|-----</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>lsof</title>
+      <link>https://java-px.bot.cd/filesystem/08-tools/lsof</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/08-tools/lsof</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--tools"&gt;工具集&lt;/span&gt; &gt; 打开文件诊断 · 网络 FD · 删除但占用 Linux 中**一切皆文件**——socket、pipe、设备、目录都是文件描述符。lsof 列出所有打开的文件描述符，是排查"磁盘满但 du 不见大文件"、"端口被谁占用"等问题的瑞士军刀。 | 字段 | 含义 | |------|-----</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>find / fd</title>
+      <link>https://java-px.bot.cd/filesystem/08-tools/find-fd</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/08-tools/find-fd</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--tools"&gt;工具集&lt;/span&gt; &gt; 递归查找 · 高级过滤 · 性能与场景 find 是 POSIX 标准，fd 是 Rust 写的现代化替代。它们都能递归查找文件、过滤、按动作执行命令。 | 动作 | 含义 | |------|------| | `-print` | 打印路径（默认） | | `-print0` | 用 \</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>du / df</title>
+      <link>https://java-px.bot.cd/filesystem/08-tools/du-df</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/08-tools/du-df</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--tools"&gt;工具集&lt;/span&gt; &gt; 目录占用 · 文件系统空闲 · 实时排查 du 与 df 是排查"磁盘满了"的左膀右臂： - **df**：文件系统级别的"剩余空间" - **du**：目录级别的"占用分布" 输出： **关键字段**： | 字段 | 含义 | |------|------| | Size | 文件系统总大</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>debugfs</title>
+      <link>https://java-px.bot.cd/filesystem/08-tools/debugfs</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/08-tools/debugfs</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--tools"&gt;工具集&lt;/span&gt; &gt; 抢救数据 · 手动编辑元数据 · 文件系统诊断 debugfs 是 e2fsprogs 包提供的 ext2/ext3/ext4 **交互式调试器**。它是文件系统管理员和数据救援的"瑞士军刀"——可以打开一个块设备直接读写 inode、目录、数据块。 debugfs 直接读写元数据： - *</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>07 · 容器文件系统</title>
+      <link>https://java-px.bot.cd/filesystem/07-container/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/07-container/README</guid>
+      <description>&lt;span class="kg-badge kg-badge-container"&gt;容器&lt;/span&gt; Docker 镜像背后——OverlayFS 与分层原理。 | 节点 | 一句话 | |------|--------| | [OverlayFS 联合挂载](/07-container/overlayfs) | 镜像层的底层技术 | | [Docker 镜像分层](/07-container/</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>OpenEBS</title>
+      <link>https://java-px.bot.cd/filesystem/06-cloud-native/openebs</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/06-cloud-native/openebs</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--cloud-native"&gt;云原生&lt;/span&gt; &gt; cStor / Jiva / Mayastor · 三种引擎可选 OpenEBS 是 MayaData 出品的开源 K8s 存储系统。它把卷拆成**微服务**（与 Longhorn 类似），但提供**三种引擎**： - **Jiva**：基于 Linux LVM 的用户态复制</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>rsync</title>
+      <link>https://java-px.bot.cd/filesystem/05-network/rsync</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/05-network/rsync</guid>
+      <description>&gt; &lt;span class="kg-badge kg-badge--network"&gt;网络协议&lt;/span&gt; &gt; 增量传输 · SSH 隧道 · 经典同步工具 rsync 是文件**增量同步**的事实标准。它通过"滚动校验和"算法，只传输差异部分。在备份、镜像、跨机同步场景里几乎"必装"。 把文件切成小块： 1. 发送方给每个块算两个滚动校验（弱 32-bit + 强 MD5） 2. 接收方对比</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>CephFS 统一存储</title>
+      <link>https://java-px.bot.cd/filesystem/03-distributed/cephfs</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/03-distributed/cephfs</guid>
+      <description>&lt;span class="kg-badge kg-badge-distributed"&gt;分布式&lt;/span&gt; Ceph 的 POSIX 文件系统——统一块/对象/文件三种接口的存储平台。 Ceph 提供三种存储接口： **核心**：所有接口共享底层 **RADOS**（可靠自主分布式对象存储）。 - **MDS**：把元数据树切分（dirfrag）分给不同 MDS - **客户端**：直接和 OS</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>XFS 高性能日志</title>
+      <link>https://java-px.bot.cd/filesystem/02-disk-fs/xfs</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/02-disk-fs/xfs</guid>
+      <description>&lt;span class="kg-badge kg-badge-disk-fs"&gt;本地盘&lt;/span&gt; SGI 血统，分配组 + B+ tree，为大文件和大容量而生。 SGI 在 1990 年代为 IRIX 开发 XFS，2001 年开源，2002 年并入 Linux 2.5。RHEL/CentOS 7+ 默认 XFS。 XFS 把磁盘分成多个独立管理的 AG（默认几百个），每个 AG 有自己的：</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>横向对比与选型</title>
+      <link>https://java-px.bot.cd/filesystem/02-disk-fs/compare</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/02-disk-fs/compare</guid>
+      <description>&lt;span class="kg-badge kg-badge-disk-fs"&gt;本地盘&lt;/span&gt; 7 种主流本地文件系统——一张表选型。 | FS | 平台 | 一致性 | 快照 | 校验和 | 加密 | 默认 | |----|------|--------|------|--------|------|------| | **ext4** | Linux | journal | ❌ | ⚠️</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Btrfs COW与快照</title>
+      <link>https://java-px.bot.cd/filesystem/02-disk-fs/btrfs</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/02-disk-fs/btrfs</guid>
+      <description>&lt;span class="kg-badge kg-badge-disk-fs"&gt;本地盘&lt;/span&gt; B-tree FS——为快照、校验、子卷而生的现代 FS。 Btrfs 全称 **B-tree File System**，核心思想： - 所有元数据用 B-tree - **写时复制（COW）**：写新位置，原子切指针 - 内置快照 / 子卷 / 校验和 **优势**： - 写过程 crash-</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>02 · 本地盘文件系统</title>
+      <link>https://java-px.bot.cd/filesystem/02-disk-fs/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/02-disk-fs/README</guid>
+      <description>&lt;span class="kg-badge kg-badge-disk-fs"&gt;本地盘&lt;/span&gt; 单块磁盘上的文件系统——从 ext4 到 ZFS，每种 FS 都是一组权衡。 | 节点 | 一句话 | |------|--------| | [ext4 经典之选](/02-disk-fs/ext4) | Linux 默认，稳定可靠，日志型 FS | | [XFS 高性能日志](/02-disk</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>目录与路径解析</title>
+      <link>https://java-px.bot.cd/filesystem/01-basics/path-resolution</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/01-basics/path-resolution</guid>
+      <description>&lt;span class="kg-badge kg-badge-basics"&gt;基础&lt;/span&gt; `/a/b/c` 这个路径是怎么解析到 c 的？软链接和硬链接的本质区别是什么？ Linux 内核只理解绝对路径，相对路径在用户态库（glibc）转换为绝对路径后传给 syscall。 **关键优化**： - 每一段查找都先看 dentry cache - 命中 → 直接拿 inode - 未命中 →</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Page Cache 页缓存</title>
+      <link>https://java-px.bot.cd/filesystem/01-basics/page-cache</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/01-basics/page-cache</guid>
+      <description>&lt;span class="kg-badge kg-badge-basics"&gt;基础&lt;/span&gt; Linux I/O 性能的核心——所有"第二次变快"的秘密。 **Page Cache** 是内核管理的磁盘文件页缓存，以 4KB 为单位缓存磁盘内容到内存。 每个被缓存的文件页对应一个 `struct page`，所有页通过 LRU 链表管理。 **关键**：第二次 read 同样的内容 → 直接从</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>挂载与文件系统树</title>
+      <link>https://java-px.bot.cd/filesystem/01-basics/mount</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/01-basics/mount</guid>
+      <description>&lt;span class="kg-badge kg-badge-basics"&gt;基础&lt;/span&gt; 文件系统如何"接入"Linux 的目录树？挂载点的本质是什么？ **mount** 是把一个文件系统（设备）关联到目录树某个节点的过程。Linux 所有 FS 共享一棵统一的目录树。 - `defaults`：rw, suid, dev, exec, auto, nouser, async - `no</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>inode 与 dentry</title>
+      <link>https://java-px.bot.cd/filesystem/01-basics/inode-dentry</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/01-basics/inode-dentry</guid>
+      <description>&lt;span class="kg-badge kg-badge-basics"&gt;基础&lt;/span&gt; 理解"文件"的本质——文件名只是别名，真正的身份证是 inode。 **inode**（index node）是 Linux 文件系统中描述文件元数据的数据结构。它不包含文件名，但包含文件的所有"非名字信息"。 **关键事实**： - 文件名 ≠ inode。一个文件可以多个名字（硬链接），但只有一个</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>文件描述符与 open</title>
+      <link>https://java-px.bot.cd/filesystem/01-basics/file-descriptor</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/01-basics/file-descriptor</guid>
+      <description>&lt;span class="kg-badge kg-badge-basics"&gt;基础&lt;/span&gt; `open()` 返回的那个 int 是什么？fd 表如何工作？为什么 `Too many open files`？ 文件描述符是进程级的**整数索引**，指向内核中的"打开文件表"项。 **关键**：多个 fd 可以指向同一个 file（比如 `dup()` 后）；多个进程可以指向同一个 file（</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>思维导图</title>
@@ -99,24 +442,10 @@
       <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
     </item>
     <item>
-      <title>CephFS 统一存储</title>
-      <link>https://java-px.bot.cd/filesystem/03-distributed/cephfs</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/03-distributed/cephfs</guid>
-      <description>&lt;span class="kg-badge kg-badge-distributed"&gt;分布式&lt;/span&gt; Ceph 的 POSIX 文件系统——统一块/对象/文件三种接口的存储平台。 Ceph 提供三种存储接口： **核心**：所有接口共享底层 **RADOS**（可靠自主分布式对象存储）。 - **MDS**：把元数据树切分（dirfrag）分给不同 MDS - **客户端**：直接和 OS</description>
-      <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
-    </item>
-    <item>
       <title>ZFS 企业级</title>
       <link>https://java-px.bot.cd/filesystem/02-disk-fs/zfs</link>
       <guid isPermaLink="true">https://java-px.bot.cd/filesystem/02-disk-fs/zfs</guid>
       <description>&lt;span class="kg-badge kg-badge-disk-fs"&gt;本地盘&lt;/span&gt; 终极文件系统的代表——128-bit 地址空间、内置 RAID-Z、自愈校验、ARC 缓存。 ZFS 由 Sun Microsystems 在 2005 年发布，因 CDDL 许可证与 GPL 不兼容，未能并入 Linux 内核。Linux 上通过 **OpenZFS** 项目独立提供（作为内核模</description>
-      <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
-    </item>
-    <item>
-      <title>XFS 高性能日志</title>
-      <link>https://java-px.bot.cd/filesystem/02-disk-fs/xfs</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/02-disk-fs/xfs</guid>
-      <description>&lt;span class="kg-badge kg-badge-disk-fs"&gt;本地盘&lt;/span&gt; SGI 血统，分配组 + B+ tree，为大文件和大容量而生。 SGI 在 1990 年代为 IRIX 开发 XFS，2001 年开源，2002 年并入 Linux 2.5。RHEL/CentOS 7+ 默认 XFS。 XFS 把磁盘分成多个独立管理的 AG（默认几百个），每个 AG 有自己的：</description>
       <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
     </item>
     <item>
@@ -127,59 +456,10 @@
       <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
     </item>
     <item>
-      <title>ext4 经典之选</title>
-      <link>https://java-px.bot.cd/filesystem/02-disk-fs/ext4</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/02-disk-fs/ext4</guid>
-      <description>&lt;span class="kg-badge kg-badge-disk-fs"&gt;本地盘&lt;/span&gt; Linux 的默认文件系统——ext2/3/4 家族的集大成者。 - **ext2** (1993)：最早的可扩展 FS，无日志 - **ext3** (2001)：加日志，兼容 ext2 - **ext4** (2008)：extent、B+ tree、延迟分配、大文件支持 ext3 用**直接</description>
-      <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
-    </item>
-    <item>
-      <title>横向对比与选型</title>
-      <link>https://java-px.bot.cd/filesystem/02-disk-fs/compare</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/02-disk-fs/compare</guid>
-      <description>&lt;span class="kg-badge kg-badge-disk-fs"&gt;本地盘&lt;/span&gt; 7 种主流本地文件系统——一张表选型。 | FS | 平台 | 一致性 | 快照 | 校验和 | 加密 | 默认 | |----|------|--------|------|--------|------|------| | **ext4** | Linux | journal | ❌ | ⚠️</description>
-      <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
-    </item>
-    <item>
-      <title>Btrfs COW与快照</title>
-      <link>https://java-px.bot.cd/filesystem/02-disk-fs/btrfs</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/02-disk-fs/btrfs</guid>
-      <description>&lt;span class="kg-badge kg-badge-disk-fs"&gt;本地盘&lt;/span&gt; B-tree FS——为快照、校验、子卷而生的现代 FS。 Btrfs 全称 **B-tree File System**，核心思想： - 所有元数据用 B-tree - **写时复制（COW）**：写新位置，原子切指针 - 内置快照 / 子卷 / 校验和 **优势**： - 写过程 crash-</description>
-      <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
-    </item>
-    <item>
       <title>APFS / HFS+</title>
       <link>https://java-px.bot.cd/filesystem/02-disk-fs/apple-fs</link>
       <guid isPermaLink="true">https://java-px.bot.cd/filesystem/02-disk-fs/apple-fs</guid>
       <description>&lt;span class="kg-badge kg-badge-disk-fs"&gt;本地盘&lt;/span&gt; Apple 设备的文件系统演进——从 HFS+ 到 APFS。 1985 年发布的 Mac OS 经典 FS，1998 年随 Mac OS 8.1 引入 HFS+。 - B-tree 目录索引 - Catalog（文件元数据） - Extents overflow file - 区分大小写（可选）</description>
-      <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
-    </item>
-    <item>
-      <title>VFS 虚拟文件系统</title>
-      <link>https://java-px.bot.cd/filesystem/01-basics/vfs</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/01-basics/vfs</guid>
-      <description>&lt;span class="kg-badge kg-badge-basics"&gt;基础&lt;/span&gt; Linux 的"万能适配器"——同一套系统调用接口支持 ext4 / NTFS / NFS / procfs / sysfs ... **VFS**（Virtual File System）是 Linux 内核中的一层抽象，让上层应用看到的是"统一的文件操作接口"，下层可以接入任何具体文件系统。 **</description>
-      <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
-    </item>
-    <item>
-      <title>目录与路径解析</title>
-      <link>https://java-px.bot.cd/filesystem/01-basics/path-resolution</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/01-basics/path-resolution</guid>
-      <description>&lt;span class="kg-badge kg-badge-basics"&gt;基础&lt;/span&gt; `/a/b/c` 这个路径是怎么解析到 c 的？软链接和硬链接的本质区别是什么？ Linux 内核只理解绝对路径，相对路径在用户态库（glibc）转换为绝对路径后传给 syscall。 **关键优化**： - 每一段查找都先看 dentry cache - 命中 → 直接拿 inode - 未命中 →</description>
-      <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
-    </item>
-    <item>
-      <title>Page Cache 页缓存</title>
-      <link>https://java-px.bot.cd/filesystem/01-basics/page-cache</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/01-basics/page-cache</guid>
-      <description>&lt;span class="kg-badge kg-badge-basics"&gt;基础&lt;/span&gt; Linux I/O 性能的核心——所有"第二次变快"的秘密。 **Page Cache** 是内核管理的磁盘文件页缓存，以 4KB 为单位缓存磁盘内容到内存。 每个被缓存的文件页对应一个 `struct page`，所有页通过 LRU 链表管理。 **关键**：第二次 read 同样的内容 → 直接从</description>
-      <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
-    </item>
-    <item>
-      <title>挂载与文件系统树</title>
-      <link>https://java-px.bot.cd/filesystem/01-basics/mount</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/01-basics/mount</guid>
-      <description>&lt;span class="kg-badge kg-badge-basics"&gt;基础&lt;/span&gt; 文件系统如何"接入"Linux 的目录树？挂载点的本质是什么？ **mount** 是把一个文件系统（设备）关联到目录树某个节点的过程。Linux 所有 FS 共享一棵统一的目录树。 - `defaults`：rw, suid, dev, exec, auto, nouser, async - `no</description>
       <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
     </item>
     <item>
@@ -188,27 +468,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/filesystem/01-basics/journal</guid>
       <description>&lt;span class="kg-badge kg-badge-basics"&gt;基础&lt;/span&gt; 突然断电，文件系统会不会坏？日志（journal）就是答案。 **Journal**（也叫 write-ahead log）是 FS 在正式写数据之前，先把"我要做什么改动"记到日志区的技术。断电后通过 replay 日志保证一致性。 假设执行 `write /a/file`： 1. 写 inode</description>
       <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
-    </item>
-    <item>
-      <title>inode 与 dentry</title>
-      <link>https://java-px.bot.cd/filesystem/01-basics/inode-dentry</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/01-basics/inode-dentry</guid>
-      <description>&lt;span class="kg-badge kg-badge-basics"&gt;基础&lt;/span&gt; 理解"文件"的本质——文件名只是别名，真正的身份证是 inode。 **inode**（index node）是 Linux 文件系统中描述文件元数据的数据结构。它不包含文件名，但包含文件的所有"非名字信息"。 **关键事实**： - 文件名 ≠ inode。一个文件可以多个名字（硬链接），但只有一个</description>
-      <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
-    </item>
-    <item>
-      <title>文件描述符与 open</title>
-      <link>https://java-px.bot.cd/filesystem/01-basics/file-descriptor</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/01-basics/file-descriptor</guid>
-      <description>&lt;span class="kg-badge kg-badge-basics"&gt;基础&lt;/span&gt; `open()` 返回的那个 int 是什么？fd 表如何工作？为什么 `Too many open files`？ 文件描述符是进程级的**整数索引**，指向内核中的"打开文件表"项。 **关键**：多个 fd 可以指向同一个 file（比如 `dup()` 后）；多个进程可以指向同一个 file（</description>
-      <pubDate>Sat, 15 Aug 2026 16:51:29 -0000</pubDate>
-    </item>
-    <item>
-      <title>全维度对比</title>
-      <link>https://java-px.bot.cd/filesystem/13-interview/comparison</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/13-interview/comparison</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--interview"&gt;面试对比&lt;/span&gt; &gt; 17 个 FS / 存储 一张表看全 本章把本站涉及的所有文件系统 / 存储做一个**终极对比**，作为面试 / 选型的最后参考。 | FS / 存储 | 类型 | 主战场 | POSIX | 一致性 | 主从 | 推荐度 | |-----------|------|-------</description>
-      <pubDate>Sat, 08 Aug 2026 12:43:41 -0000</pubDate>
     </item>
     <item>
       <title>系统设计</title>
@@ -232,13 +491,6 @@
       <pubDate>Sat, 08 Aug 2026 12:42:37 -0000</pubDate>
     </item>
     <item>
-      <title>Snowflake 云数仓</title>
-      <link>https://java-px.bot.cd/filesystem/12-cases/snowflake</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/12-cases/snowflake</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--cases"&gt;企业案例&lt;/span&gt; &gt; S3 + 微服务 · 多云 · 计算存储分离 Snowflake 是 2020 年最成功的 SaaS 公司之一，**云原生数据仓库**的开创者。它的存储架构是"计算 / 存储完全分离"的典范。 | 指标 | 数值 | |------|------| | 客户 | 7000+ | | 数据</description>
-      <pubDate>Sat, 08 Aug 2026 12:42:37 -0000</pubDate>
-    </item>
-    <item>
       <title>CERN EOS 存储</title>
       <link>https://java-px.bot.cd/filesystem/12-cases/cern-eos</link>
       <guid isPermaLink="true">https://java-px.bot.cd/filesystem/12-cases/cern-eos</guid>
@@ -253,13 +505,6 @@
       <pubDate>Sat, 08 Aug 2026 12:42:37 -0000</pubDate>
     </item>
     <item>
-      <title>Netflix S3 数据湖</title>
-      <link>https://java-px.bot.cd/filesystem/12-cases/netflix-s3</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/12-cases/netflix-s3</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--cases"&gt;企业案例&lt;/span&gt; &gt; S3 + Iceberg + IceD  ·  AWS 极致实践 Netflix 是全球最大的流媒体公司，也是 AWS 上**最大的对象存储用户之一**。他们在 S3 上构建了**EB 级数据湖**，是"云时代数据湖架构"的典范。 | 指标 | 数值 | |------|------| |</description>
-      <pubDate>Sat, 08 Aug 2026 12:42:37 -0000</pubDate>
-    </item>
-    <item>
       <title>容灾恢复</title>
       <link>https://java-px.bot.cd/filesystem/11-backup/dr</link>
       <guid isPermaLink="true">https://java-px.bot.cd/filesystem/11-backup/dr</guid>
@@ -267,59 +512,10 @@
       <pubDate>Sat, 08 Aug 2026 12:41:13 -0000</pubDate>
     </item>
     <item>
-      <title>3-2-1 备份原则</title>
-      <link>https://java-px.bot.cd/filesystem/11-backup/3-2-1</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/11-backup/3-2-1</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--backup"&gt;备份快照&lt;/span&gt; &gt; 3 份副本 · 2 种介质 · 1 份异地 **3-2-1 规则**是数据保护的事实标准： - **3 份**数据副本（1 原始 + 2 备份） - **2 种**存储介质（防介质级故障） - **1 份**异地（防灾难级故障） 源自 2000 年代摄影业： - 3 份：照片重要 - 2</description>
-      <pubDate>Sat, 08 Aug 2026 12:41:13 -0000</pubDate>
-    </item>
-    <item>
-      <title>restic</title>
-      <link>https://java-px.bot.cd/filesystem/11-backup/restic</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/11-backup/restic</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--backup"&gt;备份快照&lt;/span&gt; &gt; 多后端 · 增量 · Go 编写 · 易上手 restic 是一款 Go 写的备份工具。它的杀手锏是**支持 12+ 后端**——S3、SFTP、Backblaze B2、Azure Blob、Google Cloud Storage、本地、rclone mount 等等。 | 特性 |</description>
-      <pubDate>Sat, 08 Aug 2026 12:41:13 -0000</pubDate>
-    </item>
-    <item>
-      <title>BorgBackup</title>
-      <link>https://java-px.bot.cd/filesystem/11-backup/borg</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/11-backup/borg</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--backup"&gt;备份快照&lt;/span&gt; &gt; 增量 · 去重 · 加密 · 服务器备份首选 BorgBackup（borg）是一款用 Python 写的去重、压缩、加密备份工具。它是**服务器备份**的事实标准之一，主打"增量去重，备份越大越省空间"。 | 特性 | 含义 | |------|------| | **去重** | 块</description>
-      <pubDate>Sat, 08 Aug 2026 12:41:13 -0000</pubDate>
-    </item>
-    <item>
-      <title>快照与备份</title>
-      <link>https://java-px.bot.cd/filesystem/11-backup/snapshot</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/11-backup/snapshot</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--backup"&gt;备份快照&lt;/span&gt; &gt; 快照 = 瞬时副本 · 备份 = 异地持久 · 组合最佳 快照（Snapshot）与备份（Backup）是不同的概念，本质差别： - **快照**：在同一存储上的"瞬时副本"，几乎零延迟恢复 - **备份**：把数据复制到独立位置，跨故障、跨地域 | 维度 | 快照 | 备份 | |--</description>
-      <pubDate>Sat, 08 Aug 2026 12:41:13 -0000</pubDate>
-    </item>
-    <item>
-      <title>auditd 文件审计</title>
-      <link>https://java-px.bot.cd/filesystem/10-security/auditd</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/10-security/auditd</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--security"&gt;安全权限&lt;/span&gt; &gt; 文件访问审计 · 合规 · 入侵检测 auditd 是 Linux 内核审计系统（audit subsystem）的用户态守护进程。它记录**谁**、**何时**、**对什么**文件做了什么操作——是合规、入侵检测的关键工具。 **关键选项**： | 选项 | 含义 | |-----</description>
-      <pubDate>Sat, 08 Aug 2026 12:39:33 -0000</pubDate>
-    </item>
-    <item>
       <title>文件系统加密</title>
       <link>https://java-px.bot.cd/filesystem/10-security/encryption</link>
       <guid isPermaLink="true">https://java-px.bot.cd/filesystem/10-security/encryption</guid>
       <description>&gt; &lt;span class="kg-badge kg-badge--security"&gt;安全权限&lt;/span&gt; &gt; LUKS / eCryptfs / fscrypt · 加密即安全 文件系统加密保护**静态数据**——磁盘被偷 / 磁盘镜像泄漏时，无法读出真实内容。 每层独立，常**叠加**： - 块设备 + FS 加密（双重保险） - 应用加密 + FS 加密（合规场景） LUKS 是 Lin</description>
-      <pubDate>Sat, 08 Aug 2026 12:39:33 -0000</pubDate>
-    </item>
-    <item>
-      <title>xattr 扩展属性</title>
-      <link>https://java-px.bot.cd/filesystem/10-security/xattr</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/10-security/xattr</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--security"&gt;安全权限&lt;/span&gt; &gt; user / trusted / system / security · 实战标签 xattr（Extended Attributes）是文件的**额外元数据**，以 `key=value` 形式存在。 | 命名空间 | 含义 | 谁可读写 | |----------|------|</description>
-      <pubDate>Sat, 08 Aug 2026 12:39:33 -0000</pubDate>
-    </item>
-    <item>
-      <title>ACL 访问控制列表</title>
-      <link>https://java-px.bot.cd/filesystem/10-security/acl</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/10-security/acl</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--security"&gt;安全权限&lt;/span&gt; &gt; 用户级 · 组级 · 默认 ACL · 实战场景 POSIX 权限只有三类用户（owner/group/other），太粗。ACL（Access Control List）允许**任意多用户**、**任意多组**的细粒度权限控制。 | ACL 类型 | 含义 | |---------</description>
       <pubDate>Sat, 08 Aug 2026 12:39:33 -0000</pubDate>
     </item>
     <item>
@@ -344,27 +540,6 @@
       <pubDate>Sat, 08 Aug 2026 12:37:57 -0000</pubDate>
     </item>
     <item>
-      <title>Page Cache 调优</title>
-      <link>https://java-px.bot.cd/filesystem/09-perf/page-cache-tune</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/09-perf/page-cache-tune</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--perf"&gt;性能调优&lt;/span&gt; &gt; 内存缓存 · 内核参数 · 性能方法论 Linux 把"未刷盘"的数据缓存在 **Page Cache**（页缓存）。调整 Page Cache 的参数能让普通业务轻松获得 10-100 倍性能提升。 **关键**： - **读**：先查 Page Cache，没命中才读盘 - **写**：</description>
-      <pubDate>Sat, 08 Aug 2026 12:37:57 -0000</pubDate>
-    </item>
-    <item>
-      <title>readahead</title>
-      <link>https://java-px.bot.cd/filesystem/09-perf/readahead</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/09-perf/readahead</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--perf"&gt;性能调优&lt;/span&gt; &gt; 内核预读 · 用户态预读 · 实战取舍 readahead（预读）是 OS 提前把后续数据从磁盘读到 Page Cache 的机制。对**顺序读**场景（视频、备份、大数据查询），合理 readahead 能把 IO 性能提升 5-50 倍。 **核心算法**： - 连续顺序读 → 加大 r</description>
-      <pubDate>Sat, 08 Aug 2026 12:37:57 -0000</pubDate>
-    </item>
-    <item>
-      <title>IO 调度器</title>
-      <link>https://java-px.bot.cd/filesystem/09-perf/io-scheduler</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/09-perf/io-scheduler</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--perf"&gt;性能调优&lt;/span&gt; &gt; mq-deadline / kyber / bfq · 决定磁盘延迟 IO 调度器（IO Scheduler）是 Linux 内核在**块设备驱动之上**的一层。它决定： - **顺序**：先处理哪个 IO - **合并**：相邻 IO 合并 - **限流**：避免单一进程打爆磁盘 | 调度</description>
-      <pubDate>Sat, 08 Aug 2026 12:37:57 -0000</pubDate>
-    </item>
-    <item>
       <title>fsync 与持久化</title>
       <link>https://java-px.bot.cd/filesystem/09-perf/fsync</link>
       <guid isPermaLink="true">https://java-px.bot.cd/filesystem/09-perf/fsync</guid>
@@ -372,52 +547,10 @@
       <pubDate>Sat, 08 Aug 2026 12:37:57 -0000</pubDate>
     </item>
     <item>
-      <title>lsof</title>
-      <link>https://java-px.bot.cd/filesystem/08-tools/lsof</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/08-tools/lsof</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--tools"&gt;工具集&lt;/span&gt; &gt; 打开文件诊断 · 网络 FD · 删除但占用 Linux 中**一切皆文件**——socket、pipe、设备、目录都是文件描述符。lsof 列出所有打开的文件描述符，是排查"磁盘满但 du 不见大文件"、"端口被谁占用"等问题的瑞士军刀。 | 字段 | 含义 | |------|-----</description>
-      <pubDate>Sat, 08 Aug 2026 12:35:56 -0000</pubDate>
-    </item>
-    <item>
-      <title>du / df</title>
-      <link>https://java-px.bot.cd/filesystem/08-tools/du-df</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/08-tools/du-df</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--tools"&gt;工具集&lt;/span&gt; &gt; 目录占用 · 文件系统空闲 · 实时排查 du 与 df 是排查"磁盘满了"的左膀右臂： - **df**：文件系统级别的"剩余空间" - **du**：目录级别的"占用分布" 输出： **关键字段**： | 字段 | 含义 | |------|------| | Size | 文件系统总大</description>
-      <pubDate>Sat, 08 Aug 2026 12:35:56 -0000</pubDate>
-    </item>
-    <item>
       <title>inotify</title>
       <link>https://java-px.bot.cd/filesystem/08-tools/inotify</link>
       <guid isPermaLink="true">https://java-px.bot.cd/filesystem/08-tools/inotify</guid>
       <description>&gt; &lt;span class="kg-badge kg-badge--tools"&gt;工具集&lt;/span&gt; &gt; 文件变更事件 · 实时响应 · 替代轮询 inotify 是 Linux 内核的**文件系统事件通知**机制。它让应用监听"文件被创建/修改/删除"等事件，**无需轮询**。rsync、systemd、auditd、Docker、K8s 都用它。 传统方式：**轮询**（cron 定期查 s</description>
-      <pubDate>Sat, 08 Aug 2026 12:35:56 -0000</pubDate>
-    </item>
-    <item>
-      <title>find / fd</title>
-      <link>https://java-px.bot.cd/filesystem/08-tools/find-fd</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/08-tools/find-fd</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--tools"&gt;工具集&lt;/span&gt; &gt; 递归查找 · 高级过滤 · 性能与场景 find 是 POSIX 标准，fd 是 Rust 写的现代化替代。它们都能递归查找文件、过滤、按动作执行命令。 | 动作 | 含义 | |------|------| | `-print` | 打印路径（默认） | | `-print0` | 用 \</description>
-      <pubDate>Sat, 08 Aug 2026 12:35:56 -0000</pubDate>
-    </item>
-    <item>
-      <title>strace / ltrace</title>
-      <link>https://java-px.bot.cd/filesystem/08-tools/strace</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/08-tools/strace</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--tools"&gt;工具集&lt;/span&gt; &gt; syscall 跟踪 · IO 调试 · 性能瓶颈定位 strace 跟踪**系统调用**，ltrace 跟踪**库函数调用**。它们是 IO / FS 调试的"核武器"——能看到程序究竟做了什么 syscall，性能瓶颈在哪。 输出示例： | 选项 | 含义 | |------|-----</description>
-      <pubDate>Sat, 08 Aug 2026 12:35:56 -0000</pubDate>
-    </item>
-    <item>
-      <title>debugfs</title>
-      <link>https://java-px.bot.cd/filesystem/08-tools/debugfs</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/08-tools/debugfs</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--tools"&gt;工具集&lt;/span&gt; &gt; 抢救数据 · 手动编辑元数据 · 文件系统诊断 debugfs 是 e2fsprogs 包提供的 ext2/ext3/ext4 **交互式调试器**。它是文件系统管理员和数据救援的"瑞士军刀"——可以打开一个块设备直接读写 inode、目录、数据块。 debugfs 直接读写元数据： - *</description>
-      <pubDate>Sat, 08 Aug 2026 12:35:56 -0000</pubDate>
-    </item>
-    <item>
-      <title>FUSE</title>
-      <link>https://java-px.bot.cd/filesystem/08-tools/fuse</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/08-tools/fuse</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--tools"&gt;工具集&lt;/span&gt; &gt; 用户态驱动 · 容器存储 · 灵活扩展 FUSE（Filesystem in Userspace）是 Linux 内核提供的一个**用户态文件系统框架**。它允许你**在用户进程**里实现一个完整文件系统，挂载到 VFS 上。**S3FS、GlusterFS、sshfs、JuiceFS、fu</description>
       <pubDate>Sat, 08 Aug 2026 12:35:56 -0000</pubDate>
     </item>
     <item>
@@ -428,27 +561,6 @@
       <pubDate>Sat, 08 Aug 2026 12:33:59 -0000</pubDate>
     </item>
     <item>
-      <title>BuildKit</title>
-      <link>https://java-px.bot.cd/filesystem/07-container/buildkit</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/07-container/buildkit</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--container"&gt;容器 FS&lt;/span&gt; &gt; 并行构建 · 缓存优化 · 多前端多后端 BuildKit 是 Docker 公司开发、Moby 项目孵化的下一代镜像构建工具。它有： - **并行构建**：依赖自动 DAG 化 - **高级缓存**：本地 / registry / inline 多种 - **mount / s</description>
-      <pubDate>Sat, 08 Aug 2026 12:33:59 -0000</pubDate>
-    </item>
-    <item>
-      <title>containerd</title>
-      <link>https://java-px.bot.cd/filesystem/07-container/containerd</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/07-container/containerd</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--container"&gt;容器 FS&lt;/span&gt; &gt; K8s 默认 CRI · CNCF 毕业项目 · 高性能 containerd 是 Docker 公司开源的容器运行时（2015 年），现由 CNCF 管理，是 **Kubernetes 1.0+ 的默认 CRI 运行时**。它从 Docker daemon 中剥离，专注容器生命</description>
-      <pubDate>Sat, 08 Aug 2026 12:33:59 -0000</pubDate>
-    </item>
-    <item>
-      <title>Docker 镜像分层</title>
-      <link>https://java-px.bot.cd/filesystem/07-container/docker-layers</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/07-container/docker-layers</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--container"&gt;容器 FS&lt;/span&gt; &gt; Dockerfile 指令 → 层 · 缓存复用 · 关键优化点 Docker 镜像本质是**一系列只读层**的叠加，每一层对应 Dockerfile 的一条（或几条）指令。理解分层 = 理解镜像体积、构建速度、缓存效率。 一个镜像由**多层只读目录** + **配置（manif</description>
-      <pubDate>Sat, 08 Aug 2026 12:33:59 -0000</pubDate>
-    </item>
-    <item>
       <title>OverlayFS</title>
       <link>https://java-px.bot.cd/filesystem/07-container/overlayfs</link>
       <guid isPermaLink="true">https://java-px.bot.cd/filesystem/07-container/overlayfs</guid>
@@ -456,60 +568,11 @@
       <pubDate>Sat, 08 Aug 2026 12:33:59 -0000</pubDate>
     </item>
     <item>
-      <title>OpenEBS</title>
-      <link>https://java-px.bot.cd/filesystem/06-cloud-native/openebs</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/06-cloud-native/openebs</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--cloud-native"&gt;云原生&lt;/span&gt; &gt; cStor / Jiva / Mayastor · 三种引擎可选 OpenEBS 是 MayaData 出品的开源 K8s 存储系统。它把卷拆成**微服务**（与 Longhorn 类似），但提供**三种引擎**： - **Jiva**：基于 Linux LVM 的用户态复制</description>
-      <pubDate>Sat, 08 Aug 2026 12:32:24 -0000</pubDate>
-    </item>
-    <item>
       <title>VolumeSnapshot</title>
       <link>https://java-px.bot.cd/filesystem/06-cloud-native/snapshot</link>
       <guid isPermaLink="true">https://java-px.bot.cd/filesystem/06-cloud-native/snapshot</guid>
       <description>&gt; &lt;span class="kg-badge kg-badge--cloud-native"&gt;云原生&lt;/span&gt; &gt; CSI 原生快照 · 备份与恢复 · 数据保护 K8s 通过 `VolumeSnapshot` API 把"卷快照"做成标准资源。它是数据保护、灾备、克隆的核心机制。 | 资源 | API | 作用 | |------|-----|------| | VolumeSnapsho</description>
       <pubDate>Sat, 08 Aug 2026 12:32:24 -0000</pubDate>
-    </item>
-    <item>
-      <title>Longhorn</title>
-      <link>https://java-px.bot.cd/filesystem/06-cloud-native/longhorn</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/06-cloud-native/longhorn</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--cloud-native"&gt;云原生&lt;/span&gt; &gt; 微服务架构 · 增量快照 · 简单好用 Longhorn 是 Rancher 出品的 K8s 块存储系统。它**专为 K8s 设计**： - 100% 微服务化（每个卷一个 Pod） - 增量快照 / 备份 - 内置 Dashboard - 比 Ceph 简单 90%，比 Op</description>
-      <pubDate>Sat, 08 Aug 2026 12:32:24 -0000</pubDate>
-    </item>
-    <item>
-      <title>Rook</title>
-      <link>https://java-px.bot.cd/filesystem/06-cloud-native/rook</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/06-cloud-native/rook</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--cloud-native"&gt;云原生&lt;/span&gt; &gt; Operator 模式 · Ceph / NFS / Cassandra · 云原生存储管家 Rook 把**分布式存储系统**变成 Kubernetes 上的"原生"服务。它通过 Operator 模式，把 Ceph、NFS、Cassandra、MinIO、EdgeFS 等部</description>
-      <pubDate>Sat, 08 Aug 2026 12:32:24 -0000</pubDate>
-    </item>
-    <item>
-      <title>动态卷供给</title>
-      <link>https://java-px.bot.cd/filesystem/06-cloud-native/dynamic</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/06-cloud-native/dynamic</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--cloud-native"&gt;云原生&lt;/span&gt; &gt; 模板化创建 · 按需扩容 · 延迟绑定 动态卷供给（Dynamic Provisioning）是 K8s 存储的最佳实践：用户**只声明需求**（StorageClass + 容量），K8s 通过 CSI Driver **按需创建**实际卷。 静态 PV 的痛点： - 集群管</description>
-      <pubDate>Sat, 08 Aug 2026 12:32:24 -0000</pubDate>
-    </item>
-    <item>
-      <title>PV 与 PVC</title>
-      <link>https://java-px.bot.cd/filesystem/06-cloud-native/pv-pvc</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/06-cloud-native/pv-pvc</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--cloud-native"&gt;云原生&lt;/span&gt; &gt; PV 资源池 · PVC 申请单 · StorageClass 动态分配 K8s 把存储分成**供应者（PV）**和**消费者（PVC）**两个抽象： - **PV（PersistentVolume）**：集群里的"一块存储" - **PVC（PersistentVolumeC</description>
-      <pubDate>Sat, 08 Aug 2026 12:32:24 -0000</pubDate>
-    </item>
-    <item>
-      <title>CSI</title>
-      <link>https://java-px.bot.cd/filesystem/06-cloud-native/csi</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/06-cloud-native/csi</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--cloud-native"&gt;云原生&lt;/span&gt; &gt; 标准驱动接口 · 跨存储系统 · 解耦供应商 CSI（Container Storage Interface）是 Kubernetes 在 1.13 后 GA 的存储驱动标准。它把"卷的提供 / 挂载 / 快照 / 扩"做成统一的 gRPC 接口，任何厂商按这个接口实现 dri</description>
-      <pubDate>Sat, 08 Aug 2026 12:32:24 -0000</pubDate>
-    </item>
-    <item>
-      <title>rsync</title>
-      <link>https://java-px.bot.cd/filesystem/05-network/rsync</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/05-network/rsync</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--network"&gt;网络协议&lt;/span&gt; &gt; 增量传输 · SSH 隧道 · 经典同步工具 rsync 是文件**增量同步**的事实标准。它通过"滚动校验和"算法，只传输差异部分。在备份、镜像、跨机同步场景里几乎"必装"。 把文件切成小块： 1. 发送方给每个块算两个滚动校验（弱 32-bit + 强 MD5） 2. 接收方对比</description>
-      <pubDate>Sat, 08 Aug 2026 12:30:31 -0000</pubDate>
     </item>
     <item>
       <title>FTP / SFTP</title>
@@ -596,74 +659,11 @@
       <pubDate>Sat, 08 Aug 2026 12:27:22 -0000</pubDate>
     </item>
     <item>
-      <title>Lustre</title>
-      <link>https://java-px.bot.cd/filesystem/03-distributed/lustre</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/03-distributed/lustre</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--distributed"&gt;分布式 FS&lt;/span&gt; &gt; MDS + OSS · RDMA · HPC 专属 Lustre 名字源自 "Linux + Cluster"，专为 **HPC（高性能计算）** 设计：在 Top 500 超算里，70%+ 的系统曾使用 Lustre 作为主存储。它是**吞吐量之王**，但前提是"专为大文</description>
-      <pubDate>Sat, 08 Aug 2026 12:27:22 -0000</pubDate>
-    </item>
-    <item>
-      <title>MooseFS</title>
-      <link>https://java-px.bot.cd/filesystem/03-distributed/moosefs</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/03-distributed/moosefs</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--distributed"&gt;分布式 FS&lt;/span&gt; &gt; 中心元数据 · chunk server · 易上手 MooseFS（MFS）借鉴了 Google File System 的设计思路，提供 POSIX 兼容的分布式文件存储。它因**架构简洁、运维简单**而被中小企业广泛使用，是入门分布式 FS 的优选。 | 特性 | 说</description>
-      <pubDate>Sat, 08 Aug 2026 12:27:22 -0000</pubDate>
-    </item>
-    <item>
       <title>JuiceFS</title>
       <link>https://java-px.bot.cd/filesystem/03-distributed/juicefs</link>
       <guid isPermaLink="true">https://java-px.bot.cd/filesystem/03-distributed/juicefs</guid>
       <description>&gt; &lt;span class="kg-badge kg-badge--distributed"&gt;分布式 FS&lt;/span&gt; &gt; 元数据上 Redis/TiKV · 数据走对象存储 · POSIX 兼容 JuiceFS 是国内团队开源的云原生分布式文件系统，把"元数据"和"数据"分别放到两套独立的系统里： - **元数据** → Redis / TiKV / MySQL（任意 KV/关系库） - **</description>
       <pubDate>Sat, 08 Aug 2026 12:27:22 -0000</pubDate>
-    </item>
-    <item>
-      <title>GlusterFS</title>
-      <link>https://java-px.bot.cd/filesystem/03-distributed/glusterfs</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/03-distributed/glusterfs</guid>
-      <description>&gt; &lt;span class="kg-badge kg-badge--distributed"&gt;分布式 FS&lt;/span&gt; &gt; 无元数据节点 · 弹性哈希 · 用户态 FUSE GlusterFS（现属 Red Hat / Gluster.org）是一款**完全运行在用户态**的横向扩展文件系统。它不依赖独立的元数据服务器，靠 **弹性哈希（DHT）** 把目录映射到具体 brick，是"轻量、好上</description>
-      <pubDate>Sat, 08 Aug 2026 12:27:22 -0000</pubDate>
-    </item>
-    <item>
-      <title>11 · 备份与快照</title>
-      <link>https://java-px.bot.cd/filesystem/11-backup/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/11-backup/README</guid>
-      <description>&lt;span class="kg-badge kg-badge-backup"&gt;备份&lt;/span&gt; 数据保护——从快照到异地容灾。 | 节点 | 一句话 | |------|--------| | [快照技术对比](/11-backup/snapshot) | LVM / ZFS / Btrfs / EBS | | [Borg 增量备份](/11-backup/borg) | 去重压缩 + 加密 |</description>
-      <pubDate>Sat, 08 Aug 2026 12:19:23 -0000</pubDate>
-    </item>
-    <item>
-      <title>06 · 云原生存储</title>
-      <link>https://java-px.bot.cd/filesystem/06-cloud-native/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/06-cloud-native/README</guid>
-      <description>&lt;span class="kg-badge kg-badge-cloud-native"&gt;云原生&lt;/span&gt; Kubernetes 时代的存储抽象——CSI、PV/PVC、Operator。 | 节点 | 一句话 | |------|--------| | [CSI 容器存储接口](/06-cloud-native/csi) | K8s 存储标准 | | [PV / PVC / StorageC</description>
-      <pubDate>Sat, 08 Aug 2026 12:18:56 -0000</pubDate>
-    </item>
-    <item>
-      <title>04 · 对象存储</title>
-      <link>https://java-px.bot.cd/filesystem/04-object/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/04-object/README</guid>
-      <description>&lt;span class="kg-badge kg-badge-object"&gt;对象&lt;/span&gt; 通过 HTTP API 访问的"桶+对象"模型——云时代的存储基石。 | 节点 | 一句话 | |------|--------| | [S3 协议规范](/04-object/s3-protocol) | 事实标准，RESTful API | | [MinIO 自建对象存储](/04-object/</description>
-      <pubDate>Sat, 08 Aug 2026 12:18:47 -0000</pubDate>
-    </item>
-    <item>
-      <title>03 · 分布式文件系统</title>
-      <link>https://java-px.bot.cd/filesystem/03-distributed/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/03-distributed/README</guid>
-      <description>&lt;span class="kg-badge kg-badge-distributed"&gt;分布式&lt;/span&gt; 文件不再局限于单台机器——本章介绍跨节点的文件系统。 | 节点 | 一句话 | |------|--------| | [HDFS 大数据基石](/03-distributed/hdfs) | Hadoop 默认 FS，PB 级顺序写 | | [CephFS 统一存储](/03-distr</description>
-      <pubDate>Sat, 08 Aug 2026 12:18:42 -0000</pubDate>
-    </item>
-    <item>
-      <title>02 · 本地盘文件系统</title>
-      <link>https://java-px.bot.cd/filesystem/02-disk-fs/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/02-disk-fs/README</guid>
-      <description>&lt;span class="kg-badge kg-badge-disk-fs"&gt;本地盘&lt;/span&gt; 单块磁盘上的文件系统——从 ext4 到 ZFS，每种 FS 都是一组权衡。 | 节点 | 一句话 | |------|--------| | [ext4 经典之选](/02-disk-fs/ext4) | Linux 默认，稳定可靠，日志型 FS | | [XFS 高性能日志](/02-disk</description>
-      <pubDate>Sat, 08 Aug 2026 12:18:37 -0000</pubDate>
-    </item>
-    <item>
-      <title>01 · 文件系统基础</title>
-      <link>https://java-px.bot.cd/filesystem/01-basics/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/01-basics/README</guid>
-      <description>&lt;span class="kg-badge kg-badge-basics"&gt;基础&lt;/span&gt; 理解"打开一个文件背后发生了什么"——这是掌握所有存储技术的起点。 | 节点 | 一句话 | |------|--------| | [inode 与 dentry](/01-basics/inode-dentry) | 文件的"身份证"——文件名背后的元数据 | | [VFS 虚拟文件系统](/01</description>
-      <pubDate>Sat, 08 Aug 2026 12:18:32 -0000</pubDate>
     </item>
   </channel>
 </rss>

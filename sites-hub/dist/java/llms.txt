@@ -1,8 +1,8 @@
 # java 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 53 个文档页 · 80,502 字
-> 生成时间：2026-08-25T20:49:52
+> 53 个文档页 · 84,123 字
+> 生成时间：2026-08-27T21:42:04
 
 ## [接口设计](https://java-px.bot.cd/java/01-process/api-design)
 > 接口是前后端协作的契约，设计好坏直接影响开发效率和系统质量。 <div class="kg-note"> <strong>规范</strong>：URL 用名词复数、小写、短横线分隔；资源嵌套不超过两层。 </div> | 范围 | 含义 | 示例 | |---|---|---| | 0 | 成功 | | | 1xxx | 参数错误 | 1001-参数缺失, 1002-参数格式错误 | | 2xx
@@ -98,7 +98,7 @@
 > 统一的异常处理是系统稳定的基石，确保错误信息清晰、可追踪、不泄露敏感信息。 | 原则 | 说明 | |---|---| | 不吞异常 | finally 块不要 return，catch 后要记录日志 | | 不暴露细节 | 生产环境不返回堆栈信息给前端 | | 分层处理 | ControllerAdvice 统一拦截，Service 层只管抛 | | 异常转换 | 第三方异常转为业务异常再抛出
 
 ## [接口幂等](https://java-px.bot.cd/java/03-practice/idempotency)
-> 幂等：同一个操作执行一次和执行多次，结果相同。 - 用户手抖点多次提交按钮 - 网络超时，客户端自动重试 - MQ 消息重复消费 - 定时任务重复执行 <KnowledgeGraph mode="neighbor" focusNodeId="idempotency" :height="400" />
+> 幂等：同一个操作执行一次和执行多次，结果相同。 - 用户手抖点多次提交按钮 - 网络超时，客户端自动重试 - MQ 消息重复消费 - 定时任务重复执行 <KnowledgeGraph mode="neighbor" focusNodeId="idempotency" :height="400" /> <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值
 
 ## [日志规范](https://java-px.bot.cd/java/03-practice/logging)
 > 日志是排查问题的核心手段，规范的日志让问题定位效率提升 10 倍。 | 级别 | 使用场景 | |---|---| | ERROR | 系统错误，需要人工介入（数据库挂了、第三方不可用） | | WARN | 潜在问题（参数异常但有兜底、降级触发、接近阈值） | | INFO | 关键业务流程节点（请求入参、调用外部接口、重要状态变更） | | DEBUG | 调试信息（方法入参出参、中间变量，生
@@ -152,13 +152,13 @@
 > Spring Boot 是 Java Web 开发的事实标准框架，核心价值是**约定大于配置**。 | 特性 | 说明 | |---|---| | 自动配置 | 根据依赖自动配置 Bean，减少 XML/注解配置 | | 起步依赖 | starter 包一站式引入相关依赖 | | 内嵌容器 | 内嵌 Tomcat/Jetty/Undertow，jar 包直接运行 | | Actuator | 生产
 
 ## [Spring MVC](https://java-px.bot.cd/java/04-tech/spring-mvc)
-> Spring MVC 处理 Web 层的请求分发、参数绑定、响应返回。 <KnowledgeGraph mode="neighbor" focusNodeId="spring-mvc" :height="400" />
+> Spring MVC 处理 Web 层的请求分发、参数绑定、响应返回。 <KnowledgeGraph mode="neighbor" focusNodeId="spring-mvc" :height="400" /> <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | --- | --- | | TODO_1 | 待补充 | -
 
 ## [Spring Security](https://java-px.bot.cd/java/04-tech/spring-security)
 > Spring Security 提供认证（你是谁）和授权（你能做什么）功能。 | 概念 | 说明 | |---|---| | Authentication | 认证：验证用户身份 | | Authorization | 授权：验证用户权限 | | Principal | 当前登录用户 | | GrantedAuthority | 权限/角色 | | SecurityContext | 安全上下文（
 
 ## [测试框架](https://java-px.bot.cd/java/04-tech/testing)
-> Java 测试的核心组合：JUnit 5 + Mockito + SpringBootTest。 <KnowledgeGraph mode="neighbor" focusNodeId="testing" :height="400" />
+> Java 测试的核心组合：JUnit 5 + Mockito + SpringBootTest。 <KnowledgeGraph mode="neighbor" focusNodeId="testing" :height="400" /> <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | --- | --- | | TODO_1
 
 ## [Java Web Dev Manual](https://java-px.bot.cd/java/index)
 > <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Java 知识图谱太广（基础 / JVM / 并发 / 框架 / 中间件）怎么系统学？", "JVM 内存模型（堆 / 栈 / Metaspace / 直接

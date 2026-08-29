@@ -2,75 +2,75 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://java-px.bot.cd/devops/01-pipeline/best-practices</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/01-pipeline/github-actions</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/01-pipeline/gitlab-ci</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/01-pipeline/jenkins</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/01-pipeline/overview</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/01-pipeline/tekton</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/02-iac/ansible</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/02-iac/overview</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/02-iac/pulumi</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/02-iac/terraform-vs-pulumi</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/02-iac/terraform</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/03-gitops/argocd</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/03-gitops/flux</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/03-gitops/overview</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/03-gitops/progressive-delivery</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/04-release/blue-green</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/04-release/canary</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/04-release/feature-flag</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/04-release/overview</loc>
@@ -78,46 +78,46 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/04-release/rollback</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/05-cicd-observability/dora-metrics</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/05-cicd-observability/flaky-test</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/05-cicd-observability/overview</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/05-cicd-observability/pipeline-monitoring</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/06-best-practices/caching</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/06-best-practices/case-study</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/06-best-practices/oidc-federation</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/06-best-practices/secrets-management</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/06-best-practices/secure-pipeline</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/devops/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
 </urlset>

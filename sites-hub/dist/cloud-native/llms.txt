@@ -1,8 +1,8 @@
 # cloud-native 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 55 个文档页 · 224,040 字
-> 生成时间：2026-08-25T20:49:52
+> 55 个文档页 · 225,616 字
+> 生成时间：2026-08-27T21:42:04
 
 ## [Docker Compose](https://java-px.bot.cd/cloud-native/01-docker/compose)
 > > 多容器应用一键编排。最适合本地开发 / 单机测试 / 小规模部署。 | 字段 | 作用 | |------|------| | `image` | 用镜像 | | `build` | 构建（路径 / Dockerfile 名） | | `command` | 覆盖 CMD | | `entrypoint` | 覆盖 ENTRYPOINT | | `environment` | 环境变量 | |

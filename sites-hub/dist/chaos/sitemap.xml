@@ -2,27 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://java-px.bot.cd/chaos/01-foundations/blast-radius</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/01-foundations/history</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/01-foundations/overview</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/01-foundations/steady-state</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/02-chaos-mesh/architecture</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/02-chaos-mesh/network-chaos</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/02-chaos-mesh/overview</loc>
@@ -30,15 +30,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/02-chaos-mesh/pod-chaos</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/02-chaos-mesh/workflow</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/03-litmus/chaos-experiment</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/03-litmus/overview</loc>
@@ -46,39 +46,39 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/03-litmus/probe-check</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/03-litmus/sdk</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/04-platform-compare/decision-tree</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/04-platform-compare/mesh-vs-litmus</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/04-platform-compare/open-vs-commercial</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/04-platform-compare/overview</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/05-resilience-patterns/bulkhead</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/05-resilience-patterns/circuit-breaker</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/05-resilience-patterns/multi-region-dr</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/05-resilience-patterns/overview</loc>
@@ -86,15 +86,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/05-resilience-patterns/rate-limit-degrade</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/05-resilience-patterns/retry-backoff</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/06-game-day/exercise-design</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/06-game-day/overview</loc>
@@ -102,30 +102,30 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/06-game-day/retro</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/06-game-day/roles</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/07-observability-for-chaos/case-study</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/07-observability-for-chaos/measure-steady-state</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/07-observability-for-chaos/overview</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/07-observability-for-chaos/slo-feedback-loop</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/chaos/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
 </urlset>

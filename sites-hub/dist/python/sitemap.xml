@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/01-basics/install</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/01-basics/intro</loc>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/02-principles/gc</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/02-principles/gil</loc>
@@ -38,15 +38,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/02-principles/memory</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/02-principles/object-model</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/02-principles/profiling</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/03-libraries/beautifulsoup</loc>
@@ -54,27 +54,27 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/03-libraries/pandas</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/03-libraries/pytest</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/03-libraries/requests</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/03-libraries/sqlalchemy</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/03-libraries/stdlib</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/04-concurrency/asyncio</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/04-concurrency/multiprocessing</loc>
@@ -82,7 +82,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/04-concurrency/patterns</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/04-concurrency/pool</loc>
@@ -90,19 +90,19 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/04-concurrency/sync-primitives</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/04-concurrency/threading</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/05-scraping/anti-crawl</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/05-scraping/basics</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/05-scraping/dynamic</loc>
@@ -110,31 +110,31 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/05-scraping/requests-bs4</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/05-scraping/scrapy</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/06-ai-ml/cv</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/06-ai-ml/huggingface</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/06-ai-ml/llm-apps</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/06-ai-ml/ml-basics</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/06-ai-ml/nlp</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/06-ai-ml/overview</loc>
@@ -142,7 +142,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/07-data/analysis</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/07-data/big-data</loc>
@@ -150,23 +150,23 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/07-data/cleaning</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/07-data/matplotlib</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/07-data/numpy</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/07-data/pandas</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/08-algorithms/builtin</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/08-algorithms/complexity</loc>
@@ -174,11 +174,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/08-algorithms/dp</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/08-algorithms/search</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/08-algorithms/sort</loc>
@@ -186,7 +186,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/08-algorithms/tree-graph</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/09-enterprise/dependencies</loc>
@@ -194,27 +194,27 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/09-enterprise/docker</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/09-enterprise/fastapi</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/09-enterprise/logging</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/09-enterprise/performance</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/09-enterprise/security</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/09-enterprise/structure</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/09-enterprise/testing</loc>
@@ -222,7 +222,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/cheatsheet</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/graph</loc>
@@ -230,7 +230,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/python/mindmap</loc>

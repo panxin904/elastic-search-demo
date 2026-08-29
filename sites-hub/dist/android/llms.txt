@@ -1,8 +1,8 @@
 # android 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 29 个文档页 · 34,153 字
-> 生成时间：2026-08-25T20:49:52
+> 29 个文档页 · 43,494 字
+> 生成时间：2026-08-27T21:42:04
 
 ## [应用层](https://java-px.bot.cd/android/01-app/README)
 > Android 应用层：语言 + Jetpack + 协程，业务开发核心栈。 | 节点 | 一句话 | |------|--------| | [Kotlin / Java / NDK](./language) | JVM 语言与现代 Android 开发 | | [Jetpack 套件](./jetpack) | ViewModel / LiveData / Room / Hilt / Work

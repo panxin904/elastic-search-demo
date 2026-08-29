@@ -6,13 +6,13 @@
     <atom:link href="https://java-px.bot.cd/java-language/feed.xml" rel="self" type="application/rss+xml" />
     <description>java-language 知识图谱（55 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 21:42:04 -0000</lastBuildDate>
     <item>
       <title>java-language 知识图谱</title>
       <link>https://java-px.bot.cd/java-language/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/java-language/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "会用 HashMap 但不理解红黑树和 Hash 冲突", "写了 Spring 但不理解 IoC 容器如何工作", "遇到 GC 停顿只会调 Xmx",</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <description>::: tip 💡 关于本站定位 本站是 **14 章速查手册合集**（不是系统化教程）： - 每篇 30-200 字 cheat sheet 风格（代码示例 + 关键参数） - 14 章覆盖基础语法 → JVM → 并发 → Spring → 微服务 → 面试 - 详细讲解请配合各章 [Reference](#references) 链接的官方文档 - 薄页豁免已配置在 `audit-conte</description>
+      <pubDate>Thu, 27 Aug 2026 21:28:31 -0000</pubDate>
     </item>
     <item>
       <title>MyBatis / MyBatis-Plus</title>

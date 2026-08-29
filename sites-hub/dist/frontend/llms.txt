@@ -1,8 +1,8 @@
 # frontend 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 65 个文档页 · 158,292 字
-> 生成时间：2026-08-25T20:49:52
+> 65 个文档页 · 160,159 字
+> 生成时间：2026-08-27T21:42:04
 
 ## [浏览器渲染原理](https://java-px.bot.cd/frontend/01-foundation/browser)
 > | 进程 | 职责 | |------|------| | Browser | 界面、Tab 管理、子进程协调 | | Renderer | 单个 Tab 的渲染（HTML 解析、布局、绘制） | | GPU | 加速绘制、3D CSS | | Network | 网络请求 | | Plugin | 第三方插件（已废弃） | 每个 Tab 默认一个 Renderer 进程（Site Isolati
@@ -170,7 +170,7 @@
 > > 2024-2026 春招 / 秋招常考题汇总。 1. **闭包**：原理 + 实战场景（防抖、Hooks、单次权限） 2. **原型链**：实现继承的几条路 3. **Event Loop**：浏览器 / Node 差别 4. **this 绑定**：call / apply / bind / new / 箭头函数 5. **Promise 全家桶**：all / allSettled / r
 
 ## [手写代码题](https://java-px.bot.cd/frontend/13-interview/coding)
-> > 30 个手写代码题，按主题分类。 - [高频面试题](/13-interview/basic) - [系统设计题](/13-interview/system)
+> > 30 个手写代码题，按主题分类。 - [高频面试题](/13-interview/basic) - [系统设计题](/13-interview/system) <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | --- | --- | | TODO_1 | 待补充 | - | | TODO_2 | 待补充 | - | > TOD
 
 ## [系统设计题](https://java-px.bot.cd/frontend/13-interview/system)
 > > 面试常考的"大型"题：电商 / 内容 / 协作 / 实时。 **关键设计**： - **发号器**：自增 ID / 雪花 / Hash - **Hash 算法**：MD5 → 取前 N 位 / CRC32 - **冲突处理**：追加 1 字符再 Hash - **存储**：MySQL / Redis（缓存）+ 异步落库 - **301 vs 302**：301 永久（缓存到浏览器），302 临

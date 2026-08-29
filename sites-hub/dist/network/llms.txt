@@ -1,8 +1,8 @@
 # network 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 66 个文档页 · 204,702 字
-> 生成时间：2026-08-25T20:49:52
+> 66 个文档页 · 212,136 字
+> 生成时间：2026-08-27T21:42:04
 
 ## [数据封装与解封装](https://java-px.bot.cd/network/01-basics/encapsulation)
 > > 网络通信过程中数据如何被**层层包装**和**层层拆解**。 **每层加上自己的头部（Header）** | 网络 | MTU（字节）| |---|---| | Ethernet | 1500 | | PPPoE | 1492 | | 4G LTE | 1500 | | WiFi | 1500 | | 巨型帧 (Jumbo Frame) | 9000 | **分片：** 当 IP 包 > MT

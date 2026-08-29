@@ -1,11 +1,11 @@
 # redis 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 59 个文档页 · 349,784 字
-> 生成时间：2026-08-25T20:49:52
+> 59 个文档页 · 355,054 字
+> 生成时间：2026-08-27T21:42:04
 
 ## [5 大基础类型](https://java-px.bot.cd/redis/01-basics/datatypes)
-> > Redis 不是简单的 key-value 缓存，**value 可以是 5 种不同的数据结构**，每种都针对特定场景优化。 | 类型 | 描述 | 底层编码（Redis 7） | 适用场景 | |------|------|---------------------|---------| | **String** | 字符串 / 数字 / 二进制 | int / embstr / raw |
+> ![Redis 五大数据类型 + 底层编码](/redis-data-structures.svg) > Redis 不是简单的 key-value 缓存，**value 可以是 5 种不同的数据结构**，每种都针对特定场景优化。 | 类型 | 描述 | 底层编码（Redis 7） | 适用场景 | |------|------|---------------------|---------| |
 
 ## [过期策略](https://java-px.bot.cd/redis/01-basics/expiration)
 > > Redis 不是所有 key 都永久存在，**每个 key 都可以设置过期时间（TTL）**。理解 Redis 如何处理过期 key，是理解内存淘汰的前提。 如果不过期 → **内存无限增长** → Redis OOM（内存溢出）。 Redis 7+ 提供**精确过期**： - ✅ Redis 7.4+ 通过 hash table 多级索引实现精确过期 - ⚠️ Redis 7.4 之前是**

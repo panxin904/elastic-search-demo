@@ -2,51 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://java-px.bot.cd/postgresql/01-basics/architecture</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/01-basics/config</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/01-basics/overview</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/02-data-types/array</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/02-data-types/built-in</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/02-data-types/custom</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/02-data-types/jsonb</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/02-data-types/range</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/03-tables-and-indexes/brin</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/03-tables-and-indexes/btree</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/03-tables-and-indexes/gin</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/03-tables-and-indexes/gist</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/03-tables-and-indexes/hash</loc>
@@ -54,43 +54,43 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/03-tables-and-indexes/partition</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/03-tables-and-indexes/spgist</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/03-tables-and-indexes/table</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/04-query/cte</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/04-query/explain</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/04-query/fulltext-search</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/04-query/planner</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/04-query/recursive</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/04-query/window</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/05-transaction/deadlock</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/05-transaction/isolation</loc>
@@ -98,47 +98,47 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/05-transaction/lock</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/05-transaction/mvcc</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/06-advanced/function</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/06-advanced/generated</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/06-advanced/trigger</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/06-advanced/upsert</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/06-advanced/view</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/07-operations/backup</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/07-operations/slow-query</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/07-operations/stats</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/07-operations/upgrade</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/07-operations/vacuum</loc>
@@ -146,15 +146,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/08-replication/hot-standby</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/08-replication/logical</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/08-replication/patroni</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/08-replication/streaming</loc>
@@ -162,39 +162,39 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/09-connection/jdbc</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/09-connection/libpq</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/09-connection/pgbouncer</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/09-connection/psycopg</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/10-extensions/citus</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/10-extensions/pg_trgm</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/10-extensions/pgvector</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/10-extensions/postgis</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/10-extensions/timescaledb</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/11-compare/mongodb-vs-postgresql</loc>
@@ -202,7 +202,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/11-compare/mysql-vs-postgresql</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/11-compare/oracle-vs-postgresql</loc>
@@ -210,6 +210,6 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/postgresql/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
 </urlset>

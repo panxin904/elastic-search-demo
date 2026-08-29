@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://java-px.bot.cd/observability/01-foundations/four-pillars</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/01-foundations/observability-vs-monitoring</loc>
@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/01-foundations/signals</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/01-foundations/sli-slo</loc>
@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/02-opentelemetry/collector</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/02-opentelemetry/otlp</loc>
@@ -38,11 +38,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/03-prometheus/alert</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/03-prometheus/data-model</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/03-prometheus/exporter</loc>
@@ -50,11 +50,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/03-prometheus/overview</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/03-prometheus/promql</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/04-grafana/alerting</loc>
@@ -62,15 +62,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/04-grafana/annotation</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/04-grafana/dashboard</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/04-grafana/overview</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/04-grafana/variables</loc>
@@ -78,11 +78,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/05-loki/best-practice</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/05-loki/logql</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/05-loki/overview</loc>
@@ -94,7 +94,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/06-tracing/concepts</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/06-tracing/jaeger</loc>
@@ -114,7 +114,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/07-elk-efk/elasticsearch-logs</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/07-elk-efk/filebeat</loc>
@@ -130,7 +130,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/08-alerting/alertmanager</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/08-alerting/oncall</loc>
@@ -138,7 +138,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/08-alerting/severity</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/08-alerting/silence</loc>
@@ -146,7 +146,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/09-app-instrumentation/business-metrics</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/09-app-instrumentation/jvm-metrics</loc>
@@ -154,7 +154,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/09-app-instrumentation/k8s-metrics</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/09-app-instrumentation/red-method</loc>
@@ -174,30 +174,30 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/10-profiling/pprof</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/10-profiling/pyroscope</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/11-scenarios/cost-optimization</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/11-scenarios/database-monitor</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/11-scenarios/k8s-monitor</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/11-scenarios/microservice-trace</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/observability/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
 </urlset>

@@ -1,8 +1,8 @@
 # linux 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 71 个文档页 · 244,194 字
-> 生成时间：2026-08-25T20:49:52
+> 71 个文档页 · 248,713 字
+> 生成时间：2026-08-27T21:42:04
 
 ## [发行版选择](https://java-px.bot.cd/linux/01-foundation/distros)
 > > 同一个内核 + 不同软件 = 不同发行版（Distribution）。选哪个不是信仰问题，是工程问题。 | 发行版 | 包管理 | 适合 | 备注 | |--------|--------|------|------| | **Ubuntu Server LTS** | apt / deb | 服务器 / 云 / 新手 | 文档最多，社区最大 | | **Debian** | apt / de
@@ -41,7 +41,7 @@
 > > **s**tream **ed**itor。批量改文本最常用。 | 场景 | 用 | |------|-----| | 简单替换 | sed | | 列操作 | awk | | 流式处理 | sed 更快 | | 复杂条件 | awk 更强 | - [awk](/03-text/awk) - [sort / uniq](/03-text/sort-uniq) - [xargs / find 配
 
 ## [sort / uniq](https://java-px.bot.cd/linux/03-text/sort-uniq)
-> > 排序与去重，看似简单，组合起来是日志分析的利器。 uniq **只能去重相邻行**，所以先 sort。 - [grep](/03-text/grep) - [awk](/03-text/awk) - [xargs / find 配合](/03-text/xargs)
+> > 排序与去重，看似简单，组合起来是日志分析的利器。 uniq **只能去重相邻行**，所以先 sort。 - [grep](/03-text/grep) - [awk](/03-text/awk) - [xargs / find 配合](/03-text/xargs) <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | --- |
 
 ## [xargs / find 配合](https://java-px.bot.cd/linux/03-text/xargs)
 > > 把 **stdin 转成参数**，传给其他命令。配合 find / grep / cp 是经典用法。 | | `-exec` | `xargs` | |--|---------|---------| | 语法 | `find ... -exec cmd {} \;` | `find ... | xargs cmd` | | 批量 | 用 `{} +` 一次传多文件 | 默认一次传多（更快） |
@@ -68,7 +68,7 @@
 > > 跟 [02-filesystem/permissions](/02-filesystem/permissions) 互补——这里更偏用户 / 安全场景。 详见 [02-filesystem/permissions](/02-filesystem/permissions)。 详见 [permissions](/02-filesystem/permissions)。 需要给特定用户 / 组额外授权
 
 ## [chown / chgrp](https://java-px.bot.cd/linux/05-user/chown)
-> > 改属主 / 属组。chmod 改的是"谁能做什么"，chown 改的是"文件属于谁"。 `chown :group file` 等价 `chgrp group file`。 - [chmod 权限](/05-user/chmod) - [用户 / 用户组](/05-user/users-groups) - [sudo 提权](/05-user/sudo)
+> > 改属主 / 属组。chmod 改的是"谁能做什么"，chown 改的是"文件属于谁"。 `chown :group file` 等价 `chgrp group file`。 - [chmod 权限](/05-user/chmod) - [用户 / 用户组](/05-user/users-groups) - [sudo 提权](/05-user/sudo) <!-- auto-enrich:do
 
 ## [sudo 提权](https://java-px.bot.cd/linux/05-user/sudo)
 > > 让普通用户在不共享 root 密码的情况下，做有限的高权限操作。 格式： | 字段 | 含义 | |------|------| | `who` | 用户 / %组 / User_Alias | | `where` | 主机（基本不用，全用 ALL） | | `(as_whom)` | 模拟身份（默认 ALL） | | `what` | 命令 / 命令别名 / Cmnd_Alias | | `
@@ -149,10 +149,10 @@
 > > 计数器式的性能工具：每秒打一行，便于看趋势。 | 列 | 含义 | 警告 | |----|------|------| | `r` | 等待运行的进程数 | > CPU 核心数 → 满载 | | `b` | 不可中断睡眠（IO） | > 0 → IO 瓶颈 | | 列 | 含义 | |----|------| | `swpd` | swap 使用 | | `free` | 完全空闲内存 | |
 
 ## [数组与字符串](https://java-px.bot.cd/linux/11-shell/arrays)
-> > shell 的字符串处理比 Python 弱，但日常够用。 - [bash 基础语法](/11-shell/bash-syntax) - [变量与参数](/11-shell/variables) - [函数与脚本组织](/11-shell/functions) - [调试与陷阱](/11-shell/debug)
+> > shell 的字符串处理比 Python 弱，但日常够用。 - [bash 基础语法](/11-shell/bash-syntax) - [变量与参数](/11-shell/variables) - [函数与脚本组织](/11-shell/functions) - [调试与陷阱](/11-shell/debug) <!-- auto-enrich:do-not-edit --> | 参数 |
 
 ## [bash 基础语法](https://java-px.bot.cd/linux/11-shell/bash-syntax)
-> > 写 shell 脚本的第一步。 - [变量与参数](/11-shell/variables) - [数组与字符串](/11-shell/arrays) - [函数与脚本组织](/11-shell/functions) - [调试与陷阱](/11-shell/debug)
+> > 写 shell 脚本的第一步。 - [变量与参数](/11-shell/variables) - [数组与字符串](/11-shell/arrays) - [函数与脚本组织](/11-shell/functions) - [调试与陷阱](/11-shell/debug) <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | ---
 
 ## [调试与陷阱](https://java-px.bot.cd/linux/11-shell/debug)
 > > shell 的"沉默失败"特性是最大杀手，这章讲怎么调试 + 常见坑。 输出： `PS4` 控制 trace 前缀： `-x` 更常用。 **生产脚本默认就开**。 | 选项 | 作用 | |------|------| | `-e` | 命令返回非 0 立即退出 | | `-u` | 用未定义变量报错 | | `-o pipefail` | 管道失败检测 | | `-x` | 打印每条命令
@@ -200,7 +200,7 @@
 > > Linux 内核按需加载 / 卸载的能力（LKM = Loadable Kernel Module）。 第一列：模块名 第二列：占内存大小 第三列：使用计数 + 谁在用 驱动源码在**内核升级时自动重编译**： | | 模块（默认） | 编译进内核（CONFIG_Y=y） | |--|------------|------------------------| | 灵活性 | 高，可动态加 |
 
 ## [sysctl 调参](https://java-px.bot.cd/linux/14-kernel/sysctl)
-> > 修改 `/proc/sys/` 下的内核参数，**运行时生效**，无需重启。 - [GRUB 引导](/14-kernel/grub) - [initramfs](/14-kernel/initramfs) - [内核模块](/14-kernel/modules)
+> > 修改 `/proc/sys/` 下的内核参数，**运行时生效**，无需重启。 - [GRUB 引导](/14-kernel/grub) - [initramfs](/14-kernel/initramfs) - [内核模块](/14-kernel/modules) <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | --- |
 
 ## [命令速查](https://java-px.bot.cd/linux/cheatsheet)
 > > 30+ 高频命令，分组速查。每条带常用示例，可以直接复制运行。 - [入门基础](/01-foundation/intro) — 理解 Linux 全貌 - [文件与目录](/02-filesystem/ls) — 高频命令详解 - [学习路径](/path) — 系统化学习路线

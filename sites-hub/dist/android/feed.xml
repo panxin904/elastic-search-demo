@@ -6,195 +6,195 @@
     <atom:link href="https://java-px.bot.cd/android/feed.xml" rel="self" type="application/rss+xml" />
     <description>android 知识图谱（29 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
-    <item>
-      <title>android 知识图谱</title>
-      <link>https://java-px.bot.cd/android/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/</guid>
-      <description>&lt;script setup&gt; const painPoints = [ "Activity / Fragment 生命周期混乱：屏幕旋转后 ViewModel 数据丢失？", "协程作用域错位：GlobalScope / viewModelScope / lifecycleScope 该用哪个？", "Compose 与 View 混用：状态同步、重组范围、跨进程通信怎么搞？", "应用卡顿 /</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>Android 站在知识图谱中的位置</title>
-      <link>https://java-px.bot.cd/android/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/README</guid>
-      <description>**Android = 基于 Linux Kernel 的移动设备操作系统**：应用层用 Kotlin + Jetpack Compose / 系统层是 Java + C++ + Binder IPC 的横切栈。 - Android 是横切层：应用层要 frontend + java-language；系统层要 linux + rust - 90% 应用开发者只要掌握 Jetpack + Comp</description>
-      <pubDate>Mon, 24 Aug 2026 21:16:33 -0000</pubDate>
-    </item>
-    <item>
-      <title>Android 学习路径</title>
-      <link>https://java-px.bot.cd/android/path</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/path</guid>
-      <description>&gt; 三条路径覆盖"应用开发者 / 系统/性能优化者 / 跨端架构师"三种角色。按背景选择即可。 适合：Java 转 Android / 前端转移动端 / 从零入门。 | Day | 主题 | 关键交付 | |---|---|---| | D1 | Kotlin 基础（语法糖 / 空安全 / 扩展函数） | 第一个 Kotlin 工程 | | D2-3 | Activity / Fragment 生</description>
-      <pubDate>Mon, 24 Aug 2026 21:16:33 -0000</pubDate>
-    </item>
-    <item>
-      <title>Android Studio</title>
-      <link>https://java-px.bot.cd/android/05-toolchain/ide</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/05-toolchain/ide</guid>
-      <description>&gt; 官方 IDE：编码 / 调试 / 性能分析一体化工具集。 - Profiler：CPU / Memory / Network / Energy 实时分析 - Layout Inspector：运行时 View 树可视化 - APK Analyzer：APK 包结构 / 资源占用分析 - Database Inspector：SQLite / Room 数据库浏览 - [构建系统](./grad</description>
-      <pubDate>Mon, 24 Aug 2026 21:15:39 -0000</pubDate>
-    </item>
-    <item>
-      <title>构建系统</title>
-      <link>https://java-px.bot.cd/android/05-toolchain/gradle</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/05-toolchain/gradle</guid>
-      <description>&gt; Gradle KTS + AGP（Android Gradle Plugin）：模块化 + Build Variants + CI/CD。 - Gradle KTS：Kotlin DSL（强类型 + IDE 补全） - AGP 8+：编译缓存 + 增量注解处理 - Build Variants：productFlavors（多渠道包） - CI/CD：GitHub Actions / GitL</description>
-      <pubDate>Mon, 24 Aug 2026 21:15:39 -0000</pubDate>
-    </item>
-    <item>
-      <title>工具链</title>
-      <link>https://java-px.bot.cd/android/05-toolchain/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/05-toolchain/README</guid>
-      <description>工具链：构建 + IDE + 发布。 | 节点 | 一句话 | |------|--------| | [构建系统](./gradle) | Gradle KTS / AGP / Build Variants / CI/CD | | [Android Studio](./ide) | Profiler / Layout Inspector / APK Analyzer | | [发布与上架](./</description>
-      <pubDate>Mon, 24 Aug 2026 21:15:30 -0000</pubDate>
-    </item>
-    <item>
-      <title>Kotlin 协程</title>
-      <link>https://java-px.bot.cd/android/01-app/coroutine</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/01-app/coroutine</guid>
-      <description>&gt; Kotlin 协程：轻量级线程（百万级并发）+ 结构化并发 + 取消传播。 - Dispatchers：Main（UI）/ IO（网络磁盘）/ Default（CPU） - Scope 层级：GlobalScope / viewModelScope / lifecycleScope - 异常处理：CoroutineExceptionHandler / SupervisorJob - Chann</description>
-      <pubDate>Mon, 24 Aug 2026 21:15:30 -0000</pubDate>
-    </item>
-    <item>
-      <title>性能优化</title>
-      <link>https://java-px.bot.cd/android/06-perf/performance</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/06-perf/performance</guid>
-      <description>&gt; Android 性能五大维度：启动 / 内存 / 流畅度 / 包大小 / 电量。 - 启动优化：冷启动 &lt; 1.5s（推荐 &lt; 1s）+ Baseline Profile - 内存：避免 OOM + 内存泄漏（LeakCanary 检测） - 流畅度：Jank &lt; 5%，Choreographer 监控 - ANR：主线程 5s 无响应（Input 2s） - 包大小：APK Analyzer</description>
-      <pubDate>Mon, 24 Aug 2026 21:15:30 -0000</pubDate>
-    </item>
-    <item>
-      <title>Jetpack Compose</title>
-      <link>https://java-px.bot.cd/android/02-ui/compose</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/02-ui/compose</guid>
-      <description>&gt; 声明式 UI 框架，Kotlin DSL + 状态驱动 + 自动重组（Recomposition）。 - 状态管理：State / MutableState / remember / rememberSaveable - Modifier 链：顺序决定行为（padding 后点击 vs 点击后 padding） - Material 3：动态颜色 / 主题切换 - 重组优化：稳定参数 + La</description>
-      <pubDate>Mon, 24 Aug 2026 21:15:30 -0000</pubDate>
-    </item>
-    <item>
-      <title>资源与适配</title>
-      <link>https://java-px.bot.cd/android/02-ui/resource</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/02-ui/resource</guid>
-      <description>&gt; Android 资源系统：颜色 / 主题 / 字符串 / Drawable / 多分辨率屏幕适配。 - 主题：Material 3 / DayNight / 自定义 Theme - 颜色：Color tokens（语义化命名） - 国际化：strings.xml 多语言（values-zh / values-en） - 屏幕适配：sw600dp / smallestWidth / 矢量图 /</description>
-      <pubDate>Mon, 24 Aug 2026 21:15:30 -0000</pubDate>
-    </item>
-    <item>
-      <title>安全机制</title>
-      <link>https://java-px.bot.cd/android/06-perf/security</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/06-perf/security</guid>
-      <description>&gt; Android 安全栈：权限模型 / Scoped Storage / Network Security / Keystore / 证书钉扎。 - 权限模型：Runtime Permission（Android 6+） - Scoped Storage（Android 10+）：应用沙箱 + MediaStore - Network Security Config：明文 HTTP 禁用 / 证</description>
-      <pubDate>Mon, 24 Aug 2026 21:15:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>性能与安全</title>
-      <link>https://java-px.bot.cd/android/06-perf/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/06-perf/README</guid>
-      <description>性能与安全：启动 / 内存 / ANR / 权限 / 加密。 | 节点 | 一句话 | |------|--------| | [性能优化](./performance) | 启动 / Baseline Profile / 内存 / ANR / 包大小 | | [安全机制](./security) | 权限 / Scoped Storage / Network Security / Keystor</description>
-      <pubDate>Mon, 24 Aug 2026 21:15:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>发布与上架</title>
-      <link>https://java-px.bot.cd/android/05-toolchain/publish</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/05-toolchain/publish</guid>
-      <description>&gt; 从 App Bundle 到 Play Console / 国内应用市场的发布流程。 - App Bundle（.aab）：按设备 ABI / Density 拆分，包体积减 30%+ - Play Console：上传 .aab + 商店信息 + 隐私政策 - 国内应用市场：腾讯 / 华为 / 小米 / OPPO / VIVO 多渠道 - Firebase：Crashlytics / Ana</description>
-      <pubDate>Mon, 24 Aug 2026 21:15:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>跨平台</title>
-      <link>https://java-px.bot.cd/android/04-cross/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/04-cross/README</guid>
-      <description>跨平台方案：Flutter / React Native / KMP / Compose Multiplatform。 | 节点 | 一句话 | |------|--------| | [跨平台框架](./frameworks) | Flutter / React Native / KMP / Compose Multiplatform | | [选型决策](./decision) | 性能 vs</description>
-      <pubDate>Mon, 24 Aug 2026 21:15:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>启动流程</title>
-      <link>https://java-px.bot.cd/android/03-system/startup</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/03-system/startup</guid>
-      <description>&gt; Android 启动链：Boot ROM → Bootloader → Kernel → Init → Zygote → SystemServer → 第一个 App。 - Boot ROM：固化在芯片，初始化 RAM + 引导 Bootloader - Init 进程：PID 1，挂载文件系统 + 启动服务 - Zygote：预加载 framework + 资源（孵化新进程） - Syste</description>
-      <pubDate>Mon, 24 Aug 2026 21:15:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>框架服务</title>
-      <link>https://java-px.bot.cd/android/03-system/services</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/03-system/services</guid>
-      <description>&gt; SystemServer 启动的核心系统服务：AMS / WMS / PMS / IMS。 - AMS（Activity Manager Service）：管理 Activity 栈 + 进程优先级 - WMS（Window Manager Service）：窗口 Z-Order + Surface 管理 - PMS（Package Manager Service）：APK 安装 / 卸载 /</description>
-      <pubDate>Mon, 24 Aug 2026 21:15:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>ART 运行时</title>
-      <link>https://java-px.bot.cd/android/03-system/runtime</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/03-system/runtime</guid>
-      <description>&gt; Android Runtime（替代 Dalvik）：Dex2oat AOT 编译 + GC + ClassLoader。 - AOT（Ahead-of-Time）：安装时编译为本地代码（Android 7+） - JIT（Just-in-Time）：运行时编译（兼顾冷启动 + 热路径） - GC：分代回收 + Concurrent Mark Sweep - ClassLoader：BootC</description>
-      <pubDate>Mon, 24 Aug 2026 21:15:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>IPC 机制</title>
-      <link>https://java-px.bot.cd/android/03-system/ipc</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/03-system/ipc</guid>
-      <description>&gt; Android 进程间通信核心机制：Binder（高频）/ AIDL（强类型）/ Messenger（队列）/ ContentProvider（数据共享）。 - Binder：基于 mmap 的 IPC，单次拷贝性能高 - AIDL：定义跨进程接口（编译期生成 Stub/Proxy） - Messenger：Handler + Parcelable 序列化消息 - ContentProvide</description>
-      <pubDate>Mon, 24 Aug 2026 21:15:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>视图系统</title>
-      <link>https://java-px.bot.cd/android/02-ui/view-system</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/02-ui/view-system</guid>
-      <description>&gt; 传统 View 体系：Activity / Fragment / View 树 / RecyclerView，掌握底层原理有助于 Compose 优化。 - Activity：单一屏幕入口 + 生命周期 - Fragment：模块化 UI + FragmentManager 栈 - View 树：Measure / Layout / Draw 三阶段 - RecyclerView：ViewHo</description>
-      <pubDate>Mon, 24 Aug 2026 21:15:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>UI 体系</title>
-      <link>https://java-px.bot.cd/android/02-ui/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/02-ui/README</guid>
-      <description>UI 体系：传统 View + 现代 Compose + 资源系统。 | 节点 | 一句话 | |------|--------| | [视图系统](./view-system) | Activity / Fragment / View 树 / RecyclerView | | [Jetpack Compose](./compose) | 状态 / Modifier / Material 3 /</description>
-      <pubDate>Mon, 24 Aug 2026 21:15:01 -0000</pubDate>
-    </item>
+    <lastBuildDate>Thu, 27 Aug 2026 21:42:04 -0000</lastBuildDate>
     <item>
       <title>Jetpack 套件</title>
       <link>https://java-px.bot.cd/android/01-app/jetpack</link>
       <guid isPermaLink="true">https://java-px.bot.cd/android/01-app/jetpack</guid>
       <description>&gt; Google Jetpack 一站式 Android 架构组件，覆盖 UI / 数据 / 生命周期 / 依赖注入。 - ViewModel：UI 数据持有者（屏幕旋转不丢） - LiveData / Flow：响应式数据流 - Room：SQLite ORM - Hilt：编译期 DI - WorkManager：后台任务调度 - DataStore：替代 SharedPreferences</description>
-      <pubDate>Mon, 24 Aug 2026 21:15:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>系统层</title>
-      <link>https://java-px.bot.cd/android/03-system/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/03-system/README</guid>
-      <description>系统层：从启动到 IPC 到运行时 + 框架服务。 | 节点 | 一句话 | |------|--------| | [启动流程](./startup) | Boot ROM → Zygote → SystemServer → 第一个 App | | [IPC 机制](./ipc) | Binder / AIDL / Messenger / ContentProvider | | [ART 运行时</description>
-      <pubDate>Mon, 24 Aug 2026 21:14:40 -0000</pubDate>
-    </item>
-    <item>
-      <title>应用层</title>
-      <link>https://java-px.bot.cd/android/01-app/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/01-app/README</guid>
-      <description>Android 应用层：语言 + Jetpack + 协程，业务开发核心栈。 | 节点 | 一句话 | |------|--------| | [Kotlin / Java / NDK](./language) | JVM 语言与现代 Android 开发 | | [Jetpack 套件](./jetpack) | ViewModel / LiveData / Room / Hilt / Work</description>
-      <pubDate>Mon, 24 Aug 2026 21:14:40 -0000</pubDate>
-    </item>
-    <item>
-      <title>选型决策</title>
-      <link>https://java-px.bot.cd/android/04-cross/decision</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/04-cross/decision</guid>
-      <description>&gt; 跨平台方案选型：性能 vs 一致性 / 包大小 / 团队能力 / 业务场景。 - 性能要求高：原生（Kotlin / Swift） - UI 一致性要求高：Flutter - 团队 JS 强：React Native - 只共享业务逻辑：KMP - 业务场景：短视频/电商（Flutter）/ 中后台工具（RN） - [跨平台框架](./frameworks) - [性能优化](../06-pe</description>
-      <pubDate>Mon, 24 Aug 2026 21:14:40 -0000</pubDate>
-    </item>
-    <item>
-      <title>跨平台框架</title>
-      <link>https://java-px.bot.cd/android/04-cross/frameworks</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/04-cross/frameworks</guid>
-      <description>&gt; Android 之外的跨平台方案：Flutter（自绘 UI）/ React Native（JS 桥）/ KMP（共享逻辑）/ Compose Multiplatform（共享 UI）。 - Flutter：Dart + Skia 自绘 UI，跨 Android/iOS/Web/Desktop - React Native：JS 业务 + 原生组件桥接 - KMP：共享 Kotlin 业务逻辑</description>
-      <pubDate>Mon, 24 Aug 2026 21:14:40 -0000</pubDate>
-    </item>
-    <item>
-      <title>Kotlin / Java / NDK</title>
-      <link>https://java-px.bot.cd/android/01-app/language</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/01-app/language</guid>
-      <description>&gt; Android 三大语言路径：Kotlin（首选）/ Java（遗留）/ C++ NDK（性能关键 + 跨平台）。 - Kotlin：Google 2019 官方首选，null 安全 + 协程 + 扩展函数，Java 100% 互操作 - Java：遗留代码 + Android 11 以下设备支持 - C++ NDK：游戏 / 音视频 / 加密算法 / OpenGL 等性能敏感场景 - 选型：</description>
-      <pubDate>Mon, 24 Aug 2026 21:14:40 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
     </item>
     <item>
       <title>Android 面试与常见问题</title>
       <link>https://java-px.bot.cd/android/questions</link>
       <guid isPermaLink="true">https://java-px.bot.cd/android/questions</guid>
       <description>&gt; 分 Easy / Medium / Hard 三档，覆盖应用层、系统层、性能、跨平台。 **答**： Activity 生命周期： - onCreate：初始化（setContentView） - onStart：可见但不可交互 - onResume：可见可交互（位于栈顶） - onPause：失去焦点 - onStop：完全不可见 - onDestroy：销毁 - onRestart：从 S</description>
-      <pubDate>Fri, 21 Aug 2026 20:32:45 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>android 知识图谱</title>
+      <link>https://java-px.bot.cd/android/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/</guid>
+      <description>&lt;script setup&gt; const painPoints = [ "Activity / Fragment 生命周期混乱：屏幕旋转后 ViewModel 数据丢失？", "协程作用域错位：GlobalScope / viewModelScope / lifecycleScope 该用哪个？", "Compose 与 View 混用：状态同步、重组范围、跨进程通信怎么搞？", "应用卡顿 /</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>工具链</title>
+      <link>https://java-px.bot.cd/android/05-toolchain/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/05-toolchain/README</guid>
+      <description>工具链：构建 + IDE + 发布。 | 节点 | 一句话 | |------|--------| | [构建系统](./gradle) | Gradle KTS / AGP / Build Variants / CI/CD | | [Android Studio](./ide) | Profiler / Layout Inspector / APK Analyzer | | [发布与上架](./</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>系统层</title>
+      <link>https://java-px.bot.cd/android/03-system/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/03-system/README</guid>
+      <description>系统层：从启动到 IPC 到运行时 + 框架服务。 | 节点 | 一句话 | |------|--------| | [启动流程](./startup) | Boot ROM → Zygote → SystemServer → 第一个 App | | [IPC 机制](./ipc) | Binder / AIDL / Messenger / ContentProvider | | [ART 运行时</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>Android 站在知识图谱中的位置</title>
+      <link>https://java-px.bot.cd/android/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/README</guid>
+      <description>**Android = 基于 Linux Kernel 的移动设备操作系统**：应用层用 Kotlin + Jetpack Compose / 系统层是 Java + C++ + Binder IPC 的横切栈。 - Android 是横切层：应用层要 frontend + java-language；系统层要 linux + rust - 90% 应用开发者只要掌握 Jetpack + Comp</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>性能与安全</title>
+      <link>https://java-px.bot.cd/android/06-perf/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/06-perf/README</guid>
+      <description>性能与安全：启动 / 内存 / ANR / 权限 / 加密。 | 节点 | 一句话 | |------|--------| | [性能优化](./performance) | 启动 / Baseline Profile / 内存 / ANR / 包大小 | | [安全机制](./security) | 权限 / Scoped Storage / Network Security / Keystor</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>跨平台</title>
+      <link>https://java-px.bot.cd/android/04-cross/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/04-cross/README</guid>
+      <description>跨平台方案：Flutter / React Native / KMP / Compose Multiplatform。 | 节点 | 一句话 | |------|--------| | [跨平台框架](./frameworks) | Flutter / React Native / KMP / Compose Multiplatform | | [选型决策](./decision) | 性能 vs</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>UI 体系</title>
+      <link>https://java-px.bot.cd/android/02-ui/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/02-ui/README</guid>
+      <description>UI 体系：传统 View + 现代 Compose + 资源系统。 | 节点 | 一句话 | |------|--------| | [视图系统](./view-system) | Activity / Fragment / View 树 / RecyclerView | | [Jetpack Compose](./compose) | 状态 / Modifier / Material 3 /</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>应用层</title>
+      <link>https://java-px.bot.cd/android/01-app/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/01-app/README</guid>
+      <description>Android 应用层：语言 + Jetpack + 协程，业务开发核心栈。 | 节点 | 一句话 | |------|--------| | [Kotlin / Java / NDK](./language) | JVM 语言与现代 Android 开发 | | [Jetpack 套件](./jetpack) | ViewModel / LiveData / Room / Hilt / Work</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>安全机制</title>
+      <link>https://java-px.bot.cd/android/06-perf/security</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/06-perf/security</guid>
+      <description>&gt; Android 安全栈：权限模型 / Scoped Storage / Network Security / Keystore / 证书钉扎。 - 权限模型：Runtime Permission（Android 6+） - Scoped Storage（Android 10+）：应用沙箱 + MediaStore - Network Security Config：明文 HTTP 禁用 / 证</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>性能优化</title>
+      <link>https://java-px.bot.cd/android/06-perf/performance</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/06-perf/performance</guid>
+      <description>&gt; Android 性能五大维度：启动 / 内存 / 流畅度 / 包大小 / 电量。 - 启动优化：冷启动 &lt; 1.5s（推荐 &lt; 1s）+ Baseline Profile - 内存：避免 OOM + 内存泄漏（LeakCanary 检测） - 流畅度：Jank &lt; 5%，Choreographer 监控 - ANR：主线程 5s 无响应（Input 2s） - 包大小：APK Analyzer</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>发布与上架</title>
+      <link>https://java-px.bot.cd/android/05-toolchain/publish</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/05-toolchain/publish</guid>
+      <description>&gt; 从 App Bundle 到 Play Console / 国内应用市场的发布流程。 - App Bundle（.aab）：按设备 ABI / Density 拆分，包体积减 30%+ - Play Console：上传 .aab + 商店信息 + 隐私政策 - 国内应用市场：腾讯 / 华为 / 小米 / OPPO / VIVO 多渠道 - Firebase：Crashlytics / Ana</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Android Studio</title>
+      <link>https://java-px.bot.cd/android/05-toolchain/ide</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/05-toolchain/ide</guid>
+      <description>&gt; 官方 IDE：编码 / 调试 / 性能分析一体化工具集。 - Profiler：CPU / Memory / Network / Energy 实时分析 - Layout Inspector：运行时 View 树可视化 - APK Analyzer：APK 包结构 / 资源占用分析 - Database Inspector：SQLite / Room 数据库浏览 - [构建系统](./grad</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>构建系统</title>
+      <link>https://java-px.bot.cd/android/05-toolchain/gradle</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/05-toolchain/gradle</guid>
+      <description>&gt; Gradle KTS + AGP（Android Gradle Plugin）：模块化 + Build Variants + CI/CD。 - Gradle KTS：Kotlin DSL（强类型 + IDE 补全） - AGP 8+：编译缓存 + 增量注解处理 - Build Variants：productFlavors（多渠道包） - CI/CD：GitHub Actions / GitL</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>跨平台框架</title>
+      <link>https://java-px.bot.cd/android/04-cross/frameworks</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/04-cross/frameworks</guid>
+      <description>&gt; Android 之外的跨平台方案：Flutter（自绘 UI）/ React Native（JS 桥）/ KMP（共享逻辑）/ Compose Multiplatform（共享 UI）。 - Flutter：Dart + Skia 自绘 UI，跨 Android/iOS/Web/Desktop - React Native：JS 业务 + 原生组件桥接 - KMP：共享 Kotlin 业务逻辑</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>选型决策</title>
+      <link>https://java-px.bot.cd/android/04-cross/decision</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/04-cross/decision</guid>
+      <description>&gt; 跨平台方案选型：性能 vs 一致性 / 包大小 / 团队能力 / 业务场景。 - 性能要求高：原生（Kotlin / Swift） - UI 一致性要求高：Flutter - 团队 JS 强：React Native - 只共享业务逻辑：KMP - 业务场景：短视频/电商（Flutter）/ 中后台工具（RN） - [跨平台框架](./frameworks) - [性能优化](../06-pe</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>启动流程</title>
+      <link>https://java-px.bot.cd/android/03-system/startup</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/03-system/startup</guid>
+      <description>&gt; Android 启动链：Boot ROM → Bootloader → Kernel → Init → Zygote → SystemServer → 第一个 App。 - Boot ROM：固化在芯片，初始化 RAM + 引导 Bootloader - Init 进程：PID 1，挂载文件系统 + 启动服务 - Zygote：预加载 framework + 资源（孵化新进程） - Syste</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>框架服务</title>
+      <link>https://java-px.bot.cd/android/03-system/services</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/03-system/services</guid>
+      <description>&gt; SystemServer 启动的核心系统服务：AMS / WMS / PMS / IMS。 - AMS（Activity Manager Service）：管理 Activity 栈 + 进程优先级 - WMS（Window Manager Service）：窗口 Z-Order + Surface 管理 - PMS（Package Manager Service）：APK 安装 / 卸载 /</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>ART 运行时</title>
+      <link>https://java-px.bot.cd/android/03-system/runtime</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/03-system/runtime</guid>
+      <description>&gt; Android Runtime（替代 Dalvik）：Dex2oat AOT 编译 + GC + ClassLoader。 - AOT（Ahead-of-Time）：安装时编译为本地代码（Android 7+） - JIT（Just-in-Time）：运行时编译（兼顾冷启动 + 热路径） - GC：分代回收 + Concurrent Mark Sweep - ClassLoader：BootC</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>IPC 机制</title>
+      <link>https://java-px.bot.cd/android/03-system/ipc</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/03-system/ipc</guid>
+      <description>&gt; Android 进程间通信核心机制：Binder（高频）/ AIDL（强类型）/ Messenger（队列）/ ContentProvider（数据共享）。 - Binder：基于 mmap 的 IPC，单次拷贝性能高 - AIDL：定义跨进程接口（编译期生成 Stub/Proxy） - Messenger：Handler + Parcelable 序列化消息 - ContentProvide</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>视图系统</title>
+      <link>https://java-px.bot.cd/android/02-ui/view-system</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/02-ui/view-system</guid>
+      <description>&gt; 传统 View 体系：Activity / Fragment / View 树 / RecyclerView，掌握底层原理有助于 Compose 优化。 - Activity：单一屏幕入口 + 生命周期 - Fragment：模块化 UI + FragmentManager 栈 - View 树：Measure / Layout / Draw 三阶段 - RecyclerView：ViewHo</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>资源与适配</title>
+      <link>https://java-px.bot.cd/android/02-ui/resource</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/02-ui/resource</guid>
+      <description>&gt; Android 资源系统：颜色 / 主题 / 字符串 / Drawable / 多分辨率屏幕适配。 - 主题：Material 3 / DayNight / 自定义 Theme - 颜色：Color tokens（语义化命名） - 国际化：strings.xml 多语言（values-zh / values-en） - 屏幕适配：sw600dp / smallestWidth / 矢量图 /</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Jetpack Compose</title>
+      <link>https://java-px.bot.cd/android/02-ui/compose</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/02-ui/compose</guid>
+      <description>&gt; 声明式 UI 框架，Kotlin DSL + 状态驱动 + 自动重组（Recomposition）。 - 状态管理：State / MutableState / remember / rememberSaveable - Modifier 链：顺序决定行为（padding 后点击 vs 点击后 padding） - Material 3：动态颜色 / 主题切换 - 重组优化：稳定参数 + La</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Kotlin / Java / NDK</title>
+      <link>https://java-px.bot.cd/android/01-app/language</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/01-app/language</guid>
+      <description>&gt; Android 三大语言路径：Kotlin（首选）/ Java（遗留）/ C++ NDK（性能关键 + 跨平台）。 - Kotlin：Google 2019 官方首选，null 安全 + 协程 + 扩展函数，Java 100% 互操作 - Java：遗留代码 + Android 11 以下设备支持 - C++ NDK：游戏 / 音视频 / 加密算法 / OpenGL 等性能敏感场景 - 选型：</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Kotlin 协程</title>
+      <link>https://java-px.bot.cd/android/01-app/coroutine</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/01-app/coroutine</guid>
+      <description>&gt; Kotlin 协程：轻量级线程（百万级并发）+ 结构化并发 + 取消传播。 - Dispatchers：Main（UI）/ IO（网络磁盘）/ Default（CPU） - Scope 层级：GlobalScope / viewModelScope / lifecycleScope - 异常处理：CoroutineExceptionHandler / SupervisorJob - Chann</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Android 学习路径</title>
+      <link>https://java-px.bot.cd/android/path</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/path</guid>
+      <description>&gt; 三条路径覆盖"应用开发者 / 系统/性能优化者 / 跨端架构师"三种角色。按背景选择即可。 适合：Java 转 Android / 前端转移动端 / 从零入门。 | Day | 主题 | 关键交付 | |---|---|---| | D1 | Kotlin 基础（语法糖 / 空安全 / 扩展函数） | 第一个 Kotlin 工程 | | D2-3 | Activity / Fragment 生</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>Android 速查表</title>

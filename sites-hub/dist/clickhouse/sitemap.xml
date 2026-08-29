@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/01-basics/history</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/01-basics/installation</loc>
@@ -34,11 +34,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/02-sql/overview</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/02-sql/select-aggregate</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/02-sql/window-functions</loc>
@@ -58,15 +58,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/03-table-engine/materialized-view</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/03-table-engine/mergetree-family</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/03-table-engine/overview</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/04-olap-scenarios/bitmap</loc>
@@ -82,7 +82,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/04-olap-scenarios/overview</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/04-olap-scenarios/realtime-warehouse</loc>
@@ -90,11 +90,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/04-olap-scenarios/user-tracking</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/05-ecosystem/dbt-airbyte</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/05-ecosystem/go-client</loc>
@@ -102,19 +102,19 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/05-ecosystem/grafana</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/05-ecosystem/kafka-integration</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/05-ecosystem/overview</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/05-ecosystem/prometheus</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/06-compare/overview</loc>
@@ -138,10 +138,10 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/case-study</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/clickhouse/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
 </urlset>

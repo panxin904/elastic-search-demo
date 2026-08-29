@@ -18,11 +18,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/02-hdfs/architecture</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/02-hdfs/commands</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/02-hdfs/ha</loc>
@@ -42,7 +42,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/03-mapreduce/shuffle</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/04-spark/dataframe</loc>
@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/04-spark/rdd</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/04-spark/streaming</loc>
@@ -62,7 +62,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/05-flink/architecture</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/05-flink/cdc</loc>
@@ -146,7 +146,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/11-elt-pipeline/lineage</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/12-olap-engine/clickhouse</loc>
@@ -178,11 +178,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/14-interview-practice/cases</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/14-interview-practice/questions</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/cheatsheet</loc>
@@ -194,7 +194,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/bigdata/mindmap</loc>

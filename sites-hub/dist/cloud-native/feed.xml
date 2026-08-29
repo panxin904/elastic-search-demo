@@ -6,20 +6,55 @@
     <atom:link href="https://java-px.bot.cd/cloud-native/feed.xml" rel="self" type="application/rss+xml" />
     <description>cloud-native 知识图谱（55 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 21:42:04 -0000</lastBuildDate>
     <item>
-      <title>cloud-native 知识图谱</title>
-      <link>https://java-px.bot.cd/cloud-native/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/</guid>
-      <description>features: title: Docker 容器 details: Docker 基础 · 镜像 · 容器 · 网络 · 卷 · Compose link: /01-docker/intro linkText: 开始 Docker → title: k8s 架构 details: 控制面 / Node / kubectl / etcd · 集群全貌 link: /02-k8s-arch/ove</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <title>Docker 基础</title>
+      <link>https://java-px.bot.cd/cloud-native/01-docker/intro</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/01-docker/intro</guid>
+      <description>&gt; Docker = 操作系统级虚拟化（容器），比 VM 轻量。 | | 容器 | 虚拟机 | |--|------|--------| | 启动 | 毫秒 | 秒 ~ 分钟 | | 体积 | MB | GB | | 性能 | 接近原生 | 有损耗（虚拟化层） | | 隔离 | 进程级（共享内核） | 硬件级 | | 镜像 | Docker Hub | ISO / OVF | | 启动密度 | 千</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>网络 / DNS 排错</title>
+      <link>https://java-px.bot.cd/cloud-native/13-troubleshooting/network</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/13-troubleshooting/network</guid>
+      <description>&gt; k8s 网络 80% 问题 = DNS / iptables / CNI / Service 配错。 先缩小范围。 **关键**：NP 是白名单模式，**没列出的全拒绝**。 **必须**有"放行 DNS + 同 ns 通信"的规则，否则全阻断。 - [kubectl debug](/13-troubleshooting/debug) - [Pod 卡死 / 排错套路](/13-trouble</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>kubectl debug</title>
+      <link>https://java-px.bot.cd/cloud-native/13-troubleshooting/debug</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/13-troubleshooting/debug</guid>
+      <description>&gt; k8s 1.30+ 内置的 `kubectl debug` —— **不重启 / 不改镜像**就能进容器内部排查。 适合：镜像没工具 / 想看原容器 FS。 适合：原容器**未崩溃**，但你想看它跑什么。 适合：CrashLoopBackOff 排查。 - [Pod 卡死 / 排错套路](/13-troubleshooting/pod-trouble) - [网络 / DNS 排错](/13-</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>Deployment</title>
       <link>https://java-px.bot.cd/cloud-native/03-k8s-workload/deployment</link>
       <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/03-k8s-workload/deployment</guid>
       <description>&gt; Deployment 是无状态 Pod 的"工厂"，管副本 + 滚动升级 + 回滚。 适合：单实例 / 不能双版本共存。 详见 `horizontalpodautoscaler`（CKA 常考）。 `kubectl get rs` 列出 ReplicaSet（每个 revision 一个）。 - [Pod 最小单元](/03-k8s-workload/pod) - [StatefulSet](</description>
-      <pubDate>Sun, 26 Jul 2026 20:58:33 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>kubectl 命令行</title>
+      <link>https://java-px.bot.cd/cloud-native/02-k8s-arch/kubectl</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/02-k8s-arch/kubectl</guid>
+      <description>&gt; 与 k8s API Server 交互的瑞士军刀。掌握 80% 的日常运维。 `config` 包含： - cluster（API server 地址 + ca） - user（证书 / token） - context（cluster + user + namespace） - [k8s 是什么](/02-k8s-arch/overview) - [Pod 最小单元](/03-k8s-wor</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>etcd 存储</title>
+      <link>https://java-px.bot.cd/cloud-native/02-k8s-arch/etcd</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/02-k8s-arch/etcd</guid>
+      <description>&gt; k8s 所有状态存在 etcd — 分布式 KV、强一致、RAFT。 etcd = **etcd distributed**（不是 etc）+ **d**istributed。 - 强一致 KV 存储 - 基于 **RAFT** 共识算法 - 写半数以上节点才提交 - 默认 2379（客户端）/ 2380（peer） - 单一 etcd 集群存所有 k8s 状态 - 集群通常 **3 或 5</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>cloud-native 知识图谱</title>
+      <link>https://java-px.bot.cd/cloud-native/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/</guid>
+      <description>features: title: Docker 容器 details: Docker 基础 · 镜像 · 容器 · 网络 · 卷 · Compose link: /01-docker/intro linkText: 开始 Docker → title: k8s 架构 details: 控制面 / Node / kubectl / etcd · 集群全貌 link: /02-k8s-arch/ove</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>Chart 结构</title>
@@ -50,25 +85,11 @@
       <pubDate>Sun, 26 Jul 2026 15:12:08 -0000</pubDate>
     </item>
     <item>
-      <title>网络 / DNS 排错</title>
-      <link>https://java-px.bot.cd/cloud-native/13-troubleshooting/network</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/13-troubleshooting/network</guid>
-      <description>&gt; k8s 网络 80% 问题 = DNS / iptables / CNI / Service 配错。 先缩小范围。 **关键**：NP 是白名单模式，**没列出的全拒绝**。 **必须**有"放行 DNS + 同 ns 通信"的规则，否则全阻断。 - [kubectl debug](/13-troubleshooting/debug) - [Pod 卡死 / 排错套路](/13-trouble</description>
-      <pubDate>Sun, 26 Jul 2026 15:11:50 -0000</pubDate>
-    </item>
-    <item>
       <title>Pod 卡死 / 排错套路</title>
       <link>https://java-px.bot.cd/cloud-native/13-troubleshooting/pod-trouble</link>
       <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/13-troubleshooting/pod-trouble</guid>
       <description>&gt; 90% 的生产问题都能用一套固定套路定位。 | 状态 | 含义 | |------|------| | `Running` | 至少一个容器跑着 ✅ | | `Pending` | 没调度到 Node（资源 / 选择器 / 镜像） | | `ContainerCreating` | 在拉镜像 / 挂卷 | | `CrashLoopBackOff` | 容器反复崩 | | `ImagePullB</description>
       <pubDate>Sun, 26 Jul 2026 15:11:29 -0000</pubDate>
-    </item>
-    <item>
-      <title>kubectl debug</title>
-      <link>https://java-px.bot.cd/cloud-native/13-troubleshooting/debug</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/13-troubleshooting/debug</guid>
-      <description>&gt; k8s 1.30+ 内置的 `kubectl debug` —— **不重启 / 不改镜像**就能进容器内部排查。 适合：镜像没工具 / 想看原容器 FS。 适合：原容器**未崩溃**，但你想看它跑什么。 适合：CrashLoopBackOff 排查。 - [Pod 卡死 / 排错套路](/13-troubleshooting/pod-trouble) - [网络 / DNS 排错](/13-</description>
-      <pubDate>Sun, 26 Jul 2026 15:11:11 -0000</pubDate>
     </item>
     <item>
       <title>AWS Lambda / GCP Cloud Run</title>
@@ -288,20 +309,6 @@
       <pubDate>Sun, 26 Jul 2026 10:30:55 -0000</pubDate>
     </item>
     <item>
-      <title>etcd 存储</title>
-      <link>https://java-px.bot.cd/cloud-native/02-k8s-arch/etcd</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/02-k8s-arch/etcd</guid>
-      <description>&gt; k8s 所有状态存在 etcd — 分布式 KV、强一致、RAFT。 etcd = **etcd distributed**（不是 etc）+ **d**istributed。 - 强一致 KV 存储 - 基于 **RAFT** 共识算法 - 写半数以上节点才提交 - 默认 2379（客户端）/ 2380（peer） - 单一 etcd 集群存所有 k8s 状态 - 集群通常 **3 或 5</description>
-      <pubDate>Sun, 26 Jul 2026 10:30:38 -0000</pubDate>
-    </item>
-    <item>
-      <title>kubectl 命令行</title>
-      <link>https://java-px.bot.cd/cloud-native/02-k8s-arch/kubectl</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/02-k8s-arch/kubectl</guid>
-      <description>&gt; 与 k8s API Server 交互的瑞士军刀。掌握 80% 的日常运维。 `config` 包含： - cluster（API server 地址 + ca） - user（证书 / token） - context（cluster + user + namespace） - [k8s 是什么](/02-k8s-arch/overview) - [Pod 最小单元](/03-k8s-wor</description>
-      <pubDate>Sun, 26 Jul 2026 10:30:19 -0000</pubDate>
-    </item>
-    <item>
       <title>工作节点 Node</title>
       <link>https://java-px.bot.cd/cloud-native/02-k8s-arch/node</link>
       <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/02-k8s-arch/node</guid>
@@ -356,13 +363,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/01-docker/image</guid>
       <description>&gt; 镜像是只读模板 — 类与实例的"类"。 - **只读层**：共享，复用率高 - **可写层**：容器运行时产生，commit 后变成新镜像层 - 存储驱动：overlay2 / btrfs / zfs（默认 overlay2） | 指令 | 作用 | |------|------| | `FROM` | 基础镜像 | | `RUN` | 跑命令（创建新层） | | `COPY` / `ADD`</description>
       <pubDate>Sat, 25 Jul 2026 21:02:57 -0000</pubDate>
-    </item>
-    <item>
-      <title>Docker 基础</title>
-      <link>https://java-px.bot.cd/cloud-native/01-docker/intro</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/01-docker/intro</guid>
-      <description>&gt; Docker = 操作系统级虚拟化（容器），比 VM 轻量。 | | 容器 | 虚拟机 | |--|------|--------| | 启动 | 毫秒 | 秒 ~ 分钟 | | 体积 | MB | GB | | 性能 | 接近原生 | 有损耗（虚拟化层） | | 隔离 | 进程级（共享内核） | 硬件级 | | 镜像 | Docker Hub | ISO / OVF | | 启动密度 | 千</description>
-      <pubDate>Sat, 25 Jul 2026 21:02:42 -0000</pubDate>
     </item>
     <item>
       <title>学习路径</title>

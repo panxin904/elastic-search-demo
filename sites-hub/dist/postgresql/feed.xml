@@ -6,13 +6,335 @@
     <atom:link href="https://java-px.bot.cd/postgresql/feed.xml" rel="self" type="application/rss+xml" />
     <description>postgresql 知识图谱（53 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 21:42:04 -0000</lastBuildDate>
+    <item>
+      <title>进程架构</title>
+      <link>https://java-px.bot.cd/postgresql/01-basics/architecture</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/01-basics/architecture</guid>
+      <description>PostgreSQL 进程模型与内存结构</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
+    </item>
+    <item>
+      <title>MySQL vs PostgreSQL</title>
+      <link>https://java-px.bot.cd/postgresql/11-compare/mysql-vs-postgresql</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/11-compare/mysql-vs-postgresql</guid>
+      <description>&gt; 关系型数据库两大巨头，各有所长。**没有最好，只有最适合**。 | 标准 | PostgreSQL | MySQL | |---|---|---| | SQL:2016 核心 | 100% | ~70% | | 窗口函数 | ✅ | ✅ 8.0+ | | CTE | ✅ 8.4+ | ✅ 8.0+ | | 递归 CTE | ✅ | ✅ | | UPSERT | ✅ ON CONFLICT |</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>pgvector 向量数据库</title>
+      <link>https://java-px.bot.cd/postgresql/10-extensions/pgvector</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/10-extensions/pgvector</guid>
+      <description>&gt; PostgreSQL 同时是向量数据库。**AI 时代的关键扩展 + HNSW 索引 = 毫秒级相似度搜索**。 | 维度 | HNSW | IVFFlat | |---|---|---| | 查询速度 | 快（10-100x） | 中 | | 构建速度 | 慢 | 快 | | 内存占用 | 大（10x） | 中 | | 召回率 | 高（&gt; 95%） | 中（80-90%） | | 增量更新</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>慢查询分析</title>
+      <link>https://java-px.bot.cd/postgresql/07-operations/slow-query</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/07-operations/slow-query</guid>
+      <description>pg_stat_statements + auto_explain + EXPLAIN</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>EXPLAIN 详解</title>
+      <link>https://java-px.bot.cd/postgresql/04-query/explain</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/04-query/explain</guid>
+      <description>&gt; 看懂执行计划，慢查询不再黑盒。**EXPLAIN ANALYZE 是 DBA 的眼睛**。 - PostgreSQL 官方文档：Performance Tips - "PostgreSQL Query Optimization"（2024） - "Use The Index, Luke"（Markus Winand） - explain.dalibo.com 可视化工具 - pg_stat_s</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>CTE 公用表表达式</title>
+      <link>https://java-px.bot.cd/postgresql/04-query/cte</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/04-query/cte</guid>
+      <description>&gt; WITH 子句 + 临时命名结果集，让 SQL 像写代码一样可读。**CTE 是 SQL 的"局部变量"**。 | 维度 | CTE | 子查询 | |---|---|---| | 可读性 | 优（命名 + 分层） | 差（嵌套深） | | 重用 | 同 CTE 可多次引用 | 需重复写 | | 递归 | 支持 | 不支持 | | 性能 | 可控（NOT MATERIALIZED） | 通常内</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>JSONB 类型</title>
+      <link>https://java-px.bot.cd/postgresql/02-data-types/jsonb</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/02-data-types/jsonb</guid>
+      <description>&gt; PostgreSQL 的"杀手锏"——既是关系型数据库，又是文档数据库。**JSONB + GIN = 文档 + 索引**。 | 维度 | PostgreSQL JSONB | MongoDB | |---|---|---| | 数据模型 | 关系 + 文档（混合） | 纯文档 | | 索引 | GIN 表达式索引 | B-Tree / 全文 / 地理 | | 事务 | ACID 完整 | 4</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>TimescaleDB 时序扩展</title>
+      <link>https://java-px.bot.cd/postgresql/10-extensions/timescaledb</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/10-extensions/timescaledb</guid>
+      <description>PG 时序数据库</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>PostGIS 空间数据库</title>
+      <link>https://java-px.bot.cd/postgresql/10-extensions/postgis</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/10-extensions/postgis</guid>
+      <description>&gt; PostgreSQL 的"地理信息系统"——GIS 行业的事实标准。**PostGIS + OpenStreetMap = 全球最强开源 GIS**。 | 索引 | 适用 | |---|---| | GiST | 默认，最常用 | | SP-GiST | 点 / 线（平衡树） | | BRIN | 大表（时序） | - PostGIS 官方文档 - "PostGIS in Action"（O'</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>pg_trgm 模糊匹配</title>
+      <link>https://java-px.bot.cd/postgresql/10-extensions/pg_trgm</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/10-extensions/pg_trgm</guid>
+      <description>三元组相似度</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Citus 分布式</title>
+      <link>https://java-px.bot.cd/postgresql/10-extensions/citus</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/10-extensions/citus</guid>
+      <description>PG 水平扩展方案</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Psycopg Python 驱动</title>
+      <link>https://java-px.bot.cd/postgresql/09-connection/psycopg</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/09-connection/psycopg</guid>
+      <description>Python 连接 PostgreSQL</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>PgBouncer 连接池</title>
+      <link>https://java-px.bot.cd/postgresql/09-connection/pgbouncer</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/09-connection/pgbouncer</guid>
+      <description>轻量级 PostgreSQL 连接池实战</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>libpq C 库</title>
+      <link>https://java-px.bot.cd/postgresql/09-connection/libpq</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/09-connection/libpq</guid>
+      <description>PostgreSQL C API 实战</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>JDBC 连接</title>
+      <link>https://java-px.bot.cd/postgresql/09-connection/jdbc</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/09-connection/jdbc</guid>
+      <description>PostgreSQL JDBC 驱动实战</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Patroni 高可用</title>
+      <link>https://java-px.bot.cd/postgresql/08-replication/patroni</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/08-replication/patroni</guid>
+      <description>PostgreSQL 自动故障切换集群管理</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>逻辑复制</title>
+      <link>https://java-px.bot.cd/postgresql/08-replication/logical</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/08-replication/logical</guid>
+      <description>PG 10+ 行列级复制</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Hot Standby 从库查询</title>
+      <link>https://java-px.bot.cd/postgresql/08-replication/hot-standby</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/08-replication/hot-standby</guid>
+      <description>PostgreSQL 从库只读查询</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>版本升级</title>
+      <link>https://java-px.bot.cd/postgresql/07-operations/upgrade</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/07-operations/upgrade</guid>
+      <description>pg_upgrade / 逻辑复制升级</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>统计信息</title>
+      <link>https://java-px.bot.cd/postgresql/07-operations/stats</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/07-operations/stats</guid>
+      <description>pg_stat / pg_stats 实战</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>备份与恢复</title>
+      <link>https://java-px.bot.cd/postgresql/07-operations/backup</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/07-operations/backup</guid>
+      <description>pg_dump / pg_basebackup / PITR</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>视图与物化视图</title>
+      <link>https://java-px.bot.cd/postgresql/06-advanced/view</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/06-advanced/view</guid>
+      <description>VIEW / MATERIALIZED VIEW</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>UPSERT</title>
+      <link>https://java-px.bot.cd/postgresql/06-advanced/upsert</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/06-advanced/upsert</guid>
+      <description>INSERT ON CONFLICT 实战</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>触发器</title>
+      <link>https://java-px.bot.cd/postgresql/06-advanced/trigger</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/06-advanced/trigger</guid>
+      <description>BEFORE / AFTER / INSTEAD OF 触发器实战</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Generated 列</title>
+      <link>https://java-px.bot.cd/postgresql/06-advanced/generated</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/06-advanced/generated</guid>
+      <description>PG 12+ 计算列</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>函数与过程</title>
+      <link>https://java-px.bot.cd/postgresql/06-advanced/function</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/06-advanced/function</guid>
+      <description>PL/pgSQL 编程</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>MVCC 多版本并发控制</title>
+      <link>https://java-px.bot.cd/postgresql/05-transaction/mvcc</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/05-transaction/mvcc</guid>
+      <description>&gt; PostgreSQL 的灵魂：让读不阻塞写、写不阻塞读。**xmin / xmax 是 PG 的版本号系统**。 | 数据库 | 实现 | 优点 | 缺点 | |---|---|---|---| | PostgreSQL | 行级 MVCC | 读写不阻塞 | 表膨胀 | | MySQL InnoDB | 行级 MVCC（undo log） | 读写不阻塞 | undo 膨胀 | | Orac</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>锁机制</title>
+      <link>https://java-px.bot.cd/postgresql/05-transaction/lock</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/05-transaction/lock</guid>
+      <description>PostgreSQL 行级锁、表锁、咨询锁</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>死锁排查</title>
+      <link>https://java-px.bot.cd/postgresql/05-transaction/deadlock</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/05-transaction/deadlock</guid>
+      <description>deadlock_detected 错误处理</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>窗口函数</title>
+      <link>https://java-px.bot.cd/postgresql/04-query/window</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/04-query/window</guid>
+      <description>PostgreSQL 强大的分析函数</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>递归 CTE</title>
+      <link>https://java-px.bot.cd/postgresql/04-query/recursive</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/04-query/recursive</guid>
+      <description>WITH RECURSIVE 实战</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>查询规划器</title>
+      <link>https://java-px.bot.cd/postgresql/04-query/planner</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/04-query/planner</guid>
+      <description>EXPLAIN 解读与优化</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>全文检索</title>
+      <link>https://java-px.bot.cd/postgresql/04-query/fulltext-search</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/04-query/fulltext-search</guid>
+      <description>tsvector / tsquery / GIN</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>表与存储</title>
+      <link>https://java-px.bot.cd/postgresql/03-tables-and-indexes/table</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/03-tables-and-indexes/table</guid>
+      <description>PG 物理存储结构</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>SP-GiST 索引</title>
+      <link>https://java-px.bot.cd/postgresql/03-tables-and-indexes/spgist</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/03-tables-and-indexes/spgist</guid>
+      <description>Space-Partitioned GiST</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>声明式分区</title>
+      <link>https://java-px.bot.cd/postgresql/03-tables-and-indexes/partition</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/03-tables-and-indexes/partition</guid>
+      <description>PostgreSQL 表分区策略与实战</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>GiST 索引</title>
+      <link>https://java-px.bot.cd/postgresql/03-tables-and-indexes/gist</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/03-tables-and-indexes/gist</guid>
+      <description>Generalized Search Tree（多维 + 范围 + 全文）</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>GIN 倒排索引</title>
+      <link>https://java-px.bot.cd/postgresql/03-tables-and-indexes/gin</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/03-tables-and-indexes/gin</guid>
+      <description>PostgreSQL 全文检索 / JSONB / 数组的利器</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>B-tree 索引</title>
+      <link>https://java-px.bot.cd/postgresql/03-tables-and-indexes/btree</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/03-tables-and-indexes/btree</guid>
+      <description>PostgreSQL 默认索引类型详解</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>BRIN 索引</title>
+      <link>https://java-px.bot.cd/postgresql/03-tables-and-indexes/brin</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/03-tables-and-indexes/brin</guid>
+      <description>Block Range 索引（适合时序数据）</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Range 范围类型</title>
+      <link>https://java-px.bot.cd/postgresql/02-data-types/range</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/02-data-types/range</guid>
+      <description>PostgreSQL 原生范围类型详解</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>自定义类型</title>
+      <link>https://java-px.bot.cd/postgresql/02-data-types/custom</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/02-data-types/custom</guid>
+      <description>CREATE TYPE 实战</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>内置类型</title>
+      <link>https://java-px.bot.cd/postgresql/02-data-types/built-in</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/02-data-types/built-in</guid>
+      <description>PostgreSQL 内置类型全景</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>数组类型</title>
+      <link>https://java-px.bot.cd/postgresql/02-data-types/array</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/02-data-types/array</guid>
+      <description>PostgreSQL 原生数组类型详解</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>PostgreSQL 概述</title>
+      <link>https://java-px.bot.cd/postgresql/01-basics/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/01-basics/overview</guid>
+      <description>&gt; 世界上最先进的开源关系型数据库。**30+ 年演化，关系型 + 文档 + 空间 + 向量的全能选手**。 | 维度 | PostgreSQL | MySQL | |---|---|---| | 许可证 | BSD-like（更宽松） | GPL | | SQL 标准 | 严格遵循 | 部分支持 | | JSON 支持 | JSONB（原生索引） | JSON（无索引友好） | | 全文检索 |</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>关键配置参数</title>
+      <link>https://java-px.bot.cd/postgresql/01-basics/config</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/01-basics/config</guid>
+      <description>postgresql.conf 核心参数调优</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
     <item>
       <title>PostgreSQL 知识图谱</title>
       <link>https://java-px.bot.cd/postgresql/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/postgresql/</guid>
       <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "MVCC 原理：为什么 PG 的读不阻塞写？", "事务隔离级别（RC / RR / Serializable）选哪个？", "索引类型（B-tree /</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>Hash 索引</title>
@@ -20,202 +342,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/postgresql/03-tables-and-indexes/hash</guid>
       <description>PG 10+ 可用的 Hash 索引</description>
       <pubDate>Sun, 09 Aug 2026 17:00:36 -0000</pubDate>
-    </item>
-    <item>
-      <title>SP-GiST 索引</title>
-      <link>https://java-px.bot.cd/postgresql/03-tables-and-indexes/spgist</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/03-tables-and-indexes/spgist</guid>
-      <description>Space-Partitioned GiST</description>
-      <pubDate>Sun, 09 Aug 2026 17:00:28 -0000</pubDate>
-    </item>
-    <item>
-      <title>TimescaleDB 时序扩展</title>
-      <link>https://java-px.bot.cd/postgresql/10-extensions/timescaledb</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/10-extensions/timescaledb</guid>
-      <description>PG 时序数据库</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>pg_trgm 模糊匹配</title>
-      <link>https://java-px.bot.cd/postgresql/10-extensions/pg_trgm</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/10-extensions/pg_trgm</guid>
-      <description>三元组相似度</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>Citus 分布式</title>
-      <link>https://java-px.bot.cd/postgresql/10-extensions/citus</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/10-extensions/citus</guid>
-      <description>PG 水平扩展方案</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>Psycopg Python 驱动</title>
-      <link>https://java-px.bot.cd/postgresql/09-connection/psycopg</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/09-connection/psycopg</guid>
-      <description>Python 连接 PostgreSQL</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>libpq C 库</title>
-      <link>https://java-px.bot.cd/postgresql/09-connection/libpq</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/09-connection/libpq</guid>
-      <description>PostgreSQL C API 实战</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>JDBC 连接</title>
-      <link>https://java-px.bot.cd/postgresql/09-connection/jdbc</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/09-connection/jdbc</guid>
-      <description>PostgreSQL JDBC 驱动实战</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>逻辑复制</title>
-      <link>https://java-px.bot.cd/postgresql/08-replication/logical</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/08-replication/logical</guid>
-      <description>PG 10+ 行列级复制</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>Hot Standby 从库查询</title>
-      <link>https://java-px.bot.cd/postgresql/08-replication/hot-standby</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/08-replication/hot-standby</guid>
-      <description>PostgreSQL 从库只读查询</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>版本升级</title>
-      <link>https://java-px.bot.cd/postgresql/07-operations/upgrade</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/07-operations/upgrade</guid>
-      <description>pg_upgrade / 逻辑复制升级</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>统计信息</title>
-      <link>https://java-px.bot.cd/postgresql/07-operations/stats</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/07-operations/stats</guid>
-      <description>pg_stat / pg_stats 实战</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>备份与恢复</title>
-      <link>https://java-px.bot.cd/postgresql/07-operations/backup</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/07-operations/backup</guid>
-      <description>pg_dump / pg_basebackup / PITR</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>视图与物化视图</title>
-      <link>https://java-px.bot.cd/postgresql/06-advanced/view</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/06-advanced/view</guid>
-      <description>VIEW / MATERIALIZED VIEW</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>UPSERT</title>
-      <link>https://java-px.bot.cd/postgresql/06-advanced/upsert</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/06-advanced/upsert</guid>
-      <description>INSERT ON CONFLICT 实战</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>触发器</title>
-      <link>https://java-px.bot.cd/postgresql/06-advanced/trigger</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/06-advanced/trigger</guid>
-      <description>BEFORE / AFTER / INSTEAD OF 触发器实战</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>Generated 列</title>
-      <link>https://java-px.bot.cd/postgresql/06-advanced/generated</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/06-advanced/generated</guid>
-      <description>PG 12+ 计算列</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>函数与过程</title>
-      <link>https://java-px.bot.cd/postgresql/06-advanced/function</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/06-advanced/function</guid>
-      <description>PL/pgSQL 编程</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>死锁排查</title>
-      <link>https://java-px.bot.cd/postgresql/05-transaction/deadlock</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/05-transaction/deadlock</guid>
-      <description>deadlock_detected 错误处理</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>递归 CTE</title>
-      <link>https://java-px.bot.cd/postgresql/04-query/recursive</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/04-query/recursive</guid>
-      <description>WITH RECURSIVE 实战</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>查询规划器</title>
-      <link>https://java-px.bot.cd/postgresql/04-query/planner</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/04-query/planner</guid>
-      <description>EXPLAIN 解读与优化</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>全文检索</title>
-      <link>https://java-px.bot.cd/postgresql/04-query/fulltext-search</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/04-query/fulltext-search</guid>
-      <description>tsvector / tsquery / GIN</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>表与存储</title>
-      <link>https://java-px.bot.cd/postgresql/03-tables-and-indexes/table</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/03-tables-and-indexes/table</guid>
-      <description>PG 物理存储结构</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>GiST 索引</title>
-      <link>https://java-px.bot.cd/postgresql/03-tables-and-indexes/gist</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/03-tables-and-indexes/gist</guid>
-      <description>Generalized Search Tree（多维 + 范围 + 全文）</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>BRIN 索引</title>
-      <link>https://java-px.bot.cd/postgresql/03-tables-and-indexes/brin</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/03-tables-and-indexes/brin</guid>
-      <description>Block Range 索引（适合时序数据）</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>自定义类型</title>
-      <link>https://java-px.bot.cd/postgresql/02-data-types/custom</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/02-data-types/custom</guid>
-      <description>CREATE TYPE 实战</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>内置类型</title>
-      <link>https://java-px.bot.cd/postgresql/02-data-types/built-in</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/02-data-types/built-in</guid>
-      <description>PostgreSQL 内置类型全景</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>关键配置参数</title>
-      <link>https://java-px.bot.cd/postgresql/01-basics/config</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/01-basics/config</guid>
-      <description>postgresql.conf 核心参数调优</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
-    </item>
-    <item>
-      <title>进程架构</title>
-      <link>https://java-px.bot.cd/postgresql/01-basics/architecture</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/01-basics/architecture</guid>
-      <description>PostgreSQL 进程模型与内存结构</description>
-      <pubDate>Sun, 09 Aug 2026 16:59:55 -0000</pubDate>
     </item>
     <item>
       <title>MongoDB vs PostgreSQL</title>
@@ -232,74 +358,11 @@
       <pubDate>Sun, 09 Aug 2026 16:53:53 -0000</pubDate>
     </item>
     <item>
-      <title>声明式分区</title>
-      <link>https://java-px.bot.cd/postgresql/03-tables-and-indexes/partition</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/03-tables-and-indexes/partition</guid>
-      <description>PostgreSQL 表分区策略与实战</description>
-      <pubDate>Sun, 09 Aug 2026 16:53:36 -0000</pubDate>
-    </item>
-    <item>
-      <title>Range 范围类型</title>
-      <link>https://java-px.bot.cd/postgresql/02-data-types/range</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/02-data-types/range</guid>
-      <description>PostgreSQL 原生范围类型详解</description>
-      <pubDate>Sun, 09 Aug 2026 16:53:17 -0000</pubDate>
-    </item>
-    <item>
-      <title>数组类型</title>
-      <link>https://java-px.bot.cd/postgresql/02-data-types/array</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/02-data-types/array</guid>
-      <description>PostgreSQL 原生数组类型详解</description>
-      <pubDate>Sun, 09 Aug 2026 16:52:53 -0000</pubDate>
-    </item>
-    <item>
-      <title>窗口函数</title>
-      <link>https://java-px.bot.cd/postgresql/04-query/window</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/04-query/window</guid>
-      <description>PostgreSQL 强大的分析函数</description>
-      <pubDate>Sun, 09 Aug 2026 16:52:33 -0000</pubDate>
-    </item>
-    <item>
-      <title>GIN 倒排索引</title>
-      <link>https://java-px.bot.cd/postgresql/03-tables-and-indexes/gin</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/03-tables-and-indexes/gin</guid>
-      <description>PostgreSQL 全文检索 / JSONB / 数组的利器</description>
-      <pubDate>Sun, 09 Aug 2026 16:52:07 -0000</pubDate>
-    </item>
-    <item>
-      <title>B-tree 索引</title>
-      <link>https://java-px.bot.cd/postgresql/03-tables-and-indexes/btree</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/03-tables-and-indexes/btree</guid>
-      <description>PostgreSQL 默认索引类型详解</description>
-      <pubDate>Sun, 09 Aug 2026 16:51:53 -0000</pubDate>
-    </item>
-    <item>
-      <title>锁机制</title>
-      <link>https://java-px.bot.cd/postgresql/05-transaction/lock</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/05-transaction/lock</guid>
-      <description>PostgreSQL 行级锁、表锁、咨询锁</description>
-      <pubDate>Sun, 09 Aug 2026 16:51:37 -0000</pubDate>
-    </item>
-    <item>
       <title>事务隔离级别</title>
       <link>https://java-px.bot.cd/postgresql/05-transaction/isolation</link>
       <guid isPermaLink="true">https://java-px.bot.cd/postgresql/05-transaction/isolation</guid>
       <description>PostgreSQL 4 个隔离级别与异常现象</description>
       <pubDate>Sun, 09 Aug 2026 16:51:21 -0000</pubDate>
-    </item>
-    <item>
-      <title>慢查询分析</title>
-      <link>https://java-px.bot.cd/postgresql/07-operations/slow-query</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/07-operations/slow-query</guid>
-      <description>pg_stat_statements + auto_explain + EXPLAIN</description>
-      <pubDate>Sun, 09 Aug 2026 16:51:05 -0000</pubDate>
-    </item>
-    <item>
-      <title>Patroni 高可用</title>
-      <link>https://java-px.bot.cd/postgresql/08-replication/patroni</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/08-replication/patroni</guid>
-      <description>PostgreSQL 自动故障切换集群管理</description>
-      <pubDate>Sun, 09 Aug 2026 16:50:45 -0000</pubDate>
     </item>
     <item>
       <title>流复制 Streaming Replication</title>
@@ -309,74 +372,11 @@
       <pubDate>Sun, 09 Aug 2026 16:50:26 -0000</pubDate>
     </item>
     <item>
-      <title>PgBouncer 连接池</title>
-      <link>https://java-px.bot.cd/postgresql/09-connection/pgbouncer</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/09-connection/pgbouncer</guid>
-      <description>轻量级 PostgreSQL 连接池实战</description>
-      <pubDate>Sun, 09 Aug 2026 16:50:07 -0000</pubDate>
-    </item>
-    <item>
       <title>Vacuum 与 autovacuum</title>
       <link>https://java-px.bot.cd/postgresql/07-operations/vacuum</link>
       <guid isPermaLink="true">https://java-px.bot.cd/postgresql/07-operations/vacuum</guid>
       <description>PostgreSQL MVCC 垃圾回收机制</description>
       <pubDate>Sun, 09 Aug 2026 16:49:50 -0000</pubDate>
-    </item>
-    <item>
-      <title>MySQL vs PostgreSQL</title>
-      <link>https://java-px.bot.cd/postgresql/11-compare/mysql-vs-postgresql</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/11-compare/mysql-vs-postgresql</guid>
-      <description>&gt; 关系型数据库两大巨头，各有所长。**没有最好，只有最适合**。 | 标准 | PostgreSQL | MySQL | |---|---|---| | SQL:2016 核心 | 100% | ~70% | | 窗口函数 | ✅ | ✅ 8.0+ | | CTE | ✅ 8.4+ | ✅ 8.0+ | | 递归 CTE | ✅ | ✅ | | UPSERT | ✅ ON CONFLICT |</description>
-      <pubDate>Sun, 09 Aug 2026 15:05:30 -0000</pubDate>
-    </item>
-    <item>
-      <title>PostGIS 空间数据库</title>
-      <link>https://java-px.bot.cd/postgresql/10-extensions/postgis</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/10-extensions/postgis</guid>
-      <description>&gt; PostgreSQL 的"地理信息系统"——GIS 行业的事实标准。**PostGIS + OpenStreetMap = 全球最强开源 GIS**。 | 索引 | 适用 | |---|---| | GiST | 默认，最常用 | | SP-GiST | 点 / 线（平衡树） | | BRIN | 大表（时序） | - PostGIS 官方文档 - "PostGIS in Action"（O'</description>
-      <pubDate>Sun, 09 Aug 2026 15:05:06 -0000</pubDate>
-    </item>
-    <item>
-      <title>pgvector 向量数据库</title>
-      <link>https://java-px.bot.cd/postgresql/10-extensions/pgvector</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/10-extensions/pgvector</guid>
-      <description>&gt; PostgreSQL 同时是向量数据库。**AI 时代的关键扩展 + HNSW 索引 = 毫秒级相似度搜索**。 | 维度 | HNSW | IVFFlat | |---|---|---| | 查询速度 | 快（10-100x） | 中 | | 构建速度 | 慢 | 快 | | 内存占用 | 大（10x） | 中 | | 召回率 | 高（&gt; 95%） | 中（80-90%） | | 增量更新</description>
-      <pubDate>Sun, 09 Aug 2026 15:04:44 -0000</pubDate>
-    </item>
-    <item>
-      <title>MVCC 多版本并发控制</title>
-      <link>https://java-px.bot.cd/postgresql/05-transaction/mvcc</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/05-transaction/mvcc</guid>
-      <description>&gt; PostgreSQL 的灵魂：让读不阻塞写、写不阻塞读。**xmin / xmax 是 PG 的版本号系统**。 | 数据库 | 实现 | 优点 | 缺点 | |---|---|---|---| | PostgreSQL | 行级 MVCC | 读写不阻塞 | 表膨胀 | | MySQL InnoDB | 行级 MVCC（undo log） | 读写不阻塞 | undo 膨胀 | | Orac</description>
-      <pubDate>Sun, 09 Aug 2026 15:04:23 -0000</pubDate>
-    </item>
-    <item>
-      <title>CTE 公用表表达式</title>
-      <link>https://java-px.bot.cd/postgresql/04-query/cte</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/04-query/cte</guid>
-      <description>&gt; WITH 子句 + 临时命名结果集，让 SQL 像写代码一样可读。**CTE 是 SQL 的"局部变量"**。 | 维度 | CTE | 子查询 | |---|---|---| | 可读性 | 优（命名 + 分层） | 差（嵌套深） | | 重用 | 同 CTE 可多次引用 | 需重复写 | | 递归 | 支持 | 不支持 | | 性能 | 可控（NOT MATERIALIZED） | 通常内</description>
-      <pubDate>Sun, 09 Aug 2026 15:04:05 -0000</pubDate>
-    </item>
-    <item>
-      <title>EXPLAIN 详解</title>
-      <link>https://java-px.bot.cd/postgresql/04-query/explain</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/04-query/explain</guid>
-      <description>&gt; 看懂执行计划，慢查询不再黑盒。**EXPLAIN ANALYZE 是 DBA 的眼睛**。 - PostgreSQL 官方文档：Performance Tips - "PostgreSQL Query Optimization"（2024） - "Use The Index, Luke"（Markus Winand） - explain.dalibo.com 可视化工具 - pg_stat_s</description>
-      <pubDate>Sun, 09 Aug 2026 15:03:46 -0000</pubDate>
-    </item>
-    <item>
-      <title>JSONB 类型</title>
-      <link>https://java-px.bot.cd/postgresql/02-data-types/jsonb</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/02-data-types/jsonb</guid>
-      <description>&gt; PostgreSQL 的"杀手锏"——既是关系型数据库，又是文档数据库。**JSONB + GIN = 文档 + 索引**。 | 维度 | PostgreSQL JSONB | MongoDB | |---|---|---| | 数据模型 | 关系 + 文档（混合） | 纯文档 | | 索引 | GIN 表达式索引 | B-Tree / 全文 / 地理 | | 事务 | ACID 完整 | 4</description>
-      <pubDate>Sun, 09 Aug 2026 15:03:19 -0000</pubDate>
-    </item>
-    <item>
-      <title>PostgreSQL 概述</title>
-      <link>https://java-px.bot.cd/postgresql/01-basics/overview</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/01-basics/overview</guid>
-      <description>&gt; 世界上最先进的开源关系型数据库。**30+ 年演化，关系型 + 文档 + 空间 + 向量的全能选手**。 | 维度 | PostgreSQL | MySQL | |---|---|---| | 许可证 | BSD-like（更宽松） | GPL | | SQL 标准 | 严格遵循 | 部分支持 | | JSON 支持 | JSONB（原生索引） | JSON（无索引友好） | | 全文检索 |</description>
-      <pubDate>Sun, 09 Aug 2026 15:02:54 -0000</pubDate>
     </item>
   </channel>
 </rss>

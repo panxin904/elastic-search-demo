@@ -1,8 +1,8 @@
 # game 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 39 个文档页 · 44,301 字
-> 生成时间：2026-08-25T20:49:52
+> 39 个文档页 · 56,698 字
+> 生成时间：2026-08-27T21:42:04
 
 ## [引擎层](https://java-px.bot.cd/game/01-engine/README)
 > 游戏引擎层：商业引擎选型 + 自研引擎架构 + 决策。 | 节点 | 一句话 | |------|--------| | [商业引擎选型](./commercial) | Unity / Unreal / Godot 三选一 | | [自研引擎架构](./custom) | ECS / RHI / 资源管理 | | [选型决策](./decision) | 平台 / 团队 / 预算 / 性能权衡

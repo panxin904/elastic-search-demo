@@ -1,8 +1,8 @@
 # java-language 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 55 个文档页 · 34,983 字
-> 生成时间：2026-08-25T20:49:52
+> 55 个文档页 · 37,028 字
+> 生成时间：2026-08-27T21:42:04
 
 ## [数据类型 / 包装类](https://java-px.bot.cd/java-language/01-basics/datatypes)
 > | 类型 | 字节 | 范围 | 包装类 | |------|------|------|--------| | byte | 1 | -128~127 | Byte | | short | 2 | -32k~32k | Short | | int | 4 | -2B~2B | Integer | | long | 8 | -9e18~9e18 | Long | | float | 4 | 6-7
@@ -161,7 +161,7 @@
 > > 50+ 节点，14 大主题分类，节点可点击跳转。 <ClientOnly><KnowledgeGraph :height="820" /></ClientOnly> | 颜色 | 分类 | 节点数 | |------|------|--------| | 🔴 红 | 基础语法 | 5 | | 🔵 蓝 | 集合框架 | 5 | | 🟣 紫 | 并发编程 | 5 | | 🟧 橙 | JVM 内存模
 
 ## [java-language 知识图谱](https://java-px.bot.cd/java-language/index)
-> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "会用 HashMap 但不理解红黑树和 Hash 冲突", "写了 Spring 但不理解 IoC 容器如何工作", "遇到 GC 停顿只会调 Xmx",
+> ::: tip 💡 关于本站定位 本站是 **14 章速查手册合集**（不是系统化教程）： - 每篇 30-200 字 cheat sheet 风格（代码示例 + 关键参数） - 14 章覆盖基础语法 → JVM → 并发 → Spring → 微服务 → 面试 - 详细讲解请配合各章 [Reference](#references) 链接的官方文档 - 薄页豁免已配置在 `audit-conte
 
 ## [思维导图](https://java-px.bot.cd/java-language/mindmap)
 > <ClientOnly><MindMap :height="940" /></ClientOnly>

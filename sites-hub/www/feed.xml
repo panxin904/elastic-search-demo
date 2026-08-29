@@ -6,356 +6,356 @@
     <atom:link href="https://java-px.bot.cd/feed.xml" rel="self" type="application/rss+xml" />
     <description>28 子站 / 1567 页 / 聚合最近 50 条更新</description>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
-    <item>
-      <title>Java Web Dev Manual</title>
-      <link>https://java-px.bot.cd/java/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/java/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Java 知识图谱太广（基础 / JVM / 并发 / 框架 / 中间件）怎么系统学？", "JVM 内存模型（堆 / 栈 / Metaspace / 直接</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:12 -0000</pubDate>
-    </item>
-    <item>
-      <title>视频处理知识库</title>
-      <link>https://java-px.bot.cd/video/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/video/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "像素 / 色彩 / 帧率 / 容器格式基础概念混？", "帧内 / 帧间 / DCT / 熵编码 原理讲不清？", "H.264 / H.265 / AV1</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>tools 知识图谱</title>
-      <link>https://java-px.bot.cd/tools/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/tools/</guid>
-      <description>&lt;div id="all-tools"&gt;&lt;/div&gt; &lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "日常 JSON 格式化 / 压缩 / 校验每次都开在线工具？", "时间戳 / 时区 / ISO 86</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>System Design 知识图谱</title>
-      <link>https://java-px.bot.cd/system-design/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/system-design/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "会写 CRUD 却讲不清 CAP", "调过 Redis 却说不出 cache-aside 的失效边界", "用过 Kafka 但说不清「不丢消息」需要哪几</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>Security 知识图谱</title>
-      <link>https://java-px.bot.cd/security/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/security/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "OWASP Top 10 风险记不全，audit 一个 Web 应用无从下手？", "认证 vs 授权、RBAC vs ABAC 模型区别？", "密码学（</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>Rust 知识图谱</title>
-      <link>https://java-px.bot.cd/rust/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/rust/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "所有权 / 借用 / 生命周期推导卡壳？", "异步编程（async-await / Tokio）复杂？", "Trait / 泛型 / 高级类型（新类型</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>redis 知识图谱</title>
-      <link>https://java-px.bot.cd/redis/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/redis/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "只会简单 SET / GET，不懂底层数据结构（SDS / Dict / SkipList）", "不了解 RDB / AOF 的差异与混合持久化", "集</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>python 知识图谱</title>
-      <link>https://java-px.bot.cd/python/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/python/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "只懂基础语法，不了解底层原理（解释器 / 字节码 / 对象模型）", "用过 requests / pandas 但不知道内部实现", "写 GIL 多线程</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>PostgreSQL 知识图谱</title>
-      <link>https://java-px.bot.cd/postgresql/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "MVCC 原理：为什么 PG 的读不阻塞写？", "事务隔离级别（RC / RR / Serializable）选哪个？", "索引类型（B-tree /</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>Observability 知识图谱</title>
-      <link>https://java-px.bot.cd/observability/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/observability/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "单体时代（CPU/内存/磁盘）vs 微服务时代（调用链/性能瓶颈）监控差异？", "Metrics / Logs / Traces 三件套怎么选型（Prom</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>计算机网络知识库</title>
-      <link>https://java-px.bot.cd/network/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/network/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "TCP/IP 协议栈（IP / TCP / UDP / HTTP）讲不清？", "三次握手 / 四次挥手 / TIME_WAIT 太多怎么排查？", "HT</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>MySQL 知识图谱</title>
-      <link>https://java-px.bot.cd/mysql/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/mysql/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "知识点碎片化，不知道先后顺序（11 大主题怎么学？）", "InnoDB 引擎原理（MVCC / Buffer Pool / Redo Log）讲不清？",</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>linux 知识图谱</title>
-      <link>https://java-px.bot.cd/linux/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/linux/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "常用命令（ls / find / grep / awk）记不牢？", "Shell 脚本（bash / zsh）写不出来？", "systemd / 服务管</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>kafka 知识图谱</title>
-      <link>https://java-px.bot.cd/kafka/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "分区副本机制、Leader 选举讲不清？", "Exactly-Once 语义怎么实现？", "消费者组位移提交策略选哪个？", "Kafka 性能调优参数</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
-    </item>
+    <lastBuildDate>Thu, 27 Aug 2026 21:42:04 -0000</lastBuildDate>
     <item>
       <title>java-language 知识图谱</title>
       <link>https://java-px.bot.cd/java-language/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/java-language/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "会用 HashMap 但不理解红黑树和 Hash 冲突", "写了 Spring 但不理解 IoC 容器如何工作", "遇到 GC 停顿只会调 Xmx",</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <description>::: tip 💡 关于本站定位 本站是 **14 章速查手册合集**（不是系统化教程）： - 每篇 30-200 字 cheat sheet 风格（代码示例 + 关键参数） - 14 章覆盖基础语法 → JVM → 并发 → Spring → 微服务 → 面试 - 详细讲解请配合各章 [Reference](#references) 链接的官方文档 - 薄页豁免已配置在 `audit-conte</description>
+      <pubDate>Thu, 27 Aug 2026 21:28:31 -0000</pubDate>
     </item>
     <item>
-      <title>iot 知识图谱</title>
-      <link>https://java-px.bot.cd/iot/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/</guid>
-      <description>&lt;script setup&gt; const painPoints = [ "协议栈碎片：MQTT / CoAP / Modbus / OPC-UA / LoRaWAN 各自适合什么场景？", "边缘 vs 云端：哪些计算放边缘、哪些放云端？", "设备影子 vs 物模型：阿里 / 华为 / AWS 三家抽象不一致，迁移成本高？", "时序数据爆炸：百万设备 × 每秒 1 条数据，传统 MySQL 撑</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <title>RPC 远程调用</title>
+      <link>https://java-px.bot.cd/system-design/05-patterns/rpc</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/05-patterns/rpc</guid>
+      <description>&gt; 像调用本地方法一样调用远程服务。**性能、序列化、服务发现、超时重试**。 详细步骤： | 框架 | 协议 | 序列化 | 跨语言 | 性能 | 生态 | |---|---|---|---|---|---| | gRPC | HTTP/2 | Protobuf | ✅ | 高 | 强 | | Dubbo | 自定义 | Hessian2 | 有限 | 高 | Java 强 | | Thrift</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
     </item>
     <item>
-      <title>go 知识图谱</title>
-      <link>https://java-px.bot.cd/go/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/go/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "goroutine 调度原理、栈扩容讲不清？", "channel vs sync.Mutex 不知道选哪个？", "Go 错误处理（error / pan</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <title>Jetpack 套件</title>
+      <link>https://java-px.bot.cd/android/01-app/jetpack</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/android/01-app/jetpack</guid>
+      <description>&gt; Google Jetpack 一站式 Android 架构组件，覆盖 UI / 数据 / 生命周期 / 依赖注入。 - ViewModel：UI 数据持有者（屏幕旋转不丢） - LiveData / Flow：响应式数据流 - Room：SQLite ORM - Hilt：编译期 DI - WorkManager：后台任务调度 - DataStore：替代 SharedPreferences</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
     </item>
     <item>
-      <title>game 知识图谱</title>
-      <link>https://java-px.bot.cd/game/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/game/</guid>
-      <description>&lt;script setup&gt; const painPoints = [ "引擎选型纠结：Unity / Unreal / Godot 哪个更适合我的项目？", "渲染卡顿 / 帧率不稳：Draw Call 爆炸 / Shader 编译 / GPU 带宽瓶颈？", "物理穿透 / 抖动 / 速度异常：浮点精度 / 碰撞体配置 / 时间步长？", "敌人 AI 太死板：FSM 不够灵活 / 行为树不会</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <title>渲染管线</title>
+      <link>https://java-px.bot.cd/game/02-render/pipeline</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/game/02-render/pipeline</guid>
+      <description>&gt; 四大主流渲染管线：前向 / 延迟 / Clustered / 光线追踪，各有适用场景。 - 前向渲染：移动端首选（low power），带宽低 - 延迟渲染：PC / 主机主流，多光源场景好 - Clustered / Tiled：Forward+ / Deferred+，效率与质量兼顾（UE5 默认） - 光线追踪：电影级画质，硬件要求高（RTX / PS5 / XSX） - [光照](./</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
     </item>
     <item>
-      <title>frontend 知识图谱</title>
-      <link>https://java-px.bot.cd/frontend/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/frontend/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "HTML / CSS 基础不扎实，遇到复杂布局就懵？", "React / Vue / Angular / Svelte 选哪个？", "浏览器渲染原理、E</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <title>PKI 与 TLS 实战</title>
+      <link>https://java-px.bot.cd/network/07-security/pki-tls</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/network/07-security/pki-tls</guid>
+      <description>&lt;div class="nt-badge nt-badge-security"&gt;网络安全&lt;/div&gt; &lt;div class="nt-badge nt-badge-tools"&gt;实战&lt;/div&gt; 本章聚焦 PKI 与 TLS 在生产环境中的落地：证书签发、TLS 部署、配置加固、故障排查。 证书路径： 适合企业内网、IoT、测试环境。 | 优化 | 收益 | | --- | --- | | TLS</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
     </item>
     <item>
-      <title>文件系统 / 文件服务 / 存储全栈</title>
-      <link>https://java-px.bot.cd/filesystem/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "从单块磁盘的 inode 到跨数据中心的对象存储，怎么系统学？", "POSIX 权限 / ACL / Capabilities 到底有什么区别？", "本</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <title>binlog 与 relay log</title>
+      <link>https://java-px.bot.cd/mysql/06-replication/binlog</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/06-replication/binlog</guid>
+      <description>&gt; 主从复制的核心是 binlog。理解 binlog 的格式、写入、读取过程，是掌握主从复制和高可用的基础。 **binlog（Binary Log）** 是 MySQL Server 层实现的二进制日志，记录所有**修改数据的 SQL**（不记录 SELECT）。 1. **主从复制**：从库读取主库的 binlog，重放 SQL 2. **数据恢复**：基于时间点恢复（Point-in-Ti</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
     </item>
     <item>
-      <title>ES Knowledge Atlas</title>
-      <link>https://java-px.bot.cd/es/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/es/</guid>
-      <description>&lt;ClientOnly&gt; &lt;WhyThisGraph :pain-points="painPoints" :goals="goals" :related-sites="relatedSites" title="🎯 为什么写这个图谱？" /&gt; &lt;/ClientOnly&gt; &lt;script setup&gt; // WhyThisGraph 数据从 frontmatter 读不到（YAML 数组太复杂），放这</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <title>服务拆分原则</title>
+      <link>https://java-px.bot.cd/architecture/06-microservice/split</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/architecture/06-microservice/split</guid>
+      <description>按**限界上下文（Bounded Context）**拆： - 订单上下文（OrderContext）：订单、支付、物流 - 商品上下文（CatalogueContext）：商品、类目、库存 - 用户上下文（IdentityContext）：用户、认证、权限 每个上下文 = 一个服务（或多个聚合服务）。 &gt; "设计系统的组织，受限于沟通结构" 团队结构 = 系统结构。微服务团队 = 2 个披萨团队</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
     </item>
     <item>
-      <title>DevOps 知识图谱</title>
-      <link>https://java-px.bot.cd/devops/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/devops/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "CI/CD 工具太多（Jenkins / GitLab CI / GitHub Actions / Argo），怎么选？", "Pipeline as Co</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <title>MCP 核心概念</title>
+      <link>https://java-px.bot.cd/ai/06-mcp/core</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/06-mcp/core</guid>
+      <description>&gt; **M**odel **C**context **P**rotocol。Anthropic 2024 年提出的**开放标准**，让 LLM 标准化连接外部数据源 / 工具。 | 角色 | 是什么 | |------|--------| | **Host** | 跑 LLM 的应用（Claude Code / Cursor） | | **Client** | 嵌在 host 里的 MCP 客户端</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
     </item>
     <item>
-      <title>设计模式 / GoF 23 式 / 反模式</title>
-      <link>https://java-px.bot.cd/design-pattern/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/design-pattern/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "GoF 23 式记不全，面试问到「装饰器 vs 代理」讲不清？", "创建型 / 结构型 / 行为型 分类背后的设计原则（开闭 / 里氏 / 依赖倒置）？"</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <title>LangGraph</title>
+      <link>https://java-px.bot.cd/ai/04-agents/langgraph</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/04-agents/langgraph</guid>
+      <description>&gt; LangChain 团队出的 **Agent 框架**。把 agent 表达成**有状态图**（StateGraph）。**生产首选**。 | | LangGraph | CrewAI | AutoGen | |--|-----------|--------|---------| | 强项 | 复杂状态 / 生产 | 简单多 agent | 研究 / 对话 | | 学习曲线 | 中 | 低 |</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
     </item>
     <item>
-      <title>cloud-native 知识图谱</title>
-      <link>https://java-px.bot.cd/cloud-native/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/cloud-native/</guid>
-      <description>features: title: Docker 容器 details: Docker 基础 · 镜像 · 容器 · 网络 · 卷 · Compose link: /01-docker/intro linkText: 开始 Docker → title: k8s 架构 details: 控制面 / Node / kubectl / etcd · 集群全貌 link: /02-k8s-arch/ove</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <title>RAG 模式详解</title>
+      <link>https://java-px.bot.cd/ai/05-rag/patterns</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/05-rag/patterns</guid>
+      <description>&gt; **R**etrieval-**A**ugmented **G**eneration。**让 LLM 回答自己不知道的（私有 / 实时）数据**。 | | RAG | Fine-tuning | |--|-----|-------------| | 适合 | 知识更新 / 私有 | 学模型"风格" / 任务 | | 数据量 | 文档 | 问答对 | | 成本 | 低（仅 embedding +</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
     </item>
     <item>
-      <title>clickhouse 知识图谱</title>
-      <link>https://java-px.bot.cd/clickhouse/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "列存 vs 行存：为什么 OLAP 要用列存？", "MergeTree 引擎家族（Replacing / Summing / Aggregating）怎么</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <title>模型对比与选型</title>
+      <link>https://java-px.bot.cd/ai/01-models/compare</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/ai/01-models/compare</guid>
+      <description>&gt; 闭源旗舰 + 开源强模型，**按场景选**。 | 维度 | Claude 4.5 Sonnet | GPT-5 / GPT-4o | Gemini 2.5 Pro | DeepSeek V3 | |------|-------------------|------------------|----------------|---------------| | 厂商 | Anthropic |</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
     </item>
     <item>
-      <title>chaos 知识图谱</title>
-      <link>https://java-px.bot.cd/chaos/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/chaos/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Netflix Chaos Monkey 起源：混沌工程到底解决什么问题？", "稳态假设（steady state）怎么定义才不会被实验打破？", "爆炸</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <title>ext4 经典之选</title>
+      <link>https://java-px.bot.cd/filesystem/02-disk-fs/ext4</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/02-disk-fs/ext4</guid>
+      <description>&lt;span class="kg-badge kg-badge-disk-fs"&gt;本地盘&lt;/span&gt; Linux 的默认文件系统——ext2/3/4 家族的集大成者。 - **ext2** (1993)：最早的可扩展 FS，无日志 - **ext3** (2001)：加日志，兼容 ext2 - **ext4** (2008)：extent、B+ tree、延迟分配、大文件支持 ext3 用**直接</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
     </item>
     <item>
-      <title>bigdata 知识图谱</title>
-      <link>https://java-px.bot.cd/bigdata/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/bigdata/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Hadoop / Spark / Flink / Hive / Kafka 各自独立文档", "数据仓库 vs 数据湖 vs Lakehouse 怎么选",</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <title>VFS 虚拟文件系统</title>
+      <link>https://java-px.bot.cd/filesystem/01-basics/vfs</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/filesystem/01-basics/vfs</guid>
+      <description>&lt;span class="kg-badge kg-badge-basics"&gt;基础&lt;/span&gt; Linux 的"万能适配器"——同一套系统调用接口支持 ext4 / NTFS / NFS / procfs / sysfs ... **VFS**（Virtual File System）是 Linux 内核中的一层抽象，让上层应用看到的是"统一的文件操作接口"，下层可以接入任何具体文件系统。 **</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
     </item>
     <item>
-      <title>企业级架构知识图谱</title>
-      <link>https://java-px.bot.cd/architecture/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/architecture/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "会写 CRUD 却讲不清 CAP 定理", "知道消息队列但说不清幂等性设计", "调过限流却不懂令牌桶 vs 滑动窗口的区别", "用了 Seata 却不</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <title>信号 (kill)</title>
+      <link>https://java-px.bot.cd/linux/04-process/signals</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/linux/04-process/signals</guid>
+      <description>&gt; Linux 进程间通讯靠**信号**。 | 信号 | 数字 | 行为 | 是否可捕获 | |------|------|------|-----------| | `SIGHUP` | 1 | 终端断开 / 重新加载配置 | ✅ | | `SIGINT` | 2 | Ctrl+C 中断 | ✅ | | `SIGQUIT` | 3 | Ctrl+\ 退出 + core | ✅ | | `SIGK</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
     </item>
     <item>
-      <title>android 知识图谱</title>
-      <link>https://java-px.bot.cd/android/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/android/</guid>
-      <description>&lt;script setup&gt; const painPoints = [ "Activity / Fragment 生命周期混乱：屏幕旋转后 ViewModel 数据丢失？", "协程作用域错位：GlobalScope / viewModelScope / lifecycleScope 该用哪个？", "Compose 与 View 混用：状态同步、重组范围、跨进程通信怎么搞？", "应用卡顿 /</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <title>内核模块</title>
+      <link>https://java-px.bot.cd/linux/14-kernel/modules</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/linux/14-kernel/modules</guid>
+      <description>&gt; Linux 内核按需加载 / 卸载的能力（LKM = Loadable Kernel Module）。 第一列：模块名 第二列：占内存大小 第三列：使用计数 + 谁在用 驱动源码在**内核升级时自动重编译**： | | 模块（默认） | 编译进内核（CONFIG_Y=y） | |--|------------|------------------------| | 灵活性 | 高，可动态加 |</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
     </item>
     <item>
-      <title>ai 知识图谱</title>
-      <link>https://java-px.bot.cd/ai/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/ai/</guid>
-      <description>features: title: 大模型与推理 details: Claude / GPT / Gemini / DeepSeek / Llama / Mistral / 选型 link: /01-models/claude linkText: 开始看模型 → title: AI 编程工具 details: Claude Code / Cursor / Copilot / Continue / A</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <title>Chaos Mesh 架构</title>
+      <link>https://java-px.bot.cd/chaos/02-chaos-mesh/architecture</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/02-chaos-mesh/architecture</guid>
+      <description>Chaos Mesh 由三个核心组件构成： **1. chaos-controller-manager**： - 监听 CRD 变化（PodChaos / NetworkChaos / StressChaos 等 11 种） - 调度 chaos daemon 执行故障 - 高可用：Deployment 多副本 + leader election - 资源占用低（&lt; 256Mi 内存 / 100m</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
     </item>
     <item>
-      <title>游戏开发学习路径</title>
-      <link>https://java-px.bot.cd/game/path</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/game/path</guid>
-      <description>&gt; 三条路径覆盖"引擎使用者 / 图形程序员 / 联机 / AI 程序员"三种角色。按背景选择即可。 适合：应用开发者转游戏 / 想做独立游戏 / 从零入门。 | Day | 主题 | 关键交付 | |---|---|---| | D1 | 引擎选型（Unity / Unreal / Godot 对比） | 选定主攻引擎 + 安装环境 | | D2-3 | 场景搭建（地形 / 灯光 / 摄像机）</description>
-      <pubDate>Mon, 24 Aug 2026 21:20:55 -0000</pubDate>
+      <title>混沌工程基础总览</title>
+      <link>https://java-px.bot.cd/chaos/01-foundations/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/chaos/01-foundations/overview</guid>
+      <description>混沌工程（Chaos Engineering）是在生产环境或类生产环境中，**主动注入可控故障**来验证系统韧性的工程实践。 它不是「破坏测试」（break things），也不是「故障演练」（drill）的同义词，而是一套**有方法论、有工具、有度量的科学实验体系**。 2010 年 Netflix 的云架构迁移催生了 Chaos Monkey，2012 年公开后引发业界跟进；2014 年 Ne</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
     </item>
     <item>
-      <title>Game 站在知识图谱中的位置</title>
-      <link>https://java-px.bot.cd/game/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/game/README</guid>
-      <description>**Game = 基于实时渲染 + 物理模拟 + 多人同步的交互式内容工程**：引擎层（Unity / Unreal / Godot）+ 渲染管线（Forward / Deferred / Clustered）+ 物理（碰撞 / 刚体）+ AI（FSM / BT / GOAP）+ 网络（状态同步 / 帧同步）的横切栈。 - **frontend**：客户端通识（窗口 / 输入 / UI / 事件循</description>
-      <pubDate>Mon, 24 Aug 2026 21:20:55 -0000</pubDate>
+      <title>Shuffle 详解</title>
+      <link>https://java-px.bot.cd/bigdata/03-mapreduce/shuffle</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/bigdata/03-mapreduce/shuffle</guid>
+      <description>Shuffle = Map 输出 → Reduce 输入的中间过程（网络 + 磁盘 IO）。 MR 程序 80% 时间在 Shuffle → Shuffle 优化 = 性能优化。 | 参数 | 默认 | 调优 | |------|------|------| | `mapreduce.task.io.sort.mb` | 100MB | 增大减少 spill | | `mapreduce.map.</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
     </item>
     <item>
-      <title>性能与上线</title>
-      <link>https://java-px.bot.cd/game/08-ship/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/game/08-ship/README</guid>
-      <description>游戏性能与上线：性能 / 多平台 / 反作弊 / 数据。 | 节点 | 一句话 | |------|--------| | [性能优化](./perf) | Draw Call / GC / 内存池 / 帧率 | | [上线运营](./launch) | 多平台 / 认证 / 反作弊 / 埋点 | - **性能**：先 Profiler 后优化 - **上线**：数据驱动决策 - **合规**：隐</description>
-      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+      <title>HDFS 架构</title>
+      <link>https://java-px.bot.cd/bigdata/02-hdfs/architecture</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/bigdata/02-hdfs/architecture</guid>
+      <description>**优点**：大块减少 NameNode 寻址开销 **缺点**：小文件浪费（一个块只放一个小文件） **rack awareness**：副本跨机架（默认） **NameNode 单点风险**：所有元数据在内存，挂了 = 数据丢失。 **解决**：Secondary NameNode → NameNode HA（JournalNode + ZooKeeper / ZKFC） 写 edit log</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
     </item>
     <item>
-      <title>构建发布</title>
-      <link>https://java-px.bot.cd/game/07-toolchain/build</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/game/07-toolchain/build</guid>
-      <description>&gt; 构建发布：多平台构建脚本 + CI/CD（GitHub Actions / Jenkins） + 平台 SDK 接入。 - 平台构建：Unity BuildPipeline / Unreal UAT - CI/CD：GitHub Actions / Jenkins + 缓存 Library/ - Steam：Steamworks SDK + 上架审核 - 主机：Sony / Microsoft</description>
-      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+      <title>Spark Core / RDD</title>
+      <link>https://java-px.bot.cd/bigdata/04-spark/rdd</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/bigdata/04-spark/rdd</guid>
+      <description>RDD（Resilient Distributed Dataset）= 不可变 + 分区 + 弹性 + 可并行。 | 类型 | 算子 | 影响 | |------|------|------| | **窄依赖** | map / filter / union | 不需 Shuffle，pipeline | | **宽依赖** | groupByKey / join / sortByKey | 触发</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
     </item>
     <item>
-      <title>资产管线</title>
-      <link>https://java-px.bot.cd/game/07-toolchain/assets</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/game/07-toolchain/assets</guid>
-      <description>&gt; 资产管线：FBX / glTF 模型 + LOD 生成 + 纹理压缩 + Addressable 加载。 - 模型格式：FBX（DCC 通用） / glTF（开放标准） - LOD（Level of Detail）：远距离用低模 + 减少 Draw Call - 纹理压缩：ASTC（移动）/ BC（PC）/ ETC2（OpenGL ES） - 加载：Addressable（Unity 按需加载</description>
-      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+      <title>Flink 架构</title>
+      <link>https://java-px.bot.cd/bigdata/05-flink/architecture</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/bigdata/05-flink/architecture</guid>
+      <description>| 场景 | 选 | |------|-----| | 实时低延迟 | Flink（强项） | | ETL + 流批一体 | Flink + Iceberg | | CEP（复杂事件） | Flink CEP | | 状态复杂（聚合 / 关联） | Flink + RocksDB State | | 高吞吐消息队列 | Kafka + Flink | | 简单实时 | Spark Streamin</description>
+      <pubDate>Thu, 27 Aug 2026 20:01:03 -0000</pubDate>
     </item>
     <item>
-      <title>工具链</title>
-      <link>https://java-px.bot.cd/game/07-toolchain/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/game/07-toolchain/README</guid>
-      <description>游戏工具链：资产 / 版本控制 / 构建发布。 | 节点 | 一句话 | |------|--------| | [资产管线](./assets) | FBX / glTF / LOD / Addressable | | [版本控制](./vcs) | Git LFS / Perforce / 分支 | | [构建发布](./build) | 多平台构建 / CI/CD / Steam | - *</description>
-      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+      <title>所有权 Ownership</title>
+      <link>https://java-px.bot.cd/rust/01-basics/ownership</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/rust/01-basics/ownership</guid>
+      <description>所有权是 Rust 最核心的概念：每个值有且仅有一个所有者，所有者离开作用域时值被自动 drop。 &gt; **所有权 = Rust 的"内存安全无 GC"密码**。**三大规则：唯一所有者 / move 转移 / drop 自动释放**。**目标：编译期消灭 use-after-free / double-free**。 --- - **01-basics/borrowing**：借用规则 - **</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
     </item>
     <item>
-      <title>空间音频</title>
-      <link>https://java-px.bot.cd/game/06-audio/spatial</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/game/06-audio/spatial</guid>
-      <description>&gt; 空间音频：HRTF 头相关传输函数 + 3D 距离衰减 + 声障遮挡。 - HRTF：头相关传输函数，模拟人耳定位（耳机 3D） - 3D 衰减：距离 / 方向（双声道 / 环绕声） - 声障遮挡：射线检测 + 衰减 - 引擎：Unity Audio / Wwise / FMOD 都支持 - [动态混音](./mix) - [音频引擎](./engine) - [← 返回 音频 目录](./)</description>
-      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+      <title>运行时性能</title>
+      <link>https://java-px.bot.cd/frontend/12-perf/runtime</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/frontend/12-perf/runtime</guid>
+      <description>&gt; 用户开始操作后，UI 是否快速响应。 - 把"输入 → state"放到受控组件自身 - 用 stable key（避免 index 当 key） - **派生状态用 useMemo**：处理昂贵计算 Context 全部消费者都会重渲染。最佳实践： - 拆小组件，**用 selector** - 大数据放 `useRef` 或外部 store 1 万行列表也只渲染可见的几十条。 React</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
     </item>
     <item>
-      <title>音频</title>
-      <link>https://java-px.bot.cd/game/06-audio/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/game/06-audio/README</guid>
-      <description>游戏音频：空间 / 动态混音 / 音频引擎。 | 节点 | 一句话 | |------|--------| | [空间音频](./spatial) | HRTF / 3D 衰减 / 声障 | | [动态混音](./mix) | Snapshot / 实时参数 / 总线 | | [音频引擎](./engine) | Wwise / FMOD / 内置 | - **3A**：Wwise（行业标准） -</description>
-      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+      <title>goroutine</title>
+      <link>https://java-px.bot.cd/go/02-concurrency/goroutine</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/go/02-concurrency/goroutine</guid>
+      <description>goroutine 是 Go 最核心的并发原语：轻量协程，由 Go runtime 调度，单个程序可同时运行数十万个 goroutine。 &gt; **goroutine = Go runtime 调度的协程（M:N 模型）**。**核心：go 关键字启动 / 2KB 栈 / GMP 调度 / 协作式+抢占式调度**。 --- --- --- | 模型 | 调度方 | 数量级 | |---|---|-</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
     </item>
     <item>
-      <title>机器学习 AI</title>
-      <link>https://java-px.bot.cd/game/04-ai/ml</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/game/04-ai/ml</guid>
-      <description>&gt; 游戏 AI 与机器学习结合：强化学习（RL）/ 神经网络 NPC / 群体模拟 Boids。 - 强化学习（RL）：DQN / PPO 训练 NPC 策略 - 神经网络 NPC：模仿学习 / 决策网络 - Boids：群体行为（鸟群 / 鱼群） - 应用：赛车 AI / RTS 微操 / NPC 对话生成 - [决策系统](./decision) - [联机架构](../05-network/</description>
-      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+      <title>一致性与系统模型</title>
+      <link>https://java-px.bot.cd/system-design/01-theory/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/01-theory/overview</guid>
+      <description>![DDIA 三大属性 — 可靠性 / 可扩展性 / 可维护性](/ddia-3-properties.svg) &gt; 本章是系统设计全站的**索引页**。如果你只读一章，从这里开始。 分布式系统讨论的核心问题：**多个节点在不可靠网络上如何就某个值达成一致**。 围绕这个核心问题，衍生出： 从强到弱排列： &gt; 所有操作看起来像是**按某种全局顺序**依次执行的，且顺序与真实时间一致。 **代价**</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
     </item>
     <item>
-      <title>决策系统</title>
-      <link>https://java-px.bot.cd/game/04-ai/decision</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/game/04-ai/decision</guid>
-      <description>&gt; NPC 决策：FSM（状态机）/ BT（行为树）/ Utility AI / GOAP（目标导向行动规划）。 - FSM：简单状态切换，适合小型 NPC - BT（行为树）：模块化 + 可视化，AAA 标准 - Utility AI：基于效用函数，适合复杂决策 - GOAP：规划式，模拟真实思考过程 - [寻路](./pathfinding) - [机器学习](./ml) - [← 返回 AI</description>
-      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+      <title>Prometheus 架构</title>
+      <link>https://java-px.bot.cd/observability/03-prometheus/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/03-prometheus/overview</guid>
+      <description>Prometheus 整体架构与核心组件</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
     </item>
     <item>
-      <title>AI</title>
-      <link>https://java-px.bot.cd/game/04-ai/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/game/04-ai/README</guid>
-      <description>游戏 AI：寻路 / 决策 / 机器学习。 | 节点 | 一句话 | |------|--------| | [寻路](./pathfinding) | A* / NavMesh / Flow Field | | [决策系统](./decision) | FSM / 行为树 / 效用 / GOAP | | [机器学习 AI](./ml) | 强化学习 / 神经网络 NPC | - **简单 NPC</description>
-      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+      <title>Grafana 概览</title>
+      <link>https://java-px.bot.cd/observability/04-grafana/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/observability/04-grafana/overview</guid>
+      <description>数据源 / Dashboard / 告警</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
     </item>
     <item>
-      <title>刚体动力学</title>
-      <link>https://java-px.bot.cd/game/03-physics/rigidbody</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/game/03-physics/rigidbody</guid>
-      <description>&gt; 刚体模拟：积分（Verlet / Euler）+ 约束求解 + 现成物理引擎（PhysX / Bullet / Havok）。 - Verlet 积分：稳定 + 速度隐式 - Euler 积分：简单但易爆 - 约束求解：PBD（Position Based Dynamics）/ Sequential Impulse - PhysX（NVIDIA）：Unity / Unreal 默认 - Bul</description>
-      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+      <title>Nginx</title>
+      <link>https://java-px.bot.cd/java/04-tech/nginx</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/nginx</guid>
+      <description>Nginx 是高性能的 HTTP 服务器和反向代理，常用于负载均衡、静态资源、HTTPS 终端。 **反向代理**：`proxy_pass http://backend;` + `proxy_set_header X-Real-IP $remote_addr;` **负载均衡策略**： - `round-robin`（默认，轮询） - `least_conn`（最少连接，适合长连接） - `ip_</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
     </item>
     <item>
-      <title>物理</title>
-      <link>https://java-px.bot.cd/game/03-physics/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/game/03-physics/README</guid>
-      <description>游戏物理：碰撞 / 刚体 / 柔体。 | 节点 | 一句话 | |------|--------| | [碰撞检测](./collision) | AABB / GJK / 空间分割 | | [刚体动力学](./rigidbody) | Verlet / 约束 / PhysX | | [柔体模拟](./softbody) | 弹簧质点 / 布料 / 流体 | - **简单碰撞**：引擎内置 Col</description>
-      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+      <title>ACID 与隔离级别</title>
+      <link>https://java-px.bot.cd/mysql/04-transaction/isolation</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/04-transaction/isolation</guid>
+      <description>&gt; 事务是数据库的核心概念。理解 ACID 和四种隔离级别，是处理并发问题的基础。 **事务（Transaction）** 是一组 SQL 操作的逻辑单元，要么全部成功，要么全部失败。 **事务是最小执行单元，不可分割。** **实现机制：** `undo log`（回滚日志） - 事务执行时，记录每条 SQL 的反向操作 - ROLLBACK 时执行反向操作恢复数据 **事务前后，数据库从一个一</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
     </item>
     <item>
-      <title>着色器</title>
-      <link>https://java-px.bot.cd/game/02-render/shader</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/game/02-render/shader</guid>
-      <description>&gt; HLSL（GLSL/MSL/Slang）+ Shader Graph 可视化 + Compute Shader 通用计算。 - HLSL：DirectX + Xbox + PC，Unity ShaderLab / UE Material 编译为目标 - GLSL：Vulkan / OpenGL，跨平台 - Shader Graph：节点式可视化（Unity / UE 都有），适合美术 - Co</description>
-      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+      <title>OSI 七层模型</title>
+      <link>https://java-px.bot.cd/network/01-basics/osi</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/network/01-basics/osi</guid>
+      <description>&gt; 国际标准化组织（ISO）提出的**网络通信参考模型**，是理解计算机网络的基石。 | 层 | 名称 | 数据单位 | 主要协议/设备 | 功能 | |---|---|---|---|---| | 7 | 应用层 | 报文 | HTTP, DNS, FTP, SMTP | 用户接口、网络服务 | | 6 | 表示层 | 报文 | SSL/TLS, JPEG, ASCII | 数据表示、加密 |</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
     </item>
     <item>
-      <title>后处理</title>
-      <link>https://java-px.bot.cd/game/02-render/postprocess</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/game/02-render/postprocess</guid>
-      <description>&gt; 屏幕空间后处理：Bloom / DOF / SSAO / TAA / Color Grading，营造氛围。 - Bloom：发光物体光晕 - DOF（Depth of Field）：景深虚化 - SSAO / HBAO：环境光遮蔽 - TAA（Temporal AA）：时序抗锯齿 - Color Grading：色调映射 + LUT - [渲染管线](./pipeline) - [性能优化]</description>
-      <pubDate>Mon, 24 Aug 2026 21:20:29 -0000</pubDate>
+      <title>Sentinel 哨兵</title>
+      <link>https://java-px.bot.cd/redis/04-cluster/sentinel</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/redis/04-cluster/sentinel</guid>
+      <description>&gt; Sentinel 是 Redis 官方的高可用方案。它在主从复制的基础上，部署一组独立的"哨兵进程"，持续监控 Master/Replica 状态，自动完成故障检测与故障转移。理解 Sentinel，就是理解"分布式共识 + 自动化运维"如何落地。 &lt;ClientOnly&gt; &lt;DataStructureViz /&gt; &lt;/ClientOnly&gt; 主从复制解决不了一个关键问题：**Master 挂</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
     </item>
     <item>
-      <title>上线运营</title>
-      <link>https://java-px.bot.cd/game/08-ship/launch</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/game/08-ship/launch</guid>
-      <description>&gt; 游戏上线：多平台适配 / 主机认证 / 反作弊 / 数据埋点 / 运营活动。 - 多平台：PC（Steam / Epic）/ 主机（PS/Xbox/Switch）/ 移动（iOS/Android） - 主机认证：Sony / Microsoft / Nintendo TRC 认证 - 反作弊：EAC / BattlEye + 自研检测 - 数据埋点：玩家行为 + 付费漏斗 + 关卡热度 - [</description>
-      <pubDate>Mon, 24 Aug 2026 21:20:19 -0000</pubDate>
+      <title>MergeTree 表引擎家族</title>
+      <link>https://java-px.bot.cd/clickhouse/03-table-engine/mergetree-family</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/clickhouse/03-table-engine/mergetree-family</guid>
+      <description>MergeTree / ReplacingMergeTree / AggregatingMergeTree / CollapsingMergeTree / VersionedCollapsingMergeTree / SummingMergeTree 完整对比</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
     </item>
     <item>
-      <title>性能优化</title>
-      <link>https://java-px.bot.cd/game/08-ship/perf</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/game/08-ship/perf</guid>
-      <description>&gt; 游戏性能五大维度：Draw Call / GC / 内存池 / 帧率稳定 / 移动端功耗。 - Draw Call：合批（Batching）+ GPU Instancing + SRP Batcher - GC：避免频繁 new + 对象池 - 内存池：复用对象（子弹 / 粒子） - 帧率稳定：Profiler 找热点（CPU / GPU / IO） - 移动端：降分辨率 + 限制后处理 -</description>
-      <pubDate>Mon, 24 Aug 2026 21:20:19 -0000</pubDate>
+      <title>进程架构</title>
+      <link>https://java-px.bot.cd/postgresql/01-basics/architecture</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/postgresql/01-basics/architecture</guid>
+      <description>PostgreSQL 进程模型与内存结构</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
     </item>
     <item>
-      <title>版本控制</title>
-      <link>https://java-px.bot.cd/game/07-toolchain/vcs</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/game/07-toolchain/vcs</guid>
-      <description>&gt; 游戏版本控制：Git LFS（小团队） / Perforce Helix（大团队） + 分支策略。 - Git LFS：大文件（美术资产）扩展，GitHub / GitLab 支持 - Perforce Helix：游戏行业标配，TB 级资产友好 - 分支策略：main / develop / feature/* - 锁定文件：二进制资产（场景 / Prefab）避免冲突 - [资产管线](.</description>
-      <pubDate>Mon, 24 Aug 2026 21:20:19 -0000</pubDate>
+      <title>服务发现</title>
+      <link>https://java-px.bot.cd/system-design/05-patterns/service-discovery</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/05-patterns/service-discovery</guid>
+      <description>&gt; 微服务架构下，**如何让一个服务找到另一个服务的网络地址**。 | 方案 | 类型 | 协议 | 特点 | |---|---|---|---| | **Consul** | 客户端 | HTTP/DNS | 健康检查强，多数据中心 | | **etcd** | 客户端 | HTTP/gRPC | 强一致（Raft），K8s 默认 | | **Eureka** | 客户端 | HTTP | Ne</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
     </item>
     <item>
-      <title>音频引擎</title>
-      <link>https://java-px.bot.cd/game/06-audio/engine</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/game/06-audio/engine</guid>
-      <description>&gt; 游戏音频中间件：Wwise / FMOD / 引擎内置音频（Unity Audio / Unreal Sound）。 - Wwise（Audiokinetic）：行业标准，AAA 主流，按授权收费 - FMOD：轻量 + 集成简单，独立 / 中型项目主流 - 内置：Unity Audio / Unreal Sound，简单场景够用 - 选型：3A → Wwise；中型 → FMOD；休闲 →</description>
-      <pubDate>Mon, 24 Aug 2026 21:20:19 -0000</pubDate>
+      <title>API 网关</title>
+      <link>https://java-px.bot.cd/system-design/05-patterns/api-gateway</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/system-design/05-patterns/api-gateway</guid>
+      <description>&gt; 微服务的"门面"——所有外部请求的统一入口。 | 方案 | 性能 | 语言 | 特点 | |---|---|---|---| | **Nginx** | ★★★★★ | C | 高性能，需配置 Lua | | **Kong** | ★★★★ | OpenResty | Nginx + Lua，生态完善 | | **APISIX** | ★★★★ | OpenResty | 国产，云原生 | |</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
     </item>
     <item>
-      <title>动态混音</title>
-      <link>https://java-px.bot.cd/game/06-audio/mix</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/game/06-audio/mix</guid>
-      <description>&gt; 动态混音：Snapshot（场景切换）+ 实时参数（情绪/战斗）+ 音效总线（路由）。 - Snapshot：预设混音状态（探索 / 战斗 / Boss） - 实时参数：根据玩家状态动态调整（低血量增心跳） - 音效总线：Master / Music / SFX / Voice 分层 - 工具：Wwise / FMOD 状态机驱动 - [空间音频](./spatial) - [音频引擎](./</description>
-      <pubDate>Mon, 24 Aug 2026 21:20:19 -0000</pubDate>
+      <title>主从同步原理</title>
+      <link>https://java-px.bot.cd/mysql/06-replication/replication</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/mysql/06-replication/replication</guid>
+      <description>&gt; 主从复制是 MySQL 实现读写分离、扩展读能力、高可用的基础。深入理解同步原理，是排查复制延迟和搭建高可用集群的前提。 **GTID 优势：** - ✅ 自动定位 binlog position（崩溃恢复更容易） - ✅ 一致性保证更强 - ✅ 故障切换更简单 **缺点：** - 需要手动指定 position - 故障切换时容易出错 **优势：** - 全局唯一，自动定位 - 故障切换更容</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
+    </item>
+    <item>
+      <title>自动配置原理</title>
+      <link>https://java-px.bot.cd/cloud/01-springboot/auto-config</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/cloud/01-springboot/auto-config</guid>
+      <description>&gt; 理解 `@SpringBootApplication` 背后的魔法，是掌握 Spring Boot 的关键。 Spring Boot 根据**类路径上的 jar 包**自动配置 Spring 应用： **核心思想：约定优于配置** **Spring Boot 内置 100+ 自动配置类** | 注解 | 作用 | |---|---| | `@AutoConfiguration` | 标记为自动</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
+    </item>
+    <item>
+      <title>技术栈 总览</title>
+      <link>https://java-px.bot.cd/java/04-tech/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/java/04-tech/overview</guid>
+      <description>Java Web 开发的核心技术组件，涵盖**框架、数据库、中间件、工具链**。 | 技术 | 定位 | 核心功能 | |---|---|---| | [Spring Boot](/04-tech/spring-boot) | 开发框架 | 自动配置、起步依赖、内嵌容器、Actuator 监控 | | [Spring MVC](/04-tech/spring-mvc) | Web 层框架 | 请求</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
+    </item>
+    <item>
+      <title>GitOps 总览</title>
+      <link>https://java-px.bot.cd/devops/03-gitops/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/03-gitops/overview</guid>
+      <description>GitOps 用 Git 作为"基础设施与应用的唯一真相源"，任何变更都必须通过 PR/MR 走 Git 流程。本章梳理 GitOps 范式与两大主流工具。 | 维度 | ArgoCD | Flux | |------|--------|------| | **架构** | 单体应用 + UI | 微服务（Source Controller / Kustomize Controller / Hel</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
+    </item>
+    <item>
+      <title>GitHub Actions</title>
+      <link>https://java-px.bot.cd/devops/01-pipeline/github-actions</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/01-pipeline/github-actions</guid>
+      <description>GitHub 内置的 CI/CD 平台，与 GitHub Repo 深度集成，无需外部服务即可完成 build / test / deploy。 &gt; **GitHub Actions = GitHub 原生 CI/CD**。**YAML 写在 .github/workflows/**，**核心：workflow → job → step → action（复用 marketplace）**。 --</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
+    </item>
+    <item>
+      <title>CI/CD Pipeline 总览</title>
+      <link>https://java-px.bot.cd/devops/01-pipeline/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/devops/01-pipeline/overview</guid>
+      <description>Pipeline as Code 是 DevOps 的核心范式。本章梳理 4 大主流 CI/CD 工具的设计取舍与工程实践。 传统 CI/CD 把构建脚本写在 Jenkinsfile / .gitlab-ci.yml / GitHub Actions YAML 里，本质都是 **"用 DSL 描述流水线阶段"**。演进趋势： | 维度 | GitHub Actions | GitLab CI |</description>
+      <pubDate>Thu, 27 Aug 2026 19:50:17 -0000</pubDate>
+    </item>
+    <item>
+      <title>UUID 生成</title>
+      <link>https://java-px.bot.cd/tools/uuid</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/tools/uuid</guid>
+      <description>生成 v1 / v4 / v7 风格的 UUID，支持批量。 &lt;script setup&gt; import { ref } from 'vue' const version = ref('v4') const count = ref(5) const upper = ref(false) const list = ref([]) const status = ref('') function uui</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>URL 编解码</title>
+      <link>https://java-px.bot.cd/tools/url</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/tools/url</guid>
+      <description>URL / URI 组件编码、解码，以及查询字符串解析。 &lt;script setup&gt; import { ref, computed } from 'vue' const input = ref('https://example.com/search?q=你好 世界&amp;page=2&amp;sort=desc') const direction = ref('encode') const safeMode</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>时区转换</title>
+      <link>https://java-px.bot.cd/tools/timezone</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/tools/timezone</guid>
+      <description>把一个时刻在不同时区之间互转。 &lt;script setup&gt; import { ref, computed } from 'vue' const allZones = [ 'UTC', 'Asia/Shanghai', 'Asia/Tokyo', 'Asia/Seoul', 'Asia/Singapore', 'Asia/Hong_Kong', 'Asia/Taipei', 'Asia/Kolka</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>时间戳 ↔ 日期</title>
+      <link>https://java-px.bot.cd/tools/timestamp</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/tools/timestamp</guid>
+      <description>Unix 时间戳（秒/毫秒）与人类可读日期互转。 &lt;script setup&gt; import { ref, computed, onMounted } from 'vue' const now = ref(Date.now()) const timestamp = ref(Math.floor(Date.now() / 1000)) const unit = ref('s') const loca</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>相对时间</title>
+      <link>https://java-px.bot.cd/tools/relative</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/tools/relative</guid>
+      <description>计算两个时间之间的相对时间，例如 "3 小时 25 分钟"。也支持"X 之前"/"X 之后"。 &lt;script setup&gt; import { ref, computed } from 'vue' // 默认现在 const now = ref(new Date().toISOString().slice(0, 19)) // 默认 1 小时前 const target = ref(new Dat</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>JSON 格式化 / 校验</title>
+      <link>https://java-px.bot.cd/tools/json</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/tools/json</guid>
+      <description>格式化、压缩、校验 JSON，错误位置高亮。 &lt;script setup&gt; import { ref, computed } from 'vue' const sample = `{"name":"alice","age":30,"skills":["js","ts"],"address":{"city":"Beijing","zip":"100000"},"active":true,"score</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>JSON ↔ YAML</title>
+      <link>https://java-px.bot.cd/tools/json-yaml</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/tools/json-yaml</guid>
+      <description>JSON 与 YAML 互相转换。 &lt;script setup&gt; import { ref, computed } from 'vue' const sampleJson = `{\n  "service": "api",\n  "port": 8080,\n  "tags": ["prod", "v2"],\n  "db": { "host": "localhost", "user": "roo</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>JSON Diff</title>
+      <link>https://java-px.bot.cd/tools/json-diff</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/tools/json-diff</guid>
+      <description>对比两个 JSON 的差异并以行级方式展示。 &lt;script setup&gt; import { ref, computed } from 'vue' const left = ref(`{\n  "name": "alice",\n  "age": 30,\n  "city": "Beijing"\n}`) const right = ref(`{\n  "name": "alice",\n  "a</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>JSON ↔ CSV</title>
+      <link>https://java-px.bot.cd/tools/json-csv</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/tools/json-csv</guid>
+      <description>JSON 数组（对象数组）转换为 CSV，反之亦然。 &lt;script setup&gt; import { ref } from 'vue' const sampleJson = `[\n  {"name":"alice","age":30,"city":"Beijing"},\n  {"name":"bob","age":25,"city":"Shanghai"},\n  {"name":"carol</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
     </item>
   </channel>
 </rss>

@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://java-px.bot.cd/go/01-basics/error-handling</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/01-basics/hello-world</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/01-basics/overview</loc>
@@ -14,27 +14,27 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/01-basics/package-and-module</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/01-basics/syntax-fundamentals</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/01-basics/types-and-functions</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/02-concurrency/channel</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/02-concurrency/context</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/02-concurrency/goroutine</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/02-concurrency/overview</loc>
@@ -42,19 +42,19 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/02-concurrency/patterns</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/02-concurrency/sync-package</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/03-ecosystem/benchmark</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/03-ecosystem/go-toolchain</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/03-ecosystem/overview</loc>
@@ -66,7 +66,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/03-ecosystem/testing</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/04-cloud-native/cncf-ecosystem</loc>
@@ -74,15 +74,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/04-cloud-native/docker-internals</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/04-cloud-native/etcd-internals</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/04-cloud-native/kubernetes-internals</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/04-cloud-native/overview</loc>
@@ -90,19 +90,19 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/04-cloud-native/prometheus-internals</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/05-microservices/case-study</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/05-microservices/gin-framework</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/05-microservices/grpc</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/05-microservices/kratos</loc>
@@ -110,15 +110,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/05-microservices/overview</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/05-microservices/service-governance</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/06-advanced/cgo</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/06-advanced/gc</loc>
@@ -126,11 +126,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/06-advanced/overview</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/06-advanced/pprof</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/06-advanced/reflection</loc>
@@ -138,10 +138,10 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/06-advanced/runtime</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/go/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
 </urlset>

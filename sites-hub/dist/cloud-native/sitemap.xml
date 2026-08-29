@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/01-docker/intro</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/01-docker/network</loc>
@@ -30,11 +30,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/02-k8s-arch/etcd</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/02-k8s-arch/kubectl</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/02-k8s-arch/node</loc>
@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/03-k8s-workload/deployment</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/03-k8s-workload/job</loc>
@@ -178,11 +178,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/13-troubleshooting/debug</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/13-troubleshooting/network</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/13-troubleshooting/pod-trouble</loc>
@@ -210,7 +210,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/cloud-native/mindmap</loc>

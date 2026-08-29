@@ -6,223 +6,230 @@
     <atom:link href="https://java-px.bot.cd/iot/feed.xml" rel="self" type="application/rss+xml" />
     <description>iot 知识图谱（35 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 21:42:04 -0000</lastBuildDate>
+    <item>
+      <title>IoT 学习路径</title>
+      <link>https://java-px.bot.cd/iot/path</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/path</guid>
+      <description>&gt; 三条路径覆盖"嵌入式开发者 / 后端开发者 / 解决方案架构师"三种角色。按背景选择即可。 适合：从其他方向（前端/后端/算法）转入 IoT，从未接触过嵌入式硬件。 | Day | 主题 | 关键交付 | |---|---|---| | Day 1 | MQTT 协议 5 分钟入门 | 用 EMQX + MQTTX 跑通 pub/sub | | Day 2 | ESP32 + Arduino</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
     <item>
       <title>iot 知识图谱</title>
       <link>https://java-px.bot.cd/iot/</link>
       <guid isPermaLink="true">https://java-px.bot.cd/iot/</guid>
       <description>&lt;script setup&gt; const painPoints = [ "协议栈碎片：MQTT / CoAP / Modbus / OPC-UA / LoRaWAN 各自适合什么场景？", "边缘 vs 云端：哪些计算放边缘、哪些放云端？", "设备影子 vs 物模型：阿里 / 华为 / AWS 三家抽象不一致，迁移成本高？", "时序数据爆炸：百万设备 × 每秒 1 条数据，传统 MySQL 撑</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
-    </item>
-    <item>
-      <title>06 · 云平台与行业落地</title>
-      <link>https://java-px.bot.cd/iot/06-platform/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/06-platform/README</guid>
-      <description>公有云 IoT + 自建平台 + 行业方案。 | 节点 | 一句话 | |------|--------| | [公有云 IoT](./public-cloud) | AWS / Azure / 阿里云 / 华为云 | | [自建 IoT 平台](./self-hosted) | EMQX / ThingsBoard / HiveMQ | | [智能家居 Matter](./smart-home)</description>
-      <pubDate>Mon, 24 Aug 2026 21:10:38 -0000</pubDate>
-    </item>
-    <item>
-      <title>05 · 时序数据</title>
-      <link>https://java-px.bot.cd/iot/05-timeseries/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/05-timeseries/README</guid>
-      <description>IoT 数据的存储 / 处理 / 可视化。 | 节点 | 一句话 | |------|--------| | [时序库选型](./database) | InfluxDB / TDengine / TimescaleDB | | [流处理 / Downsampling](./processing) | 降采样 + 连续查询 | | [Grafana / Kafka](./integration)</description>
-      <pubDate>Mon, 24 Aug 2026 21:10:38 -0000</pubDate>
-    </item>
-    <item>
-      <title>04 · 设备管理</title>
-      <link>https://java-px.bot.cd/iot/04-management/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/04-management/README</guid>
-      <description>设备全生命周期：注册 → 认证 → 配置 → 命令 → OTA。 | 节点 | 一句话 | |------|--------| | [设备影子 / 物模型](./shadow) | 设备状态云端抽象 | | [固件 OTA](./ota) | 空中升级与签名 | | [设备安全](./security) | X.509 / mTLS / 密钥管理 | 1. 证书（设备身份） 2. mTLS（双向认</description>
-      <pubDate>Mon, 24 Aug 2026 21:10:38 -0000</pubDate>
-    </item>
-    <item>
-      <title>03 · 边缘计算</title>
-      <link>https://java-px.bot.cd/iot/03-edge/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/03-edge/README</guid>
-      <description>云边协同 + 离线自治 + 边缘智能。 | 节点 | 一句话 | |------|--------| | [EdgeX / KubeEdge](./framework) | 边缘计算框架 | | [边缘智能 AI](./ai-edge) | TensorFlow Lite / ONNX / OpenVINO | | [离线自治](./offline) | 本地缓存 + 协议转换 | | [K8s</description>
-      <pubDate>Mon, 24 Aug 2026 21:10:38 -0000</pubDate>
-    </item>
-    <item>
-      <title>02 · 设备与硬件</title>
-      <link>https://java-px.bot.cd/iot/02-device/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/02-device/README</guid>
-      <description>IoT 终端的硬件选型与嵌入式开发。 | 节点 | 一句话 | |------|--------| | [MCU / SoC](./mcu) | 微控制器与片上系统 | | [FreeRTOS / Zephyr](./rtos) | 嵌入式实时操作系统 | | [传感器](./sensor) | 温湿度 / IMU / 图像 / 气体 | | [网关硬件](./gateway) | 树莓派 / 工</description>
-      <pubDate>Mon, 24 Aug 2026 21:10:38 -0000</pubDate>
-    </item>
-    <item>
-      <title>01 · 通信协议</title>
-      <link>https://java-px.bot.cd/iot/01-protocol/README</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/01-protocol/README</guid>
-      <description>IoT 设备互联的基础协议层。 | 节点 | 一句话 | |------|--------| | [MQTT 5.0](./mqtt) | IoT 事实标准，发布订阅 | | [CoAP](./coap) | 受限设备首选，UDP 上的 RESTful | | [Modbus / OPC-UA](./modbus) | 工业现场总线 | | [LoRaWAN / NB-IoT](./lpwan)</description>
-      <pubDate>Mon, 24 Aug 2026 21:10:38 -0000</pubDate>
-    </item>
-    <item>
-      <title>设备安全</title>
-      <link>https://java-px.bot.cd/iot/04-management/security</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/04-management/security</guid>
-      <description>&gt; X.509 证书 / mTLS / 密钥管理 / OTA 签名四大支柱。 - X.509 证书：设备身份认证（每设备唯一证书） - mTLS：双向 TLS 认证，云端 + 设备互相验证 - 密钥管理：硬件安全模块（HSM）/ TrustZone / SE 芯片 - OTA 签名：固件必须签名才能升级 - [OTA](./ota) - [公有云 IoT](../06-platform/publi</description>
-      <pubDate>Mon, 24 Aug 2026 21:08:21 -0000</pubDate>
-    </item>
-    <item>
-      <title>设备影子 / 物模型</title>
-      <link>https://java-px.bot.cd/iot/04-management/shadow</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/04-management/shadow</guid>
-      <description>&gt; 设备状态在云端的抽象表示，用于状态同步、命令下发、状态查询。 - 设备影子（Device Shadow）：AWS IoT / Azure IoT 都用此概念 - 物模型（Thing Specification）：阿里云 LinkKit 定义设备属性 / 服务 / 事件 - 数字孪生（Digital Twin）：更复杂的物理模型仿真 - 同步机制：reported vs desired，最终一致</description>
-      <pubDate>Mon, 24 Aug 2026 21:08:21 -0000</pubDate>
-    </item>
-    <item>
-      <title>EdgeX / KubeEdge</title>
-      <link>https://java-px.bot.cd/iot/03-edge/framework</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/03-edge/framework</guid>
-      <description>&gt; 边缘计算框架，统一设备接入 + 数据处理 + 云边协同。 - EdgeX Foundry：Linux 基金会项目，模块化（Core/Supporting/Application Service） - KubeEdge：Kubernetes 原生，边缘节点管理 + 离线自治 - Azure IoT Edge：微软云生态，容器化部署 - AWS Greengrass：AWS IoT 边缘运行时 -</description>
-      <pubDate>Mon, 24 Aug 2026 21:08:21 -0000</pubDate>
-    </item>
-    <item>
-      <title>Grafana / Kafka</title>
-      <link>https://java-px.bot.cd/iot/05-timeseries/integration</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/05-timeseries/integration</guid>
-      <description>&gt; Grafana 可视化 + Kafka 消息集成，时序数据生态对接。 - Grafana：可视化仪表盘，多数据源支持 - Kafka：时序数据通过 Kafka 流转到下游（实时分析 / 备份） - Prometheus remote_write：InfluxDB / TDengine 兼容此协议 - 典型架构：设备 → MQTT → Kafka → InfluxDB → Grafana - [</description>
-      <pubDate>Mon, 24 Aug 2026 21:08:21 -0000</pubDate>
-    </item>
-    <item>
-      <title>K8s 边缘</title>
-      <link>https://java-px.bot.cd/iot/03-edge/k8s-edge</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/03-edge/k8s-edge</guid>
-      <description>&gt; K3s / KubeEdge / OpenYurt 三种 K8s 边缘方案对比与选型。 - K3s：轻量级 K8s（单 binary &lt; 100MB），适合边缘网关 - KubeEdge：完整 K8s 边缘管理，云边协同 + 离线自治 - OpenYurt：阿里云开源，原生 K8s + 边缘单元化 - 选型：单边缘节点 → K3s；多节点协同 → KubeEdge / OpenYurt - [</description>
-      <pubDate>Mon, 24 Aug 2026 21:08:21 -0000</pubDate>
-    </item>
-    <item>
-      <title>传感器</title>
-      <link>https://java-px.bot.cd/iot/02-device/sensor</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/02-device/sensor</guid>
-      <description>&gt; 温湿度 / IMU / 图像 / 气体四类常见传感器原理、选型、接口。 - 温湿度：DHT22 / SHT31（I2C）/ DS18B20（1-Wire） - 惯性 IMU：MPU6050（6 轴）/ BMI088（无人机级） - 图像：OV2640（200万像素）/ Arducam 系列 - 气体：BME680（VOC+温湿压）/ MQ-2（烟雾）/ MH-Z19（CO2） - [MCU](</description>
-      <pubDate>Mon, 24 Aug 2026 21:04:07 -0000</pubDate>
-    </item>
-    <item>
-      <title>边缘智能 AI</title>
-      <link>https://java-px.bot.cd/iot/03-edge/ai-edge</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/03-edge/ai-edge</guid>
-      <description>&gt; 边缘端推理：TensorFlow Lite / ONNX / OpenVINO。低延迟 + 隐私保护 + 离线可用。 - TensorFlow Lite：Google 主导，跨平台（ARM / x86 / MCU） - ONNX Runtime：跨框架互操作，模型量化工具链完善 - OpenVINO：Intel 优化，x86 CPU / GPU / VPU 加速 - 典型应用：图像分类 / 物</description>
-      <pubDate>Mon, 24 Aug 2026 21:04:07 -0000</pubDate>
-    </item>
-    <item>
-      <title>自建 IoT 平台</title>
-      <link>https://java-px.bot.cd/iot/06-platform/self-hosted</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/06-platform/self-hosted</guid>
-      <description>&gt; EMQX / ThingsBoard / HiveMQ 三大开源 IoT Broker 与平台对比。 - EMQX：国产开源，百万级 MQTT 连接，性能强 - ThingsBoard：可视化设备管理 + 仪表盘 + 规则引擎 - HiveMQ：商业友好，集群支持完善 - 选型：纯 Broker → EMQX；含设备管理 → ThingsBoard - [公有云](./public-cloud</description>
-      <pubDate>Mon, 24 Aug 2026 21:04:07 -0000</pubDate>
-    </item>
-    <item>
-      <title>数据模型</title>
-      <link>https://java-px.bot.cd/iot/05-timeseries/schema</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/05-timeseries/schema</guid>
-      <description>&gt; tag / field / timestamp 三元组是时序数据核心模型。 - tag：维度（设备 ID / 区域 / 类型），可索引 - field：测量值（温度 / 湿度），不可索引 - timestamp：纳秒精度时间戳 - 一设备一表 vs 一类设备一表：写入性能 vs 查询灵活 - [时序库](./database) - [流处理](./processing) - [← 返回 时序数</description>
-      <pubDate>Mon, 24 Aug 2026 21:04:07 -0000</pubDate>
-    </item>
-    <item>
-      <title>网关硬件</title>
-      <link>https://java-px.bot.cd/iot/02-device/gateway</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/02-device/gateway</guid>
-      <description>&gt; 树莓派 / 工业网关 / 边缘网关。对接多种协议 + 本地缓存 + 离线自治。 - 入门：树莓派 4B（4GB / ¥300）/ Orange Pi 5 - 工业：研华 UNO 系列 / 西门子 IOT2050（IP65 防护） - 协议转换：Modbus → MQTT / Zigbee → Wi-Fi - 离线自治：本地缓存 + 网络恢复后批量上云 - [KubeEdge](../03-ed</description>
-      <pubDate>Mon, 24 Aug 2026 21:04:00 -0000</pubDate>
-    </item>
-    <item>
-      <title>公有云 IoT</title>
-      <link>https://java-px.bot.cd/iot/06-platform/public-cloud</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/06-platform/public-cloud</guid>
-      <description>&gt; AWS IoT Core / Azure IoT Hub / 阿里云 LinkKit / 华为云 IoTDA 四大公有云对比。 - AWS IoT Core：Device Gateway / Registry / Shadow / Rules Engine - Azure IoT Hub：与 Azure Functions / Digital Twins 集成 - 阿里云 LinkKit：物模</description>
-      <pubDate>Mon, 24 Aug 2026 21:04:00 -0000</pubDate>
-    </item>
-    <item>
-      <title>智能家居 Matter</title>
-      <link>https://java-px.bot.cd/iot/06-platform/smart-home</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/06-platform/smart-home</guid>
-      <description>&gt; Matter 协议（Project CHIP），CSA 标准，跨 Apple / Google / Amazon / 三星。 - Matter 1.0：基于 IPv6 / Wi-Fi / Thread / Ethernet - 多生态互操作：Apple HomeKit / Google Home / Amazon Alexa - 设备发现：mDNS / DNS-SD - 配网：BLE 辅助 /</description>
-      <pubDate>Mon, 24 Aug 2026 21:04:00 -0000</pubDate>
-    </item>
-    <item>
-      <title>流处理 / Downsampling</title>
-      <link>https://java-px.bot.cd/iot/05-timeseries/processing</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/05-timeseries/processing</guid>
-      <description>&gt; 数据降采样 + 连续查询 + 边缘流处理，时序数据降本提效。 - Downsampling：1 秒原始数据降为 1 分钟 / 1 小时平均值 - 连续查询（Continuous Query）：自动定时执行聚合 - 边缘流处理：eKuiper（EMQX）/ Flink IoT - 保留策略：原始数据保留 7 天，聚合数据保留 1 年 - [时序库](./database) - [数据模型](./</description>
-      <pubDate>Mon, 24 Aug 2026 21:04:00 -0000</pubDate>
-    </item>
-    <item>
-      <title>工业互联网 IIoT</title>
-      <link>https://java-px.bot.cd/iot/06-platform/iiot</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/06-platform/iiot</guid>
-      <description>&gt; 工业 4.0 + 边缘计算 + 设备联网，工业场景的 IoT 应用。 - 工业 4.0：智能工厂 + 数字孪生 + 网络物理系统 - 边缘计算：实时控制（毫秒级）不能在云端 - OPC-UA：工业标准协议，与 Modbus / PROFINET 集成 - 行业落地：预测性维护 / 质量检测 / 能源管理 / 安全监控 - [Modbus](../01-protocol/modbus) - [边</description>
-      <pubDate>Mon, 24 Aug 2026 21:03:50 -0000</pubDate>
-    </item>
-    <item>
-      <title>时序库选型</title>
-      <link>https://java-px.bot.cd/iot/05-timeseries/database</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/05-timeseries/database</guid>
-      <description>&gt; InfluxDB / TDengine / TimescaleDB / QuestDB 四大时序库对比与选型。 - InfluxDB：生态最全（Telegraf / Chronograf），2.x 起闭源 - TDengine：国产开源，专为 IoT 设计，性能强（10x InfluxDB） - TimescaleDB：PostgreSQL 扩展，SQL 兼容 - QuestDB：Influx</description>
-      <pubDate>Mon, 24 Aug 2026 21:03:50 -0000</pubDate>
-    </item>
-    <item>
-      <title>固件 OTA</title>
-      <link>https://java-px.bot.cd/iot/04-management/ota</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/04-management/ota</guid>
-      <description>&gt; 空中升级（Firmware Over-The-Air），分块传输 + 签名验证 + 回滚机制。 - 分块传输：A/B 分区或流式写入（避免大文件一次性写入失败） - 签名验证：ECDSA / RSA 签名 + 公钥校验（防止恶意固件） - 回滚机制：升级失败自动回退到上一版本 - 灰度发布：按设备 ID / 区域 / 版本分组升级 - [设备影子](./shadow) - [设备安全](./s</description>
-      <pubDate>Mon, 24 Aug 2026 21:03:50 -0000</pubDate>
-    </item>
-    <item>
-      <title>离线自治</title>
-      <link>https://java-px.bot.cd/iot/03-edge/offline</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/03-edge/offline</guid>
-      <description>&gt; 网络中断时边缘设备继续工作：本地缓存 + 协议转换 + 网络恢复后批量上云。 - 本地缓存：SQLite / LevelDB / BadgerDB - 协议转换：Modbus RTU → MQTT（本地完成） - 决策降级：网络断时按本地规则处理，恢复后上报告 - 关键指标：自治时长（电池续航 / 本地存储容量） - [KubeEdge](./framework) - [设备影子](../04</description>
-      <pubDate>Mon, 24 Aug 2026 21:03:50 -0000</pubDate>
-    </item>
-    <item>
-      <title>FreeRTOS / Zephyr</title>
-      <link>https://java-px.bot.cd/iot/02-device/rtos</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/02-device/rtos</guid>
-      <description>&gt; 嵌入式实时操作系统，多任务调度 + 同步原语 + 硬件抽象层。 - FreeRTOS：小型内核（4-12KB），MIT 许可，Arduino / ESP-IDF 内置 - Zephyr：Linux 基金会维护，模块化设计，BLE / LoRa / Wi-Fi 驱动丰富 - Riot OS：欧洲学术项目，低内存友好（10KB 即可运行） - 任务间同步：信号量 / 互斥锁 / 队列 / 事件组</description>
-      <pubDate>Mon, 24 Aug 2026 21:03:50 -0000</pubDate>
-    </item>
-    <item>
-      <title>MCU / SoC</title>
-      <link>https://java-px.bot.cd/iot/02-device/mcu</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/02-device/mcu</guid>
-      <description>&gt; 微控制器与片上系统选型。算力 / 内存 / 功耗 / 价格 / 外设的权衡。 - 入门级：ESP32（双核 240MHz / Wi-Fi+BLE / ¥10）/ Arduino - 中端：STM32（ARM Cortex-M，工业级）/ nRF52（BLE 强） - 高端：树莓派 Pico（RP2040 双核 M0）/ Allwinner / Rockchip（Linux） - 选型三问：电池</description>
-      <pubDate>Mon, 24 Aug 2026 21:03:50 -0000</pubDate>
-    </item>
-    <item>
-      <title>LoRaWAN / NB-IoT</title>
-      <link>https://java-px.bot.cd/iot/01-protocol/lpwan</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/01-protocol/lpwan</guid>
-      <description>&gt; 低功耗广域网协议，远距离（数公里）+ 低功耗（电池用数年）+ 低数据量。 - LoRaWAN：免授权频段，1-3km 城市 / 10km+ 郊区，速率 0.3-50 kbps - NB-IoT：运营商授权频段（蜂窝），覆盖更广，模组成本低 - Sigfox：欧洲主导，极低数据量（每天 140 条消息） - 适用场景：智能水电气表 / 农业传感 / 资产追踪 - [MQTT](./mqtt) -</description>
-      <pubDate>Mon, 24 Aug 2026 21:03:50 -0000</pubDate>
-    </item>
-    <item>
-      <title>MQTT 5.0</title>
-      <link>https://java-px.bot.cd/iot/01-protocol/mqtt</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/01-protocol/mqtt</guid>
-      <description>&gt; 消息队列遥测传输协议，IoT 事实标准。轻量、发布订阅、QoS 等级、遗嘱消息。 - 协议基于 TCP，默认端口 1883 / TLS 8883 - 三种 QoS 等级（at most once / at least once / exactly once） - 主题通配符：`+` 单层匹配 / `#` 多层匹配 - 5.0 新增：reason codes / shared subscript</description>
-      <pubDate>Mon, 24 Aug 2026 21:03:50 -0000</pubDate>
-    </item>
-    <item>
-      <title>CoAP</title>
-      <link>https://java-px.bot.cd/iot/01-protocol/coap</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/01-protocol/coap</guid>
-      <description>&gt; 受限应用协议，基于 UDP 的 RESTful 架构。低功耗设备首选，比 HTTP 协议头更小。 - 协议基于 UDP，默认端口 5683 / DTLS 5684 - 方法同 HTTP（GET/POST/PUT/DELETE） - 资源发现（`.well-known/core`） - 观察模式（订阅资源变化，类似 WebSocket） - 适用场景：电池供电设备 / 网络不稳定 / 资源受限</description>
-      <pubDate>Mon, 24 Aug 2026 21:03:50 -0000</pubDate>
-    </item>
-    <item>
-      <title>Modbus / OPC-UA</title>
-      <link>https://java-px.bot.cd/iot/01-protocol/modbus</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/01-protocol/modbus</guid>
-      <description>&gt; 工业现场总线协议，Modbus 简单通用，OPC-UA 工业 4.0 标准。 - Modbus RTU（串口） / Modbus TCP（以太网，端口 502） - 寄存器分类：Coil / Discrete Input / Holding Register / Input Register - OPC-UA：二进制协议 + 信息建模 + 安全加密 - 适用场景：PLC / 工业仪表 / SC</description>
-      <pubDate>Mon, 24 Aug 2026 21:03:50 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
     </item>
     <item>
       <title>IoT 站在知识图谱中的位置</title>
       <link>https://java-px.bot.cd/iot/README</link>
       <guid isPermaLink="true">https://java-px.bot.cd/iot/README</guid>
       <description>**物联网（IoT）= 把物理世界的设备 / 传感器 / 执行器数字化并接入互联网**。它不是单一技术，而是协议、硬件、边缘、云端、行业落地的**横切层**。 - **IoT 是横切层，不是替代品**：学 IoT 前先补 network / cloud-native / bigdata 三门基础 - **协议不是越多越好**：90% 场景 MQTT 一招鲜；只在工业现场加 OPC-UA / Mod</description>
-      <pubDate>Fri, 21 Aug 2026 20:20:15 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>01 · 通信协议</title>
+      <link>https://java-px.bot.cd/iot/01-protocol/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/01-protocol/README</guid>
+      <description>IoT 设备互联的基础协议层。 | 节点 | 一句话 | |------|--------| | [MQTT 5.0](./mqtt) | IoT 事实标准，发布订阅 | | [CoAP](./coap) | 受限设备首选，UDP 上的 RESTful | | [Modbus / OPC-UA](./modbus) | 工业现场总线 | | [LoRaWAN / NB-IoT](./lpwan)</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>06 · 云平台与行业落地</title>
+      <link>https://java-px.bot.cd/iot/06-platform/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/06-platform/README</guid>
+      <description>公有云 IoT + 自建平台 + 行业方案。 | 节点 | 一句话 | |------|--------| | [公有云 IoT](./public-cloud) | AWS / Azure / 阿里云 / 华为云 | | [自建 IoT 平台](./self-hosted) | EMQX / ThingsBoard / HiveMQ | | [智能家居 Matter](./smart-home)</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>05 · 时序数据</title>
+      <link>https://java-px.bot.cd/iot/05-timeseries/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/05-timeseries/README</guid>
+      <description>IoT 数据的存储 / 处理 / 可视化。 | 节点 | 一句话 | |------|--------| | [时序库选型](./database) | InfluxDB / TDengine / TimescaleDB | | [流处理 / Downsampling](./processing) | 降采样 + 连续查询 | | [Grafana / Kafka](./integration)</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>04 · 设备管理</title>
+      <link>https://java-px.bot.cd/iot/04-management/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/04-management/README</guid>
+      <description>设备全生命周期：注册 → 认证 → 配置 → 命令 → OTA。 | 节点 | 一句话 | |------|--------| | [设备影子 / 物模型](./shadow) | 设备状态云端抽象 | | [固件 OTA](./ota) | 空中升级与签名 | | [设备安全](./security) | X.509 / mTLS / 密钥管理 | 1. 证书（设备身份） 2. mTLS（双向认</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>03 · 边缘计算</title>
+      <link>https://java-px.bot.cd/iot/03-edge/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/03-edge/README</guid>
+      <description>云边协同 + 离线自治 + 边缘智能。 | 节点 | 一句话 | |------|--------| | [EdgeX / KubeEdge](./framework) | 边缘计算框架 | | [边缘智能 AI](./ai-edge) | TensorFlow Lite / ONNX / OpenVINO | | [离线自治](./offline) | 本地缓存 + 协议转换 | | [K8s</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>02 · 设备与硬件</title>
+      <link>https://java-px.bot.cd/iot/02-device/README</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/02-device/README</guid>
+      <description>IoT 终端的硬件选型与嵌入式开发。 | 节点 | 一句话 | |------|--------| | [MCU / SoC](./mcu) | 微控制器与片上系统 | | [FreeRTOS / Zephyr](./rtos) | 嵌入式实时操作系统 | | [传感器](./sensor) | 温湿度 / IMU / 图像 / 气体 | | [网关硬件](./gateway) | 树莓派 / 工</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>智能家居 Matter</title>
+      <link>https://java-px.bot.cd/iot/06-platform/smart-home</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/06-platform/smart-home</guid>
+      <description>&gt; Matter 协议（Project CHIP），CSA 标准，跨 Apple / Google / Amazon / 三星。 - Matter 1.0：基于 IPv6 / Wi-Fi / Thread / Ethernet - 多生态互操作：Apple HomeKit / Google Home / Amazon Alexa - 设备发现：mDNS / DNS-SD - 配网：BLE 辅助 /</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>自建 IoT 平台</title>
+      <link>https://java-px.bot.cd/iot/06-platform/self-hosted</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/06-platform/self-hosted</guid>
+      <description>&gt; EMQX / ThingsBoard / HiveMQ 三大开源 IoT Broker 与平台对比。 - EMQX：国产开源，百万级 MQTT 连接，性能强 - ThingsBoard：可视化设备管理 + 仪表盘 + 规则引擎 - HiveMQ：商业友好，集群支持完善 - 选型：纯 Broker → EMQX；含设备管理 → ThingsBoard - [公有云](./public-cloud</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>公有云 IoT</title>
+      <link>https://java-px.bot.cd/iot/06-platform/public-cloud</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/06-platform/public-cloud</guid>
+      <description>&gt; AWS IoT Core / Azure IoT Hub / 阿里云 LinkKit / 华为云 IoTDA 四大公有云对比。 - AWS IoT Core：Device Gateway / Registry / Shadow / Rules Engine - Azure IoT Hub：与 Azure Functions / Digital Twins 集成 - 阿里云 LinkKit：物模</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>工业互联网 IIoT</title>
+      <link>https://java-px.bot.cd/iot/06-platform/iiot</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/06-platform/iiot</guid>
+      <description>&gt; 工业 4.0 + 边缘计算 + 设备联网，工业场景的 IoT 应用。 - 工业 4.0：智能工厂 + 数字孪生 + 网络物理系统 - 边缘计算：实时控制（毫秒级）不能在云端 - OPC-UA：工业标准协议，与 Modbus / PROFINET 集成 - 行业落地：预测性维护 / 质量检测 / 能源管理 / 安全监控 - [Modbus](../01-protocol/modbus) - [边</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>数据模型</title>
+      <link>https://java-px.bot.cd/iot/05-timeseries/schema</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/05-timeseries/schema</guid>
+      <description>&gt; tag / field / timestamp 三元组是时序数据核心模型。 - tag：维度（设备 ID / 区域 / 类型），可索引 - field：测量值（温度 / 湿度），不可索引 - timestamp：纳秒精度时间戳 - 一设备一表 vs 一类设备一表：写入性能 vs 查询灵活 - [时序库](./database) - [流处理](./processing) - [← 返回 时序数</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>流处理 / Downsampling</title>
+      <link>https://java-px.bot.cd/iot/05-timeseries/processing</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/05-timeseries/processing</guid>
+      <description>&gt; 数据降采样 + 连续查询 + 边缘流处理，时序数据降本提效。 - Downsampling：1 秒原始数据降为 1 分钟 / 1 小时平均值 - 连续查询（Continuous Query）：自动定时执行聚合 - 边缘流处理：eKuiper（EMQX）/ Flink IoT - 保留策略：原始数据保留 7 天，聚合数据保留 1 年 - [时序库](./database) - [数据模型](./</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Grafana / Kafka</title>
+      <link>https://java-px.bot.cd/iot/05-timeseries/integration</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/05-timeseries/integration</guid>
+      <description>&gt; Grafana 可视化 + Kafka 消息集成，时序数据生态对接。 - Grafana：可视化仪表盘，多数据源支持 - Kafka：时序数据通过 Kafka 流转到下游（实时分析 / 备份） - Prometheus remote_write：InfluxDB / TDengine 兼容此协议 - 典型架构：设备 → MQTT → Kafka → InfluxDB → Grafana - [</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>时序库选型</title>
+      <link>https://java-px.bot.cd/iot/05-timeseries/database</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/05-timeseries/database</guid>
+      <description>&gt; InfluxDB / TDengine / TimescaleDB / QuestDB 四大时序库对比与选型。 - InfluxDB：生态最全（Telegraf / Chronograf），2.x 起闭源 - TDengine：国产开源，专为 IoT 设计，性能强（10x InfluxDB） - TimescaleDB：PostgreSQL 扩展，SQL 兼容 - QuestDB：Influx</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>设备影子 / 物模型</title>
+      <link>https://java-px.bot.cd/iot/04-management/shadow</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/04-management/shadow</guid>
+      <description>&gt; 设备状态在云端的抽象表示，用于状态同步、命令下发、状态查询。 - 设备影子（Device Shadow）：AWS IoT / Azure IoT 都用此概念 - 物模型（Thing Specification）：阿里云 LinkKit 定义设备属性 / 服务 / 事件 - 数字孪生（Digital Twin）：更复杂的物理模型仿真 - 同步机制：reported vs desired，最终一致</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>设备安全</title>
+      <link>https://java-px.bot.cd/iot/04-management/security</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/04-management/security</guid>
+      <description>&gt; X.509 证书 / mTLS / 密钥管理 / OTA 签名四大支柱。 - X.509 证书：设备身份认证（每设备唯一证书） - mTLS：双向 TLS 认证，云端 + 设备互相验证 - 密钥管理：硬件安全模块（HSM）/ TrustZone / SE 芯片 - OTA 签名：固件必须签名才能升级 - [OTA](./ota) - [公有云 IoT](../06-platform/publi</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>固件 OTA</title>
+      <link>https://java-px.bot.cd/iot/04-management/ota</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/04-management/ota</guid>
+      <description>&gt; 空中升级（Firmware Over-The-Air），分块传输 + 签名验证 + 回滚机制。 - 分块传输：A/B 分区或流式写入（避免大文件一次性写入失败） - 签名验证：ECDSA / RSA 签名 + 公钥校验（防止恶意固件） - 回滚机制：升级失败自动回退到上一版本 - 灰度发布：按设备 ID / 区域 / 版本分组升级 - [设备影子](./shadow) - [设备安全](./s</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>离线自治</title>
+      <link>https://java-px.bot.cd/iot/03-edge/offline</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/03-edge/offline</guid>
+      <description>&gt; 网络中断时边缘设备继续工作：本地缓存 + 协议转换 + 网络恢复后批量上云。 - 本地缓存：SQLite / LevelDB / BadgerDB - 协议转换：Modbus RTU → MQTT（本地完成） - 决策降级：网络断时按本地规则处理，恢复后上报告 - 关键指标：自治时长（电池续航 / 本地存储容量） - [KubeEdge](./framework) - [设备影子](../04</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>K8s 边缘</title>
+      <link>https://java-px.bot.cd/iot/03-edge/k8s-edge</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/03-edge/k8s-edge</guid>
+      <description>&gt; K3s / KubeEdge / OpenYurt 三种 K8s 边缘方案对比与选型。 - K3s：轻量级 K8s（单 binary &lt; 100MB），适合边缘网关 - KubeEdge：完整 K8s 边缘管理，云边协同 + 离线自治 - OpenYurt：阿里云开源，原生 K8s + 边缘单元化 - 选型：单边缘节点 → K3s；多节点协同 → KubeEdge / OpenYurt - [</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>EdgeX / KubeEdge</title>
+      <link>https://java-px.bot.cd/iot/03-edge/framework</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/03-edge/framework</guid>
+      <description>&gt; 边缘计算框架，统一设备接入 + 数据处理 + 云边协同。 - EdgeX Foundry：Linux 基金会项目，模块化（Core/Supporting/Application Service） - KubeEdge：Kubernetes 原生，边缘节点管理 + 离线自治 - Azure IoT Edge：微软云生态，容器化部署 - AWS Greengrass：AWS IoT 边缘运行时 -</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>边缘智能 AI</title>
+      <link>https://java-px.bot.cd/iot/03-edge/ai-edge</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/03-edge/ai-edge</guid>
+      <description>&gt; 边缘端推理：TensorFlow Lite / ONNX / OpenVINO。低延迟 + 隐私保护 + 离线可用。 - TensorFlow Lite：Google 主导，跨平台（ARM / x86 / MCU） - ONNX Runtime：跨框架互操作，模型量化工具链完善 - OpenVINO：Intel 优化，x86 CPU / GPU / VPU 加速 - 典型应用：图像分类 / 物</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>传感器</title>
+      <link>https://java-px.bot.cd/iot/02-device/sensor</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/02-device/sensor</guid>
+      <description>&gt; 温湿度 / IMU / 图像 / 气体四类常见传感器原理、选型、接口。 - 温湿度：DHT22 / SHT31（I2C）/ DS18B20（1-Wire） - 惯性 IMU：MPU6050（6 轴）/ BMI088（无人机级） - 图像：OV2640（200万像素）/ Arducam 系列 - 气体：BME680（VOC+温湿压）/ MQ-2（烟雾）/ MH-Z19（CO2） - [MCU](</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>FreeRTOS / Zephyr</title>
+      <link>https://java-px.bot.cd/iot/02-device/rtos</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/02-device/rtos</guid>
+      <description>&gt; 嵌入式实时操作系统，多任务调度 + 同步原语 + 硬件抽象层。 - FreeRTOS：小型内核（4-12KB），MIT 许可，Arduino / ESP-IDF 内置 - Zephyr：Linux 基金会维护，模块化设计，BLE / LoRa / Wi-Fi 驱动丰富 - Riot OS：欧洲学术项目，低内存友好（10KB 即可运行） - 任务间同步：信号量 / 互斥锁 / 队列 / 事件组</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>MCU / SoC</title>
+      <link>https://java-px.bot.cd/iot/02-device/mcu</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/02-device/mcu</guid>
+      <description>&gt; 微控制器与片上系统选型。算力 / 内存 / 功耗 / 价格 / 外设的权衡。 - 入门级：ESP32（双核 240MHz / Wi-Fi+BLE / ¥10）/ Arduino - 中端：STM32（ARM Cortex-M，工业级）/ nRF52（BLE 强） - 高端：树莓派 Pico（RP2040 双核 M0）/ Allwinner / Rockchip（Linux） - 选型三问：电池</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>网关硬件</title>
+      <link>https://java-px.bot.cd/iot/02-device/gateway</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/02-device/gateway</guid>
+      <description>&gt; 树莓派 / 工业网关 / 边缘网关。对接多种协议 + 本地缓存 + 离线自治。 - 入门：树莓派 4B（4GB / ¥300）/ Orange Pi 5 - 工业：研华 UNO 系列 / 西门子 IOT2050（IP65 防护） - 协议转换：Modbus → MQTT / Zigbee → Wi-Fi - 离线自治：本地缓存 + 网络恢复后批量上云 - [KubeEdge](../03-ed</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>MQTT 5.0</title>
+      <link>https://java-px.bot.cd/iot/01-protocol/mqtt</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/01-protocol/mqtt</guid>
+      <description>&gt; 消息队列遥测传输协议，IoT 事实标准。轻量、发布订阅、QoS 等级、遗嘱消息。 - 协议基于 TCP，默认端口 1883 / TLS 8883 - 三种 QoS 等级（at most once / at least once / exactly once） - 主题通配符：`+` 单层匹配 / `#` 多层匹配 - 5.0 新增：reason codes / shared subscript</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Modbus / OPC-UA</title>
+      <link>https://java-px.bot.cd/iot/01-protocol/modbus</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/01-protocol/modbus</guid>
+      <description>&gt; 工业现场总线协议，Modbus 简单通用，OPC-UA 工业 4.0 标准。 - Modbus RTU（串口） / Modbus TCP（以太网，端口 502） - 寄存器分类：Coil / Discrete Input / Holding Register / Input Register - OPC-UA：二进制协议 + 信息建模 + 安全加密 - 适用场景：PLC / 工业仪表 / SC</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>LoRaWAN / NB-IoT</title>
+      <link>https://java-px.bot.cd/iot/01-protocol/lpwan</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/01-protocol/lpwan</guid>
+      <description>&gt; 低功耗广域网协议，远距离（数公里）+ 低功耗（电池用数年）+ 低数据量。 - LoRaWAN：免授权频段，1-3km 城市 / 10km+ 郊区，速率 0.3-50 kbps - NB-IoT：运营商授权频段（蜂窝），覆盖更广，模组成本低 - Sigfox：欧洲主导，极低数据量（每天 140 条消息） - 适用场景：智能水电气表 / 农业传感 / 资产追踪 - [MQTT](./mqtt) -</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>CoAP</title>
+      <link>https://java-px.bot.cd/iot/01-protocol/coap</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/iot/01-protocol/coap</guid>
+      <description>&gt; 受限应用协议，基于 UDP 的 RESTful 架构。低功耗设备首选，比 HTTP 协议头更小。 - 协议基于 UDP，默认端口 5683 / DTLS 5684 - 方法同 HTTP（GET/POST/PUT/DELETE） - 资源发现（`.well-known/core`） - 观察模式（订阅资源变化，类似 WebSocket） - 适用场景：电池供电设备 / 网络不稳定 / 资源受限</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>IoT 速查表</title>
@@ -237,13 +244,6 @@
       <guid isPermaLink="true">https://java-px.bot.cd/iot/questions</guid>
       <description>&gt; 分 Easy / Medium / Hard 三档，覆盖协议、架构、嵌入式、安全。 **答**：MQTT 是发布/订阅模式，专为低带宽、不稳定网络设计： | 维度 | MQTT | HTTP | |---|---|---| | 协议开销 | 2 字节固定头 | 数百字节头 | | 连接模式 | 长连接、心跳保活 | 短连接、请求/响应 | | 网络要求 | 能在 3G / 卫星下工作 | 弱网</description>
       <pubDate>Fri, 21 Aug 2026 20:19:27 -0000</pubDate>
-    </item>
-    <item>
-      <title>IoT 学习路径</title>
-      <link>https://java-px.bot.cd/iot/path</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/iot/path</guid>
-      <description>&gt; 三条路径覆盖"嵌入式开发者 / 后端开发者 / 解决方案架构师"三种角色。按背景选择即可。 适合：从其他方向（前端/后端/算法）转入 IoT，从未接触过嵌入式硬件。 | Day | 主题 | 关键交付 | |---|---|---| | Day 1 | MQTT 协议 5 分钟入门 | 用 EMQX + MQTTX 跑通 pub/sub | | Day 2 | ESP32 + Arduino</description>
-      <pubDate>Fri, 21 Aug 2026 20:18:23 -0000</pubDate>
     </item>
     <item>
       <title>IoT 知识图谱</title>

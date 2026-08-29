@@ -2,15 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://java-px.bot.cd/filesystem/01-basics/README</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/01-basics/file-descriptor</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/01-basics/inode-dentry</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/01-basics/journal</loc>
@@ -18,23 +18,23 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/01-basics/mount</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/01-basics/page-cache</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/01-basics/path-resolution</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/01-basics/vfs</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/02-disk-fs/README</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/02-disk-fs/apple-fs</loc>
@@ -42,15 +42,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/02-disk-fs/btrfs</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/02-disk-fs/compare</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/02-disk-fs/ext4</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/02-disk-fs/windows-fs</loc>
@@ -58,7 +58,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/02-disk-fs/xfs</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/02-disk-fs/zfs</loc>
@@ -66,11 +66,11 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/03-distributed/README</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/03-distributed/cephfs</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/03-distributed/compare</loc>
@@ -78,7 +78,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/03-distributed/glusterfs</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/03-distributed/hdfs</loc>
@@ -90,15 +90,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/03-distributed/lustre</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/03-distributed/moosefs</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/04-object/README</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/04-object/consistency</loc>
@@ -130,7 +130,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/05-network/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/05-network/ftp-sftp</loc>
@@ -142,7 +142,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/05-network/rsync</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/05-network/smb</loc>
@@ -154,31 +154,31 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/06-cloud-native/README</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/06-cloud-native/csi</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/06-cloud-native/dynamic</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/06-cloud-native/longhorn</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/06-cloud-native/openebs</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/06-cloud-native/pv-pvc</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/06-cloud-native/rook</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/06-cloud-native/snapshot</loc>
@@ -186,19 +186,19 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/07-container/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/07-container/buildkit</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/07-container/containerd</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/07-container/docker-layers</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/07-container/overlayfs</loc>
@@ -210,23 +210,23 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/08-tools/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/08-tools/debugfs</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/08-tools/du-df</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/08-tools/find-fd</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/08-tools/fuse</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/08-tools/inotify</loc>
@@ -234,15 +234,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/08-tools/lsof</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/08-tools/strace</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/09-perf/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/09-perf/direct-io</loc>
@@ -254,7 +254,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/09-perf/io-scheduler</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/09-perf/methodology</loc>
@@ -262,23 +262,23 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/09-perf/page-cache-tune</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/09-perf/readahead</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/10-security/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/10-security/acl</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/10-security/auditd</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/10-security/encryption</loc>
@@ -290,19 +290,19 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/10-security/xattr</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/11-backup/3-2-1</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/11-backup/README</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/11-backup/borg</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/11-backup/dr</loc>
@@ -310,15 +310,15 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/11-backup/restic</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/11-backup/snapshot</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/12-cases/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/12-cases/cern-eos</loc>
@@ -334,19 +334,19 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/12-cases/netflix-s3</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/12-cases/snowflake</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/13-interview/README</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/13-interview/comparison</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/13-interview/questions</loc>
@@ -366,7 +366,7 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/mindmap</loc>
@@ -374,6 +374,6 @@
   </url>
   <url>
     <loc>https://java-px.bot.cd/filesystem/path</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
 </urlset>

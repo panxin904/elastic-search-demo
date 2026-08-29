@@ -1,8 +1,8 @@
 # bigdata 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 51 个文档页 · 183,925 字
-> 生成时间：2026-08-25T20:49:52
+> 51 个文档页 · 185,637 字
+> 生成时间：2026-08-27T21:42:04
 
 ## [大数据 4V 特征](https://java-px.bot.cd/bigdata/01-basics/4v)
 > 大数据（Big Data）= 无法用传统数据库工具在合理时间内处理的数据集。 | | 传统 DB | 大数据 | |------|--------|--------| | 数据量 | GB-TB | PB-EB | | 速度 | 实时 | 实时 + 批 | | 多样性 | 结构化 | 半/非结构化 | | 价值 | 报表 | 洞察 + ML | | 工具 | Oracle / MySQL | Ha
@@ -20,7 +20,7 @@
 > **优点**：大块减少 NameNode 寻址开销 **缺点**：小文件浪费（一个块只放一个小文件） **rack awareness**：副本跨机架（默认） **NameNode 单点风险**：所有元数据在内存，挂了 = 数据丢失。 **解决**：Secondary NameNode → NameNode HA（JournalNode + ZooKeeper / ZKFC） 写 edit log
 
 ## [HDFS 命令速查](https://java-px.bot.cd/bigdata/02-hdfs/commands)
-> - [HDFS 架构](/02-hdfs/architecture)
+> - [HDFS 架构](/02-hdfs/architecture) <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | --- | --- | | TODO_1 | 待补充 | - | | TODO_2 | 待补充 | - | > TODO: 此节可补充 3-5 段深度内容（如生产环境实战 / 常见错误 / 对比其他方案 / 未来
 
 ## [HDFS NameNode HA](https://java-px.bot.cd/bigdata/02-hdfs/ha)
 > NameNode 单点故障 = 整个集群挂（无元数据 = 不可用） **原理**：Active NN 写 edit log 到 JournalNode（多数副本成功才返回）。Standby NN 从 JournalNode 拉 edit log → 内存中重建元数据。 故障切换： 1. ZKFC 监控两个 NN 健康 2. Active NN 挂 → ZKFC 锁住旧 Active 3. 选 St
@@ -140,7 +140,7 @@
 > **问题**：电商订单表 join 用户表时，99% 用户集中在少数几个 key（null / 0）。 **排查**： **解决**： **效果**：原 8 小时 → 优化后 1 小时。 **问题**：某 Reduce 任务跑了 6 小时仍未完成。 **解决**： **ODS（贴源）**： **DWD（清洗 + 规范化）**： **DWS（轻度聚合）**： **ADS（应用指标）**： **架构*
 
 ## [面试题](https://java-px.bot.cd/bigdata/14-interview-practice/questions)
-> - [面试案例](/14-interview-practice/cases) - [推荐系统](/13-cases/recommendation) - [用户画像](/13-cases/user-profile)
+> - [面试案例](/14-interview-practice/cases) - [推荐系统](/13-cases/recommendation) - [用户画像](/13-cases/user-profile) <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | --- | --- | | TODO_1 | 待补充 | - | |
 
 ## [命令速查](https://java-px.bot.cd/bigdata/cheatsheet)
 > - [HDFS 架构](/02-hdfs/architecture) - [Spark Core / RDD](/04-spark/rdd) - [Flink 架构](/05-flink/architecture) - [Kafka Streams](/07-kafka-streaming/streams)

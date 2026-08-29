@@ -6,20 +6,321 @@
     <atom:link href="https://java-px.bot.cd/kafka/feed.xml" rel="self" type="application/rss+xml" />
     <description>kafka 知识图谱（73 页）</description>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Aug 2026 20:49:52 -0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 21:42:04 -0000</lastBuildDate>
     <item>
-      <title>kafka 知识图谱</title>
-      <link>https://java-px.bot.cd/kafka/</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/</guid>
-      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "分区副本机制、Leader 选举讲不清？", "Exactly-Once 语义怎么实现？", "消费者组位移提交策略选哪个？", "Kafka 性能调优参数</description>
-      <pubDate>Tue, 25 Aug 2026 19:05:01 -0000</pubDate>
+      <title>Kafka 是什么</title>
+      <link>https://java-px.bot.cd/kafka/01-basics/intro</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/01-basics/intro</guid>
+      <description>![Kafka 集群拓扑 — Broker / Partition / Consumer Group](/kafka-topology.svg) &gt; **Apache Kafka** 最初是由 LinkedIn 开发，后捐赠给 Apache 基金会的**分布式发布订阅消息系统**。现已成为大数据、实时计算、微服务领域的事实标准。 | 维度 | Kafka 的特点 | |------|-------</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>再平衡</title>
+      <link>https://java-px.bot.cd/kafka/05-consumer/rebalance</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/05-consumer/rebalance</guid>
+      <description>&gt; **Rebalance（再平衡）**是 Consumer Group 中 Partition 重新分配的过程。理解 Rebalance 对高可用系统至关重要。 **问题：Stop-The-World（STW）** **优势**： - ✅ 减少 STW 时间（从 10 秒降到 1 秒） - ✅ 减少 Partition 重新分配 - ✅ 适合大规模 Consumer Group **优势**：</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:56 -0000</pubDate>
+    </item>
+    <item>
+      <title>消息丢失解决方案</title>
+      <link>https://java-px.bot.cd/kafka/10-interview/message-loss</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/10-interview/message-loss</guid>
+      <description>&gt; 消息丢失是 Kafka 生产环境的**最大风险**之一。本章详解消息丢失的所有场景和解决方案。 **优势**： - ✅ DB 事务保证 order 和 outbox 原子 - ✅ outbox 必发送（独立进程） - ✅ 不依赖 Kafka 事务 - ✅ 完全解耦 **消息丢失解决方案核心要点**： - ✅ Producer：acks=all + 幂等性 + 回调 - ✅ Broker：rep</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Leader 选举机制</title>
+      <link>https://java-px.bot.cd/kafka/10-interview/election</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/10-interview/election</guid>
+      <description>&gt; Leader 选举是 Kafka **高可用**的核心机制。理解选举过程对故障排查和性能优化至关重要。 **Leader 选举核心要点**： - ✅ Controller 从 ISR 中选新 Leader - ✅ KRaft 比 ZooKeeper 快 5-10 倍 - ✅ unclean.election=false 保证一致性 - ✅ CooperativeSticky 减少 Rebala</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>高频面试题（下）</title>
+      <link>https://java-px.bot.cd/kafka/10-interview/advanced</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/10-interview/advanced</guid>
+      <description>&gt; 整理 Kafka **进阶**的 20 道高频面试题，涵盖**底层原理、性能调优、生产实战**。 **Kafka 高频面试题（下）核心要点**： - ✅ 理解存储结构（Segment + 稀疏索引） - ✅ 掌握副本同步机制（ISR + HW） - ✅ 知道 KRaft 协议（Raft 选举） - ✅ 理解 Rebalance 和 Consumer Group - ✅ JVM 和 Page C</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>监控指标</title>
+      <link>https://java-px.bot.cd/kafka/09-ops/metrics</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/09-ops/metrics</guid>
+      <description>&gt; **Kafka 监控指标**是保障集群健康的基础。本章详解所有关键指标的采集、监控和告警。 **监控指标核心要点**： - ✅ 4 层监控（基础设施/JVM/Broker/应用） - ✅ 关键指标：Lag、副本、GC、磁盘 - ✅ Prometheus + Grafana + AlertManager - ✅ 告警分级（P0/P1/P2） - ✅ 告警要 actionable - ⚠️ 监控全</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>故障恢复</title>
+      <link>https://java-px.bot.cd/kafka/09-ops/disaster-recovery</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/09-ops/disaster-recovery</guid>
+      <description>&gt; **故障恢复（Disaster Recovery）**是生产环境 Kafka 的最后一道防线。本章详解常见故障的恢复方案。 **故障恢复核心要点**： - ✅ Broker 故障自动恢复（5-15 秒） - ✅ 副本机制保证数据可靠 - ✅ MirrorMaker 2.0 跨机房容灾 - ✅ 定期备份（数据 + 配置） - ✅ 故障演练（定期） - ✅ 故障响应流程文档化 - ⚠️ 自动化恢复</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>集群规划</title>
+      <link>https://java-px.bot.cd/kafka/09-ops/capacity</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/09-ops/capacity</guid>
+      <description>&gt; **集群规划**是 Kafka 实施的第一步，决定了集群的性能、可靠性和成本。本章详解容量评估和资源规划方法。 **集群规划核心要点**： - ✅ 容量评估：消息数 × 大小 × 副本 × 保留 - ✅ 带宽评估：QPS × 大小 × 副本 - ✅ Broker 数量：按磁盘/网络/QPS 取最大 - ✅ Partition 数：按吞吐和并行度 - ✅ 3 副本 + min.insync.re</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>性能压测</title>
+      <link>https://java-px.bot.cd/kafka/09-ops/benchmark</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/09-ops/benchmark</guid>
+      <description>&gt; **性能压测**是 Kafka 上线前必做的环节，能提前发现性能瓶颈，验证 SLA。 **性能压测核心要点**： - ✅ 使用官方工具或自定义压测 - ✅ 设计多种场景（吞吐/延迟/稳定性/故障） - ✅ 收集全维度指标（CPU/内存/磁盘/网络） - ✅ 与生产环境配置一致 - ✅ 性能优化清单 - ⚠️ 多次压测取平均值 - ⚠️ 关注延迟分布（P50/P99/P999） **下一步：**</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Kafka Streams</title>
+      <link>https://java-px.bot.cd/kafka/08-enterprise/streams</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/08-enterprise/streams</guid>
+      <description>&gt; **Kafka Streams** 是 Kafka 官方的**流处理库**，用于构建实时、弹性、可扩展的流处理应用。 **Kafka Streams 核心要点**： - ✅ 库而非集群（集成到应用） - ✅ KStream + KTable API - ✅ 状态管理（State Store） - ✅ 窗口操作（TimeWindow / SessionWindow） - ✅ Exactly On</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>监控告警</title>
+      <link>https://java-px.bot.cd/kafka/08-enterprise/monitoring</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/08-enterprise/monitoring</guid>
+      <description>&gt; **监控告警**是 Kafka 生产环境稳定运行的基石。本章详解 Kafka 监控体系、关键指标和告警规则。 **监控告警核心要点**： - ✅ 4 个监控层次（基础设施/JVM/Broker/应用） - ✅ 关键指标：Lag、副本、吞吐、GC - ✅ Prometheus + Grafana 推荐 - ✅ 告警分级（P0/P1/P2） - ✅ 业务指标 + 技术指标结合 - ⚠️ 告警疲劳预</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>死信队列</title>
+      <link>https://java-px.bot.cd/kafka/08-enterprise/dead-letter</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/08-enterprise/dead-letter</guid>
+      <description>&gt; **死信队列（Dead Letter Queue, DLQ）**是处理失败消息的标准模式。Kafka 通过 **DLT Topic** 实现。 **死信队列核心要点**： - ✅ Spring Kafka 内置 DLT 支持 - ✅ 推荐每业务 Topic 独立 DLT - ✅ 重试 + DLT 是标准模式 - ✅ DLT Consumer 必须独立 - ✅ 监控 DLT 至关重要 - ⚠️</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Kafka Connect</title>
+      <link>https://java-px.bot.cd/kafka/08-enterprise/connect</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/08-enterprise/connect</guid>
+      <description>&gt; **Kafka Connect** 是 Kafka 官方的**数据集成框架**，用于在 Kafka 与外部系统（如 MySQL、Elasticsearch）之间可靠地传输数据。 **生成 Topic**： - `mysql-server.inventory.orders` - `mysql-server.inventory.customers` - `schema-changes.invent</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>集群部署</title>
+      <link>https://java-px.bot.cd/kafka/08-enterprise/cluster</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/08-enterprise/cluster</guid>
+      <description>&gt; **生产环境 Kafka 集群**的部署是高可用、高性能的基础。本章详解集群规划、部署和验证。 **集群部署核心要点**： - ✅ 至少 3 Broker + 3 副本 - ✅ KRaft 模式（Kafka 3.x） - ✅ NVMe SSD + 万兆网卡 - ✅ JVM 调优（G1GC） - ✅ 多 AZ 部署（高可用） - ✅ 监控 + 告警 - ⚠️ 容量评估很重要 - ⚠️ 备份和灾难</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>消息积压</title>
+      <link>https://java-px.bot.cd/kafka/08-enterprise/backlog</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/08-enterprise/backlog</guid>
+      <description>&gt; **消息积压（Lag）**是 Kafka 生产环境最常见的问题之一。本章详解积压原因、监控和处理方案。 **优点**：快速见效 **缺点**：临时方案，业务逻辑慢则无解 **注意**：增加 Partition 是不可逆操作，需谨慎 **优点**：减少网络和提交开销 **缺点**：单条失败影响整批 **优点**：Consumer 不阻塞 **缺点**：处理失败时已 ack（需 Outbox 兜底</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Spring 事务</title>
+      <link>https://java-px.bot.cd/kafka/07-spring/transaction</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/07-spring/transaction</guid>
+      <description>&gt; Spring Kafka 集成 Spring 事务，实现**端到端精确一次语义**。本章详解 Spring 中如何使用 Kafka 事务。 **问题**： - 已废弃 - 复杂，性能差 - 边界场景难处理 **问题**： - DB 已提交，但 Kafka 发送失败 - 数据不一致 - 需补偿机制 **Spring 事务核心要点**： - ✅ Kafka 事务支持多消息原子写入 - ✅ Chai</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Spring Boot 集成</title>
+      <link>https://java-px.bot.cd/kafka/07-spring/spring-boot</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/07-spring/spring-boot</guid>
+      <description>&gt; Spring Boot 为 Kafka 提供了**自动配置**，本章详解 Spring Boot 集成 Kafka 的最佳实践。 **Spring Boot 集成核心要点**： - ✅ spring-kafka 简化开发 - ✅ application.yml 集中配置 - ✅ 自动配置 KafkaTemplate + Listener - ✅ JSON 序列化通过 spring.json.t</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>KafkaListener 注解</title>
+      <link>https://java-px.bot.cd/kafka/07-spring/listener</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/07-spring/listener</guid>
+      <description>&gt; **@KafkaListener** 是 Spring Kafka 提供的注解式消费 API，极大简化了 Kafka 消费者开发。 **@KafkaListener 核心要点**： - ✅ 注解式消费极简开发 - ✅ 支持批量消费、并发消费、主题模式 - ✅ 灵活获取消息元数据（Key、Partition、Offset） - ✅ 手动 ack 精确控制 - ✅ DefaultErrorHand</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>KafkaTemplate</title>
+      <link>https://java-px.bot.cd/kafka/07-spring/kafka-template</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/07-spring/kafka-template</guid>
+      <description>&gt; **KafkaTemplate** 是 Spring Kafka 提供的 Producer 高级抽象，简化了消息发送并提供丰富的功能。 **KafkaTemplate 核心要点**： - ✅ Spring Kafka 的核心 Producer API - ✅ 5 种 send 重载方法 - ✅ 异步回调 + 同步发送 - ✅ 事务支持（executeInTransaction） - ✅ Spr</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Spring Kafka 入门</title>
+      <link>https://java-px.bot.cd/kafka/07-spring/intro</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/07-spring/intro</guid>
+      <description>&gt; **Spring for Apache Kafka（Spring Kafka）** 是 Spring 官方提供的 Kafka 集成框架，简化了 Kafka 客户端的使用。 **Spring Kafka 核心要点**： - ✅ Spring Boot 自动配置 KafkaTemplate - ✅ @KafkaListener 简化消费 - ✅ 同步 + 异步发送 API - ✅ 批量消费 + 并</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Producer API</title>
+      <link>https://java-px.bot.cd/kafka/06-jdk/producer-api</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/06-jdk/producer-api</guid>
+      <description>&gt; Kafka Java Producer 是与 Kafka 集群交互的官方客户端。本章详解 Producer API 的核心用法。 **适用场景**： - 日志收集 - 监控指标 - 可以容忍少量消息丢失 **适用场景**： - 需要立即知道结果 - 业务流程依赖消息发送成功 **适用场景**： - 高吞吐（推荐） - 业务不阻塞 - 异步处理错误 **Producer API 核心要点**：</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>自定义分区器</title>
+      <link>https://java-px.bot.cd/kafka/06-jdk/partitioner</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/06-jdk/partitioner</guid>
+      <description>&gt; 默认分区器按 `hash(key) % partitions` 分配消息，但在**实际业务**中往往需要更复杂的路由策略。本章讲解如何自定义分区器。 **默认行为**： - 有 Key → `hash(key) % partitions`（hash 一致） - 无 Key → 轮询（Kafka 2.4+ 用粘性分区优化） **自定义分区器核心要点**： - ✅ 实现 Partitioner 接</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>异常处理</title>
+      <link>https://java-px.bot.cd/kafka/06-jdk/exception</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/06-jdk/exception</guid>
+      <description>&gt; Kafka 客户端会抛出各种异常，理解异常类型和处理方式对**生产稳定性**至关重要。 **异常处理核心要点**： - ✅ Kafka 异常分可重试 / 不可重试 - ✅ Producer 自动重试 RetriableException - ✅ Consumer 需手动管理 Offset - ✅ WakeupException 用于优雅关闭 - ✅ CommitFailedException</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Consumer API</title>
+      <link>https://java-px.bot.cd/kafka/06-jdk/consumer-api</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/06-jdk/consumer-api</guid>
+      <description>&gt; Kafka Java Consumer 提供了灵活的消息消费接口。本章详解 Consumer API 的核心用法。 **Consumer API 核心要点**： - ✅ KafkaConsumer 线程不安全 - ✅ subscribe（自动分配）+ assign（手动指定） - ✅ poll() 主动拉取消息 - ✅ commitSync 阻塞 vs commitAsync 非阻塞 - ✅</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>AdminClient</title>
+      <link>https://java-px.bot.cd/kafka/06-jdk/admin-client</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/06-jdk/admin-client</guid>
+      <description>&gt; **AdminClient** 是 Kafka 提供的集群管理 API，可以**程序化**地创建 Topic、修改配置、管理副本等。 **AdminClient 核心要点**： - ✅ Kafka 集群管理 API - ✅ Topic / Broker / Group / ACL 管理 - ✅ 程序化管理集群（替代命令行） - ✅ 异步操作（Future） - ⚠️ 大操作耗时长（如 reas</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>消费者原理</title>
+      <link>https://java-px.bot.cd/kafka/05-consumer/principle</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/05-consumer/principle</guid>
+      <description>&gt; Kafka Consumer 是主动拉取（Pull）模式的消费者，通过**消费者组**协作消费，理解其内部机制是使用 Kafka 的关键。 **消费者原理核心要点**： - ✅ 主动拉取模式（Poll-based） - ✅ Consumer Group 协作消费 - ✅ GroupCoordinator 管理 Group 状态 - ✅ Pull 模式控制消费速率 - ✅ Offset 持久化到</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>偏移量提交</title>
+      <link>https://java-px.bot.cd/kafka/05-consumer/offset</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/05-consumer/offset</guid>
+      <description>&gt; **Offset** 是 Consumer 的核心概念。理解 Offset 提交机制是**消息不丢、不重复**的关键。 **优点**： - 简单，不用管 Offset - 适合消息丢失不敏感场景 **缺点**： - 消息丢失风险（提交后崩溃 → 已提交但未处理的消息丢失） - 消息重复风险（未提交前崩溃 → 重新消费） **优点**： - 精确控制提交时机 - 消息不丢（处理完再提交） **缺</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>多线程消费</title>
+      <link>https://java-px.bot.cd/kafka/05-consumer/multi-thread</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/05-consumer/multi-thread</guid>
+      <description>&gt; Kafka Consumer **本身不是线程安全的**，多线程使用容易踩坑。本章介绍正确的多线程消费模式。 **多线程消费核心要点**： - ✅ Consumer 线程不安全，单线程使用 - ✅ 推荐模式：多 Consumer 实例（最简单） - ✅ 高吞吐模式：单 Consumer + Worker Pool - ✅ 顺序保证：按 Key 路由 - ✅ Offset 提交：单 Consum</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>生产者原理</title>
+      <link>https://java-px.bot.cd/kafka/04-producer/principle</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/04-producer/principle</guid>
+      <description>&gt; Kafka Producer 是高性能消息发送客户端。本章深入 Producer 内部机制，理解**消息发送流程、序列化器、分区器、累加器**等核心组件。 **生产者原理核心要点**： - ✅ 拦截器 → 序列化 → 分区 → 累加 → 异步发送 - ✅ RecordAccumulator 缓存消息，按 batch.size 批量发送 - ✅ Sender 线程异步处理，提高吞吐 - ✅ 自定</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>数据保留策略</title>
+      <link>https://java-px.bot.cd/kafka/03-persistence/recovery</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/03-persistence/recovery</guid>
+      <description>&gt; Kafka 的**数据保留策略**决定消息何时被删除，是**磁盘管理**和**数据可重放性**的关键。 **数据保留策略核心要点**： - ✅ 基于时间（retention.ms）和大小（retention.bytes） - ✅ Delete 策略：删除过期消息 - ✅ Compact 策略：只保留最新消息（按 Key） - ✅ 混合策略：先 compact 后 delete - ✅ 容量规划</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Segment 快照机制</title>
+      <link>https://java-px.bot.cd/kafka/03-persistence/rdb</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/03-persistence/rdb</guid>
+      <description>&gt; Kafka 通过 **Segment 文件**实现类似 RDB 的快照机制。本章详解 Segment 的结构、滚动策略和恢复机制。 **Segment 快照机制核心要点**： - ✅ Segment 是 Kafka 日志的基本单位 - ✅ 顺序写盘，append-only - ✅ 滚动策略：大小 + 时间 - ✅ 稀疏索引（每 4KB 一个） - ✅ 删除策略：时间或大小 - ⚠️ Segme</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>刷盘机制</title>
       <link>https://java-px.bot.cd/kafka/03-persistence/aof</link>
       <guid isPermaLink="true">https://java-px.bot.cd/kafka/03-persistence/aof</guid>
       <description>&gt; Kafka 通过 **fsync 系统调用**将 Page Cache 中的数据持久化到磁盘。本章详解刷盘机制对**数据安全**与**性能**的影响。 **刷盘机制核心要点**： - ✅ Kafka 默认不主动 fsync（依赖 OS 后台） - ✅ 推荐：acks=all + 多副本保证安全 - ✅ 主动 fsync 影响性能（不推荐） - ⚠️ 单副本 + 不 fsync = 必丢数据 -</description>
-      <pubDate>Tue, 21 Jul 2026 14:33:17 -0000</pubDate>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>消费者组</title>
+      <link>https://java-px.bot.cd/kafka/03-cli/consumer-group</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/03-cli/consumer-group</guid>
+      <description>&gt; kafka-consumer-groups.sh 是 Kafka 运维的瑞士军刀，可以查看 lag、重置 offset、管理 group 等。 字段说明： - `CURRENT-OFFSET`：消费者当前提交的 offset - `LOG-END-OFFSET`：分区最新消息的 offset - `LAG`：消息积压（CURRENT-OFFSET 与 LOG-END-OFFSET 之差） -</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>整体架构</title>
+      <link>https://java-px.bot.cd/kafka/02-architecture/overview</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/02-architecture/overview</guid>
+      <description>&gt; 理解 Kafka 集群的**整体拓扑**是深入学习的前提。本章从集群视角讲解各组件的职责与协作。 **整体架构核心要点**： - ✅ Broker 同时承担 Controller + Broker 角色（KRaft） - ✅ Partition 分布在不同 Broker（负载均衡） - ✅ 多副本 + ISR（高可用） - ✅ Controller 集群（Raft 协议选主） - ✅ Kafk</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>日志存储</title>
+      <link>https://java-px.bot.cd/kafka/02-architecture/log-storage</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/02-architecture/log-storage</guid>
+      <description>&gt; Kafka 的高性能很大一部分来自**磁盘顺序写** + **Page Cache**。理解日志存储结构对性能调优至关重要。 **日志存储核心要点**： - ✅ 分段（Segment）顺序写盘 - ✅ Page Cache 加速读写 - ✅ 稀疏索引快速定位 - ✅ 压缩减少 IO 和存储 - ✅ 顺序写 ≈ 内存性能 - ⚠️ 推荐 NVMe SSD + 大内存 - ⚠️ retention</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Leader 选举</title>
+      <link>https://java-px.bot.cd/kafka/02-architecture/leader-election</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/02-architecture/leader-election</guid>
+      <description>&gt; 当某个 Partition 的 Leader 故障时，Kafka 自动从 ISR 中选举新 Leader，**秒级故障转移**。 **Leader 选举核心要点**： - ✅ Controller 主导选举，从 ISR 中选新 Leader - ✅ 选举耗时通常 5-15 秒 - ✅ Preferred Replica 平衡负载 - ✅ clean election 保证一致性，unclean</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Controller 控制器</title>
+      <link>https://java-px.bot.cd/kafka/02-architecture/controller</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/02-architecture/controller</guid>
+      <description>&gt; **Controller**是 Kafka 集群的**大脑**，负责集群元数据管理、Leader 选举、Broker 上下线通知。 **Controller 核心要点**： - ✅ Kafka 集群的大脑（元数据管理） - ✅ KRaft 模式：Active + Standby - ✅ 选举基于 Raft 协议（快 + 强一致） - ✅ 1 个 Active + N 个 Standby - ✅</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>Topic &amp; Partition</title>
+      <link>https://java-px.bot.cd/kafka/01-basics/topic-partition</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/01-basics/topic-partition</guid>
+      <description>&gt; **Topic** 是 Kafka 的消息分类，**Partition** 是 Topic 的物理分片。理解两者的关系是掌握 Kafka 数据模型的关键。 **Topic &amp; Partition 核心要点**： - ✅ Topic 是逻辑分类，Partition 是物理分片 - ✅ 分区内有序（offset 单调递增），分区间无序 - ✅ 默认分区器：hash(key) % partition</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>安装部署</title>
+      <link>https://java-px.bot.cd/kafka/01-basics/install</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/01-basics/install</guid>
+      <description>&gt; 5 分钟搭建一个本地 Kafka 集群。本章涵盖 JDK 安装、Kafka 下载、单机/集群模式、KRaft 配置。 **安装部署核心要点**： - ✅ 单机：KRaft 模式 + 1 个节点 - ✅ 集群：3 节点 KRaft + 2 副本 - ✅ Docker：docker-compose 快速启动 - ✅ 生产：3 节点起步 + 多副本 + 监控 - ⚠️ Kafka 3.x 用 KRa</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>学习路径</title>
+      <link>https://java-px.bot.cd/kafka/path</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/path</guid>
+      <description>&gt; 根据你的角色选择对应路径，每条路径推荐了核心阅读顺序。 适合**刚接触 Kafka**的开发者。 1. [❓ Kafka 是什么](/01-basics/intro) - 5 分钟了解 Kafka 2. [📥 安装部署](/01-basics/install) - 5 分钟跑起来 3. [🧩 核心概念](/01-basics/concepts) - Broker / Topic / Parti</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>命令速查</title>
+      <link>https://java-px.bot.cd/kafka/cheatsheet</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/cheatsheet</guid>
+      <description>&gt; 30+ 高频 Kafka 命令，支持分类过滤和关键词搜索。 &lt;ClientOnly&gt; &lt;CommandCheatsheet /&gt; &lt;/ClientOnly&gt; | 场景 | 命令 | |------|------| | 创建 Topic | `kafka-topics.sh --create --topic &lt;name&gt; --partitions 3 --replication-factor 2</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>JVM 调优</title>
+      <link>https://java-px.bot.cd/kafka/09-ops/jvm</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/09-ops/jvm</guid>
+      <description>&gt; **JVM 调优**是 Kafka Broker 性能的关键。Kafka 对 GC 非常敏感（GC 停顿会导致 ISR 抖动），合理的 JVM 配置至关重要。 **经验法则**： **G1GC 优势**： - ✅ 可预测的停顿时间（MaxGCPauseMillis） - ✅ 适合大堆（&gt; 4 GB） - ✅ 高吞吐 - ✅ 增量回收 **ZGC 优势**： - ✅ 停顿时间 &lt; 1ms（即使大</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>序列化与反序列化</title>
+      <link>https://java-px.bot.cd/kafka/06-jdk/serialization</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/06-jdk/serialization</guid>
+      <description>&gt; 序列化（Serialize）和反序列化（Deserialize）是 Kafka 客户端与 Broker 之间数据转换的关键环节。选择合适的序列化器直接影响性能、可靠性和可维护性。 | 序列化器 | 类 | 用途 | |---------|---|------| | StringSerializer | String | 字符串 | | ByteArraySerializer | byte[]</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>消息模型</title>
+      <link>https://java-px.bot.cd/kafka/01-basics/message-model</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/01-basics/message-model</guid>
+      <description>&gt; Kafka 的消息模型结合了**点对点**和**发布订阅**两种模式。本章对比主流消息模型，帮助理解 Kafka 的设计哲学。 &gt; Kafka 通过 **Consumer Group** 巧妙地同时支持两种模型。 | 维度 | Kafka | RabbitMQ | RocketMQ | ActiveMQ | |------|-------|----------|----------|-----</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
+    </item>
+    <item>
+      <title>kafka 知识图谱</title>
+      <link>https://java-px.bot.cd/kafka/</link>
+      <guid isPermaLink="true">https://java-px.bot.cd/kafka/</guid>
+      <description>&lt;script setup&gt; // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "分区副本机制、Leader 选举讲不清？", "Exactly-Once 语义怎么实现？", "消费者组位移提交策略选哪个？", "Kafka 性能调优参数</description>
+      <pubDate>Thu, 27 Aug 2026 19:35:55 -0000</pubDate>
     </item>
     <item>
       <title>混合持久化</title>
@@ -29,32 +330,11 @@
       <pubDate>Tue, 21 Jul 2026 14:33:17 -0000</pubDate>
     </item>
     <item>
-      <title>Segment 快照机制</title>
-      <link>https://java-px.bot.cd/kafka/03-persistence/rdb</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/03-persistence/rdb</guid>
-      <description>&gt; Kafka 通过 **Segment 文件**实现类似 RDB 的快照机制。本章详解 Segment 的结构、滚动策略和恢复机制。 **Segment 快照机制核心要点**： - ✅ Segment 是 Kafka 日志的基本单位 - ✅ 顺序写盘，append-only - ✅ 滚动策略：大小 + 时间 - ✅ 稀疏索引（每 4KB 一个） - ✅ 删除策略：时间或大小 - ⚠️ Segme</description>
-      <pubDate>Tue, 21 Jul 2026 14:33:17 -0000</pubDate>
-    </item>
-    <item>
-      <title>数据保留策略</title>
-      <link>https://java-px.bot.cd/kafka/03-persistence/recovery</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/03-persistence/recovery</guid>
-      <description>&gt; Kafka 的**数据保留策略**决定消息何时被删除，是**磁盘管理**和**数据可重放性**的关键。 **数据保留策略核心要点**： - ✅ 基于时间（retention.ms）和大小（retention.bytes） - ✅ Delete 策略：删除过期消息 - ✅ Compact 策略：只保留最新消息（按 Key） - ✅ 混合策略：先 compact 后 delete - ✅ 容量规划</description>
-      <pubDate>Tue, 21 Jul 2026 14:32:16 -0000</pubDate>
-    </item>
-    <item>
       <title>持久化机制总览</title>
       <link>https://java-px.bot.cd/kafka/03-persistence/overview</link>
       <guid isPermaLink="true">https://java-px.bot.cd/kafka/03-persistence/overview</guid>
       <description>&gt; Kafka 的高可用性依赖 **副本机制**，而副本机制依赖 **持久化**。本章详解 Kafka 持久化机制。 | 维度 | RDB 风格 | AOF 风格 | |------|---------|----------| | 实现 | Kafka Segment 文件 | 持续追加写 | | 粒度 | Segment（1GB） | 消息级 | | 恢复速度 | 快（直接加载） | 慢（重放）</description>
       <pubDate>Tue, 21 Jul 2026 12:29:53 -0000</pubDate>
-    </item>
-    <item>
-      <title>KafkaListener 注解</title>
-      <link>https://java-px.bot.cd/kafka/07-spring/listener</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/07-spring/listener</guid>
-      <description>&gt; **@KafkaListener** 是 Spring Kafka 提供的注解式消费 API，极大简化了 Kafka 消费者开发。 **@KafkaListener 核心要点**： - ✅ 注解式消费极简开发 - ✅ 支持批量消费、并发消费、主题模式 - ✅ 灵活获取消息元数据（Key、Partition、Offset） - ✅ 手动 ack 精确控制 - ✅ DefaultErrorHand</description>
-      <pubDate>Tue, 21 Jul 2026 05:39:20 -0000</pubDate>
     </item>
     <item>
       <title>Kafka 为什么快</title>
@@ -71,25 +351,11 @@
       <pubDate>Mon, 20 Jul 2026 22:05:53 -0000</pubDate>
     </item>
     <item>
-      <title>Leader 选举机制</title>
-      <link>https://java-px.bot.cd/kafka/10-interview/election</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/10-interview/election</guid>
-      <description>&gt; Leader 选举是 Kafka **高可用**的核心机制。理解选举过程对故障排查和性能优化至关重要。 **Leader 选举核心要点**： - ✅ Controller 从 ISR 中选新 Leader - ✅ KRaft 比 ZooKeeper 快 5-10 倍 - ✅ unclean.election=false 保证一致性 - ✅ CooperativeSticky 减少 Rebala</description>
-      <pubDate>Mon, 20 Jul 2026 22:05:00 -0000</pubDate>
-    </item>
-    <item>
       <title>Kafka vs RocketMQ</title>
       <link>https://java-px.bot.cd/kafka/10-interview/kafka-vs-rocketmq</link>
       <guid isPermaLink="true">https://java-px.bot.cd/kafka/10-interview/kafka-vs-rocketmq</guid>
       <description>&gt; Kafka 和 RocketMQ 都是流行的消息中间件，但定位和适用场景不同。本章详细对比两者。 | 维度 | Kafka | RocketMQ | |------|-------|-----------| | **背景** | LinkedIn 开源，2011 | 阿里开源，2012 | | **语言** | Scala + Java | Java | | **顶级项目** | Apache</description>
       <pubDate>Mon, 20 Jul 2026 22:03:56 -0000</pubDate>
-    </item>
-    <item>
-      <title>消息丢失解决方案</title>
-      <link>https://java-px.bot.cd/kafka/10-interview/message-loss</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/10-interview/message-loss</guid>
-      <description>&gt; 消息丢失是 Kafka 生产环境的**最大风险**之一。本章详解消息丢失的所有场景和解决方案。 **优势**： - ✅ DB 事务保证 order 和 outbox 原子 - ✅ outbox 必发送（独立进程） - ✅ 不依赖 Kafka 事务 - ✅ 完全解耦 **消息丢失解决方案核心要点**： - ✅ Producer：acks=all + 幂等性 + 回调 - ✅ Broker：rep</description>
-      <pubDate>Mon, 20 Jul 2026 22:03:18 -0000</pubDate>
     </item>
     <item>
       <title>副本同步机制</title>
@@ -99,32 +365,11 @@
       <pubDate>Mon, 20 Jul 2026 22:02:22 -0000</pubDate>
     </item>
     <item>
-      <title>高频面试题（下）</title>
-      <link>https://java-px.bot.cd/kafka/10-interview/advanced</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/10-interview/advanced</guid>
-      <description>&gt; 整理 Kafka **进阶**的 20 道高频面试题，涵盖**底层原理、性能调优、生产实战**。 **Kafka 高频面试题（下）核心要点**： - ✅ 理解存储结构（Segment + 稀疏索引） - ✅ 掌握副本同步机制（ISR + HW） - ✅ 知道 KRaft 协议（Raft 选举） - ✅ 理解 Rebalance 和 Consumer Group - ✅ JVM 和 Page C</description>
-      <pubDate>Mon, 20 Jul 2026 22:01:29 -0000</pubDate>
-    </item>
-    <item>
       <title>高频面试题（上）</title>
       <link>https://java-px.bot.cd/kafka/10-interview/basic</link>
       <guid isPermaLink="true">https://java-px.bot.cd/kafka/10-interview/basic</guid>
       <description>&gt; 整理 Kafka **基础到进阶**的 20 道高频面试题，涵盖**架构、原理、特性**三大方向。 | 维度 | Kafka | RabbitMQ | RocketMQ | |------|-------|----------|----------| | 定位 | 分布式日志 | 业务消息 | 业务消息 | | 吞吐 | 百万级 | 万级 | 十万级 | | 消息保留 | 持久化 N 天 |</description>
       <pubDate>Mon, 20 Jul 2026 22:00:45 -0000</pubDate>
-    </item>
-    <item>
-      <title>故障恢复</title>
-      <link>https://java-px.bot.cd/kafka/09-ops/disaster-recovery</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/09-ops/disaster-recovery</guid>
-      <description>&gt; **故障恢复（Disaster Recovery）**是生产环境 Kafka 的最后一道防线。本章详解常见故障的恢复方案。 **故障恢复核心要点**： - ✅ Broker 故障自动恢复（5-15 秒） - ✅ 副本机制保证数据可靠 - ✅ MirrorMaker 2.0 跨机房容灾 - ✅ 定期备份（数据 + 配置） - ✅ 故障演练（定期） - ✅ 故障响应流程文档化 - ⚠️ 自动化恢复</description>
-      <pubDate>Mon, 20 Jul 2026 21:59:42 -0000</pubDate>
-    </item>
-    <item>
-      <title>监控指标</title>
-      <link>https://java-px.bot.cd/kafka/09-ops/metrics</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/09-ops/metrics</guid>
-      <description>&gt; **Kafka 监控指标**是保障集群健康的基础。本章详解所有关键指标的采集、监控和告警。 **监控指标核心要点**： - ✅ 4 层监控（基础设施/JVM/Broker/应用） - ✅ 关键指标：Lag、副本、GC、磁盘 - ✅ Prometheus + Grafana + AlertManager - ✅ 告警分级（P0/P1/P2） - ✅ 告警要 actionable - ⚠️ 监控全</description>
-      <pubDate>Mon, 20 Jul 2026 21:58:46 -0000</pubDate>
     </item>
     <item>
       <title>日志清理</title>
@@ -134,74 +379,11 @@
       <pubDate>Mon, 20 Jul 2026 21:57:49 -0000</pubDate>
     </item>
     <item>
-      <title>JVM 调优</title>
-      <link>https://java-px.bot.cd/kafka/09-ops/jvm</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/09-ops/jvm</guid>
-      <description>&gt; **JVM 调优**是 Kafka Broker 性能的关键。Kafka 对 GC 非常敏感（GC 停顿会导致 ISR 抖动），合理的 JVM 配置至关重要。 **经验法则**： **G1GC 优势**： - ✅ 可预测的停顿时间（MaxGCPauseMillis） - ✅ 适合大堆（&gt; 4 GB） - ✅ 高吞吐 - ✅ 增量回收 **ZGC 优势**： - ✅ 停顿时间 &lt; 1ms（即使大</description>
-      <pubDate>Mon, 20 Jul 2026 21:56:59 -0000</pubDate>
-    </item>
-    <item>
-      <title>性能压测</title>
-      <link>https://java-px.bot.cd/kafka/09-ops/benchmark</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/09-ops/benchmark</guid>
-      <description>&gt; **性能压测**是 Kafka 上线前必做的环节，能提前发现性能瓶颈，验证 SLA。 **性能压测核心要点**： - ✅ 使用官方工具或自定义压测 - ✅ 设计多种场景（吞吐/延迟/稳定性/故障） - ✅ 收集全维度指标（CPU/内存/磁盘/网络） - ✅ 与生产环境配置一致 - ✅ 性能优化清单 - ⚠️ 多次压测取平均值 - ⚠️ 关注延迟分布（P50/P99/P999） **下一步：**</description>
-      <pubDate>Mon, 20 Jul 2026 21:56:03 -0000</pubDate>
-    </item>
-    <item>
-      <title>集群规划</title>
-      <link>https://java-px.bot.cd/kafka/09-ops/capacity</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/09-ops/capacity</guid>
-      <description>&gt; **集群规划**是 Kafka 实施的第一步，决定了集群的性能、可靠性和成本。本章详解容量评估和资源规划方法。 **集群规划核心要点**： - ✅ 容量评估：消息数 × 大小 × 副本 × 保留 - ✅ 带宽评估：QPS × 大小 × 副本 - ✅ Broker 数量：按磁盘/网络/QPS 取最大 - ✅ Partition 数：按吞吐和并行度 - ✅ 3 副本 + min.insync.re</description>
-      <pubDate>Mon, 20 Jul 2026 21:55:12 -0000</pubDate>
-    </item>
-    <item>
-      <title>集群部署</title>
-      <link>https://java-px.bot.cd/kafka/08-enterprise/cluster</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/08-enterprise/cluster</guid>
-      <description>&gt; **生产环境 Kafka 集群**的部署是高可用、高性能的基础。本章详解集群规划、部署和验证。 **集群部署核心要点**： - ✅ 至少 3 Broker + 3 副本 - ✅ KRaft 模式（Kafka 3.x） - ✅ NVMe SSD + 万兆网卡 - ✅ JVM 调优（G1GC） - ✅ 多 AZ 部署（高可用） - ✅ 监控 + 告警 - ⚠️ 容量评估很重要 - ⚠️ 备份和灾难</description>
-      <pubDate>Mon, 20 Jul 2026 21:54:05 -0000</pubDate>
-    </item>
-    <item>
       <title>多环境隔离</title>
       <link>https://java-px.bot.cd/kafka/08-enterprise/multi-env</link>
       <guid isPermaLink="true">https://java-px.bot.cd/kafka/08-enterprise/multi-env</guid>
       <description>&gt; **多环境隔离**是企业级 Kafka 部署的关键。生产、预发、测试环境需要**严格隔离**，避免相互影响。 | 维度 | dev | test | staging | prod | |------|-----|------|---------|------| | 集群 | 单机 | 3 Broker | 3 Broker | 5+ Broker | | 副本 | 1 | 2 | 3 | 3</description>
       <pubDate>Mon, 20 Jul 2026 21:53:04 -0000</pubDate>
-    </item>
-    <item>
-      <title>监控告警</title>
-      <link>https://java-px.bot.cd/kafka/08-enterprise/monitoring</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/08-enterprise/monitoring</guid>
-      <description>&gt; **监控告警**是 Kafka 生产环境稳定运行的基石。本章详解 Kafka 监控体系、关键指标和告警规则。 **监控告警核心要点**： - ✅ 4 个监控层次（基础设施/JVM/Broker/应用） - ✅ 关键指标：Lag、副本、吞吐、GC - ✅ Prometheus + Grafana 推荐 - ✅ 告警分级（P0/P1/P2） - ✅ 业务指标 + 技术指标结合 - ⚠️ 告警疲劳预</description>
-      <pubDate>Mon, 20 Jul 2026 21:52:25 -0000</pubDate>
-    </item>
-    <item>
-      <title>Kafka Streams</title>
-      <link>https://java-px.bot.cd/kafka/08-enterprise/streams</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/08-enterprise/streams</guid>
-      <description>&gt; **Kafka Streams** 是 Kafka 官方的**流处理库**，用于构建实时、弹性、可扩展的流处理应用。 **Kafka Streams 核心要点**： - ✅ 库而非集群（集成到应用） - ✅ KStream + KTable API - ✅ 状态管理（State Store） - ✅ 窗口操作（TimeWindow / SessionWindow） - ✅ Exactly On</description>
-      <pubDate>Mon, 20 Jul 2026 21:51:36 -0000</pubDate>
-    </item>
-    <item>
-      <title>Kafka Connect</title>
-      <link>https://java-px.bot.cd/kafka/08-enterprise/connect</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/08-enterprise/connect</guid>
-      <description>&gt; **Kafka Connect** 是 Kafka 官方的**数据集成框架**，用于在 Kafka 与外部系统（如 MySQL、Elasticsearch）之间可靠地传输数据。 **生成 Topic**： - `mysql-server.inventory.orders` - `mysql-server.inventory.customers` - `schema-changes.invent</description>
-      <pubDate>Mon, 20 Jul 2026 21:50:48 -0000</pubDate>
-    </item>
-    <item>
-      <title>消息积压</title>
-      <link>https://java-px.bot.cd/kafka/08-enterprise/backlog</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/08-enterprise/backlog</guid>
-      <description>&gt; **消息积压（Lag）**是 Kafka 生产环境最常见的问题之一。本章详解积压原因、监控和处理方案。 **优点**：快速见效 **缺点**：临时方案，业务逻辑慢则无解 **注意**：增加 Partition 是不可逆操作，需谨慎 **优点**：减少网络和提交开销 **缺点**：单条失败影响整批 **优点**：Consumer 不阻塞 **缺点**：处理失败时已 ack（需 Outbox 兜底</description>
-      <pubDate>Mon, 20 Jul 2026 21:50:04 -0000</pubDate>
-    </item>
-    <item>
-      <title>死信队列</title>
-      <link>https://java-px.bot.cd/kafka/08-enterprise/dead-letter</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/08-enterprise/dead-letter</guid>
-      <description>&gt; **死信队列（Dead Letter Queue, DLQ）**是处理失败消息的标准模式。Kafka 通过 **DLT Topic** 实现。 **死信队列核心要点**： - ✅ Spring Kafka 内置 DLT 支持 - ✅ 推荐每业务 Topic 独立 DLT - ✅ 重试 + DLT 是标准模式 - ✅ DLT Consumer 必须独立 - ✅ 监控 DLT 至关重要 - ⚠️</description>
-      <pubDate>Mon, 20 Jul 2026 21:49:21 -0000</pubDate>
     </item>
     <item>
       <title>延迟消息</title>
@@ -225,83 +407,6 @@
       <pubDate>Mon, 20 Jul 2026 21:46:36 -0000</pubDate>
     </item>
     <item>
-      <title>Spring Boot 集成</title>
-      <link>https://java-px.bot.cd/kafka/07-spring/spring-boot</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/07-spring/spring-boot</guid>
-      <description>&gt; Spring Boot 为 Kafka 提供了**自动配置**，本章详解 Spring Boot 集成 Kafka 的最佳实践。 **Spring Boot 集成核心要点**： - ✅ spring-kafka 简化开发 - ✅ application.yml 集中配置 - ✅ 自动配置 KafkaTemplate + Listener - ✅ JSON 序列化通过 spring.json.t</description>
-      <pubDate>Mon, 20 Jul 2026 21:45:49 -0000</pubDate>
-    </item>
-    <item>
-      <title>Spring 事务</title>
-      <link>https://java-px.bot.cd/kafka/07-spring/transaction</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/07-spring/transaction</guid>
-      <description>&gt; Spring Kafka 集成 Spring 事务，实现**端到端精确一次语义**。本章详解 Spring 中如何使用 Kafka 事务。 **问题**： - 已废弃 - 复杂，性能差 - 边界场景难处理 **问题**： - DB 已提交，但 Kafka 发送失败 - 数据不一致 - 需补偿机制 **Spring 事务核心要点**： - ✅ Kafka 事务支持多消息原子写入 - ✅ Chai</description>
-      <pubDate>Mon, 20 Jul 2026 21:44:47 -0000</pubDate>
-    </item>
-    <item>
-      <title>KafkaTemplate</title>
-      <link>https://java-px.bot.cd/kafka/07-spring/kafka-template</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/07-spring/kafka-template</guid>
-      <description>&gt; **KafkaTemplate** 是 Spring Kafka 提供的 Producer 高级抽象，简化了消息发送并提供丰富的功能。 **KafkaTemplate 核心要点**： - ✅ Spring Kafka 的核心 Producer API - ✅ 5 种 send 重载方法 - ✅ 异步回调 + 同步发送 - ✅ 事务支持（executeInTransaction） - ✅ Spr</description>
-      <pubDate>Mon, 20 Jul 2026 21:43:12 -0000</pubDate>
-    </item>
-    <item>
-      <title>Spring Kafka 入门</title>
-      <link>https://java-px.bot.cd/kafka/07-spring/intro</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/07-spring/intro</guid>
-      <description>&gt; **Spring for Apache Kafka（Spring Kafka）** 是 Spring 官方提供的 Kafka 集成框架，简化了 Kafka 客户端的使用。 **Spring Kafka 核心要点**： - ✅ Spring Boot 自动配置 KafkaTemplate - ✅ @KafkaListener 简化消费 - ✅ 同步 + 异步发送 API - ✅ 批量消费 + 并</description>
-      <pubDate>Mon, 20 Jul 2026 21:42:27 -0000</pubDate>
-    </item>
-    <item>
-      <title>异常处理</title>
-      <link>https://java-px.bot.cd/kafka/06-jdk/exception</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/06-jdk/exception</guid>
-      <description>&gt; Kafka 客户端会抛出各种异常，理解异常类型和处理方式对**生产稳定性**至关重要。 **异常处理核心要点**： - ✅ Kafka 异常分可重试 / 不可重试 - ✅ Producer 自动重试 RetriableException - ✅ Consumer 需手动管理 Offset - ✅ WakeupException 用于优雅关闭 - ✅ CommitFailedException</description>
-      <pubDate>Mon, 20 Jul 2026 21:41:16 -0000</pubDate>
-    </item>
-    <item>
-      <title>自定义分区器</title>
-      <link>https://java-px.bot.cd/kafka/06-jdk/partitioner</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/06-jdk/partitioner</guid>
-      <description>&gt; 默认分区器按 `hash(key) % partitions` 分配消息，但在**实际业务**中往往需要更复杂的路由策略。本章讲解如何自定义分区器。 **默认行为**： - 有 Key → `hash(key) % partitions`（hash 一致） - 无 Key → 轮询（Kafka 2.4+ 用粘性分区优化） **自定义分区器核心要点**： - ✅ 实现 Partitioner 接</description>
-      <pubDate>Mon, 20 Jul 2026 21:40:21 -0000</pubDate>
-    </item>
-    <item>
-      <title>序列化与反序列化</title>
-      <link>https://java-px.bot.cd/kafka/06-jdk/serialization</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/06-jdk/serialization</guid>
-      <description>&gt; 序列化（Serialize）和反序列化（Deserialize）是 Kafka 客户端与 Broker 之间数据转换的关键环节。选择合适的序列化器直接影响性能、可靠性和可维护性。 | 序列化器 | 类 | 用途 | |---------|---|------| | StringSerializer | String | 字符串 | | ByteArraySerializer | byte[]</description>
-      <pubDate>Mon, 20 Jul 2026 21:39:37 -0000</pubDate>
-    </item>
-    <item>
-      <title>AdminClient</title>
-      <link>https://java-px.bot.cd/kafka/06-jdk/admin-client</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/06-jdk/admin-client</guid>
-      <description>&gt; **AdminClient** 是 Kafka 提供的集群管理 API，可以**程序化**地创建 Topic、修改配置、管理副本等。 **AdminClient 核心要点**： - ✅ Kafka 集群管理 API - ✅ Topic / Broker / Group / ACL 管理 - ✅ 程序化管理集群（替代命令行） - ✅ 异步操作（Future） - ⚠️ 大操作耗时长（如 reas</description>
-      <pubDate>Mon, 20 Jul 2026 21:38:43 -0000</pubDate>
-    </item>
-    <item>
-      <title>Consumer API</title>
-      <link>https://java-px.bot.cd/kafka/06-jdk/consumer-api</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/06-jdk/consumer-api</guid>
-      <description>&gt; Kafka Java Consumer 提供了灵活的消息消费接口。本章详解 Consumer API 的核心用法。 **Consumer API 核心要点**： - ✅ KafkaConsumer 线程不安全 - ✅ subscribe（自动分配）+ assign（手动指定） - ✅ poll() 主动拉取消息 - ✅ commitSync 阻塞 vs commitAsync 非阻塞 - ✅</description>
-      <pubDate>Mon, 20 Jul 2026 21:37:54 -0000</pubDate>
-    </item>
-    <item>
-      <title>Producer API</title>
-      <link>https://java-px.bot.cd/kafka/06-jdk/producer-api</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/06-jdk/producer-api</guid>
-      <description>&gt; Kafka Java Producer 是与 Kafka 集群交互的官方客户端。本章详解 Producer API 的核心用法。 **适用场景**： - 日志收集 - 监控指标 - 可以容忍少量消息丢失 **适用场景**： - 需要立即知道结果 - 业务流程依赖消息发送成功 **适用场景**： - 高吞吐（推荐） - 业务不阻塞 - 异步处理错误 **Producer API 核心要点**：</description>
-      <pubDate>Mon, 20 Jul 2026 21:37:08 -0000</pubDate>
-    </item>
-    <item>
-      <title>多线程消费</title>
-      <link>https://java-px.bot.cd/kafka/05-consumer/multi-thread</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/05-consumer/multi-thread</guid>
-      <description>&gt; Kafka Consumer **本身不是线程安全的**，多线程使用容易踩坑。本章介绍正确的多线程消费模式。 **多线程消费核心要点**： - ✅ Consumer 线程不安全，单线程使用 - ✅ 推荐模式：多 Consumer 实例（最简单） - ✅ 高吞吐模式：单 Consumer + Worker Pool - ✅ 顺序保证：按 Key 路由 - ✅ Offset 提交：单 Consum</description>
-      <pubDate>Mon, 20 Jul 2026 21:36:11 -0000</pubDate>
-    </item>
-    <item>
       <title>手动提交</title>
       <link>https://java-px.bot.cd/kafka/05-consumer/manual-commit</link>
       <guid isPermaLink="true">https://java-px.bot.cd/kafka/05-consumer/manual-commit</guid>
@@ -309,32 +414,11 @@
       <pubDate>Mon, 20 Jul 2026 21:35:03 -0000</pubDate>
     </item>
     <item>
-      <title>再平衡</title>
-      <link>https://java-px.bot.cd/kafka/05-consumer/rebalance</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/05-consumer/rebalance</guid>
-      <description>&gt; **Rebalance（再平衡）**是 Consumer Group 中 Partition 重新分配的过程。理解 Rebalance 对高可用系统至关重要。 **问题：Stop-The-World（STW）** **优势**： - ✅ 减少 STW 时间（从 10 秒降到 1 秒） - ✅ 减少 Partition 重新分配 - ✅ 适合大规模 Consumer Group **优势**：</description>
-      <pubDate>Mon, 20 Jul 2026 21:34:14 -0000</pubDate>
-    </item>
-    <item>
-      <title>偏移量提交</title>
-      <link>https://java-px.bot.cd/kafka/05-consumer/offset</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/05-consumer/offset</guid>
-      <description>&gt; **Offset** 是 Consumer 的核心概念。理解 Offset 提交机制是**消息不丢、不重复**的关键。 **优点**： - 简单，不用管 Offset - 适合消息丢失不敏感场景 **缺点**： - 消息丢失风险（提交后崩溃 → 已提交但未处理的消息丢失） - 消息重复风险（未提交前崩溃 → 重新消费） **优点**： - 精确控制提交时机 - 消息不丢（处理完再提交） **缺</description>
-      <pubDate>Mon, 20 Jul 2026 21:33:09 -0000</pubDate>
-    </item>
-    <item>
       <title>消费者组</title>
       <link>https://java-px.bot.cd/kafka/05-consumer/group</link>
       <guid isPermaLink="true">https://java-px.bot.cd/kafka/05-consumer/group</guid>
       <description>&gt; **Consumer Group**是 Kafka 核心概念之一，理解其工作原理是掌握 Kafka 的关键。本章深入 Group 协作、Rebalance、Offset 提交等机制。 &lt;ClientOnly&gt; &lt;ConsumerSimulator /&gt; &lt;/ClientOnly&gt; 试试用模拟器观察： - 3 个 Partition 分配给 1 个 Consumer - 新增 Consumer</description>
       <pubDate>Mon, 20 Jul 2026 21:32:23 -0000</pubDate>
-    </item>
-    <item>
-      <title>消费者原理</title>
-      <link>https://java-px.bot.cd/kafka/05-consumer/principle</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/05-consumer/principle</guid>
-      <description>&gt; Kafka Consumer 是主动拉取（Pull）模式的消费者，通过**消费者组**协作消费，理解其内部机制是使用 Kafka 的关键。 **消费者原理核心要点**： - ✅ 主动拉取模式（Poll-based） - ✅ Consumer Group 协作消费 - ✅ GroupCoordinator 管理 Group 状态 - ✅ Pull 模式控制消费速率 - ✅ Offset 持久化到</description>
-      <pubDate>Mon, 20 Jul 2026 21:31:41 -0000</pubDate>
     </item>
     <item>
       <title>性能调优</title>
@@ -372,20 +456,6 @@
       <pubDate>Mon, 20 Jul 2026 21:27:23 -0000</pubDate>
     </item>
     <item>
-      <title>生产者原理</title>
-      <link>https://java-px.bot.cd/kafka/04-producer/principle</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/04-producer/principle</guid>
-      <description>&gt; Kafka Producer 是高性能消息发送客户端。本章深入 Producer 内部机制，理解**消息发送流程、序列化器、分区器、累加器**等核心组件。 **生产者原理核心要点**： - ✅ 拦截器 → 序列化 → 分区 → 累加 → 异步发送 - ✅ RecordAccumulator 缓存消息，按 batch.size 批量发送 - ✅ Sender 线程异步处理，提高吞吐 - ✅ 自定</description>
-      <pubDate>Mon, 20 Jul 2026 21:26:29 -0000</pubDate>
-    </item>
-    <item>
-      <title>消费者组</title>
-      <link>https://java-px.bot.cd/kafka/03-cli/consumer-group</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/03-cli/consumer-group</guid>
-      <description>&gt; kafka-consumer-groups.sh 是 Kafka 运维的瑞士军刀，可以查看 lag、重置 offset、管理 group 等。 字段说明： - `CURRENT-OFFSET`：消费者当前提交的 offset - `LOG-END-OFFSET`：分区最新消息的 offset - `LAG`：消息积压（CURRENT-OFFSET 与 LOG-END-OFFSET 之差） -</description>
-      <pubDate>Mon, 20 Jul 2026 21:25:30 -0000</pubDate>
-    </item>
-    <item>
       <title>生产消费调试</title>
       <link>https://java-px.bot.cd/kafka/03-cli/produce-consume</link>
       <guid isPermaLink="true">https://java-px.bot.cd/kafka/03-cli/produce-consume</guid>
@@ -421,20 +491,6 @@
       <pubDate>Mon, 20 Jul 2026 21:21:47 -0000</pubDate>
     </item>
     <item>
-      <title>日志存储</title>
-      <link>https://java-px.bot.cd/kafka/02-architecture/log-storage</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/02-architecture/log-storage</guid>
-      <description>&gt; Kafka 的高性能很大一部分来自**磁盘顺序写** + **Page Cache**。理解日志存储结构对性能调优至关重要。 **日志存储核心要点**： - ✅ 分段（Segment）顺序写盘 - ✅ Page Cache 加速读写 - ✅ 稀疏索引快速定位 - ✅ 压缩减少 IO 和存储 - ✅ 顺序写 ≈ 内存性能 - ⚠️ 推荐 NVMe SSD + 大内存 - ⚠️ retention</description>
-      <pubDate>Mon, 20 Jul 2026 21:21:06 -0000</pubDate>
-    </item>
-    <item>
-      <title>Leader 选举</title>
-      <link>https://java-px.bot.cd/kafka/02-architecture/leader-election</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/02-architecture/leader-election</guid>
-      <description>&gt; 当某个 Partition 的 Leader 故障时，Kafka 自动从 ISR 中选举新 Leader，**秒级故障转移**。 **Leader 选举核心要点**： - ✅ Controller 主导选举，从 ISR 中选新 Leader - ✅ 选举耗时通常 5-15 秒 - ✅ Preferred Replica 平衡负载 - ✅ clean election 保证一致性，unclean</description>
-      <pubDate>Mon, 20 Jul 2026 21:20:14 -0000</pubDate>
-    </item>
-    <item>
       <title>分区副本机制</title>
       <link>https://java-px.bot.cd/kafka/02-architecture/replica</link>
       <guid isPermaLink="true">https://java-px.bot.cd/kafka/02-architecture/replica</guid>
@@ -442,67 +498,11 @@
       <pubDate>Mon, 20 Jul 2026 21:19:43 -0000</pubDate>
     </item>
     <item>
-      <title>Controller 控制器</title>
-      <link>https://java-px.bot.cd/kafka/02-architecture/controller</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/02-architecture/controller</guid>
-      <description>&gt; **Controller**是 Kafka 集群的**大脑**，负责集群元数据管理、Leader 选举、Broker 上下线通知。 **Controller 核心要点**： - ✅ Kafka 集群的大脑（元数据管理） - ✅ KRaft 模式：Active + Standby - ✅ 选举基于 Raft 协议（快 + 强一致） - ✅ 1 个 Active + N 个 Standby - ✅</description>
-      <pubDate>Mon, 20 Jul 2026 21:19:02 -0000</pubDate>
-    </item>
-    <item>
-      <title>整体架构</title>
-      <link>https://java-px.bot.cd/kafka/02-architecture/overview</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/02-architecture/overview</guid>
-      <description>&gt; 理解 Kafka 集群的**整体拓扑**是深入学习的前提。本章从集群视角讲解各组件的职责与协作。 **整体架构核心要点**： - ✅ Broker 同时承担 Controller + Broker 角色（KRaft） - ✅ Partition 分布在不同 Broker（负载均衡） - ✅ 多副本 + ISR（高可用） - ✅ Controller 集群（Raft 协议选主） - ✅ Kafk</description>
-      <pubDate>Mon, 20 Jul 2026 21:18:28 -0000</pubDate>
-    </item>
-    <item>
-      <title>消息模型</title>
-      <link>https://java-px.bot.cd/kafka/01-basics/message-model</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/01-basics/message-model</guid>
-      <description>&gt; Kafka 的消息模型结合了**点对点**和**发布订阅**两种模式。本章对比主流消息模型，帮助理解 Kafka 的设计哲学。 &gt; Kafka 通过 **Consumer Group** 巧妙地同时支持两种模型。 | 维度 | Kafka | RabbitMQ | RocketMQ | ActiveMQ | |------|-------|----------|----------|-----</description>
-      <pubDate>Mon, 20 Jul 2026 21:17:42 -0000</pubDate>
-    </item>
-    <item>
-      <title>Topic &amp; Partition</title>
-      <link>https://java-px.bot.cd/kafka/01-basics/topic-partition</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/01-basics/topic-partition</guid>
-      <description>&gt; **Topic** 是 Kafka 的消息分类，**Partition** 是 Topic 的物理分片。理解两者的关系是掌握 Kafka 数据模型的关键。 **Topic &amp; Partition 核心要点**： - ✅ Topic 是逻辑分类，Partition 是物理分片 - ✅ 分区内有序（offset 单调递增），分区间无序 - ✅ 默认分区器：hash(key) % partition</description>
-      <pubDate>Mon, 20 Jul 2026 21:17:14 -0000</pubDate>
-    </item>
-    <item>
       <title>核心概念</title>
       <link>https://java-px.bot.cd/kafka/01-basics/concepts</link>
       <guid isPermaLink="true">https://java-px.bot.cd/kafka/01-basics/concepts</guid>
       <description>&gt; Kafka 的术语多但不难。理解 **Broker / Topic / Partition / Producer / Consumer / Consumer Group / Offset** 这 7 个核心概念就够了。 | 概念 | 数量 | 作用 | 比喻 | |------|------|------|------| | Cluster | 1 个 | 整体服务 | 公司 | | Brok</description>
       <pubDate>Mon, 20 Jul 2026 21:16:40 -0000</pubDate>
-    </item>
-    <item>
-      <title>安装部署</title>
-      <link>https://java-px.bot.cd/kafka/01-basics/install</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/01-basics/install</guid>
-      <description>&gt; 5 分钟搭建一个本地 Kafka 集群。本章涵盖 JDK 安装、Kafka 下载、单机/集群模式、KRaft 配置。 **安装部署核心要点**： - ✅ 单机：KRaft 模式 + 1 个节点 - ✅ 集群：3 节点 KRaft + 2 副本 - ✅ Docker：docker-compose 快速启动 - ✅ 生产：3 节点起步 + 多副本 + 监控 - ⚠️ Kafka 3.x 用 KRa</description>
-      <pubDate>Mon, 20 Jul 2026 21:16:11 -0000</pubDate>
-    </item>
-    <item>
-      <title>Kafka 是什么</title>
-      <link>https://java-px.bot.cd/kafka/01-basics/intro</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/01-basics/intro</guid>
-      <description>&gt; **Apache Kafka** 最初是由 LinkedIn 开发，后捐赠给 Apache 基金会的**分布式发布订阅消息系统**。现已成为大数据、实时计算、微服务领域的事实标准。 | 维度 | Kafka 的特点 | |------|-------------| | **吞吐** | 单机 100w+ msg/s（顺序写盘 + 零拷贝） | | **持久化** | 消息持久化到磁盘，可保留</description>
-      <pubDate>Mon, 20 Jul 2026 21:15:44 -0000</pubDate>
-    </item>
-    <item>
-      <title>学习路径</title>
-      <link>https://java-px.bot.cd/kafka/path</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/path</guid>
-      <description>&gt; 根据你的角色选择对应路径，每条路径推荐了核心阅读顺序。 适合**刚接触 Kafka**的开发者。 1. [❓ Kafka 是什么](/01-basics/intro) - 5 分钟了解 Kafka 2. [📥 安装部署](/01-basics/install) - 5 分钟跑起来 3. [🧩 核心概念](/01-basics/concepts) - Broker / Topic / Parti</description>
-      <pubDate>Mon, 20 Jul 2026 21:14:50 -0000</pubDate>
-    </item>
-    <item>
-      <title>命令速查</title>
-      <link>https://java-px.bot.cd/kafka/cheatsheet</link>
-      <guid isPermaLink="true">https://java-px.bot.cd/kafka/cheatsheet</guid>
-      <description>&gt; 30+ 高频 Kafka 命令，支持分类过滤和关键词搜索。 &lt;ClientOnly&gt; &lt;CommandCheatsheet /&gt; &lt;/ClientOnly&gt; | 场景 | 命令 | |------|------| | 创建 Topic | `kafka-topics.sh --create --topic &lt;name&gt; --partitions 3 --replication-factor 2</description>
-      <pubDate>Mon, 20 Jul 2026 21:14:31 -0000</pubDate>
     </item>
     <item>
       <title>思维导图</title>

@@ -2,142 +2,142 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://java-px.bot.cd/rust/01-basics/borrowing</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/01-basics/hello-world</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/01-basics/lifetimes</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/01-basics/overview</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/01-basics/ownership</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/01-basics/syntax-fundamentals</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/02-types-traits/advanced-types</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/02-types-traits/enum-and-pattern</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/02-types-traits/generics</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/02-types-traits/overview</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/02-types-traits/trait-objects</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/02-types-traits/trait</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/03-ecosystem/cargo</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/03-ecosystem/crates-io</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/03-ecosystem/overview</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/03-ecosystem/std-lib</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/03-ecosystem/tooling</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/04-concurrency/async-await</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/04-concurrency/channels</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/04-concurrency/overview</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/04-concurrency/threads</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/04-concurrency/tokio</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/05-systems/embedded</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/05-systems/ffi</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/05-systems/overview</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/05-systems/performance</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/05-systems/unsafe</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/05-systems/wasm</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/06-advanced/async-ecosystem</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/06-advanced/case-study</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/06-advanced/closure-and-iterator</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/06-advanced/error-handling</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/06-advanced/macro</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/06-advanced/smart-pointer</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
   <url>
     <loc>https://java-px.bot.cd/rust/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
   </url>
 </urlset>
