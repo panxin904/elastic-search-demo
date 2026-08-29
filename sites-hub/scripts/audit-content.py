@@ -594,6 +594,21 @@ def main():
         'Kafka 集群拓扑', '关键配置详解', '监控最佳实践',
         '零拷贝原理', 'Topic 管理',
         'Kafka Playground（浏览器版）', '监听器配置', '@KafkaListener',
+        # === §8.79 P1 模板词豁免（10 个 · 2026-08-29）===
+        # 多站 cheatsheet / 实战类模板化章节标题，必然跨章节/跨子站复用
+        'COPY 协议（最快）',
+        'Saga 模式详解',
+        '三大指标详解',
+        '与 Decorator 区别',
+        '实战案例：定位锁竞争',
+        '实战：登录 + 爬取',
+        '🆚 vs Deployment',
+        '🆚 vs LangGraph',
+        '🆚 三者对比',
+        '🆚 替代品',
+        # === §8.79 P0 治理（已通过文件侧 H2 微调消除，但加白名单做保险）===
+        '为什么需要读写分离？',
+        '创建 DataFrame',
     }
     by_title: dict[str, list[tuple[str, Path]]] = defaultdict(list)
     for t, s, p in all_titles:
