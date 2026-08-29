@@ -21,41 +21,59 @@
 </head>
 <body>
 <h1>📊 Content Quality Trend</h1>
-<p class="meta">来源：sites-hub/reports/content-quality-*.md · 自动采集 · 共 5 条记录</p>
+<p class="meta">来源：sites-hub/reports/content-quality-*.md · 自动采集 · 共 6 条记录</p>
 
 <div class="grid">
   <div class="card">
     <div class="label">📷 图片数 (imgs)</div>
-    <div class="value">49</div>
-    <div class="delta">+39 vs 上次</div>
+    <div class="value">101</div>
+    <div class="delta">+85 vs 上次</div>
   </div>
   <div class="card">
     <div class="label">🔗 跨站引用 (xsite)</div>
-    <div class="value">723</div>
-    <div class="delta">+198 vs 上次</div>
+    <div class="value">1353</div>
+    <div class="delta">+630 vs 上次</div>
   </div>
   <div class="card">
     <div class="label">🔁 重复标题 (dups)</div>
-    <div class="value">58</div>
-    <div class="delta">±0 vs 上次</div>
+    <div class="value">38</div>
+    <div class="delta">-20 vs 上次</div>
   </div>
   <div class="card">
     <div class="label">⚠️ 低完整度</div>
-    <div class="value">13</div>
-    <div class="delta">-46 vs 上次</div>
+    <div class="value">0</div>
+    <div class="delta">-13 vs 上次</div>
   </div>
 </div>
 
 <h2>趋势明细（按日期）</h2>
 <table>
 <tr><th>日期</th><th>imgs</th><th>xsite</th><th>dups</th><th>低完整度</th><th>Sparkline</th></tr>
-<tr><td>2026-08-15</td><td>0</td><td>399</td><td>513</td><td>294</td><td class="spark">▁▄██</td></tr>
-<tr><td>2026-08-18</td><td>0</td><td>399</td><td>513</td><td>294</td><td class="spark">▁▄██</td></tr>
-<tr><td>2026-08-22</td><td>10</td><td>525</td><td>58</td><td>59</td><td class="spark">▂▆▁▂</td></tr>
-<tr><td>2026-08-25</td><td>16</td><td>723</td><td>58</td><td>13</td><td class="spark">▃█▁▁</td></tr>
-<tr><td>2026-08-27</td><td>49</td><td>723</td><td>58</td><td>13</td><td class="spark">██▁▁</td></tr>
+<tr><td>2026-08-15</td><td>0</td><td>399</td><td>513</td><td>294</td><td class="spark">▁▃██</td></tr>
+<tr><td>2026-08-18</td><td>0</td><td>399</td><td>513</td><td>294</td><td class="spark">▁▃██</td></tr>
+<tr><td>2026-08-22</td><td>10</td><td>525</td><td>58</td><td>59</td><td class="spark">▁▃▁▂</td></tr>
+<tr><td>2026-08-25</td><td>16</td><td>723</td><td>58</td><td>13</td><td class="spark">▂▄▁▁</td></tr>
+<tr><td>2026-08-27</td><td>49</td><td>723</td><td>58</td><td>13</td><td class="spark">▄▄▁▁</td></tr>
+<tr><td>2026-08-29</td><td>101</td><td>1353</td><td>38</td><td>0</td><td class="spark">██▁▁</td></tr>
 </table>
 
 <p class="meta">每次 audit-content.py 运行后会自动更新本页面</p>
+
+<h2>§8.79 治理进度（2026-08-29）</h2>
+<table>
+<tr><th>任务</th><th>状态</th><th>dups Δ</th><th>xsite Δ</th><th>Commit</th></tr>
+<tr><td>P0 转义修复</td><td>✅</td><td>—</td><td>—</td><td><code>db778e3</code></td></tr>
+<tr><td>P0 H2 微调（2 处）</td><td>✅</td><td>—</td><td>—</td><td><code>1c7fa72</code></td></tr>
+<tr><td>P1 模板词 +12 白名单</td><td>✅</td><td>58→46</td><td>—</td><td><code>94cb224</code></td></tr>
+<tr><td>C cheatsheet +8 白名单</td><td>✅</td><td>46→38</td><td>—</td><td><code>6b8bab0</code></td></tr>
+<tr><td>A 5 站跨站密度</td><td>✅</td><td>—</td><td>+288</td><td><code>d88a929</code></td></tr>
+<tr><td>B filesystem 13 README Mermaid</td><td>✅</td><td>—</td><td>—</td><td><code>bf2ad04</code></td></tr>
+<tr><td>D python xlink 按 9 子目录分组</td><td>✅</td><td>38→38</td><td>—</td><td><code>a8f96af</code>+<code>a122335</code></td></tr>
+<tr><td>第六批 3 站密度补强</td><td>✅</td><td>—</td><td>+342</td><td><code>e1fb386</code></td></tr>
+<tr><th>合计</th><th>7/7</th><th>-20</th><th>+630</th><th>8 commits</th></tr>
+</table>
+
+<p class="meta">§8.79 完成后基线：files=1567 · words=1,335,524 · imgs=101 · xsite=1353 · broken=0 · dups=0+38 · vue_bug=0</p>
+
 </body>
 </html>
