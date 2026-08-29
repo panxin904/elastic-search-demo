@@ -530,3 +530,13 @@ def test_benchmark():
 - ⚠️ 避免脆弱测试
 
 **下一步：** [🚀 性能优化](/09-enterprise/performance) — Python 性能调优
+
+## 🔗 相关阅读 · 09 工程化
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页（09 工程化）相关主题的跨站入口:
+
+- [java](https://java-px.bot.cd/java-web-manual/):Java 对比
+- [ai](https://java-px.bot.cd/ai/):AI / 机器学习
+- [bigdata](https://java-px.bot.cd/bigdata/):大数据 / 数据处理

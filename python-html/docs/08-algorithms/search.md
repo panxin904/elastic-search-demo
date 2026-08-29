@@ -464,12 +464,12 @@ def a_star(grid, start, end):
 
 **下一步：** [🌳 树与图](/08-algorithms/tree-graph) — 树结构与图算法
 
-## 🔗 相关阅读（跨站导航）
+## 🔗 相关阅读 · 08 算法
 
 <!-- xlink-subpage-injected:do-not-edit -->
 
-本页相关主题的跨站入口:
+本页（08 算法）相关主题的跨站入口:
 
 - [java](https://java-px.bot.cd/java-web-manual/):Java 对比
 - [ai](https://java-px.bot.cd/ai/):AI / 机器学习
-- [data](https://java-px.bot.cd/data/):数据处理
+- [bigdata](https://java-px.bot.cd/bigdata/):大数据 / 数据处理

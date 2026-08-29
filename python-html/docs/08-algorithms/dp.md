@@ -467,3 +467,13 @@ def longest_palindromic_subseq_opt(s):
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+## 🔗 相关阅读 · 08 算法
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页（08 算法）相关主题的跨站入口:
+
+- [java](https://java-px.bot.cd/java-web-manual/):Java 对比
+- [ai](https://java-px.bot.cd/ai/):AI / 机器学习
+- [bigdata](https://java-px.bot.cd/bigdata/):大数据 / 数据处理
