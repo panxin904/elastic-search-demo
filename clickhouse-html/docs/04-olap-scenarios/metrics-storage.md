@@ -1,5 +1,6 @@
 ---
 title: 指标 TSDB 存储
+date: 2026-08-15  # date-auto-injected
 description: 用 ClickHouse 做 Prometheus / Grafana 的后端存储：remote_write / 指标标签 / PromQL
 ---
 

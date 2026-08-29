@@ -1,5 +1,6 @@
 ---
 title: 容器存储驱动
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 容器存储驱动 — OverlayFS、device-mapper、Btrfs 对比

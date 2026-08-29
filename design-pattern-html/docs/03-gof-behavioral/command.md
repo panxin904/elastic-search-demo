@@ -1,5 +1,6 @@
 ---
 title: Command 命令模式
+date: 2026-08-15  # date-auto-injected
 description: 请求封装为对象 + 撤销重做 + 任务队列 + CQRS / Saga 命令模式
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: 故障排查方法
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 故障排查方法

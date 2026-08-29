@@ -1,5 +1,6 @@
 ---
 title: 虚拟线程 (Loom)
+date: 2026-08-15  # date-auto-injected
 ---
 # 虚拟线程
 - JDK 21: java.lang.VirtualThread, lightweight threads managed by JVM

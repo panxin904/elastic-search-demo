@@ -1,5 +1,6 @@
 ---
 title: Chart 仓库
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Helm Chart 仓库

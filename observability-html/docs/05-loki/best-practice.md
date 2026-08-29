@@ -1,5 +1,6 @@
 ---
 title: Loki 最佳实践
+date: 2026-08-15  # date-auto-injected
 description: 标签设计 / 存储优化 / 性能调优
 ---
 

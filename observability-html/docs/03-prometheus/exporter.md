@@ -1,5 +1,6 @@
 ---
 title: Prometheus Exporter
+date: 2026-08-15  # date-auto-injected
 description: node_exporter / 黑盒 / 自定义 exporter
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: 变量与参数
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 变量与参数

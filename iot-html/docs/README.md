@@ -1,5 +1,6 @@
 ---
 title: IoT 站在知识图谱中的位置
+date: 2026-08-21  # date-auto-injected
 ---
 
 # IoT 站在知识图谱中的位置

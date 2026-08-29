@@ -1,5 +1,6 @@
 ---
 title: 混沌工程的可观测性
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 混沌工程的可观测性

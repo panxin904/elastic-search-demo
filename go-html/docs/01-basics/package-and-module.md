@@ -1,5 +1,6 @@
 ---
 title: 包与模块管理
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 包与模块管理

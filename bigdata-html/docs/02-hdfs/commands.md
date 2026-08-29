@@ -1,5 +1,6 @@
 ---
 title: HDFS 命令速查
+date: 2026-08-15  # date-auto-injected
 ---
 # HDFS 命令速查
 

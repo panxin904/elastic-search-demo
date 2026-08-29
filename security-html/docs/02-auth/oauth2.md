@@ -1,5 +1,6 @@
 ---
 title: OAuth 2.0 详解
+date: 2026-08-15  # date-auto-injected
 ---
 
 # OAuth 2.0 详解

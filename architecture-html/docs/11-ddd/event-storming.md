@@ -1,5 +1,6 @@
 ---
 title: 事件风暴
+date: 2026-08-15  # date-auto-injected
 ---
 # 事件风暴（Event Storming）
 

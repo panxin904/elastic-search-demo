@@ -1,5 +1,6 @@
 ---
 title: CDN 分发架构
+date: 2026-08-15  # date-auto-injected
 ---
 
 # CDN 分发架构

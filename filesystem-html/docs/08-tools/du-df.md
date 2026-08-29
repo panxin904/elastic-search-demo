@@ -1,5 +1,6 @@
 ---
 title: du / df
+date: 2026-08-15  # date-auto-injected
 ---
 
 # du / df — 磁盘空间分析

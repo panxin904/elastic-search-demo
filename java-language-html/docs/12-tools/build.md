@@ -1,5 +1,6 @@
 ---
 title: Maven / Gradle
+date: 2026-08-15  # date-auto-injected
 ---
 # Maven / Gradle
 - Maven lifecycle: validate → compile → test → package → verify → install → deploy

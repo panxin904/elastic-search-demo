@@ -1,5 +1,6 @@
 ---
 title: 服务发现
+date: 2026-08-15  # date-auto-injected
 ---
 # 服务发现（Service Discovery）
 

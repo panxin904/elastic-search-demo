@@ -1,5 +1,6 @@
 ---
 title: HTML 语义化
+date: 2026-08-15  # date-auto-injected
 ---
 
 # HTML 语义化

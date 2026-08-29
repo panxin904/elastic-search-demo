@@ -1,5 +1,6 @@
 ---
 title: Patroni 高可用
+date: 2026-08-15  # date-auto-injected
 description: PostgreSQL 自动故障切换集群管理
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: 控制面 Control Plane
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 控制面 Control Plane

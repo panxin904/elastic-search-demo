@@ -1,5 +1,6 @@
 ---
 title: CAP 与 BASE 理论
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ⚖️ CAP 与 BASE 理论

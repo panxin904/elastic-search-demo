@@ -1,5 +1,6 @@
 ---
 title: 浏览器渲染原理
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 浏览器渲染原理

@@ -1,5 +1,6 @@
 ---
 title: AV1
+date: 2026-08-15  # date-auto-injected
 ---
 
 # AV1（AOMedia Video 1）

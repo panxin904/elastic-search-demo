@@ -1,5 +1,6 @@
 ---
 title: SELECT 与聚合查询
+date: 2026-08-15  # date-auto-injected
 description: ClickHouse 聚合函数全集 + TOP 20 / 分位数 / 高基数 UV 实战
 ---
 

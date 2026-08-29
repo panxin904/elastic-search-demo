@@ -1,5 +1,6 @@
 ---
 title: 系统编程总览
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 系统编程总览

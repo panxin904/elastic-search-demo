@@ -1,5 +1,6 @@
 ---
 title: Trait 对象与动态分发
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Trait 对象与动态分发

@@ -1,5 +1,6 @@
 ---
 title: Function Calling
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Function Calling（工具调用）

@@ -1,5 +1,6 @@
 ---
 title: RPC 远程调用
+date: 2026-08-15  # date-auto-injected
 ---
 
 # RPC 远程调用

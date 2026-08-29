@@ -1,5 +1,6 @@
 ---
 title: Oracle vs PostgreSQL
+date: 2026-08-15  # date-auto-injected
 description: 企业级 RDBMS 迁移对比
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: 商业引擎选型
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 商业引擎选型

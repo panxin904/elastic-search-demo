@@ -1,5 +1,6 @@
 ---
 title: 数据恢复策略
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 数据恢复策略

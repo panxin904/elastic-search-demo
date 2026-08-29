@@ -1,5 +1,6 @@
 ---
 title: Nacos 底层原理
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ⚡ Nacos 底层原理

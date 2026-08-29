@@ -1,5 +1,6 @@
 ---
 title: Sidecar 边车模式
+date: 2026-08-15  # date-auto-injected
 description: 辅助能力剥离主应用 + K8s Pod / Istio / Dapr / Envoy
 ---
 

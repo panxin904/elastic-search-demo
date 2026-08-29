@@ -1,5 +1,6 @@
 ---
 title: 全量微调
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 全量微调（Full Fine-tuning）

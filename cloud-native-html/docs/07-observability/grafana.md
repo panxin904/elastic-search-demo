@@ -1,5 +1,6 @@
 ---
 title: Grafana 仪表板
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Grafana - 可视化

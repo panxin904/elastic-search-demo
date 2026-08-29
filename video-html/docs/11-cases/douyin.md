@@ -1,5 +1,6 @@
 ---
 title: 抖音 / TikTok 视频架构
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 抖音 / TikTok 视频技术架构

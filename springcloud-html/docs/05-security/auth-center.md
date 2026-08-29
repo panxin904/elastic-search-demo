@@ -1,5 +1,6 @@
 ---
 title: 统一认证中心
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🏛️ 统一认证中心

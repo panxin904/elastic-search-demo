@@ -1,5 +1,6 @@
 ---
 title: Feed 流系统设计
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Feed 流系统设计

@@ -1,5 +1,6 @@
 ---
 title: 覆盖索引与最左前缀
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ✅ 覆盖索引与最左前缀

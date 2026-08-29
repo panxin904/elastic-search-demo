@@ -1,5 +1,6 @@
 ---
 title: SQL 改写 12 招
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ✍️ MySQL SQL 改写 12 招

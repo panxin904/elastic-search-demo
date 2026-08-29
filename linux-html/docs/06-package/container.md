@@ -1,5 +1,6 @@
 ---
 title: 容器化安装
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 容器化安装

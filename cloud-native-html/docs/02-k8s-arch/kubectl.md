@@ -1,5 +1,6 @@
 ---
 title: kubectl 命令行
+date: 2026-08-15  # date-auto-injected
 ---
 
 # kubectl 命令行

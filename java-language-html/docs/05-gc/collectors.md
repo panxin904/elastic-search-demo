@@ -1,5 +1,6 @@
 ---
 title: G1 / ZGC / Shenandoah
+date: 2026-08-15  # date-auto-injected
 ---
 # 垃圾收集器
 | Collector | Young | Old | Pause | Target |

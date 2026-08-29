@@ -1,5 +1,6 @@
 ---
 title: sync 包
+date: 2026-08-15  # date-auto-injected
 ---
 
 # sync 包

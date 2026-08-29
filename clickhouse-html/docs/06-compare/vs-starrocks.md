@@ -1,5 +1,6 @@
 ---
 title: vs StarRocks
+date: 2026-08-15  # date-auto-injected
 description: ClickHouse vs StarRocks：两大列存 OLAP 引擎的全面对比
 ---
 

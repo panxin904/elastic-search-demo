@@ -1,5 +1,6 @@
 ---
 title: TLS 1.3 握手
+date: 2026-08-15  # date-auto-injected
 ---
 
 # TLS 1.3 握手详解

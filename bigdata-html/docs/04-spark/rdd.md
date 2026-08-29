@@ -1,5 +1,6 @@
 ---
 title: Spark Core / RDD
+date: 2026-08-15  # date-auto-injected
 ---
 # Spark Core / RDD
 

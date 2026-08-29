@@ -1,5 +1,6 @@
 ---
 title: Distributed 表引擎
+date: 2026-08-15  # date-auto-injected
 description: 多分片集群查询 / 写入的核心：本地表 + 分布式表 scatter-gather 模型
 ---
 

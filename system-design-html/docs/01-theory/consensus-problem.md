@@ -1,5 +1,6 @@
 ---
 title: FLP 不可能定理
+date: 2026-08-15  # date-auto-injected
 ---
 
 # FLP 不可能定理

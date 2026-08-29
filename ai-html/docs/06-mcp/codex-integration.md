@@ -1,5 +1,6 @@
 ---
 title: Codex MCP 集成
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Codex + MCP 集成

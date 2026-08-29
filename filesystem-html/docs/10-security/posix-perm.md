@@ -1,5 +1,6 @@
 ---
 title: POSIX 权限模型
+date: 2026-08-15  # date-auto-injected
 ---
 
 # POSIX 权限模型 — Unix 文件权限的基础

@@ -1,5 +1,6 @@
 ---
 title: IoT 学习路径
+date: 2026-08-21  # date-auto-injected
 ---
 
 # 🚶 IoT 学习路径

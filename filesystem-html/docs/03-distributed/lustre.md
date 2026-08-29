@@ -1,5 +1,6 @@
 ---
 title: Lustre
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Lustre — HPC 领域的高性能并行文件系统

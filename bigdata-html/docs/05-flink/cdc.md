@@ -1,5 +1,6 @@
 ---
 title: Flink CDC 实时同步
+date: 2026-08-15  # date-auto-injected
 ---
 # Flink CDC
 

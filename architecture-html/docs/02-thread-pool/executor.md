@@ -1,5 +1,6 @@
 ---
 title: ThreadPoolExecutor
+date: 2026-08-15  # date-auto-injected
 ---
 # ThreadPoolExecutor 原理
 

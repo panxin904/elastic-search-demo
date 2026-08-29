@@ -1,5 +1,6 @@
 ---
 title: AI 视频生成 - Sora / Runway
+date: 2026-08-15  # date-auto-injected
 ---
 
 # AI 视频生成

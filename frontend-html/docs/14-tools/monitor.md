@@ -1,5 +1,6 @@
 ---
 title: 前端监控 / Sentry
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 前端监控 / Sentry

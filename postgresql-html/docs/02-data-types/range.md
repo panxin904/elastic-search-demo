@@ -1,5 +1,6 @@
 ---
 title: Range 范围类型
+date: 2026-08-15  # date-auto-injected
 description: PostgreSQL 原生范围类型详解
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: CSS 基础
+date: 2026-08-15  # date-auto-injected
 ---
 
 # CSS 基础与盒模型

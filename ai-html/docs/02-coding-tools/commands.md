@@ -1,5 +1,6 @@
 ---
 title: 命令行速查
+date: 2026-08-15  # date-auto-injected
 ---
 
 # AI 工具命令行速查

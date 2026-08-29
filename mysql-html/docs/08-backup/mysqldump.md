@@ -1,5 +1,6 @@
 ---
 title: mysqldump 逻辑备份
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📦 MySQL mysqldump 逻辑备份

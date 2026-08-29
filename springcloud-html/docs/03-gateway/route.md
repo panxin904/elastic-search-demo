@@ -1,5 +1,6 @@
 ---
 title: 路由与断言
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🛣️ Gateway 路由与断言详解

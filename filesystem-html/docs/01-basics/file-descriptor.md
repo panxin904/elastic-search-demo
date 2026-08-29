@@ -1,5 +1,6 @@
 ---
 title: 文件描述符与 open
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 文件描述符与 open

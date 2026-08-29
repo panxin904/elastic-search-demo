@@ -1,5 +1,6 @@
 ---
 title: 多活与单元化
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 多活与单元化

@@ -1,5 +1,6 @@
 ---
 title: InnoDB 锁机制
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🔐 InnoDB 锁机制

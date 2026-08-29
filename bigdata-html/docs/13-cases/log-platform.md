@@ -1,5 +1,6 @@
 ---
 title: 日志平台
+date: 2026-08-15  # date-auto-injected
 ---
 # 日志平台
 

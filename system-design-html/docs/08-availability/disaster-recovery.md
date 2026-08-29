@@ -1,5 +1,6 @@
 ---
 title: 容灾演练
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 容灾演练

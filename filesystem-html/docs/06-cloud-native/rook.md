@@ -1,5 +1,6 @@
 ---
 title: Rook
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Rook — Kubernetes 上的存储编排器

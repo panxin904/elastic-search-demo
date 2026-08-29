@@ -1,5 +1,6 @@
 ---
 title: 混合持久化
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🔀 混合持久化

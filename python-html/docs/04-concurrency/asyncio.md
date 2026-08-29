@@ -1,5 +1,6 @@
 ---
 title: asyncio 协程
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ⚡ asyncio 协程

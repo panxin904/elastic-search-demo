@@ -1,5 +1,6 @@
 ---
 title: OTel Collector 详解
+date: 2026-08-15  # date-auto-injected
 description: OpenTelemetry Collector 部署模式与配置实战
 ---
 

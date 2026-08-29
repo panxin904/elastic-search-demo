@@ -1,5 +1,6 @@
 ---
 title: TCP 可靠传输
+date: 2026-08-15  # date-auto-injected
 ---
 
 # TCP 可靠传输

@@ -1,5 +1,6 @@
 ---
 title: Lakehouse 架构
+date: 2026-08-15  # date-auto-injected
 ---
 # Lakehouse 架构
 

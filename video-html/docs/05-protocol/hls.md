@@ -1,5 +1,6 @@
 ---
 title: HLS 协议
+date: 2026-08-15  # date-auto-injected
 ---
 
 # HLS（HTTP Live Streaming）

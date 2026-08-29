@@ -1,5 +1,6 @@
 ---
 title: 常用函数与 CTE
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📚 常用函数与 CTE

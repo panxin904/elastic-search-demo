@@ -1,5 +1,6 @@
 ---
 title: 高基数 UV 统计
+date: 2026-08-15  # date-auto-injected
 description: RoaringBitmap + groupBitmap 实战：精确 UV / 留存 / 多维去重
 ---
 

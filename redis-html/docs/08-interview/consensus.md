@@ -1,5 +1,6 @@
 ---
 title: Paxos/Raft 概述
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📜 Paxos/Raft 概述

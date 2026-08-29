@@ -1,5 +1,6 @@
 ---
 title: On-call 文化与值班
+date: 2026-08-15  # date-auto-injected
 description: PagerDuty / OpsGenie / 值班轮转
 ---
 

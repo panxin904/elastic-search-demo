@@ -1,5 +1,6 @@
 ---
 title: 爬虫基础
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🎯 爬虫基础

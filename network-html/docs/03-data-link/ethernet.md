@@ -1,5 +1,6 @@
 ---
 title: 以太网与交换机
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🔗 以太网与交换机

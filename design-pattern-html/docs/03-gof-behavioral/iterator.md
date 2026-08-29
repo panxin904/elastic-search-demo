@@ -1,5 +1,6 @@
 ---
 title: Iterator 迭代器模式
+date: 2026-08-15  # date-auto-injected
 description: 顺序访问聚合对象 + Java Iterator / Go range / TypeScript Iterable / Rust IntoIterator
 ---
 

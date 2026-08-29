@@ -1,5 +1,6 @@
 ---
 title: 目录与路径解析
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 目录与路径解析

@@ -1,5 +1,6 @@
 ---
 title: 案例题
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 案例题

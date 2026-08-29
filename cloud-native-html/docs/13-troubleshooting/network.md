@@ -1,5 +1,6 @@
 ---
 title: 网络 / DNS 排错
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 网络 / DNS 排错

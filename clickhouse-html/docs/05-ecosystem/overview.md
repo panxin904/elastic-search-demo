@@ -1,5 +1,6 @@
 ---
 title: 生态工具链
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ClickHouse 生态工具链

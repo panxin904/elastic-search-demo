@@ -1,5 +1,6 @@
 ---
 title: Docker 基础
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Docker 基础

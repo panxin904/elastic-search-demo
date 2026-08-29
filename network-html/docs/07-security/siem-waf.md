@@ -1,5 +1,6 @@
 ---
 title: SIEM 与 WAF
+date: 2026-08-15  # date-auto-injected
 ---
 
 # SIEM 与 WAF

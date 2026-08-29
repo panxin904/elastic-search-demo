@@ -1,5 +1,6 @@
 ---
 title: Game 站在知识图谱中的位置
+date: 2026-08-22  # date-auto-injected
 ---
 
 # Game 站在知识图谱中的位置

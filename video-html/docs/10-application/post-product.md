@@ -1,5 +1,6 @@
 ---
 title: 影视后期
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 影视后期与调色

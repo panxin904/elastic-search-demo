@@ -1,5 +1,6 @@
 ---
 title: ILM 生命周期
+date: 2026-08-15  # date-auto-injected
 category: ops
 graphNodeId: ilm
 ---

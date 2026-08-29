@@ -1,5 +1,6 @@
 ---
 title: 客户端连接
+date: 2026-08-15  # date-auto-injected
 description: clickhouse-client / HTTP / JDBC / Go / Python / Node.js 客户端完整对比
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: 生产者原理
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🎯 生产者原理

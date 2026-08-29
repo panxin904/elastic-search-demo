@@ -1,5 +1,6 @@
 ---
 title: OpenTelemetry 概览
+date: 2026-08-15  # date-auto-injected
 description: OTel 是什么 / 与 OpenTracing/OpenCensus 关系
 ---
 

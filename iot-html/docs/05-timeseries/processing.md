@@ -1,5 +1,6 @@
 ---
 title: 流处理 / Downsampling
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 流处理 / Downsampling

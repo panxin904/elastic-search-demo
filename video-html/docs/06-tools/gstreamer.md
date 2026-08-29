@@ -1,5 +1,6 @@
 ---
 title: GStreamer 框架
+date: 2026-08-15  # date-auto-injected
 ---
 
 # GStreamer 多媒体框架

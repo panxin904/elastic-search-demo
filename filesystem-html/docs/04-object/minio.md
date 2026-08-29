@@ -1,5 +1,6 @@
 ---
 title: MinIO
+date: 2026-08-15  # date-auto-injected
 ---
 
 # MinIO — 开源的 S3 兼容对象存储

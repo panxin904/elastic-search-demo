@@ -1,5 +1,6 @@
 ---
 title: 网络性能指标
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📊 网络性能指标

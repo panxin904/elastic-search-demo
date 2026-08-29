@@ -1,5 +1,6 @@
 ---
 title: Template Method 模板方法模式
+date: 2026-08-15  # date-auto-injected
 description: 算法骨架不变 + 部分步骤延迟 + Spring JdbcTemplate / Go http.Handler / Java Servlet
 ---
 

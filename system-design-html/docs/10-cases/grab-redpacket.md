@@ -1,5 +1,6 @@
 ---
 title: 抢红包系统设计
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 抢红包系统设计

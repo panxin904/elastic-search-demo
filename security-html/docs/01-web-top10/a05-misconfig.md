@@ -1,5 +1,6 @@
 ---
 title: A05 安全配置错误
+date: 2026-08-15  # date-auto-injected
 ---
 
 # A05 · Security Misconfiguration（安全配置错误）

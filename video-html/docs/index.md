@@ -1,6 +1,7 @@
 ---
 layout: home
 title: 视频处理知识库
+date: 2026-08-27  # date-auto-injected
 hero:
   name: 视频处理
   text: 编解码原理 · AI 视频 · 流媒体协议

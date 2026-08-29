@@ -1,5 +1,6 @@
 ---
 title: 金丝雀发布
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 金丝雀发布 (Canary)

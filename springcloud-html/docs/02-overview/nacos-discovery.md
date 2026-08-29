@@ -1,5 +1,6 @@
 ---
 title: Nacos 服务发现
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🌐 Nacos 服务发现

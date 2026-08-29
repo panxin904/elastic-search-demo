@@ -1,5 +1,6 @@
 ---
 title: Adapter 适配器模式
+date: 2026-08-15  # date-auto-injected
 description: 接口不兼容 + 对象适配 vs 类适配 + Java IO 适配器 + Spring HandlerAdapter
 ---
 

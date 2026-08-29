@@ -1,5 +1,6 @@
 ---
 title: 漏桶 / 滑动窗口
+date: 2026-08-15  # date-auto-injected
 ---
 # 漏桶 + 滑动窗口
 

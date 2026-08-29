@@ -1,5 +1,6 @@
 ---
 title: journald 日志
+date: 2026-08-15  # date-auto-injected
 ---
 
 # journald 日志

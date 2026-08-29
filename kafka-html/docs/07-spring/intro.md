@@ -1,5 +1,6 @@
 ---
 title: Spring Kafka 入门
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🚀 Spring Kafka 入门

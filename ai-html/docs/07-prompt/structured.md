@@ -1,5 +1,6 @@
 ---
 title: 结构化 Prompt
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 结构化 Prompt

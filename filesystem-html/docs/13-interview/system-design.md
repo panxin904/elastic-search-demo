@@ -1,5 +1,6 @@
 ---
 title: 系统设计
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 系统设计题 — 文件系统方案设计

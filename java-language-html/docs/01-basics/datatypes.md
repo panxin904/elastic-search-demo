@@ -1,5 +1,6 @@
 ---
 title: 数据类型 / 包装类
+date: 2026-08-15  # date-auto-injected
 ---
 # 数据类型 / 包装类
 

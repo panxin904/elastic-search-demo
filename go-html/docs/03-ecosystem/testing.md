@@ -1,5 +1,6 @@
 ---
 title: 测试与覆盖率
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Go 测试与覆盖率

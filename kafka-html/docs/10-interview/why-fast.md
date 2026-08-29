@@ -1,5 +1,6 @@
 ---
 title: Kafka 为什么快
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🚀 Kafka 为什么快

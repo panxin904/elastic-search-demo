@@ -1,5 +1,6 @@
 ---
 title: 本地消息表
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 本地消息表

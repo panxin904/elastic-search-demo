@@ -1,5 +1,6 @@
 ---
 title: Hash 索引
+date: 2026-08-15  # date-auto-injected
 description: PG 10+ 可用的 Hash 索引
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: BASE / 最终一致性
+date: 2026-08-15  # date-auto-injected
 ---
 # BASE 理论
 

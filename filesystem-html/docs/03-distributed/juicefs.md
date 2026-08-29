@@ -1,5 +1,6 @@
 ---
 title: JuiceFS
+date: 2026-08-15  # date-auto-injected
 ---
 
 # JuiceFS — 元数据 / 数据分离的云原生分布式文件系统

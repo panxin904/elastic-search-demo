@@ -1,5 +1,6 @@
 ---
 title: 副本 Replica
+date: 2026-08-15  # date-auto-injected
 category: storage
 graphNodeId: replica
 ---

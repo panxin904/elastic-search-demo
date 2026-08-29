@@ -1,5 +1,6 @@
 ---
 title: 数据湖三剑客
+date: 2026-08-15  # date-auto-injected
 ---
 # 数据湖三剑客
 

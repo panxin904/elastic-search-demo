@@ -1,5 +1,6 @@
 ---
 title: Chart 结构
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Helm Chart 结构

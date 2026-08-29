@@ -1,5 +1,6 @@
 ---
 title: CI 缓存策略
+date: 2026-08-15  # date-auto-injected
 ---
 
 # CI 缓存策略

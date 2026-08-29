@@ -1,5 +1,6 @@
 ---
 title: Probe 与 Check
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Probe 与 Check

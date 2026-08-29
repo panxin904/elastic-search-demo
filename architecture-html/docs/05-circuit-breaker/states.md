@@ -1,5 +1,6 @@
 ---
 title: 熔断器三态
+date: 2026-08-15  # date-auto-injected
 ---
 # 熔断器（Circuit Breaker）
 

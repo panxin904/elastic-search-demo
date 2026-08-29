@@ -1,5 +1,6 @@
 ---
 title: HDFS 架构
+date: 2026-08-15  # date-auto-injected
 ---
 # HDFS 架构
 

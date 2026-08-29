@@ -1,5 +1,6 @@
 ---
 title: PromQL 详解
+date: 2026-08-15  # date-auto-injected
 description: Prometheus 查询语言实战
 ---
 

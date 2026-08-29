@@ -1,5 +1,6 @@
 ---
 title: Listpack 紧凑列表
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📦 Listpack 紧凑列表

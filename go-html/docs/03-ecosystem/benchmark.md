@@ -1,5 +1,6 @@
 ---
 title: 性能基准与 pprof
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Go 性能基准与 pprof

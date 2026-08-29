@@ -1,5 +1,6 @@
 ---
 title: CUDA / GPU 环境
+date: 2026-08-15  # date-auto-injected
 ---
 
 # CUDA / GPU 环境

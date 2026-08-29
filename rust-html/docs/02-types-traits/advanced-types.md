@@ -1,5 +1,6 @@
 ---
 title: 高级类型
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 高级类型

@@ -1,5 +1,6 @@
 ---
 title: NetworkChaos 实验
+date: 2026-08-15  # date-auto-injected
 ---
 
 # NetworkChaos 实验

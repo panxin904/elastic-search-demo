@@ -1,5 +1,6 @@
 ---
 title: 用户埋点分析
+date: 2026-08-15  # date-auto-injected
 description: 抖音 / B 站级埋点场景：Kafka + RoaringBitmap + 留存 / 漏斗 / 路径分析
 ---
 

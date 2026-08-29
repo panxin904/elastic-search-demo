@@ -1,5 +1,6 @@
 ---
 title: 备份与恢复
+date: 2026-08-15  # date-auto-injected
 description: pg_dump / pg_basebackup / PITR
 ---
 

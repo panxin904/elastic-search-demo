@@ -1,5 +1,6 @@
 ---
 title: ConfigMap / Secret
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ConfigMap / Secret - 配置与敏感数据

@@ -1,5 +1,6 @@
 ---
 title: AI
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 04 · AI

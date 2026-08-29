@@ -1,5 +1,6 @@
 ---
 title: 微服务网络
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 微服务网络

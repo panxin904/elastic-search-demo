@@ -1,5 +1,6 @@
 ---
 title: DDD 聚合 / 实体 / 值对象
+date: 2026-08-15  # date-auto-injected
 ---
 # DDD 核心概念
 

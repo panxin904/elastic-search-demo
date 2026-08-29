@@ -1,5 +1,6 @@
 ---
 title: EXPLAIN 解读
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📊 MySQL EXPLAIN 解读

@@ -1,5 +1,6 @@
 ---
 title: 05 · 时序数据
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 05 · 时序数据

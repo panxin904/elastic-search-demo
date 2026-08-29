@@ -1,5 +1,6 @@
 ---
 title: ProxySQL 中间件
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🚦 MySQL ProxySQL 中间件

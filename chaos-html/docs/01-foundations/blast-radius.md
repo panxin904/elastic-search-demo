@@ -1,5 +1,6 @@
 ---
 title: 爆炸半径
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 爆炸半径

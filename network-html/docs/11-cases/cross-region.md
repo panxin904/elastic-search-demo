@@ -1,5 +1,6 @@
 ---
 title: 跨地域组网
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 跨地域组网

@@ -1,5 +1,6 @@
 ---
 title: 嵌入模型 Embedding
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 嵌入模型（Embedding）

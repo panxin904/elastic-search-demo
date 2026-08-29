@@ -1,5 +1,6 @@
 ---
 title: A04 不安全设计
+date: 2026-08-15  # date-auto-injected
 ---
 
 # A04 · Insecure Design（不安全设计）

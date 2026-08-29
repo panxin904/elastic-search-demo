@@ -1,5 +1,6 @@
 ---
 title: Kafka vs RabbitMQ vs RocketMQ
+date: 2026-08-15  # date-auto-injected
 ---
 # 主流消息队列对比
 

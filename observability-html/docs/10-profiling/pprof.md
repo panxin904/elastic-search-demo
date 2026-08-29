@@ -1,5 +1,6 @@
 ---
 title: Go pprof 剖析
+date: 2026-08-15  # date-auto-injected
 description: Go 内置的性能剖析工具
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: 安全最佳实践
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🛡️ 安全最佳实践

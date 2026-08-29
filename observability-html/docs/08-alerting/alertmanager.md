@@ -1,5 +1,6 @@
 ---
 title: Alertmanager 架构与配置
+date: 2026-08-15  # date-auto-injected
 description: 去重 / 分组 / 路由 / 抑制
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: 并发集合
+date: 2026-08-15  # date-auto-injected
 ---
 # 并发集合
 - ConcurrentHashMap: segment lock (Java 7) → CAS + synchronized (Java 8+)

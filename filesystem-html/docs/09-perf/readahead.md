@@ -1,5 +1,6 @@
 ---
 title: readahead
+date: 2026-08-15  # date-auto-injected
 ---
 
 # readahead — 提前读，让磁盘预取为你加速

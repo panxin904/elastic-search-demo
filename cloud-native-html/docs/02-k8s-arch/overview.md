@@ -1,5 +1,6 @@
 ---
 title: k8s 是什么
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Kubernetes 是什么

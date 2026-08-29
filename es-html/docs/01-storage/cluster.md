@@ -1,5 +1,6 @@
 ---
 title: 集群 Cluster
+date: 2026-08-15  # date-auto-injected
 category: storage
 graphNodeId: cluster
 ---

@@ -1,5 +1,6 @@
 ---
 title: 网络
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 05 · 网络

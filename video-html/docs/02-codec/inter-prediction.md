@@ -1,5 +1,6 @@
 ---
 title: 帧间预测
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 帧间预测（Inter Prediction）

@@ -1,5 +1,6 @@
 ---
 title: CERN EOS 存储
+date: 2026-08-15  # date-auto-injected
 ---
 
 # CERN — EOS 粒子物理数据的存储底座

@@ -1,5 +1,6 @@
 ---
 title: Spark Structured Streaming
+date: 2026-08-15  # date-auto-injected
 ---
 # Spark Structured Streaming
 

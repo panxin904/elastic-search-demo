@@ -1,5 +1,6 @@
 ---
 title: 分布式文件系统对比
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 分布式文件系统综合对比

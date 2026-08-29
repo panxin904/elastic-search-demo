@@ -1,5 +1,6 @@
 ---
 title: Exactly-once 语义
+date: 2026-08-15  # date-auto-injected
 ---
 # Exactly-once 语义
 

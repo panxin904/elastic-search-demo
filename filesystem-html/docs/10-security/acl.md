@@ -1,5 +1,6 @@
 ---
 title: ACL 访问控制列表
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ACL — 比 POSIX 更精细的权限系统

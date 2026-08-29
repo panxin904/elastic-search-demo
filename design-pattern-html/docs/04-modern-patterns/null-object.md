@@ -1,5 +1,6 @@
 ---
 title: Null Object 空对象模式
+date: 2026-08-15  # date-auto-injected
 description: 消除 null 检查 + Optional / Maybe / 空集合 / NoopLogger
 ---
 

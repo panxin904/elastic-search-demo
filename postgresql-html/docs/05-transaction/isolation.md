@@ -1,5 +1,6 @@
 ---
 title: 事务隔离级别
+date: 2026-08-15  # date-auto-injected
 description: PostgreSQL 4 个隔离级别与异常现象
 ---
 

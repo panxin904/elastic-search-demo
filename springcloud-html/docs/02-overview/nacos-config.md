@@ -1,5 +1,6 @@
 ---
 title: Nacos 配置中心
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ⚙️ Nacos 配置中心

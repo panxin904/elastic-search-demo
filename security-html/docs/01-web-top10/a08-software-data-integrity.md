@@ -1,5 +1,6 @@
 ---
 title: A08 软件数据完整性
+date: 2026-08-15  # date-auto-injected
 ---
 
 # A08 · Software & Data Integrity Failures（软件数据完整性失效）

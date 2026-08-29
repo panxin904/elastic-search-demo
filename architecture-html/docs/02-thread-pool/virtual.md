@@ -1,5 +1,6 @@
 ---
 title: JDK 21 虚拟线程
+date: 2026-08-15  # date-auto-injected
 ---
 # JDK 21 虚拟线程（Virtual Threads / Loom）
 

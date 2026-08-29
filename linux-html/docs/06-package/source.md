@@ -1,5 +1,6 @@
 ---
 title: 源码编译
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 源码编译安装

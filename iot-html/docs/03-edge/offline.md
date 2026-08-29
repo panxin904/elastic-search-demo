@@ -1,5 +1,6 @@
 ---
 title: 离线自治
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 离线自治

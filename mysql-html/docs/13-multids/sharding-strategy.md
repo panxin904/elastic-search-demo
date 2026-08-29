@@ -1,5 +1,6 @@
 ---
 title: 分片策略与扩容
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🔀 分片策略与扩容

@@ -1,5 +1,6 @@
 ---
 title: Hive on Spark / Tez
+date: 2026-08-15  # date-auto-injected
 ---
 # Hive 执行引擎
 

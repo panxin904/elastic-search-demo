@@ -1,5 +1,6 @@
 ---
 title: B 站视频架构
+date: 2026-08-15  # date-auto-injected
 ---
 
 # B 站（Bilibili）视频技术架构

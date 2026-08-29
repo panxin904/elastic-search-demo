@@ -1,5 +1,6 @@
 ---
 title: runtime 调度器 GMP
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Go runtime 与 GMP 调度

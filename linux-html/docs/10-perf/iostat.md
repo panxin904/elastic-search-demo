@@ -1,5 +1,6 @@
 ---
 title: iostat / iotop
+date: 2026-08-15  # date-auto-injected
 ---
 
 # iostat / iotop - 磁盘 IO 排查

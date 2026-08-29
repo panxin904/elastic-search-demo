@@ -1,5 +1,6 @@
 ---
 title: 排序
+date: 2026-08-15  # date-auto-injected
 category: query
 graphNodeId: sort
 ---

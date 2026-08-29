@@ -1,5 +1,6 @@
 ---
 title: 星型 / 雪花模型
+date: 2026-08-15  # date-auto-injected
 ---
 # 星型 / 雪花模型
 

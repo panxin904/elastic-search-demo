@@ -1,5 +1,6 @@
 ---
 title: ISO / RFC 格式化
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ISO / RFC 格式化

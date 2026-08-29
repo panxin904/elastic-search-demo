@@ -1,5 +1,6 @@
 ---
 title: 数据库可观测性
+date: 2026-08-15  # date-auto-injected
 description: MySQL / PostgreSQL / Redis 监控实践
 ---
 

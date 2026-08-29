@@ -1,5 +1,6 @@
 ---
 title: 软链与硬链
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ln - 软链与硬链

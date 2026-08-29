@@ -1,5 +1,6 @@
 ---
 title: Circuit Breaker 熔断模式
+date: 2026-08-15  # date-auto-injected
 description: 下游故障快速失败 + Resilience4j / Sentinel / Hystrix + 三种状态
 ---
 

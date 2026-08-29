@@ -1,5 +1,6 @@
 ---
 title: 高频面试题
+date: 2026-08-15  # date-auto-injected
 ---
 # Java 高频面试题
 1. HashMap 原理？数组+链表/红黑树，hash冲突，扩容，loadFactor 0.75

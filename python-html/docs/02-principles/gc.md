@@ -1,5 +1,6 @@
 ---
 title: 垃圾回收
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🔍 垃圾回收

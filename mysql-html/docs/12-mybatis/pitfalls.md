@@ -1,5 +1,6 @@
 ---
 title: MyBatis 常见坑与最佳实践
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ⚠️ MyBatis 常见坑与最佳实践

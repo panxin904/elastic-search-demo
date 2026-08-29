@@ -1,5 +1,6 @@
 ---
 title: A09 日志与监控失效
+date: 2026-08-15  # date-auto-injected
 ---
 
 # A09 · Security Logging & Monitoring Failures（日志与监控失效）

@@ -1,5 +1,6 @@
 ---
 title: LRU 算法手撕
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📚 LRU 算法手撕

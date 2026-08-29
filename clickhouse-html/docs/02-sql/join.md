@@ -1,5 +1,6 @@
 ---
 title: JOIN 类型
+date: 2026-08-15  # date-auto-injected
 description: ClickHouse 各种 JOIN 类型 + ASOF JOIN 实战 + JOIN 性能优化
 ---
 

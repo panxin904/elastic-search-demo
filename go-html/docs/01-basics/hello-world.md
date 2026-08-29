@@ -1,5 +1,6 @@
 ---
 title: Hello World 实战
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Hello World 实战

@@ -1,5 +1,6 @@
 ---
 title: 依赖注入 DI
+date: 2026-08-15  # date-auto-injected
 description: 解耦对象创建 + Spring IoC / NestJS Provider / Go Wire + 构造器 vs Setter vs 字段注入
 ---
 

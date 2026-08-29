@@ -1,5 +1,6 @@
 ---
 title: MediaInfo 元数据
+date: 2026-08-15  # date-auto-injected
 ---
 
 # MediaInfo 元数据工具

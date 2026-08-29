@@ -1,5 +1,6 @@
 ---
 title: 主从同步原理
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🔄 MySQL 主从同步原理

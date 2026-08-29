@@ -1,5 +1,6 @@
 ---
 title: GPU 处理 CUDA
+date: 2026-08-15  # date-auto-injected
 ---
 
 # GPU 处理 - CUDA

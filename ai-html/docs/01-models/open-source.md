@@ -1,5 +1,6 @@
 ---
 title: 开源模型 Llama / Mistral / Qwen
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 开源大模型

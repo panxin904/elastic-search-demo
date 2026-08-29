@@ -1,5 +1,6 @@
 ---
 title: BIO / NIO / AIO
+date: 2026-08-15  # date-auto-injected
 ---
 # BIO / NIO / AIO
 - BIO: blocking I/O, one thread per connection

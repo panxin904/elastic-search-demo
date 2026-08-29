@@ -1,5 +1,6 @@
 ---
 title: 实时数仓
+date: 2026-08-15  # date-auto-injected
 description: Kafka + MV 链式分层：DWD / DWS / ADS 三层实时数仓完整架构
 ---
 

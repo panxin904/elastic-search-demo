@@ -1,5 +1,6 @@
 ---
 title: CORS 跨域
+date: 2026-08-15  # date-auto-injected
 ---
 
 # CORS（跨域资源共享）

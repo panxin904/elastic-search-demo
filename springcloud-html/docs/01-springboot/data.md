@@ -1,5 +1,6 @@
 ---
 title: 数据访问
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 💾 Spring Boot 数据访问

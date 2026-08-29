@@ -1,5 +1,6 @@
 ---
 title: State 状态模式
+date: 2026-08-15  # date-auto-injected
 description: 行为随状态变化 + 订单状态机 / TCP 连接状态 / Spring StateMachine
 ---
 

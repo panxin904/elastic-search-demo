@@ -1,5 +1,6 @@
 ---
 title: Zipkin 链路追踪
+date: 2026-08-15  # date-auto-injected
 description: Twitter 2012 开源 / 分布式 tracing 鼻祖
 ---
 

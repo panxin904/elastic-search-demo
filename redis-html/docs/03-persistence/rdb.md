@@ -1,5 +1,6 @@
 ---
 title: RDB 快照
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📸 RDB 快照

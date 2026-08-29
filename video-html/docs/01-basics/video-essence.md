@@ -1,5 +1,6 @@
 ---
 title: 视频本质 - 像素与帧
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 视频本质 - 像素与帧

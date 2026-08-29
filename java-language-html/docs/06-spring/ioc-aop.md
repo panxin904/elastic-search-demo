@@ -1,5 +1,6 @@
 ---
 title: IoC / DI / AOP
+date: 2026-08-15  # date-auto-injected
 ---
 # IoC / DI / AOP
 - IoC: container manages bean lifecycle, not you

@@ -1,5 +1,6 @@
 ---
 title: 信号与编码
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🔌 信号与编码

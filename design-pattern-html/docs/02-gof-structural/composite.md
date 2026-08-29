@@ -1,5 +1,6 @@
 ---
 title: Composite 组合模式
+date: 2026-08-15  # date-auto-injected
 description: 树形结构 + 部分-整体 + 文件系统 / DOM / Kubernetes 资源树
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: UPSERT
+date: 2026-08-15  # date-auto-injected
 description: INSERT ON CONFLICT 实战
 ---
 

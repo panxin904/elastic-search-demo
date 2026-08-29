@@ -1,5 +1,6 @@
 ---
 title: 命令速查
+date: 2026-08-15  # date-auto-injected
 ---
 # 📋 大数据命令速查
 

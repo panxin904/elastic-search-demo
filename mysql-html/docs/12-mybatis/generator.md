@@ -1,5 +1,6 @@
 ---
 title: 代码生成器
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🎨 MyBatis-Plus 代码生成器

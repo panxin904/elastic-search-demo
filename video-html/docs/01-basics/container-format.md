@@ -1,5 +1,6 @@
 ---
 title: 容器格式 - MP4/AVI/MKV
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 容器格式 - MP4 / AVI / MKV

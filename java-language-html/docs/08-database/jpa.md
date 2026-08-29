@@ -1,5 +1,6 @@
 ---
 title: JPA / Hibernate
+date: 2026-08-15  # date-auto-injected
 ---
 # JPA / Hibernate
 - Spring Data JPA: findByXxx, @Query, @Modifying for DML

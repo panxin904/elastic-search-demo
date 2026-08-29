@@ -1,5 +1,6 @@
 ---
 title: ShardingSphere-JDBC 实战
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🌊 ShardingSphere-JDBC 分库分表实战

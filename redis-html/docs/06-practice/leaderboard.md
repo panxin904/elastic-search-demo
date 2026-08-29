@@ -1,5 +1,6 @@
 ---
 title: 排行榜
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🏆 排行榜

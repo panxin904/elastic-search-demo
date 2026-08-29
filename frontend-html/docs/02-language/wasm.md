@@ -1,5 +1,6 @@
 ---
 title: WebAssembly 入门
+date: 2026-08-15  # date-auto-injected
 ---
 
 # WebAssembly 入门

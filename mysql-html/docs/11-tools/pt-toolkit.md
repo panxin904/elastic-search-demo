@@ -1,5 +1,6 @@
 ---
 title: pt-toolkit 工具集
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🔧 Percona Toolkit 工具集

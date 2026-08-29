@@ -1,5 +1,6 @@
 ---
 title: Singleton 单例模式
+date: 2026-08-15  # date-auto-injected
 description: 全局唯一实例 + 多语言实现 + 线程安全 + 序列化攻击 + 分布式陷阱
 ---
 

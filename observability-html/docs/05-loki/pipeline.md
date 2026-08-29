@@ -1,5 +1,6 @@
 ---
 title: Loki Pipeline 处理
+date: 2026-08-15  # date-auto-injected
 description: Promtail pipeline stages / 字段提取 / 转换
 ---
 

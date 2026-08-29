@@ -1,5 +1,6 @@
 ---
 title: etcd 存储
+date: 2026-08-15  # date-auto-injected
 ---
 
 # etcd - 集群的大脑

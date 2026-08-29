@@ -1,5 +1,6 @@
 ---
 title: OSPF 与 BGP
+date: 2026-08-15  # date-auto-injected
 ---
 
 # OSPF 与 BGP

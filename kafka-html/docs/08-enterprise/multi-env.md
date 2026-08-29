@@ -1,5 +1,6 @@
 ---
 title: 多环境隔离
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🌍 多环境隔离

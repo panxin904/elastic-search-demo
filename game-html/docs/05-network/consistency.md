@@ -1,5 +1,6 @@
 ---
 title: 一致性
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 一致性

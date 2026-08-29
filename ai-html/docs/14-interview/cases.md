@@ -1,5 +1,6 @@
 ---
 title: 项目案例
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 面试项目案例

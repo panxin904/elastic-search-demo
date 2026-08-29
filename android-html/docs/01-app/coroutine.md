@@ -1,5 +1,6 @@
 ---
 title: Kotlin 协程
+date: 2026-08-27  # date-auto-injected
 ---
 
 # Kotlin 协程

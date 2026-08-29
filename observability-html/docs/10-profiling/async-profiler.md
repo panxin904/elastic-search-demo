@@ -1,5 +1,6 @@
 ---
 title: Java async-profiler
+date: 2026-08-15  # date-auto-injected
 description: Java 生产级低开销 profiler
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: BorgBackup
+date: 2026-08-15  # date-auto-injected
 ---
 
 # BorgBackup — 增量 + 去重 + 加密的备份神器

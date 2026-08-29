@@ -1,5 +1,6 @@
 ---
 title: GlusterFS
+date: 2026-08-15  # date-auto-injected
 ---
 
 # GlusterFS — 用户态分布式文件系统

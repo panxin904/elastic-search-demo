@@ -1,5 +1,6 @@
 ---
 title: Leader 选举机制
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 👑 Leader 选举机制

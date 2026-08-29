@@ -1,5 +1,6 @@
 ---
 title: Inmon vs Kimball
+date: 2026-08-15  # date-auto-injected
 ---
 # Inmon vs Kimball 建模
 

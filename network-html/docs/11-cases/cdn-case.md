@@ -1,5 +1,6 @@
 ---
 title: CDN 全站加速
+date: 2026-08-15  # date-auto-injected
 ---
 
 # CDN 全站加速

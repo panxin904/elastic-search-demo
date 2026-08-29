@@ -1,5 +1,6 @@
 ---
 title: Kafka 表引擎
+date: 2026-08-15  # date-auto-injected
 description: 直接消费 Kafka topic，配合物化视图实现秒级实时数仓
 ---
 

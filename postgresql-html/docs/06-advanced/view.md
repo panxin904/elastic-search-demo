@@ -1,5 +1,6 @@
 ---
 title: 视图与物化视图
+date: 2026-08-15  # date-auto-injected
 description: VIEW / MATERIALIZED VIEW
 ---
 

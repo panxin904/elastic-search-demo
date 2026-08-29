@@ -1,5 +1,6 @@
 ---
 title: UUID 生成
+date: 2026-08-15  # date-auto-injected
 ---
 
 # UUID 生成

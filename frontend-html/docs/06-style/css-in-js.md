@@ -1,5 +1,6 @@
 ---
 title: CSS-in-JS
+date: 2026-08-15  # date-auto-injected
 ---
 
 # CSS-in-JS

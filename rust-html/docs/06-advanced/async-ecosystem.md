@@ -1,5 +1,6 @@
 ---
 title: 异步生态对比
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 异步生态对比

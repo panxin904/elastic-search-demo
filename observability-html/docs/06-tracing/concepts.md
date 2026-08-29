@@ -1,5 +1,6 @@
 ---
 title: Trace / Span 概念
+date: 2026-08-15  # date-auto-injected
 description: 链路追踪核心数据模型
 ---
 

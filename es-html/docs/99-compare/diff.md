@@ -1,5 +1,6 @@
 ---
 title: ES 7 vs ES 8 差异
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Elasticsearch 7.x 与 8.x 主要差异

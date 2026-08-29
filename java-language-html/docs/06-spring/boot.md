@@ -1,5 +1,6 @@
 ---
 title: Spring Boot 自动配置
+date: 2026-08-15  # date-auto-injected
 ---
 # Spring Boot
 - @SpringBootApplication = @Configuration + @EnableAutoConfiguration + @ComponentScan

@@ -1,5 +1,6 @@
 ---
 title: 安装与环境
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📥 安装与环境

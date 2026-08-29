@@ -1,5 +1,6 @@
 ---
 title: 回滚机制
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 回滚机制

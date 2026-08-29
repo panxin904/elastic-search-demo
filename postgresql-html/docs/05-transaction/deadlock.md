@@ -1,5 +1,6 @@
 ---
 title: 死锁排查
+date: 2026-08-15  # date-auto-injected
 description: deadlock_detected 错误处理
 ---
 

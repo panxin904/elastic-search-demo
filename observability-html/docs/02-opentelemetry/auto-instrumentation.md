@@ -1,5 +1,6 @@
 ---
 title: 自动埋点
+date: 2026-08-15  # date-auto-injected
 description: Java agent / eBPF / 零代码埋点
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Shuffle 详解
+date: 2026-08-15  # date-auto-injected
 ---
 # MapReduce Shuffle 详解
 

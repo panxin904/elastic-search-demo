@@ -1,5 +1,6 @@
 ---
 title: 智能家居 Matter
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 智能家居 Matter

@@ -1,5 +1,6 @@
 ---
 title: 统计信息
+date: 2026-08-15  # date-auto-injected
 description: pg_stat / pg_stats 实战
 ---
 

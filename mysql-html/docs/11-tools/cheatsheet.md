@@ -1,5 +1,6 @@
 ---
 title: SQL 速查表
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📋 MySQL SQL 速查表

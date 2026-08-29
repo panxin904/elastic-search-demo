@@ -1,5 +1,6 @@
 ---
 title: Nacos 注册/配置中心
+date: 2026-08-15  # date-auto-injected
 ---
 # Nacos
 - Service discovery: CP (Raft) for registry, AP (Distro) for instances

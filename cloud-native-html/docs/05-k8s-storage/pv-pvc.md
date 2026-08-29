@@ -1,5 +1,6 @@
 ---
 title: PV / PVC
+date: 2026-08-15  # date-auto-injected
 ---
 
 # PV / PVC - 持久化存储

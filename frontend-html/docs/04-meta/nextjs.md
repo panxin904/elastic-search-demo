@@ -1,5 +1,6 @@
 ---
 title: Next.js (React 元框架)
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Next.js (React 元框架)

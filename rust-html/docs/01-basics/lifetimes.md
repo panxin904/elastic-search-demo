@@ -1,5 +1,6 @@
 ---
 title: 生命周期 Lifetimes
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 生命周期 Lifetimes

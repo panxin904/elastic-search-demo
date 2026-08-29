@@ -1,5 +1,6 @@
 ---
 title: Job / CronJob
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Job / CronJob - 一次性 / 定时任务

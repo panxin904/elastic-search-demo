@@ -1,5 +1,6 @@
 ---
 title: 启动流程
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 启动流程

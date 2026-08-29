@@ -1,5 +1,6 @@
 ---
 title: Docker 镜像分层
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Docker 镜像与分层 — Union FS 的工程化

@@ -1,5 +1,6 @@
 ---
 title: 超分辨率（SR）
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 超分辨率（Super Resolution）

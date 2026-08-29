@@ -1,5 +1,6 @@
 ---
 title: FFmpeg 入门精通
+date: 2026-08-15  # date-auto-injected
 ---
 
 # FFmpeg 入门精通

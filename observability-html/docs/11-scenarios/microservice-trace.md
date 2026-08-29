@@ -1,5 +1,6 @@
 ---
 title: 微服务全链路追踪
+date: 2026-08-15  # date-auto-injected
 description: 跨服务 trace + 服务地图 + 依赖分析
 ---
 

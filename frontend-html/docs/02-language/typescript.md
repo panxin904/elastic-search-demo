@@ -1,5 +1,6 @@
 ---
 title: TypeScript 类型系统
+date: 2026-08-15  # date-auto-injected
 ---
 
 # TypeScript 类型系统

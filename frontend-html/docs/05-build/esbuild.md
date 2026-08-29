@@ -1,5 +1,6 @@
 ---
 title: esbuild / Turbopack
+date: 2026-08-15  # date-auto-injected
 ---
 
 # esbuild / Turbopack / SWC

@@ -1,5 +1,6 @@
 ---
 title: Consumer API
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📥 Consumer API

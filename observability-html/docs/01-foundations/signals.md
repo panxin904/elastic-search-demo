@@ -1,5 +1,6 @@
 ---
 title: 信号类型
+date: 2026-08-15  # date-auto-injected
 description: Counter / Gauge / Histogram / Summary 的本质与选型
 ---
 

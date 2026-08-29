@@ -1,5 +1,6 @@
 ---
 title: JSON 格式化 / 校验
+date: 2026-08-15  # date-auto-injected
 ---
 
 # JSON 格式化 / 校验

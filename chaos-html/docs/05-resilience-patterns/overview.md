@@ -1,5 +1,6 @@
 ---
 title: 韧性模式总览
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 韧性模式总览

@@ -1,5 +1,6 @@
 ---
 title: IoT 速查表
+date: 2026-08-21  # date-auto-injected
 ---
 
 # 🧾 IoT 速查表

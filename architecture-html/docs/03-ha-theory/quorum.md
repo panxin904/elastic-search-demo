@@ -1,5 +1,6 @@
 ---
 title: Quorum 多数派
+date: 2026-08-15  # date-auto-injected
 ---
 # Quorum / 多数派
 

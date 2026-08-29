@@ -1,5 +1,6 @@
 ---
 title: Flyweight 享元模式
+date: 2026-08-15  # date-auto-injected
 description: 共享细粒度对象 + 减少内存 / Integer 缓存 / 文本编辑器 / 游戏地图 / 字符串池
 ---
 

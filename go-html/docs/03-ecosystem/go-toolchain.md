@@ -1,5 +1,6 @@
 ---
 title: Go 工具链
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Go 工具链

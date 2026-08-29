@@ -1,5 +1,6 @@
 ---
 title: Chaos Mesh 总览
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Chaos Mesh 总览

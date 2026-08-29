@@ -1,5 +1,6 @@
 ---
 title: swap 交换分区
+date: 2026-08-15  # date-auto-injected
 ---
 
 # swap 交换分区

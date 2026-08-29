@@ -1,5 +1,6 @@
 ---
 title: Interpreter 解释器模式
+date: 2026-08-15  # date-auto-injected
 description: 自定义语言求值 + 表达式解析 + SQL parser / 正则表达式 / DSL
 ---
 

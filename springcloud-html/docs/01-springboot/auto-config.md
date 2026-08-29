@@ -1,5 +1,6 @@
 ---
 title: 自动配置原理
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ⚙️ Spring Boot 自动配置原理

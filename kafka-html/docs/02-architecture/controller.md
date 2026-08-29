@@ -1,5 +1,6 @@
 ---
 title: Controller 控制器
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🎮 Controller 控制器

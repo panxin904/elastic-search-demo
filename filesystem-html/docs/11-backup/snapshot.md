@@ -1,5 +1,6 @@
 ---
 title: 快照与备份
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 快照与备份 — 数据保护的两大武器

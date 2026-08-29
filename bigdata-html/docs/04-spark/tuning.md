@@ -1,5 +1,6 @@
 ---
 title: Spark 调优
+date: 2026-08-15  # date-auto-injected
 ---
 # Spark 性能调优
 

@@ -1,5 +1,6 @@
 ---
 title: GC 日志 / 调优
+date: 2026-08-15  # date-auto-injected
 ---
 # GC 调优
 - Goals: throughput >98%, pause <200ms, full GC rare

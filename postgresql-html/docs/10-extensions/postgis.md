@@ -1,5 +1,6 @@
 ---
 title: PostGIS 空间数据库
+date: 2026-08-15  # date-auto-injected
 ---
 
 # PostGIS 空间数据库

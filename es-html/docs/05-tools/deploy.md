@@ -1,5 +1,6 @@
 ---
 title: ES 部署与配置
+date: 2026-08-15  # date-auto-injected
 ---
 
 <span class="kg-badge kg-badge-ops">部署</span>

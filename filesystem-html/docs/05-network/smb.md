@@ -1,5 +1,6 @@
 ---
 title: SMB / CIFS
+date: 2026-08-15  # date-auto-injected
 ---
 
 # SMB / CIFS — Windows 世界的共享文件协议

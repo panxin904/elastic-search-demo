@@ -1,5 +1,6 @@
 ---
 title: 死锁分析与排查
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 💀 MySQL 死锁分析与排查

@@ -1,5 +1,6 @@
 ---
 title: 关键配置参数
+date: 2026-08-15  # date-auto-injected
 description: postgresql.conf 核心参数调优
 ---
 

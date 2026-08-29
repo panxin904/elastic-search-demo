@@ -1,5 +1,6 @@
 ---
 title: Data Vault
+date: 2026-08-15  # date-auto-injected
 ---
 # Data Vault 建模
 

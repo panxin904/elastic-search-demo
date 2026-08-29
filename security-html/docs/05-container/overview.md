@@ -1,5 +1,6 @@
 ---
 title: 容器安全总览
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 容器安全

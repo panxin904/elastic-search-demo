@@ -1,5 +1,6 @@
 ---
 title: GIL 全局锁
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ⏱️ GIL 全局锁

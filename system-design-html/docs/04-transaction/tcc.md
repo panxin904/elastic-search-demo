@@ -1,5 +1,6 @@
 ---
 title: TCC 补偿事务
+date: 2026-08-15  # date-auto-injected
 ---
 
 # TCC 补偿事务

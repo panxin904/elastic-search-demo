@@ -1,5 +1,6 @@
 ---
 title: 综合实战项目
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 💼 综合实战项目：电商微服务

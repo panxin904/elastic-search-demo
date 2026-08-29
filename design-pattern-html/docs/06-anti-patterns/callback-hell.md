@@ -1,5 +1,6 @@
 ---
 title: Callback Hell 回调地狱
+date: 2026-08-15  # date-auto-injected
 description: 症状 + 病因 + 药方 + async/await + Promise + RxJS
 ---
 

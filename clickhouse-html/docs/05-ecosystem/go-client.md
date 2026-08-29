@@ -1,5 +1,6 @@
 ---
 title: Go 客户端实战
+date: 2026-08-15  # date-auto-injected
 description: ch-go（Cloudflare 自研）+ clickhouse-go v2 完整实战
 ---
 

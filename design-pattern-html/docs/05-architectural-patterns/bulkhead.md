@@ -1,5 +1,6 @@
 ---
 title: Bulkhead 舱壁隔离模式
+date: 2026-08-15  # date-auto-injected
 description: 资源隔离防雪崩 + Resilience4j 线程池 + K8s resource limit + 连接池隔离
 ---
 

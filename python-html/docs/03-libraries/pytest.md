@@ -1,5 +1,6 @@
 ---
 title: pytest 测试
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🧪 pytest 测试

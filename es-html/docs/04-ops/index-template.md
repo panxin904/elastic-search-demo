@@ -1,5 +1,6 @@
 ---
 title: 索引模板
+date: 2026-08-15  # date-auto-injected
 category: ops
 graphNodeId: index-template
 ---

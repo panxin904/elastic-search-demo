@@ -1,5 +1,6 @@
 ---
 title: 协议对比
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 协议对比

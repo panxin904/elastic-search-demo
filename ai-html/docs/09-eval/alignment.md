@@ -1,5 +1,6 @@
 ---
 title: RLHF / DPO - 对齐
+date: 2026-08-15  # date-auto-injected
 ---
 
 # RLHF / DPO - 让模型符合人类偏好

@@ -1,5 +1,6 @@
 ---
 title: Kratos / go-zero / go-micro
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Go 微服务框架

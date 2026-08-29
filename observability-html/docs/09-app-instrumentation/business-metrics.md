@@ -1,5 +1,6 @@
 ---
 title: 业务指标设计
+date: 2026-08-15  # date-auto-injected
 description: DAU / 转化率 / 漏斗 / 业务 SLO
 ---
 

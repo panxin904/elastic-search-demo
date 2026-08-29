@@ -1,5 +1,6 @@
 ---
 title: Hot Standby 从库查询
+date: 2026-08-15  # date-auto-injected
 description: PostgreSQL 从库只读查询
 ---
 

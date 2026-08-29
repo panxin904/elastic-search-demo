@@ -1,5 +1,6 @@
 ---
 title: threading 多线程
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🧵 threading 多线程

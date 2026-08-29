@@ -1,6 +1,7 @@
 ---
 layout: home
 title: 计算机网络知识库
+date: 2026-08-27  # date-auto-injected
 hero:
   name: 计算机网络
   text: 知识图谱 · 学习路径 · 实战案例

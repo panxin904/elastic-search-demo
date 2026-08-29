@@ -1,5 +1,6 @@
 ---
 title: xargs / find 配合
+date: 2026-08-15  # date-auto-injected
 ---
 
 # xargs - 命令行管道

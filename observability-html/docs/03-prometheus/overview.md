@@ -1,5 +1,6 @@
 ---
 title: Prometheus 架构
+date: 2026-08-15  # date-auto-injected
 description: Prometheus 整体架构与核心组件
 ---
 

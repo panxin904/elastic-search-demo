@@ -1,5 +1,6 @@
 ---
 title: 微前端
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 微前端 (Micro Frontends)

@@ -1,5 +1,6 @@
 ---
 title: 成本控制 / Token 管理
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 成本控制 / Token 管理

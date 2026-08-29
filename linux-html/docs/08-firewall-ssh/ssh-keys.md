@@ -1,5 +1,6 @@
 ---
 title: ssh-keygen / ssh-copy-id
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ssh-keygen / ssh-copy-id

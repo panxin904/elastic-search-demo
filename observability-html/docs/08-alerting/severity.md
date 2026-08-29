@@ -1,5 +1,6 @@
 ---
 title: 告警分级
+date: 2026-08-15  # date-auto-injected
 description: P0/P1/P2/P3 与响应 SLO
 ---
 

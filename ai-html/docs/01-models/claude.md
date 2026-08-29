@@ -1,5 +1,6 @@
 ---
 title: Claude 模型家族
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Claude 模型家族

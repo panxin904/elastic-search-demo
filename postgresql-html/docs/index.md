@@ -1,6 +1,7 @@
 ---
 layout: home
 title: PostgreSQL 知识图谱
+date: 2026-08-27  # date-auto-injected
 hero:
   name: PostgreSQL 知识图谱
   text: 现代关系型数据库的纵深

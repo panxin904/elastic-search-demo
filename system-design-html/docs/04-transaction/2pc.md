@@ -1,5 +1,6 @@
 ---
 title: 两阶段提交（2PC）
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 两阶段提交（2PC）

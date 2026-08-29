@@ -1,5 +1,6 @@
 ---
 title: 类型与函数
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 类型与函数

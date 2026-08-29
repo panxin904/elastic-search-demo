@@ -1,5 +1,6 @@
 ---
 title: A01 访问控制失效
+date: 2026-08-15  # date-auto-injected
 ---
 
 # A01 · Broken Access Control（访问控制失效）

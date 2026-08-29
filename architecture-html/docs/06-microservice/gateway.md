@@ -1,5 +1,6 @@
 ---
 title: API 网关
+date: 2026-08-15  # date-auto-injected
 ---
 # API 网关（API Gateway）
 

@@ -1,5 +1,6 @@
 ---
 title: 唇形同步 Wav2Lip
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 唇形同步（Lip Sync）

@@ -1,5 +1,6 @@
 ---
 title: 反模式（应避免的反面案例）
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 反模式总览

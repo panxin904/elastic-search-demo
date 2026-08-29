@@ -1,5 +1,6 @@
 ---
 title: 批 / 流计算
+date: 2026-08-15  # date-auto-injected
 ---
 # 批 vs 流计算
 

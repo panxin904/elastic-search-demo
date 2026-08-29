@@ -1,5 +1,6 @@
 ---
 title: 一致性哈希
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 一致性哈希（Consistent Hashing）

@@ -1,5 +1,6 @@
 ---
 title: Set / TreeSet
+date: 2026-08-15  # date-auto-injected
 ---
 # HashSet / TreeSet
 - HashSet backed by HashMap (value is a dummy PRESENT object)

@@ -1,5 +1,6 @@
 ---
 title: 异地多活
+date: 2026-08-15  # date-auto-injected
 ---
 # 异地多活设计
 

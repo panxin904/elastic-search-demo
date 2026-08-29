@@ -1,5 +1,6 @@
 ---
 title: Lint / Format
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 代码规范 — Lint / Format

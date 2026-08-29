@@ -1,5 +1,6 @@
 ---
 title: 结构型设计模式
+date: 2026-08-15  # date-auto-injected
 ---
 # 结构型模式
 - Proxy: static (compile-time), dynamic (JDK Proxy), CGLIB (subclass)

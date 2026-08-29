@@ -1,5 +1,6 @@
 ---
 title: 聚簇索引 vs 二级索引
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📑 聚簇索引 vs 二级索引

@@ -1,5 +1,6 @@
 ---
 title: 对比选型总览
+date: 2026-08-15  # date-auto-injected
 description: ClickHouse vs MySQL vs PostgreSQL vs Doris vs StarRocks vs TiDB 选型决策树
 ---
 

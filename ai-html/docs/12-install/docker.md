@@ -1,5 +1,6 @@
 ---
 title: Docker 一键部署
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Docker 一键部署 AI 服务

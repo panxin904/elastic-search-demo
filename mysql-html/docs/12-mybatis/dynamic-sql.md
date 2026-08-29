@@ -1,5 +1,6 @@
 ---
 title: 动态 SQL
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🔥 MyBatis 动态 SQL

@@ -1,5 +1,6 @@
 ---
 title: Specification 规格模式
+date: 2026-08-15  # date-auto-injected
 description: 查询条件可组合 + JPA Specification + Laravel Query Builder + 函数式 filter
 ---
 

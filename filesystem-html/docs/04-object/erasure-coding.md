@@ -1,5 +1,6 @@
 ---
 title: 纠删码 EC
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 纠删码 Erasure Coding — 用空间换安全的数学

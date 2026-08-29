@@ -1,5 +1,6 @@
 ---
 title: CAP 定理
+date: 2026-08-15  # date-auto-injected
 ---
 # CAP 定理
 

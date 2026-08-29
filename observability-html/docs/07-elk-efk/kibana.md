@@ -1,5 +1,6 @@
 ---
 title: Kibana 可视化
+date: 2026-08-15  # date-auto-injected
 description: Elastic Stack 的可视化层
 ---
 

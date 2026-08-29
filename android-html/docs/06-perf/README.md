@@ -1,5 +1,6 @@
 ---
 title: 性能与安全
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 06 · 性能与安全

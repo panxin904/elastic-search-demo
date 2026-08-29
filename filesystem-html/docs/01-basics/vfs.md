@@ -1,5 +1,6 @@
 ---
 title: VFS 虚拟文件系统
+date: 2026-08-15  # date-auto-injected
 ---
 
 # VFS 虚拟文件系统

@@ -1,5 +1,6 @@
 ---
 title: MAC 地址
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🔗 MAC 地址

@@ -1,5 +1,6 @@
 ---
 title: RTMP 协议
+date: 2026-08-15  # date-auto-injected
 ---
 
 # RTMP（Real-Time Messaging Protocol）

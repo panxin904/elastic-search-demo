@@ -1,5 +1,6 @@
 ---
 title: awk
+date: 2026-08-15  # date-auto-injected
 ---
 
 # awk - 文本处理语言

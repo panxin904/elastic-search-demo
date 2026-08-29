@@ -1,4 +1,5 @@
 ---
+date: 2026-08-29  # date-auto-injected
 layout: home
 
 hero:

@@ -1,5 +1,6 @@
 ---
 title: apt (Debian/Ubuntu)
+date: 2026-08-15  # date-auto-injected
 ---
 
 # apt - Debian/Ubuntu 包管理

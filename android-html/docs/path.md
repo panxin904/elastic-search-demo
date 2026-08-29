@@ -1,5 +1,6 @@
 ---
 title: Android 学习路径
+date: 2026-08-21  # date-auto-injected
 ---
 
 # 🚶 Android 学习路径

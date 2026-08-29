@@ -1,5 +1,6 @@
 ---
 title: Benchmark 与指标
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Benchmark 与指标

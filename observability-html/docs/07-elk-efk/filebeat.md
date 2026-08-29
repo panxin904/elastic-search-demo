@@ -1,5 +1,6 @@
 ---
 title: Filebeat 轻量日志采集
+date: 2026-08-15  # date-auto-injected
 description: Elastic 官方的轻量采集器
 ---
 

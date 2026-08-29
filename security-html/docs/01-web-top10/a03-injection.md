@@ -1,5 +1,6 @@
 ---
 title: A03 注入攻击
+date: 2026-08-15  # date-auto-injected
 ---
 
 # A03 · Injection（注入攻击）

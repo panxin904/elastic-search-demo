@@ -1,5 +1,6 @@
 ---
 title: Pinia (Vue)
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Pinia

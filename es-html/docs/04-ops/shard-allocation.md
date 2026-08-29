@@ -1,5 +1,6 @@
 ---
 title: 分片分配
+date: 2026-08-15  # date-auto-injected
 category: ops
 graphNodeId: shard-allocation
 ---

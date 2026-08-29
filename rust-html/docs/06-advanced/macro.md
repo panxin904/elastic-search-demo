@@ -1,5 +1,6 @@
 ---
 title: 宏 Macro
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 宏 Macro

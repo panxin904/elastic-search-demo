@@ -1,5 +1,6 @@
 ---
 title: 一致性模型
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 对象存储一致性 — 读到的版本 vs 实际版本

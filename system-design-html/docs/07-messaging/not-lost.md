@@ -1,5 +1,6 @@
 ---
 title: 消息可靠性：不丢消息
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 消息可靠性：不丢消息

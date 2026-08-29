@@ -1,5 +1,6 @@
 ---
 title: 可观测性四大支柱
+date: 2026-08-15  # date-auto-injected
 description: Metrics / Logs / Traces / Events 信号体系
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: AWS 媒体服务
+date: 2026-08-15  # date-auto-injected
 ---
 
 # AWS 媒体服务

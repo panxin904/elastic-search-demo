@@ -1,5 +1,6 @@
 ---
 title: xattr 扩展属性
+date: 2026-08-15  # date-auto-injected
 ---
 
 # xattr — 扩展属性，给文件打 metadata

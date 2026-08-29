@@ -1,5 +1,6 @@
 ---
 title: tcpdump 与 curl
+date: 2026-08-15  # date-auto-injected
 ---
 
 # tcpdump 与 curl

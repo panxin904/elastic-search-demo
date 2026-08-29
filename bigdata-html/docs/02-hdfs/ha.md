@@ -1,5 +1,6 @@
 ---
 title: HDFS NameNode HA
+date: 2026-08-15  # date-auto-injected
 ---
 # HDFS NameNode HA
 

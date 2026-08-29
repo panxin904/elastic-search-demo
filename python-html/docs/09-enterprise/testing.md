@@ -1,5 +1,6 @@
 ---
 title: 单元测试
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🧪 单元测试

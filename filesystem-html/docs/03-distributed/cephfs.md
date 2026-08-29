@@ -1,5 +1,6 @@
 ---
 title: CephFS 统一存储
+date: 2026-08-15  # date-auto-injected
 ---
 
 # CephFS 统一存储

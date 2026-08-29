@@ -1,5 +1,6 @@
 ---
 title: 多线程并行处理
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 多线程并行处理

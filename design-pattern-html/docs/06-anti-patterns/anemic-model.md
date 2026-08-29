@@ -1,5 +1,6 @@
 ---
 title: Anemic Model 贫血模型
+date: 2026-08-15  # date-auto-injected
 description: 症状 + 病因 + 药方 + 充血模型 vs 贫血模型
 ---
 

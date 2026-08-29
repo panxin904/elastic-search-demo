@@ -1,5 +1,6 @@
 ---
 title: Storybook 组件测试
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Storybook

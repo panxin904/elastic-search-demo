@@ -1,5 +1,6 @@
 ---
 title: ls / cp / mv
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ls / cp / mv / cd / pwd

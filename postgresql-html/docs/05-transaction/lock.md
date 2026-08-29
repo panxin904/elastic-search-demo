@@ -1,5 +1,6 @@
 ---
 title: 锁机制
+date: 2026-08-15  # date-auto-injected
 description: PostgreSQL 行级锁、表锁、咨询锁
 ---
 

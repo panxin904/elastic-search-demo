@@ -1,5 +1,6 @@
 ---
 title: OpenCV 视觉库
+date: 2026-08-15  # date-auto-injected
 ---
 
 # OpenCV 视觉库

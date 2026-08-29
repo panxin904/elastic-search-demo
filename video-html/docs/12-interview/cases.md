@@ -1,5 +1,6 @@
 ---
 title: 系统设计案例
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 视频系统设计面试题

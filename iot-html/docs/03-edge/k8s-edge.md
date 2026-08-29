@@ -1,5 +1,6 @@
 ---
 title: K8s 边缘
+date: 2026-08-27  # date-auto-injected
 ---
 
 # K8s 边缘

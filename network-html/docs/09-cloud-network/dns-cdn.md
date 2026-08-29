@@ -1,5 +1,6 @@
 ---
 title: 云上 DNS 与 CDN
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 云上 DNS 与 CDN

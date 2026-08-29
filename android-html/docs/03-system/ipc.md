@@ -1,5 +1,6 @@
 ---
 title: IPC 机制
+date: 2026-08-27  # date-auto-injected
 ---
 
 # IPC 机制

@@ -1,5 +1,6 @@
 ---
 title: 窗口函数
+date: 2026-08-15  # date-auto-injected
 description: PostgreSQL 强大的分析函数
 ---
 

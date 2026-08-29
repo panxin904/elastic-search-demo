@@ -1,5 +1,6 @@
 ---
 title: 反外挂
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 反外挂

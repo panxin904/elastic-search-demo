@@ -1,5 +1,6 @@
 ---
 title: GC 三色标记
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Go GC 三色标记

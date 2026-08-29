@@ -1,5 +1,6 @@
 ---
 title: CDC 同步
+date: 2026-08-15  # date-auto-injected
 ---
 # CDC 数据同步
 

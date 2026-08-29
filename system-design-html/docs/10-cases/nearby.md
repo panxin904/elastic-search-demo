@@ -1,5 +1,6 @@
 ---
 title: 附近的人 LBS
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 附近的人 LBS

@@ -1,5 +1,6 @@
 ---
 title: 内置分词器
+date: 2026-08-15  # date-auto-injected
 category: analysis
 graphNodeId: builtin-analyzers
 ---

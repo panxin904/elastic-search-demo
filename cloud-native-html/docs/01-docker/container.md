@@ -1,5 +1,6 @@
 ---
 title: 容器 container
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Docker 容器

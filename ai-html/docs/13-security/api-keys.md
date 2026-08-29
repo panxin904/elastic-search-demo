@@ -1,5 +1,6 @@
 ---
 title: API Key 管理
+date: 2026-08-15  # date-auto-injected
 ---
 
 # API Key 管理

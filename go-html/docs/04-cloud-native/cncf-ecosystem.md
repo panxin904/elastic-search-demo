@@ -1,5 +1,6 @@
 ---
 title: CNCF 项目全景
+date: 2026-08-15  # date-auto-injected
 ---
 
 # CNCF 项目全景

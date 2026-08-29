@@ -1,5 +1,6 @@
 ---
 title: find / fd
+date: 2026-08-15  # date-auto-injected
 ---
 
 # find / fd — 文件查找工具集

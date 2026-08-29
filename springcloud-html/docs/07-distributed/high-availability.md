@@ -1,5 +1,6 @@
 ---
 title: 高可用与限流熔断
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🛡️ 高可用与限流熔断

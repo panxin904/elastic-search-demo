@@ -1,5 +1,6 @@
 ---
 title: Vue 3 组合式 API
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Vue 3 组合式 API

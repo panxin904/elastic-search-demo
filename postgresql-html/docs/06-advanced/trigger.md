@@ -1,5 +1,6 @@
 ---
 title: 触发器
+date: 2026-08-15  # date-auto-injected
 description: BEFORE / AFTER / INSTEAD OF 触发器实战
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Go 微服务案例研究
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Go 微服务案例研究

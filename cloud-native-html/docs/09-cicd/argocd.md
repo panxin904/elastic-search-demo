@@ -1,5 +1,6 @@
 ---
 title: ArgoCD
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ArgoCD - GitOps 事实标准

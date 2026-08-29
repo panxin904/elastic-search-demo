@@ -1,5 +1,6 @@
 ---
 title: Bridge 桥接模式
+date: 2026-08-15  # date-auto-injected
 description: 抽象与实现分离 + JDBC Driver + 跨平台 UI + 多维度独立变化
 ---
 

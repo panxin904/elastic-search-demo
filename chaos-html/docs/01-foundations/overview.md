@@ -1,5 +1,6 @@
 ---
 title: 混沌工程基础总览
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 混沌工程基础总览

@@ -1,5 +1,6 @@
 ---
 title: Page Cache 页缓存
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Page Cache 页缓存

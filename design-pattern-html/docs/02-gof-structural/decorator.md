@@ -1,5 +1,6 @@
 ---
 title: Decorator 装饰器模式
+date: 2026-08-15  # date-auto-injected
 description: 动态添加职责 + Java IO 流 + Go middleware + TypeScript 装饰器 + Spring AOP
 ---
 

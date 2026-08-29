@@ -1,5 +1,6 @@
 ---
 title: Lombok / MapStruct
+date: 2026-08-15  # date-auto-injected
 ---
 # Lombok / MapStruct
 - @Data = @Getter + @Setter + @ToString + @EqualsAndHashCode + @RequiredArgsConstructor

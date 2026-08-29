@@ -1,5 +1,6 @@
 ---
 title: 全局唯一 ID
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🆔 全局唯一 ID

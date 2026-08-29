@@ -1,5 +1,6 @@
 ---
 title: ES 调试器
+date: 2026-08-15  # date-auto-injected
 ---
 
 <span class="kg-badge kg-badge-storage">调试</span>

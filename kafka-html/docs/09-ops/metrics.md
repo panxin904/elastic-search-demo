@@ -1,5 +1,6 @@
 ---
 title: 监控指标
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📈 监控指标

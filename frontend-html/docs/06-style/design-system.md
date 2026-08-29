@@ -1,5 +1,6 @@
 ---
 title: 设计系统 / 组件库
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 设计系统 / 组件库

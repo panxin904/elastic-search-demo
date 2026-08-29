@@ -1,5 +1,6 @@
 ---
 title: Raft 共识
+date: 2026-08-15  # date-auto-injected
 ---
 # Raft 共识算法
 

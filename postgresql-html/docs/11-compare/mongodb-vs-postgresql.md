@@ -1,5 +1,6 @@
 ---
 title: MongoDB vs PostgreSQL
+date: 2026-08-15  # date-auto-injected
 description: 文档型 vs 关系型数据库对比
 ---
 

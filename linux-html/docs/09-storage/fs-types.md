@@ -1,5 +1,6 @@
 ---
 title: ext4 / xfs / btrfs
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 文件系统对比：ext4 / xfs / btrfs

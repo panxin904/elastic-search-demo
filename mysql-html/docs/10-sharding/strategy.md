@@ -1,5 +1,6 @@
 ---
 title: 垂直拆分 vs 水平拆分
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📐 MySQL 垂直拆分 vs 水平拆分

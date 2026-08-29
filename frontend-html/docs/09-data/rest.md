@@ -1,5 +1,6 @@
 ---
 title: REST 规范 / OpenAPI
+date: 2026-08-15  # date-auto-injected
 ---
 
 # REST 规范 / OpenAPI

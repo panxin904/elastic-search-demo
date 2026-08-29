@@ -1,5 +1,6 @@
 ---
 title: 自定义分区器
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🎯 自定义分区器

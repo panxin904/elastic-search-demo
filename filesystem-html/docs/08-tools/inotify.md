@@ -1,5 +1,6 @@
 ---
 title: inotify
+date: 2026-08-15  # date-auto-injected
 ---
 
 # inotify — Linux 文件系统事件监控

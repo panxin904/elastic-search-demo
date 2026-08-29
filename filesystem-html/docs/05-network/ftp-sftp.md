@@ -1,5 +1,6 @@
 ---
 title: FTP / SFTP
+date: 2026-08-15  # date-auto-injected
 ---
 
 # FTP / SFTP — 老牌文件传输协议

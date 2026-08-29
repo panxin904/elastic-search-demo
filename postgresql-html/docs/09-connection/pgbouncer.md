@@ -1,5 +1,6 @@
 ---
 title: PgBouncer 连接池
+date: 2026-08-15  # date-auto-injected
 description: 轻量级 PostgreSQL 连接池实战
 ---
 

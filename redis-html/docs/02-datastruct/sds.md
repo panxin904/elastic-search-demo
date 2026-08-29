@@ -1,5 +1,6 @@
 ---
 title: SDS 简单动态字符串
+date: 2026-08-15  # date-auto-injected
 ---
 
 # SDS 简单动态字符串

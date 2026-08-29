@@ -1,5 +1,6 @@
 ---
 title: Continue / Cody / Aider
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Continue / Cody / Aider

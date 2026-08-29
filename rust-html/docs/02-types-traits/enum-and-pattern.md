@@ -1,5 +1,6 @@
 ---
 title: 枚举与模式匹配
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 枚举与模式匹配

@@ -1,5 +1,6 @@
 ---
 title: OpenEBS
+date: 2026-08-15  # date-auto-injected
 ---
 
 # OpenEBS — K8s 原生存储利器

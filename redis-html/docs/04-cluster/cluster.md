@@ -1,5 +1,6 @@
 ---
 title: Cluster 集群
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🌐 Cluster 集群

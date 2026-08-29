@@ -1,5 +1,6 @@
 ---
 title: Go 生态总览
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Go 生态总览

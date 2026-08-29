@@ -1,5 +1,6 @@
 ---
 title: LoRA / QLoRA
+date: 2026-08-15  # date-auto-injected
 ---
 
 # LoRA / QLoRA - 低成本微调

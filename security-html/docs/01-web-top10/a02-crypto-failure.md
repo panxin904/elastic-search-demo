@@ -1,5 +1,6 @@
 ---
 title: A02 加密机制失效
+date: 2026-08-15  # date-auto-injected
 ---
 
 # A02 · Cryptographic Failures（加密机制失效）

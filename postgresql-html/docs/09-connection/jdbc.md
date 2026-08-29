@@ -1,5 +1,6 @@
 ---
 title: JDBC 连接
+date: 2026-08-15  # date-auto-injected
 description: PostgreSQL JDBC 驱动实战
 ---
 

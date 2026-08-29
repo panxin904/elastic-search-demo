@@ -1,5 +1,6 @@
 ---
 title: 实时流性能
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 实时流性能优化

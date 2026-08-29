@@ -1,5 +1,6 @@
 ---
 title: RED 方法
+date: 2026-08-15  # date-auto-injected
 description: Rate / Errors / Duration
 ---
 

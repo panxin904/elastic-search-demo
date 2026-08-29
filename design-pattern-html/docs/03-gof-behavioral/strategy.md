@@ -1,5 +1,6 @@
 ---
 title: Strategy 策略模式
+date: 2026-08-15  # date-auto-injected
 description: 算法族互相替换 + 支付方式 / 排序算法 / 压缩算法 / Spring @Conditional
 ---
 

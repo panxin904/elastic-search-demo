@@ -1,5 +1,6 @@
 ---
 title: Zustand / Jotai
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Zustand / Jotai

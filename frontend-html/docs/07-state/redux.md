@@ -1,5 +1,6 @@
 ---
 title: Redux Toolkit
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Redux Toolkit

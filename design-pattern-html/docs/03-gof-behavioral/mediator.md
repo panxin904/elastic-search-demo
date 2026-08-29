@@ -1,5 +1,6 @@
 ---
 title: Mediator 中介者模式
+date: 2026-08-15  # date-auto-injected
 description: 集中对象间交互 + 聊天室 / GUI 组件协作 / MediatR / NestJS EventBus
 ---
 

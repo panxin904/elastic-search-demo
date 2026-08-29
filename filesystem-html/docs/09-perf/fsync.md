@@ -1,5 +1,6 @@
 ---
 title: fsync 与持久化
+date: 2026-08-15  # date-auto-injected
 ---
 
 # fsync 与持久化 — 写盘的最后一道关卡

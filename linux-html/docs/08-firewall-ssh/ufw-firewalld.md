@@ -1,5 +1,6 @@
 ---
 title: ufw / firewalld
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ufw / firewalld - 简化版防火墙

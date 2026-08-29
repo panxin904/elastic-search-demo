@@ -1,5 +1,6 @@
 ---
 title: 工作节点 Node
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 工作节点 Node

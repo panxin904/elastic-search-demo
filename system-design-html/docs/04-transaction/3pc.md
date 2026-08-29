@@ -1,5 +1,6 @@
 ---
 title: 三阶段提交（3PC）
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 三阶段提交（3PC）

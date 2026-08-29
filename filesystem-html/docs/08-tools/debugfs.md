@@ -1,5 +1,6 @@
 ---
 title: debugfs
+date: 2026-08-15  # date-auto-injected
 ---
 
 # debugfs — ext 系列文件系统调试工具

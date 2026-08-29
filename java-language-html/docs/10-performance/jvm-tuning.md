@@ -1,5 +1,6 @@
 ---
 title: JVM 调优参数
+date: 2026-08-15  # date-auto-injected
 ---
 # JVM 调优
 - -Xms512m -Xmx2g (heap), -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=256m

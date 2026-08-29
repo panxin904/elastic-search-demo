@@ -1,5 +1,6 @@
 ---
 title: StorageClass / CSI
+date: 2026-08-15  # date-auto-injected
 ---
 
 # StorageClass / CSI - 动态存储

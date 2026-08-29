@@ -1,5 +1,6 @@
 ---
 title: Serverless 视频处理
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Serverless 视频处理

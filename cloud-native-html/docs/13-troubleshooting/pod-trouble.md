@@ -1,5 +1,6 @@
 ---
 title: Pod 卡死 / 排错套路
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Pod 卡死 / 排错套路

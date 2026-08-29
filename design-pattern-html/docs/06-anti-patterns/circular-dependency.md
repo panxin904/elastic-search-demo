@@ -1,5 +1,6 @@
 ---
 title: Circular Dependency 循环依赖
+date: 2026-08-15  # date-auto-injected
 description: 症状 + 病因 + 药方 + 依赖反转 + 领域事件 + 检测工具
 ---
 

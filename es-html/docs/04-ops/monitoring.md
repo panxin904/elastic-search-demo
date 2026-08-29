@@ -1,5 +1,6 @@
 ---
 title: 监控 Cerebro
+date: 2026-08-15  # date-auto-injected
 category: ops
 graphNodeId: monitoring
 ---

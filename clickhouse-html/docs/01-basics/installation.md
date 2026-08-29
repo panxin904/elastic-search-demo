@@ -1,5 +1,6 @@
 ---
 title: 安装部署
+date: 2026-08-15  # date-auto-injected
 description: ClickHouse 单机 / 集群 / Docker / Kubernetes / 云服务全模式安装指南
 ---
 

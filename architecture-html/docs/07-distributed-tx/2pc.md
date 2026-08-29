@@ -1,5 +1,6 @@
 ---
 title: 2PC / 3PC
+date: 2026-08-15  # date-auto-injected
 ---
 # 2PC / 3PC 分布式事务
 

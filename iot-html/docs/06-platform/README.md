@@ -1,5 +1,6 @@
 ---
 title: 06 · 云平台与行业落地
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 06 · 云平台与行业落地

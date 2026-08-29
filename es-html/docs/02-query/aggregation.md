@@ -1,5 +1,6 @@
 ---
 title: 聚合 Aggregation
+date: 2026-08-15  # date-auto-injected
 category: query
 graphNodeId: aggregation
 ---

@@ -1,5 +1,6 @@
 ---
 title: Big Ball of Mud 大泥球
+date: 2026-08-15  # date-auto-injected
 description: 症状 + 病因 + 药方 + DDD 限界上下文 + 架构守护
 ---
 

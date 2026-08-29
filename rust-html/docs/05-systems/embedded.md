@@ -1,5 +1,6 @@
 ---
 title: 嵌入式 Rust
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 嵌入式 Rust

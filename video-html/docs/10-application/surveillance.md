@@ -1,5 +1,6 @@
 ---
 title: 安防监控视频
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 安防监控视频处理

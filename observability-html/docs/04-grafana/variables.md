@@ -1,5 +1,6 @@
 ---
 title: Grafana 变量
+date: 2026-08-15  # date-auto-injected
 description: Variables / Templating / Dropdown
 ---
 

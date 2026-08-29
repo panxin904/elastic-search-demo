@@ -1,5 +1,6 @@
 ---
 title: 消息丢失解决方案
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🚨 消息丢失解决方案

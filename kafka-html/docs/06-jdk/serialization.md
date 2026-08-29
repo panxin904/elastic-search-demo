@@ -1,5 +1,6 @@
 ---
 title: 序列化与反序列化
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🔄 序列化与反序列化

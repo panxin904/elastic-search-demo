@@ -1,5 +1,6 @@
 ---
 title: SDN 与 Service Mesh
+date: 2026-08-15  # date-auto-injected
 ---
 
 # SDN 与 Service Mesh

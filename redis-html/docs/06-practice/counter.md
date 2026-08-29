@@ -1,5 +1,6 @@
 ---
 title: 计数器
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🔢 计数器

@@ -1,5 +1,6 @@
 ---
 title: 窗口函数
+date: 2026-08-15  # date-auto-injected
 description: ClickHouse 窗口函数全集 + 用户留存 / 漏斗 / 排名实战
 ---
 

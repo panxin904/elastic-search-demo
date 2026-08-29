@@ -1,5 +1,6 @@
 ---
 title: 固件 OTA
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 固件 OTA

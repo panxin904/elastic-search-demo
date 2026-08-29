@@ -1,5 +1,6 @@
 ---
 title: 公有云 IoT
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 公有云 IoT

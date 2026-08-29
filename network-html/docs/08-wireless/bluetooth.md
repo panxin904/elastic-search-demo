@@ -1,5 +1,6 @@
 ---
 title: 蓝牙与短距
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 蓝牙与短距

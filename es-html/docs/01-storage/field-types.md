@@ -1,5 +1,6 @@
 ---
 title: 字段类型
+date: 2026-08-15  # date-auto-injected
 category: storage
 graphNodeId: field-types
 ---

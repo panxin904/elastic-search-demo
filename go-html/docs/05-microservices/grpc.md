@@ -1,5 +1,6 @@
 ---
 title: gRPC + Protobuf
+date: 2026-08-15  # date-auto-injected
 ---
 
 # gRPC + Protobuf

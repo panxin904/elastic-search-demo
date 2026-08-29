@@ -1,5 +1,6 @@
 ---
 title: 哈希函数
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 哈希函数

@@ -1,5 +1,6 @@
 ---
 title: 机器学习基础
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🧠 机器学习基础

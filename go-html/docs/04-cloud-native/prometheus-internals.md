@@ -1,5 +1,6 @@
 ---
 title: Prometheus 源码导读
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Prometheus 源码导读

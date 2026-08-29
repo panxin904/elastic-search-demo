@@ -1,5 +1,6 @@
 ---
 title: 命令速查
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📋 Linux 高频命令速查

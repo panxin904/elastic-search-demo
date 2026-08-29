@@ -1,5 +1,6 @@
 ---
 title: Feature Flag
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Feature Flag（特性开关）

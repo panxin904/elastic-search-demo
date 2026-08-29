@@ -1,5 +1,6 @@
 ---
 title: Exactly Once 实现
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🎯 Exactly Once 实现

@@ -1,5 +1,6 @@
 ---
 title: GiST 索引
+date: 2026-08-15  # date-auto-injected
 description: Generalized Search Tree（多维 + 范围 + 全文）
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: 帧率转换 / 插帧
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 帧率转换 / 插帧（FRC）

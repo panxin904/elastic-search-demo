@@ -1,5 +1,6 @@
 ---
 title: Elasticsearch 日志存储
+date: 2026-08-15  # date-auto-injected
 description: ES 作为日志后端 + ILM + Index Template
 ---
 

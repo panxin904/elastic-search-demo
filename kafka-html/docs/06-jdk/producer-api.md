@@ -1,5 +1,6 @@
 ---
 title: Producer API
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ✍️ Producer API

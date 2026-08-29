@@ -1,5 +1,6 @@
 ---
 title: FUSE
+date: 2026-08-15  # date-auto-injected
 ---
 
 # FUSE — Filesystem in Userspace 用户态文件系统

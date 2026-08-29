@@ -1,5 +1,6 @@
 ---
 title: 进程架构
+date: 2026-08-15  # date-auto-injected
 description: PostgreSQL 进程模型与内存结构
 ---
 

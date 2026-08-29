@@ -1,5 +1,6 @@
 ---
 title: IO 调度器
+date: 2026-08-15  # date-auto-injected
 ---
 
 # IO 调度器 — Linux 块设备调度的灵魂

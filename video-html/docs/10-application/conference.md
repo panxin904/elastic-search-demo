@@ -1,5 +1,6 @@
 ---
 title: 视频会议
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 视频会议技术

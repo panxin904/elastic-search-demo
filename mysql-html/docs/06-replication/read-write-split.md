@@ -1,5 +1,6 @@
 ---
 title: 读写分离实战
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📖 MySQL 读写分离实战

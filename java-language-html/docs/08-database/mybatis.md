@@ -1,5 +1,6 @@
 ---
 title: MyBatis / MyBatis-Plus
+date: 2026-08-15  # date-auto-injected
 ---
 # MyBatis / MyBatis-Plus
 - MyBatis: mapper XML with #{param} (PreparedStatement) vs ${param} (string concat, SQL injection risk)

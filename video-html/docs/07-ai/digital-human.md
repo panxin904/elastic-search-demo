@@ -1,5 +1,6 @@
 ---
 title: 数字人 / 虚拟主播
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 数字人 / 虚拟主播

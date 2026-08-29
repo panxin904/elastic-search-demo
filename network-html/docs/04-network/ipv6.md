@@ -1,5 +1,6 @@
 ---
 title: IPv6 协议
+date: 2026-08-15  # date-auto-injected
 ---
 
 # IPv6 协议

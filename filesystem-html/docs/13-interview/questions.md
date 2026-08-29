@@ -1,5 +1,6 @@
 ---
 title: 面试题与高频考点
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 文件系统面试高频题

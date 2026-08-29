@@ -1,5 +1,6 @@
 ---
 title: Seata 分布式事务
+date: 2026-08-15  # date-auto-injected
 ---
 # Seata
 - AT mode: auto, undo_log table for rollback, global lock

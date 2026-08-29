@@ -1,5 +1,6 @@
 ---
 title: perf / strace
+date: 2026-08-15  # date-auto-injected
 ---
 
 # perf / strace - 深入内核追踪

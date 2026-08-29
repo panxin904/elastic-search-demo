@@ -1,5 +1,6 @@
 ---
 title: 搜索建议系统
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 搜索建议系统

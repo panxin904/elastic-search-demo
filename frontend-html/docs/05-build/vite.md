@@ -1,5 +1,6 @@
 ---
 title: Vite 原理
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Vite 原理

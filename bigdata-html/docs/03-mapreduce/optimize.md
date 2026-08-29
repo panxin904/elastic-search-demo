@@ -1,5 +1,6 @@
 ---
 title: Combiner / Partitioner
+date: 2026-08-15  # date-auto-injected
 ---
 # Combiner 与 Partitioner 优化
 

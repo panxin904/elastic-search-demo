@@ -1,5 +1,6 @@
 ---
 title: 硬件加速 NVENC / QSV
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 硬件加速 NVENC / QSV

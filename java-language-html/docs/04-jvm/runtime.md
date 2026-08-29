@@ -1,5 +1,6 @@
 ---
 title: JVM 运行时数据区
+date: 2026-08-15  # date-auto-injected
 ---
 # JVM 运行时数据区
 - Heap: Young (Eden+S0+S1), Old, shared by all threads

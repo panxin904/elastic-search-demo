@@ -1,5 +1,6 @@
 ---
 title: 前台后台 (jobs / nohup / disown)
+date: 2026-08-15  # date-auto-injected
 ---
 
 # jobs / nohup / disown

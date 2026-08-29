@@ -1,5 +1,6 @@
 ---
 title: UUID vs Snowflake
+date: 2026-08-15  # date-auto-injected
 ---
 
 # UUID vs Snowflake

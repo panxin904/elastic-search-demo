@@ -1,5 +1,6 @@
 ---
 title: Gemini
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Google Gemini 模型

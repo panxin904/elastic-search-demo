@@ -1,5 +1,6 @@
 ---
 title: Meta HDFS 演进
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Meta (Facebook) — HDFS 超大规模实践

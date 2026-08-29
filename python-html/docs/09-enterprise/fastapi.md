@@ -1,5 +1,6 @@
 ---
 title: FastAPI Web 实战
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🌐 FastAPI Web 实战

@@ -1,5 +1,6 @@
 ---
 title: 监控告警
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📊 监控告警

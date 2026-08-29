@@ -1,5 +1,6 @@
 ---
 title: FFI 与 C 互操作
+date: 2026-08-15  # date-auto-injected
 ---
 
 # FFI 与 C 互操作

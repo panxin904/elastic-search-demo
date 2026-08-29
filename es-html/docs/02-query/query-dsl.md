@@ -1,5 +1,6 @@
 ---
 title: Query DSL
+date: 2026-08-15  # date-auto-injected
 category: query
 graphNodeId: query-dsl
 ---

@@ -1,5 +1,6 @@
 ---
 title: 工具链
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 07 · 工具链

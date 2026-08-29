@@ -1,5 +1,6 @@
 ---
 title: ZAB 协议（ZooKeeper Atomic Broadcast）
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ZAB 协议

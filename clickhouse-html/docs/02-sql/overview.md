@@ -1,5 +1,6 @@
 ---
 title: SQL 实战总览
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ClickHouse SQL 实战

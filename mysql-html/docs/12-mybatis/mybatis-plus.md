@@ -1,5 +1,6 @@
 ---
 title: MyBatis-Plus 实战
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🚀 MyBatis-Plus 实战

@@ -1,5 +1,6 @@
 ---
 title: Sentinel / Hystrix / Resilience4j
+date: 2026-08-15  # date-auto-injected
 ---
 # 熔断器实现
 

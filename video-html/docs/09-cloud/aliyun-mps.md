@@ -1,5 +1,6 @@
 ---
 title: 阿里云媒体处理
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 阿里云媒体处理 MPS

@@ -1,5 +1,6 @@
 ---
 title: Repository 仓储模式
+date: 2026-08-15  # date-auto-injected
 description: 封装数据访问 + Spring Data JPA / TypeORM / EF Core / Go sqlc + Repository vs DAO
 ---
 

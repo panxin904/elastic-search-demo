@@ -1,5 +1,6 @@
 ---
 title: 容灾恢复
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 容灾与恢复 — 业务连续性核心

@@ -1,5 +1,6 @@
 ---
 title: bash 基础语法
+date: 2026-08-15  # date-auto-injected
 ---
 
 # bash 基础语法

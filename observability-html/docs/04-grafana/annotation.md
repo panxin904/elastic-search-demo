@@ -1,5 +1,6 @@
 ---
 title: Grafana Annotation
+date: 2026-08-15  # date-auto-injected
 description: 时间轴标记 / 部署事件 / 告警叠加
 ---
 

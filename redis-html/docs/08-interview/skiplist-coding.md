@@ -1,5 +1,6 @@
 ---
 title: 跳表手撕
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🦘 跳表手撕

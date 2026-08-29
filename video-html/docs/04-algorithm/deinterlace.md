@@ -1,5 +1,6 @@
 ---
 title: 去隔行
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 去隔行（Deinterlacing）

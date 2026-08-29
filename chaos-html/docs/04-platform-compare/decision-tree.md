@@ -1,5 +1,6 @@
 ---
 title: 选型决策树
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 选型决策树

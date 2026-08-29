@@ -1,5 +1,6 @@
 ---
 title: XFS 高性能日志
+date: 2026-08-15  # date-auto-injected
 ---
 
 # XFS 高性能日志

@@ -1,5 +1,6 @@
 ---
 title: Rust 案例研究
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Rust 案例研究

@@ -1,5 +1,6 @@
 ---
 title: 缩放插值
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 缩放与插值算法

@@ -1,5 +1,6 @@
 ---
 title: 用户与用户组
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 用户与用户组

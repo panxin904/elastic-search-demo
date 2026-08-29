@@ -1,5 +1,6 @@
 ---
 title: Ollama 本地推理
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Ollama - 一行命令跑 LLM

@@ -1,5 +1,6 @@
 ---
 title: 知识图谱
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 知识图谱

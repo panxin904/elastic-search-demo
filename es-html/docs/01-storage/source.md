@@ -1,5 +1,6 @@
 ---
 title: _source 元数据
+date: 2026-08-15  # date-auto-injected
 category: storage
 graphNodeId: source
 ---

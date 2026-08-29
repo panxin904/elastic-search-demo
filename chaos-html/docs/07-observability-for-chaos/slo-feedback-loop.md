@@ -1,5 +1,6 @@
 ---
 title: SLO 反馈环
+date: 2026-08-15  # date-auto-injected
 ---
 
 # SLO 反馈环

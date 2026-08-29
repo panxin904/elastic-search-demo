@@ -1,5 +1,6 @@
 ---
 title: HTTP/2 与 HTTP/3
+date: 2026-08-15  # date-auto-injected
 ---
 
 # HTTP/2 与 HTTP/3

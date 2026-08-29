@@ -1,5 +1,6 @@
 ---
 title: GIN 倒排索引
+date: 2026-08-15  # date-auto-injected
 description: PostgreSQL 全文检索 / JSONB / 数组的利器
 ---
 

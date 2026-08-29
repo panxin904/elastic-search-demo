@@ -1,5 +1,6 @@
 ---
 title: vLLM / TGI 服务
+date: 2026-08-15  # date-auto-injected
 ---
 
 # vLLM / TGI - 高吞吐推理服务

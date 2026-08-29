@@ -1,5 +1,6 @@
 ---
 title: JVM 调优
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 💾 JVM 调优

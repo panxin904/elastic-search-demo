@@ -1,5 +1,6 @@
 ---
 title: 内置类型
+date: 2026-08-15  # date-auto-injected
 description: PostgreSQL 内置类型全景
 ---
 

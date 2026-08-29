@@ -1,5 +1,6 @@
 ---
 title: 渐进式发布
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 渐进式发布

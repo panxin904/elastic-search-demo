@@ -1,5 +1,6 @@
 ---
 title: Hive 优化
+date: 2026-08-15  # date-auto-injected
 ---
 # Hive 性能优化
 

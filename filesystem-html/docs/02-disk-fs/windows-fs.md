@@ -1,5 +1,6 @@
 ---
 title: NTFS / FAT / exFAT
+date: 2026-08-15  # date-auto-injected
 ---
 
 # NTFS / FAT / exFAT

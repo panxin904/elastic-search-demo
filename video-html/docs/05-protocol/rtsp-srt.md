@@ -1,5 +1,6 @@
 ---
 title: RTSP / SRT
+date: 2026-08-15  # date-auto-injected
 ---
 
 # RTSP / SRT 流媒体协议

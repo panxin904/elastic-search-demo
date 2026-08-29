@@ -1,5 +1,6 @@
 ---
 title: 递归 CTE
+date: 2026-08-15  # date-auto-injected
 description: WITH RECURSIVE 实战
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: 设计模式 / GoF 23 式 / 反模式
+date: 2026-08-27  # date-auto-injected
 layout: home
 
 hero:

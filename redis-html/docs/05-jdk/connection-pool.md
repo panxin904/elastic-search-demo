@@ -1,5 +1,6 @@
 ---
 title: 连接池
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 💧 连接池

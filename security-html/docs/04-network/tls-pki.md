@@ -1,5 +1,6 @@
 ---
 title: TLS PKI 体系
+date: 2026-08-15  # date-auto-injected
 ---
 
 # TLS PKI 证书体系

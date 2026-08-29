@@ -1,5 +1,6 @@
 ---
 title: 设备安全
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 设备安全

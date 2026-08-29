@@ -1,5 +1,6 @@
 ---
 title: ClickHouse 简史与生态
+date: 2026-08-15  # date-auto-injected
 description: 从 2009 年 Yandex.Metrica 内部项目到 2026 年全球 OLAP 事实标准的演进历程
 ---
 

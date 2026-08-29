@@ -1,5 +1,6 @@
 ---
 title: Spring 事务
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🔐 Spring 事务

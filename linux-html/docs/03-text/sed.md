@@ -1,5 +1,6 @@
 ---
 title: sed
+date: 2026-08-15  # date-auto-injected
 ---
 
 # sed - 流编辑器

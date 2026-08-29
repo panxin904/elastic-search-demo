@@ -1,5 +1,6 @@
 ---
 title: RBAC 权限
+date: 2026-08-15  # date-auto-injected
 ---
 
 # RBAC - 基于角色的访问控制

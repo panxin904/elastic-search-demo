@@ -1,5 +1,6 @@
 ---
 title: 令牌桶算法
+date: 2026-08-15  # date-auto-injected
 ---
 # 令牌桶算法
 

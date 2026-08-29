@@ -1,5 +1,6 @@
 ---
 title: synchronized / AQS
+date: 2026-08-15  # date-auto-injected
 ---
 # synchronized / AQS
 - synchronized upgrades: biased → lightweight → heavyweight (irreversible)

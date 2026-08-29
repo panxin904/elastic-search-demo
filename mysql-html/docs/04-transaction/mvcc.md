@@ -1,5 +1,6 @@
 ---
 title: MVCC 多版本并发
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🔄 MVCC 多版本并发控制

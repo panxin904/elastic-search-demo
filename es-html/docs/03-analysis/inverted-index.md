@@ -1,5 +1,6 @@
 ---
 title: 倒排索引
+date: 2026-08-15  # date-auto-injected
 category: analysis
 graphNodeId: inverted-index
 ---

@@ -1,5 +1,6 @@
 ---
 title: happens-before
+date: 2026-08-15  # date-auto-injected
 ---
 # happens-before 原则
 

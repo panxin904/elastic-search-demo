@@ -1,5 +1,6 @@
 ---
 title: 内存管理
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🗑️ 内存管理

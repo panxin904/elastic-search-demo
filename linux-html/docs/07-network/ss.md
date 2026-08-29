@@ -1,5 +1,6 @@
 ---
 title: ss / netstat
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ss / netstat - 看端口 / 连接

@@ -1,5 +1,6 @@
 ---
 title: Channel 与共享状态
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Channel 与共享状态

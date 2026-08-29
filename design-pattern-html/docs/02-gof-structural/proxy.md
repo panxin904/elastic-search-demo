@@ -1,5 +1,6 @@
 ---
 title: Proxy 代理模式
+date: 2026-08-15  # date-auto-injected
 description: 控制对象访问 + 远程代理 / 虚拟代理 / 保护代理 / 智能引用 / 缓存代理 + Spring AOP
 ---
 

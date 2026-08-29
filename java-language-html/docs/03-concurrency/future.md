@@ -1,5 +1,6 @@
 ---
 title: CompletableFuture
+date: 2026-08-15  # date-auto-injected
 ---
 # CompletableFuture
 - thenApply (sync map), thenApplyAsync (async)

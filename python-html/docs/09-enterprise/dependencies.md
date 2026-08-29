@@ -1,5 +1,6 @@
 ---
 title: 依赖管理
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📦 依赖管理

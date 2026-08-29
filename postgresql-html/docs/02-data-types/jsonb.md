@@ -1,5 +1,6 @@
 ---
 title: JSONB 类型
+date: 2026-08-15  # date-auto-injected
 ---
 
 # JSONB 类型

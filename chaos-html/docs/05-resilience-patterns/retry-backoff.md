@@ -1,5 +1,6 @@
 ---
 title: 重试与退避
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 重试与退避

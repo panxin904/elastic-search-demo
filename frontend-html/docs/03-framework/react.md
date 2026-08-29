@@ -1,5 +1,6 @@
 ---
 title: React 核心与 Hooks
+date: 2026-08-15  # date-auto-injected
 ---
 
 # React 核心与 Hooks

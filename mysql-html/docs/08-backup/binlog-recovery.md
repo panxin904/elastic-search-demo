@@ -1,5 +1,6 @@
 ---
 title: binlog 时间点恢复
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🔙 MySQL binlog 时间点恢复

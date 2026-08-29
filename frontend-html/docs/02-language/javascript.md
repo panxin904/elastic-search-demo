@@ -1,5 +1,6 @@
 ---
 title: JavaScript 核心
+date: 2026-08-15  # date-auto-injected
 ---
 
 # JavaScript 核心

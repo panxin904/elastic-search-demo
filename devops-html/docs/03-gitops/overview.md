@@ -1,5 +1,6 @@
 ---
 title: GitOps 总览
+date: 2026-08-15  # date-auto-injected
 ---
 
 # GitOps 总览

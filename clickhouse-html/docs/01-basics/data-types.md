@@ -1,5 +1,6 @@
 ---
 title: 数据类型
+date: 2026-08-15  # date-auto-injected
 description: ClickHouse 完整数据类型系统：基础 / 数值 / 字符串 / 时间 / 复合 / 特殊类型
 ---
 

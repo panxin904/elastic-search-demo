@@ -1,5 +1,6 @@
 ---
 title: 空间音频
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 空间音频

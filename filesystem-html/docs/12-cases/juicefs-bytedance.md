@@ -1,5 +1,6 @@
 ---
 title: 字节跳动 JuiceFS 实践
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 字节跳动 — JuiceFS 海量 AI / K8s 存储

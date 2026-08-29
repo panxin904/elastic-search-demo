@@ -1,5 +1,6 @@
 ---
 title: Service 三种类型
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Service - Pod 集合的稳定入口

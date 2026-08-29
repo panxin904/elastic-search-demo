@@ -1,5 +1,6 @@
 ---
 title: lynis 合规检查
+date: 2026-08-15  # date-auto-injected
 ---
 
 # lynis - 合规基线检查

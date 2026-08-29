@@ -1,5 +1,6 @@
 ---
 title: Dify / Coze
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Dify / Coze - 低代码 Agent 平台

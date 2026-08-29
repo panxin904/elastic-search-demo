@@ -1,5 +1,6 @@
 ---
 title: 短视频处理
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 短视频技术体系

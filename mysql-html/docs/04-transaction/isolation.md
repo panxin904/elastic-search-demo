@@ -1,5 +1,6 @@
 ---
 title: ACID 与隔离级别
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ⚖️ MySQL ACID 与隔离级别

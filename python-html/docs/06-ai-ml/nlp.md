@@ -1,5 +1,6 @@
 ---
 title: 自然语言处理
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🗣️ 自然语言处理

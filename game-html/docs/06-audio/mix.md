@@ -1,5 +1,6 @@
 ---
 title: 动态混音
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 动态混音

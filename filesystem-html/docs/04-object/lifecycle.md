@@ -1,5 +1,6 @@
 ---
 title: 生命周期管理
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 对象生命周期 — 让数据自动老化

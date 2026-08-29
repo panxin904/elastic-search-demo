@@ -1,5 +1,6 @@
 ---
 title: 慢查询分析
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 慢查询分析

@@ -1,6 +1,7 @@
 ---
 layout: home
 title: ES Knowledge Atlas
+date: 2026-08-27  # date-auto-injected
 hero:
   name: "ES Knowledge Atlas"
   text: "用知识图谱方式系统化学习 Elasticsearch"

@@ -1,5 +1,6 @@
 ---
 title: Redshift / BigQuery
+date: 2026-08-15  # date-auto-injected
 ---
 # Redshift / BigQuery 数仓
 

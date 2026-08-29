@@ -1,5 +1,6 @@
 ---
 title: Log / TinyLog / StripeLog 引擎
+date: 2026-08-15  # date-auto-injected
 description: 小数据量场景的简单日志引擎，性能差但写入极简
 ---
 

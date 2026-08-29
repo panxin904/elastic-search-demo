@@ -1,5 +1,6 @@
 ---
 title: Longhorn
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Longhorn — 轻量级 K8s 块存储

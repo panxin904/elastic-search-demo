@@ -1,5 +1,6 @@
 ---
 title: 刚体动力学
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 刚体动力学

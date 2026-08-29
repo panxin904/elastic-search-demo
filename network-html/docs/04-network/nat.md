@@ -1,5 +1,6 @@
 ---
 title: NAT 网络地址转换
+date: 2026-08-15  # date-auto-injected
 ---
 
 # NAT 网络地址转换

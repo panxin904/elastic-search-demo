@@ -1,5 +1,6 @@
 ---
 title: Gateway / Sentinel
+date: 2026-08-15  # date-auto-injected
 ---
 # Spring Cloud Gateway
 - Route: id + uri + predicates + filters

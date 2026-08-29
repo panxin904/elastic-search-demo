@@ -1,5 +1,6 @@
 ---
 title: 动态卷供给
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 动态卷供给 — StorageClass 自动化全解

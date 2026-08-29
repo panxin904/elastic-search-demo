@@ -1,5 +1,6 @@
 ---
 title: SLI / SLO / Error Budget
+date: 2026-08-15  # date-auto-injected
 description: SRE 三件套
 ---
 

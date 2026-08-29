@@ -1,5 +1,6 @@
 ---
 title: HDFS 副本机制
+date: 2026-08-15  # date-auto-injected
 ---
 # HDFS 副本机制
 

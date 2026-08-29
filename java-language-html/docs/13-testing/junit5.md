@@ -1,5 +1,6 @@
 ---
 title: JUnit5
+date: 2026-08-15  # date-auto-injected
 ---
 # JUnit5
 - @Test/@BeforeEach/@AfterEach/@BeforeAll (static)

@@ -1,5 +1,6 @@
 ---
 title: DevOps 案例研究
+date: 2026-08-15  # date-auto-injected
 ---
 
 # DevOps 案例研究

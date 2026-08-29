@@ -1,5 +1,6 @@
 ---
 title: 碰撞检测
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 碰撞检测

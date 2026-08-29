@@ -1,5 +1,6 @@
 ---
 title: 色彩转换
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 色彩转换（Color Conversion）

@@ -1,5 +1,6 @@
 ---
 title: 文件系统加密
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 文件系统加密 — 静态数据保护

@@ -1,5 +1,6 @@
 ---
 title: pandas 数据分析
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🐼 pandas 数据分析

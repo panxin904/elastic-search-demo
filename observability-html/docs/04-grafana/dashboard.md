@@ -1,5 +1,6 @@
 ---
 title: Grafana Dashboard 设计
+date: 2026-08-15  # date-auto-injected
 description: 监控大盘设计原则与实战
 ---
 

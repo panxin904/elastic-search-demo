@@ -1,5 +1,6 @@
 ---
 title: Prototype 原型模式
+date: 2026-08-15  # date-auto-injected
 description: 通过克隆创建对象 + 深拷贝 vs 浅拷贝 + Java Cloneable + JavaScript structuredClone
 ---
 

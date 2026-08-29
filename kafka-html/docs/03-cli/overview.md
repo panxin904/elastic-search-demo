@@ -1,5 +1,6 @@
 ---
 title: 常用命令总览
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📋 常用命令总览

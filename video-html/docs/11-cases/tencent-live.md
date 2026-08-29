@@ -1,5 +1,6 @@
 ---
 title: 腾讯直播架构
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 腾讯直播 (LVB / 互动直播) 架构

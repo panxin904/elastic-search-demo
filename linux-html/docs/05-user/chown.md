@@ -1,5 +1,6 @@
 ---
 title: chown / chgrp
+date: 2026-08-15  # date-auto-injected
 ---
 
 # chown / chgrp

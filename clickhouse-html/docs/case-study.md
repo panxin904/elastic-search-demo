@@ -1,5 +1,6 @@
 ---
 title: 大厂 ClickHouse 实战案例
+date: 2026-08-15  # date-auto-injected
 description: 12 个真实生产级 ClickHouse 案例：Uber / Cloudflare / 字节 / B 站 / 京东等
 ---
 

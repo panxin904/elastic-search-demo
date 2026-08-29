@@ -1,5 +1,6 @@
 ---
 title: rsync
+date: 2026-08-15  # date-auto-injected
 ---
 
 # rsync — 增量同步神器

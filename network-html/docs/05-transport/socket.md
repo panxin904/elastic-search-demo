@@ -1,5 +1,6 @@
 ---
 title: Socket 编程
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Socket 编程

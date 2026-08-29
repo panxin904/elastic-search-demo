@@ -1,5 +1,6 @@
 ---
 title: Hadoop 生态
+date: 2026-08-15  # date-auto-injected
 ---
 # Hadoop 生态
 

@@ -1,5 +1,6 @@
 ---
 title: ArrayList / LinkedList
+date: 2026-08-15  # date-auto-injected
 ---
 # ArrayList / LinkedList
 - ArrayList: dynamic array, O(1) get, O(n) insert/remove, grows 1.5x

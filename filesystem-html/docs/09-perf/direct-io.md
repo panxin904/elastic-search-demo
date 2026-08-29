@@ -1,5 +1,6 @@
 ---
 title: Direct I/O
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Direct I/O — 绕过 Page Cache 的高性能读写

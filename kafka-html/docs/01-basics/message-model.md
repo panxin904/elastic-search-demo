@@ -1,5 +1,6 @@
 ---
 title: 消息模型
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 💬 消息模型

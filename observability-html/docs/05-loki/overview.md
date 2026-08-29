@@ -1,5 +1,6 @@
 ---
 title: Loki 概览
+date: 2026-08-15  # date-auto-injected
 description: Grafana Labs 的日志聚合系统
 ---
 

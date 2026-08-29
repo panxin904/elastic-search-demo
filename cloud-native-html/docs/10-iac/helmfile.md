@@ -1,5 +1,6 @@
 ---
 title: Helmfile / Kustomize
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Helmfile / Kustomize - 渐进式 k8s 配置

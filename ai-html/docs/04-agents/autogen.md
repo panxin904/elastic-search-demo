@@ -1,5 +1,6 @@
 ---
 title: AutoGen / Semantic Kernel
+date: 2026-08-15  # date-auto-injected
 ---
 
 # AutoGen / Semantic Kernel

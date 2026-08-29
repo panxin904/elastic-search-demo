@@ -1,5 +1,6 @@
 ---
 title: Page Cache 调优
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Page Cache 调优 — 让 Linux 内核缓存为你加速

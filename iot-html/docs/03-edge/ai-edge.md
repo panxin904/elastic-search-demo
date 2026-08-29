@@ -1,5 +1,6 @@
 ---
 title: 边缘智能 AI
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 边缘智能 AI

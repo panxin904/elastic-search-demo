@@ -1,5 +1,6 @@
 ---
 title: MHA 故障切换
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🏗️ MySQL MHA 故障切换

@@ -1,5 +1,6 @@
 ---
 title: 慢查询分析
+date: 2026-08-15  # date-auto-injected
 description: pg_stat_statements + auto_explain + EXPLAIN
 ---
 

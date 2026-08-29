@@ -1,5 +1,6 @@
 ---
 title: chmod 权限
+date: 2026-08-15  # date-auto-injected
 ---
 
 # chmod 权限

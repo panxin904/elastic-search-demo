@@ -1,5 +1,6 @@
 ---
 title: 联机架构
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 联机架构

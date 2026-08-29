@@ -1,5 +1,6 @@
 ---
 title: DNS 解析
+date: 2026-08-15  # date-auto-injected
 ---
 
 # DNS 解析

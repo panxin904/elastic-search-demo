@@ -1,5 +1,6 @@
 ---
 title: HSTS / CSP / 安全头
+date: 2026-08-15  # date-auto-injected
 ---
 
 # HTTP 安全响应头

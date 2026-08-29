@@ -1,5 +1,6 @@
 ---
 title: 缓存三大问题
+date: 2026-08-15  # date-auto-injected
 ---
 # 缓存三大问题
 

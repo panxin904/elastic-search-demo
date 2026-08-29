@@ -1,5 +1,6 @@
 ---
 title: 逻辑复制
+date: 2026-08-15  # date-auto-injected
 description: PG 10+ 行列级复制
 ---
 

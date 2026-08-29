@@ -1,6 +1,7 @@
 ---
 layout: home
 title: Spring Cloud Alibaba 知识图谱
+date: 2026-08-16  # date-auto-injected
 hero:
   name: Spring Cloud
   text: Alibaba 系统化学习

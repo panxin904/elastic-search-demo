@@ -1,5 +1,6 @@
 ---
 title: Android Studio
+date: 2026-08-27  # date-auto-injected
 ---
 
 # Android Studio

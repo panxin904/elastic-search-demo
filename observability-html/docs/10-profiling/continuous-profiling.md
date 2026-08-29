@@ -1,5 +1,6 @@
 ---
 title: 持续剖析
+date: 2026-08-15  # date-auto-injected
 description: Continuous Profiling — 生产环境不间断 profiling
 ---
 

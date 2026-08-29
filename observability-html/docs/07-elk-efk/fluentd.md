@@ -1,5 +1,6 @@
 ---
 title: Fluentd 日志采集
+date: 2026-08-15  # date-auto-injected
 description: CNCF 毕业的统一日志层
 ---
 

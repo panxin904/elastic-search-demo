@@ -1,5 +1,6 @@
 ---
 title: 腾讯云 COS
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 腾讯云 COS — 腾讯生态的对象存储

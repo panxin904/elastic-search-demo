@@ -1,5 +1,6 @@
 ---
 title: Abstract Factory 抽象工厂模式
+date: 2026-08-15  # date-auto-injected
 description: 一族相关对象的创建 + 主题切换 + UI 组件库 / 数据库 driver 族 / Spring ApplicationContext
 ---
 

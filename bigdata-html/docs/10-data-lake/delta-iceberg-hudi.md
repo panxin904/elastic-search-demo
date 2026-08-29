@@ -1,5 +1,6 @@
 ---
 title: Delta Iceberg Hudi 选型
+date: 2026-08-15  # date-auto-injected
 ---
 # Delta / Iceberg / Hudi 详解
 

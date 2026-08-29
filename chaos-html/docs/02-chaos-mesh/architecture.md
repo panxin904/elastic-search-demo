@@ -1,5 +1,6 @@
 ---
 title: Chaos Mesh 架构
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Chaos Mesh 架构

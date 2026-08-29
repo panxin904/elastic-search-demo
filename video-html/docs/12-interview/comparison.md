@@ -1,5 +1,6 @@
 ---
 title: 编码对比表
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 视频编码对比速查

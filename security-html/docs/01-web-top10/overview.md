@@ -1,5 +1,6 @@
 ---
 title: OWASP Top 10 2025 概览
+date: 2026-08-15  # date-auto-injected
 ---
 
 # OWASP Top 10 2025 概览

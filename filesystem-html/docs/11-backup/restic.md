@@ -1,5 +1,6 @@
 ---
 title: restic
+date: 2026-08-15  # date-auto-injected
 ---
 
 # restic — 跨云友好的备份工具

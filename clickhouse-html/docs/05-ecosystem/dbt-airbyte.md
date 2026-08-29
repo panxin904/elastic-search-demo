@@ -1,5 +1,6 @@
 ---
 title: dbt + Airbyte 集成
+date: 2026-08-15  # date-auto-injected
 description: ETL 编排：dbt-clickhouse 模型转换 + Airbyte CDC 同步
 ---
 

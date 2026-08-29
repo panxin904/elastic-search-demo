@@ -1,5 +1,6 @@
 ---
 title: 游戏日（Game Day）总览
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 游戏日（Game Day）总览

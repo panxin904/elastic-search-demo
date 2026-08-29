@@ -1,5 +1,6 @@
 ---
 title: 控制器演进
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ⚙️ 控制器演进

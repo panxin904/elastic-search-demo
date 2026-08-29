@@ -1,5 +1,6 @@
 ---
 title: volatile / final
+date: 2026-08-15  # date-auto-injected
 ---
 # volatile 与 final
 

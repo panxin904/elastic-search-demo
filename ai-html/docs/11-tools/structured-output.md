@@ -1,5 +1,6 @@
 ---
 title: Structured Output
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Structured Output（结构化输出）

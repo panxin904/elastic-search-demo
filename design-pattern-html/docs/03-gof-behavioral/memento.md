@@ -1,5 +1,6 @@
 ---
 title: Memento 备忘录模式
+date: 2026-08-15  # date-auto-injected
 description: 保存恢复对象状态 + 撤销操作 / 数据库快照 / Redux undo / Git 内部原理
 ---
 

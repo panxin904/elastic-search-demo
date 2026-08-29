@@ -1,5 +1,6 @@
 ---
 title: Webpack / Rspack
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Webpack / Rspack

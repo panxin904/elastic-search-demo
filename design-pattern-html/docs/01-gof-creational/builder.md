@@ -1,5 +1,6 @@
 ---
 title: Builder 建造者模式
+date: 2026-08-15  # date-auto-injected
 description: 多参数对象构造 + Java Lombok @Builder + Go Functional Options + TypeScript chainable
 ---
 

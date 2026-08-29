@@ -1,5 +1,6 @@
 ---
 title: 类加载机制
+date: 2026-08-15  # date-auto-injected
 ---
 # 类加载机制
 - Bootstrap ClassLoader (JVM built-in, loads rt.jar)

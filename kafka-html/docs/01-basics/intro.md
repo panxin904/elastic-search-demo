@@ -1,5 +1,6 @@
 ---
 title: Kafka 是什么
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ❓ Kafka 是什么

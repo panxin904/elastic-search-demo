@@ -1,5 +1,6 @@
 ---
 title: WebSocket / SSE
+date: 2026-08-15  # date-auto-injected
 ---
 
 # WebSocket / SSE

@@ -1,5 +1,6 @@
 ---
 title: 语法基础
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Rust 语法基础

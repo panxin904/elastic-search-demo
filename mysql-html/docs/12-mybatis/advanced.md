@@ -1,5 +1,6 @@
 ---
 title: MyBatis-Plus 高级特性
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🚀 MyBatis-Plus 高级特性

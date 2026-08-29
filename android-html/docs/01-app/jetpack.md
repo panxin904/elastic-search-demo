@@ -1,5 +1,6 @@
 ---
 title: Jetpack 套件
+date: 2026-08-27  # date-auto-injected
 ---
 
 # Jetpack 套件

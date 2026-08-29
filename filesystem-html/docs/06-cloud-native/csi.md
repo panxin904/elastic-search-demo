@@ -1,5 +1,6 @@
 ---
 title: CSI
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Container Storage Interface (CSI) — K8s 存储的通用接口

@@ -1,5 +1,6 @@
 ---
 title: OOP / 类与对象
+date: 2026-08-15  # date-auto-injected
 ---
 # OOP / 类与对象
 

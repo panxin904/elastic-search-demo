@@ -1,5 +1,6 @@
 ---
 title: 监控 vs 可观测性
+date: 2026-08-15  # date-auto-injected
 description: 从传统监控到现代可观测性的范式转变
 ---
 

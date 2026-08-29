@@ -1,5 +1,6 @@
 ---
 title: JUC 工具
+date: 2026-08-15  # date-auto-injected
 ---
 # JUC 工具
 - CountDownLatch: wait for N tasks to complete

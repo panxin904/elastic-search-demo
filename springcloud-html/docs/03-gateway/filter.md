@@ -1,5 +1,6 @@
 ---
 title: Gateway 过滤器
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🔧 Gateway 过滤器详解

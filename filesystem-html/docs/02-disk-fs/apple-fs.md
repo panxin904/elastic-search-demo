@@ -1,5 +1,6 @@
 ---
 title: APFS / HFS+
+date: 2026-08-15  # date-auto-injected
 ---
 
 # APFS / HFS+

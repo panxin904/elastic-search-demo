@@ -1,5 +1,6 @@
 ---
 title: Tool Use 模式
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Tool Use - Agent 模式

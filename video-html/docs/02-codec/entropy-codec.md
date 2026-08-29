@@ -1,5 +1,6 @@
 ---
 title: 熵编码 - CABAC / CAVLC
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 熵编码 - CABAC / CAVLC

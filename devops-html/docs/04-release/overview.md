@@ -1,5 +1,6 @@
 ---
 title: 发布策略总览
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 发布策略总览

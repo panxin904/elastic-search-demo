@@ -1,5 +1,6 @@
 ---
 title: MyBatis 快速入门
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ⚙️ MyBatis 快速入门

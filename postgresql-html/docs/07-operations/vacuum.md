@@ -1,5 +1,6 @@
 ---
 title: Vacuum 与 autovacuum
+date: 2026-08-15  # date-auto-injected
 description: PostgreSQL MVCC 垃圾回收机制
 ---
 

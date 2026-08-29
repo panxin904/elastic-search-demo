@@ -1,5 +1,6 @@
 ---
 title: Kotlin / Java / NDK
+date: 2026-08-27  # date-auto-injected
 ---
 
 # Kotlin / Java / NDK

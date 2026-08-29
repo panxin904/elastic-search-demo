@@ -1,5 +1,6 @@
 ---
 title: 认证与授权协议总览
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 认证与授权协议

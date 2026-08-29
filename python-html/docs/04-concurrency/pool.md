@@ -1,5 +1,6 @@
 ---
 title: 线程池与进程池
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🏊 线程池与进程池

@@ -1,5 +1,6 @@
 ---
 title: 分辨率 / 帧率 / 码率
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 分辨率 / 帧率 / 码率

@@ -1,5 +1,6 @@
 ---
 title: S3 协议
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Amazon S3 协议 — 对象存储的事实标准

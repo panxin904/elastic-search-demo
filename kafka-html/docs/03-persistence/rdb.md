@@ -1,5 +1,6 @@
 ---
 title: Segment 快照机制
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📸 Segment 快照机制

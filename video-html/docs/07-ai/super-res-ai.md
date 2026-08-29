@@ -1,5 +1,6 @@
 ---
 title: AI 超分辨率
+date: 2026-08-15  # date-auto-injected
 ---
 
 # AI 视频超分辨率

@@ -1,5 +1,6 @@
 ---
 title: NFS
+date: 2026-08-15  # date-auto-injected
 ---
 
 # NFS 网络文件系统 — UNIX 世界的经典共享协议

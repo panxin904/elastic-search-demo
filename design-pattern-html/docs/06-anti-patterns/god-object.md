@@ -1,5 +1,6 @@
 ---
 title: God Object 上帝对象
+date: 2026-08-15  # date-auto-injected
 description: 症状 + 病因 + 药方 + 检测工具 + 重构案例
 ---
 

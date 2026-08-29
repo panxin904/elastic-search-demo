@@ -1,5 +1,6 @@
 ---
 title: A06 易受攻击组件
+date: 2026-08-15  # date-auto-injected
 ---
 
 # A06 · Vulnerable & Outdated Components（易受攻击组件）

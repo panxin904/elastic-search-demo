@@ -1,5 +1,6 @@
 ---
 title: 主从延迟排查
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ⏱️ MySQL 主从延迟排查

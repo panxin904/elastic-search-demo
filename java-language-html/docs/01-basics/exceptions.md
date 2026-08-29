@@ -1,5 +1,6 @@
 ---
 title: 异常处理
+date: 2026-08-15  # date-auto-injected
 ---
 # 异常处理
 - Checked (IOException/SQLException) vs Unchecked (RuntimeException)

@@ -1,5 +1,6 @@
 ---
 title: 色彩空间 - YUV / RGB
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 色彩空间 - YUV / RGB

@@ -1,5 +1,6 @@
 ---
 title: Istio 核心
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Istio 核心

@@ -1,5 +1,6 @@
 ---
 title: VP9 / VP8
+date: 2026-08-15  # date-auto-injected
 ---
 
 # VP9 / VP8（Google 视频编码）

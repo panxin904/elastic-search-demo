@@ -1,5 +1,6 @@
 ---
 title: Psycopg Python 驱动
+date: 2026-08-15  # date-auto-injected
 description: Python 连接 PostgreSQL
 ---
 

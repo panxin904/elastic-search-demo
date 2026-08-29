@@ -1,5 +1,6 @@
 ---
 title: Dictionary 字典
+date: 2026-08-15  # date-auto-injected
 description: ClickHouse Dictionary 完整指南：原理 / 创建 / 维护 / 实战
 ---
 

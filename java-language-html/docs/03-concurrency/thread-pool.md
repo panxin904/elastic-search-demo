@@ -1,5 +1,6 @@
 ---
 title: 线程 / 线程池
+date: 2026-08-15  # date-auto-injected
 ---
 # 线程 / 线程池
 - ThreadPoolExecutor params: corePoolSize, maxPoolSize, keepAliveTime, workQueue, threadFactory, rejectHandler

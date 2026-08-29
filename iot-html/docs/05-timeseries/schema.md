@@ -1,5 +1,6 @@
 ---
 title: 数据模型
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 数据模型

@@ -1,5 +1,6 @@
 ---
 title: 音频编码 - AAC / MP3 / Opus
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 音频编码 - AAC / MP3 / Opus

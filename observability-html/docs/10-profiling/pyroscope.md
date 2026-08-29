@@ -1,5 +1,6 @@
 ---
 title: Pyroscope 持续剖析实战
+date: 2026-08-15  # date-auto-injected
 description: Grafana Labs 持续剖析平台
 ---
 

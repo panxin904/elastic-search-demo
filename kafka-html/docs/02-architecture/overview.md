@@ -1,5 +1,6 @@
 ---
 title: 整体架构
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🎯 整体架构

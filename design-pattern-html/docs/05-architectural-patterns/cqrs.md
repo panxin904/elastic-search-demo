@@ -1,5 +1,6 @@
 ---
 title: CQRS 命令查询分离
+date: 2026-08-15  # date-auto-injected
 description: 读写模型分离 + Axon / EventStoreDB / Kafka Streams + 4 种架构演进
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Kafka 集成实战
+date: 2026-08-15  # date-auto-injected
 description: ClickHouse Kafka 表引擎 + MaterializedView 完整实战 + 多 topic 流
 ---
 

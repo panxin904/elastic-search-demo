@@ -1,5 +1,6 @@
 ---
 title: Leaf 美团方案
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Leaf 美团方案

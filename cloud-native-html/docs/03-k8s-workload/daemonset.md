@@ -1,5 +1,6 @@
 ---
 title: DaemonSet
+date: 2026-08-15  # date-auto-injected
 ---
 
 # DaemonSet - 每个 Node 一个 Pod

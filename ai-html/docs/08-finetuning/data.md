@@ -1,5 +1,6 @@
 ---
 title: 数据准备
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 微调数据准备

@@ -1,5 +1,6 @@
 ---
 title: LLM 应用开发
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 💬 LLM 应用开发

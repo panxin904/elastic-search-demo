@@ -1,5 +1,6 @@
 ---
 title: HashMap 原理
+date: 2026-08-15  # date-auto-injected
 ---
 # HashMap 原理
 - Array + linked list + red-black tree (Java 8+)

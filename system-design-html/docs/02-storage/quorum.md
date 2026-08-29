@@ -1,5 +1,6 @@
 ---
 title: NWR 仲裁模型
+date: 2026-08-15  # date-auto-injected
 ---
 
 # NWR 仲裁模型

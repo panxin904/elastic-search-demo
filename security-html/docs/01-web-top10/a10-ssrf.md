@@ -1,5 +1,6 @@
 ---
 title: A10 SSRF 服务端请求伪造
+date: 2026-08-15  # date-auto-injected
 ---
 
 # A10 · Server-Side Request Forgery（服务端请求伪造）

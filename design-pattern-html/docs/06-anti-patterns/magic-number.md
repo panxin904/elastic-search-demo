@@ -1,5 +1,6 @@
 ---
 title: Magic Number 魔数
+date: 2026-08-15  # date-auto-injected
 description: 症状 + 病因 + 药方 + 命名常量 + 配置文件 + 单元常量
 ---
 

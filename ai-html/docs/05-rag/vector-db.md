@@ -1,5 +1,6 @@
 ---
 title: 向量数据库
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 向量数据库（Vector DB）

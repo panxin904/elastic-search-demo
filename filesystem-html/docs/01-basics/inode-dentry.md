@@ -1,5 +1,6 @@
 ---
 title: inode 与 dentry
+date: 2026-08-15  # date-auto-injected
 ---
 
 # inode 与 dentry

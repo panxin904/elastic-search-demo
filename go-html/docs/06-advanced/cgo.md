@@ -1,5 +1,6 @@
 ---
 title: cgo 与 FFI
+date: 2026-08-15  # date-auto-injected
 ---
 
 # cgo 与 FFI

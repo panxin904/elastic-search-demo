@@ -1,5 +1,6 @@
 ---
 title: CTE 公用表表达式
+date: 2026-08-15  # date-auto-injected
 ---
 
 # CTE 公用表表达式

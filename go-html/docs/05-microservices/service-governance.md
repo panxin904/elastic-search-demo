@@ -1,5 +1,6 @@
 ---
 title: 服务治理
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 微服务治理

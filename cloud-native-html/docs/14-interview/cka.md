@@ -1,5 +1,6 @@
 ---
 title: CKA 考试要点
+date: 2026-08-15  # date-auto-injected
 ---
 
 # CKA 考试要点

@@ -1,5 +1,6 @@
 ---
 title: 量化 GGUF / GPTQ / AWQ
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 量化 - GGUF / GPTQ / AWQ

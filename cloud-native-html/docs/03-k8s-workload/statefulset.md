@@ -1,5 +1,6 @@
 ---
 title: StatefulSet
+date: 2026-08-15  # date-auto-injected
 ---
 
 # StatefulSet - 有状态工作负载

@@ -1,5 +1,6 @@
 ---
 title: Service Mesh
+date: 2026-08-15  # date-auto-injected
 ---
 # Service Mesh（服务网格）
 

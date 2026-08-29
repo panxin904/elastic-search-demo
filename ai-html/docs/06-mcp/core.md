@@ -1,5 +1,6 @@
 ---
 title: MCP 核心概念
+date: 2026-08-15  # date-auto-injected
 ---
 
 # MCP - Model Ccontext Protocol

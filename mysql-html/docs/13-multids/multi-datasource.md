@@ -1,5 +1,6 @@
 ---
 title: 多数据源配置
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🔀 多数据源配置

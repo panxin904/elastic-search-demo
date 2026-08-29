@@ -1,5 +1,6 @@
 ---
 title: 刷盘机制
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📜 刷盘机制

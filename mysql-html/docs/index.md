@@ -1,6 +1,7 @@
 ---
 layout: home
 title: MySQL 知识图谱
+date: 2026-08-27  # date-auto-injected
 hero:
   name: MySQL
   text: 系统化学习

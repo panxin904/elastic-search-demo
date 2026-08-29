@@ -1,5 +1,6 @@
 ---
 title: WebRTC
+date: 2026-08-15  # date-auto-injected
 ---
 
 # WebRTC（Web Real-Time Communication）

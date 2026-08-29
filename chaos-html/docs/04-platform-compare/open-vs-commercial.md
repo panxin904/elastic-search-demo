@@ -1,5 +1,6 @@
 ---
 title: 开源 vs 商业（Gremlin）
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 开源 vs 商业（Gremlin）

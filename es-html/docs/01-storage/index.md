@@ -1,5 +1,6 @@
 ---
 title: 索引 Index
+date: 2026-08-15  # date-auto-injected
 category: storage
 graphNodeId: index
 ---

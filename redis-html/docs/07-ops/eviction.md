@@ -1,5 +1,6 @@
 ---
 title: 内存淘汰策略
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 内存淘汰策略

@@ -1,5 +1,6 @@
 ---
 title: 限界上下文
+date: 2026-08-15  # date-auto-injected
 ---
 # 限界上下文（Bounded Context）
 

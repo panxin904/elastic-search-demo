@@ -1,5 +1,6 @@
 ---
 title: 手写代码题
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 手写代码题

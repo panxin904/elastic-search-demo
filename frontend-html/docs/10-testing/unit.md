@@ -1,5 +1,6 @@
 ---
 title: Jest / Vitest 单元测试
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Jest / Vitest 单元测试

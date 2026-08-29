@@ -1,6 +1,7 @@
 ---
 layout: home
 title: 文件系统 / 文件服务 / 存储全栈
+date: 2026-08-27  # date-auto-injected
 hero:
   name: 文件全栈
   text: Filesystem & Storage Atlas

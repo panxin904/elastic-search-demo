@@ -1,5 +1,6 @@
 ---
 title: PV 与 PVC
+date: 2026-08-15  # date-auto-injected
 ---
 
 # PersistentVolume 与 PersistentVolumeClaim — K8s 存储的声明式模型

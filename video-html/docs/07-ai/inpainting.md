@@ -1,5 +1,6 @@
 ---
 title: 视频修复 Inpainting
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 视频修复（Video Inpainting）

@@ -1,5 +1,6 @@
 ---
 title: 运行时性能
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 运行时性能

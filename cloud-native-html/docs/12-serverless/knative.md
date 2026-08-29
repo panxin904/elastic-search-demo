@@ -1,5 +1,6 @@
 ---
 title: Knative Serving
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Knative Serving - k8s 上的 Serverless

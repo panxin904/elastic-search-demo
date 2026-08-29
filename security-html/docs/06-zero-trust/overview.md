@@ -1,5 +1,6 @@
 ---
 title: 零信任架构总览
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 零信任架构

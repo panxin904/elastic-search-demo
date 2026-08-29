@@ -1,5 +1,6 @@
 ---
 title: PKI 与 TLS 实战
+date: 2026-08-15  # date-auto-injected
 ---
 
 # PKI 与 TLS 实战

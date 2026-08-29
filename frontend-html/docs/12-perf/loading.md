@@ -1,5 +1,6 @@
 ---
 title: 加载性能
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 加载性能

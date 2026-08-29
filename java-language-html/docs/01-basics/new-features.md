@@ -1,5 +1,6 @@
 ---
 title: JDK 17-21 新特性
+date: 2026-08-15  # date-auto-injected
 ---
 # JDK 17-21 新特性
 - JDK 17 (LTS): Sealed classes, Pattern matching for switch, Text blocks finalized, Records

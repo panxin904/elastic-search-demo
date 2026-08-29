@@ -1,5 +1,6 @@
 ---
 title: Sentinel 哨兵
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🛡️ Sentinel 哨兵

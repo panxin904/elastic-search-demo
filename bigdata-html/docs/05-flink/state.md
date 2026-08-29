@@ -1,5 +1,6 @@
 ---
 title: Flink 状态与 Checkpoint
+date: 2026-08-15  # date-auto-injected
 ---
 # Flink 状态与 Checkpoint
 

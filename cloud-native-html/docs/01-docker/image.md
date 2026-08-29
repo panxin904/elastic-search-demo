@@ -1,5 +1,6 @@
 ---
 title: 镜像 image
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Docker 镜像

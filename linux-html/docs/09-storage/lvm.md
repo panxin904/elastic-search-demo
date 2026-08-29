@@ -1,5 +1,6 @@
 ---
 title: LVM 逻辑卷
+date: 2026-08-15  # date-auto-injected
 ---
 
 # LVM 逻辑卷管理

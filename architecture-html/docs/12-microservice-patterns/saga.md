@@ -1,5 +1,6 @@
 ---
 title: Saga / Bulkhead
+date: 2026-08-15  # date-auto-injected
 ---
 # Saga 与 Bulkhead 模式
 

@@ -1,5 +1,6 @@
 ---
 title: Docker 源码导读
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Docker 源码导读

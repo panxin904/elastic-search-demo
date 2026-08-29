@@ -1,5 +1,6 @@
 ---
 title: xtrabackup 热备
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ⚡ MySQL xtrabackup 热备

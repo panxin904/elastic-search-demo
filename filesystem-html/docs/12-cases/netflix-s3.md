@@ -1,5 +1,6 @@
 ---
 title: Netflix S3 数据湖
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Netflix — S3 上 EB 级数据湖

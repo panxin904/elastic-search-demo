@@ -1,5 +1,6 @@
 ---
 title: 标准库
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Go 标准库

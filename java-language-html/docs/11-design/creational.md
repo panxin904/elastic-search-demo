@@ -1,5 +1,6 @@
 ---
 title: 创建型设计模式
+date: 2026-08-15  # date-auto-injected
 ---
 # 创建型模式
 - Singleton: DCL + volatile, enum, static inner class holder

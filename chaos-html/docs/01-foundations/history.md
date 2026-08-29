@@ -1,5 +1,6 @@
 ---
 title: 历史与哲学
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 历史与哲学

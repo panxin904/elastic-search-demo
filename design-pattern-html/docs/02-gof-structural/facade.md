@@ -1,5 +1,6 @@
 ---
 title: Facade 外观模式
+date: 2026-08-15  # date-auto-injected
 description: 子系统统一高层接口 + Spring JdbcTemplate + 第三方 SDK 封装 + API Gateway
 ---
 

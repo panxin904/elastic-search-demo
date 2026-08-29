@@ -1,5 +1,6 @@
 ---
 title: Factory Method 工厂方法模式
+date: 2026-08-15  # date-auto-injected
 description: 创建逻辑延迟到子类 + 框架扩展点 + Java Spring BeanFactory / Go Wire 源码解读
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: strace / ltrace
+date: 2026-08-15  # date-auto-injected
 ---
 
 # strace / ltrace — 系统调用与库函数追踪

@@ -1,5 +1,6 @@
 ---
 title: Grafana / Kafka
+date: 2026-08-27  # date-auto-injected
 ---
 
 # Grafana / Kafka

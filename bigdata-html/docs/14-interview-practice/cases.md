@@ -1,5 +1,6 @@
 ---
 title: 面试案例
+date: 2026-08-15  # date-auto-injected
 ---
 # 大数据面试案例
 

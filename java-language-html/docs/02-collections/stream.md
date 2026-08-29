@@ -1,5 +1,6 @@
 ---
 title: Stream API
+date: 2026-08-15  # date-auto-injected
 ---
 # Stream API
 - Intermediate: filter, map, flatMap, distinct, sorted, peek, limit, skip

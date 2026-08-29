@@ -1,5 +1,6 @@
 ---
 title: 表引擎总览
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ClickHouse 表引擎

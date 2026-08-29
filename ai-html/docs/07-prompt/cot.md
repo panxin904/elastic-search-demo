@@ -1,5 +1,6 @@
 ---
 title: Chain-of-Thought
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Chain-of-Thought (CoT)

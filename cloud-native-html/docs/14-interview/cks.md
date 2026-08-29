@@ -1,5 +1,6 @@
 ---
 title: CKS 安全加固
+date: 2026-08-15  # date-auto-injected
 ---
 
 # CKS 安全加固

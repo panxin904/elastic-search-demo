@@ -1,5 +1,6 @@
 ---
 title: Key 通用操作
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🔑 Key 通用操作

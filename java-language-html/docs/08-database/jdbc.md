@@ -1,5 +1,6 @@
 ---
 title: JDBC / HikariCP
+date: 2026-08-15  # date-auto-injected
 ---
 # JDBC / HikariCP
 - JDBC: DriverManager → DataSource (connection pooling)

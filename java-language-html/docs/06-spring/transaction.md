@@ -1,5 +1,6 @@
 ---
 title: 声明式事务
+date: 2026-08-15  # date-auto-injected
 ---
 # @Transactional
 - Propagation: REQUIRED (default), REQUIRES_NEW, NESTED

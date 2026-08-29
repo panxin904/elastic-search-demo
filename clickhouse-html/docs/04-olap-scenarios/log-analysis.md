@@ -1,5 +1,6 @@
 ---
 title: 日志分析
+date: 2026-08-15  # date-auto-injected
 description: Uber / Cloudflare / GitHub 都在用：ClickHouse 替代 Elasticsearch 做日志分析
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: 幂等性：消息去重
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 幂等性：消息去重

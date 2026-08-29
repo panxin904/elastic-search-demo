@@ -1,5 +1,6 @@
 ---
 title: Search After
+date: 2026-08-15  # date-auto-injected
 category: query
 graphNodeId: search-after
 ---

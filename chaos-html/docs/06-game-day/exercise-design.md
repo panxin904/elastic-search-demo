@@ -1,5 +1,6 @@
 ---
 title: 演练设计
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 演练设计

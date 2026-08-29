@@ -1,5 +1,6 @@
 ---
 title: 反射 reflect
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Go 反射 reflect

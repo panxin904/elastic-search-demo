@@ -1,5 +1,6 @@
 ---
 title: ACL 细粒度权限
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ACL - 细粒度权限

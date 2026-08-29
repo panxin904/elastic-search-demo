@@ -1,6 +1,7 @@
 ---
 layout: home
 title: System Design 知识图谱
+date: 2026-08-27  # date-auto-injected
 hero:
   name: System Design 知识图谱
   text: 从理论到经典设计题

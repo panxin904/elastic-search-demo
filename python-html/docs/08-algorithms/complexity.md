@@ -1,5 +1,6 @@
 ---
 title: 复杂度分析
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📐 复杂度分析

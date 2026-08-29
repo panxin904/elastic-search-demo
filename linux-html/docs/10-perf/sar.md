@@ -1,5 +1,6 @@
 ---
 title: sar 持续监控
+date: 2026-08-15  # date-auto-injected
 ---
 
 # sar - 系统活动采样

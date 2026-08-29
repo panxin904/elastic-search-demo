@@ -1,5 +1,6 @@
 ---
 title: Few-shot / Multi-shot
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Few-shot / Multi-shot

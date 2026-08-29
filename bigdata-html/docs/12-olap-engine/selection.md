@@ -1,5 +1,6 @@
 ---
 title: OLAP 选型
+date: 2026-08-15  # date-auto-injected
 ---
 # OLAP 选型决策
 

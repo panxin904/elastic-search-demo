@@ -1,5 +1,6 @@
 ---
 title: 延迟消息
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ⏰ 延迟消息

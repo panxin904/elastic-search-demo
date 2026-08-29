@@ -1,5 +1,6 @@
 ---
 title: 流复制 Streaming Replication
+date: 2026-08-15  # date-auto-injected
 description: PostgreSQL 主从复制核心机制
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: AI 插帧 RIFE / FILM
+date: 2026-08-15  # date-auto-injected
 ---
 
 # AI 视频插帧

@@ -1,5 +1,6 @@
 ---
 title: Jaeger 链路追踪
+date: 2026-08-15  # date-auto-injected
 description: Uber 开源的 CNCF 毕业 tracing 系统
 ---
 

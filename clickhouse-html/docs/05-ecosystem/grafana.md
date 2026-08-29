@@ -1,5 +1,6 @@
 ---
 title: Grafana 集成
+date: 2026-08-15  # date-auto-injected
 description: ClickHouse 作为 Grafana 数据源：原生插件 + Dashboard 实战
 ---
 

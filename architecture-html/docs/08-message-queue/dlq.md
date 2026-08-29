@@ -1,5 +1,6 @@
 ---
 title: 死信队列 / 重试策略
+date: 2026-08-15  # date-auto-injected
 ---
 # 死信队列与重试策略
 

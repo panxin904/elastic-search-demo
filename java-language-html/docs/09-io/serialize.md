@@ -1,5 +1,6 @@
 ---
 title: 序列化 / JSON / ProtoBuf
+date: 2026-08-15  # date-auto-injected
 ---
 # 序列化
 - Serializable: writeObject/readObject, serialVersionUID, transient fields

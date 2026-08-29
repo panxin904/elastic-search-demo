@@ -1,5 +1,6 @@
 ---
 title: 主备与主从
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 主备与主从

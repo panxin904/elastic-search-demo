@@ -1,5 +1,6 @@
 ---
 title: ART 运行时
+date: 2026-08-27  # date-auto-injected
 ---
 
 # ART 运行时

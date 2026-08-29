@@ -1,5 +1,6 @@
 ---
 title: 数据血缘
+date: 2026-08-15  # date-auto-injected
 ---
 # 数据血缘（Data Lineage）
 

@@ -1,5 +1,6 @@
 ---
 title: 消费者原理
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🎯 消费者原理

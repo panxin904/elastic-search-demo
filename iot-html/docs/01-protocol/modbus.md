@@ -1,5 +1,6 @@
 ---
 title: Modbus / OPC-UA
+date: 2026-08-27  # date-auto-injected
 ---
 
 # Modbus / OPC-UA

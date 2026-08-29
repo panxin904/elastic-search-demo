@@ -1,5 +1,6 @@
 ---
 title: Eval 框架
+date: 2026-08-15  # date-auto-injected
 ---
 
 # LLM Eval - 评测框架

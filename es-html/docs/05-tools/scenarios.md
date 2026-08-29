@@ -1,5 +1,6 @@
 ---
 title: 使用场景与最佳实践
+date: 2026-08-15  # date-auto-injected
 ---
 
 <span class="kg-badge kg-badge-ops">Scenarios</span>

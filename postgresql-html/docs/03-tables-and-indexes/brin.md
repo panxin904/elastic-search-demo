@@ -1,5 +1,6 @@
 ---
 title: BRIN 索引
+date: 2026-08-15  # date-auto-injected
 description: Block Range 索引（适合时序数据）
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: 负载均衡策略
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🎯 负载均衡策略详解

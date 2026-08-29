@@ -1,5 +1,6 @@
 ---
 title: K8s 全栈监控实战
+date: 2026-08-15  # date-auto-injected
 description: ServiceMonitor + PrometheusRule + Grafana 完整 yaml
 ---
 

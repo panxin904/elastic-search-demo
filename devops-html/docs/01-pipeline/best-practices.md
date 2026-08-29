@@ -1,5 +1,6 @@
 ---
 title: CI/CD Pipeline 最佳实践
+date: 2026-08-15  # date-auto-injected
 ---
 
 # CI/CD Pipeline 最佳实践

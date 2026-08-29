@@ -1,5 +1,6 @@
 ---
 title: initramfs
+date: 2026-08-15  # date-auto-injected
 ---
 
 # initramfs - 初始内存文件系统

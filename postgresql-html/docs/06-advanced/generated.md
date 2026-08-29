@@ -1,5 +1,6 @@
 ---
 title: Generated 列
+date: 2026-08-15  # date-auto-injected
 description: PG 12+ 计算列
 ---
 

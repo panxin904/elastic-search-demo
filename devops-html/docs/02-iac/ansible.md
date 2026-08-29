@@ -1,5 +1,6 @@
 ---
 title: Ansible
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Ansible

@@ -1,5 +1,6 @@
 ---
 title: VolumeSnapshot
+date: 2026-08-15  # date-auto-injected
 ---
 
 # VolumeSnapshot — K8s 存储快照标准

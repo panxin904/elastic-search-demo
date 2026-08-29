@@ -1,5 +1,6 @@
 ---
 title: Core Web Vitals
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Core Web Vitals

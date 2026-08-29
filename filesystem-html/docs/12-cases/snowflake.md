@@ -1,5 +1,6 @@
 ---
 title: Snowflake 云数仓
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Snowflake — 云原生数仓的存储架构

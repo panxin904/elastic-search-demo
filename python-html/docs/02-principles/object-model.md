@@ -1,5 +1,6 @@
 ---
 title: 对象模型
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📦 对象模型

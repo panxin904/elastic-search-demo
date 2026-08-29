@@ -1,5 +1,6 @@
 ---
 title: MaterializedView 物化视图
+date: 2026-08-15  # date-auto-injected
 description: ClickHouse 实时数仓核心：增量更新 / 自动触发 / 多链路组合
 ---
 

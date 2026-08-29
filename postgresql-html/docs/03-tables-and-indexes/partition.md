@@ -1,5 +1,6 @@
 ---
 title: 声明式分区
+date: 2026-08-15  # date-auto-injected
 description: PostgreSQL 表分区策略与实战
 ---
 

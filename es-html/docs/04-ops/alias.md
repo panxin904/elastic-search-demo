@@ -1,5 +1,6 @@
 ---
 title: 别名 Alias
+date: 2026-08-15  # date-auto-injected
 category: ops
 graphNodeId: alias
 ---

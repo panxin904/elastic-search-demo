@@ -1,5 +1,6 @@
 ---
 title: 索引优化实战
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🎯 MySQL 索引优化实战

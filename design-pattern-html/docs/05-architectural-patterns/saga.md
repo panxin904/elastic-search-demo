@@ -1,5 +1,6 @@
 ---
 title: Saga 分布式事务
+date: 2026-08-15  # date-auto-injected
 description: 跨服务事务编排 + Orchestration vs Choreography + Temporal / Camunda
 ---
 

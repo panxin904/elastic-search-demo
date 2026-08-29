@@ -1,5 +1,6 @@
 ---
 title: Vue Router 4
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Vue Router 4

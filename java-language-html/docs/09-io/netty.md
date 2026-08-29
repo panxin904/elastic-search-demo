@@ -1,5 +1,6 @@
 ---
 title: Netty 框架
+date: 2026-08-15  # date-auto-injected
 ---
 # Netty
 - EventLoopGroup: boss (accept) + worker (IO)

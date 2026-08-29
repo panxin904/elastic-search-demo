@@ -1,5 +1,6 @@
 ---
 title: 三大支柱 Metrics/Tracing/Logging
+date: 2026-08-15  # date-auto-injected
 ---
 # 可观测性三大支柱
 

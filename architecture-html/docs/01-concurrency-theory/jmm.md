@@ -1,5 +1,6 @@
 ---
 title: JMM 内存模型
+date: 2026-08-15  # date-auto-injected
 ---
 # JMM（Java Memory Model）内存模型
 

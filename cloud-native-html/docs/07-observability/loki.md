@@ -1,5 +1,6 @@
 ---
 title: Loki 日志聚合
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Loki - 日志聚合系统

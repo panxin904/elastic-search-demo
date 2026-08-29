@@ -1,5 +1,6 @@
 ---
 title: 设备影子 / 物模型
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 设备影子 / 物模型

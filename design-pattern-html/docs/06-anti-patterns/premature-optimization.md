@@ -1,5 +1,6 @@
 ---
 title: Premature Optimization 提前优化
+date: 2026-08-15  # date-auto-injected
 description: 症状 + 病因 + 药方 + 性能分析 + Knuth 法则
 ---
 

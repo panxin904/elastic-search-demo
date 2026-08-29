@@ -1,5 +1,6 @@
 ---
 title: BuildKit
+date: 2026-08-15  # date-auto-injected
 ---
 
 # BuildKit — 现代容器构建引擎

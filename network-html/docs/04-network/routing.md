@@ -1,5 +1,6 @@
 ---
 title: IP 路由
+date: 2026-08-15  # date-auto-injected
 ---
 
 # IP 路由

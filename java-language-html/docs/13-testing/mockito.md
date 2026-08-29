@@ -1,5 +1,6 @@
 ---
 title: Mockito
+date: 2026-08-15  # date-auto-injected
 ---
 # Mockito
 - @Mock create mock, @InjectMocks inject mocks into target

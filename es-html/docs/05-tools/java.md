@@ -1,5 +1,6 @@
 ---
 title: Java SDK 速查
+date: 2026-08-15  # date-auto-injected
 ---
 
 <span class="kg-badge kg-badge-query">Java</span>

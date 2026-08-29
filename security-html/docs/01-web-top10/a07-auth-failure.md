@@ -1,5 +1,6 @@
 ---
 title: A07 认证失效
+date: 2026-08-15  # date-auto-injected
 ---
 
 # A07 · Identification & Authentication Failures（认证失效）

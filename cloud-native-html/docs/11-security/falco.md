@@ -1,5 +1,6 @@
 ---
 title: Falco 运行时检测
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Falco - 运行时安全

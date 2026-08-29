@@ -1,6 +1,7 @@
 ---
 layout: home
 title: Observability 知识图谱
+date: 2026-08-27  # date-auto-injected
 hero:
   name: Observability
   text: 现代可观测性深度图谱

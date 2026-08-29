@@ -1,5 +1,6 @@
 ---
 title: MapReduce 原理
+date: 2026-08-15  # date-auto-injected
 ---
 # MapReduce 原理
 

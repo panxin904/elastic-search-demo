@@ -1,5 +1,6 @@
 ---
 title: pg_trgm 模糊匹配
+date: 2026-08-15  # date-auto-injected
 description: 三元组相似度
 ---
 

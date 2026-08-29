@@ -1,5 +1,6 @@
 ---
 title: pprof 与 trace
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Go pprof 与 trace

@@ -1,5 +1,6 @@
 ---
 title: WebDAV
+date: 2026-08-15  # date-auto-injected
 ---
 
 # WebDAV — 把文件系统搬上 HTTP

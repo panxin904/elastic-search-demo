@@ -1,5 +1,6 @@
 ---
 title: 引擎层
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 01 · 引擎层

@@ -1,5 +1,6 @@
 ---
 title: 高频面试题
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 前端高频面试题

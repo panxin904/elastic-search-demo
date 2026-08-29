@@ -1,5 +1,6 @@
 ---
 title: 流水线监控
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 流水线监控

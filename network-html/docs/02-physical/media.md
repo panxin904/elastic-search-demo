@@ -1,5 +1,6 @@
 ---
 title: 传输介质
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🔌 传输介质

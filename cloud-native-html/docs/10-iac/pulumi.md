@@ -1,5 +1,6 @@
 ---
 title: Pulumi
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Pulumi - 现代 IaC

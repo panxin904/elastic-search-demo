@@ -1,5 +1,6 @@
 ---
 title: ES 集群仪表板
+date: 2026-08-15  # date-auto-injected
 ---
 
 <span class="kg-badge kg-badge-storage">监控</span>

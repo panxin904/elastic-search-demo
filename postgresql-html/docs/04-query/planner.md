@@ -1,5 +1,6 @@
 ---
 title: 查询规划器
+date: 2026-08-15  # date-auto-injected
 description: EXPLAIN 解读与优化
 ---
 

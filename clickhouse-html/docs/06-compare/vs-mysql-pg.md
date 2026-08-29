@@ -1,5 +1,6 @@
 ---
 title: vs MySQL / PostgreSQL
+date: 2026-08-15  # date-auto-injected
 description: ClickHouse vs MySQL vs PostgreSQL 完整对比：数据模型 / 性能 / 适用场景
 ---
 

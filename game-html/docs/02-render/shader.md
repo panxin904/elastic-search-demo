@@ -1,5 +1,6 @@
 ---
 title: 着色器
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 着色器

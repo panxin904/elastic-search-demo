@@ -1,5 +1,6 @@
 ---
 title: 音频引擎
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 音频引擎

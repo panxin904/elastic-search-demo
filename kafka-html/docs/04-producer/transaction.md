@@ -1,5 +1,6 @@
 ---
 title: 事务
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🔐 事务

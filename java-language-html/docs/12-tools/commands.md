@@ -1,5 +1,6 @@
 ---
 title: 常用命令速查
+date: 2026-08-15  # date-auto-injected
 ---
 # Java 常用命令
 ```bash

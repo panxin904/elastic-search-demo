@@ -1,5 +1,6 @@
 ---
 title: 核心概念
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🧩 核心概念

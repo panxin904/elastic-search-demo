@@ -1,5 +1,6 @@
 ---
 title: 系统层
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 03 · 系统层

@@ -1,5 +1,6 @@
 ---
 title: jstack / jmap / jstat
+date: 2026-08-15  # date-auto-injected
 ---
 # JDK 诊断工具
 - jps -l: list Java processes

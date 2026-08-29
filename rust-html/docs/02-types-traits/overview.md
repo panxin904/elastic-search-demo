@@ -1,5 +1,6 @@
 ---
 title: 类型系统总览
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 类型系统总览

@@ -1,5 +1,6 @@
 ---
 title: 数组与字符串
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 数组与字符串处理

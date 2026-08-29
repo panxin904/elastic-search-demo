@@ -1,5 +1,6 @@
 ---
 title: 函数与脚本组织
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 函数与脚本组织

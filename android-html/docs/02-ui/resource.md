@@ -1,5 +1,6 @@
 ---
 title: 资源与适配
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 资源与适配

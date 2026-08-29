@@ -1,5 +1,6 @@
 ---
 title: CI/CD
+date: 2026-08-15  # date-auto-injected
 ---
 
 # CI/CD — Git Hooks / Pipeline

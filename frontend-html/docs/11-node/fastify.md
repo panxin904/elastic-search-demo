@@ -1,5 +1,6 @@
 ---
 title: Fastify / Hono
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Fastify / Hono

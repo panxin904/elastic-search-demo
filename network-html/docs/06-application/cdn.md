@@ -1,5 +1,6 @@
 ---
 title: CDN 内容分发网络
+date: 2026-08-15  # date-auto-injected
 ---
 
 # CDN 内容分发网络

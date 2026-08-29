@@ -1,5 +1,6 @@
 ---
 title: 大数据 CAP 选型
+date: 2026-08-15  # date-auto-injected
 ---
 # 大数据场景的 CAP 选型
 

@@ -1,5 +1,6 @@
 ---
 title: Observer 观察者模式
+date: 2026-08-15  # date-auto-injected
 description: 一对多依赖 + 事件总线 + Vue 响应式 / Kafka consumer / Node EventEmitter / Spring Event
 ---
 

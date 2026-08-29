@@ -1,5 +1,6 @@
 ---
 title: 对象创建 / OOM
+date: 2026-08-15  # date-auto-injected
 ---
 # OOM 排查
 - java.lang.OutOfMemoryError: Java heap space → -Xmx too small / memory leak

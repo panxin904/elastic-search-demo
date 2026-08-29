@@ -1,5 +1,6 @@
 ---
 title: JVM 指标采集
+date: 2026-08-15  # date-auto-injected
 description: JMX / Micrometer / async-profiler
 ---
 

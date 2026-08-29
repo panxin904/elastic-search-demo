@@ -1,5 +1,6 @@
 ---
 title: auditd 审计
+date: 2026-08-15  # date-auto-injected
 ---
 
 # auditd - Linux 审计系统

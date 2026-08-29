@@ -1,5 +1,6 @@
 ---
 title: sysctl 调参
+date: 2026-08-15  # date-auto-injected
 ---
 
 # sysctl - 内核运行时调参

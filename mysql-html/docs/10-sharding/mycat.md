@@ -1,5 +1,6 @@
 ---
 title: MyCat 中间件
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🐱 MyCat 中间件

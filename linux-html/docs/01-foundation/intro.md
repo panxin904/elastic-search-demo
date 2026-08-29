@@ -1,5 +1,6 @@
 ---
 title: Linux 是什么
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Linux 是什么

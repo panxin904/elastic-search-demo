@@ -1,5 +1,6 @@
 ---
 title: 腾讯云媒体处理
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 腾讯云媒体处理 CI

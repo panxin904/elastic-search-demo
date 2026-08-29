@@ -1,5 +1,6 @@
 ---
 title: Angular 体系
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Angular 体系

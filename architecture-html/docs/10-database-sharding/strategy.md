@@ -1,5 +1,6 @@
 ---
 title: 分库分表策略
+date: 2026-08-15  # date-auto-injected
 ---
 # 分库分表策略
 

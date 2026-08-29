@@ -1,5 +1,6 @@
 ---
 title: 视频分割 / 抠像
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 视频分割 / 抠像

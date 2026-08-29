@@ -1,5 +1,6 @@
 ---
 title: 同步模型
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 同步模型

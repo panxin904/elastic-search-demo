@@ -1,5 +1,6 @@
 ---
 title: React Router v6/v7
+date: 2026-08-15  # date-auto-injected
 ---
 
 # React Router v6/v7

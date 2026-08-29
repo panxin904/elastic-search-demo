@@ -1,5 +1,6 @@
 ---
 title: ForkJoinPool
+date: 2026-08-15  # date-auto-injected
 ---
 # ForkJoinPool 工作窃取
 

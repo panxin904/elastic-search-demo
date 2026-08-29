@@ -1,5 +1,6 @@
 ---
 title: 横向对比与选型
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 横向对比与选型

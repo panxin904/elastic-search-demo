@@ -1,5 +1,6 @@
 ---
 title: 全文检索
+date: 2026-08-15  # date-auto-injected
 description: tsvector / tsquery / GIN
 ---
 

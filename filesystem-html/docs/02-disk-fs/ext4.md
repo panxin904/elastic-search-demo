@@ -1,5 +1,6 @@
 ---
 title: ext4 经典之选
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ext4 经典之选

@@ -1,5 +1,6 @@
 ---
 title: libpq C 库
+date: 2026-08-15  # date-auto-injected
 description: PostgreSQL C API 实战
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: 字符集与排序规则
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🌐 字符集与排序规则

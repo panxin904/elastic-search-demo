@@ -1,5 +1,6 @@
 ---
 title: 性能计算器
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🧮 MySQL 性能计算器

@@ -1,5 +1,6 @@
 ---
 title: yum / dnf (RHEL)
+date: 2026-08-15  # date-auto-injected
 ---
 
 # yum / dnf - RHEL 系包管理

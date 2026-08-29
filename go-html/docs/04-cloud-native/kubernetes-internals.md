@@ -1,5 +1,6 @@
 ---
 title: Kubernetes 源码导读
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Kubernetes 源码导读

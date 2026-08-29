@@ -1,5 +1,6 @@
 ---
 title: 去噪算法
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 去噪算法

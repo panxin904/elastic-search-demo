@@ -1,5 +1,6 @@
 ---
 title: Grafana 告警
+date: 2026-08-15  # date-auto-injected
 description: Unified Alerting / Contact Points / Notification Policies
 ---
 

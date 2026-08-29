@@ -1,5 +1,6 @@
 ---
 title: 学习路径
+date: 2026-08-15  # date-auto-injected
 ---
 # 📖 大数据全栈 学习路径
 

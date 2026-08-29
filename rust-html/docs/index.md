@@ -1,5 +1,6 @@
 ---
 title: Rust 知识图谱
+date: 2026-08-27  # date-auto-injected
 layout: home
 hero:
   name: "Rust 知识图谱"

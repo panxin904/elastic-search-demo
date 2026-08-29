@@ -1,5 +1,6 @@
 ---
 title: OAuth2 + JWT 实战
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🔑 OAuth2 + JWT 实战

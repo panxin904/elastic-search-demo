@@ -1,5 +1,6 @@
 ---
 title: Prometheus 告警规则
+date: 2026-08-15  # date-auto-injected
 description: PromQL alert + 多窗口 burn rate
 ---
 

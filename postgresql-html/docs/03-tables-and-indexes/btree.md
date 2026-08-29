@@ -1,5 +1,6 @@
 ---
 title: B-tree 索引
+date: 2026-08-15  # date-auto-injected
 description: PostgreSQL 默认索引类型详解
 ---
 

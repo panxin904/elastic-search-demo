@@ -1,5 +1,6 @@
 ---
 title: cron 定时任务
+date: 2026-08-15  # date-auto-injected
 ---
 
 # cron - 定时任务

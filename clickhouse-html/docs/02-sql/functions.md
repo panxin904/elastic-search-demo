@@ -1,5 +1,6 @@
 ---
 title: ClickHouse 独有函数
+date: 2026-08-15  # date-auto-injected
 description: ClickHouse 独有 + 高频函数全集：array / map / tuple / JSON / URL / 时间 / 字符串
 ---
 

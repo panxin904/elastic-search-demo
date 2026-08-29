@@ -1,5 +1,6 @@
 ---
 title: 短链系统设计
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 短链系统设计（Short URL）

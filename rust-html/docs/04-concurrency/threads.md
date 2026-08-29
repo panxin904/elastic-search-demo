@@ -1,5 +1,6 @@
 ---
 title: 线程与 Thread
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 线程与 Thread

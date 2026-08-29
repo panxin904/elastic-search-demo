@@ -1,5 +1,6 @@
 ---
 title: 消息推送系统
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 消息推送系统

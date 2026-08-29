@@ -1,5 +1,6 @@
 ---
 title: Monorepo (Turbo/Nx)
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Monorepo — Turbo / Nx

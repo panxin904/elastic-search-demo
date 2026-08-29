@@ -1,5 +1,6 @@
 ---
 title: Strangler Fig 绞杀者模式
+date: 2026-08-15  # date-auto-injected
 description: 渐进式迁移 monolith + API Gateway 流量切换 + Netflix / Amazon / 蚂蚁金服
 ---
 

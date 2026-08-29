@@ -1,5 +1,6 @@
 ---
 title: CRUD 与 DDL
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ✏️ MySQL CRUD 与 DDL

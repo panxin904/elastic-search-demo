@@ -1,5 +1,6 @@
 ---
 title: MGR 组复制
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🌐 MySQL MGR 组复制

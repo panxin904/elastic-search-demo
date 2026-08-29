@@ -1,5 +1,6 @@
 ---
 title: mTLS 双向认证
+date: 2026-08-15  # date-auto-injected
 ---
 
 # mTLS 双向认证

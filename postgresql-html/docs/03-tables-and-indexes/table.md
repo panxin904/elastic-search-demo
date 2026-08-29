@@ -1,5 +1,6 @@
 ---
 title: 表与存储
+date: 2026-08-15  # date-auto-injected
 description: PG 物理存储结构
 ---
 

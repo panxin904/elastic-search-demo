@@ -1,5 +1,6 @@
 ---
 title: Spring Data Redis
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🌱 Spring Data Redis

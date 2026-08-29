@@ -1,5 +1,6 @@
 ---
 title: 04 · 设备管理
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 04 · 设备管理

@@ -1,5 +1,6 @@
 ---
 title: NetworkPolicy
+date: 2026-08-15  # date-auto-injected
 ---
 
 # NetworkPolicy - 东西向流量隔离

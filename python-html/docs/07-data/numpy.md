@@ -1,5 +1,6 @@
 ---
 title: NumPy 数值计算
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🔢 NumPy 数值计算

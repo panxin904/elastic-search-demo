@@ -1,5 +1,6 @@
 ---
 title: NetworkPolicy + PodSecurity
+date: 2026-08-15  # date-auto-injected
 ---
 
 # NetworkPolicy + PodSecurity - 深度防御

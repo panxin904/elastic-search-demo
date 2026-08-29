@@ -1,5 +1,6 @@
 ---
 title: Rust 基础总览
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Rust 基础总览

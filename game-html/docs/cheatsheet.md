@@ -1,5 +1,6 @@
 ---
 title: 游戏开发速查表
+date: 2026-08-22  # date-auto-injected
 ---
 
 # 🧾 游戏开发速查表

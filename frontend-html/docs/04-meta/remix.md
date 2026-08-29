@@ -1,5 +1,6 @@
 ---
 title: Remix / RR v7
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Remix / React Router 7

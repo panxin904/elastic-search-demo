@@ -1,5 +1,6 @@
 ---
 title: JWT 详解
+date: 2026-08-15  # date-auto-injected
 ---
 
 # JWT（JSON Web Token）详解

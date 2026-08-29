@@ -1,5 +1,6 @@
 ---
 title: AI 应用概览
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🤖 AI 应用概览

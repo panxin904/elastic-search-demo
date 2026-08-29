@@ -1,5 +1,6 @@
 ---
 title: Prometheus remote_write
+date: 2026-08-15  # date-auto-injected
 description: ClickHouse 作为 Prometheus 长期存储：bridge 工具 + 实战
 ---
 

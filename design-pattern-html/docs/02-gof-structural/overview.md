@@ -1,5 +1,6 @@
 ---
 title: 结构型模式总览
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 结构型模式总览

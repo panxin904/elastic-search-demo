@@ -1,5 +1,6 @@
 ---
 title: 版本控制
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 版本控制

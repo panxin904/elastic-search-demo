@@ -1,5 +1,6 @@
 ---
 title: 数据类型
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📊 MySQL 数据类型

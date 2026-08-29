@@ -1,5 +1,6 @@
 ---
 title: Prometheus
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Prometheus - 指标采集

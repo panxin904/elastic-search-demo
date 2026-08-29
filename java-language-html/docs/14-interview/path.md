@@ -1,5 +1,6 @@
 ---
 title: 学习路径
+date: 2026-08-15  # date-auto-injected
 ---
 # Java 学习路径
 - Junior (1-2yr): Core Java, Collections, basic concurrency, Spring Boot CRUD, SQL

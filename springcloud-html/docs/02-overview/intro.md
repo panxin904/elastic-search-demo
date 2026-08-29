@@ -1,5 +1,6 @@
 ---
 title: Spring Cloud Alibaba 总览
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📚 Spring Cloud Alibaba 总览

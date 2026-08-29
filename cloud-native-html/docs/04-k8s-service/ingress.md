@@ -1,5 +1,6 @@
 ---
 title: Ingress 入口
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Ingress - 七层 HTTP 入口

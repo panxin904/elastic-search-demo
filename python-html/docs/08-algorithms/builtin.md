@@ -1,5 +1,6 @@
 ---
 title: 内置数据结构
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📚 内置数据结构

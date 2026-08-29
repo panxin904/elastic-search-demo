@@ -1,5 +1,6 @@
 ---
 title: 告警静默
+date: 2026-08-15  # date-auto-injected
 description: Silence / 维护窗口 / 已知问题屏蔽
 ---
 

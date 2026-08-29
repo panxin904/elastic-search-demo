@@ -1,5 +1,6 @@
 ---
 title: 动态渲染
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🌍 动态渲染

@@ -1,5 +1,6 @@
 ---
 title: IP 地址
+date: 2026-08-15  # date-auto-injected
 ---
 
 # IP 地址

@@ -1,5 +1,6 @@
 ---
 title: TimescaleDB 时序扩展
+date: 2026-08-15  # date-auto-injected
 description: PG 时序数据库
 ---
 

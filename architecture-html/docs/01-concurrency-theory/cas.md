@@ -1,5 +1,6 @@
 ---
 title: CAS / Lock-Free
+date: 2026-08-15  # date-auto-injected
 ---
 # CAS 与无锁编程
 

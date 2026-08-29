@@ -1,5 +1,6 @@
 ---
 title: Grafana 概览
+date: 2026-08-15  # date-auto-injected
 description: 数据源 / Dashboard / 告警
 ---
 

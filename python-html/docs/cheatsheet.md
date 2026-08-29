@@ -1,5 +1,6 @@
 ---
 title: 速查表
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📋 Python 速查表

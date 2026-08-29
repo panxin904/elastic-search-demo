@@ -1,5 +1,6 @@
 ---
 title: MooseFS
+date: 2026-08-15  # date-auto-injected
 ---
 
 # MooseFS — 轻量级 POSIX 分布式文件系统

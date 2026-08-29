@@ -1,5 +1,6 @@
 ---
 title: OLAP 实战场景
+date: 2026-08-15  # date-auto-injected
 ---
 
 # OLAP 实战场景

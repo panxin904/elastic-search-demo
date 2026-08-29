@@ -1,5 +1,6 @@
 ---
 title: Prometheus + mysqld_exporter
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📊 Prometheus + mysqld_exporter 监控

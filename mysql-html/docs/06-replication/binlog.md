@@ -1,5 +1,6 @@
 ---
 title: binlog 与 relay log
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 📜 MySQL binlog 与 relay log

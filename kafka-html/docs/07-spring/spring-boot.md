@@ -1,5 +1,6 @@
 ---
 title: Spring Boot 集成
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ⚙️ Spring Boot 集成

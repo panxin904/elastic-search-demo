@@ -1,5 +1,6 @@
 ---
 title: 映射 Mapping
+date: 2026-08-15  # date-auto-injected
 category: storage
 graphNodeId: mapping
 ---

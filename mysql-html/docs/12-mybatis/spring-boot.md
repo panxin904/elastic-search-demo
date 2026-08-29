@@ -1,5 +1,6 @@
 ---
 title: MyBatis 与 Spring Boot 集成
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🔧 MyBatis 与 Spring Boot 集成实战

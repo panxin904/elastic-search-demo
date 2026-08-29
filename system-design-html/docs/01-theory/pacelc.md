@@ -1,5 +1,6 @@
 ---
 title: PACELC 扩展
+date: 2026-08-15  # date-auto-injected
 ---
 
 # PACELC 扩展

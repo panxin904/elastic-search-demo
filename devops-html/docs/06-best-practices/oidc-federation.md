@@ -1,5 +1,6 @@
 ---
 title: OIDC 联邦
+date: 2026-08-15  # date-auto-injected
 ---
 
 # OIDC 联邦（CI/CD ↔ 云厂商）

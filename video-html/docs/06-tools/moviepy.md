@@ -1,5 +1,6 @@
 ---
 title: MoviePy Python
+date: 2026-08-15  # date-auto-injected
 ---
 
 # MoviePy Python 视频库

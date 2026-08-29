@@ -1,5 +1,6 @@
 ---
 title: systemctl 命令
+date: 2026-08-15  # date-auto-injected
 ---
 
 # systemctl 命令

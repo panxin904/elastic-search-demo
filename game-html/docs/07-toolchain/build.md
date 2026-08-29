@@ -1,5 +1,6 @@
 ---
 title: 构建发布
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 构建发布

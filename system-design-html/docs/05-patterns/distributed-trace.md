@@ -1,5 +1,6 @@
 ---
 title: 分布式链路追踪
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 分布式链路追踪

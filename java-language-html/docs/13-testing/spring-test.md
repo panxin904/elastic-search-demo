@@ -1,5 +1,6 @@
 ---
 title: Spring Boot Test
+date: 2026-08-15  # date-auto-injected
 ---
 # Spring Boot Test
 - @SpringBootTest: full context, slow

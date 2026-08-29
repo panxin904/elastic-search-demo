@@ -1,5 +1,6 @@
 ---
 title: Chain of Responsibility 责任链模式
+date: 2026-08-15  # date-auto-injected
 description: 请求沿链传递 + HTTP 中间件 / Servlet Filter / Spring Interceptor
 ---
 

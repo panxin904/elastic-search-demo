@@ -1,5 +1,6 @@
 ---
 title: 舱壁与隔离
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 舱壁与隔离

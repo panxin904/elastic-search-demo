@@ -1,5 +1,6 @@
 ---
 title: Python 解释器
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🏗️ Python 解释器

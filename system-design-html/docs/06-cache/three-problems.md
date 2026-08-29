@@ -1,5 +1,6 @@
 ---
 title: 缓存三大问题：雪崩 / 穿透 / 击穿
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 缓存三大问题

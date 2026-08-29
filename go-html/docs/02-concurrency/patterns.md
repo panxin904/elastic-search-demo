@@ -1,5 +1,6 @@
 ---
 title: 并发模式实战
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 并发模式实战

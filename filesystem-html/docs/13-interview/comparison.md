@@ -1,5 +1,6 @@
 ---
 title: 全维度对比
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 文件系统全维度对比表

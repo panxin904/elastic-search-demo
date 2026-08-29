@@ -1,5 +1,6 @@
 ---
 title: 权限 (rwx)
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 文件权限 rwx

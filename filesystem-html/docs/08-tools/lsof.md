@@ -1,5 +1,6 @@
 ---
 title: lsof
+date: 2026-08-15  # date-auto-injected
 ---
 
 # lsof — List Open Files 一切皆文件

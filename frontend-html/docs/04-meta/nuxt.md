@@ -1,5 +1,6 @@
 ---
 title: Nuxt (Vue 元框架)
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Nuxt (Vue 元框架)

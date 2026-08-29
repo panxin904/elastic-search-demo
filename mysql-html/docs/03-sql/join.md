@@ -1,5 +1,6 @@
 ---
 title: JOIN 七种用法
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🔗 MySQL JOIN 七种用法

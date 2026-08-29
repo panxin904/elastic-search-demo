@@ -1,5 +1,6 @@
 ---
 title: 集群部署
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🏭 集群部署

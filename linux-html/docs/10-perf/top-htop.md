@@ -1,5 +1,6 @@
 ---
 title: top / htop
+date: 2026-08-15  # date-auto-injected
 ---
 
 # top / htop - 性能排查第一步

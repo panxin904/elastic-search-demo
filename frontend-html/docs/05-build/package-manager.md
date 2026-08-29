@@ -1,5 +1,6 @@
 ---
 title: 包管理器 (pnpm/yarn)
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 包管理器 — pnpm / yarn / npm

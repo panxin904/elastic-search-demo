@@ -1,5 +1,6 @@
 ---
 title: 工业互联网 IIoT
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 工业互联网 IIoT

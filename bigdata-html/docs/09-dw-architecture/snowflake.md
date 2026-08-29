@@ -1,5 +1,6 @@
 ---
 title: Snowflake 数仓架构
+date: 2026-08-15  # date-auto-injected
 ---
 # Snowflake 数仓架构
 

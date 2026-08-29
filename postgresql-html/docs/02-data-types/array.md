@@ -1,5 +1,6 @@
 ---
 title: 数组类型
+date: 2026-08-15  # date-auto-injected
 description: PostgreSQL 原生数组类型详解
 ---
 

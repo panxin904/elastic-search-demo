@@ -1,5 +1,6 @@
 ---
 title: 运动估计与补偿
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 运动估计与补偿（ME/MC）

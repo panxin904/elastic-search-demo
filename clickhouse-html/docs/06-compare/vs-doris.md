@@ -1,5 +1,6 @@
 ---
 title: vs Doris / StarRocks
+date: 2026-08-15  # date-auto-injected
 description: ClickHouse vs Doris vs StarRocks 三大 OLAP 引擎详细对比
 ---
 

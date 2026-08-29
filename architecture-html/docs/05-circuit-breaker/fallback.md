@@ -1,5 +1,6 @@
 ---
 title: Fallback 设计
+date: 2026-08-15  # date-auto-injected
 ---
 # Fallback 设计
 

@@ -1,5 +1,6 @@
 ---
 title: MQTT 5.0
+date: 2026-08-27  # date-auto-injected
 ---
 
 # MQTT 5.0

@@ -1,5 +1,6 @@
 ---
 title: OpenTelemetry SDK
+date: 2026-08-15  # date-auto-injected
 description: 编程语言 SDK / 上下文传播 / 资源属性
 ---
 

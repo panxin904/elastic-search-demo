@@ -1,5 +1,6 @@
 ---
 title: Outbox 事务性发件箱
+date: 2026-08-15  # date-auto-injected
 description: 业务数据 + 消息同事务 + Debezium / Spring Modulith + 防止消息丢失
 ---
 

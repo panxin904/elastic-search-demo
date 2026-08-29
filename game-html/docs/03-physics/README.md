@@ -1,5 +1,6 @@
 ---
 title: 物理
+date: 2026-08-27  # date-auto-injected
 ---
 
 # 03 · 物理

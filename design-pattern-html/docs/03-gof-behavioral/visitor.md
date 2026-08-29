@@ -1,5 +1,6 @@
 ---
 title: Visitor 访问者模式
+date: 2026-08-15  # date-auto-injected
 description: 不修改元素类增加新操作 + AST 处理 / 编译器 / 文件遍历 + Java ElementVisitor
 ---
 

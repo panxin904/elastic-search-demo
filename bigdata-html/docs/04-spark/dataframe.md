@@ -1,5 +1,6 @@
 ---
 title: Spark SQL / DataFrame
+date: 2026-08-15  # date-auto-injected
 ---
 # Spark SQL 与 DataFrame
 

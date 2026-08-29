@@ -1,5 +1,6 @@
 ---
 title: MergeTree 表引擎家族
+date: 2026-08-15  # date-auto-injected
 description: MergeTree / ReplacingMergeTree / AggregatingMergeTree / CollapsingMergeTree / VersionedCollapsingMergeTree / SummingMergeTree 完整对比
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: 可观测成本优化
+date: 2026-08-15  # date-auto-injected
 description: 存储成本 / 采样 / 保留期 / 标签基数
 ---
 

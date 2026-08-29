@@ -1,5 +1,6 @@
 ---
 title: 性能调优
+date: 2026-08-15  # date-auto-injected
 ---
 
 # ⚡ 性能调优

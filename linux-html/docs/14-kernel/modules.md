@@ -1,5 +1,6 @@
 ---
 title: 内核模块
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 内核模块

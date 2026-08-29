@@ -1,5 +1,6 @@
 ---
 title: Arthas 诊断
+date: 2026-08-15  # date-auto-injected
 ---
 # Arthas
 - dashboard: real-time CPU/memory/GC (like htop for JVM)

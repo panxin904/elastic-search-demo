@@ -1,5 +1,6 @@
 ---
 title: OverlayFS
+date: 2026-08-15  # date-auto-injected
 ---
 
 # OverlayFS — 联合文件系统的标准实现

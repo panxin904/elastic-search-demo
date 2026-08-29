@@ -1,5 +1,6 @@
 ---
 title: 相对时间
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 相对时间

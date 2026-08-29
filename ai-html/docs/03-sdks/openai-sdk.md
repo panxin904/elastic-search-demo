@@ -1,5 +1,6 @@
 ---
 title: OpenAI SDK
+date: 2026-08-15  # date-auto-injected
 ---
 
 # OpenAI SDK

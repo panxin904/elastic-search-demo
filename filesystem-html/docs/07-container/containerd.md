@@ -1,5 +1,6 @@
 ---
 title: containerd
+date: 2026-08-15  # date-auto-injected
 ---
 
 # containerd — 容器运行时的工业标准

@@ -1,5 +1,6 @@
 ---
 title: 阿里云 OSS
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 阿里云 OSS — 国内市场份额第一的对象存储

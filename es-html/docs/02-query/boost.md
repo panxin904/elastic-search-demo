@@ -1,5 +1,6 @@
 ---
 title: Boost 相关度
+date: 2026-08-15  # date-auto-injected
 category: query
 graphNodeId: boost
 ---

@@ -1,5 +1,6 @@
 ---
 title: 创建型模式总览
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 创建型模式总览

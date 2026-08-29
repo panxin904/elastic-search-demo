@@ -1,5 +1,6 @@
 ---
 title: Event Sourcing 事件溯源
+date: 2026-08-15  # date-auto-injected
 description: 用事件序列保存状态 + Axon / EventStoreDB + 优势与挑战
 ---
 

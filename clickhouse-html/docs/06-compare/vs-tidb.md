@@ -1,5 +1,6 @@
 ---
 title: vs TiDB
+date: 2026-08-15  # date-auto-injected
 description: ClickHouse vs TiDB HTAP：OLAP 专精 vs OLTP + OLAP 一体化
 ---
 

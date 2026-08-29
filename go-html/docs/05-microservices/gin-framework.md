@@ -1,5 +1,6 @@
 ---
 title: Gin 框架
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Gin Web 框架

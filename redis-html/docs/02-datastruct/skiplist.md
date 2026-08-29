@@ -1,5 +1,6 @@
 ---
 title: SkipList 跳表
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 🦘 SkipList 跳表

@@ -1,5 +1,6 @@
 ---
 title: 慢日志
+date: 2026-08-15  # date-auto-injected
 category: ops
 graphNodeId: slow-log
 ---

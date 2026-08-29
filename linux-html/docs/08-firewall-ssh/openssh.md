@@ -1,5 +1,6 @@
 ---
 title: OpenSSH 配置
+date: 2026-08-15  # date-auto-injected
 ---
 
 # OpenSSH 配置

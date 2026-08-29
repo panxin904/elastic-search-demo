@@ -1,5 +1,6 @@
 ---
 title: mysql client 命令
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 💻 MySQL mysql client 命令

@@ -1,5 +1,6 @@
 ---
 title: EXPLAIN 详解
+date: 2026-08-15  # date-auto-injected
 ---
 
 # EXPLAIN 详解
