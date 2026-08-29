@@ -39,6 +39,10 @@ LOW_DENSITY_SITES = {
     'bigdata-html': 'bigdata',
     'clickhouse-html': 'clickhouse',
     'chaos-html': 'chaos',
+    # §8.79 第六批：3 站（密度 0.33 ~ 0.50）
+    'frontend-html': 'frontend',
+    'devops-html': 'devops',
+    'security-html': 'security',
 }
 
 # 跳过的 shell 页（已有跨站段或不该注入的页面）

@@ -223,3 +223,13 @@ Query  → 拼 DSL → 命中 → 高亮
 - [高频面试题](/13-interview/basic)
 - [手写代码题](/13-interview/coding)
 - [Microservices / 微前端](/14-tools/micro-frontend)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [java](https://java-px.bot.cd/java-web-manual/):Java 后端 API
+- [android](https://java-px.bot.cd/android/):Android 移动
+- [java-language](https://java-px.bot.cd/java-language/):Java 基础

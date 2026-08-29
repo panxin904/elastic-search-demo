@@ -153,3 +153,13 @@ Context 适合"低频更新 + 跨组件共享"，高频更新用 Redux / Zustand
 - [Redux Toolkit](/07-state/redux)
 - [Zustand / Jotai](/07-state/zustand)
 - [React Query](/07-state/data-fetching)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [java](https://java-px.bot.cd/java-web-manual/):Java 后端 API
+- [android](https://java-px.bot.cd/android/):Android 移动
+- [java-language](https://java-px.bot.cd/java-language/):Java 基础

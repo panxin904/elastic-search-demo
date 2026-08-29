@@ -192,3 +192,13 @@ shared: { react: { singleton: true }, 'react-dom': { singleton: true } }
 
 - [Monorepo](/05-build/monorepo)
 - [Vite 原理](/05-build/vite)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [java](https://java-px.bot.cd/java-web-manual/):Java 后端 API
+- [android](https://java-px.bot.cd/android/):Android 移动
+- [java-language](https://java-px.bot.cd/java-language/):Java 基础

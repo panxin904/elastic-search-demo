@@ -441,3 +441,13 @@ Promise.myRace = (promises: Promise<any>[]) =>
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [java](https://java-px.bot.cd/java-web-manual/):Java 后端 API
+- [android](https://java-px.bot.cd/android/):Android 移动
+- [java-language](https://java-px.bot.cd/java-language/):Java 基础
