@@ -230,3 +230,13 @@ public class OrderQueryService {
 - 读模型可以最终一致（异步投影）
 - 投影要幂等（可能被重复消费）
 - 监控读写延迟差异（设置 SLA）
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [java-language](https://java-px.bot.cd/java-language/):Java 设计模式
+- [java](https://java-px.bot.cd/java-web-manual/):Java 实现
+- [architecture](https://java-px.bot.cd/architecture/):架构模式

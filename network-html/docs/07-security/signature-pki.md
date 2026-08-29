@@ -188,3 +188,13 @@ openssl s_client -connect example.com:443 -showcerts
 4. **DV 和 EV 证书区别？** EV 审核企业身份，浏览器地址栏显示公司名。
 5. **证书过期怎么验证？** OCSP / CRL。
 6. **CSR 是什么？** 包含公钥和身份信息，提交给 CA 签发证书。
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [linux](https://java-px.bot.cd/linux/):Linux 网络栈
+- [security](https://java-px.bot.cd/security/):网络安全
+- [cloud-native](https://java-px.bot.cd/cloud-native/):K8s 网络

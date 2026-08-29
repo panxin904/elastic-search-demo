@@ -239,3 +239,13 @@ Idempotency-Key: pay-2026-08-05-abc
 4. **状态码 401 vs 403？** 401 未认证，403 已认证但无权限。
 5. **分页策略？** offset/limit（小数据集）或 cursor（大数据）。
 6. **REST vs RPC？** REST 面向资源 + 文本；RPC 面向动作 + 二进制（如 gRPC）。
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [linux](https://java-px.bot.cd/linux/):Linux 网络栈
+- [security](https://java-px.bot.cd/security/):网络安全
+- [cloud-native](https://java-px.bot.cd/cloud-native/):K8s 网络

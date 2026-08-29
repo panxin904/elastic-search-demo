@@ -281,3 +281,13 @@ SELECT pg_reload_conf();
 ---
 
 🏠 <a href="https://java-px.bot.cd/" target="_blank">返回门户首页</a>
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [mysql](https://java-px.bot.cd/mysql/):MySQL 对比
+- [clickhouse](https://java-px.bot.cd/clickhouse/):ClickHouse OLAP
+- [system-design](https://java-px.bot.cd/system-design/):数据库选型

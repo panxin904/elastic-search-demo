@@ -246,3 +246,13 @@ key: value
 ## 图示：混沌实验 5 阶段流程
 
 ![混沌实验 5 阶段流程](/chaos-experiment.svg)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [cloud-native](https://java-px.bot.cd/cloud-native/):K8s 混沌
+- [observability](https://java-px.bot.cd/observability/):故障注入监控
+- [system-design](https://java-px.bot.cd/system-design/):系统韧性

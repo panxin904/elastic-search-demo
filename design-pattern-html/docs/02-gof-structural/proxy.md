@@ -233,3 +233,13 @@ class CachedUserRepo implements UserRepository {
 - Spring 5+ 默认使用 CGLIB（更强大）
 - 代理链不要太长（debug 困难）
 - 代理本身应该是无业务逻辑的（薄包装）
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [java-language](https://java-px.bot.cd/java-language/):Java 设计模式
+- [java](https://java-px.bot.cd/java-web-manual/):Java 实现
+- [architecture](https://java-px.bot.cd/architecture/):架构模式

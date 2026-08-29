@@ -199,3 +199,13 @@ Content-Length: 85
 4. **HTTP 无状态怎么保持登录？** Cookie + Session / JWT。
 5. **HTTP/1.1 队头阻塞？** 同一连接上一个响应延迟会阻塞后续。
 6. **HTTP keep-alive 作用？** 复用 TCP 连接，减少握手开销。
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [linux](https://java-px.bot.cd/linux/):Linux 网络栈
+- [security](https://java-px.bot.cd/security/):网络安全
+- [cloud-native](https://java-px.bot.cd/cloud-native/):K8s 网络

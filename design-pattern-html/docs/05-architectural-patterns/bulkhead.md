@@ -229,3 +229,13 @@ resilience4j:
 - 监控舱壁活跃度（接近 maxSize 告警）
 - 与 Circuit Breaker 组合使用
 - 优先 K8s 进程隔离（最彻底）
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [java-language](https://java-px.bot.cd/java-language/):Java 设计模式
+- [java](https://java-px.bot.cd/java-web-manual/):Java 实现
+- [architecture](https://java-px.bot.cd/architecture/):架构模式

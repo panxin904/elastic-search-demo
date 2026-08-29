@@ -149,3 +149,13 @@ IPv6:   全 128 bit，地址充足
 公网 ⇄ 私网：经 NAT（网络地址转换）
 广播：   IPv4 子网内 / IPv6 无广播只有组播
 ```
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [linux](https://java-px.bot.cd/linux/):Linux 网络栈
+- [security](https://java-px.bot.cd/security/):网络安全
+- [cloud-native](https://java-px.bot.cd/cloud-native/):K8s 网络

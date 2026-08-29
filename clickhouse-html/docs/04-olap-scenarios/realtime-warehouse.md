@@ -298,3 +298,13 @@ SELECT ... FROM events_dwd
 
 - 学习 Kafka 集成：见 [05-ecosystem/kafka-integration.md](../05-ecosystem/kafka-integration.md)
 - 学习对比选型：见 [06-compare/overview.md](../06-compare/overview.md)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [es](https://java-px.bot.cd/es/):ES 对比
+- [bigdata](https://java-px.bot.cd/bigdata/):大数据生态
+- [postgresql](https://java-px.bot.cd/postgresql/):PostgreSQL 对比

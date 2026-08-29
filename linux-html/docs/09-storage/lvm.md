@@ -221,3 +221,13 @@ sudo lvremove /dev/vg_data/db_snap
 - [mount / umount](/09-storage/mount)
 - [fstab 自动挂载](/09-storage/fstab)
 - [ext4 / xfs / btrfs](/09-storage/fs-types)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [devops](https://java-px.bot.cd/devops/):DevOps 自动化
+- [cloud-native](https://java-px.bot.cd/cloud-native/):云原生
+- [network](https://java-px.bot.cd/network/):Linux 网络

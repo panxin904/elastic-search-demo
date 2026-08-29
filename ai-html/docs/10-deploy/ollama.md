@@ -262,3 +262,13 @@ llm = ChatOllama(model="qwen2.5")
 - [vLLM / TGI 服务](/10-deploy/vllm-tgi)
 - [API 托管](/10-deploy/hosted)
 - [Claude Code / OpenCode](/02-coding-tools/claude-code)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [python](https://java-px.bot.cd/python/):Python AI
+- [bigdata](https://java-px.bot.cd/bigdata/):大数据训练
+- [system-design](https://java-px.bot.cd/system-design/):AI 系统架构

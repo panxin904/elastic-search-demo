@@ -320,3 +320,13 @@ username: default
 
 - 学习指标 TSDB：见 [metrics-storage.md](./metrics-storage.md)
 - 学习高基数 UV：见 [bitmap.md](./bitmap.md)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [es](https://java-px.bot.cd/es/):ES 对比
+- [bigdata](https://java-px.bot.cd/bigdata/):大数据生态
+- [postgresql](https://java-px.bot.cd/postgresql/):PostgreSQL 对比

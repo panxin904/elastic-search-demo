@@ -214,3 +214,13 @@ redis-cli -p 6380 REPLICAOF NO ONE
 | 水平分片 | ❌ | ❌ | ❌ |
 
 **下一步：** [🛡️ Sentinel 哨兵](/04-cluster/sentinel)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [mysql](https://java-px.bot.cd/mysql/):MySQL 主存
+- [kafka](https://java-px.bot.cd/kafka/):Kafka 异步队列
+- [java](https://java-px.bot.cd/java-web-manual/):Java 客户端（Redisson / Jedis）

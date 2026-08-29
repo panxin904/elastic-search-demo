@@ -256,3 +256,13 @@ OrderService 不直接调 NotificationService，通过 EventBus 解耦。
 - 实战案例
 - 参考资料
 <!-- auto-enrich:do-not-edit -->
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [java-language](https://java-px.bot.cd/java-language/):Java 设计模式
+- [java](https://java-px.bot.cd/java-web-manual/):Java 实现
+- [architecture](https://java-px.bot.cd/architecture/):架构模式

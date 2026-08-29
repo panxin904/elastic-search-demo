@@ -244,3 +244,13 @@ pulumi config set aws:region us-east-1
 - [Terraform](/10-iac/terraform)
 - [Helmfile / Kustomize](/10-iac/helmfile)
 - [GitOps 思想](/09-cicd/gitops)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [cloud](https://java-px.bot.cd/cloud/):Spring Cloud 微服务
+- [linux](https://java-px.bot.cd/linux/):Linux 内核基础
+- [devops](https://java-px.bot.cd/devops/):DevOps 流程

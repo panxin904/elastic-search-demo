@@ -200,3 +200,13 @@ wg show
 4. **VPN 协议？** IPsec、OpenVPN、WireGuard、SSL VPN。
 5. **WireGuard 优势？** 简洁、高性能、抗量子。
 6. **零信任核心？** 永不信任、持续验证、最小权限。
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [linux](https://java-px.bot.cd/linux/):Linux 网络栈
+- [security](https://java-px.bot.cd/security/):网络安全
+- [cloud-native](https://java-px.bot.cd/cloud-native/):K8s 网络

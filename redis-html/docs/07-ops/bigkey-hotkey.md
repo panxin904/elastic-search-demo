@@ -393,3 +393,13 @@ def set_seckill_stock(stock):
 ## 下一步
 
 定位完大 Key、热 Key 后，下一个常见问题是"为什么某些命令这么慢"。看 [🐢 慢查询分析](/07-ops/slowlog)，用 SLOWLOG 揪出慢操作。
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [mysql](https://java-px.bot.cd/mysql/):MySQL 主存
+- [kafka](https://java-px.bot.cd/kafka/):Kafka 异步队列
+- [java](https://java-px.bot.cd/java-web-manual/):Java 客户端（Redisson / Jedis）

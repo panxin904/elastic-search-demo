@@ -364,3 +364,13 @@ Java 生态主流选择：
 ## 图示：Circuit Breaker 三态转换与配置参数
 
 ![Circuit Breaker 三态转换与配置参数](/circuit-breaker-state-machine.svg)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [architecture](https://java-px.bot.cd/architecture/):企业架构
+- [java](https://java-px.bot.cd/java-web-manual/):Java 实现
+- [kafka](https://java-px.bot.cd/kafka/):消息

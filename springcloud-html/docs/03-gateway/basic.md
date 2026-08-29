@@ -381,3 +381,13 @@ spring:
 - ✅ 支持长连接
 
 **下一步：** [🛣️ 路由与断言](/03-gateway/route) — 深入各种 Predicate 用法
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [architecture](https://java-px.bot.cd/architecture/):微服务架构
+- [system-design](https://java-px.bot.cd/system-design/):系统设计
+- [cloud-native](https://java-px.bot.cd/cloud-native/):Docker / K8s 落地

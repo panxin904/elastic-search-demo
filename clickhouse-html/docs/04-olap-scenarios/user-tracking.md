@@ -283,3 +283,13 @@ UV 查询：    < 100ms（RoaringBitmap 预聚合）
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [es](https://java-px.bot.cd/es/):ES 对比
+- [bigdata](https://java-px.bot.cd/bigdata/):大数据生态
+- [postgresql](https://java-px.bot.cd/postgresql/):PostgreSQL 对比

@@ -178,3 +178,13 @@ static_resources:
 4. **会话保持方式？** 源 IP、Cookie、Header。
 5. **TLS 终止好处？** 后端简化为 HTTP，集中证书管理。
 6. **ALB vs NLB？** L7 vs L4，ALB 路由细，NLB 性能高。
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [linux](https://java-px.bot.cd/linux/):Linux 网络栈
+- [security](https://java-px.bot.cd/security/):网络安全
+- [cloud-native](https://java-px.bot.cd/cloud-native/):K8s 网络

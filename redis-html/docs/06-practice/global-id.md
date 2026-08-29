@@ -314,3 +314,13 @@ key: id:order:20240715
 - ❌ DB auto_increment：性能差，不推荐高并发
 
 **下一步：** [🚦 限流](/06-practice/ratelimit) — 接口限流实战
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [mysql](https://java-px.bot.cd/mysql/):MySQL 主存
+- [kafka](https://java-px.bot.cd/kafka/):Kafka 异步队列
+- [java](https://java-px.bot.cd/java-web-manual/):Java 客户端（Redisson / Jedis）

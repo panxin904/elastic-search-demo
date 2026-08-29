@@ -208,3 +208,13 @@ Checkpoint 时算子状态已快照
 - [Flink 架构](/05-flink/architecture)
 - [状态与 Checkpoint](/05-flink/state)
 - [Flink CDC](/05-flink/cdc)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [kafka](https://java-px.bot.cd/kafka/):Kafka 流处理
+- [es](https://java-px.bot.cd/es/):Elasticsearch
+- [clickhouse](https://java-px.bot.cd/clickhouse/):ClickHouse OLAP

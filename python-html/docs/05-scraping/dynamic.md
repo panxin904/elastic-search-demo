@@ -379,3 +379,13 @@ await page.route("**/analytics/**", lambda route: route.abort())
 - ⚠️ 需要安装浏览器驱动
 
 **下一步：** [🛡️ 反爬对抗](/05-scraping/anti-crawl) — 应对反爬虫机制
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [java](https://java-px.bot.cd/java-web-manual/):Java 对比
+- [ai](https://java-px.bot.cd/ai/):AI / 机器学习
+- [bigdata](https://java-px.bot.cd/bigdata/):大数据 / 数据处理

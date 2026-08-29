@@ -322,3 +322,13 @@ func (kl *Kubelet) syncPod(o syncPodOptions) error {
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [rust](https://java-px.bot.cd/rust/):Rust 对比
+- [cloud-native](https://java-px.bot.cd/cloud-native/):K8s / Docker
+- [devops](https://java-px.bot.cd/devops/):DevOps 工具

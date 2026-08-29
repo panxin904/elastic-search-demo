@@ -316,3 +316,13 @@ K8s Ingress：
 ## 图示：Service Mesh 架构
 
 ![Service Mesh 架构](/service-mesh.svg)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [architecture](https://java-px.bot.cd/architecture/):企业架构
+- [java](https://java-px.bot.cd/java-web-manual/):Java 实现
+- [kafka](https://java-px.bot.cd/kafka/):消息

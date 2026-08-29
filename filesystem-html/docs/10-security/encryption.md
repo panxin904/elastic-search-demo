@@ -246,3 +246,13 @@ gpg --decrypt backup.tar.gz.gpg > backup.tar.gz
 - fscrypt 文档：<https://github.com/google/fscrypt
 - dm-crypt 内核文档
 - 实用：LUKS2 规范
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [linux](https://java-px.bot.cd/linux/):Linux 文件系统
+- [observability](https://java-px.bot.cd/observability/):存储监控
+- [postgresql](https://java-px.bot.cd/postgresql/):PG 存储引擎

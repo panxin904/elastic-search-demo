@@ -381,3 +381,13 @@ Q3: 应用是否需要直接控制缓存？
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [architecture](https://java-px.bot.cd/architecture/):企业架构
+- [java](https://java-px.bot.cd/java-web-manual/):Java 实现
+- [kafka](https://java-px.bot.cd/kafka/):消息
