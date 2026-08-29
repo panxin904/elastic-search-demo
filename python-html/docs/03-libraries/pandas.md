@@ -34,7 +34,7 @@ print(df)
 # 2  Carol   28 Guangzhou
 ```
 
-## 📊 创建 DataFrame
+## 📊 创建 DataFrame（库 API 视角）
 
 ```python
 import pandas as pd
