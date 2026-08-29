@@ -300,3 +300,62 @@ tests: tests/*.yaml
 - [OpenAI SDK](/03-sdks/openai-sdk)
 - [LangGraph](/04-agents/langgraph)
 - [Ollama 本地推理](/10-deploy/ollama)
+
+## 📡 API 协议速查
+
+详见 [15-api-protocol/](./15-api-protocol/overview)，以下是核心对比表。
+
+### OpenAI vs Anthropic 字段差异
+
+| 字段 | OpenAI | Anthropic |
+|------|--------|-----------|
+| 端点 | `/v1/chat/completions` | `/v1/messages` |
+| 认证 | `Authorization: Bearer sk-xxx` | `x-api-key: sk-ant-xxx` + `anthropic-version` |
+| system | 放 messages[0] (role=system) | 独立顶级字段 |
+| tool schema | `function.parameters` | `input_schema` |
+| 工具响应 | `tool_calls[]` | `content[]` 里 `tool_use` 块 |
+| 工具结果回填 | `role: tool` + `tool_call_id` | `role: user` + `content[]` 里 `tool_result` |
+| max_tokens | 可选 | 必填 |
+| 流式 | SSE `data: {json}` | SSE 多种 `event:` 类型 |
+
+### HTTP 状态码处理
+
+| 状态码 | 含义 | 处理 |
+|--------|------|------|
+| 200 | 成功 | - |
+| 400 | 请求错误 | 修复 |
+| 401 | API Key 无效 | 检查 key |
+| 429 | 限流 | 退避重试 |
+| 500/502/503/504/529 | 服务端错误 | 退避重试 |
+
+### Token 计费速查
+
+| 模型 | Input/1M | Output/1M |
+|------|---------|-----------|
+| GPT-4o | $2.50 | $10.00 |
+| GPT-4o mini | $0.15 | $0.60 |
+| Claude Sonnet 4.5 | $3.00 | $15.00 |
+| Gemini 2.0 Flash | $0.075 | $0.30 |
+| DeepSeek V3 | $0.27 | $1.10 |
+
+### 流式协议要点
+
+```python
+# OpenAI 流式累积
+full = ""
+for chunk in stream:
+    if chunk.choices[0].delta.content:
+        full += chunk.choices[0].delta.content
+
+# Anthropic 流式累积
+with client.messages.stream(model="claude-sonnet-4-5", ...) as s:
+    for text in s.text_stream:
+        print(text, end="")
+```
+
+### 重试策略核心
+
+```python
+# 指数退避 + 抖动
+delay = min(base * (2 ** attempt), max_delay) * (0.5 + random.random())
+```

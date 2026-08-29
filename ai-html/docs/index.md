@@ -77,6 +77,11 @@ features:
     details: Function Calling · Tool use · Structured Output
     link: /11-tools/function-calling
     linkText: 看 Tools →
+  - icon: 🔌
+    title: API 协议
+    details: OpenAI / Anthropic / SSE 流式 / Tool 协议 / 多模态 / Token / 限流
+    link: /15-api-protocol/overview
+    linkText: 看 API 协议 →
   - icon: 🛠️
     title: 安装与环境
     details: pip / brew / npm / Docker / CUDA / GPU
