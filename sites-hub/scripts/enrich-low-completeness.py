@@ -333,15 +333,15 @@ def build_enrich_blocks(detail: dict, words: int) -> str:
     if not detail['code']:
         blocks.append('''## 实战示例
 
-\`\`\`bash
+```bash
 # TODO: 在此补充本页主题的实战命令
 echo "hello"
-\`\`\`
+```
 
-\`\`\`yaml
+```yaml
 # TODO: 配置示例
 key: value
-\`\`\`
+```
 ''')
     if not detail['table']:
         blocks.append('''## 参数说明
