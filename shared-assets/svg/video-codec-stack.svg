@@ -1,114 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
   <defs>
     <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
     </marker>
   </defs>
-  <rect width="600" height="480" fill="#fafafa"/>
-  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">视频编码流水线</text>
-  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">YUV → 预测 → 变换 → 量化 → 熵编码 → H.264/H.265/AV1</text>
+  <rect width="600" height="400" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">视频技术栈分层</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">协议 → 容器 → 编码 → 像素 · 端到端链路</text>
 
-  <!-- 流水线 -->
   <g>
-    <rect x="20" y="100" width="560" height="100" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
-    <text x="300" y="123" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">原始视频（YUV420）</text>
+    <rect x="60" y="90" width="480" height="60" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="80" y="115" font-size="12" font-weight="700" fill="#5b21b6">协议层 Protocol</text>
+    <text x="80" y="135" font-size="11" fill="#1e293b">HLS · DASH · RTMP · WebRTC · RTSP · SRT</text>
 
-    <rect x="35" y="140" width="75" height="50" rx="4" fill="white" stroke="#3b82f6"/>
-    <text x="72" y="162" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">Y</text>
-    <text x="72" y="178" text-anchor="middle" font-size="9" fill="#475569">亮度</text>
+    <rect x="60" y="160" width="480" height="60" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="80" y="185" font-size="12" font-weight="700" fill="#1e40af">容器层 Container</text>
+    <text x="80" y="205" font-size="11" fill="#1e293b">MP4 · MKV · WebM · FLV · TS · MOV</text>
 
-    <rect x="115" y="140" width="50" height="50" rx="4" fill="white" stroke="#3b82f6"/>
-    <text x="140" y="162" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">Cb</text>
-    <text x="140" y="178" text-anchor="middle" font-size="9" fill="#475569">色度</text>
+    <rect x="60" y="230" width="480" height="60" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <text x="80" y="255" font-size="12" font-weight="700" fill="#065f46">编码层 Codec</text>
+    <text x="80" y="275" font-size="11" fill="#1e293b">H.264/AVC · H.265/HEVC · AV1 · VP9 · AVS3</text>
 
-    <rect x="170" y="140" width="50" height="50" rx="4" fill="white" stroke="#3b82f6"/>
-    <text x="195" y="162" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">Cr</text>
-    <text x="195" y="178" text-anchor="middle" font-size="9" fill="#475569">色度</text>
-
-    <text x="240" y="160" text-anchor="middle" font-size="10" fill="#64748b">→ 4:2:0 采样</text>
-    <text x="240" y="178" text-anchor="middle" font-size="9" fill="#94a3b8">节省 50% 色度带宽</text>
-
-    <text x="350" y="160" text-anchor="middle" font-size="10" fill="#64748b">→ 帧分组 GOP</text>
-    <text x="350" y="178" text-anchor="middle" font-size="9" fill="#94a3b8">I / P / B 帧</text>
-
-    <text x="450" y="160" text-anchor="middle" font-size="10" fill="#64748b">→ 宏块 16×16</text>
-    <text x="450" y="178" text-anchor="middle" font-size="9" fill="#94a3b8">CTU 64×64（H.265）</text>
+    <rect x="60" y="300" width="480" height="60" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="80" y="325" font-size="12" font-weight="700" fill="#92400e">像素层 Pixel</text>
+    <text x="80" y="345" font-size="11" fill="#1e293b">YUV 4:2:0 · 8/10bit · HDR10 · HLG · Dolby Vision</text>
   </g>
 
-  <!-- 编码步骤 -->
-  <g>
-    <text x="300" y="225" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">编码步骤（帧内 + 帧间）</text>
+  <line x1="40" y1="120" x2="55" y2="120" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="40" y1="190" x2="55" y2="190" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="40" y1="260" x2="55" y2="260" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="40" y1="330" x2="55" y2="330" stroke="#64748b" stroke-width="1.5"/>
+  <text x="20" y="225" text-anchor="middle" font-size="10" fill="#64748b" transform="rotate(-90 20 225)">网络视角</text>
 
-    <g>
-      <rect x="20" y="240" width="105" height="70" rx="6" fill="#d1fae5" stroke="#10b981"/>
-      <text x="72" y="262" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">预测</text>
-      <text x="72" y="280" text-anchor="middle" font-size="9" fill="#475569">Intra / Inter</text>
-      <text x="72" y="295" text-anchor="middle" font-size="9" fill="#475569">帧内/帧间预测</text>
-      <text x="72" y="307" text-anchor="middle" font-size="9" font-style="italic" fill="#94a3b8">运动估计 ME</text>
+  <text x="555" y="120" text-anchor="end" font-size="10" fill="#64748b">传输</text>
+  <text x="555" y="190" text-anchor="end" font-size="10" fill="#64748b">封装</text>
+  <text x="555" y="260" text-anchor="end" font-size="10" fill="#64748b">压缩</text>
+  <text x="555" y="330" text-anchor="end" font-size="10" fill="#64748b">采样</text>
 
-      <rect x="135" y="240" width="105" height="70" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
-      <text x="187" y="262" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">变换</text>
-      <text x="187" y="280" text-anchor="middle" font-size="9" fill="#475569">DCT / DST</text>
-      <text x="187" y="295" text-anchor="middle" font-size="9" fill="#475569">空域 → 频域</text>
-      <text x="187" y="307" text-anchor="middle" font-size="9" font-style="italic" fill="#94a3b8">8×8 块</text>
-
-      <rect x="250" y="240" width="105" height="70" rx="6" fill="#ede9fe" stroke="#8b5cf6"/>
-      <text x="302" y="262" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">量化</text>
-      <text x="302" y="280" text-anchor="middle" font-size="9" fill="#475569">QStep 步长</text>
-      <text x="302" y="295" text-anchor="middle" font-size="9" fill="#475569">有损压缩关键</text>
-      <text x="302" y="307" text-anchor="middle" font-size="9" font-style="italic" fill="#94a3b8">QP 0-51</text>
-
-      <rect x="365" y="240" width="105" height="70" rx="6" fill="#fce7f3" stroke="#ec4899"/>
-      <text x="417" y="262" text-anchor="middle" font-size="11" font-weight="700" fill="#9d174d">熵编码</text>
-      <text x="417" y="280" text-anchor="middle" font-size="9" fill="#475569">CAVLC / CABAC</text>
-      <text x="417" y="295" text-anchor="middle" font-size="9" fill="#475569">变长编码 / 算术</text>
-      <text x="417" y="307" text-anchor="middle" font-size="9" font-style="italic" fill="#94a3b8">无损</text>
-
-      <rect x="480" y="240" width="100" height="70" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
-      <text x="530" y="262" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">码流</text>
-      <text x="530" y="280" text-anchor="middle" font-size="9" fill="#475569">.264 / .265</text>
-      <text x="530" y="295" text-anchor="middle" font-size="9" fill="#475569">.av1 / .vp9</text>
-      <text x="530" y="307" text-anchor="middle" font-size="9" font-style="italic" fill="#94a3b8">封装</text>
-    </g>
-
-    <g stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)">
-      <path d="M125,275 L135,275"/>
-      <path d="M240,275 L250,275"/>
-      <path d="M355,275 L365,275"/>
-      <path d="M470,275 L480,275"/>
-    </g>
-  </g>
-
-  <!-- 主流编码对比 -->
-  <g>
-    <text x="300" y="345" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">主流编码对比（同等质量）</text>
-
-    <rect x="20" y="360" width="130" height="100" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
-    <text x="85" y="382" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">H.264 / AVC</text>
-    <text x="85" y="400" text-anchor="middle" font-size="9" fill="#475569">2003 · MPEG-4</text>
-    <text x="85" y="416" text-anchor="middle" font-size="9" fill="#475569">100% 文件大小</text>
-    <text x="85" y="432" text-anchor="middle" font-size="9" fill="#475569">通用最广</text>
-    <text x="85" y="448" text-anchor="middle" font-size="9" fill="#475569">专利费（已到期）</text>
-
-    <rect x="160" y="360" width="130" height="100" rx="6" fill="#d1fae5" stroke="#10b981"/>
-    <text x="225" y="382" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">H.265 / HEVC</text>
-    <text x="225" y="400" text-anchor="middle" font-size="9" fill="#475569">2013</text>
-    <text x="225" y="416" text-anchor="middle" font-size="9" fill="#475569">~50% H.264</text>
-    <text x="225" y="432" text-anchor="middle" font-size="9" fill="#475569">4K / HDR / WCG</text>
-    <text x="225" y="448" text-anchor="middle" font-size="9" fill="#475569">专利费复杂</text>
-
-    <rect x="300" y="360" width="130" height="100" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
-    <text x="365" y="382" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">VP9</text>
-    <text x="365" y="400" text-anchor="middle" font-size="9" fill="#475569">2013 · Google</text>
-    <text x="365" y="416" text-anchor="middle" font-size="9" fill="#475569">~55% H.264</text>
-    <text x="365" y="432" text-anchor="middle" font-size="9" fill="#475569">YouTube 主用</text>
-    <text x="365" y="448" text-anchor="middle" font-size="9" fill="#475569">免专利费</text>
-
-    <rect x="440" y="360" width="140" height="100" rx="6" fill="#ede9fe" stroke="#8b5cf6"/>
-    <text x="510" y="382" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">AV1</text>
-    <text x="510" y="400" text-anchor="middle" font-size="9" fill="#475569">2018 · AOMedia</text>
-    <text x="510" y="416" text-anchor="middle" font-size="9" fill="#475569">~30% H.264</text>
-    <text x="510" y="432" text-anchor="middle" font-size="9" fill="#475569">Netflix / YouTube</text>
-    <text x="510" y="448" text-anchor="middle" font-size="9" fill="#475569">免专利费</text>
-  </g>
+  <text x="300" y="385" text-anchor="middle" font-size="10" fill="#64748b">§8.72+ v6 · video</text>
 </svg>

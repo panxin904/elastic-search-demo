@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="320" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">FFmpeg 转码流水线</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">解复用 → 解码 → 滤镜 → 编码 → 复用 · 5 步流水线</text>
+
+  <!-- 6 个流程节点 -->
+  <g>
+    <rect x="20" y="130" width="80" height="60" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="60" y="155" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">Input</text>
+    <text x="60" y="175" text-anchor="middle" font-size="10" fill="#92400e">input.mp4</text>
+
+    <rect x="120" y="130" width="80" height="60" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="160" y="155" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">Demux</text>
+    <text x="160" y="175" text-anchor="middle" font-size="10" fill="#1e40af">AVStream</text>
+
+    <rect x="220" y="130" width="80" height="60" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="260" y="155" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">Decode</text>
+    <text x="260" y="175" text-anchor="middle" font-size="10" fill="#1e40af">AVFrame</text>
+
+    <rect x="320" y="130" width="80" height="60" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="360" y="155" text-anchor="middle" font-size="12" font-weight="700" fill="#5b21b6">Filter</text>
+    <text x="360" y="175" text-anchor="middle" font-size="10" fill="#5b21b6">scale/overlay</text>
+
+    <rect x="420" y="130" width="80" height="60" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <text x="460" y="155" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">Encode</text>
+    <text x="460" y="175" text-anchor="middle" font-size="10" fill="#065f46">h264_nvenc</text>
+
+    <rect x="520" y="130" width="80" height="60" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <text x="560" y="155" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">Mux</text>
+    <text x="560" y="175" text-anchor="middle" font-size="10" fill="#065f46">output.mp4</text>
+  </g>
+
+  <!-- 节点之间箭头 -->
+  <line x1="100" y1="160" x2="120" y2="160" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="200" y1="160" x2="220" y2="160" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="300" y1="160" x2="320" y2="160" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="400" y1="160" x2="420" y2="160" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="500" y1="160" x2="520" y2="160" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- 顶部：抽象层 -->
+  <rect x="120" y="80" width="480" height="30" rx="4" fill="#fff" stroke="#cbd5e1"/>
+  <text x="360" y="100" text-anchor="middle" font-size="11" font-weight="700" fill="#475569">FFmpeg libavformat + libavcodec + libavfilter</text>
+
+  <!-- 底部：典型命令行 -->
+  <rect x="20" y="220" width="560" height="60" rx="6" fill="#1e293b"/>
+  <text x="40" y="240" font-size="10" fill="#94a3b8">$ </text>
+  <text x="55" y="240" font-size="11" fill="#fbbf24" font-family="ui-monospace,'SF Mono',monospace">ffmpeg -i input.mp4 -vf "scale=1280:720" -c:v h264 -c:a aac output.mp4</text>
+  <text x="40" y="265" font-size="10" fill="#94a3b8">→ 720p H.264 + AAC 自动转码</text>
+
+  <text x="300" y="305" text-anchor="middle" font-size="10" fill="#64748b">§8.72+ v6 · video</text>
+</svg>

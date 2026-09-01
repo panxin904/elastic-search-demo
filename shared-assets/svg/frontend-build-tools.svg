@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="380" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">前端构建工具演进</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">从打包到原生 ESM · 4 代工具链</text>
+
+  <!-- 4 代对比 -->
+  <g>
+    <!-- Webpack -->
+    <rect x="30" y="100" width="130" height="200" rx="8" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1.5"/>
+    <text x="95" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#3730a3">Webpack</text>
+    <text x="95" y="143" text-anchor="middle" font-size="9" fill="#64748b">2014 · 1.x</text>
+    
+    <text x="50" y="170" font-size="10" fill="#1e293b">✓ 生态最大</text>
+    <text x="50" y="190" font-size="10" fill="#1e293b">✓ loader/plugin</text>
+    <text x="50" y="210" font-size="10" fill="#dc2626">✗ 配置复杂</text>
+    <text x="50" y="230" font-size="10" fill="#dc2626">✗ 打包慢</text>
+    
+    <text x="95" y="270" text-anchor="middle" font-size="10" fill="#475569">打包器</text>
+    <text x="95" y="285" text-anchor="middle" font-size="10" fill="#475569">Bundle</text>
+
+    <!-- Vite -->
+    <rect x="175" y="100" width="130" height="200" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="240" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">Vite</text>
+    <text x="240" y="143" text-anchor="middle" font-size="9" fill="#64748b">2020 · 1.x</text>
+    
+    <text x="195" y="170" font-size="10" fill="#1e293b">✓ ESM 原生</text>
+    <text x="195" y="190" font-size="10" fill="#1e293b">✓ HMR 极快</text>
+    <text x="195" y="210" font-size="10" fill="#1e293b">✓ 0 配置</text>
+    <text x="195" y="230" font-size="10" fill="#dc2626">✗ 生态相对小</text>
+    
+    <text x="240" y="270" text-anchor="middle" font-size="10" fill="#475569">dev: ESM</text>
+    <text x="240" y="285" text-anchor="middle" font-size="10" fill="#475569">prod: Rollup</text>
+
+    <!-- esbuild -->
+    <rect x="320" y="100" width="130" height="200" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="385" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">esbuild</text>
+    <text x="385" y="143" text-anchor="middle" font-size="9" fill="#64748b">2020 · Go</text>
+    
+    <text x="340" y="170" font-size="10" fill="#1e293b">✓ 极快 (10-100x)</text>
+    <text x="340" y="190" font-size="10" fill="#1e293b">✓ 单文件 binary</text>
+    <text x="340" y="210" font-size="10" fill="#dc2626">✗ 不支持 TS 类型</text>
+    <text x="340" y="230" font-size="10" fill="#dc2626">✗ 不能 tree-shake</text>
+    
+    <text x="385" y="270" text-anchor="middle" font-size="10" fill="#475569">极速打包</text>
+    <text x="385" y="285" text-anchor="middle" font-size="10" fill="#475569">Bundler</text>
+
+    <!-- Turbopack -->
+    <rect x="465" y="100" width="130" height="200" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+    <text x="530" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#9d174d">Turbopack</text>
+    <text x="530" y="143" text-anchor="middle" font-size="9" fill="#64748b">2023 · Rust</text>
+    
+    <text x="485" y="170" font-size="10" fill="#1e293b">✓ Rust 性能</text>
+    <text x="485" y="190" font-size="10" fill="#1e293b">✓ 增量编译</text>
+    <text x="485" y="210" font-size="10" fill="#1e293b">✓ Next.js 深度集成</text>
+    <text x="485" y="230" font-size="10" fill="#dc2626">✗ 仅限 Next.js</text>
+    
+    <text x="530" y="270" text-anchor="middle" font-size="10" fill="#475569">Next-gen</text>
+    <text x="530" y="285" text-anchor="middle" font-size="10" fill="#475569">Bundler</text>
+  </g>
+
+  <!-- 箭头：演进方向 -->
+  <line x1="160" y1="200" x2="175" y2="200" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="305" y1="200" x2="320" y2="200" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="450" y1="200" x2="465" y2="200" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+  <text x="300" y="335" text-anchor="middle" font-size="11" font-weight="700" fill="#475569">演进趋势：JS → Go → Rust · 越来越快</text>
+  <text x="300" y="360" text-anchor="middle" font-size="10" fill="#64748b">§8.72+ v6 · frontend</text>
+</svg>

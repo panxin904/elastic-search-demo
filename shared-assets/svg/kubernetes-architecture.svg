@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="400" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Kubernetes 集群架构</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Control Plane 控制平面 + Worker Node 工作节点</text>
+
+  <!-- Control Plane -->
+  <g>
+    <rect x="30" y="90" width="540" height="120" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+    <text x="50" y="115" font-size="13" font-weight="700" fill="#5b21b6">🎛️ Control Plane（控制平面）</text>
+
+    <!-- 4 个组件 -->
+    <rect x="50" y="130" width="115" height="65" rx="6" fill="#fff" stroke="#a78bfa"/>
+    <text x="107" y="152" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">kube-apiserver</text>
+    <text x="107" y="172" text-anchor="middle" font-size="9" fill="#475569">REST API 网关</text>
+    <text x="107" y="186" text-anchor="middle" font-size="9" fill="#64748b">etcd 唯一入口</text>
+
+    <rect x="180" y="130" width="115" height="65" rx="6" fill="#fff" stroke="#a78bfa"/>
+    <text x="237" y="152" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">etcd</text>
+    <text x="237" y="172" text-anchor="middle" font-size="9" fill="#475569">分布式 KV</text>
+    <text x="237" y="186" text-anchor="middle" font-size="9" fill="#64748b">集群唯一状态</text>
+
+    <rect x="310" y="130" width="115" height="65" rx="6" fill="#fff" stroke="#a78bfa"/>
+    <text x="367" y="152" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">scheduler</text>
+    <text x="367" y="172" text-anchor="middle" font-size="9" fill="#475569">调度器</text>
+    <text x="367" y="186" text-anchor="middle" font-size="9" fill="#64748b">Pod → Node</text>
+
+    <rect x="440" y="130" width="115" height="65" rx="6" fill="#fff" stroke="#a78bfa"/>
+    <text x="497" y="152" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">controller-mgr</text>
+    <text x="497" y="172" text-anchor="middle" font-size="9" fill="#475569">控制器</text>
+    <text x="497" y="186" text-anchor="middle" font-size="9" fill="#64748b">状态调和</text>
+  </g>
+
+  <!-- Worker Node × 2 -->
+  <g>
+    <!-- Node 1 -->
+    <rect x="30" y="240" width="260" height="120" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="50" y="265" font-size="12" font-weight="700" fill="#1e40af">🖥️ Worker Node 1</text>
+
+    <rect x="50" y="280" width="115" height="65" rx="6" fill="#fff" stroke="#60a5fa"/>
+    <text x="107" y="302" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">kubelet</text>
+    <text x="107" y="322" text-anchor="middle" font-size="9" fill="#475569">节点 Agent</text>
+    <text x="107" y="336" text-anchor="middle" font-size="9" fill="#64748b">Pod 生命周期</text>
+
+    <rect x="180" y="280" width="95" height="65" rx="6" fill="#fff" stroke="#60a5fa"/>
+    <text x="227" y="302" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">kube-proxy</text>
+    <text x="227" y="322" text-anchor="middle" font-size="9" fill="#475569">网络代理</text>
+    <text x="227" y="336" text-anchor="middle" font-size="9" fill="#64748b">Service → Pod</text>
+
+    <!-- 3 Pods -->
+    <rect x="50" y="350" width="50" height="0" fill="none"/>
+    <text x="160" y="352" font-size="9" fill="#475569">📦 Pods (容器组)</text>
+
+    <!-- Node 2 -->
+    <rect x="310" y="240" width="260" height="120" rx="10" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="330" y="265" font-size="12" font-weight="700" fill="#065f46">🖥️ Worker Node 2</text>
+
+    <rect x="330" y="280" width="115" height="65" rx="6" fill="#fff" stroke="#34d399"/>
+    <text x="387" y="302" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">kubelet</text>
+    <text x="387" y="322" text-anchor="middle" font-size="9" fill="#475569">节点 Agent</text>
+    <text x="387" y="336" text-anchor="middle" font-size="9" fill="#64748b">Pod 生命周期</text>
+
+    <rect x="460" y="280" width="95" height="65" rx="6" fill="#fff" stroke="#34d399"/>
+    <text x="507" y="302" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">kube-proxy</text>
+    <text x="507" y="322" text-anchor="middle" font-size="9" fill="#475569">网络代理</text>
+    <text x="507" y="336" text-anchor="middle" font-size="9" fill="#64748b">Service → Pod</text>
+
+    <text x="440" y="352" font-size="9" fill="#475569">📦 Pods (容器组)</text>
+  </g>
+
+  <!-- 通信线 -->
+  <line x1="200" y1="210" x2="160" y2="240" stroke="#64748b" stroke-width="1.5" stroke-dasharray="3" marker-end="url(#arr)"/>
+  <line x1="200" y1="210" x2="440" y2="240" stroke="#64748b" stroke-width="1.5" stroke-dasharray="3" marker-end="url(#arr)"/>
+
+  <text x="300" y="390" text-anchor="middle" font-size="10" fill="#64748b">§8.72+ v6 · cloud-native · 控制面/数据面分离</text>
+</svg>

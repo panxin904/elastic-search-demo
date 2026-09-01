@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="400" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Service Mesh Sidecar 模式</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">业务容器 + 代理容器同 Pod · 流量 / 安全 / 可观测下沉</text>
+
+  <!-- 3 个 Pod（每个 Pod 内 2 容器） -->
+  <g>
+    <!-- Pod 1 -->
+    <rect x="30" y="90" width="170" height="240" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6"/>
+    <text x="115" y="115" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">📦 Pod A</text>
+
+    <rect x="50" y="130" width="130" height="80" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="115" y="155" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">业务容器</text>
+    <text x="115" y="175" text-anchor="middle" font-size="9" fill="#1e40af">order-service</text>
+    <text x="115" y="190" text-anchor="middle" font-size="9" fill="#64748b">:8080</text>
+
+    <rect x="50" y="225" width="130" height="80" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="115" y="250" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">Sidecar</text>
+    <text x="115" y="270" text-anchor="middle" font-size="9" fill="#5b21b6">envoy / istio-proxy</text>
+    <text x="115" y="285" text-anchor="middle" font-size="9" fill="#64748b">:15001</text>
+
+    <!-- Pod 2 -->
+    <rect x="215" y="90" width="170" height="240" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6"/>
+    <text x="300" y="115" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">📦 Pod B</text>
+
+    <rect x="235" y="130" width="130" height="80" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="300" y="155" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">业务容器</text>
+    <text x="300" y="175" text-anchor="middle" font-size="9" fill="#1e40af">user-service</text>
+    <text x="300" y="190" text-anchor="middle" font-size="9" fill="#64748b">:8080</text>
+
+    <rect x="235" y="225" width="130" height="80" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="300" y="250" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">Sidecar</text>
+    <text x="300" y="270" text-anchor="middle" font-size="9" fill="#5b21b6">envoy / istio-proxy</text>
+    <text x="300" y="285" text-anchor="middle" font-size="9" fill="#64748b">:15001</text>
+
+    <!-- Pod 3 -->
+    <rect x="400" y="90" width="170" height="240" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6"/>
+    <text x="485" y="115" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">📦 Pod C</text>
+
+    <rect x="420" y="130" width="130" height="80" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="485" y="155" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">业务容器</text>
+    <text x="485" y="175" text-anchor="middle" font-size="9" fill="#1e40af">pay-service</text>
+    <text x="485" y="190" text-anchor="middle" font-size="9" fill="#64748b">:8080</text>
+
+    <rect x="420" y="225" width="130" height="80" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="485" y="250" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">Sidecar</text>
+    <text x="485" y="270" text-anchor="middle" font-size="9" fill="#5b21b6">envoy / istio-proxy</text>
+    <text x="485" y="285" text-anchor="middle" font-size="9" fill="#64748b">:15001</text>
+  </g>
+
+  <!-- 数据面通信 -->
+  <line x1="180" y1="265" x2="235" y2="265" stroke="#7c3aed" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="365" y1="265" x2="420" y2="265" stroke="#7c3aed" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="300" y="350" text-anchor="middle" font-size="10" fill="#7c3aed">⬆ Sidecar 间 mTLS 加密通信</text>
+
+  <!-- 控制面 -->
+  <rect x="30" y="355" width="540" height="35" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="50" y="378" font-size="11" font-weight="700" fill="#7f1d1d">🎛️ istiod (Control Plane)</text>
+  <text x="180" y="378" font-size="10" fill="#7f1d1d">xDS 配置下发 + 证书签发 + 路由策略</text>
+
+  <text x="300" y="400" text-anchor="middle" font-size="10" fill="#64748b">§8.72+ v6 · cloud-native</text>
+</svg>
