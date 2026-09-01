@@ -174,4 +174,4 @@ B 帧块 = α × 前向参考 + β × 后向参考
 
 ## 图示：视频编码流水线与 H.264/H.265/AV1 对比
 
-![视频编码流水线与 H.264/H.265/AV1 对比](/video-codec-stack.svg)
+![视频编码流水线与 H.264/H.265/AV1 对比](/video-encoding-pipeline.svg)

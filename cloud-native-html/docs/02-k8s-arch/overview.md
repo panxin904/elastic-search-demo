@@ -3,6 +3,8 @@ title: k8s 是什么
 date: 2026-08-15  # date-auto-injected
 ---
 
+![Kubernetes 集群架构](/kubernetes-architecture.svg)
+
 # Kubernetes 是什么
 
 > **K8s** = 自动部署、扩缩、运维容器化应用的**容器编排平台**。Google 2014 年开源，源自内部 Borg。

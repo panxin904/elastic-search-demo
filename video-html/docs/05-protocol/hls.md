@@ -3,6 +3,8 @@ title: HLS 协议
 date: 2026-08-15  # date-auto-injected
 ---
 
+![流媒体协议对比](/video-streaming-protocols.svg)
+
 # HLS（HTTP Live Streaming）
 
 <span class="kg-badge kg-badge-protocol">协议</span>

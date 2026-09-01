@@ -3,6 +3,8 @@ title: UI 框架总览与选型
 date: 2026-08-15  # date-auto-injected
 ---
 
+![前端框架渲染流程](/frontend-render-flow.svg)
+
 # UI 框架总览与选型
 
 > 框架是手段，不是目的。先用对场景，再选技术栈。

@@ -4,6 +4,8 @@ date: 2026-08-15  # date-auto-injected
 description: PostgreSQL 主从复制核心机制
 ---
 
+![PostgreSQL 复制架构](/postgresql-replication-flow.svg)
+
 # 流复制 Streaming Replication
 
 > **TL;DR**：PG 流复制 = **WAL 日志从主库实时传到从库**，从库 replay WAL 保持与主库一致。**生产高可用 / 读写分离 / 异地容灾**都靠它。**核心是 synchronous_commit 参数**决定数据安全与性能的取舍。

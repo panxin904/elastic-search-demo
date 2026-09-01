@@ -3,6 +3,8 @@ title: GitOps 思想
 date: 2026-08-15  # date-auto-injected
 ---
 
+![GitOps CI/CD 流水线](/gitops-cicd-pipeline.svg)
+
 # GitOps 思想
 
 > **Git = 唯一事实源**。集群状态、配置、变更全部从 Git 仓库里读，集群 = Git 仓库的"反映"。

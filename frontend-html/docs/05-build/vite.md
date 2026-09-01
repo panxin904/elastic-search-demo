@@ -3,6 +3,8 @@ title: Vite 原理
 date: 2026-08-15  # date-auto-injected
 ---
 
+![前端构建工具演进](/frontend-build-tools.svg)
+
 # Vite 原理
 
 ## 🎯 Vite 是什么

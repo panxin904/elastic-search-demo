@@ -4,6 +4,8 @@ date: 2026-08-15  # date-auto-injected
 description: PostgreSQL 进程模型与内存结构
 ---
 
+![PostgreSQL MVCC 原理](/postgresql-mvcc.svg)
+
 # PostgreSQL 进程架构
 
 > **TL;DR**：PG 用 **Postmaster + 多 backend 进程**模式，每客户端连接一个 backend。共享内存用 `shared_buffers / wal_buffers / clog`。**理解进程模型是调优和故障排查的基础**。

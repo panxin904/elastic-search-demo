@@ -3,6 +3,8 @@ title: 熵编码 - CABAC / CAVLC
 date: 2026-08-15  # date-auto-injected
 ---
 
+![视频技术栈分层](/video-codec-stack.svg)
+
 # 熵编码 - CABAC / CAVLC
 
 <span class="kg-badge kg-badge-codec">原理</span>

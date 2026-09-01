@@ -3,6 +3,8 @@ title: FFmpeg 入门精通
 date: 2026-08-15  # date-auto-injected
 ---
 
+![FFmpeg 转码流水线](/ffmpeg-transcode-pipeline.svg)
+
 # FFmpeg 入门精通
 
 <span class="kg-badge kg-badge-tools">工具</span>

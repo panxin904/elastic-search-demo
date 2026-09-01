@@ -3,6 +3,8 @@ title: Core Web Vitals
 date: 2026-08-15  # date-auto-injected
 ---
 
+![浏览器关键渲染路径](/frontend-browser-pipeline.svg)
+
 # Core Web Vitals
 
 ## 📊 CWV 三大指标

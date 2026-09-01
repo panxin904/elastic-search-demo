@@ -4,6 +4,8 @@ date: 2026-08-15  # date-auto-injected
 description: PostgreSQL 默认索引类型详解
 ---
 
+![PostgreSQL 索引类型](/postgresql-index-types.svg)
+
 # B-tree 索引
 
 > **TL;DR**：B-tree 是 PG **默认索引类型**（CREATE INDEX 默认就是 B-tree）。适合**等值查询 + 范围查询 + 排序**。**90% 场景用 B-tree 就对了**。

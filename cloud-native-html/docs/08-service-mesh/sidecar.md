@@ -3,6 +3,8 @@ title: Sidecar 模式
 date: 2026-08-15  # date-auto-injected
 ---
 
+![Service Mesh Sidecar 模式](/servicemesh-sidecar-pattern.svg)
+
 # Sidecar 模式
 
 > Sidecar = 把"基础设施"放进业务 Pod 的"副驾"，让业务代码 0 改动获得各种能力。
