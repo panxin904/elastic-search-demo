@@ -620,6 +620,9 @@ def main():
         # 实战模板：redis 多文件都有同名模板段
         '生产监控案例',
         'Cluster 集群',
+        # === §8.81 P0-4：30 站 index.md 统一 Giscus 评论区标题 ===
+        # 30 站 index.md 统一 Giscus 评论区标题（audit regex 会吃 emoji 前缀）
+        '评论与反馈',
         # === §8.79 D 任务：python xlink 分组 9 子目录标题（2026-08-29）===
         # audit regex 会吃掉前缀 🔗，所以白名单必须是无 🔗 版本
         '相关阅读 · 01 基础',
