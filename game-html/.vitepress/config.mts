@@ -19,6 +19,11 @@ import { fileURLToPath, URL } from 'node:url'
 // P0: VitePress/rollup 默认 fs.allow 限制 cwd 外 import。用 vite alias 解决相对路径。
 const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.url))
 
+// P0: shared-assets/ 下的 .vue 组件 import vue 时需要显式 alias 指向本站点 node_modules。
+// 否则 rollup 在 SHARED_ASSETS 目录找不到 vue，会报 "Rollup failed to resolve import 'vue'"。
+// §8.81 QrShare 落地后暴露此问题。
+const VUE = fileURLToPath(new URL('../node_modules/vue', import.meta.url))
+
 // C11: Mermaid 跨站共享配置（inline 而非 import，避免 vite alias 在 Node 加载 config.mts 阶段不生效的问题）
 // 同步源：shared-assets/mermaid-config/base.ts（修改时请同步更新此处）
 // 见 §8.46
@@ -60,9 +65,11 @@ export default withMermaid( defineConfig({
     resolve: {
       alias: [
         { find: '@shared', replacement: SHARED_ASSETS },
+        { find: /^vue$/, replacement: VUE },
       ],
     },
     // §8.72：shared-assets/svg/ 共享 SVG 资产（CAP / Saga / 一致性 hash 等）
+    // 只把 svg/ 子目录作为 public（避免泄漏 mermaid-config / glossary / template 等）
     publicDir: fileURLToPath(new URL('../../shared-assets/svg', import.meta.url)),
   },
     mermaid: {
@@ -142,113 +149,116 @@ export default withMermaid( defineConfig({
     
         
             
-                              '/': [
-                                {
-                                  text: '🎮 游戏开发总览',
-                                  collapsed: false,
-                                  items: [
-                                    { text: '首页', link: '/' },
-                                    { text: '知识图谱位置', link: '/README' },
-                                  ]
-                                },
-                                {
-                                  text: '🗺️ 结构图',
-                                  collapsed: false,
-                                  items: [
-                                    { text: '思维导图', link: '/mindmap' },
-                                  ]
-                                },
-                                {
-                                  text: '🎮 引擎层',
-                                  collapsed: false,
-                                  items: [
-                                    { text: '章节目录', link: '/01-engine/' },
-                                    { text: '商业引擎选型', link: '/01-engine/commercial' },
-                                    { text: '自研引擎架构', link: '/01-engine/custom' },
-                                    { text: '选型决策', link: '/01-engine/decision' },
-                                  ]
-                                },
-                                {
-                                  text: '🎨 渲染',
-                                  collapsed: false,
-                                  items: [
-                                    { text: '章节目录', link: '/02-render/' },
-                                    { text: '渲染管线', link: '/02-render/pipeline' },
-                                    { text: '光照与阴影', link: '/02-render/lighting' },
-                                    { text: '着色器', link: '/02-render/shader' },
-                                    { text: '后处理', link: '/02-render/postprocess' },
-                                  ]
-                                },
-                                {
-                                  text: '⚙️ 物理',
-                                  collapsed: false,
-                                  items: [
-                                    { text: '章节目录', link: '/03-physics/' },
-                                    { text: '碰撞检测', link: '/03-physics/collision' },
-                                    { text: '刚体动力学', link: '/03-physics/rigidbody' },
-                                    { text: '柔体模拟', link: '/03-physics/softbody' },
-                                  ]
-                                },
-                                {
-                                  text: '🤖 AI',
-                                  collapsed: false,
-                                  items: [
-                                    { text: '章节目录', link: '/04-ai/' },
-                                    { text: '寻路', link: '/04-ai/pathfinding' },
-                                    { text: '决策系统', link: '/04-ai/decision' },
-                                    { text: '机器学习 AI', link: '/04-ai/ml' },
-                                  ]
-                                },
-                                {
-                                  text: '🌐 网络',
-                                  collapsed: false,
-                                  items: [
-                                    { text: '章节目录', link: '/05-network/' },
-                                    { text: '同步模型', link: '/05-network/sync' },
-                                    { text: '一致性', link: '/05-network/consistency' },
-                                    { text: '反外挂', link: '/05-network/anticheat' },
-                                    { text: '联机架构', link: '/05-network/arch' },
-                                  ]
-                                },
-                                {
-                                  text: '🔊 音频',
-                                  collapsed: false,
-                                  items: [
-                                    { text: '章节目录', link: '/06-audio/' },
-                                    { text: '空间音频', link: '/06-audio/spatial' },
-                                    { text: '动态混音', link: '/06-audio/mix' },
-                                    { text: '音频引擎', link: '/06-audio/engine' },
-                                  ]
-                                },
-                                {
-                                  text: '🛠️ 工具链',
-                                  collapsed: false,
-                                  items: [
-                                    { text: '章节目录', link: '/07-toolchain/' },
-                                    { text: '资产管线', link: '/07-toolchain/assets' },
-                                    { text: '版本控制', link: '/07-toolchain/vcs' },
-                                    { text: '构建发布', link: '/07-toolchain/build' },
-                                  ]
-                                },
-                                {
-                                  text: '🚀 性能与上线',
-                                  collapsed: false,
-                                  items: [
-                                    { text: '章节目录', link: '/08-ship/' },
-                                    { text: '性能优化', link: '/08-ship/perf' },
-                                    { text: '上线运营', link: '/08-ship/launch' },
-                                  ]
-                                },
-                                {
-                                  text: '🚶 学习',
-                                  collapsed: false,
-                                  items: [
-                                    { text: '学习路径', link: '/path' },
-                                    { text: '常见问题', link: '/questions' },
-                                    { text: '速查表', link: '/cheatsheet' },
-                                  ]
-                                }
-                              ]
+                
+                    
+                        
+                                                      '/': [
+                                                        {
+                                                          text: '🎮 游戏开发总览',
+                                                          collapsed: false,
+                                                          items: [
+                                                            { text: '首页', link: '/' },
+                                                            { text: '知识图谱位置', link: '/README' },
+                                                          ]
+                                                        },
+                                                        {
+                                                          text: '🗺️ 结构图',
+                                                          collapsed: false,
+                                                          items: [
+                                                            { text: '思维导图', link: '/mindmap' },
+                                                          ]
+                                                        },
+                                                        {
+                                                          text: '🎮 引擎层',
+                                                          collapsed: false,
+                                                          items: [
+                                                            { text: '章节目录', link: '/01-engine/' },
+                                                            { text: '商业引擎选型', link: '/01-engine/commercial' },
+                                                            { text: '自研引擎架构', link: '/01-engine/custom' },
+                                                            { text: '选型决策', link: '/01-engine/decision' },
+                                                          ]
+                                                        },
+                                                        {
+                                                          text: '🎨 渲染',
+                                                          collapsed: false,
+                                                          items: [
+                                                            { text: '章节目录', link: '/02-render/' },
+                                                            { text: '渲染管线', link: '/02-render/pipeline' },
+                                                            { text: '光照与阴影', link: '/02-render/lighting' },
+                                                            { text: '着色器', link: '/02-render/shader' },
+                                                            { text: '后处理', link: '/02-render/postprocess' },
+                                                          ]
+                                                        },
+                                                        {
+                                                          text: '⚙️ 物理',
+                                                          collapsed: false,
+                                                          items: [
+                                                            { text: '章节目录', link: '/03-physics/' },
+                                                            { text: '碰撞检测', link: '/03-physics/collision' },
+                                                            { text: '刚体动力学', link: '/03-physics/rigidbody' },
+                                                            { text: '柔体模拟', link: '/03-physics/softbody' },
+                                                          ]
+                                                        },
+                                                        {
+                                                          text: '🤖 AI',
+                                                          collapsed: false,
+                                                          items: [
+                                                            { text: '章节目录', link: '/04-ai/' },
+                                                            { text: '寻路', link: '/04-ai/pathfinding' },
+                                                            { text: '决策系统', link: '/04-ai/decision' },
+                                                            { text: '机器学习 AI', link: '/04-ai/ml' },
+                                                          ]
+                                                        },
+                                                        {
+                                                          text: '🌐 网络',
+                                                          collapsed: false,
+                                                          items: [
+                                                            { text: '章节目录', link: '/05-network/' },
+                                                            { text: '同步模型', link: '/05-network/sync' },
+                                                            { text: '一致性', link: '/05-network/consistency' },
+                                                            { text: '反外挂', link: '/05-network/anticheat' },
+                                                            { text: '联机架构', link: '/05-network/arch' },
+                                                          ]
+                                                        },
+                                                        {
+                                                          text: '🔊 音频',
+                                                          collapsed: false,
+                                                          items: [
+                                                            { text: '章节目录', link: '/06-audio/' },
+                                                            { text: '空间音频', link: '/06-audio/spatial' },
+                                                            { text: '动态混音', link: '/06-audio/mix' },
+                                                            { text: '音频引擎', link: '/06-audio/engine' },
+                                                          ]
+                                                        },
+                                                        {
+                                                          text: '🛠️ 工具链',
+                                                          collapsed: false,
+                                                          items: [
+                                                            { text: '章节目录', link: '/07-toolchain/' },
+                                                            { text: '资产管线', link: '/07-toolchain/assets' },
+                                                            { text: '版本控制', link: '/07-toolchain/vcs' },
+                                                            { text: '构建发布', link: '/07-toolchain/build' },
+                                                          ]
+                                                        },
+                                                        {
+                                                          text: '🚀 性能与上线',
+                                                          collapsed: false,
+                                                          items: [
+                                                            { text: '章节目录', link: '/08-ship/' },
+                                                            { text: '性能优化', link: '/08-ship/perf' },
+                                                            { text: '上线运营', link: '/08-ship/launch' },
+                                                          ]
+                                                        },
+                                                        {
+                                                          text: '🚶 学习',
+                                                          collapsed: false,
+                                                          items: [
+                                                            { text: '学习路径', link: '/path' },
+                                                            { text: '常见问题', link: '/questions' },
+                                                            { text: '速查表', link: '/cheatsheet' },
+                                                          ]
+                                                        }
+                                                      ]
     },
 
     socialLinks: [],

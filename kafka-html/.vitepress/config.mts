@@ -20,14 +20,21 @@ import { fileURLToPath, URL } from 'node:url'
 // P0: VitePress/rollup 默认 fs.allow 限制 cwd 外 import。用 vite alias 解决相对路径。
 const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.url))
 
+// P0: shared-assets/ 下的 .vue 组件 import vue 时需要显式 alias 指向本站点 node_modules。
+// 否则 rollup 在 SHARED_ASSETS 目录找不到 vue，会报 "Rollup failed to resolve import 'vue'"。
+// §8.81 QrShare 落地后暴露此问题。
+const VUE = fileURLToPath(new URL('../node_modules/vue', import.meta.url))
+
 export default defineConfig({
   vite: {
     resolve: {
       alias: [
         { find: '@shared', replacement: SHARED_ASSETS },
+        { find: /^vue$/, replacement: VUE },
       ],
     },
     // §8.72：shared-assets/svg/ 共享 SVG 资产（CAP / Saga / 一致性 hash 等）
+    // 只把 svg/ 子目录作为 public（避免泄漏 mermaid-config / glossary / template 等）
     publicDir: fileURLToPath(new URL('../../shared-assets/svg', import.meta.url)),
   },
   base: '/kafka/',
@@ -104,139 +111,142 @@ export default defineConfig({
         
             
                 
-                                      '/': [
-                                        {
-                                          text: '🎯 开始',
-                                          items: [
-                                            { text: '📖 学习路径', link: '/path' }
-                                          ]
-                                        },
-                                        {
-                                          text: '🚀 Kafka 入门',
-                                          items: [
-                                            { text: '❓ Kafka 是什么', link: '/01-basics/intro' },
-                                            { text: '📥 安装部署', link: '/01-basics/install' },
-                                            { text: '🧩 核心概念', link: '/01-basics/concepts' },
-                                            { text: '📂 Topic & Partition', link: '/01-basics/topic-partition' },
-                                            { text: '💬 消息模型', link: '/01-basics/message-model' }
-                                          ]
-                                        },
-                                        {
-                                          text: '🏗️ 架构原理',
-                                          items: [
-                                            { text: '🎯 整体架构', link: '/02-architecture/overview' },
-                                            { text: '🎮 Controller 控制器', link: '/02-architecture/controller' },
-                                            { text: '🗂️ 分区副本机制', link: '/02-architecture/replica' },
-                                            { text: '👑 Leader 选举', link: '/02-architecture/leader-election' },
-                                            { text: '📜 日志存储', link: '/02-architecture/log-storage' },
-                                            { text: '🚀 零拷贝原理', link: '/02-architecture/zero-copy' },
-                                            { text: '⚙️ 控制器演进', link: '/02-architecture/controller-evolution' }
-                                          ]
-                                        },
-                                        {
-                                          text: '🛠️ 命令行工具',
-                                          items: [
-                                            { text: '📋 常用命令总览', link: '/03-cli/overview' },
-                                            { text: '📂 Topic 管理', link: '/03-cli/topic' },
-                                            { text: '✉️ 生产消费调试', link: '/03-cli/produce-consume' },
-                                            { text: '👥 消费者组', link: '/03-cli/consumer-group' }
-                                          ]
-                                        },
-                                        {
-                                          text: '✍️ 生产者 Producer',
-                                          items: [
-                                            { text: '🎯 生产者原理', link: '/04-producer/principle' },
-                                            { text: '📤 消息发送流程', link: '/04-producer/send-flow' },
-                                            { text: '🔁 幂等性', link: '/04-producer/idempotent' },
-                                            { text: '🔐 事务', link: '/04-producer/transaction' },
-                                            { text: '📊 顺序保证', link: '/04-producer/order' },
-                                            { text: '⚡ 性能调优', link: '/04-producer/tuning' }
-                                          ]
-                                        },
-                                        {
-                                          text: '📥 消费者 Consumer',
-                                          items: [
-                                            { text: '🎯 消费者原理', link: '/05-consumer/principle' },
-                                            { text: '👥 消费者组', link: '/05-consumer/group' },
-                                            { text: '📍 偏移量提交', link: '/05-consumer/offset' },
-                                            { text: '🔄 再平衡', link: '/05-consumer/rebalance' },
-                                            { text: '✋ 手动提交', link: '/05-consumer/manual-commit' },
-                                            { text: '🧵 多线程消费', link: '/05-consumer/multi-thread' }
-                                          ]
-                                        },
-                                        {
-                                          text: '☕ Java SDK',
-                                          items: [
-                                            { text: '✍️ Producer API', link: '/06-jdk/producer-api' },
-                                            { text: '📥 Consumer API', link: '/06-jdk/consumer-api' },
-                                            { text: '🔧 AdminClient', link: '/06-jdk/admin-client' },
-                                            { text: '🔄 序列化与反序列化', link: '/06-jdk/serialization' },
-                                            { text: '🎯 自定义分区器', link: '/06-jdk/partitioner' },
-                                            { text: '🚨 异常处理', link: '/06-jdk/exception' }
-                                          ]
-                                        },
-                                        {
-                                          text: '🌱 Spring 集成',
-                                          items: [
-                                            { text: '🚀 Spring for Apache Kafka', link: '/07-spring/intro' },
-                                            { text: '📤 KafkaTemplate', link: '/07-spring/kafka-template' },
-                                            { text: '🎧 @KafkaListener', link: '/07-spring/listener' },
-                                            { text: '🔐 Spring 事务', link: '/07-spring/transaction' },
-                                            { text: '⚙️ Spring Boot 集成', link: '/07-spring/spring-boot' }
-                                          ]
-                                        },
-                                        {
-                                          text: '💼 企业实战',
-                                          items: [
-                                            { text: '🔁 消息幂等性', link: '/08-enterprise/idempotent' },
-                                            { text: '📊 顺序消费', link: '/08-enterprise/order-consume' },
-                                            { text: '⏰ 延迟消息', link: '/08-enterprise/delay' },
-                                            { text: '☠️ 死信队列', link: '/08-enterprise/dead-letter' },
-                                            { text: '📦 消息积压', link: '/08-enterprise/backlog' },
-                                            { text: '🔌 Kafka Connect', link: '/08-enterprise/connect' },
-                                            { text: '🌊 Kafka Streams', link: '/08-enterprise/streams' },
-                                            { text: '📊 监控告警', link: '/08-enterprise/monitoring' },
-                                            { text: '🌍 多环境隔离', link: '/08-enterprise/multi-env' },
-                                            { text: '🏭 集群部署', link: '/08-enterprise/cluster' }
-                                          ]
-                                        },
-                                        {
-                                          text: '🛠️ 运维调优',
-                                          items: [
-                                            { text: '📐 集群规划', link: '/09-ops/capacity' },
-                                            { text: '⚡ 性能压测', link: '/09-ops/benchmark' },
-                                            { text: '💾 JVM 调优', link: '/09-ops/jvm' },
-                                            { text: '🗑️ 日志清理', link: '/09-ops/log-cleanup' },
-                                            { text: '📈 监控指标', link: '/09-ops/metrics' },
-                                            { text: '🚑 故障恢复', link: '/09-ops/disaster-recovery' }
-                                          ]
-                                        },
-                                        {
-                                          text: '🎯 面试手撕',
-                                          items: [
-                                            { text: '📝 高频面试题（上）', link: '/10-interview/basic' },
-                                            { text: '📝 高频面试题（下）', link: '/10-interview/advanced' },
-                                            { text: '🔁 副本同步机制', link: '/10-interview/replica-sync' },
-                                            { text: '🚨 消息丢失解决方案', link: '/10-interview/message-loss' },
-                                            { text: '🆚 Kafka vs RocketMQ', link: '/10-interview/kafka-vs-rocketmq' },
-                                            { text: '👑 Leader 选举机制', link: '/10-interview/election' },
-                                            { text: '🎯 Exactly Once 实现', link: '/10-interview/exactly-once' },
-                                            { text: '🚀 Kafka 为什么快', link: '/10-interview/why-fast' }
-                                          ]
-                                        }
-                                      ],
-                                      '/graph': [
-                                        { text: '🎯 知识图谱', items: [{ text: '🌐 Kafka 全局知识图谱', link: '/graph' }] }
-                                      ],
-                                      '/mindmap': [
-                                        { text: '🎯 思维导图', items: [{ text: '🧭 Kafka 思维导图', link: '/mindmap' }] }
-                                      ],
-                                      '/cheatsheet': [
-                                        { text: '🎯 命令速查', items: [{ text: '📋 Kafka 命令速查', link: '/cheatsheet' }] }
-                                      ],
-                                      '/path': [
-                                        { text: '🎯 学习路径', items: [{ text: '📖 Kafka 学习路径', link: '/path' }] }
-                                      ]
+                    
+                        
+                            
+                                                              '/': [
+                                                                {
+                                                                  text: '🎯 开始',
+                                                                  items: [
+                                                                    { text: '📖 学习路径', link: '/path' }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '🚀 Kafka 入门',
+                                                                  items: [
+                                                                    { text: '❓ Kafka 是什么', link: '/01-basics/intro' },
+                                                                    { text: '📥 安装部署', link: '/01-basics/install' },
+                                                                    { text: '🧩 核心概念', link: '/01-basics/concepts' },
+                                                                    { text: '📂 Topic & Partition', link: '/01-basics/topic-partition' },
+                                                                    { text: '💬 消息模型', link: '/01-basics/message-model' }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '🏗️ 架构原理',
+                                                                  items: [
+                                                                    { text: '🎯 整体架构', link: '/02-architecture/overview' },
+                                                                    { text: '🎮 Controller 控制器', link: '/02-architecture/controller' },
+                                                                    { text: '🗂️ 分区副本机制', link: '/02-architecture/replica' },
+                                                                    { text: '👑 Leader 选举', link: '/02-architecture/leader-election' },
+                                                                    { text: '📜 日志存储', link: '/02-architecture/log-storage' },
+                                                                    { text: '🚀 零拷贝原理', link: '/02-architecture/zero-copy' },
+                                                                    { text: '⚙️ 控制器演进', link: '/02-architecture/controller-evolution' }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '🛠️ 命令行工具',
+                                                                  items: [
+                                                                    { text: '📋 常用命令总览', link: '/03-cli/overview' },
+                                                                    { text: '📂 Topic 管理', link: '/03-cli/topic' },
+                                                                    { text: '✉️ 生产消费调试', link: '/03-cli/produce-consume' },
+                                                                    { text: '👥 消费者组', link: '/03-cli/consumer-group' }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '✍️ 生产者 Producer',
+                                                                  items: [
+                                                                    { text: '🎯 生产者原理', link: '/04-producer/principle' },
+                                                                    { text: '📤 消息发送流程', link: '/04-producer/send-flow' },
+                                                                    { text: '🔁 幂等性', link: '/04-producer/idempotent' },
+                                                                    { text: '🔐 事务', link: '/04-producer/transaction' },
+                                                                    { text: '📊 顺序保证', link: '/04-producer/order' },
+                                                                    { text: '⚡ 性能调优', link: '/04-producer/tuning' }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '📥 消费者 Consumer',
+                                                                  items: [
+                                                                    { text: '🎯 消费者原理', link: '/05-consumer/principle' },
+                                                                    { text: '👥 消费者组', link: '/05-consumer/group' },
+                                                                    { text: '📍 偏移量提交', link: '/05-consumer/offset' },
+                                                                    { text: '🔄 再平衡', link: '/05-consumer/rebalance' },
+                                                                    { text: '✋ 手动提交', link: '/05-consumer/manual-commit' },
+                                                                    { text: '🧵 多线程消费', link: '/05-consumer/multi-thread' }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '☕ Java SDK',
+                                                                  items: [
+                                                                    { text: '✍️ Producer API', link: '/06-jdk/producer-api' },
+                                                                    { text: '📥 Consumer API', link: '/06-jdk/consumer-api' },
+                                                                    { text: '🔧 AdminClient', link: '/06-jdk/admin-client' },
+                                                                    { text: '🔄 序列化与反序列化', link: '/06-jdk/serialization' },
+                                                                    { text: '🎯 自定义分区器', link: '/06-jdk/partitioner' },
+                                                                    { text: '🚨 异常处理', link: '/06-jdk/exception' }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '🌱 Spring 集成',
+                                                                  items: [
+                                                                    { text: '🚀 Spring for Apache Kafka', link: '/07-spring/intro' },
+                                                                    { text: '📤 KafkaTemplate', link: '/07-spring/kafka-template' },
+                                                                    { text: '🎧 @KafkaListener', link: '/07-spring/listener' },
+                                                                    { text: '🔐 Spring 事务', link: '/07-spring/transaction' },
+                                                                    { text: '⚙️ Spring Boot 集成', link: '/07-spring/spring-boot' }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '💼 企业实战',
+                                                                  items: [
+                                                                    { text: '🔁 消息幂等性', link: '/08-enterprise/idempotent' },
+                                                                    { text: '📊 顺序消费', link: '/08-enterprise/order-consume' },
+                                                                    { text: '⏰ 延迟消息', link: '/08-enterprise/delay' },
+                                                                    { text: '☠️ 死信队列', link: '/08-enterprise/dead-letter' },
+                                                                    { text: '📦 消息积压', link: '/08-enterprise/backlog' },
+                                                                    { text: '🔌 Kafka Connect', link: '/08-enterprise/connect' },
+                                                                    { text: '🌊 Kafka Streams', link: '/08-enterprise/streams' },
+                                                                    { text: '📊 监控告警', link: '/08-enterprise/monitoring' },
+                                                                    { text: '🌍 多环境隔离', link: '/08-enterprise/multi-env' },
+                                                                    { text: '🏭 集群部署', link: '/08-enterprise/cluster' }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '🛠️ 运维调优',
+                                                                  items: [
+                                                                    { text: '📐 集群规划', link: '/09-ops/capacity' },
+                                                                    { text: '⚡ 性能压测', link: '/09-ops/benchmark' },
+                                                                    { text: '💾 JVM 调优', link: '/09-ops/jvm' },
+                                                                    { text: '🗑️ 日志清理', link: '/09-ops/log-cleanup' },
+                                                                    { text: '📈 监控指标', link: '/09-ops/metrics' },
+                                                                    { text: '🚑 故障恢复', link: '/09-ops/disaster-recovery' }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '🎯 面试手撕',
+                                                                  items: [
+                                                                    { text: '📝 高频面试题（上）', link: '/10-interview/basic' },
+                                                                    { text: '📝 高频面试题（下）', link: '/10-interview/advanced' },
+                                                                    { text: '🔁 副本同步机制', link: '/10-interview/replica-sync' },
+                                                                    { text: '🚨 消息丢失解决方案', link: '/10-interview/message-loss' },
+                                                                    { text: '🆚 Kafka vs RocketMQ', link: '/10-interview/kafka-vs-rocketmq' },
+                                                                    { text: '👑 Leader 选举机制', link: '/10-interview/election' },
+                                                                    { text: '🎯 Exactly Once 实现', link: '/10-interview/exactly-once' },
+                                                                    { text: '🚀 Kafka 为什么快', link: '/10-interview/why-fast' }
+                                                                  ]
+                                                                }
+                                                              ],
+                                                              '/graph': [
+                                                                { text: '🎯 知识图谱', items: [{ text: '🌐 Kafka 全局知识图谱', link: '/graph' }] }
+                                                              ],
+                                                              '/mindmap': [
+                                                                { text: '🎯 思维导图', items: [{ text: '🧭 Kafka 思维导图', link: '/mindmap' }] }
+                                                              ],
+                                                              '/cheatsheet': [
+                                                                { text: '🎯 命令速查', items: [{ text: '📋 Kafka 命令速查', link: '/cheatsheet' }] }
+                                                              ],
+                                                              '/path': [
+                                                                { text: '🎯 学习路径', items: [{ text: '📖 Kafka 学习路径', link: '/path' }] }
+                                                              ]
     },
 
     socialLinks: [

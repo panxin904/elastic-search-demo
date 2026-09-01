@@ -21,6 +21,11 @@ import { fileURLToPath, URL } from 'node:url'
 // P0: VitePress/rollup 默认 fs.allow 限制 cwd 外 import。用 vite alias 解决相对路径。
 const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.url))
 
+// P0: shared-assets/ 下的 .vue 组件 import vue 时需要显式 alias 指向本站点 node_modules。
+// 否则 rollup 在 SHARED_ASSETS 目录找不到 vue，会报 "Rollup failed to resolve import 'vue'"。
+// §8.81 QrShare 落地后暴露此问题。
+const VUE = fileURLToPath(new URL('../node_modules/vue', import.meta.url))
+
 // C11: Mermaid 跨站共享配置（inline 而非 import，避免 vite alias 在 Node 加载 config.mts 阶段不生效的问题）
 // 同步源：shared-assets/mermaid-config/base.ts（修改时请同步更新此处）
 // 见 §8.46
@@ -62,9 +67,11 @@ export default withMermaid( defineConfig({
     resolve: {
       alias: [
         { find: '@shared', replacement: SHARED_ASSETS },
+        { find: /^vue$/, replacement: VUE },
       ],
     },
     // §8.72：shared-assets/svg/ 共享 SVG 资产（CAP / Saga / 一致性 hash 等）
+    // 只把 svg/ 子目录作为 public（避免泄漏 mermaid-config / glossary / template 等）
     publicDir: fileURLToPath(new URL('../../shared-assets/svg', import.meta.url)),
   },
     mermaid: {
@@ -146,111 +153,114 @@ export default withMermaid( defineConfig({
             
                 
                     
-                                              '/': [
-                                                {
-                                                  text: '🎯 开始',
-                                                  items: [
-                                                    { text: '📖 学习路径', link: '/path' }
-                                                  ]
-                                                },
-                                                {
-                                                  text: '🍃 Spring Boot 基础',
-                                                  items: [
-                                                    { text: '🚀 快速开始', link: '/01-springboot/quickstart' },
-                                                    { text: '⚙️ 自动配置原理', link: '/01-springboot/auto-config' },
-                                                    { text: '🌐 Web 开发', link: '/01-springboot/web' },
-                                                    { text: '💾 数据访问', link: '/01-springboot/data' },
-                                                    { text: '🔄 事务管理', link: '/01-springboot/transaction' }
-                                                  ]
-                                                },
-                                                {
-                                                  text: '☁️ Spring Cloud Alibaba 核心',
-                                                  items: [
-                                                    { text: '📚 Spring Cloud Alibaba 总览', link: '/02-overview/intro' },
-                                                    { text: '🌐 Nacos 服务发现', link: '/02-overview/nacos-discovery' },
-                                                    { text: '⚙️ Nacos 配置中心', link: '/02-overview/nacos-config' },
-                                                    { text: '⚡ Nacos 底层原理', link: '/02-overview/nacos-principle' }
-                                                  ]
-                                                },
-                                                {
-                                                  text: '🚪 微服务网关',
-                                                  items: [
-                                                    { text: '🌊 Gateway 基础', link: '/03-gateway/basic' },
-                                                    { text: '🛣️ 路由与断言', link: '/03-gateway/route' },
-                                                    { text: '🔧 过滤器', link: '/03-gateway/filter' }
-                                                  ]
-                                                },
-                                                {
-                                                  text: '⚖️ 负载均衡',
-                                                  items: [
-                                                    { text: '🔄 Spring Cloud LoadBalancer', link: '/04-loadbalancer/basic' },
-                                                    { text: '🎯 负载均衡策略', link: '/04-loadbalancer/strategy' }
-                                                  ]
-                                                },
-                                                {
-                                                  text: '🔐 认证授权',
-                                                  items: [
-                                                    { text: '🛡️ Spring Security 基础', link: '/05-security/basic' },
-                                                    { text: '🔑 OAuth2 + JWT 实战', link: '/05-security/oauth2' },
-                                                    { text: '🏛️ 统一认证中心', link: '/05-security/auth-center' }
-                                                  ]
-                                                },
-                                                {
-                                                  text: '🛠️ 实战与面试',
-                                                  items: [
-                                                    { text: '💼 综合实战项目', link: '/06-practice/comprehensive' },
-                                                    { text: '⚠️ 常见坑与最佳实践', link: '/06-practice/pitfalls' },
-                                                    { text: '🎯 高频面试题', link: '/06-practice/interview' }
-                                                  ]
-                                                },
-                                                {
-                                                  text: '🌐 分布式理论',
-                                                  items: [
-                                                    { text: '⚖️ CAP 与 BASE 理论', link: '/07-distributed/cap-base' },
-                                                    { text: '🏗️ 分布式架构模式', link: '/07-distributed/architecture' },
-                                                    { text: '🔐 分布式锁', link: '/07-distributed/distributed-lock' },
-                                                    { text: '💰 分布式事务', link: '/07-distributed/distributed-transaction' },
-                                                    { text: '🆔 分布式 ID', link: '/07-distributed/distributed-id' },
-                                                    { text: '💬 分布式消息队列', link: '/07-distributed/distributed-mq' },
-                                                    { text: '📊 分布式存储', link: '/07-distributed/distributed-storage' },
-                                                    { text: '🔄 分布式协调', link: '/07-distributed/distributed-coordination' },
-                                                    { text: '🔍 分布式追踪', link: '/07-distributed/distributed-tracing' },
-                                                    { text: '🛡️ 高可用与限流熔断', link: '/07-distributed/high-availability' }
-                                                  ]
-                                                }
-                                              ],
-                                              '/graph': [
-                                                {
-                                                  text: '🎯 知识图谱',
-                                                  items: [
-                                                    { text: '🌐 Spring Cloud 知识图谱', link: '/graph' }
-                                                  ]
-                                                }
-                                              ],
-                                              '/mindmap': [
-                                                {
-                                                  text: '🎯 思维导图',
-                                                  items: [
-                                                    { text: '🧭 Spring Cloud 思维导图', link: '/mindmap' }
-                                                  ]
-                                                }
-                                              ],
-                                              '/cheatsheet': [
-                                                {
-                                                  text: '🎯 组件速查',
-                                                  items: [
-                                                    { text: '📋 常用配置速查', link: '/cheatsheet' }
-                                                  ]
-                                                }
-                                              ],
-                                              '/path': [
-                                                {
-                                                  text: '🎯 学习路径',
-                                                  items: [
-                                                    { text: '📖 Spring Cloud 学习路径', link: '/path' }
-                                                  ]
-                                                }
-                                              ]
+                        
+                            
+                                
+                                                                      '/': [
+                                                                        {
+                                                                          text: '🎯 开始',
+                                                                          items: [
+                                                                            { text: '📖 学习路径', link: '/path' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '🍃 Spring Boot 基础',
+                                                                          items: [
+                                                                            { text: '🚀 快速开始', link: '/01-springboot/quickstart' },
+                                                                            { text: '⚙️ 自动配置原理', link: '/01-springboot/auto-config' },
+                                                                            { text: '🌐 Web 开发', link: '/01-springboot/web' },
+                                                                            { text: '💾 数据访问', link: '/01-springboot/data' },
+                                                                            { text: '🔄 事务管理', link: '/01-springboot/transaction' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '☁️ Spring Cloud Alibaba 核心',
+                                                                          items: [
+                                                                            { text: '📚 Spring Cloud Alibaba 总览', link: '/02-overview/intro' },
+                                                                            { text: '🌐 Nacos 服务发现', link: '/02-overview/nacos-discovery' },
+                                                                            { text: '⚙️ Nacos 配置中心', link: '/02-overview/nacos-config' },
+                                                                            { text: '⚡ Nacos 底层原理', link: '/02-overview/nacos-principle' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '🚪 微服务网关',
+                                                                          items: [
+                                                                            { text: '🌊 Gateway 基础', link: '/03-gateway/basic' },
+                                                                            { text: '🛣️ 路由与断言', link: '/03-gateway/route' },
+                                                                            { text: '🔧 过滤器', link: '/03-gateway/filter' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '⚖️ 负载均衡',
+                                                                          items: [
+                                                                            { text: '🔄 Spring Cloud LoadBalancer', link: '/04-loadbalancer/basic' },
+                                                                            { text: '🎯 负载均衡策略', link: '/04-loadbalancer/strategy' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '🔐 认证授权',
+                                                                          items: [
+                                                                            { text: '🛡️ Spring Security 基础', link: '/05-security/basic' },
+                                                                            { text: '🔑 OAuth2 + JWT 实战', link: '/05-security/oauth2' },
+                                                                            { text: '🏛️ 统一认证中心', link: '/05-security/auth-center' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '🛠️ 实战与面试',
+                                                                          items: [
+                                                                            { text: '💼 综合实战项目', link: '/06-practice/comprehensive' },
+                                                                            { text: '⚠️ 常见坑与最佳实践', link: '/06-practice/pitfalls' },
+                                                                            { text: '🎯 高频面试题', link: '/06-practice/interview' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '🌐 分布式理论',
+                                                                          items: [
+                                                                            { text: '⚖️ CAP 与 BASE 理论', link: '/07-distributed/cap-base' },
+                                                                            { text: '🏗️ 分布式架构模式', link: '/07-distributed/architecture' },
+                                                                            { text: '🔐 分布式锁', link: '/07-distributed/distributed-lock' },
+                                                                            { text: '💰 分布式事务', link: '/07-distributed/distributed-transaction' },
+                                                                            { text: '🆔 分布式 ID', link: '/07-distributed/distributed-id' },
+                                                                            { text: '💬 分布式消息队列', link: '/07-distributed/distributed-mq' },
+                                                                            { text: '📊 分布式存储', link: '/07-distributed/distributed-storage' },
+                                                                            { text: '🔄 分布式协调', link: '/07-distributed/distributed-coordination' },
+                                                                            { text: '🔍 分布式追踪', link: '/07-distributed/distributed-tracing' },
+                                                                            { text: '🛡️ 高可用与限流熔断', link: '/07-distributed/high-availability' }
+                                                                          ]
+                                                                        }
+                                                                      ],
+                                                                      '/graph': [
+                                                                        {
+                                                                          text: '🎯 知识图谱',
+                                                                          items: [
+                                                                            { text: '🌐 Spring Cloud 知识图谱', link: '/graph' }
+                                                                          ]
+                                                                        }
+                                                                      ],
+                                                                      '/mindmap': [
+                                                                        {
+                                                                          text: '🎯 思维导图',
+                                                                          items: [
+                                                                            { text: '🧭 Spring Cloud 思维导图', link: '/mindmap' }
+                                                                          ]
+                                                                        }
+                                                                      ],
+                                                                      '/cheatsheet': [
+                                                                        {
+                                                                          text: '🎯 组件速查',
+                                                                          items: [
+                                                                            { text: '📋 常用配置速查', link: '/cheatsheet' }
+                                                                          ]
+                                                                        }
+                                                                      ],
+                                                                      '/path': [
+                                                                        {
+                                                                          text: '🎯 学习路径',
+                                                                          items: [
+                                                                            { text: '📖 Spring Cloud 学习路径', link: '/path' }
+                                                                          ]
+                                                                        }
+                                                                      ]
     },
 
     socialLinks: [

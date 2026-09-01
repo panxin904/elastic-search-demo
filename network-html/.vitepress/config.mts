@@ -18,14 +18,21 @@ import { fileURLToPath, URL } from 'node:url'
 // P0: VitePress/rollup 默认 fs.allow 限制 cwd 外 import。用 vite alias 解决相对路径。
 const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.url))
 
+// P0: shared-assets/ 下的 .vue 组件 import vue 时需要显式 alias 指向本站点 node_modules。
+// 否则 rollup 在 SHARED_ASSETS 目录找不到 vue，会报 "Rollup failed to resolve import 'vue'"。
+// §8.81 QrShare 落地后暴露此问题。
+const VUE = fileURLToPath(new URL('../node_modules/vue', import.meta.url))
+
 export default defineConfig({
   vite: {
     resolve: {
       alias: [
         { find: '@shared', replacement: SHARED_ASSETS },
+        { find: /^vue$/, replacement: VUE },
       ],
     },
     // §8.72：shared-assets/svg/ 共享 SVG 资产（CAP / Saga / 一致性 hash 等）
+    // 只把 svg/ 子目录作为 public（避免泄漏 mermaid-config / glossary / template 等）
     publicDir: fileURLToPath(new URL('../../shared-assets/svg', import.meta.url)),
   },
   base: '/network/',
@@ -102,138 +109,141 @@ export default defineConfig({
         
             
                 
-                                      '/': [
-                                        {
-                                          text: '🎯 开始',
-                                          items: [
-                                            { text: '📖 学习路径', link: '/path' },
-                                            { text: '🧠 知识图谱', link: '/graph' },
-                                            { text: '🧭 思维导图', link: '/mindmap' },
-                                            { text: '⚡ 速记卡', link: '/cheatsheet' }
-                                          ]
-                                        },
-                                        {
-                                          text: '🌐 网络基础',
-                                          items: [
-                                            { text: 'OSI 七层模型', link: '/01-basics/osi' },
-                                            { text: 'TCP/IP 四层模型', link: '/01-basics/tcp-ip' },
-                                            { text: '数据封装与解封装', link: '/01-basics/encapsulation' },
-                                            { text: '网络性能指标', link: '/01-basics/metrics' }
-                                          ]
-                                        },
-                                        {
-                                          text: '🔌 物理层',
-                                          items: [
-                                            { text: '信号与编码', link: '/02-physical/signal' },
-                                            { text: '传输介质', link: '/02-physical/media' },
-                                            { text: '复用技术', link: '/02-physical/multiplexing' }
-                                          ]
-                                        },
-                                        {
-                                          text: '🔗 数据链路层',
-                                          items: [
-                                            { text: 'MAC 地址', link: '/03-data-link/mac' },
-                                            { text: '以太网 / 交换机', link: '/03-data-link/ethernet' },
-                                            { text: 'VLAN', link: '/03-data-link/vlan' },
-                                            { text: 'STP / RSTP', link: '/03-data-link/stp' }
-                                          ]
-                                        },
-                                        {
-                                          text: '🌍 网络层',
-                                          items: [
-                                            { text: 'IP 地址', link: '/04-network/ip-address' },
-                                            { text: '子网划分 / VLSM', link: '/04-network/subnet' },
-                                            { text: 'IPv6 协议', link: '/04-network/ipv6' },
-                                            { text: 'ARP 协议', link: '/04-network/arp' },
-                                            { text: 'ICMP / ping', link: '/04-network/icmp' },
-                                            { text: 'IP 路由', link: '/04-network/routing' },
-                                            { text: 'OSPF / BGP', link: '/04-network/bgp-ospf' },
-                                            { text: 'NAT', link: '/04-network/nat' }
-                                          ]
-                                        },
-                                        {
-                                          text: '🚚 传输层',
-                                          items: [
-                                            { text: 'UDP 协议', link: '/05-transport/udp' },
-                                            { text: 'TCP 三次握手', link: '/05-transport/tcp-handshake' },
-                                            { text: 'TCP 四次挥手', link: '/05-transport/tcp-wave' },
-                                            { text: 'TCP 可靠传输', link: '/05-transport/tcp-reliable' },
-                                            { text: 'TCP 流量控制', link: '/05-transport/tcp-flow-control' },
-                                            { text: 'TCP 拥塞控制', link: '/05-transport/tcp-congestion' },
-                                            { text: 'Socket 编程', link: '/05-transport/socket' }
-                                          ]
-                                        },
-                                        {
-                                          text: '📱 应用层',
-                                          items: [
-                                            { text: 'HTTP 协议', link: '/06-application/http' },
-                                            { text: 'HTTPS / TLS', link: '/06-application/https' },
-                                            { text: 'HTTP/2 / HTTP/3', link: '/06-application/http2-3' },
-                                            { text: 'DNS 域名解析', link: '/06-application/dns' },
-                                            { text: 'CDN 加速', link: '/06-application/cdn' },
-                                            { text: 'WebSocket', link: '/06-application/websocket' },
-                                            { text: 'RESTful API', link: '/06-application/restful' },
-                                            { text: 'RPC 协议', link: '/06-application/rpc' }
-                                          ]
-                                        },
-                                        {
-                                          text: '🔒 网络安全',
-                                          items: [
-                                            { text: '对称 / 非对称加密', link: '/07-security/encryption' },
-                                            { text: '数字签名 / PKI', link: '/07-security/signature-pki' },
-                                            { text: 'PKI / TLS 实战', link: '/07-security/pki-tls' },
-                                            { text: '常见网络攻击', link: '/07-security/network-attack' },
-                                            { text: '防火墙 / VPN', link: '/07-security/firewall-vpn' },
-                                            { text: '无线安全', link: '/07-security/wireless-security' },
-                                            { text: 'SIEM / WAF', link: '/07-security/siem-waf' }
-                                          ]
-                                        },
-                                        {
-                                          text: '📡 无线网络',
-                                          items: [
-                                            { text: 'WiFi 原理', link: '/08-wireless/wifi' },
-                                            { text: '5G 与移动网络', link: '/08-wireless/5g' },
-                                            { text: '蓝牙与短距', link: '/08-wireless/bluetooth' },
-                                            { text: '物联网通信', link: '/08-wireless/iot' }
-                                          ]
-                                        },
-                                        {
-                                          text: '☁️ 云网络',
-                                          items: [
-                                            { text: 'VPC 虚拟私有云', link: '/09-cloud-network/vpc' },
-                                            { text: '负载均衡 SLB', link: '/09-cloud-network/slb' },
-                                            { text: 'SDN / Service Mesh', link: '/09-cloud-network/sdn-service-mesh' },
-                                            { text: '云上 DNS / CDN', link: '/09-cloud-network/dns-cdn' }
-                                          ]
-                                        },
-                                        {
-                                          text: '🛠️ 抓包与排查',
-                                          items: [
-                                            { text: 'Wireshark 抓包', link: '/10-tools/wireshark' },
-                                            { text: 'tcpdump / curl', link: '/10-tools/tcpdump-curl' },
-                                            { text: '网络性能测试', link: '/10-tools/performance-test' },
-                                            { text: '故障排查方法', link: '/10-tools/troubleshooting' },
-                                            { text: '网络监控', link: '/10-tools/monitoring' }
-                                          ]
-                                        },
-                                        {
-                                          text: '🏢 企业案例',
-                                          items: [
-                                            { text: 'CDN 全站加速', link: '/11-cases/cdn-case' },
-                                            { text: '微服务网络', link: '/11-cases/microservice-network' },
-                                            { text: 'HTTPS 性能优化', link: '/11-cases/https-https' },
-                                            { text: '跨地域组网', link: '/11-cases/cross-region' }
-                                          ]
-                                        },
-                                        {
-                                          text: '🎯 面试 / 实战',
-                                          items: [
-                                            { text: '高频面试题', link: '/12-interview-practice/questions' },
-                                            { text: '案例题', link: '/12-interview-practice/cases' },
-                                            { text: '协议对比', link: '/12-interview-practice/comparison' }
-                                          ]
-                                        }
-                                      ]
+                    
+                        
+                            
+                                                              '/': [
+                                                                {
+                                                                  text: '🎯 开始',
+                                                                  items: [
+                                                                    { text: '📖 学习路径', link: '/path' },
+                                                                    { text: '🧠 知识图谱', link: '/graph' },
+                                                                    { text: '🧭 思维导图', link: '/mindmap' },
+                                                                    { text: '⚡ 速记卡', link: '/cheatsheet' }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '🌐 网络基础',
+                                                                  items: [
+                                                                    { text: 'OSI 七层模型', link: '/01-basics/osi' },
+                                                                    { text: 'TCP/IP 四层模型', link: '/01-basics/tcp-ip' },
+                                                                    { text: '数据封装与解封装', link: '/01-basics/encapsulation' },
+                                                                    { text: '网络性能指标', link: '/01-basics/metrics' }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '🔌 物理层',
+                                                                  items: [
+                                                                    { text: '信号与编码', link: '/02-physical/signal' },
+                                                                    { text: '传输介质', link: '/02-physical/media' },
+                                                                    { text: '复用技术', link: '/02-physical/multiplexing' }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '🔗 数据链路层',
+                                                                  items: [
+                                                                    { text: 'MAC 地址', link: '/03-data-link/mac' },
+                                                                    { text: '以太网 / 交换机', link: '/03-data-link/ethernet' },
+                                                                    { text: 'VLAN', link: '/03-data-link/vlan' },
+                                                                    { text: 'STP / RSTP', link: '/03-data-link/stp' }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '🌍 网络层',
+                                                                  items: [
+                                                                    { text: 'IP 地址', link: '/04-network/ip-address' },
+                                                                    { text: '子网划分 / VLSM', link: '/04-network/subnet' },
+                                                                    { text: 'IPv6 协议', link: '/04-network/ipv6' },
+                                                                    { text: 'ARP 协议', link: '/04-network/arp' },
+                                                                    { text: 'ICMP / ping', link: '/04-network/icmp' },
+                                                                    { text: 'IP 路由', link: '/04-network/routing' },
+                                                                    { text: 'OSPF / BGP', link: '/04-network/bgp-ospf' },
+                                                                    { text: 'NAT', link: '/04-network/nat' }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '🚚 传输层',
+                                                                  items: [
+                                                                    { text: 'UDP 协议', link: '/05-transport/udp' },
+                                                                    { text: 'TCP 三次握手', link: '/05-transport/tcp-handshake' },
+                                                                    { text: 'TCP 四次挥手', link: '/05-transport/tcp-wave' },
+                                                                    { text: 'TCP 可靠传输', link: '/05-transport/tcp-reliable' },
+                                                                    { text: 'TCP 流量控制', link: '/05-transport/tcp-flow-control' },
+                                                                    { text: 'TCP 拥塞控制', link: '/05-transport/tcp-congestion' },
+                                                                    { text: 'Socket 编程', link: '/05-transport/socket' }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '📱 应用层',
+                                                                  items: [
+                                                                    { text: 'HTTP 协议', link: '/06-application/http' },
+                                                                    { text: 'HTTPS / TLS', link: '/06-application/https' },
+                                                                    { text: 'HTTP/2 / HTTP/3', link: '/06-application/http2-3' },
+                                                                    { text: 'DNS 域名解析', link: '/06-application/dns' },
+                                                                    { text: 'CDN 加速', link: '/06-application/cdn' },
+                                                                    { text: 'WebSocket', link: '/06-application/websocket' },
+                                                                    { text: 'RESTful API', link: '/06-application/restful' },
+                                                                    { text: 'RPC 协议', link: '/06-application/rpc' }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '🔒 网络安全',
+                                                                  items: [
+                                                                    { text: '对称 / 非对称加密', link: '/07-security/encryption' },
+                                                                    { text: '数字签名 / PKI', link: '/07-security/signature-pki' },
+                                                                    { text: 'PKI / TLS 实战', link: '/07-security/pki-tls' },
+                                                                    { text: '常见网络攻击', link: '/07-security/network-attack' },
+                                                                    { text: '防火墙 / VPN', link: '/07-security/firewall-vpn' },
+                                                                    { text: '无线安全', link: '/07-security/wireless-security' },
+                                                                    { text: 'SIEM / WAF', link: '/07-security/siem-waf' }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '📡 无线网络',
+                                                                  items: [
+                                                                    { text: 'WiFi 原理', link: '/08-wireless/wifi' },
+                                                                    { text: '5G 与移动网络', link: '/08-wireless/5g' },
+                                                                    { text: '蓝牙与短距', link: '/08-wireless/bluetooth' },
+                                                                    { text: '物联网通信', link: '/08-wireless/iot' }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '☁️ 云网络',
+                                                                  items: [
+                                                                    { text: 'VPC 虚拟私有云', link: '/09-cloud-network/vpc' },
+                                                                    { text: '负载均衡 SLB', link: '/09-cloud-network/slb' },
+                                                                    { text: 'SDN / Service Mesh', link: '/09-cloud-network/sdn-service-mesh' },
+                                                                    { text: '云上 DNS / CDN', link: '/09-cloud-network/dns-cdn' }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '🛠️ 抓包与排查',
+                                                                  items: [
+                                                                    { text: 'Wireshark 抓包', link: '/10-tools/wireshark' },
+                                                                    { text: 'tcpdump / curl', link: '/10-tools/tcpdump-curl' },
+                                                                    { text: '网络性能测试', link: '/10-tools/performance-test' },
+                                                                    { text: '故障排查方法', link: '/10-tools/troubleshooting' },
+                                                                    { text: '网络监控', link: '/10-tools/monitoring' }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '🏢 企业案例',
+                                                                  items: [
+                                                                    { text: 'CDN 全站加速', link: '/11-cases/cdn-case' },
+                                                                    { text: '微服务网络', link: '/11-cases/microservice-network' },
+                                                                    { text: 'HTTPS 性能优化', link: '/11-cases/https-https' },
+                                                                    { text: '跨地域组网', link: '/11-cases/cross-region' }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '🎯 面试 / 实战',
+                                                                  items: [
+                                                                    { text: '高频面试题', link: '/12-interview-practice/questions' },
+                                                                    { text: '案例题', link: '/12-interview-practice/cases' },
+                                                                    { text: '协议对比', link: '/12-interview-practice/comparison' }
+                                                                  ]
+                                                                }
+                                                              ]
     },
 
     socialLinks: [{ icon: 'github', link: 'https://github.com' }],

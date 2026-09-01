@@ -18,14 +18,21 @@ import { fileURLToPath, URL } from 'node:url'
 // P0: VitePress/rollup 默认 fs.allow 限制 cwd 外 import。用 vite alias 解决相对路径。
 const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.url))
 
+// P0: shared-assets/ 下的 .vue 组件 import vue 时需要显式 alias 指向本站点 node_modules。
+// 否则 rollup 在 SHARED_ASSETS 目录找不到 vue，会报 "Rollup failed to resolve import 'vue'"。
+// §8.81 QrShare 落地后暴露此问题。
+const VUE = fileURLToPath(new URL('../node_modules/vue', import.meta.url))
+
 export default defineConfig({
   vite: {
     resolve: {
       alias: [
         { find: '@shared', replacement: SHARED_ASSETS },
+        { find: /^vue$/, replacement: VUE },
       ],
     },
     // §8.72：shared-assets/svg/ 共享 SVG 资产（CAP / Saga / 一致性 hash 等）
+    // 只把 svg/ 子目录作为 public（避免泄漏 mermaid-config / glossary / template 等）
     publicDir: fileURLToPath(new URL('../../shared-assets/svg', import.meta.url)),
   },
   base: '/cloud-native/',
@@ -103,133 +110,136 @@ export default defineConfig({
             
                 
                     
-                                              '/': [
-                                                { text: '🎯 开始', items: [{ text: '📖 学习路径', link: '/path' }] },
-                                                {
-                                                  text: '🐳 Docker 容器',
-                                                  items: [
-                                                    { text: 'Docker 基础', link: '/01-docker/intro' },
-                                                    { text: '镜像 image', link: '/01-docker/image' },
-                                                    { text: '容器 container', link: '/01-docker/container' },
-                                                    { text: 'Docker 网络', link: '/01-docker/network' },
-                                                    { text: '存储 / 卷', link: '/01-docker/volume' },
-                                                    { text: 'Docker Compose', link: '/01-docker/compose' }
-                                                  ]
-                                                },
-                                                {
-                                                  text: '🏛️ k8s 架构',
-                                                  items: [
-                                                    { text: 'k8s 是什么', link: '/02-k8s-arch/overview' },
-                                                    { text: '控制面 Control Plane', link: '/02-k8s-arch/control-plane' },
-                                                    { text: '工作节点 Node', link: '/02-k8s-arch/node' },
-                                                    { text: 'kubectl 命令行', link: '/02-k8s-arch/kubectl' },
-                                                    { text: 'etcd 存储', link: '/02-k8s-arch/etcd' }
-                                                  ]
-                                                },
-                                                {
-                                                  text: '📦 工作负载',
-                                                  items: [
-                                                    { text: 'Pod 最小单元', link: '/03-k8s-workload/pod' },
-                                                    { text: 'Deployment', link: '/03-k8s-workload/deployment' },
-                                                    { text: 'StatefulSet', link: '/03-k8s-workload/statefulset' },
-                                                    { text: 'DaemonSet', link: '/03-k8s-workload/daemonset' },
-                                                    { text: 'Job / CronJob', link: '/03-k8s-workload/job' }
-                                                  ]
-                                                },
-                                                {
-                                                  text: '🌐 Service / 网络',
-                                                  items: [
-                                                    { text: 'Service 三种类型', link: '/04-k8s-service/service' },
-                                                    { text: 'Ingress 入口', link: '/04-k8s-service/ingress' },
-                                                    { text: 'NetworkPolicy', link: '/04-k8s-service/network-policy' }
-                                                  ]
-                                                },
-                                                {
-                                                  text: '💾 存储 / 配置',
-                                                  items: [
-                                                    { text: 'PV / PVC', link: '/05-k8s-storage/pv-pvc' },
-                                                    { text: 'StorageClass / CSI', link: '/05-k8s-storage/storageclass' },
-                                                    { text: 'ConfigMap / Secret', link: '/05-k8s-storage/configmap-secret' }
-                                                  ]
-                                                },
-                                                {
-                                                  text: '⛵ Helm 包管理',
-                                                  items: [
-                                                    { text: 'Chart 结构', link: '/06-helm/chart' },
-                                                    { text: 'template / values', link: '/06-helm/template' },
-                                                    { text: 'Chart 仓库', link: '/06-helm/repository' }
-                                                  ]
-                                                },
-                                                {
-                                                  text: '📈 可观测性',
-                                                  items: [
-                                                    { text: 'Prometheus', link: '/07-observability/prometheus' },
-                                                    { text: 'Grafana 仪表板', link: '/07-observability/grafana' },
-                                                    { text: 'Loki 日志聚合', link: '/07-observability/loki' },
-                                                    { text: 'Alertmanager', link: '/07-observability/alertmanager' }
-                                                  ]
-                                                },
-                                                {
-                                                  text: '🕸️ Service Mesh',
-                                                  items: [
-                                                    { text: 'Istio 核心', link: '/08-service-mesh/istio' },
-                                                    { text: 'Sidecar 模式', link: '/08-service-mesh/sidecar' },
-                                                    { text: '流量管理', link: '/08-service-mesh/traffic' }
-                                                  ]
-                                                },
-                                                {
-                                                  text: '🚀 CI/CD & GitOps',
-                                                  items: [
-                                                    { text: 'GitOps 思想', link: '/09-cicd/gitops' },
-                                                    { text: 'ArgoCD', link: '/09-cicd/argocd' },
-                                                    { text: 'Tekton / JenkinsX', link: '/09-cicd/tekton' }
-                                                  ]
-                                                },
-                                                {
-                                                  text: '🏗️ IaC 基础设施',
-                                                  items: [
-                                                    { text: 'Terraform', link: '/10-iac/terraform' },
-                                                    { text: 'Pulumi', link: '/10-iac/pulumi' },
-                                                    { text: 'Helmfile / Kustomize', link: '/10-iac/helmfile' }
-                                                  ]
-                                                },
-                                                {
-                                                  text: '🔒 安全',
-                                                  items: [
-                                                    { text: 'RBAC 权限', link: '/11-security/rbac' },
-                                                    { text: 'Secret 管理', link: '/11-security/secret' },
-                                                    { text: 'NetworkPolicy + PodSecurity', link: '/11-security/policy' },
-                                                    { text: 'Falco 运行时检测', link: '/11-security/falco' }
-                                                  ]
-                                                },
-                                                {
-                                                  text: '☁️ Serverless',
-                                                  items: [
-                                                    { text: 'Knative Serving', link: '/12-serverless/knative' },
-                                                    { text: 'AWS Lambda / Cloud Run', link: '/12-serverless/managed' }
-                                                  ]
-                                                },
-                                                {
-                                                  text: '🔧 排错',
-                                                  items: [
-                                                    { text: 'kubectl debug', link: '/13-troubleshooting/debug' },
-                                                    { text: 'Pod 卡死 / 排错套路', link: '/13-troubleshooting/pod-trouble' },
-                                                    { text: '网络 / DNS 排错', link: '/13-troubleshooting/network' }
-                                                  ]
-                                                },
-                                                {
-                                                  text: '🎯 CKA / CKS / 面试',
-                                                  items: [
-                                                    { text: 'CKA 考试要点', link: '/14-interview/cka' },
-                                                    { text: 'CKS 安全加固', link: '/14-interview/cks' },
-                                                    { text: '高频面试题', link: '/14-interview/questions' }
-                                                  ]
-                                                }
-                                              ],
-                                              '/graph': [{ text: '🌐 知识图谱', items: [{ text: '全局知识图谱', link: '/graph' }] }],
-                                              '/mindmap': [{ text: '🧭 思维导图', items: [{ text: '云原生思维导图', link: '/mindmap' }] }],
-                                              '/cheatsheet': [{ text: '📋 命令速查', items: [{ text: 'Docker / k8s 命令速查', link: '/cheatsheet' }] }],
-                                              '/path': [{ text: '🎯 学习路径', items: [{ text: '云原生学习路径', link: '/path' }] }]
+                        
+                            
+                                
+                                                                      '/': [
+                                                                        { text: '🎯 开始', items: [{ text: '📖 学习路径', link: '/path' }] },
+                                                                        {
+                                                                          text: '🐳 Docker 容器',
+                                                                          items: [
+                                                                            { text: 'Docker 基础', link: '/01-docker/intro' },
+                                                                            { text: '镜像 image', link: '/01-docker/image' },
+                                                                            { text: '容器 container', link: '/01-docker/container' },
+                                                                            { text: 'Docker 网络', link: '/01-docker/network' },
+                                                                            { text: '存储 / 卷', link: '/01-docker/volume' },
+                                                                            { text: 'Docker Compose', link: '/01-docker/compose' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '🏛️ k8s 架构',
+                                                                          items: [
+                                                                            { text: 'k8s 是什么', link: '/02-k8s-arch/overview' },
+                                                                            { text: '控制面 Control Plane', link: '/02-k8s-arch/control-plane' },
+                                                                            { text: '工作节点 Node', link: '/02-k8s-arch/node' },
+                                                                            { text: 'kubectl 命令行', link: '/02-k8s-arch/kubectl' },
+                                                                            { text: 'etcd 存储', link: '/02-k8s-arch/etcd' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '📦 工作负载',
+                                                                          items: [
+                                                                            { text: 'Pod 最小单元', link: '/03-k8s-workload/pod' },
+                                                                            { text: 'Deployment', link: '/03-k8s-workload/deployment' },
+                                                                            { text: 'StatefulSet', link: '/03-k8s-workload/statefulset' },
+                                                                            { text: 'DaemonSet', link: '/03-k8s-workload/daemonset' },
+                                                                            { text: 'Job / CronJob', link: '/03-k8s-workload/job' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '🌐 Service / 网络',
+                                                                          items: [
+                                                                            { text: 'Service 三种类型', link: '/04-k8s-service/service' },
+                                                                            { text: 'Ingress 入口', link: '/04-k8s-service/ingress' },
+                                                                            { text: 'NetworkPolicy', link: '/04-k8s-service/network-policy' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '💾 存储 / 配置',
+                                                                          items: [
+                                                                            { text: 'PV / PVC', link: '/05-k8s-storage/pv-pvc' },
+                                                                            { text: 'StorageClass / CSI', link: '/05-k8s-storage/storageclass' },
+                                                                            { text: 'ConfigMap / Secret', link: '/05-k8s-storage/configmap-secret' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '⛵ Helm 包管理',
+                                                                          items: [
+                                                                            { text: 'Chart 结构', link: '/06-helm/chart' },
+                                                                            { text: 'template / values', link: '/06-helm/template' },
+                                                                            { text: 'Chart 仓库', link: '/06-helm/repository' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '📈 可观测性',
+                                                                          items: [
+                                                                            { text: 'Prometheus', link: '/07-observability/prometheus' },
+                                                                            { text: 'Grafana 仪表板', link: '/07-observability/grafana' },
+                                                                            { text: 'Loki 日志聚合', link: '/07-observability/loki' },
+                                                                            { text: 'Alertmanager', link: '/07-observability/alertmanager' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '🕸️ Service Mesh',
+                                                                          items: [
+                                                                            { text: 'Istio 核心', link: '/08-service-mesh/istio' },
+                                                                            { text: 'Sidecar 模式', link: '/08-service-mesh/sidecar' },
+                                                                            { text: '流量管理', link: '/08-service-mesh/traffic' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '🚀 CI/CD & GitOps',
+                                                                          items: [
+                                                                            { text: 'GitOps 思想', link: '/09-cicd/gitops' },
+                                                                            { text: 'ArgoCD', link: '/09-cicd/argocd' },
+                                                                            { text: 'Tekton / JenkinsX', link: '/09-cicd/tekton' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '🏗️ IaC 基础设施',
+                                                                          items: [
+                                                                            { text: 'Terraform', link: '/10-iac/terraform' },
+                                                                            { text: 'Pulumi', link: '/10-iac/pulumi' },
+                                                                            { text: 'Helmfile / Kustomize', link: '/10-iac/helmfile' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '🔒 安全',
+                                                                          items: [
+                                                                            { text: 'RBAC 权限', link: '/11-security/rbac' },
+                                                                            { text: 'Secret 管理', link: '/11-security/secret' },
+                                                                            { text: 'NetworkPolicy + PodSecurity', link: '/11-security/policy' },
+                                                                            { text: 'Falco 运行时检测', link: '/11-security/falco' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '☁️ Serverless',
+                                                                          items: [
+                                                                            { text: 'Knative Serving', link: '/12-serverless/knative' },
+                                                                            { text: 'AWS Lambda / Cloud Run', link: '/12-serverless/managed' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '🔧 排错',
+                                                                          items: [
+                                                                            { text: 'kubectl debug', link: '/13-troubleshooting/debug' },
+                                                                            { text: 'Pod 卡死 / 排错套路', link: '/13-troubleshooting/pod-trouble' },
+                                                                            { text: '网络 / DNS 排错', link: '/13-troubleshooting/network' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '🎯 CKA / CKS / 面试',
+                                                                          items: [
+                                                                            { text: 'CKA 考试要点', link: '/14-interview/cka' },
+                                                                            { text: 'CKS 安全加固', link: '/14-interview/cks' },
+                                                                            { text: '高频面试题', link: '/14-interview/questions' }
+                                                                          ]
+                                                                        }
+                                                                      ],
+                                                                      '/graph': [{ text: '🌐 知识图谱', items: [{ text: '全局知识图谱', link: '/graph' }] }],
+                                                                      '/mindmap': [{ text: '🧭 思维导图', items: [{ text: '云原生思维导图', link: '/mindmap' }] }],
+                                                                      '/cheatsheet': [{ text: '📋 命令速查', items: [{ text: 'Docker / k8s 命令速查', link: '/cheatsheet' }] }],
+                                                                      '/path': [{ text: '🎯 学习路径', items: [{ text: '云原生学习路径', link: '/path' }] }]
     },
 
     socialLinks: [{ icon: 'github', link: 'https://github.com' }],

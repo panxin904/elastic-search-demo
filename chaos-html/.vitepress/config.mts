@@ -20,11 +20,17 @@ import { fileURLToPath, URL } from 'node:url'
 // P0: VitePress/rollup 默认 fs.allow 限制 cwd 外 import。用 vite alias 解决相对路径。
 const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.url))
 
+// P0: shared-assets/ 下的 .vue 组件 import vue 时需要显式 alias 指向本站点 node_modules。
+// 否则 rollup 在 SHARED_ASSETS 目录找不到 vue，会报 "Rollup failed to resolve import 'vue'"。
+// §8.81 QrShare 落地后暴露此问题。
+const VUE = fileURLToPath(new URL('../node_modules/vue', import.meta.url))
+
 export default defineConfig({
   vite: {
     resolve: {
       alias: [
         { find: '@shared', replacement: SHARED_ASSETS },
+        { find: /^vue$/, replacement: VUE },
       ],
     },
     // §8.72：shared-assets/svg/ 共享 SVG 资产（CAP / Saga / 一致性 hash 等）
@@ -106,65 +112,68 @@ export default defineConfig({
             
                 
                     
-                                              '/01-foundations/': [
-                                                { text: '基础篇', items: [
-                                                  { text: '概览', link: '/01-foundations/overview' },
-                                                  { text: '历史与哲学', link: '/01-foundations/history' },
-                                                  { text: '稳态假设', link: '/01-foundations/steady-state' },
-                                                  { text: '爆炸半径', link: '/01-foundations/blast-radius' },
-                                                ]},
-                                              ],
-                                              '/02-chaos-mesh/': [
-                                                { text: 'Chaos Mesh', items: [
-                                                  { text: '概览', link: '/02-chaos-mesh/overview' },
-                                                  { text: '架构与组件', link: '/02-chaos-mesh/architecture' },
-                                                  { text: 'PodChaos 实验', link: '/02-chaos-mesh/pod-chaos' },
-                                                  { text: 'NetworkChaos 实验', link: '/02-chaos-mesh/network-chaos' },
-                                                  { text: '工作流编排', link: '/02-chaos-mesh/workflow' },
-                                                ]},
-                                              ],
-                                              '/03-litmus/': [
-                                                { text: 'Litmus', items: [
-                                                  { text: '概览', link: '/03-litmus/overview' },
-                                                  { text: 'ChaosExperiment CRD', link: '/03-litmus/chaos-experiment' },
-                                                  { text: 'Probe 与 Check', link: '/03-litmus/probe-check' },
-                                                  { text: 'Litmus SDK', link: '/03-litmus/sdk' },
-                                                ]},
-                                              ],
-                                              '/04-platform-compare/': [
-                                                { text: '工具对比', items: [
-                                                  { text: '概览', link: '/04-platform-compare/overview' },
-                                                  { text: 'Chaos Mesh vs Litmus', link: '/04-platform-compare/mesh-vs-litmus' },
-                                                  { text: '开源 vs 商业 (Gremlin)', link: '/04-platform-compare/open-vs-commercial' },
-                                                  { text: '选型决策树', link: '/04-platform-compare/decision-tree' },
-                                                ]},
-                                              ],
-                                              '/05-resilience-patterns/': [
-                                                { text: '韧性模式', items: [
-                                                  { text: '概览', link: '/05-resilience-patterns/overview' },
-                                                  { text: '重试与退避', link: '/05-resilience-patterns/retry-backoff' },
-                                                  { text: '熔断器', link: '/05-resilience-patterns/circuit-breaker' },
-                                                  { text: '限流与降级', link: '/05-resilience-patterns/rate-limit-degrade' },
-                                                  { text: '舱壁与隔离', link: '/05-resilience-patterns/bulkhead' },
-                                                  { text: '多活与灾备', link: '/05-resilience-patterns/multi-region-dr' },
-                                                ]},
-                                              ],
-                                              '/06-game-day/': [
-                                                { text: '游戏日', items: [
-                                                  { text: '概览', link: '/06-game-day/overview' },
-                                                  { text: '演练设计', link: '/06-game-day/exercise-design' },
-                                                  { text: '角色分工', link: '/06-game-day/roles' },
-                                                  { text: '复盘与改进', link: '/06-game-day/retro' },
-                                                ]},
-                                              ],
-                                              '/07-observability-for-chaos/': [
-                                                { text: '混沌可观测性', items: [
-                                                  { text: '概览', link: '/07-observability-for-chaos/overview' },
-                                                  { text: '稳态假设度量', link: '/07-observability-for-chaos/measure-steady-state' },
-                                                  { text: 'SLO 反馈环', link: '/07-observability-for-chaos/slo-feedback-loop' },
-                                                  { text: '实战案例', link: '/07-observability-for-chaos/case-study' },
-                                                ]},
-                                              ]
+                        
+                            
+                                
+                                                                      '/01-foundations/': [
+                                                                        { text: '基础篇', items: [
+                                                                          { text: '概览', link: '/01-foundations/overview' },
+                                                                          { text: '历史与哲学', link: '/01-foundations/history' },
+                                                                          { text: '稳态假设', link: '/01-foundations/steady-state' },
+                                                                          { text: '爆炸半径', link: '/01-foundations/blast-radius' },
+                                                                        ]},
+                                                                      ],
+                                                                      '/02-chaos-mesh/': [
+                                                                        { text: 'Chaos Mesh', items: [
+                                                                          { text: '概览', link: '/02-chaos-mesh/overview' },
+                                                                          { text: '架构与组件', link: '/02-chaos-mesh/architecture' },
+                                                                          { text: 'PodChaos 实验', link: '/02-chaos-mesh/pod-chaos' },
+                                                                          { text: 'NetworkChaos 实验', link: '/02-chaos-mesh/network-chaos' },
+                                                                          { text: '工作流编排', link: '/02-chaos-mesh/workflow' },
+                                                                        ]},
+                                                                      ],
+                                                                      '/03-litmus/': [
+                                                                        { text: 'Litmus', items: [
+                                                                          { text: '概览', link: '/03-litmus/overview' },
+                                                                          { text: 'ChaosExperiment CRD', link: '/03-litmus/chaos-experiment' },
+                                                                          { text: 'Probe 与 Check', link: '/03-litmus/probe-check' },
+                                                                          { text: 'Litmus SDK', link: '/03-litmus/sdk' },
+                                                                        ]},
+                                                                      ],
+                                                                      '/04-platform-compare/': [
+                                                                        { text: '工具对比', items: [
+                                                                          { text: '概览', link: '/04-platform-compare/overview' },
+                                                                          { text: 'Chaos Mesh vs Litmus', link: '/04-platform-compare/mesh-vs-litmus' },
+                                                                          { text: '开源 vs 商业 (Gremlin)', link: '/04-platform-compare/open-vs-commercial' },
+                                                                          { text: '选型决策树', link: '/04-platform-compare/decision-tree' },
+                                                                        ]},
+                                                                      ],
+                                                                      '/05-resilience-patterns/': [
+                                                                        { text: '韧性模式', items: [
+                                                                          { text: '概览', link: '/05-resilience-patterns/overview' },
+                                                                          { text: '重试与退避', link: '/05-resilience-patterns/retry-backoff' },
+                                                                          { text: '熔断器', link: '/05-resilience-patterns/circuit-breaker' },
+                                                                          { text: '限流与降级', link: '/05-resilience-patterns/rate-limit-degrade' },
+                                                                          { text: '舱壁与隔离', link: '/05-resilience-patterns/bulkhead' },
+                                                                          { text: '多活与灾备', link: '/05-resilience-patterns/multi-region-dr' },
+                                                                        ]},
+                                                                      ],
+                                                                      '/06-game-day/': [
+                                                                        { text: '游戏日', items: [
+                                                                          { text: '概览', link: '/06-game-day/overview' },
+                                                                          { text: '演练设计', link: '/06-game-day/exercise-design' },
+                                                                          { text: '角色分工', link: '/06-game-day/roles' },
+                                                                          { text: '复盘与改进', link: '/06-game-day/retro' },
+                                                                        ]},
+                                                                      ],
+                                                                      '/07-observability-for-chaos/': [
+                                                                        { text: '混沌可观测性', items: [
+                                                                          { text: '概览', link: '/07-observability-for-chaos/overview' },
+                                                                          { text: '稳态假设度量', link: '/07-observability-for-chaos/measure-steady-state' },
+                                                                          { text: 'SLO 反馈环', link: '/07-observability-for-chaos/slo-feedback-loop' },
+                                                                          { text: '实战案例', link: '/07-observability-for-chaos/case-study' },
+                                                                        ]},
+                                                                      ]
     },
 
     socialLinks: [
