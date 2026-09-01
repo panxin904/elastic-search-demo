@@ -7113,3 +7113,25 @@ jobs:
 - 当前 imgs=113 / 目标 ≥200 = **56.5%**
 - 剩余 87 张
 - 下一批 §8.72+ v7 候选：高频站第 4 轮深化（kafka controller 选举、redis cluster slot、mysql InnoDB buffer pool、nginx upstream 高级配置、k8s RBAC、elasticsearch segment/merge 细节）
+
+## §8.72+ v7 — SVG 大规模扩展（第七批 8 张）
+
+**日期**：2026-09-01
+**目标**：把 SVG 图示密度从 113 提到 121，路线图进度 56.5% → 60.5%
+
+### 变更明细
+
+- **媒体层**：`feat(media)` commit，新增 8 张 SVG（4 站各 2 张核心概念）：
+  - **filesystem-html**（2 张）：linux-vfs-stack（VFS 5 层抽象）/ filesystem-ext4-layout（块组+inode 结构）
+  - **clickhouse-html**（2 张）：clickhouse-part-write-merge（写+合并流程）/ clickhouse-column-storage（行存vs列存）
+  - **go-html**（2 张）：go-gmp-scheduler（G/M/P + work-stealing）/ go-memory-model（mcache→mcentral→mheap→OS）
+  - **rust-html**（2 张）：rust-ownership-borrow-check（3 大规则+代码对比）/ rust-async-runtime（Future+Executor+Reactor）
+- **改名避让**：v5 同名文件保留（clickhouse-mergetree.svg / go-goroutine.svg / rust-ownership.svg / linux-vfs.svg 已被引用），v7 用 -stack / -part-write-merge / -gmp-scheduler / -ownership-borrow-check 等后缀区分
+- **内容层**：`feat(content)` commit，6 个核心文档（部分站多图共享文档）frontmatter 后注入
+- **审计基线**：imgs 113 → 121（+8），broken=0，cross-site dups=0 持平
+
+### 路线图进度
+
+- 当前 imgs=121 / 目标 ≥200 = **60.5%**
+- 剩余 79 张
+- 下一批 §8.72+ v8 候选：高频站第 4 轮深化（kafka controller 选举时序 / redis cluster slot 重分配 / mysql InnoDB buffer pool LRU / nginx upstream 高级配置 / k8s RBAC / es segment merge 流程 / prometheus TSDB 压缩）
