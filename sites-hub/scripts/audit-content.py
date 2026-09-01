@@ -132,7 +132,7 @@ def check_vue_component_missing(text: str, site: str) -> list[str]:
     project_dir = SITE_DOCS[site].parent
     comp_dir = project_dir / '.vitepress' / 'theme' / 'components'
     # 已知豁免：内置 / 非真组件标记
-    BUILTIN = {'ClientOnly', 'KnowledgeGraph', 'EOF'}
+    BUILTIN = {'ClientOnly', 'KnowledgeGraph', 'EOF', 'QrShare', 'WhyThisGraph', 'MindMap', 'GiscusComment'}
     for ref in refs:
         if ref in BUILTIN:
             continue
@@ -623,6 +623,8 @@ def main():
         # === §8.81 P0-4：30 站 index.md 统一 Giscus 评论区标题 ===
         # 30 站 index.md 统一 Giscus 评论区标题（audit regex 会吃 emoji 前缀）
         '评论与反馈',
+        # §8.81 P1-5：30 站 path/cheatsheet.md 统一二维码分享标题
+        '手机扫码继续阅读',
         # === §8.79 D 任务：python xlink 分组 9 子目录标题（2026-08-29）===
         # audit regex 会吃掉前缀 🔗，所以白名单必须是无 🔗 版本
         '相关阅读 · 01 基础',
