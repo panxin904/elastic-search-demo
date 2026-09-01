@@ -103,3 +103,12 @@ const relatedSites = [
 - [observability](https://java-px.bot.cd/observability/)：故障注入监控
 - [system-design](https://java-px.bot.cd/system-design/)：系统韧性
 - [architecture](https://java-px.bot.cd/architecture/)：韧性架构
+
+
+## 💬 评论与反馈
+
+有问题或建议？欢迎在下方评论。
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>

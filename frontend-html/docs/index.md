@@ -186,3 +186,12 @@ const relatedSites = [
 - [java-language](https://java-px.bot.cd/java-language/)：Java 基础
 - [network](https://java-px.bot.cd/network/)：HTTP / WebSocket
 - [devops](https://java-px.bot.cd/devops/)：前端 CI/CD
+
+
+## 💬 评论与反馈
+
+有问题或建议？欢迎在下方评论。
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>

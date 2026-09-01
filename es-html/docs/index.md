@@ -145,3 +145,12 @@ const relatedSites = [
 - [system-design](https://java-px.bot.cd/system-design/)：搜索引擎架构
 - [java](https://java-px.bot.cd/java-web-manual/)：Java ES Client
 - [observability](https://java-px.bot.cd/observability/)：ES 集群监控
+
+
+## 💬 评论与反馈
+
+有问题或建议？欢迎在下方评论。
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>

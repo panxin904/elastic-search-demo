@@ -119,3 +119,12 @@ const relatedSites = [
 - [observability](https://java-px.bot.cd/observability/)：监控告警
 - [python](https://java-px.bot.cd/python/)：脚本工具
 - [go](https://java-px.bot.cd/go/)：Go 工具链
+
+
+## 💬 评论与反馈
+
+有问题或建议？欢迎在下方评论。
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>

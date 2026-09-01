@@ -128,3 +128,12 @@ key: value
 - 实战案例
 - 参考资料
 <!-- auto-enrich:do-not-edit -->
+
+
+## 💬 评论与反馈
+
+有问题或建议？欢迎在下方评论。
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>

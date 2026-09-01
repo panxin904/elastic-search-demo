@@ -220,3 +220,12 @@ graph TB
 - [kafka](https://java-px.bot.cd/kafka/)：消息架构
 - [redis](https://java-px.bot.cd/redis/)：缓存架构
 - [observability](https://java-px.bot.cd/observability/)：可观测性
+
+
+## 💬 评论与反馈
+
+有问题或建议？欢迎在下方评论。
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>

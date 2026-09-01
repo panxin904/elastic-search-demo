@@ -187,3 +187,12 @@ key: value
 ## 图示：Unix 工具哲学与管道组合
 
 ![Unix 工具哲学与管道组合](/tool-pipeline.svg)
+
+
+## 💬 评论与反馈
+
+有问题或建议？欢迎在下方评论。
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>

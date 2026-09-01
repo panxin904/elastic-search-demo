@@ -157,3 +157,12 @@ const relatedSites = [
 - [redis](https://java-px.bot.cd/redis/)：缓存
 - [mysql](https://java-px.bot.cd/mysql/)：数据库
 - [design-pattern](https://java-px.bot.cd/design-pattern/)：设计模式
+
+
+## 💬 评论与反馈
+
+有问题或建议？欢迎在下方评论。
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>

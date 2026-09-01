@@ -133,3 +133,12 @@ const relatedSites = [
 - [security](https://java-px.bot.cd/security/)：网络安全
 - [cloud-native](https://java-px.bot.cd/cloud-native/)：K8s 网络
 - [java](https://java-px.bot.cd/java-web-manual/)：Java Netty
+
+
+## 💬 评论与反馈
+
+有问题或建议？欢迎在下方评论。
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>

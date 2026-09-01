@@ -138,3 +138,12 @@ const relatedSites = [
 - [linux](https://java-px.bot.cd/linux/)：Linux 系统编程
 - [android](https://java-px.bot.cd/android/)：NDK 集成
 - [iot](https://java-px.bot.cd/iot/)：嵌入式 Rust
+
+
+## 💬 评论与反馈
+
+有问题或建议？欢迎在下方评论。
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>

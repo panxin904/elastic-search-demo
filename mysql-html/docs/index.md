@@ -164,3 +164,12 @@ const relatedSites = [
 - [architecture](https://java-px.bot.cd/architecture/)：读写分离 / 分库分表
 - [observability](https://java-px.bot.cd/observability/)：慢查询监控
 - [linux](https://java-px.bot.cd/linux/)：Linux I/O 调优
+
+
+## 💬 评论与反馈
+
+有问题或建议？欢迎在下方评论。
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>

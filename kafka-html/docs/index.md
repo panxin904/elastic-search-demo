@@ -168,3 +168,12 @@ Kafka 是分布式消息中间件的标杆，但绝大多数人：
 - [architecture](https://java-px.bot.cd/architecture/)：事件驱动架构
 - [observability](https://java-px.bot.cd/observability/)：消息延迟监控
 - [bigdata](https://java-px.bot.cd/bigdata/)：Kafka 在大数据中的角色
+
+
+## 💬 评论与反馈
+
+有问题或建议？欢迎在下方评论。
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>

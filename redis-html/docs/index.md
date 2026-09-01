@@ -136,3 +136,12 @@ const relatedSites = [
 - [system-design](https://java-px.bot.cd/system-design/)：分布式锁 / 缓存架构
 - [architecture](https://java-px.bot.cd/architecture/)：微服务缓存层
 - [linux](https://java-px.bot.cd/linux/)：Linux 内核参数调优
+
+
+## 💬 评论与反馈
+
+有问题或建议？欢迎在下方评论。
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>

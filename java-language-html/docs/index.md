@@ -173,3 +173,12 @@ const relatedSites = [
 - [system-design](https://java-px.bot.cd/system-design/)：JVM 调优实战
 - [architecture](https://java-px.bot.cd/architecture/)：JVM 在架构中的角色
 - [frontend](https://java-px.bot.cd/frontend/)：Java 跨端（VR / Android）
+
+
+## 💬 评论与反馈
+
+有问题或建议？欢迎在下方评论。
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>

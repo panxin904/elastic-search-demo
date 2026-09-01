@@ -145,3 +145,12 @@ const relatedSites = [
 - [data](https://java-px.bot.cd/data/)：数据处理
 - [devops](https://java-px.bot.cd/devops/)：自动化运维
 - [linux](https://java-px.bot.cd/linux/)：Linux 脚本
+
+
+## 💬 评论与反馈
+
+有问题或建议？欢迎在下方评论。
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>

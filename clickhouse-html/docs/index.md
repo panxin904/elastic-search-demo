@@ -100,3 +100,12 @@ const relatedSites = [
 - [postgresql](https://java-px.bot.cd/postgresql/)：PostgreSQL 对比
 - [mysql](https://java-px.bot.cd/mysql/)：MySQL 对比
 - [system-design](https://java-px.bot.cd/system-design/)：OLAP 架构
+
+
+## 💬 评论与反馈
+
+有问题或建议？欢迎在下方评论。
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>

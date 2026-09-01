@@ -193,3 +193,12 @@ const relatedSites = [
 - [security](https://java-px.bot.cd/security/)：Linux 安全
 - [rust](https://java-px.bot.cd/rust/)：Linux 系统编程
 - [filesystem](https://java-px.bot.cd/filesystem/)：文件系统
+
+
+## 💬 评论与反馈
+
+有问题或建议？欢迎在下方评论。
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>

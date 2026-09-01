@@ -1,6 +1,7 @@
 ---
 layout: home
 title: Java Web Dev Manual
+date: 2026-08-27  # date-auto-injected
 hero:
   name: "Java Web Dev Manual"
   text: "用知识图谱系统化掌握 Java Web 开发全流程"
@@ -147,3 +148,11 @@ const relatedSites = [
 - [kafka](https://java-px.bot.cd/kafka/)：Kafka 消息队列
 - [cloud-native](https://java-px.bot.cd/cloud-native/)：Docker / K8s 部署
 - [es](https://java-px.bot.cd/es/)：Elasticsearch 搜索
+
+## 💬 评论与反馈
+
+有问题或建议？欢迎在下方评论。
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>

@@ -134,3 +134,12 @@ graph TB
 - [java](https://java-px.bot.cd/java-web-manual/)：Java 实现
 - [architecture](https://java-px.bot.cd/architecture/)：架构模式
 - [system-design](https://java-px.bot.cd/system-design/)：系统设计
+
+
+## 💬 评论与反馈
+
+有问题或建议？欢迎在下方评论。
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>

@@ -134,3 +134,12 @@ const relatedSites = [
 - [frontend](https://java-px.bot.cd/frontend/)：Web 播放器
 - [ai](https://java-px.bot.cd/ai/)：视频 AI
 - [python](https://java-px.bot.cd/python/)：Python 处理
+
+
+## 💬 评论与反馈
+
+有问题或建议？欢迎在下方评论。
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>

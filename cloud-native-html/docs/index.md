@@ -175,3 +175,12 @@ const relatedSites = [
 - [observability](https://java-px.bot.cd/observability/)：K8s 监控
 - [architecture](https://java-px.bot.cd/architecture/)：云原生架构
 - [security](https://java-px.bot.cd/security/)：容器安全
+
+
+## 💬 评论与反馈
+
+有问题或建议？欢迎在下方评论。
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>

@@ -166,3 +166,12 @@ const relatedSites = [
 - [kafka](https://java-px.bot.cd/kafka/)：日志收集
 - [es](https://java-px.bot.cd/es/)：日志存储
 - [java](https://java-px.bot.cd/java-web-manual/)：Java APM
+
+
+## 💬 评论与反馈
+
+有问题或建议？欢迎在下方评论。
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>

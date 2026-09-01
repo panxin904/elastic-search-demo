@@ -171,3 +171,12 @@ const relatedSites = [
 - [clickhouse](https://java-px.bot.cd/clickhouse/)：ClickHouse OLAP
 - [hadoop](https://java-px.bot.cd/hadoop/)：Hadoop 生态
 - [python](https://java-px.bot.cd/python/)：Python 数据处理
+
+
+## 💬 评论与反馈
+
+有问题或建议？欢迎在下方评论。
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
