@@ -7135,3 +7135,67 @@ jobs:
 - 当前 imgs=121 / 目标 ≥200 = **60.5%**
 - 剩余 79 张
 - 下一批 §8.72+ v8 候选：高频站第 4 轮深化（kafka controller 选举时序 / redis cluster slot 重分配 / mysql InnoDB buffer pool LRU / nginx upstream 高级配置 / k8s RBAC / es segment merge 流程 / prometheus TSDB 压缩）
+
+## §8.81 P1-5 后置修复 · vue alias 路径（2026-09-01）
+
+### 问题
+
+CI 报 `Rollup failed to resolve import "vue" from ".../shared-assets/vitepress-template/theme/components/QrShare.vue"`：
+
+```
+[vite]: Rollup failed to resolve import "vue" from ".../shared-assets/vitepress-template/theme/components/QrShare.vue"
+```
+
+### 根因
+
+QrShare.vue 是第一个**显式 import vue 的共享组件**：
+- `shared-assets/vitepress-template/theme/components/GiscusComment.vue` / `SiteFooter.vue` / `WhyThisGraph.vue` 都不用 vue ref/computed → 没暴露问题
+- `QrShare.vue` 用 `import { ref, computed } from 'vue'` → rollup 解析失败
+
+**为什么 local build 通过、CI 失败？**
+- 本地 rollup 解析时，ai-html/.vitepress/theme/components/ 下的 .vue 文件即使在 cwd 外也能通过 node_modules 路径找到 vue（因为 vite 默认会向上找）
+- 但 `shared-assets/vitepress-template/theme/components/QrShare.vue` 跨目录更深，rollup 默认 fs.allow + node_modules 解析失败
+
+### 修复
+
+在 `shared-assets/vitepress-template/config.mts.tpl` 加 vue alias：
+
+```ts
+// P0: shared-assets/ 下的 .vue 组件 import vue 时需要显式 alias 指向本站点 node_modules。
+// 否则 rollup 在 SHARED_ASSETS 目录找不到 vue，会报 "Rollup failed to resolve import 'vue'"。
+// §8.81 QrShare 落地后暴露此问题。
+const VUE = fileURLToPath(new URL('../node_modules/vue', import.meta.url))
+
+vite: {
+  resolve: {
+    alias: [
+      { find: '@shared', replacement: SHARED_ASSETS },
+      { find: /^vue$/, replacement: VUE },
+    ],
+  },
+}
+```
+
+`./node_modules/vue` 第一次写错了（指向 `.vitepress/node_modules/vue`），改成 `../node_modules/vue` 才正确。
+
+### 副作用排查
+
+第一次跑 30 站 build 时 alias 写错：
+- 全部 30 站 build 失败：`Could not load /.../.vitepress/node_modules/vue`
+- 因为 alias 把 vitepress 内部的 `from 'vue'` 也重定向到了错误的路径
+
+修正后 30 站全过 + audit 指标稳定：
+- imgs: 121 (60.5%) · broken: 0 · dups: 0 · vue_missing: 0
+- 30 站 build 全部成功（首次 27/30，3 站 enhanceApp 修复后全过）
+
+### 复用
+
+后续添加任何 import vue 的共享组件（如 QrShare）会自动 work，无需额外配置：
+
+```bash
+# 1. 在 shared-assets/vitepress-template/theme/components/ 新增组件
+# 2. 在所有站点的 .vitepress/theme/index.ts 注册
+# 3. 跑 audit + 单站 build 验证即可
+python3 sites-hub/scripts/audit-content.py
+cd ai-html && npx vitepress build
+```
