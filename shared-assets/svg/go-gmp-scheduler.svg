@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="400" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Go GMP 调度模型</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Goroutine · M (Machine) · P (Processor) · Work-Stealing</text>
+
+  <!-- G M P 三角色 -->
+  <g>
+    <text x="80" y="92" text-anchor="middle" font-size="11" font-weight="700" fill="#7c3aed">G（Goroutine）</text>
+    <text x="220" y="92" text-anchor="middle" font-size="11" font-weight="700" fill="#3b82f6">P（Processor）</text>
+    <text x="500" y="92" text-anchor="middle" font-size="11" font-weight="700" fill="#10b981">M（Machine）</text>
+  </g>
+
+  <!-- G 队列 × 3 -->
+  <g>
+    <rect x="20" y="105" width="120" height="220" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="80" y="125" text-anchor="middle" font-size="10" font-weight="700" fill="#5b21b6">P0 本地队列（LRU）</text>
+    <rect x="35" y="135" width="90" height="20" fill="#fff" stroke="#a78bfa"/>
+    <text x="80" y="149" text-anchor="middle" font-size="10" fill="#5b21b6">G1</text>
+    <rect x="35" y="158" width="90" height="20" fill="#fff" stroke="#a78bfa"/>
+    <text x="80" y="172" text-anchor="middle" font-size="10" fill="#5b21b6">G2</text>
+    <rect x="35" y="181" width="90" height="20" fill="#fff" stroke="#a78bfa"/>
+    <text x="80" y="195" text-anchor="middle" font-size="10" fill="#5b21b6">G3</text>
+    <rect x="35" y="204" width="90" height="20" fill="#fff" stroke="#a78bfa"/>
+    <text x="80" y="218" text-anchor="middle" font-size="10" fill="#5b21b6">G4</text>
+    <rect x="35" y="227" width="90" height="20" fill="#fff" stroke="#a78bfa"/>
+    <text x="80" y="241" text-anchor="middle" font-size="10" fill="#5b21b6">G5</text>
+    <rect x="35" y="250" width="90" height="20" fill="#fff" stroke="#a78bfa"/>
+    <text x="80" y="264" text-anchor="middle" font-size="10" fill="#5b21b6">G6</text>
+    <text x="80" y="290" text-anchor="middle" font-size="9" fill="#7c3aed">最多 256 个</text>
+    <text x="80" y="305" text-anchor="middle" font-size="9" fill="#7c3aed">满则入 global</text>
+
+    <rect x="160" y="105" width="120" height="220" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="220" y="125" text-anchor="middle" font-size="10" font-weight="700" fill="#5b21b6">P1 本地队列</text>
+    <rect x="175" y="135" width="90" height="20" fill="#fff" stroke="#a78bfa"/>
+    <text x="220" y="149" text-anchor="middle" font-size="10" fill="#5b21b6">G7</text>
+    <rect x="175" y="158" width="90" height="20" fill="#fff" stroke="#a78bfa"/>
+    <text x="220" y="172" text-anchor="middle" font-size="10" fill="#5b21b6">G8</text>
+    <rect x="175" y="181" width="90" height="20" fill="#fff" stroke="#a78bfa"/>
+    <text x="220" y="195" text-anchor="middle" font-size="10" fill="#5b21b6">G9</text>
+
+    <rect x="300" y="105" width="120" height="220" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="360" y="125" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">Global Queue</text>
+    <text x="360" y="150" text-anchor="middle" font-size="9" fill="#475569">本地溢出 / new G</text>
+    <rect x="315" y="170" width="90" height="20" fill="#fff" stroke="#f59e0b"/>
+    <text x="360" y="184" text-anchor="middle" font-size="10" fill="#92400e">G10</text>
+    <rect x="315" y="195" width="90" height="20" fill="#fff" stroke="#f59e0b"/>
+    <text x="360" y="209" text-anchor="middle" font-size="10" fill="#92400e">G11</text>
+    <rect x="315" y="220" width="90" height="20" fill="#fff" stroke="#f59e0b"/>
+    <text x="360" y="234" text-anchor="middle" font-size="10" fill="#92400e">G12</text>
+    <text x="360" y="270" text-anchor="middle" font-size="9" fill="#92400e">需要 lock · 慢</text>
+    <text x="360" y="285" text-anchor="middle" font-size="9" fill="#92400e">61 次偷取触发</text>
+  </g>
+
+  <!-- M × 2 -->
+  <g>
+    <rect x="450" y="105" width="120" height="80" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <text x="510" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">M0（OS thread）</text>
+    <text x="510" y="148" text-anchor="middle" font-size="9" fill="#065f46">执行 P0 → G</text>
+    <text x="510" y="165" text-anchor="middle" font-size="9" fill="#475569">1:1 OS thread</text>
+
+    <rect x="450" y="200" width="120" height="80" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <text x="510" y="220" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">M1</text>
+    <text x="510" y="243" text-anchor="middle" font-size="9" fill="#065f46">执行 P1 → G</text>
+    <text x="510" y="260" text-anchor="middle" font-size="9" fill="#475569">P 数量 = GOMAXPROCS</text>
+
+    <!-- M0 ↔ M1 窃取 -->
+    <path d="M 510 185 Q 510 195 510 200" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="3" marker-end="url(#arr)"/>
+    <text x="540" y="200" font-size="9" fill="#dc2626">work-stealing</text>
+  </g>
+
+  <!-- 关键点 -->
+  <rect x="20" y="340" width="560" height="45" rx="6" fill="#fff" stroke="#e2e8f0"/>
+  <text x="40" y="363" font-size="11" font-weight="700" fill="#7c3aed">⚡ Go 调度优势</text>
+  <text x="40" y="378" font-size="10" fill="#475569">
+    <tspan>• G 极轻量（2KB 栈）· 单进程可承载数十万 G</tspan>
+    <tspan dx="10">• P 隔离 local queue · 减少锁竞争</tspan>
+  </text>
+
+  <text x="300" y="400" text-anchor="middle" font-size="10" fill="#64748b">§8.72+ v7 · go</text>
+</svg>

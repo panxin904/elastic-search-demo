@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="380" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Go 内存分配模型</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">mcache → mcentral → mheap · 借鉴 TCMalloc · 减少碎片</text>
+
+  <!-- 自上而下 4 层 -->
+  <g>
+    <!-- 1. mcache 线程缓存 -->
+    <rect x="60" y="85" width="480" height="55" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="80" y="110" font-size="12" font-weight="700" fill="#1e40af">① mcache（每 P 一份 · 无锁）</text>
+    <text x="80" y="128" font-size="10" fill="#1e40af">span[67] · 各 size class 缓存槽位（8B / 16B / 32B ... 32KB）</text>
+
+    <!-- 2. mcentral 全局中心 -->
+    <rect x="60" y="150" width="480" height="55" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+    <text x="80" y="175" font-size="12" font-weight="700" fill="#5b21b6">② mcentral（每 size class 一把锁）</text>
+    <text x="80" y="193" font-size="10" fill="#5b21b6">partial span 链表 · 申请/归还 span · 竞争可接受</text>
+
+    <!-- 3. mheap -->
+    <rect x="60" y="215" width="480" height="55" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="80" y="240" font-size="12" font-weight="700" fill="#065f46">③ mheap（全局大锁 · 罕见路径）</text>
+    <text x="80" y="258" font-size="10" fill="#065f46">向 OS 申请 arena（64MB）· 管理 page bitmap · 内存规整</text>
+
+    <!-- 4. OS -->
+    <rect x="60" y="280" width="480" height="55" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="80" y="305" font-size="12" font-weight="700" fill="#92400e">④ 操作系统 · mmap / munmap / madvise</text>
+    <text x="80" y="323" font-size="10" fill="#92400e">Linux page = 4KB · arena = 64MB · heap = 512GB（64-bit）</text>
+  </g>
+
+  <!-- 左侧连线 -->
+  <line x1="40" y1="110" x2="55" y2="110" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="40" y1="178" x2="55" y2="178" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="40" y1="245" x2="55" y2="245" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="40" y1="307" x2="55" y2="307" stroke="#64748b" stroke-width="1.5"/>
+
+  <!-- 标注 -->
+  <text x="555" y="112" text-anchor="end" font-size="9" fill="#059669">快 · 无锁</text>
+  <text x="555" y="180" text-anchor="end" font-size="9" fill="#d97706">中 · size 级锁</text>
+  <text x="555" y="247" text-anchor="end" font-size="9" fill="#dc2626">慢 · 全局锁</text>
+  <text x="555" y="309" text-anchor="end" font-size="9" fill="#7c3aed">系统调用</text>
+
+  <!-- GC 提示 -->
+  <rect x="20" y="350" width="560" height="20" fill="#fff" stroke="#e2e8f0"/>
+  <text x="40" y="365" font-size="10" font-weight="700" fill="#7c3aed">💡 GC：</text>
+  <text x="75" y="365" font-size="10" fill="#475569">三色标记 + 写屏障 · 并发 STW &lt; 1ms · GOGC/GOMEMLIMIT 调优</text>
+
+  <text x="300" y="380" text-anchor="middle" font-size="10" fill="#64748b">§8.72+ v7 · go</text>
+</svg>
