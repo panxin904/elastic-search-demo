@@ -3,6 +3,8 @@ title: channel
 date: 2026-08-15  # date-auto-injected
 ---
 
+![Go 内存分配模型](/go-memory-model.svg)
+
 # channel
 
 channel 是 goroutine 之间的通信机制：类型安全的消息队列，遵循 CSP（Communicating Sequential Processes）模型。

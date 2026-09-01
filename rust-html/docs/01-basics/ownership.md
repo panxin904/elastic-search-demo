@@ -3,6 +3,8 @@ title: 所有权 Ownership
 date: 2026-08-15  # date-auto-injected
 ---
 
+![Rust 所有权与借用规则](/rust-ownership-borrow-check.svg)
+
 # 所有权 Ownership
 
 所有权是 Rust 最核心的概念：每个值有且仅有一个所有者，所有者离开作用域时值被自动 drop。

@@ -3,6 +3,8 @@ title: goroutine
 date: 2026-08-15  # date-auto-injected
 ---
 
+![Go GMP 调度模型（work-stealing）](/go-gmp-scheduler.svg)
+
 # goroutine
 
 goroutine 是 Go 最核心的并发原语：轻量协程，由 Go runtime 调度，单个程序可同时运行数十万个 goroutine。

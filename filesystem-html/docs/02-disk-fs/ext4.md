@@ -3,6 +3,10 @@ title: ext4 经典之选
 date: 2026-08-15  # date-auto-injected
 ---
 
+![ext4 磁盘布局](/filesystem-ext4-layout.svg)
+
+![Linux VFS 虚拟文件系统分层](/linux-vfs-stack.svg)
+
 # ext4 经典之选
 
 <span class="kg-badge kg-badge-disk-fs">本地盘</span>

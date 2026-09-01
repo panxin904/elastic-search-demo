@@ -3,6 +3,8 @@ title: async / await
 date: 2026-08-15  # date-auto-injected
 ---
 
+![Rust Async 运行时](/rust-async-runtime.svg)
+
 # async / await
 
 Rust async-await 是零成本抽象：编译为状态机，运行时由 tokio / async-std 调度。

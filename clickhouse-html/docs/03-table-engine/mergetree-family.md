@@ -4,6 +4,10 @@ date: 2026-08-15  # date-auto-injected
 description: MergeTree / ReplacingMergeTree / AggregatingMergeTree / CollapsingMergeTree / VersionedCollapsingMergeTree / SummingMergeTree 完整对比
 ---
 
+![列存 vs 行存](/clickhouse-column-storage.svg)
+
+![ClickHouse MergeTree 写入与合并流程](/clickhouse-part-write-merge.svg)
+
 # MergeTree 表引擎家族
 
 MergeTree 是 ClickHouse 的核心引擎，LSM 风格（写入即后台合并），家族有 6 个变种，覆盖 80% 的场景。
