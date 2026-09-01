@@ -7043,3 +7043,45 @@ jobs:
 - 当前 imgs=101 / 目标 ≥200 = **50.5%**（过半！）
 - 下一批 §8.72+ v6 计划：剩余空白概念补充 + 高频站第 3 轮深化（如 redis cluster slot 细节、kafka controller 选举、nginx upstream 高级配置、k8s RBAC、mysql InnoDB buffer pool 等）
 
+
+## §8.81 P1-5 收尾 — QrShare 全站落地（2026-09-01）
+
+### 变更明细
+- 30 站 `.vitepress/theme/index.ts` 注册 `QrShare`（含 filesystem-html 的 `.js` 变体 + java-web-manual 补齐）
+- 3 站（architecture/bigdata/java-language）原 enhanceApp 单行紧凑写法重构为多行
+- 30 站 `docs/path.md` 末尾加 `<ClientOnly><QrShare /></ClientOnly>`（60 文件 = path + cheatsheet）
+- java-web-manual 同步补 QrShare + readingTime + backToTop + 50 个文档日期注入
+
+### Commits（12 个未推送）
+| Commit | 内容 |
+|---|---|
+| `dd77274` | 新增 readingTime + backToTop composable |
+| `252d9f8` | 30 站启用 readingTime + backToTop + springcloud readingProgress |
+| `dde1092` | es graph.json typo 修正 |
+| `c24e85f` | GiscusComment 启用真实 ID（R_kgDOT5raZQ / DIC_kwDOT5raZc4DEpVN） |
+| `35f0121` | '评论与反馈' 加白名单豁免 |
+| `f24842b` | 30 站 index.md 启用 GiscusComment |
+| `320e9e0` | /go 中转页路由（保留工具） |
+| `5516b5a` | QrShare 组件（qrserver.com API · 零依赖） |
+| `d0dd046` | 共享组件名加入 BUILTIN + 标题白名单 +2 |
+| `70103ec` | **30 站注册 QrShare 组件** |
+| `1f7c702` | **30 站 path.md + cheatsheet.md 加 <QrShare />** |
+| `f0e40b1` | **java-web-manual 补齐 QrShare/readingTime/backToTop** |
+
+### 验证
+- 30 站全量 build 通过（首次跑 27/30，3 站紧凑 enhanceApp 语法错，重构后全通过）
+- audit：files=1662, words=1,364,127, thin=28, broken=0, dups=0(cross)+38(intra), vue_missing=0
+- QrShare 静态文本（"扫码在手机上继续阅读"）在 ClientOnly 内不 SSR（预期），客户端水合后渲染
+- theme chunk 已包含 `at-qr-share` CSS class（ai/kafka/springcloud 抽样确认）
+
+### 当前 P1 待办
+- **P1-2 PWA**：评估 ROI 中（每个站加 vite-plugin-pwa + 缓存策略）— 待用户决定
+- **P1-1 Plausible**：需用户注册 https://plausible.io/ 并提供站点名
+
+### 工作区未提交项
+- `package.json`（untracked，实验残留 vitepress-plugin-mermaid）
+- `package-lock.json`（3768 行新增，npm install 漂移）
+- `sites-hub/reports/content-quality-2026-08-29.md`（旧报告改动）
+- `sites-hub/reports/content-quality-2026-09-01.md`（新报告 untracked）
+
+→ 等用户决定是否推送 + 是否清理 package.json
