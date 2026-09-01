@@ -4,6 +4,7 @@ import { setupReadingProgress } from '@shared/vitepress-template/theme/composabl
 import { injectReadingTime } from '@shared/vitepress-template/theme/composables/readingTime'
 import { setupBackToTop } from '@shared/vitepress-template/theme/composables/backToTop'
 import './style.css'
+import QrShare from '@shared/vitepress-template/theme/components/QrShare.vue'
 
 export default {
   setup() {
@@ -14,5 +15,6 @@ export default {
   extends: DefaultTheme,
   enhanceApp({ app }) {
     app.component('WhyThisGraph', WhyThisGraph)
+    app.component('QrShare', QrShare)
   }
 }

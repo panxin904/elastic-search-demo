@@ -2,6 +2,7 @@ import DefaultTheme from 'vitepress/theme'
 import KnowledgeGraph from './components/KnowledgeGraph.vue'
 import MindMap from './components/MindMap.vue'
 import { setupReadingProgress } from '@shared/vitepress-template/theme/composables/readingProgress'
+import QrShare from '@shared/vitepress-template/theme/components/QrShare.vue'
 import './style.css'
 
 export default {
@@ -12,5 +13,6 @@ export default {
   enhanceApp({ app }) {
     app.component('KnowledgeGraph', KnowledgeGraph)
     app.component('MindMap', MindMap)
+    app.component('QrShare', QrShare)
   }
 }

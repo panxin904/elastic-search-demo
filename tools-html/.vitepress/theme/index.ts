@@ -4,6 +4,7 @@ import { setupReadingProgress } from '@shared/vitepress-template/theme/composabl
 import { injectReadingTime } from '@shared/vitepress-template/theme/composables/readingTime'
 import { setupBackToTop } from '@shared/vitepress-template/theme/composables/backToTop'
 import './style.css'
+import QrShare from '@shared/vitepress-template/theme/components/QrShare.vue'
 
 // Vue 组件都需要客户端运行 — VitePress 默认 SSR 会失败，
 // 用 ClientOnly 包裹动态组件即可。
@@ -26,5 +27,6 @@ export default {
   },
   enhanceApp({ app }) {
     app.component('ClientOnly', ClientOnly)
+    app.component('QrShare', QrShare)
   }
 }
