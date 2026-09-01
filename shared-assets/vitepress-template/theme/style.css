@@ -286,3 +286,47 @@ body {
 .dark .at-content th {
   background: var(--vp-c-bg-soft);
 }
+
+/* §8.81 P0-2 阅读时长标签 */
+.at-reading-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 0 16px;
+  padding: 4px 12px;
+  background: var(--at-brand-soft, rgba(99, 102, 241, 0.1));
+  color: var(--at-brand, #6366f1);
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  width: fit-content;
+}
+
+/* §8.81 P0-3 Back to top 按钮 */
+.at-back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--at-brand, #6366f1);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: opacity 0.2s, transform 0.2s;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9998;
+}
+.at-back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.at-back-to-top:hover {
+  transform: translateY(-2px);
+}
