@@ -7085,3 +7085,31 @@ jobs:
 - `sites-hub/reports/content-quality-2026-09-01.md`（新报告 untracked）
 
 → 等用户决定是否推送 + 是否清理 package.json
+
+## §8.72+ v6 — SVG 大规模扩展（第六批 12 张）
+
+**日期**：2026-09-01
+**目标**：把 SVG 图示密度从 101 提到 113，路线图进度 50.5% → 56.5%
+
+### 变更明细
+
+- **媒体层**：`feat(media)` commit，新增 12 张 SVG（4 站各 3 张核心概念）：
+  - **video-html**（3 张）：video-codec-stack / video-streaming-protocols / ffmpeg-transcode-pipeline
+  - **frontend-html**（3 张）：frontend-render-flow（React/Vue/Svelte 对比）/ frontend-build-tools（Webpack/Vite/esbuild/Turbopack 演进）/ frontend-browser-pipeline（CRP + Web Vitals）
+  - **postgresql-html**（3 张）：postgresql-mvcc（行级多版本）/ postgresql-index-types（6 种索引选型）/ postgresql-replication-flow（流复制 vs 逻辑复制）
+  - **cloud-native-html**（3 张）：kubernetes-architecture（控制面+数据面）/ servicemesh-sidecar-pattern（Sidecar + istiod）/ gitops-cicd-pipeline（5 步流水线 + 反模式）
+- **改名**：v5 的 `video-codec-stack.svg`（视频编码流水线）改名为 `video-encoding-pipeline.svg`，避免与 v6 新图重名冲突
+- **内容层**：`feat(content)` commit，12 个核心文档 frontmatter 后注入配图
+- **审计基线**：imgs 101 → 113（+12），broken=0，cross-site dups=0 持平，imgs 路线图 50.5% → 56.5%
+
+### 风格统一
+
+- 600×400 viewBox（v5 是 600×480，本次统一为更紧凑尺寸）
+- 配色：浅灰底 `#fafafa` + 蓝/绿/黄/紫/红 5 色循环
+- 必含：H1 标题 + 副标题描述 + 节点块 + 右侧小字注释 + §8.72+ vX 标记
+
+### 路线图进度
+
+- 当前 imgs=113 / 目标 ≥200 = **56.5%**
+- 剩余 87 张
+- 下一批 §8.72+ v7 候选：高频站第 4 轮深化（kafka controller 选举、redis cluster slot、mysql InnoDB buffer pool、nginx upstream 高级配置、k8s RBAC、elasticsearch segment/merge 细节）
