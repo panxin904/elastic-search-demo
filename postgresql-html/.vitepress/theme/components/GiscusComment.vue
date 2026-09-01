@@ -29,10 +29,10 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  repo: 'Scholar-s-Atlas/comments',           // ← 替换为你的仓库
-  repoId: 'R_PLACEHOLDER_REPLACE_ME',         // ← giscus.app 生成的 repoId
-  category: 'General',                         // ← 替换为你的分类名
-  categoryId: 'DIC_PLACEHOLDER_REPLACE_ME',   // ← giscus.app 生成的 categoryId
+  repo: 'panxin904/elastic-search-demo',
+  repoId: 'R_kgDOT5raZQ',
+  category: 'Comments',
+  categoryId: 'DIC_kwDOT5raZc4DEpVN',
   mapping: 'pathname',                         // 每个 .md 路径一个 Discussion
   theme: 'preferred_color_scheme',             // 自动跟随系统暗色
   lang: 'zh-CN',
