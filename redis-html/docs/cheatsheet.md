@@ -33,3 +33,10 @@ date: 2026-08-15  # date-auto-injected
 其他站参考：[kafka](https://java-px.bot.cd/kafka/) / [python](https://java-px.bot.cd/python/)
 
 跨站关联由 `xlink-injector.py` + `crosslink-dedup.py` 自动生成（§8.68）。
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

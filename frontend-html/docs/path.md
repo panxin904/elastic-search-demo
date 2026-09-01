@@ -116,3 +116,10 @@ date: 2026-08-15  # date-auto-injected
 | 做 Node 后端 | [🟢 Node 运行时](/11-node/runtime) → [🟢 NestJS](/11-node/nestjs) |
 | 优化性能 | [⚡ Core Web Vitals](/12-perf/cwv) → [⚡ 加载性能](/12-perf/loading) |
 | 找工作 | [🎯 高频面试题](/13-interview/basic) → [🎯 手写代码](/13-interview/coding) |
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

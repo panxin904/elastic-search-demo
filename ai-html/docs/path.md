@@ -95,3 +95,10 @@ date: 2026-08-15  # date-auto-injected
 | 跑本地模型 | [Ollama 本地推理](/10-deploy/ollama) |
 | 微调 | [LoRA / QLoRA](/08-finetuning/lora) |
 | 找工作 | [高频面试题](/14-interview/questions) |
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

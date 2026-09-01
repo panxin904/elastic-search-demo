@@ -61,3 +61,10 @@ date: 2026-08-15  # date-auto-injected
 | 学分布式事务 | [2PC / 3PC](/07-distributed-tx/2pc) → [TCC](/07-distributed-tx/tcc) → [Saga](/07-distributed-tx/saga) |
 | 学 DDD | [聚合 / 实体 / 值对象](/11-ddd/basics) → [限界上下文](/11-ddd/bounded-context) |
 | 面试准备 | [秒杀系统](/14-enterprise-cases/flash-sale) + [CAP 定理](/03-ha-theory/cap) + [缓存三大问题](/09-cache/breakdown) |
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

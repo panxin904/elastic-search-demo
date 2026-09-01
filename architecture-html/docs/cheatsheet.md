@@ -157,3 +157,10 @@ sh seata-server.sh 8091
 - [秒杀系统](/14-enterprise-cases/flash-sale)
 - [CAP 定理](/03-ha-theory/cap)
 - [分布式事务 2PC](/07-distributed-tx/2pc)
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

@@ -124,3 +124,10 @@ adb devices -l
 ## 一句话总结
 
 现代 Android = Kotlin + Jetpack Compose + Coroutine + Hilt + Room；系统层只在性能优化或 Framework 二次开发时深入。
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

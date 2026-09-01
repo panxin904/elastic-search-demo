@@ -91,3 +91,10 @@ date: 2026-08-15  # date-auto-injected
 其他站参考：[kafka](https://java-px.bot.cd/kafka/) / [mysql](https://java-px.bot.cd/mysql/) / [video](https://java-px.bot.cd/video/)
 
 跨站关联由 `xlink-injector.py` + `crosslink-dedup.py` 自动生成（§8.68）。
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

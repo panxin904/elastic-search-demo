@@ -242,3 +242,10 @@ kubectl run -it --rm debug --image=alpine --restart=Never -- cat /etc/resolv.con
 - [k8s 架构](/02-k8s-arch/overview)
 - [kubectl 命令行](/02-k8s-arch/kubectl)
 - [排错](/13-troubleshooting/debug)
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

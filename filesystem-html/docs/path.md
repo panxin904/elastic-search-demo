@@ -95,3 +95,10 @@ key: value
 | TODO_1 | 待补充 | - |
 | TODO_2 | 待补充 | - |
 <!-- auto-enrich:do-not-edit -->
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

@@ -88,3 +88,10 @@ key: value
 - 实战案例
 - 参考资料
 <!-- auto-enrich:do-not-edit -->
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

@@ -113,3 +113,10 @@ acme/+/+/telemetry                        # 所有设备的遥测
 ## 一句话总结
 
 90% 场景 = **ESP32 + MQTT(TLS) + InfluxDB + Grafana**；只在工业现场加 OPC-UA / Modbus，在低功耗加 LoRaWAN / NB-IoT。
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

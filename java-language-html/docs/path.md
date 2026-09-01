@@ -67,3 +67,10 @@ date: 2026-08-15  # date-auto-injected
 | 学 Spring | [IoC/AOP](/06-spring/ioc-aop) → [Boot](/06-spring/boot) |
 | 调优 | [JVM 调优](/10-performance/jvm-tuning) → [Arthas](/10-performance/arthas) |
 | 找工作 | [面试题](/14-interview/questions) → [手写代码](/14-interview/coding) |
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

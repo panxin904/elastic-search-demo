@@ -194,3 +194,10 @@ Rig：Generic / Humanoid
 Optimize Mesh：开启
 Read/Write Enabled：按需（开启可运行时访问顶点）
 ```
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

@@ -131,3 +131,10 @@ restic -r /backup init      # restic 备份
 | S3 GET | 30-200 ms |
 
 > **核心规律**：Page Cache 命中 = RAM 速度（100 ns），未命中 = 磁盘速度（μs-ms 差 1000 倍）。所有性能调优本质都是提高 Page Cache 命中率。
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

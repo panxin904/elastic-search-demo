@@ -148,3 +148,10 @@ date: 2026-08-15  # date-auto-injected
 - 🎬 视频课程：尚硅谷 Spring Cloud 教程
 - 📚 书籍：《Spring Cloud Alibaba 微服务原理与实战》
 - 🔧 工具：Nacos、Sentinel、Seata 控制台
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

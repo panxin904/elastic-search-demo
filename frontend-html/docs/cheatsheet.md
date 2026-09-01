@@ -141,3 +141,10 @@ date: 2026-08-29  # date-auto-injected
 | GitHub Pages | `npm run deploy`（gh-pages） |
 | Docker | `docker build -t myapp . && docker run -p 80:80` |
 | Nginx | `nginx -s reload` |
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

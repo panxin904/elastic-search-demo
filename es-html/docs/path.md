@@ -45,3 +45,10 @@ date: 2026-08-29  # date-auto-injected
 - [CH 索引设计对比](https://java-px.bot.cd/clickhouse/01-storage/index-design) - 列存 vs 倒排
 - [MySQL 全文索引对比](https://java-px.bot.cd/mysql/03-index) - 关系库 vs ES
 - [SRE 实践](https://java-px.bot.cd/devops/05-cicd-observability/sre) - 生产监控体系
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

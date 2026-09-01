@@ -75,3 +75,10 @@ date: 2026-08-22  # date-auto-injected
 - [06 · 音频](./06-audio/)：空间 / 混音 / Wwise/FMOD
 - [07 · 工具链](./07-toolchain/)：资产 / VCS / CI
 - [08 · 性能与上线](./08-ship/)：性能 / 上线 / 运营
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

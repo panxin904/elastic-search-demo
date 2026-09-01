@@ -86,3 +86,10 @@ Android = **基于 Linux Kernel 的移动设备操作系统**：应用层用 Kot
 - [04 · 跨平台](./04-cross/)：Flutter / RN / KMP / 选型
 - [05 · 工具链](./05-toolchain/)：Gradle / IDE / 发布
 - [06 · 性能与安全](./06-perf/)：启动优化 / 内存 / 权限 / Keystore
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

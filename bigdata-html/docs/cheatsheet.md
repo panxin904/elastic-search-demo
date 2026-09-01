@@ -192,3 +192,10 @@ kafka-consumer-groups --bootstrap-server kafka:9092   --describe --group my-cons
 - [Spark Core / RDD](/04-spark/rdd)
 - [Flink 架构](/05-flink/architecture)
 - [Kafka Streams](/07-kafka-streaming/streams)
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

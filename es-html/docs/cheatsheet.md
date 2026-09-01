@@ -58,3 +58,10 @@ date: 2026-08-29  # date-auto-injected
 | 慢日志 | `GET /my_index/_settings`（含 `index.search.slowlog`） |
 | 快照 | `PUT /_snapshot/my_backup/snap_1` |
 | ILM | `GET /_ilm/policy` |
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

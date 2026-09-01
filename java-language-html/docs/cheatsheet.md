@@ -104,3 +104,10 @@ keytool -import -alias cert -file cert.cer -keystore trust.jks
 - [OOP 类与对象](/01-basics/oop)
 - [Arthas 诊断](/10-performance/arthas)
 - [JVM 调优参数](/10-performance/jvm-tuning)
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

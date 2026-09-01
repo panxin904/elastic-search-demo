@@ -69,3 +69,10 @@ date: 2026-08-15  # date-auto-injected
 | 学 Pipeline | [Airflow / dbt](/11-elt-pipeline/airflow-dbt) → [CDC 同步](/11-elt-pipeline/cdc) |
 | 选型 OLAP | [OLAP 选型](/12-olap-engine/selection) |
 | 找工作 | [高频题](/14-interview-practice/questions) + [案例](/13-cases/user-profile) |
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

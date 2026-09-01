@@ -114,3 +114,10 @@ date: 2026-08-15  # date-auto-injected
 | 调性能 | [top / htop](/10-perf/top-htop) → [iostat](/10-perf/iostat) |
 | 写脚本 | [bash 语法](/11-shell/bash-syntax) → [函数](/11-shell/functions) |
 | 找工作 | [速查](/cheatsheet) + [脚本调试](/11-shell/debug) |
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

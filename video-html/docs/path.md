@@ -164,3 +164,10 @@ AI 视频处理
 - [知识图谱](/graph) - 全局关系图
 - [思维导图](/mindmap) - 模块结构树
 - [速记卡](/cheatsheet) - 一页速查
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

@@ -235,3 +235,10 @@ ffprobe -show_streams in.mp4
 | ITU-T H.265 | H.265/HEVC |
 | AOM AV1 | AV1 |
 | W3C WebRTC | WebRTC |
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

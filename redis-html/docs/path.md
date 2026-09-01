@@ -78,3 +78,10 @@ date: 2026-08-15  # date-auto-injected
 | 找工作 | [📝 高频面试题（上）](/08-interview/basic) → [📝 高频面试题（下）](/08-interview/advanced) |
 | 解 Bug | [🐢 慢查询分析](/07-ops/slowlog) → [🔑 大 Key 热 Key](/07-ops/bigkey-hotkey) |
 | 写方案 | [🌐 Cluster 集群](/04-cluster/cluster) → [🗑️ 内存淘汰策略](/07-ops/eviction) |
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

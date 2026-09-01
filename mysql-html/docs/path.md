@@ -151,3 +151,10 @@ date: 2026-08-15  # date-auto-injected
 - 📖 经典书籍：《高性能 MySQL》《MySQL 是怎么运行的》《MySQL 实战 45 讲》
 - 🎬 视频课程：B 站搜「MySQL 实战 45 讲」「尚硅谷 MySQL」
 - 🛠️ 工具：Percona Toolkit / MySQL Workbench / DBeaver / Navicat
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

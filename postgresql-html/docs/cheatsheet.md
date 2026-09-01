@@ -23,3 +23,10 @@ date: 2026-08-29  # date-auto-injected
 - 各子目录的 questions.md 页面（如有）提供面试题速查
 
 > 💡 完整速查表正在按子目录持续补充中
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

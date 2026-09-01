@@ -110,3 +110,10 @@ date: 2026-08-15  # date-auto-injected
 | 部署流水线 | [GitOps](/09-cicd/gitops) → [ArgoCD](/09-cicd/argocd) |
 | 排查故障 | [kubectl debug](/13-troubleshooting/debug) |
 | 找云原生工作 | [CKA 考试要点](/14-interview/cka) |
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

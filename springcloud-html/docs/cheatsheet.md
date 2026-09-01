@@ -74,3 +74,10 @@ logging:
 - [⚙️ 配置模拟器](#) - 实时生成 application.yml
 - [🌊 请求链路演示](#) - 微服务请求流程可视化
 - [💼 综合实战项目](/06-practice/comprehensive) - 完整电商项目
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

@@ -91,3 +91,10 @@ SELECT
   RPAD('1', 3, '0')              -- 右填充 → '100'
 ;
 ```
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

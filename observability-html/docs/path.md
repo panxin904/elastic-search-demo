@@ -33,3 +33,10 @@ date: 2026-08-29  # date-auto-injected
 - 性能调优 + 故障排查 + 监控告警
 - 生态工具链 + 集成方案
 - 贡献文档 / 改进站点
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

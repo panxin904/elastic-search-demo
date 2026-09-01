@@ -359,3 +359,10 @@ with client.messages.stream(model="claude-sonnet-4-5", ...) as s:
 # 指数退避 + 抖动
 delay = min(base * (2 ** attempt), max_delay) * (0.5 + random.random())
 ```
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

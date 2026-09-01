@@ -234,3 +234,10 @@ Frame:        [MAC Header 14B] [IP packet] [FCS 4B]
 | 7540 | HTTP/2 |
 | 9000 | QUIC |
 | 9110 | HTTP/3 |
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

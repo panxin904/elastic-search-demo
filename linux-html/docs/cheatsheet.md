@@ -259,3 +259,10 @@ command || { echo "失败"; exit 1; }
 - [入门基础](/01-foundation/intro) — 理解 Linux 全貌
 - [文件与目录](/02-filesystem/ls) — 高频命令详解
 - [学习路径](/path) — 系统化学习路线
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

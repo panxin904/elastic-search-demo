@@ -136,3 +136,10 @@ date: 2026-08-15  # date-auto-injected
 | 写 Web 后端 | [🌐 FastAPI](/09-enterprise/fastapi) → [🐳 Docker](/09-enterprise/docker) |
 | 优化性能 | [📊 性能剖析](/02-principles/profiling) → [🚀 性能优化](/09-enterprise/performance) |
 | 面试 | [🧮 算法](./08-algorithms/) → [💼 企业实战](./09-enterprise/) |
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>
