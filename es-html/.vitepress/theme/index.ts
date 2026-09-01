@@ -7,11 +7,15 @@ import EsJavaSnippets from './components/EsJavaSnippets.vue'
 import EsScenarios from './components/EsScenarios.vue'
 import EsDeploymentConfig from './components/EsDeploymentConfig.vue'
 import { setupReadingProgress } from '@shared/vitepress-template/theme/composables/readingProgress'
+import { injectReadingTime } from '@shared/vitepress-template/theme/composables/readingTime'
+import { setupBackToTop } from '@shared/vitepress-template/theme/composables/backToTop'
 import './style.css'
 
 export default {
   setup() {
     setupReadingProgress()
+    injectReadingTime()
+    setupBackToTop()
   },
   extends: DefaultTheme,
   enhanceApp({ app }) {

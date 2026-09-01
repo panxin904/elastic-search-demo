@@ -1,6 +1,8 @@
 import { h } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import { setupReadingProgress } from '@shared/vitepress-template/theme/composables/readingProgress'
+import { injectReadingTime } from '@shared/vitepress-template/theme/composables/readingTime'
+import { setupBackToTop } from '@shared/vitepress-template/theme/composables/backToTop'
 import './style.css'
 
 // Vue 组件都需要客户端运行 — VitePress 默认 SSR 会失败，
@@ -15,6 +17,8 @@ const ClientOnly = {
 export default {
   setup() {
     setupReadingProgress()
+    injectReadingTime()
+    setupBackToTop()
   },
   extends: DefaultTheme,
   Layout() {

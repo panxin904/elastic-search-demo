@@ -7,11 +7,15 @@ import ClusterTopology from './components/ClusterTopology.vue'
 import DistributedLock from './components/DistributedLock.vue'
 import CommandCheatsheet from './components/CommandCheatsheet.vue'
 import { setupReadingProgress } from '@shared/vitepress-template/theme/composables/readingProgress'
+import { injectReadingTime } from '@shared/vitepress-template/theme/composables/readingTime'
+import { setupBackToTop } from '@shared/vitepress-template/theme/composables/backToTop'
 import './style.css'
 
 export default {
   setup() {
     setupReadingProgress()
+    injectReadingTime()
+    setupBackToTop()
   },
   extends: DefaultTheme,
   enhanceApp({ app }) {

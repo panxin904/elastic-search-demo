@@ -7,11 +7,15 @@ import SortVisualizer from './components/SortVisualizer.vue'
 import ApiReference from './components/ApiReference.vue'
 import Cheatsheet from './components/Cheatsheet.vue'
 import { setupReadingProgress } from '@shared/vitepress-template/theme/composables/readingProgress'
+import { injectReadingTime } from '@shared/vitepress-template/theme/composables/readingTime'
+import { setupBackToTop } from '@shared/vitepress-template/theme/composables/backToTop'
 import './style.css'
 
 export default {
   setup() {
     setupReadingProgress()
+    injectReadingTime()
+    setupBackToTop()
   },
   extends: DefaultTheme,
   enhanceApp({ app }) {

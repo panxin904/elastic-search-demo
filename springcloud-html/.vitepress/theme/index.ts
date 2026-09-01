@@ -4,9 +4,17 @@ import MindMap from './components/MindMap.vue'
 import ComponentCheatsheet from './components/ComponentCheatsheet.vue'
 import ConfigPlayground from './components/ConfigPlayground.vue'
 import RequestFlow from './components/RequestFlow.vue'
+import { setupReadingProgress } from '@shared/vitepress-template/theme/composables/readingProgress'
+import { injectReadingTime } from '@shared/vitepress-template/theme/composables/readingTime'
+import { setupBackToTop } from '@shared/vitepress-template/theme/composables/backToTop'
 import './style.css'
 
 export default {
+  setup() {
+    setupReadingProgress()
+    injectReadingTime()
+    setupBackToTop()
+  },
   extends: DefaultTheme,
   enhanceApp({ app }) {
     app.component('KnowledgeGraph', KnowledgeGraph)
