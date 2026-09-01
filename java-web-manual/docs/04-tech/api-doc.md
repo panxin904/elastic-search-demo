@@ -1,5 +1,6 @@
 ---
 title: 接口文档
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 接口文档（Swagger / Knife4j）

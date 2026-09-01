@@ -1,5 +1,6 @@
 ---
 title: 工厂模式
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 工厂模式

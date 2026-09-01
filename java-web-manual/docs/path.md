@@ -46,3 +46,10 @@ date: 2026-08-29  # date-auto-injected
 - [Redis 缓存对比](https://java-px.bot.cd/redis/) - 缓存层选型
 - [消息队列选型](/04-tech/message-queue) - Kafka / RabbitMQ / RocketMQ
 - [Java 设计模式](https://java-px.bot.cd/design-pattern/) - 23 模式完整图谱
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

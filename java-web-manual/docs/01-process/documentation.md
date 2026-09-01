@@ -1,5 +1,6 @@
 ---
 title: 文档沉淀
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 文档沉淀

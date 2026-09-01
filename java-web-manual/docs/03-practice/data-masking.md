@@ -1,5 +1,6 @@
 ---
 title: 数据脱敏
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 数据脱敏

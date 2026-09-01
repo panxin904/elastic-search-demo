@@ -1,5 +1,6 @@
 ---
 title: 需求分析
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 需求分析

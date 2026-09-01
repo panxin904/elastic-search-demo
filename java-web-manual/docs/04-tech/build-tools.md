@@ -1,5 +1,6 @@
 ---
 title: 构建工具 Maven/Gradle
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Maven / Gradle

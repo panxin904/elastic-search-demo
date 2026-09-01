@@ -1,5 +1,6 @@
 ---
 title: 依赖注入
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 依赖注入（IoC/DI）

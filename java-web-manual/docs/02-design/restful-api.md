@@ -1,5 +1,6 @@
 ---
 title: RESTful 风格
+date: 2026-08-15  # date-auto-injected
 ---
 
 # RESTful API 设计

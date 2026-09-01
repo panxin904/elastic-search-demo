@@ -1,5 +1,6 @@
 ---
 title: 模板方法模式
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 模板方法模式

@@ -1,5 +1,6 @@
 ---
 title: 责任链模式
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 责任链模式

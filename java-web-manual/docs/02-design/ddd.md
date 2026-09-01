@@ -1,5 +1,6 @@
 ---
 title: 领域驱动设计 DDD
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 领域驱动设计（DDD）

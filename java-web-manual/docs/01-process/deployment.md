@@ -1,5 +1,6 @@
 ---
 title: 部署上线
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 部署上线

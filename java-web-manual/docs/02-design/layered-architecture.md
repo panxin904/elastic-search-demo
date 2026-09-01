@@ -1,5 +1,6 @@
 ---
 title: 分层架构
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 分层架构

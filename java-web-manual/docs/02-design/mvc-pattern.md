@@ -1,5 +1,6 @@
 ---
 title: MVC 模式
+date: 2026-08-15  # date-auto-injected
 ---
 
 # MVC 模式

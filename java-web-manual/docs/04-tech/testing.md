@@ -1,5 +1,6 @@
 ---
 title: 测试框架
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 测试框架

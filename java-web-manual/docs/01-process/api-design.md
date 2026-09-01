@@ -1,5 +1,6 @@
 ---
 title: 接口设计
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 接口设计

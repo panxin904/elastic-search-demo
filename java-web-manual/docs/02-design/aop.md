@@ -1,5 +1,6 @@
 ---
 title: AOP 切面
+date: 2026-08-15  # date-auto-injected
 ---
 
 # AOP 切面编程

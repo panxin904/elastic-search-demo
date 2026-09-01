@@ -1,5 +1,6 @@
 ---
 title: 技术方案
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 技术方案

@@ -1,5 +1,6 @@
 ---
 title: Spring MVC
+date: 2026-08-15  # date-auto-injected
 ---
 
 # Spring MVC

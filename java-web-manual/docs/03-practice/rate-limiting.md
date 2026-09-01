@@ -1,5 +1,6 @@
 ---
 title: 限流熔断
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 限流熔断

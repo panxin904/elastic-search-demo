@@ -70,3 +70,10 @@ date: 2026-08-29  # date-auto-injected
 | Prometheus 指标 | `Micrometer + spring-boot-actuator` |
 | 健康检查 | `/actuator/health` |
 | 链路追踪 | `Sleuth + Zipkin` |
+
+
+## 📱 手机扫码继续阅读
+
+<ClientOnly>
+  <QrShare />
+</ClientOnly>

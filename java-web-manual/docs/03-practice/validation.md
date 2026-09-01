@@ -1,5 +1,6 @@
 ---
 title: 参数校验
+date: 2026-08-15  # date-auto-injected
 ---
 
 # 参数校验
