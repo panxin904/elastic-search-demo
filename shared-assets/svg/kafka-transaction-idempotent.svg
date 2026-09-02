@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Kafka 事务与幂等性原理</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Producer ID + Epoch + Sequence Number · Transaction Coordinator · 2PC</text>
+
+  <!-- 幂等 vs 事务对比 -->
+  <g>
+    <rect x="40" y="90" width="250" height="90" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="165" y="112" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">幂等性（Idempotent）</text>
+    <text x="60" y="135" font-size="11" fill="#475569">• enable.idempotence=true</text>
+    <text x="60" y="153" font-size="11" fill="#475569">• Producer ID + Sequence Number</text>
+    <text x="60" y="171" font-size="11" fill="#475569">• 防 Producer 重试重复</text>
+
+    <rect x="310" y="90" width="250" height="90" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="435" y="112" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">事务（Transaction）</text>
+    <text x="330" y="135" font-size="11" fill="#475569">• transactional.id=...</text>
+    <text x="330" y="153" font-size="11" fill="#475569">• 跨 partition/跨 topic 原子写</text>
+    <text x="330" y="171" font-size="11" fill="#475569">• read_committed 隔离级别</text>
+  </g>
+
+  <!-- 写流程时序 -->
+  <g>
+    <text x="60" y="210" font-size="13" font-weight="700" fill="#1e293b">事务写入 2PC 时序</text>
+
+    <!-- 角色 -->
+    <rect x="20" y="225" width="80" height="30" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="60" y="245" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">Producer</text>
+
+    <rect x="230" y="225" width="120" height="30" rx="4" fill="#d1fae5" stroke="#10b981"/>
+    <text x="290" y="245" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">Transaction Coordinator</text>
+
+    <rect x="450" y="225" width="120" height="30" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="510" y="245" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">__transaction_state</text>
+
+    <!-- 时序线 -->
+    <line x1="60" y1="255" x2="60" y2="455" stroke="#3b82f6" stroke-dasharray="3"/>
+    <line x1="290" y1="255" x2="290" y2="455" stroke="#10b981" stroke-dasharray="3"/>
+    <line x1="510" y1="255" x2="510" y2="455" stroke="#f59e0b" stroke-dasharray="3"/>
+
+    <!-- 1. InitProducer -->
+    <line x1="60" y1="285" x2="290" y2="285" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrB)"/>
+    <text x="175" y="278" text-anchor="middle" font-size="10" fill="#475569">① InitProducerId(txnId)</text>
+
+    <line x1="290" y1="310" x2="510" y2="310" stroke="#10b981" stroke-width="1.5" marker-end="url(#arrG)"/>
+    <text x="400" y="303" text-anchor="middle" font-size="10" fill="#475569">② FindCoordinator → 写 txn state</text>
+
+    <!-- 2. beginTransaction -->
+    <line x1="60" y1="340" x2="290" y2="340" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrB)"/>
+    <text x="175" y="333" text-anchor="middle" font-size="10" fill="#475569">③ beginTransaction</text>
+
+    <!-- 3. 数据写入 -->
+    <line x1="60" y1="370" x2="290" y2="370" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrB)"/>
+    <text x="175" y="363" text-anchor="middle" font-size="10" fill="#475569">④ send(topic, data) · 标记 PID + seq</text>
+
+    <!-- 4. commit -->
+    <line x1="60" y1="400" x2="290" y2="400" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrB)"/>
+    <text x="175" y="393" text-anchor="middle" font-size="10" fill="#475569">⑤ commitTransaction</text>
+
+    <line x1="290" y1="420" x2="510" y2="420" stroke="#10b981" stroke-width="1.5" marker-end="url(#arrG)"/>
+    <text x="400" y="413" text-anchor="middle" font-size="10" fill="#475569">⑥ WriteTxnMarker(COMMIT) 到所有 partition</text>
+
+    <!-- consumer -->
+    <rect x="20" y="430" width="80" height="25" rx="4" fill="#ede9fe" stroke="#8b5cf6"/>
+    <text x="60" y="447" text-anchor="middle" font-size="10" font-weight="700" fill="#5b21b6">Consumer</text>
+    <line x1="290" y1="442" x2="100" y2="442" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+    <text x="195" y="436" text-anchor="middle" font-size="10" fill="#475569">⑦ read_committed 过滤未提交</text>
+  </g>
+</svg>

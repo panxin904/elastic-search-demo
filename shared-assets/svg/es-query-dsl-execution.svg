@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Elasticsearch Query DSL 执行流程</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">query-then-fetch · DFS 模式 · query vs filter context · aggregations</text>
+
+  <!-- 两阶段查询 -->
+  <g>
+    <text x="60" y="95" font-size="13" font-weight="700" fill="#1e293b">query-then-fetch（默认）</text>
+
+    <!-- Phase 1: Query -->
+    <rect x="40" y="115" width="240" height="160" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="160" y="138" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">Phase 1: Query</text>
+
+    <text x="60" y="165" font-size="11" fill="#475569">协调节点 → 所有相关 shard</text>
+    <text x="60" y="183" font-size="11" fill="#475569">• 本地倒排索引查询</text>
+    <text x="60" y="201" font-size="11" fill="#475569">• 计算 doc + score</text>
+    <text x="60" y="219" font-size="11" fill="#475569">• 返回 top-K（默认 from+size）</text>
+    <text x="60" y="237" font-size="11" fill="#475569">• 不返回实际 _source</text>
+
+    <rect x="60" y="252" width="200" height="20" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="160" y="266" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">返回：id + score + shard index</text>
+
+    <!-- Phase 2: Fetch -->
+    <rect x="320" y="115" width="240" height="160" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="440" y="138" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">Phase 2: Fetch</text>
+
+    <text x="340" y="165" font-size="11" fill="#475569">协调节点 → 命中的 shard</text>
+    <text x="340" y="183" font-size="11" fill="#475569">• 按 shard 取 _source</text>
+    <text x="340" y="201" font-size="11" fill="#475569">• 全局 score 排序</text>
+    <text x="340" y="219" font-size="11" fill="#475569">• from + size 分页</text>
+    <text x="340" y="237" font-size="11" fill="#475569">• 返回最终结果</text>
+
+    <rect x="340" y="252" width="200" height="20" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="440" y="266" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">返回：完整文档 + 高亮</text>
+
+    <!-- 箭头 -->
+    <line x1="280" y1="195" x2="320" y2="195" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+    <text x="300" y="187" text-anchor="middle" font-size="10" fill="#475569">top-K ids</text>
+  </g>
+
+  <!-- Query vs Filter Context -->
+  <g>
+    <text x="60" y="305" font-size="13" font-weight="700" fill="#1e293b">Query vs Filter Context</text>
+
+    <rect x="40" y="320" width="250" height="100" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="165" y="340" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">Query Context（相关性）</text>
+    <text x="60" y="360" font-size="10" fill="#475569">match / multi_match / bool.must</text>
+    <text x="60" y="376" font-size="10" fill="#475569">• 计算 _score</text>
+    <text x="60" y="392" font-size="10" fill="#475569">• 查询"匹配度"→ 排序</text>
+    <text x="60" y="408" font-size="10" fill="#475569">• 不能缓存（score 因 query 而异）</text>
+
+    <rect x="310" y="320" width="250" height="100" rx="6" fill="#d1fae5" stroke="#10b981"/>
+    <text x="435" y="340" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">Filter Context（精确）</text>
+    <text x="330" y="360" font-size="10" fill="#475569">term / range / bool.filter</text>
+    <text x="330" y="376" font-size="10" fill="#475569">• 不算 _score（结果 score=0）</text>
+    <text x="330" y="392" font-size="10" fill="#475569">• 用于"是否匹配"</text>
+    <text x="330" y="408" font-size="10" fill="#475569">• ES 会缓存（filter cache）</text>
+  </g>
+
+  <!-- Aggregations 流水线 -->
+  <g>
+    <text x="60" y="445" font-size="13" font-weight="700" fill="#1e293b">聚合流水线</text>
+    <text x="60" y="465" font-size="11" fill="#475569">query → filter → aggs（terms/range/stats）→ reduce shard results → return buckets</text>
+  </g>
+</svg>
