@@ -9,6 +9,8 @@ graphNodeId: segment
 
 # 段 Segment
 
+![Elasticsearch Segment Merge 流程](/es-segment-merge-flow.svg)
+
 ## 📌 一句话定义
 段是分片内部的**不可变数据文件**（Lucene Index），是 ES 真正存储倒排索引的物理单位。
 

@@ -87,6 +87,8 @@ Controller = 集群中负责协调的 Broker
 
 ## 🔄 Controller 选举流程
 
+![Kafka Controller 选举时序](/kafka-controller-election.svg)
+
 ### 启动时选举
 
 ```

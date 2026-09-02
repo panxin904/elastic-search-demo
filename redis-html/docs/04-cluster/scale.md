@@ -39,6 +39,10 @@ date: 2026-08-15  # date-auto-injected
 | 影响 | 迁移期间客户端 ASK | 误删可能导致数据丢失 |
 | 推荐时机 | 低峰期 | 极低峰期或停服窗口 |
 
+## 🔄 Slot 重分配流程
+
+![Redis Cluster Slot 重分配](/redis-cluster-slot-reshard.svg)
+
 ## 📋 扩容步骤（3 → 4 Master）
 
 ### 1. 启动新节点

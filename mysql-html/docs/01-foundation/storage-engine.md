@@ -95,6 +95,10 @@ mydb/
 
 ### 关键概念
 
+#### Buffer Pool LRU 算法
+
+![InnoDB Buffer Pool LRU](/mysql-innodb-buffer-pool-lru.svg)
+
 #### Buffer Pool（缓冲池）⭐⭐⭐
 
 InnoDB **最重要的内存区域**，缓存磁盘上的数据页和索引页。

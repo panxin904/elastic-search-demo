@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > 谁（用户 / ServiceAccount）能对什么资源做什么动作。k8s 的"权限系统"。
 
+![Kubernetes RBAC 鉴权流程](/k8s-rbac-flow.svg)
+
 ## 🤔 为什么需要 RBAC
 
 ```
