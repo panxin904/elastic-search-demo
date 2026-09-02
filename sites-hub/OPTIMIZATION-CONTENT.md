@@ -7403,3 +7403,37 @@ cd /tmp/ci-test/java-web-manual && npm install && npm run docs:build
 - **SVG 路径必须用根路径**：`/xxx.svg`（publicDir 在 vitepress 下映射为站点根 URL），不要用 `../../../shared/kjs/...` 相对路径（vitepress 会按 markdown 相对位置解析，找不到文件）
 - **midpoint insertion 是 InnoDB 5.5+ 的优化**：解决了传统 LRU 被全表扫描污染的问题（一次性扫描大量冷数据冲掉热数据）
 - **KRaft 取代 ZooKeeper**：Kafka 2.8+ 起的 controller quorum 机制，epoch 单调递增保证不会脑裂
+
+
+## §8.72+ v9 — SVG 大规模扩展（第九批 5 张）
+
+**日期**：2026-09-02
+**目标**：把 SVG 图示密度从 126 提到 131，路线图进度 63.0% → 65.5%
+
+### 变更明细
+
+- **媒体层**：`feat(media)` commit，新增 5 张 SVG（5 站各 1 张高级特性深度图）：
+  - **kafka-html**：kafka-transaction-idempotent（Producer ID + Epoch + Seq · 幂等 vs 事务 · 2PC 时序 · read_committed 隔离）
+  - **redis-html**：redis-stream-consumer-group（Stream 结构 · Consumer Group 三角色 · PEL · vs Kafka 对比）
+  - **mysql-html**：mysql-lock-upgrade（4 种锁类型 · Next-Key Lock 区间示意 · RR 死锁高发原因）
+  - **cloud-native-html**：k8s-admission-webhook（AuthN→AuthZ→Mutating→Validating 链 · 配置示例 · failurePolicy）
+  - **es-html**：es-query-dsl-execution（query-then-fetch 两阶段 · query vs filter context · 聚合流水线）
+
+- **内容层**：`feat(content)` commit，5 个核心文档前注入：
+  - kafka-exactly-once.md（EOS 三层保障前）
+  - redis-advanced.md（集群深入篇前）
+  - mysql-locks.md（间隙锁/Next-Key Lock 章节前）
+  - cloud-native-rbac.md（追加 admission webhook SVG 到现有 rbac-flow 之后）
+  - es-search-after.md（搜索主体前）
+
+### 路线图进度
+
+- 当前 imgs=131 / 目标 ≥200 = **65.5%**
+- 剩余 69 张
+- 下一批 §8.72+ v10 候选：高频站第 6 轮深化（kafka ISR/副本同步、redis 持久化 RDB vs AOF、mysql MVCC undo log、k8s service mesh、es cluster 状态机）
+
+### 经验
+
+- **EOS 三层不能少**：幂等（防 Producer 重试）→ 事务（跨 partition 原子）→ read_committed（Consumer 只读已提交），缺一层都可能出现重复或丢失
+- **Next-Key Lock 是死锁之王**：RR 隔离级 + 范围查询 + 多 session 并发 → 高频死锁。生产建议用 RC 或缩短事务
+- **Validating vs Mutating Webhook**：Mutating 必须可幂等（可能重试多次），Validating 失败率 = 拒绝率
