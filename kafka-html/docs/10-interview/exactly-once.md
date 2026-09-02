@@ -28,6 +28,8 @@ date: 2026-08-15  # date-auto-injected
    - acks=all + 幂等性 + 事务
 ```
 
+![Kafka 事务与幂等性原理](/kafka-transaction-idempotent.svg)
+
 ## 📊 EOS 实现的三层保障
 
 ```

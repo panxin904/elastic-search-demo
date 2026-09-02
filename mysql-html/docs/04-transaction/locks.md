@@ -75,6 +75,8 @@ SELECT * FROM users WHERE id = 1 FOR UPDATE;
 -- T3: UPDATE users SET name = 'y' WHERE id = 1;    -- ❌ 阻塞（X+X 冲突）
 ```
 
+![MySQL InnoDB 锁机制](/mysql-lock-upgrade.svg)
+
 ## 🌌 间隙锁（Gap Lock）与临键锁（Next-Key Lock）
 
 ### 为什么需要间隙锁？

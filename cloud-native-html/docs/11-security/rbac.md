@@ -256,6 +256,8 @@ kubectl create sa ci-deployer -n prod
 kubectl auth can-i patch deployments --as system:serviceaccount:prod:ci-deployer -n prod
 ```
 
+![Kubernetes Admission Webhook 链](/k8s-admission-webhook.svg)
+
 ## 🔗 下一步
 
 - [Secret 管理](/11-security/secret)

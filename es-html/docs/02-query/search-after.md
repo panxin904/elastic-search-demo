@@ -9,6 +9,8 @@ graphNodeId: search-after
 
 # Search After
 
+![Elasticsearch Query DSL 执行流程](/es-query-dsl-execution.svg)
+
 ## 📌 一句话定义
 Search After 是**基于排序值的无状态深度分页**，是 `from/size` 深度分页的现代替代。
 

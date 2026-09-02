@@ -220,6 +220,8 @@ Stream 的 ID 是毫秒时间戳 + 序号，天然有序；Consumer Group 通过
 
 ---
 
+![Redis Stream + Consumer Group](/redis-stream-consumer-group.svg)
+
 ## 二、集群深入篇
 
 ### Q8. Redis Pipeline 原理？
