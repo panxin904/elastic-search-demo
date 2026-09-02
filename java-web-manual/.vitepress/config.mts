@@ -20,11 +20,19 @@ import { fileURLToPath, URL } from 'node:url'
 // P0: VitePress/rollup 默认 fs.allow 限制 cwd 外 import。用 vite alias 解决相对路径。
 const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.url))
 
+// P0: shared-assets/ 下的 .vue 组件 import vue 时需要显式 alias 指向本站点 node_modules。
+// 否则 rollup 在 SHARED_ASSETS 目录找不到 vue，会报 "Rollup failed to resolve import 'vue'"。
+// §8.81 QrShare 落地后暴露此问题。
+// §8.81 二次修复：alias 还要覆盖 vue 子路径（vue/server-renderer · vue/compiler-sfc 等）
+// 否则 vitepress SSR 阶段 import 'vue/server-renderer' 仍会 resolve 失败。
+const VUE_DIR = fileURLToPath(new URL('../node_modules/vue/', import.meta.url))
+
 export default defineConfig({
   vite: {
     resolve: {
       alias: [
         { find: '@shared', replacement: SHARED_ASSETS },
+        { find: /^vue(\/.*)?$/, replacement: `${VUE_DIR}$1` },
       ],
     },
     // §8.72：shared-assets/svg/ 共享 SVG 资产（CAP / Saga / 一致性 hash 等）
