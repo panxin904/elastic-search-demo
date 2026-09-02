@@ -69,3 +69,9 @@ hc-test.conf
 # ========================================
 **/.vitepress/config.mts.bak.original
 **/.vitepress/config.mts.rendered
+
+
+# ========================================
+# C3: audit dashboard HTML（build-release.sh 每次重新生成，build-audit-dashboard.py）
+# ========================================
+sites-hub/www/audit-dashboard.html
