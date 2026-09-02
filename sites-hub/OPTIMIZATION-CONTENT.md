@@ -7199,3 +7199,46 @@ vite: {
 python3 sites-hub/scripts/audit-content.py
 cd ai-html && npx vitepress build
 ```
+
+## §8.81 二次修复 · vue alias 覆盖子路径（2026-09-02）
+
+### 问题
+
+vue alias 修复后 CI 又报：
+```
+[vite]: Rollup failed to resolve import "vue/server-renderer" from ".../QrShare.vue?vue&type=script&setup=true&lang.ts"
+```
+
+### 根因
+
+第一版 alias 只匹配 `vue`：
+```ts
+{ find: /^vue$/, replacement: VUE }
+```
+
+vitepress SSR 阶段自动注入 `import { ... } from 'vue/server-renderer'`（用于 SSR hydrate），这个子路径走 alias 时不匹配（regex `/^vue$/` 不含 `/`），所以走默认 node_modules 解析失败。
+
+### 修复
+
+改用 regex 捕获组保留子路径：
+```ts
+const VUE_DIR = fileURLToPath(new URL('../node_modules/vue/', import.meta.url))
+//                                       ↑ 尾斜杠确保子路径拼接正确
+
+{ find: /^vue(\/.*)?$/, replacement: `${VUE_DIR}$1` }
+//                  ↑ 捕获 / 及之后      ↑ 还原子路径
+```
+
+效果：
+- `vue` → `<...>/node_modules/vue/` + `` (空) = `<...>/node_modules/vue/`
+- `vue/server-renderer` → `<...>/node_modules/vue/server-renderer`
+- `vue/compiler-sfc` → `<...>/node_modules/vue/compiler-sfc`
+
+### 验证
+
+- 30/30 站 build 全过（首次即通过，无需手动 retry）
+- audit 指标稳定：imgs 121 (60.5%) · broken 0 · dups 0
+
+### 经验
+
+`exports` 字段的包（如 vue）必须用 regex alias 捕获子路径，否则 SSR 阶段会失败。这是 vue 3 + vitepress 共享组件的常见坑。
