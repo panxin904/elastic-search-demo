@@ -7373,3 +7373,33 @@ cd /tmp/ci-test/java-web-manual && npm install && npm run docs:build
 ```
 
 4 步验证可快速定位是 **GitHub 后端问题** 还是 **项目侧问题**。本次：4 步都指向项目侧（java-web-manual config.mts 缺 vue alias）。
+
+
+## §8.72+ v8 — SVG 大规模扩展（第八批 5 张）
+
+**日期**：2026-09-02
+**目标**：把 SVG 图示密度从 121 提到 126，路线图进度 60.5% → 63.0%
+
+### 变更明细
+
+- **媒体层**：`feat(media)` commit，新增 5 张 SVG（5 站各 1 张核心概念深度图）：
+  - **kafka-html**：kafka-controller-election（KRaft Controller 选举时序 · epoch 升级 · 心跳 · 多数派决策）
+  - **redis-html**：redis-cluster-slot-reshard（Slot 重分配三阶段 · SETSLOT MIGRATING/IMPORTING/NODE · 原子迁移）
+  - **mysql-html**：mysql-innodb-buffer-pool-lru（Young/Old 分区 · midpoint insertion · innodb_old_blocks_time 防全表扫描污染）
+  - **cloud-native-html**：k8s-rbac-flow（Subject→RoleBinding→Role → apiserver 鉴权三阶段 → 默认拒绝）
+  - **es-html**：es-segment-merge-flow（Tiered merge policy · 写流程 · force-merge 真正释放磁盘时机）
+- **内容层**：`feat(content)` commit，5 个核心文档前注入 SVG（位置：第一个二级标题前）
+- **风格延续**：与 v7 一致（600x480 viewBox · 角色色板 blue/green/amber · 顶部标题+副标题 · 流程/时序/架构图风格）
+- **路径修正**：从 `../../../shared/kjs/xxx.svg` 改为 `/xxx.svg`（publicDir 直接映射到根 URL）
+
+### 路线图进度
+
+- 当前 imgs=126 / 目标 ≥200 = **63.0%**
+- 剩余 74 张
+- 下一批 §8.72+ v9 候选：高频站第 5 轮深化（kafka 事务/幂等、redis Stream、mysql 锁升级、k8s admission webhook、es query DSL 执行流程）
+
+### 经验
+
+- **SVG 路径必须用根路径**：`/xxx.svg`（publicDir 在 vitepress 下映射为站点根 URL），不要用 `../../../shared/kjs/...` 相对路径（vitepress 会按 markdown 相对位置解析，找不到文件）
+- **midpoint insertion 是 InnoDB 5.5+ 的优化**：解决了传统 LRU 被全表扫描污染的问题（一次性扫描大量冷数据冲掉热数据）
+- **KRaft 取代 ZooKeeper**：Kafka 2.8+ 起的 controller quorum 机制，epoch 单调递增保证不会脑裂
