@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">MySQL InnoDB Buffer Pool LRU 算法</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">midpoint insertion · young/old 分区 · innodb_old_blocks_time 防全表扫描污染</text>
+
+  <!-- Buffer Pool 长条 -->
+  <g>
+    <rect x="40" y="100" width="520" height="60" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="300" y="135" text-anchor="middle" font-size="14" font-weight="700" fill="#1e293b">Buffer Pool（默认 128MB，可调）</text>
+
+    <!-- young 区 -->
+    <rect x="60" y="170" width="320" height="80" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="220" y="195" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">Young 区（热数据）</text>
+    <text x="220" y="215" text-anchor="middle" font-size="11" fill="#475569">频繁访问的页</text>
+    <text x="220" y="232" text-anchor="middle" font-size="10" fill="#64748b">占比：~63%</text>
+
+    <!-- mid point -->
+    <line x1="380" y1="170" x2="380" y2="250" stroke="#dc2626" stroke-width="2" stroke-dasharray="4"/>
+    <text x="380" y="262" text-anchor="middle" font-size="10" font-weight="700" fill="#dc2626">↓ midpoint</text>
+
+    <!-- old 区 -->
+    <rect x="380" y="170" width="160" height="80" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="460" y="195" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">Old 区（冷数据）</text>
+    <text x="460" y="215" text-anchor="middle" font-size="11" fill="#475569">待观察的页</text>
+    <text x="460" y="232" text-anchor="middle" font-size="10" fill="#64748b">占比：~37%</text>
+  </g>
+
+  <!-- LRU 链表示意 -->
+  <g>
+    <text x="60" y="290" font-size="12" font-weight="700" fill="#1e293b">LRU 链表（逻辑视图）</text>
+    <text x="540" y="290" text-anchor="end" font-size="11" fill="#64748b">MRU ←————————————————→ LRU</text>
+
+    <!-- 8 个格子 -->
+    <g>
+      <rect x="60" y="300" width="50" height="40" fill="#dbeafe" stroke="#3b82f6"/>
+      <text x="85" y="324" text-anchor="middle" font-size="10" fill="#1e40af">P1</text>
+      <rect x="115" y="300" width="50" height="40" fill="#dbeafe" stroke="#3b82f6"/>
+      <text x="140" y="324" text-anchor="middle" font-size="10" fill="#1e40af">P2</text>
+      <rect x="170" y="300" width="50" height="40" fill="#dbeafe" stroke="#3b82f6"/>
+      <text x="195" y="324" text-anchor="middle" font-size="10" fill="#1e40af">P3</text>
+      <rect x="225" y="300" width="50" height="40" fill="#dbeafe" stroke="#3b82f6"/>
+      <text x="250" y="324" text-anchor="middle" font-size="10" fill="#1e40af">P4</text>
+
+      <line x1="275" y1="320" x2="285" y2="320" stroke="#dc2626" stroke-width="2" stroke-dasharray="3"/>
+
+      <rect x="290" y="300" width="50" height="40" fill="#fef3c7" stroke="#f59e0b"/>
+      <text x="315" y="324" text-anchor="middle" font-size="10" fill="#92400e">P5</text>
+      <rect x="345" y="300" width="50" height="40" fill="#fef3c7" stroke="#f59e0b"/>
+      <text x="370" y="324" text-anchor="middle" font-size="10" fill="#92400e">P6</text>
+      <rect x="400" y="300" width="50" height="40" fill="#fef3c7" stroke="#f59e0b"/>
+      <text x="425" y="324" text-anchor="middle" font-size="10" fill="#92400e">P7</text>
+      <rect x="455" y="300" width="50" height="40" fill="#fef3c7" stroke="#f59e0b"/>
+      <text x="480" y="324" text-anchor="middle" font-size="10" fill="#92400e">P8</text>
+      <text x="540" y="320" text-anchor="end" font-size="9" fill="#dc2626">→ 淘汰</text>
+    </g>
+  </g>
+
+  <!-- 关键流程 -->
+  <g>
+    <text x="60" y="365" font-size="12" font-weight="700" fill="#1e293b">关键流程：</text>
+    <text x="60" y="385" font-size="11" fill="#475569">① 新页加载：插入到 midpoint（P5），不是链表头部</text>
+    <text x="60" y="402" font-size="11" fill="#475569">② P5-P8 内的页被访问：</text>
+    <text x="80" y="418" font-size="10" fill="#92400e">  - 立即提升 → Young 区头部（说明是热数据）</text>
+    <text x="80" y="432" font-size="10" fill="#92400e">  - 或停留 old 区过 innodb_old_blocks_time（默认 1000ms）后再判断</text>
+    <text x="60" y="448" font-size="11" fill="#065f46">③ P1-P4 内的页被访问：移至 Young 区头部</text>
+    <text x="60" y="463" font-size="11" fill="#7f1d1d">④ LRU 尾部（P8）淘汰：写回磁盘后释放</text>
+  </g>
+</svg>

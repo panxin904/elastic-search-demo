@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Elasticsearch Segment Merge 流程</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Tiered merge policy · force-merge · 删除文档真正释放磁盘时机</text>
+
+  <!-- 写流程入口 -->
+  <g>
+    <rect x="30" y="90" width="120" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="90" y="115" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">Indexing Buffer</text>
+    <text x="90" y="130" text-anchor="middle" font-size="10" fill="#475569">内存 buffer</text>
+
+    <line x1="150" y1="115" x2="180" y2="115" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+
+    <rect x="180" y="90" width="120" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="240" y="115" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">Refresh</text>
+    <text x="240" y="130" text-anchor="middle" font-size="10" fill="#475569">1s 一次（默认）</text>
+
+    <line x1="300" y1="115" x2="330" y2="115" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+
+    <rect x="330" y="90" width="100" height="50" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="380" y="115" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">新 Segment</text>
+    <text x="380" y="130" text-anchor="middle" font-size="10" fill="#475569">.liv / .si / .doc</text>
+
+    <line x1="430" y1="115" x2="460" y2="115" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+
+    <rect x="460" y="90" width="110" height="50" rx="6" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="515" y="115" text-anchor="middle" font-size="12" font-weight="700" fill="#5b21b6">Translog</text>
+    <text x="515" y="130" text-anchor="middle" font-size="10" fill="#475569">持久化</text>
+  </g>
+
+  <!-- Merge 策略：层级 -->
+  <g>
+    <text x="60" y="180" font-size="13" font-weight="700" fill="#1e293b">Tiered Merge Policy（默认）</text>
+    <text x="60" y="195" font-size="10" fill="#64748b">按 segment 大小分层 · 优先合并层级最低的 segments</text>
+
+    <!-- Level 0 -->
+    <rect x="60" y="210" width="120" height="35" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3"/>
+    <text x="120" y="232" text-anchor="middle" font-size="10" fill="#475569">Level 0: ≤ 4MB (N个)</text>
+
+    <line x1="180" y1="227" x2="210" y2="227" stroke="#10b981" stroke-width="2" marker-end="url(#arrG)"/>
+
+    <!-- Level 1 -->
+    <rect x="210" y="210" width="120" height="35" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3"/>
+    <text x="270" y="232" text-anchor="middle" font-size="10" fill="#475569">Level 1: 4-16MB</text>
+
+    <line x1="330" y1="227" x2="360" y2="227" stroke="#10b981" stroke-width="2" marker-end="url(#arrG)"/>
+
+    <!-- Level 2 -->
+    <rect x="360" y="210" width="120" height="35" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3"/>
+    <text x="420" y="232" text-anchor="middle" font-size="10" fill="#475569">Level 2: 16-64MB</text>
+
+    <line x1="480" y1="227" x2="510" y2="227" stroke="#10b981" stroke-width="2" marker-end="url(#arrG)"/>
+
+    <!-- Level 3 -->
+    <rect x="510" y="210" width="60" height="35" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3"/>
+    <text x="540" y="232" text-anchor="middle" font-size="9" fill="#475569">Level 3</text>
+  </g>
+
+  <!-- Merge 过程 -->
+  <g>
+    <text x="60" y="275" font-size="13" font-weight="700" fill="#1e293b">合并执行过程</text>
+
+    <rect x="60" y="290" width="510" height="80" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="80" y="312" font-size="11" fill="#475569">① 从低层级选 N 个 segment → 写入新 segment</text>
+    <text x="80" y="330" font-size="11" fill="#475569">② 旧 segment 加 .liv 标记为 deleted（但磁盘未释放）</text>
+    <text x="80" y="348" font-size="11" fill="#475569">③ 新 segment 替换旧段 · 删除文档通过段合并清除</text>
+    <text x="80" y="366" font-size="11" fill="#dc2626" font-weight="700">④ force-merge API 才真正释放磁盘（合并 N 个 → 1 个）</text>
+  </g>
+
+  <!-- 删除时机 -->
+  <g>
+    <rect x="60" y="385" width="250" height="60" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+    <text x="185" y="405" text-anchor="middle" font-size="12" font-weight="700" fill="#7f1d1d">DELETE 文档何时真正释放？</text>
+    <text x="80" y="425" font-size="10" fill="#475569">删除时只标记 .liv · 不释放磁盘</text>
+    <text x="80" y="440" font-size="10" fill="#475569">必须等 segment merge 覆盖该 doc_id</text>
+
+    <rect x="320" y="385" width="250" height="60" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="445" y="405" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">force-merge 用法</text>
+    <text x="340" y="425" font-size="10" font-family="monospace" fill="#1e2937">POST /index/_settings</text>
+    <text x="340" y="440" font-size="10" font-family="monospace" fill="#1e2937">{"max_num_segments": 1}</text>
+  </g>
+</svg>

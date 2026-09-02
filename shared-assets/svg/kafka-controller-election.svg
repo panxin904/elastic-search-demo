@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Kafka Controller 选举时序</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">KRaft 模式（Kafka 2.8+）· Controller Quorum · epoch 防脑裂</text>
+
+  <!-- 角色 -->
+  <g>
+    <rect x="20" y="85" width="90" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="65" y="110" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Controller 1</text>
+
+    <rect x="240" y="85" width="90" height="40" rx="6" fill="#d1fae5" stroke="#10b981"/>
+    <text x="285" y="110" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">Controller 2</text>
+
+    <rect x="460" y="85" width="90" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="505" y="110" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Controller 3</text>
+  </g>
+
+  <!-- 时序线 -->
+  <g>
+    <line x1="65" y1="125" x2="65" y2="450" stroke="#3b82f6" stroke-dasharray="3"/>
+    <line x1="285" y1="125" x2="285" y2="450" stroke="#10b981" stroke-dasharray="3"/>
+    <line x1="505" y1="125" x2="505" y2="450" stroke="#f59e0b" stroke-dasharray="3"/>
+  </g>
+
+  <!-- 1. 发起投票 -->
+  <line x1="65" y1="155" x2="285" y2="155" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="65" y1="155" x2="505" y2="155" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="180" y="148" text-anchor="middle" font-size="10" fill="#475569">① RequestVote(epoch=1, lastLog=100)</text>
+
+  <!-- 2. 应答 -->
+  <line x1="285" y1="180" x2="65" y2="180" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="180" y="173" text-anchor="middle" font-size="10" fill="#475569">② VoteGranted</text>
+
+  <line x1="505" y1="180" x2="65" y2="180" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="350" y="195" text-anchor="middle" font-size="10" fill="#475569">③ VoteGranted（多数派达成）</text>
+
+  <!-- 3. Leader 广播 -->
+  <line x1="65" y1="220" x2="285" y2="220" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="65" y1="220" x2="505" y2="220" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="285" y="213" text-anchor="middle" font-size="10" fill="#475569">④ BeginEpoch(epoch=1)</text>
+
+  <!-- 4. 心跳 -->
+  <line x1="65" y1="255" x2="285" y2="255" stroke="#64748b" stroke-width="1" stroke-dasharray="4" marker-end="url(#arr)"/>
+  <line x1="65" y1="255" x2="505" y2="255" stroke="#64748b" stroke-width="1" stroke-dasharray="4" marker-end="url(#arr)"/>
+  <text x="285" y="248" text-anchor="middle" font-size="10" fill="#475569">⑤ Heartbeat (100ms)</text>
+
+  <!-- 5. C1 故障 -->
+  <rect x="35" y="290" width="60" height="40" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-dasharray="4"/>
+  <text x="65" y="307" text-anchor="middle" font-size="10" font-weight="700" fill="#7f1d1d">C1 DOWN</text>
+  <text x="65" y="322" text-anchor="middle" font-size="9" fill="#7f1d1d">t=30s</text>
+
+  <!-- 6. C2 发起新一轮 -->
+  <line x1="285" y1="350" x2="505" y2="350" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="395" y="343" text-anchor="middle" font-size="10" fill="#475569">⑥ RequestVote(epoch=2)</text>
+
+  <!-- 7. C3 应答 + epoch 升级 -->
+  <line x1="505" y1="375" x2="285" y2="375" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="395" y="368" text-anchor="middle" font-size="10" fill="#475569">⑦ VoteGranted → C2 升 epoch=2</text>
+
+  <!-- 8. 新 Leader 广播 -->
+  <line x1="285" y1="410" x2="505" y2="410" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="395" y="403" text-anchor="middle" font-size="10" fill="#475569">⑧ BeginEpoch(epoch=2)</text>
+
+  <!-- 关键规则 -->
+  <rect x="20" y="435" width="560" height="35" rx="6" fill="#ecfdf5" stroke="#10b981"/>
+  <text x="40" y="455" font-size="11" font-weight="700" fill="#065f46">关键规则：epoch 单调递增 · 旧 Leader 收到更高 epoch 自动 step down · 多数派（≥2/3）确认即生效</text>
+</svg>
