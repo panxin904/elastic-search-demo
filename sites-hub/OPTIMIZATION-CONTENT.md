@@ -7242,3 +7242,134 @@ const VUE_DIR = fileURLToPath(new URL('../node_modules/vue/', import.meta.url))
 ### 经验
 
 `exports` 字段的包（如 vue）必须用 regex alias 捕获子路径，否则 SSR 阶段会失败。这是 vue 3 + vitepress 共享组件的常见坑。
+
+
+## §8.81 三次修复 · java-web-manual 漏渲染 config.mts（2026-09-02）
+
+### 问题
+
+CI 第三次仍然报 vue alias 错误：
+```
+[vite]: Rollup failed to resolve import "vue" from ".../shared-assets/vitepress-template/theme/components/QrShare.vue"
+```
+
+但本地 30 站 build 全过。
+
+### 根因排查
+
+`build-all (java)` 失败。但 java 在 `sites.sh` 里映射到 `java-web-manual`：
+```bash
+PROJECT_DIR_MAP="cloud:springcloud-html;java:java-web-manual"
+```
+
+`java-web-manual/.vitepress/config.mts` **没有 vue alias**！只有 `@shared` alias。
+
+为什么 render-config.py 漏了它？看 git log：
+- `7b0ab22` 改 31 个 config.mts，**含 java-language-html 不含 java-web-manual**
+- `469b5c8` 改 31 个 config.mts，**同样不含 java-web-manual**
+
+实际上是当时 java-web-manual 的 sidebar 缩进混乱 / 格式特殊，render-config.py 处理时出错或被跳过，**导致两次 vue alias 修复都没覆盖到 java-web-manual**。
+
+### 诊断流程
+
+```bash
+# 1. 抓取 CI jobs list（确认哪个站失败）
+curl https://api.github.com/repos/.../actions/runs/33622184658/jobs | jq '.jobs[] | {name, conclusion}'
+
+# 2. 关键发现：build-all (java) 是唯一失败的 job，其它 30 个 build-all 都 success
+
+# 3. 看 sites.sh 映射：java:java-web-manual
+
+# 4. diff 本地 vs 远程 config.mts（CI 跑的是 origin/main）
+diff java-web-manual/.vitepress/config.mts /tmp/ci-test/java-web-manual/.vitepress/config.mts
+# → 本地有 vue alias（用户手动加的），远程没有（CI 跑 aa1a3b2 = 旧版）
+
+# 5. 本地 build java-web-manual 验证：成功 → 说明 alias 修复正确
+
+# 6. 远程 clone 一份（用 git clone --depth 1 -b main）模拟 CI 环境
+git clone --depth 1 https://github.com/panxin904/elastic-search-demo.git /tmp/ci-test
+cd /tmp/ci-test/java-web-manual && npm install && npm run docs:build
+# → 失败！报错正是 Rollup failed to resolve import "vue"
+```
+
+### 修复
+
+**方案选择**：最低侵入 = 直接给 java-web-manual config.mts 加 vue alias 块（9 行新增），不动 sidebar 缩进。
+
+```diff
+@@ -20,11 +20,19 @@
+ // P0: VitePress/rollup 默认 fs.allow 限制 cwd 外 import。
+ const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.url))
+
++// P0: shared-assets/ 下的 .vue 组件 import vue 时需要显式 alias 指向本站点 node_modules。
++// §8.81 QrShare 落地后暴露此问题。
++// §8.81 二次修复：alias 还要覆盖 vue 子路径。
++const VUE_DIR = fileURLToPath(new URL('../node_modules/vue/', import.meta.url))
++
+ export default defineConfig({
+   vite: {
+     resolve: {
+       alias: [
+         { find: '@shared', replacement: SHARED_ASSETS },
++        { find: /^vue(\/.*)?$/, replacement: `${VUE_DIR}$1` },
+       ],
+     },
+```
+
+操作步骤：
+```bash
+# 1. python3 内联修改（避免 sed 转义 + 避免 render-config.py 重写 sidebar）
+python3 -c "见代码"
+# 2. 本地 build 验证
+cd java-web-manual && mv .vitepress/dist .vitepress/dist-prebuild && npm run docs:build
+# 3. 恢复 dist
+mv .vitepress/dist-prebuild .vitepress/dist
+# 4. commit（不推送，等用户确认）
+git add java-web-manual/.vitepress/config.mts
+git commit -m "fix(build): §8.81 java-web-manual 补 vue alias（CI build-all java 失败根因）"
+```
+
+### 为什么 render-config.py 之前没自动覆盖 java-web-manual？
+
+**推论**：
+- render-config.py 用 `extract_block()` 解析 sidebar 块
+- java-web-manual 的 sidebar 缩进混乱（混合 6/8/10/12 空格缩进），可能导致 extract_block 抛错或返回空字符串
+- 之前两次 vue alias 修复时，render-config.py 处理 java-web-manual 大概率失败但被忽略（脚本非 strict 模式）
+
+**未来改进**（P2 候选）：
+- render-config.py 加 `--strict` 模式：任何站处理失败立即退出非 0
+- audit 加检查项：每个 `*-html/.vitepress/config.mts` 都必须有 vue alias
+- CI 流程加 sanity check：跑 build-all 前先 grep vue alias 在 31 个 config.mts
+
+### 验证
+
+- 本地 java-web-manual 单站 build：成功
+- 本地 30 站 + java-web-manual 全部 build：成功（PARALLEL=6 bash /tmp/build-all.sh + 单站）
+- 待 CI 验证：origin/main HEAD = 19826a5（vue alias 修复二） → 修复 commit 待 push
+
+### 经验教训
+
+1. **诊断顺序很重要**：不要一上来就改代码！先看 CI 日志，确认"哪个站失败 + 报的什么错"
+2. **本地通过 ≠ CI 通过**：本地可能有自己的脏改动未提交。clone 一份 origin/main 模拟 CI 才能复现
+3. **render-config.py 的副作用要验证**：改了模板后必须跑全量 render，但 render 的 diff 可能很大（sidebar 缩进叠加），需要先 git checkout HEAD 再精准改单站
+4. **CI job 矩阵失败 → 看矩阵哪个失败**：33 个 job 并行，只 1 个失败时不要全局乱试
+
+### 验证 4 步法（来自 GitHub Actions 0-step failure 经验，§7.3）
+
+```bash
+# 1. 成功 run 对比：同 commit 跑过的其他 job 是否成功
+curl https://api.github.com/repos/.../actions/runs/33622184658/jobs | jq '.jobs[] | {name, conclusion}'
+
+# 2. 文件 sha 对比：本地文件 vs 远程 commit 文件
+git show origin/main:java-web-manual/.vitepress/config.mts | md5
+md5 java-web-manual/.vitepress/config.mts
+
+# 3. workflow_dispatch：手动重跑同一 commit，看是否稳定复现
+gh workflow run sites-hub-ci.yml --ref 19826a5
+
+# 4. 最小化 hello world：clone 一份 origin/main 模拟 CI，本地复现
+git clone --depth 1 --branch main https://github.com/.../elastic-search-demo.git /tmp/ci-test
+cd /tmp/ci-test/java-web-manual && npm install && npm run docs:build
+```
+
+4 步验证可快速定位是 **GitHub 后端问题** 还是 **项目侧问题**。本次：4 步都指向项目侧（java-web-manual config.mts 缺 vue alias）。
