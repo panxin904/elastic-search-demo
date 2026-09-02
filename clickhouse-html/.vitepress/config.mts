@@ -21,14 +21,16 @@ const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.u
 // P0: shared-assets/ 下的 .vue 组件 import vue 时需要显式 alias 指向本站点 node_modules。
 // 否则 rollup 在 SHARED_ASSETS 目录找不到 vue，会报 "Rollup failed to resolve import 'vue'"。
 // §8.81 QrShare 落地后暴露此问题。
-const VUE = fileURLToPath(new URL('../node_modules/vue', import.meta.url))
+// §8.81 二次修复：alias 还要覆盖 vue 子路径（vue/server-renderer · vue/compiler-sfc 等）
+// 否则 vitepress SSR 阶段 import 'vue/server-renderer' 仍会 resolve 失败。
+const VUE_DIR = fileURLToPath(new URL('../node_modules/vue/', import.meta.url))
 
 export default defineConfig({
   vite: {
     resolve: {
       alias: [
         { find: '@shared', replacement: SHARED_ASSETS },
-        { find: /^vue$/, replacement: VUE },
+        { find: /^vue(\/.*)?$/, replacement: `${VUE_DIR}$1` },
       ],
     },
     // §8.72：shared-assets/svg/ 共享 SVG 资产（CAP / Saga / 一致性 hash 等）
@@ -112,71 +114,72 @@ export default defineConfig({
                     
                         
                             
-                                                              '/': [
-                                                                {
-                                                                  text: '🟡 ClickHouse 基础', collapsed: false, items: [
-                                                                    { text: 'ClickHouse 总览', link: '/01-basics/overview' },
-                                                                    { text: '历史与特点', link: '/01-basics/history' },
-                                                                    { text: '安装部署', link: '/01-basics/installation' },
-                                                                    { text: '客户端与连接', link: '/01-basics/client' },
-                                                                    { text: '数据类型', link: '/01-basics/data-types' }
-                                                                  ]
-                                                                },
-                                                                {
-                                                                  text: '🔍 SQL 实战', collapsed: false, items: [
-                                                                    { text: 'SQL 总览', link: '/02-sql/overview' },
-                                                                    { text: 'SELECT 与聚合', link: '/02-sql/select-aggregate' },
-                                                                    { text: 'JOIN 用法', link: '/02-sql/join' },
-                                                                    { text: '常用函数', link: '/02-sql/functions' },
-                                                                    { text: '窗口函数', link: '/02-sql/window-functions' },
-                                                                    { text: '字典 Dictionary', link: '/02-sql/dictionary' }
-                                                                  ]
-                                                                },
-                                                                {
-                                                                  text: '⚙️ 表引擎', collapsed: false, items: [
-                                                                    { text: '表引擎总览', link: '/03-table-engine/overview' },
-                                                                    { text: 'MergeTree 家族', link: '/03-table-engine/mergetree-family' },
-                                                                    { text: 'Log 引擎', link: '/03-table-engine/log-engine' },
-                                                                    { text: 'Kafka 引擎', link: '/03-table-engine/kafka-engine' },
-                                                                    { text: 'Distributed 表', link: '/03-table-engine/distributed' },
-                                                                    { text: 'MaterializedView', link: '/03-table-engine/materialized-view' }
-                                                                  ]
-                                                                },
-                                                                {
-                                                                  text: '📊 OLAP 实战场景', collapsed: false, items: [
-                                                                    { text: 'OLAP 场景总览', link: '/04-olap-scenarios/overview' },
-                                                                    { text: '用户行为埋点', link: '/04-olap-scenarios/user-tracking' },
-                                                                    { text: '日志分析', link: '/04-olap-scenarios/log-analysis' },
-                                                                    { text: '指标存储', link: '/04-olap-scenarios/metrics-storage' },
-                                                                    { text: '实时数仓', link: '/04-olap-scenarios/realtime-warehouse' },
-                                                                    { text: 'Bitmap 去重', link: '/04-olap-scenarios/bitmap' }
-                                                                  ]
-                                                                },
-                                                                {
-                                                                  text: '🔌 生态工具链', collapsed: false, items: [
-                                                                    { text: '生态总览', link: '/05-ecosystem/overview' },
-                                                                    { text: 'Kafka 实时集成', link: '/05-ecosystem/kafka-integration' },
-                                                                    { text: 'Grafana 可视化', link: '/05-ecosystem/grafana' },
-                                                                    { text: 'Prometheus remote_write', link: '/05-ecosystem/prometheus' },
-                                                                    { text: 'Go 客户端 ch-go', link: '/05-ecosystem/go-client' },
-                                                                    { text: 'dbt + Airbyte 集成', link: '/05-ecosystem/dbt-airbyte' }
-                                                                  ]
-                                                                },
-                                                                {
-                                                                  text: '🆚 对比与选型', collapsed: false, items: [
-                                                                    { text: '选型总览', link: '/06-compare/overview' },
-                                                                    { text: 'vs MySQL / PostgreSQL', link: '/06-compare/vs-mysql-pg' },
-                                                                    { text: 'vs Doris', link: '/06-compare/vs-doris' },
-                                                                    { text: 'vs StarRocks', link: '/06-compare/vs-starrocks' },
-                                                                    { text: 'vs TiDB', link: '/06-compare/vs-tidb' }
-                                                                  ]
-                                                                },
-                                                                {
-                                                                  text: '📖 大厂实战案例', collapsed: false, items: [
-                                                                    { text: '12 个真实案例', link: '/case-study' }
-                                                                  ]
-                                                                }
-                                                              ]
+                                
+                                                                      '/': [
+                                                                        {
+                                                                          text: '🟡 ClickHouse 基础', collapsed: false, items: [
+                                                                            { text: 'ClickHouse 总览', link: '/01-basics/overview' },
+                                                                            { text: '历史与特点', link: '/01-basics/history' },
+                                                                            { text: '安装部署', link: '/01-basics/installation' },
+                                                                            { text: '客户端与连接', link: '/01-basics/client' },
+                                                                            { text: '数据类型', link: '/01-basics/data-types' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '🔍 SQL 实战', collapsed: false, items: [
+                                                                            { text: 'SQL 总览', link: '/02-sql/overview' },
+                                                                            { text: 'SELECT 与聚合', link: '/02-sql/select-aggregate' },
+                                                                            { text: 'JOIN 用法', link: '/02-sql/join' },
+                                                                            { text: '常用函数', link: '/02-sql/functions' },
+                                                                            { text: '窗口函数', link: '/02-sql/window-functions' },
+                                                                            { text: '字典 Dictionary', link: '/02-sql/dictionary' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '⚙️ 表引擎', collapsed: false, items: [
+                                                                            { text: '表引擎总览', link: '/03-table-engine/overview' },
+                                                                            { text: 'MergeTree 家族', link: '/03-table-engine/mergetree-family' },
+                                                                            { text: 'Log 引擎', link: '/03-table-engine/log-engine' },
+                                                                            { text: 'Kafka 引擎', link: '/03-table-engine/kafka-engine' },
+                                                                            { text: 'Distributed 表', link: '/03-table-engine/distributed' },
+                                                                            { text: 'MaterializedView', link: '/03-table-engine/materialized-view' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '📊 OLAP 实战场景', collapsed: false, items: [
+                                                                            { text: 'OLAP 场景总览', link: '/04-olap-scenarios/overview' },
+                                                                            { text: '用户行为埋点', link: '/04-olap-scenarios/user-tracking' },
+                                                                            { text: '日志分析', link: '/04-olap-scenarios/log-analysis' },
+                                                                            { text: '指标存储', link: '/04-olap-scenarios/metrics-storage' },
+                                                                            { text: '实时数仓', link: '/04-olap-scenarios/realtime-warehouse' },
+                                                                            { text: 'Bitmap 去重', link: '/04-olap-scenarios/bitmap' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '🔌 生态工具链', collapsed: false, items: [
+                                                                            { text: '生态总览', link: '/05-ecosystem/overview' },
+                                                                            { text: 'Kafka 实时集成', link: '/05-ecosystem/kafka-integration' },
+                                                                            { text: 'Grafana 可视化', link: '/05-ecosystem/grafana' },
+                                                                            { text: 'Prometheus remote_write', link: '/05-ecosystem/prometheus' },
+                                                                            { text: 'Go 客户端 ch-go', link: '/05-ecosystem/go-client' },
+                                                                            { text: 'dbt + Airbyte 集成', link: '/05-ecosystem/dbt-airbyte' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '🆚 对比与选型', collapsed: false, items: [
+                                                                            { text: '选型总览', link: '/06-compare/overview' },
+                                                                            { text: 'vs MySQL / PostgreSQL', link: '/06-compare/vs-mysql-pg' },
+                                                                            { text: 'vs Doris', link: '/06-compare/vs-doris' },
+                                                                            { text: 'vs StarRocks', link: '/06-compare/vs-starrocks' },
+                                                                            { text: 'vs TiDB', link: '/06-compare/vs-tidb' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '📖 大厂实战案例', collapsed: false, items: [
+                                                                            { text: '12 个真实案例', link: '/case-study' }
+                                                                          ]
+                                                                        }
+                                                                      ]
     },
 
     socialLinks: [],

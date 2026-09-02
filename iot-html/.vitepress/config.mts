@@ -22,7 +22,9 @@ const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.u
 // P0: shared-assets/ 下的 .vue 组件 import vue 时需要显式 alias 指向本站点 node_modules。
 // 否则 rollup 在 SHARED_ASSETS 目录找不到 vue，会报 "Rollup failed to resolve import 'vue'"。
 // §8.81 QrShare 落地后暴露此问题。
-const VUE = fileURLToPath(new URL('../node_modules/vue', import.meta.url))
+// §8.81 二次修复：alias 还要覆盖 vue 子路径（vue/server-renderer · vue/compiler-sfc 等）
+// 否则 vitepress SSR 阶段 import 'vue/server-renderer' 仍会 resolve 失败。
+const VUE_DIR = fileURLToPath(new URL('../node_modules/vue/', import.meta.url))
 
 // C11: Mermaid 跨站共享配置（inline 而非 import，避免 vite alias 在 Node 加载 config.mts 阶段不生效的问题）
 // 同步源：shared-assets/mermaid-config/base.ts（修改时请同步更新此处）
@@ -65,7 +67,7 @@ export default withMermaid( defineConfig({
     resolve: {
       alias: [
         { find: '@shared', replacement: SHARED_ASSETS },
-        { find: /^vue$/, replacement: VUE },
+        { find: /^vue(\/.*)?$/, replacement: `${VUE_DIR}$1` },
       ],
     },
     // §8.72：shared-assets/svg/ 共享 SVG 资产（CAP / Saga / 一致性 hash 等）
@@ -152,97 +154,98 @@ export default withMermaid( defineConfig({
                 
                     
                         
-                                                      '/': [
-                                                        {
-                                                          text: '📡 物联网总览',
-                                                          collapsed: false,
-                                                          items: [
-                                                            { text: '首页', link: '/' },
-                                                            { text: '知识图谱位置', link: '/README' },
-                                                          ]
-                                                        },
-                                                        {
-                                                          text: '🗺️ 结构图',
-                                                          collapsed: false,
-                                                          items: [
-                                                            { text: '思维导图', link: '/mindmap' },
-                                                          ]
-                                                        },
-                                                        {
-                                                          text: '📡 通信协议',
-                                                          collapsed: false,
-                                                          items: [
-                                                            { text: '章节目录', link: '/01-protocol/' },
-                                                            { text: 'MQTT 5.0', link: '/01-protocol/mqtt' },
-                                                            { text: 'CoAP', link: '/01-protocol/coap' },
-                                                            { text: 'Modbus / OPC-UA', link: '/01-protocol/modbus' },
-                                                            { text: 'LoRaWAN / NB-IoT', link: '/01-protocol/lpwan' },
-                                                          ]
-                                                        },
-                                                        {
-                                                          text: '🔌 设备与硬件',
-                                                          collapsed: false,
-                                                          items: [
-                                                            { text: '章节目录', link: '/02-device/' },
-                                                            { text: 'MCU / SoC', link: '/02-device/mcu' },
-                                                            { text: 'FreeRTOS / Zephyr', link: '/02-device/rtos' },
-                                                            { text: '传感器', link: '/02-device/sensor' },
-                                                            { text: '网关硬件', link: '/02-device/gateway' },
-                                                          ]
-                                                        },
-                                                        {
-                                                          text: '🌐 边缘计算',
-                                                          collapsed: false,
-                                                          items: [
-                                                            { text: '章节目录', link: '/03-edge/' },
-                                                            { text: 'EdgeX / KubeEdge', link: '/03-edge/framework' },
-                                                            { text: '边缘智能 AI', link: '/03-edge/ai-edge' },
-                                                            { text: '离线自治', link: '/03-edge/offline' },
-                                                            { text: 'K8s 边缘', link: '/03-edge/k8s-edge' },
-                                                          ]
-                                                        },
-                                                        {
-                                                          text: '⚙️ 设备管理',
-                                                          collapsed: false,
-                                                          items: [
-                                                            { text: '章节目录', link: '/04-management/' },
-                                                            { text: '设备影子 / 物模型', link: '/04-management/shadow' },
-                                                            { text: '固件 OTA', link: '/04-management/ota' },
-                                                            { text: '设备安全', link: '/04-management/security' },
-                                                          ]
-                                                        },
-                                                        {
-                                                          text: '📊 时序数据',
-                                                          collapsed: false,
-                                                          items: [
-                                                            { text: '章节目录', link: '/05-timeseries/' },
-                                                            { text: '时序库选型', link: '/05-timeseries/database' },
-                                                            { text: '流处理 / Downsampling', link: '/05-timeseries/processing' },
-                                                            { text: 'Grafana / Kafka', link: '/05-timeseries/integration' },
-                                                            { text: '数据模型', link: '/05-timeseries/schema' },
-                                                          ]
-                                                        },
-                                                        {
-                                                          text: '☁️ 云平台与行业',
-                                                          collapsed: false,
-                                                          items: [
-                                                            { text: '章节目录', link: '/06-platform/' },
-                                                            { text: '公有云 IoT', link: '/06-platform/public-cloud' },
-                                                            { text: '自建 IoT 平台', link: '/06-platform/self-hosted' },
-                                                            { text: '智能家居 Matter', link: '/06-platform/smart-home' },
-                                                            { text: '工业互联网 IIoT', link: '/06-platform/iiot' },
-                                                          ]
-                                                        },
-                                                        {
-                                                          text: '🚶 学习',
-                                                          collapsed: false,
-                                                          items: [
-                                                            { text: '学习路径', link: '/path' },
-                                                            { text: '常见问题', link: '/questions' },
-                                                            { text: '速查表', link: '/cheatsheet' },
-                                                          ]
-                                                        }
-                                                      ]
+                            
+                                                              '/': [
+                                                                {
+                                                                  text: '📡 物联网总览',
+                                                                  collapsed: false,
+                                                                  items: [
+                                                                    { text: '首页', link: '/' },
+                                                                    { text: '知识图谱位置', link: '/README' },
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '🗺️ 结构图',
+                                                                  collapsed: false,
+                                                                  items: [
+                                                                    { text: '思维导图', link: '/mindmap' },
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '📡 通信协议',
+                                                                  collapsed: false,
+                                                                  items: [
+                                                                    { text: '章节目录', link: '/01-protocol/' },
+                                                                    { text: 'MQTT 5.0', link: '/01-protocol/mqtt' },
+                                                                    { text: 'CoAP', link: '/01-protocol/coap' },
+                                                                    { text: 'Modbus / OPC-UA', link: '/01-protocol/modbus' },
+                                                                    { text: 'LoRaWAN / NB-IoT', link: '/01-protocol/lpwan' },
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '🔌 设备与硬件',
+                                                                  collapsed: false,
+                                                                  items: [
+                                                                    { text: '章节目录', link: '/02-device/' },
+                                                                    { text: 'MCU / SoC', link: '/02-device/mcu' },
+                                                                    { text: 'FreeRTOS / Zephyr', link: '/02-device/rtos' },
+                                                                    { text: '传感器', link: '/02-device/sensor' },
+                                                                    { text: '网关硬件', link: '/02-device/gateway' },
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '🌐 边缘计算',
+                                                                  collapsed: false,
+                                                                  items: [
+                                                                    { text: '章节目录', link: '/03-edge/' },
+                                                                    { text: 'EdgeX / KubeEdge', link: '/03-edge/framework' },
+                                                                    { text: '边缘智能 AI', link: '/03-edge/ai-edge' },
+                                                                    { text: '离线自治', link: '/03-edge/offline' },
+                                                                    { text: 'K8s 边缘', link: '/03-edge/k8s-edge' },
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '⚙️ 设备管理',
+                                                                  collapsed: false,
+                                                                  items: [
+                                                                    { text: '章节目录', link: '/04-management/' },
+                                                                    { text: '设备影子 / 物模型', link: '/04-management/shadow' },
+                                                                    { text: '固件 OTA', link: '/04-management/ota' },
+                                                                    { text: '设备安全', link: '/04-management/security' },
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '📊 时序数据',
+                                                                  collapsed: false,
+                                                                  items: [
+                                                                    { text: '章节目录', link: '/05-timeseries/' },
+                                                                    { text: '时序库选型', link: '/05-timeseries/database' },
+                                                                    { text: '流处理 / Downsampling', link: '/05-timeseries/processing' },
+                                                                    { text: 'Grafana / Kafka', link: '/05-timeseries/integration' },
+                                                                    { text: '数据模型', link: '/05-timeseries/schema' },
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '☁️ 云平台与行业',
+                                                                  collapsed: false,
+                                                                  items: [
+                                                                    { text: '章节目录', link: '/06-platform/' },
+                                                                    { text: '公有云 IoT', link: '/06-platform/public-cloud' },
+                                                                    { text: '自建 IoT 平台', link: '/06-platform/self-hosted' },
+                                                                    { text: '智能家居 Matter', link: '/06-platform/smart-home' },
+                                                                    { text: '工业互联网 IIoT', link: '/06-platform/iiot' },
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '🚶 学习',
+                                                                  collapsed: false,
+                                                                  items: [
+                                                                    { text: '学习路径', link: '/path' },
+                                                                    { text: '常见问题', link: '/questions' },
+                                                                    { text: '速查表', link: '/cheatsheet' },
+                                                                  ]
+                                                                }
+                                                              ]
     },
 
     socialLinks: [],

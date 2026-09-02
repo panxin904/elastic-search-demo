@@ -21,14 +21,16 @@ const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.u
 // P0: shared-assets/ 下的 .vue 组件 import vue 时需要显式 alias 指向本站点 node_modules。
 // 否则 rollup 在 SHARED_ASSETS 目录找不到 vue，会报 "Rollup failed to resolve import 'vue'"。
 // §8.81 QrShare 落地后暴露此问题。
-const VUE = fileURLToPath(new URL('../node_modules/vue', import.meta.url))
+// §8.81 二次修复：alias 还要覆盖 vue 子路径（vue/server-renderer · vue/compiler-sfc 等）
+// 否则 vitepress SSR 阶段 import 'vue/server-renderer' 仍会 resolve 失败。
+const VUE_DIR = fileURLToPath(new URL('../node_modules/vue/', import.meta.url))
 
 export default defineConfig({
   vite: {
     resolve: {
       alias: [
         { find: '@shared', replacement: SHARED_ASSETS },
-        { find: /^vue$/, replacement: VUE },
+        { find: /^vue(\/.*)?$/, replacement: `${VUE_DIR}$1` },
       ],
     },
     // §8.72：shared-assets/svg/ 共享 SVG 资产（CAP / Saga / 一致性 hash 等）
@@ -112,23 +114,24 @@ export default defineConfig({
                     
                         
                             
-                                                              '/': [
-                                                                {text:'🎯 开始',items:[{text:'📖 学习路径',link:'/path'}]},
-                                                                {text:'📐 基础语法',items:[{text:'OOP / 类与对象',link:'/01-basics/oop'},{text:'数据类型 / 包装类',link:'/01-basics/datatypes'},{text:'异常处理',link:'/01-basics/exceptions'},{text:'泛型 / 注解 / 反射',link:'/01-basics/generics'},{text:'JDK 17-21 新特性',link:'/01-basics/new-features'}]},
-                                                                {text:'📚 集合框架',items:[{text:'List / ArrayList / LinkedList',link:'/02-collections/list'},{text:'Map / HashMap 原理',link:'/02-collections/map'},{text:'Set / TreeSet',link:'/02-collections/set'},{text:'Stream API',link:'/02-collections/stream'},{text:'并发集合',link:'/02-collections/concurrent'}]},
-                                                                {text:'🧵 并发编程',items:[{text:'线程 / 线程池',link:'/03-concurrency/thread-pool'},{text:'锁 / synchronized / AQS',link:'/03-concurrency/locks'},{text:'JUC 工具',link:'/03-concurrency/juc'},{text:'CompletableFuture',link:'/03-concurrency/future'},{text:'虚拟线程 (Loom)',link:'/03-concurrency/virtual-threads'}]},
-                                                                {text:'⚙️ JVM 内存模型',items:[{text:'JVM 运行时数据区',link:'/04-jvm/runtime'},{text:'类加载机制',link:'/04-jvm/classloading'},{text:'字节码 / 指令',link:'/04-jvm/bytecode'},{text:'对象创建 / OOM 排查',link:'/04-jvm/oom'}]},
-                                                                {text:'🗑️ GC 垃圾回收',items:[{text:'GC 算法',link:'/05-gc/algorithms'},{text:'G1 / ZGC / Shenandoah',link:'/05-gc/collectors'},{text:'GC 日志 / 调优',link:'/05-gc/tuning'}]},
-                                                                {text:'🌱 Spring 核心',items:[{text:'IoC / DI / AOP',link:'/06-spring/ioc-aop'},{text:'Spring Boot 自动配置',link:'/06-spring/boot'},{text:'Spring MVC',link:'/06-spring/mvc'},{text:'声明式事务',link:'/06-spring/transaction'}]},
-                                                                {text:'☁️ Spring Cloud',items:[{text:'Nacos 注册/配置中心',link:'/07-spring-cloud/nacos'},{text:'Gateway / Sentinel',link:'/07-spring-cloud/gateway'},{text:'Seata 分布式事务',link:'/07-spring-cloud/seata'}]},
-                                                                {text:'🗄️ DB / ORM',items:[{text:'JDBC / 连接池 HikariCP',link:'/08-database/jdbc'},{text:'MyBatis / MyBatis-Plus',link:'/08-database/mybatis'},{text:'JPA / Hibernate',link:'/08-database/jpa'}]},
-                                                                {text:'📡 IO / NIO',items:[{text:'BIO / NIO / AIO',link:'/09-io/nio'},{text:'Netty 框架',link:'/09-io/netty'},{text:'序列化 / JSON / ProtoBuf',link:'/09-io/serialize'}]},
-                                                                {text:'⚡ 性能调优',items:[{text:'JVM 调优参数',link:'/10-performance/jvm-tuning'},{text:'Arthas 诊断',link:'/10-performance/arthas'},{text:'jstack / jmap / jstat',link:'/10-performance/jvm-tools'}]},
-                                                                {text:'🏛️ 设计模式',items:[{text:'创建型模式',link:'/11-design/creational'},{text:'结构型模式',link:'/11-design/structural'},{text:'行为型模式',link:'/11-design/behavioral'}]},
-                                                                {text:'🛠️ 工具 / 构建',items:[{text:'Maven / Gradle',link:'/12-tools/build'},{text:'Lombok / MapStruct',link:'/12-tools/lombok'},{text:'常用命令速查',link:'/12-tools/commands'}]},
-                                                                {text:'🧪 测试',items:[{text:'JUnit5',link:'/13-testing/junit5'},{text:'Mockito',link:'/13-testing/mockito'},{text:'Spring Boot Test',link:'/13-testing/spring-test'}]},
-                                                                {text:'🎯 面试 / 进阶',items:[{text:'高频面试题',link:'/14-interview/questions'},{text:'手写代码',link:'/14-interview/coding'},{text:'学习路径',link:'/14-interview/path'}]}
-                                                              ]
+                                
+                                                                      '/': [
+                                                                        {text:'🎯 开始',items:[{text:'📖 学习路径',link:'/path'}]},
+                                                                        {text:'📐 基础语法',items:[{text:'OOP / 类与对象',link:'/01-basics/oop'},{text:'数据类型 / 包装类',link:'/01-basics/datatypes'},{text:'异常处理',link:'/01-basics/exceptions'},{text:'泛型 / 注解 / 反射',link:'/01-basics/generics'},{text:'JDK 17-21 新特性',link:'/01-basics/new-features'}]},
+                                                                        {text:'📚 集合框架',items:[{text:'List / ArrayList / LinkedList',link:'/02-collections/list'},{text:'Map / HashMap 原理',link:'/02-collections/map'},{text:'Set / TreeSet',link:'/02-collections/set'},{text:'Stream API',link:'/02-collections/stream'},{text:'并发集合',link:'/02-collections/concurrent'}]},
+                                                                        {text:'🧵 并发编程',items:[{text:'线程 / 线程池',link:'/03-concurrency/thread-pool'},{text:'锁 / synchronized / AQS',link:'/03-concurrency/locks'},{text:'JUC 工具',link:'/03-concurrency/juc'},{text:'CompletableFuture',link:'/03-concurrency/future'},{text:'虚拟线程 (Loom)',link:'/03-concurrency/virtual-threads'}]},
+                                                                        {text:'⚙️ JVM 内存模型',items:[{text:'JVM 运行时数据区',link:'/04-jvm/runtime'},{text:'类加载机制',link:'/04-jvm/classloading'},{text:'字节码 / 指令',link:'/04-jvm/bytecode'},{text:'对象创建 / OOM 排查',link:'/04-jvm/oom'}]},
+                                                                        {text:'🗑️ GC 垃圾回收',items:[{text:'GC 算法',link:'/05-gc/algorithms'},{text:'G1 / ZGC / Shenandoah',link:'/05-gc/collectors'},{text:'GC 日志 / 调优',link:'/05-gc/tuning'}]},
+                                                                        {text:'🌱 Spring 核心',items:[{text:'IoC / DI / AOP',link:'/06-spring/ioc-aop'},{text:'Spring Boot 自动配置',link:'/06-spring/boot'},{text:'Spring MVC',link:'/06-spring/mvc'},{text:'声明式事务',link:'/06-spring/transaction'}]},
+                                                                        {text:'☁️ Spring Cloud',items:[{text:'Nacos 注册/配置中心',link:'/07-spring-cloud/nacos'},{text:'Gateway / Sentinel',link:'/07-spring-cloud/gateway'},{text:'Seata 分布式事务',link:'/07-spring-cloud/seata'}]},
+                                                                        {text:'🗄️ DB / ORM',items:[{text:'JDBC / 连接池 HikariCP',link:'/08-database/jdbc'},{text:'MyBatis / MyBatis-Plus',link:'/08-database/mybatis'},{text:'JPA / Hibernate',link:'/08-database/jpa'}]},
+                                                                        {text:'📡 IO / NIO',items:[{text:'BIO / NIO / AIO',link:'/09-io/nio'},{text:'Netty 框架',link:'/09-io/netty'},{text:'序列化 / JSON / ProtoBuf',link:'/09-io/serialize'}]},
+                                                                        {text:'⚡ 性能调优',items:[{text:'JVM 调优参数',link:'/10-performance/jvm-tuning'},{text:'Arthas 诊断',link:'/10-performance/arthas'},{text:'jstack / jmap / jstat',link:'/10-performance/jvm-tools'}]},
+                                                                        {text:'🏛️ 设计模式',items:[{text:'创建型模式',link:'/11-design/creational'},{text:'结构型模式',link:'/11-design/structural'},{text:'行为型模式',link:'/11-design/behavioral'}]},
+                                                                        {text:'🛠️ 工具 / 构建',items:[{text:'Maven / Gradle',link:'/12-tools/build'},{text:'Lombok / MapStruct',link:'/12-tools/lombok'},{text:'常用命令速查',link:'/12-tools/commands'}]},
+                                                                        {text:'🧪 测试',items:[{text:'JUnit5',link:'/13-testing/junit5'},{text:'Mockito',link:'/13-testing/mockito'},{text:'Spring Boot Test',link:'/13-testing/spring-test'}]},
+                                                                        {text:'🎯 面试 / 进阶',items:[{text:'高频面试题',link:'/14-interview/questions'},{text:'手写代码',link:'/14-interview/coding'},{text:'学习路径',link:'/14-interview/path'}]}
+                                                                      ]
     },
 
     socialLinks: [{icon:'github',link:'https://github.com'}],

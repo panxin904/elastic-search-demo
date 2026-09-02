@@ -22,7 +22,9 @@ const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.u
 // P0: shared-assets/ 下的 .vue 组件 import vue 时需要显式 alias 指向本站点 node_modules。
 // 否则 rollup 在 SHARED_ASSETS 目录找不到 vue，会报 "Rollup failed to resolve import 'vue'"。
 // §8.81 QrShare 落地后暴露此问题。
-const VUE = fileURLToPath(new URL('../node_modules/vue', import.meta.url))
+// §8.81 二次修复：alias 还要覆盖 vue 子路径（vue/server-renderer · vue/compiler-sfc 等）
+// 否则 vitepress SSR 阶段 import 'vue/server-renderer' 仍会 resolve 失败。
+const VUE_DIR = fileURLToPath(new URL('../node_modules/vue/', import.meta.url))
 
 // C11: Mermaid 跨站共享配置（inline 而非 import，避免 vite alias 在 Node 加载 config.mts 阶段不生效的问题）
 // 同步源：shared-assets/mermaid-config/base.ts（修改时请同步更新此处）
@@ -65,7 +67,7 @@ export default withMermaid( defineConfig({
     resolve: {
       alias: [
         { find: '@shared', replacement: SHARED_ASSETS },
-        { find: /^vue$/, replacement: VUE },
+        { find: /^vue(\/.*)?$/, replacement: `${VUE_DIR}$1` },
       ],
     },
     // §8.72：shared-assets/svg/ 共享 SVG 资产（CAP / Saga / 一致性 hash 等）
@@ -152,91 +154,92 @@ export default withMermaid( defineConfig({
                 
                     
                         
-                                                      '/': [
-                                                        {
-                                                          text: '🤖 安卓总览',
-                                                          collapsed: false,
-                                                          items: [
-                                                            { text: '首页', link: '/' },
-                                                            { text: '知识图谱位置', link: '/README' },
-                                                          ]
-                                                        },
-                                                        {
-                                                          text: '🗺️ 结构图',
-                                                          collapsed: false,
-                                                          items: [
-                                                            { text: '思维导图', link: '/mindmap' },
-                                                          ]
-                                                        },
-                                                        {
-                                                          text: '🧩 应用层',
-                                                          collapsed: false,
-                                                          items: [
-                                                            { text: '章节目录', link: '/01-app/' },
-                                                            { text: 'Kotlin / Java / NDK', link: '/01-app/language' },
-                                                            { text: 'Jetpack 套件', link: '/01-app/jetpack' },
-                                                            { text: 'Kotlin 协程', link: '/01-app/coroutine' },
-                                                          ]
-                                                        },
-                                                        {
-                                                          text: '🎨 UI 体系',
-                                                          collapsed: false,
-                                                          items: [
-                                                            { text: '章节目录', link: '/02-ui/' },
-                                                            { text: '视图系统', link: '/02-ui/view-system' },
-                                                            { text: 'Jetpack Compose', link: '/02-ui/compose' },
-                                                            { text: '资源与适配', link: '/02-ui/resource' },
-                                                          ]
-                                                        },
-                                                        {
-                                                          text: '⚙️ 系统层',
-                                                          collapsed: false,
-                                                          items: [
-                                                            { text: '章节目录', link: '/03-system/' },
-                                                            { text: '启动流程', link: '/03-system/startup' },
-                                                            { text: 'IPC 机制', link: '/03-system/ipc' },
-                                                            { text: 'ART 运行时', link: '/03-system/runtime' },
-                                                            { text: '框架服务', link: '/03-system/services' },
-                                                          ]
-                                                        },
-                                                        {
-                                                          text: '🌐 跨平台',
-                                                          collapsed: false,
-                                                          items: [
-                                                            { text: '章节目录', link: '/04-cross/' },
-                                                            { text: '跨平台框架', link: '/04-cross/frameworks' },
-                                                            { text: '选型决策', link: '/04-cross/decision' },
-                                                          ]
-                                                        },
-                                                        {
-                                                          text: '🛠️ 工具链',
-                                                          collapsed: false,
-                                                          items: [
-                                                            { text: '章节目录', link: '/05-toolchain/' },
-                                                            { text: '构建系统', link: '/05-toolchain/gradle' },
-                                                            { text: 'Android Studio', link: '/05-toolchain/ide' },
-                                                            { text: '发布与上架', link: '/05-toolchain/publish' },
-                                                          ]
-                                                        },
-                                                        {
-                                                          text: '📈 性能与安全',
-                                                          collapsed: false,
-                                                          items: [
-                                                            { text: '章节目录', link: '/06-perf/' },
-                                                            { text: '性能优化', link: '/06-perf/performance' },
-                                                            { text: '安全机制', link: '/06-perf/security' },
-                                                          ]
-                                                        },
-                                                        {
-                                                          text: '🚶 学习',
-                                                          collapsed: false,
-                                                          items: [
-                                                            { text: '学习路径', link: '/path' },
-                                                            { text: '常见问题', link: '/questions' },
-                                                            { text: '速查表', link: '/cheatsheet' },
-                                                          ]
-                                                        }
-                                                      ]
+                            
+                                                              '/': [
+                                                                {
+                                                                  text: '🤖 安卓总览',
+                                                                  collapsed: false,
+                                                                  items: [
+                                                                    { text: '首页', link: '/' },
+                                                                    { text: '知识图谱位置', link: '/README' },
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '🗺️ 结构图',
+                                                                  collapsed: false,
+                                                                  items: [
+                                                                    { text: '思维导图', link: '/mindmap' },
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '🧩 应用层',
+                                                                  collapsed: false,
+                                                                  items: [
+                                                                    { text: '章节目录', link: '/01-app/' },
+                                                                    { text: 'Kotlin / Java / NDK', link: '/01-app/language' },
+                                                                    { text: 'Jetpack 套件', link: '/01-app/jetpack' },
+                                                                    { text: 'Kotlin 协程', link: '/01-app/coroutine' },
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '🎨 UI 体系',
+                                                                  collapsed: false,
+                                                                  items: [
+                                                                    { text: '章节目录', link: '/02-ui/' },
+                                                                    { text: '视图系统', link: '/02-ui/view-system' },
+                                                                    { text: 'Jetpack Compose', link: '/02-ui/compose' },
+                                                                    { text: '资源与适配', link: '/02-ui/resource' },
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '⚙️ 系统层',
+                                                                  collapsed: false,
+                                                                  items: [
+                                                                    { text: '章节目录', link: '/03-system/' },
+                                                                    { text: '启动流程', link: '/03-system/startup' },
+                                                                    { text: 'IPC 机制', link: '/03-system/ipc' },
+                                                                    { text: 'ART 运行时', link: '/03-system/runtime' },
+                                                                    { text: '框架服务', link: '/03-system/services' },
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '🌐 跨平台',
+                                                                  collapsed: false,
+                                                                  items: [
+                                                                    { text: '章节目录', link: '/04-cross/' },
+                                                                    { text: '跨平台框架', link: '/04-cross/frameworks' },
+                                                                    { text: '选型决策', link: '/04-cross/decision' },
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '🛠️ 工具链',
+                                                                  collapsed: false,
+                                                                  items: [
+                                                                    { text: '章节目录', link: '/05-toolchain/' },
+                                                                    { text: '构建系统', link: '/05-toolchain/gradle' },
+                                                                    { text: 'Android Studio', link: '/05-toolchain/ide' },
+                                                                    { text: '发布与上架', link: '/05-toolchain/publish' },
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '📈 性能与安全',
+                                                                  collapsed: false,
+                                                                  items: [
+                                                                    { text: '章节目录', link: '/06-perf/' },
+                                                                    { text: '性能优化', link: '/06-perf/performance' },
+                                                                    { text: '安全机制', link: '/06-perf/security' },
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  text: '🚶 学习',
+                                                                  collapsed: false,
+                                                                  items: [
+                                                                    { text: '学习路径', link: '/path' },
+                                                                    { text: '常见问题', link: '/questions' },
+                                                                    { text: '速查表', link: '/cheatsheet' },
+                                                                  ]
+                                                                }
+                                                              ]
     },
 
     socialLinks: [],

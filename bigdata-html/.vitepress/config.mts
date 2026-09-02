@@ -21,14 +21,16 @@ const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.u
 // P0: shared-assets/ 下的 .vue 组件 import vue 时需要显式 alias 指向本站点 node_modules。
 // 否则 rollup 在 SHARED_ASSETS 目录找不到 vue，会报 "Rollup failed to resolve import 'vue'"。
 // §8.81 QrShare 落地后暴露此问题。
-const VUE = fileURLToPath(new URL('../node_modules/vue', import.meta.url))
+// §8.81 二次修复：alias 还要覆盖 vue 子路径（vue/server-renderer · vue/compiler-sfc 等）
+// 否则 vitepress SSR 阶段 import 'vue/server-renderer' 仍会 resolve 失败。
+const VUE_DIR = fileURLToPath(new URL('../node_modules/vue/', import.meta.url))
 
 export default defineConfig({
   vite: {
     resolve: {
       alias: [
         { find: '@shared', replacement: SHARED_ASSETS },
-        { find: /^vue$/, replacement: VUE },
+        { find: /^vue(\/.*)?$/, replacement: `${VUE_DIR}$1` },
       ],
     },
     // §8.72：shared-assets/svg/ 共享 SVG 资产（CAP / Saga / 一致性 hash 等）
@@ -112,23 +114,24 @@ export default defineConfig({
                     
                         
                             
-                                                              '/': [
-                                                                {text:'🎯 开始',items:[{text:'📖 学习路径',link:'/path'}]},
-                                                                {text:'🧠 大数据基础',items:[{text:'4V 特征',link:'/01-basics/4v'},{text:'Hadoop 生态',link:'/01-basics/hadoop-eco'},{text:'批 / 流计算',link:'/01-basics/batch-stream'},{text:'CAP 选型',link:'/01-basics/cap'}]},
-                                                                {text:'📦 HDFS',items:[{text:'架构',link:'/02-hdfs/architecture'},{text:'副本机制',link:'/02-hdfs/replication'},{text:'NameNode HA',link:'/02-hdfs/ha'},{text:'HDFS 命令',link:'/02-hdfs/commands'}]},
-                                                                {text:'⚙️ MapReduce',items:[{text:'原理',link:'/03-mapreduce/principle'},{text:'Shuffle',link:'/03-mapreduce/shuffle'},{text:'Combiner / Partitioner',link:'/03-mapreduce/optimize'}]},
-                                                                {text:'🔥 Spark',items:[{text:'Core / RDD',link:'/04-spark/rdd'},{text:'SQL / DataFrame',link:'/04-spark/dataframe'},{text:'Structured Streaming',link:'/04-spark/streaming'},{text:'Spark 调优',link:'/04-spark/tuning'}]},
-                                                                {text:'🌊 Flink',items:[{text:'架构',link:'/05-flink/architecture'},{text:'状态与 Checkpoint',link:'/05-flink/state'},{text:'Exactly-once',link:'/05-flink/exactly-once'},{text:'Flink CDC',link:'/05-flink/cdc'}]},
-                                                                {text:'🏛️ Hive',items:[{text:'架构',link:'/06-hive/architecture'},{text:'优化',link:'/06-hive/optimize'},{text:'Hive on Spark/Tez',link:'/06-hive/engine'}]},
-                                                                {text:'📨 Kafka 流',items:[{text:'Kafka Streams',link:'/07-kafka-streaming/streams'},{text:'Flink CDC',link:'/07-kafka-streaming/cdc'},{text:'数据血缘',link:'/07-kafka-streaming/lineage'}]},
-                                                                {text:'🏛️ 数据建模',items:[{text:'OLAP vs OLTP',link:'/08-modeling/olap-oltp'},{text:'Inmon vs Kimball',link:'/08-modeling/inmon-kimball'},{text:'星型 / 雪花',link:'/08-modeling/star-snowflake'},{text:'Data Vault',link:'/08-modeling/data-vault'}]},
-                                                                {text:'🏢 数仓架构',items:[{text:'Snowflake',link:'/09-dw-architecture/snowflake'},{text:'Redshift / BigQuery',link:'/09-dw-architecture/redshift-bigquery'}]},
-                                                                {text:'💧 数据湖',items:[{text:'三剑客',link:'/10-data-lake/three-pillars'},{text:'Delta / Iceberg / Hudi',link:'/10-data-lake/delta-iceberg-hudi'},{text:'Lakehouse',link:'/10-data-lake/lakehouse'}]},
-                                                                {text:'🔄 ELT',items:[{text:'Airflow / dbt',link:'/11-elt-pipeline/airflow-dbt'},{text:'CDC 同步',link:'/11-elt-pipeline/cdc'},{text:'数据血缘',link:'/11-elt-pipeline/lineage'}]},
-                                                                {text:'📊 OLAP 引擎',items:[{text:'ClickHouse',link:'/12-olap-engine/clickhouse'},{text:'Doris / StarRocks',link:'/12-olap-engine/doris-starrocks'},{text:'OLAP 选型',link:'/12-olap-engine/selection'}]},
-                                                                {text:'🏢 企业案例',items:[{text:'用户画像',link:'/13-cases/user-profile'},{text:'推荐系统',link:'/13-cases/recommendation'},{text:'风控实时特征',link:'/13-cases/risk-control'},{text:'日志分析平台',link:'/13-cases/log-platform'}]},
-                                                                {text:'🎯 面试',items:[{text:'高频题',link:'/14-interview-practice/questions'},{text:'项目案例',link:'/14-interview-practice/cases'}]}
-                                                              ]
+                                
+                                                                      '/': [
+                                                                        {text:'🎯 开始',items:[{text:'📖 学习路径',link:'/path'}]},
+                                                                        {text:'🧠 大数据基础',items:[{text:'4V 特征',link:'/01-basics/4v'},{text:'Hadoop 生态',link:'/01-basics/hadoop-eco'},{text:'批 / 流计算',link:'/01-basics/batch-stream'},{text:'CAP 选型',link:'/01-basics/cap'}]},
+                                                                        {text:'📦 HDFS',items:[{text:'架构',link:'/02-hdfs/architecture'},{text:'副本机制',link:'/02-hdfs/replication'},{text:'NameNode HA',link:'/02-hdfs/ha'},{text:'HDFS 命令',link:'/02-hdfs/commands'}]},
+                                                                        {text:'⚙️ MapReduce',items:[{text:'原理',link:'/03-mapreduce/principle'},{text:'Shuffle',link:'/03-mapreduce/shuffle'},{text:'Combiner / Partitioner',link:'/03-mapreduce/optimize'}]},
+                                                                        {text:'🔥 Spark',items:[{text:'Core / RDD',link:'/04-spark/rdd'},{text:'SQL / DataFrame',link:'/04-spark/dataframe'},{text:'Structured Streaming',link:'/04-spark/streaming'},{text:'Spark 调优',link:'/04-spark/tuning'}]},
+                                                                        {text:'🌊 Flink',items:[{text:'架构',link:'/05-flink/architecture'},{text:'状态与 Checkpoint',link:'/05-flink/state'},{text:'Exactly-once',link:'/05-flink/exactly-once'},{text:'Flink CDC',link:'/05-flink/cdc'}]},
+                                                                        {text:'🏛️ Hive',items:[{text:'架构',link:'/06-hive/architecture'},{text:'优化',link:'/06-hive/optimize'},{text:'Hive on Spark/Tez',link:'/06-hive/engine'}]},
+                                                                        {text:'📨 Kafka 流',items:[{text:'Kafka Streams',link:'/07-kafka-streaming/streams'},{text:'Flink CDC',link:'/07-kafka-streaming/cdc'},{text:'数据血缘',link:'/07-kafka-streaming/lineage'}]},
+                                                                        {text:'🏛️ 数据建模',items:[{text:'OLAP vs OLTP',link:'/08-modeling/olap-oltp'},{text:'Inmon vs Kimball',link:'/08-modeling/inmon-kimball'},{text:'星型 / 雪花',link:'/08-modeling/star-snowflake'},{text:'Data Vault',link:'/08-modeling/data-vault'}]},
+                                                                        {text:'🏢 数仓架构',items:[{text:'Snowflake',link:'/09-dw-architecture/snowflake'},{text:'Redshift / BigQuery',link:'/09-dw-architecture/redshift-bigquery'}]},
+                                                                        {text:'💧 数据湖',items:[{text:'三剑客',link:'/10-data-lake/three-pillars'},{text:'Delta / Iceberg / Hudi',link:'/10-data-lake/delta-iceberg-hudi'},{text:'Lakehouse',link:'/10-data-lake/lakehouse'}]},
+                                                                        {text:'🔄 ELT',items:[{text:'Airflow / dbt',link:'/11-elt-pipeline/airflow-dbt'},{text:'CDC 同步',link:'/11-elt-pipeline/cdc'},{text:'数据血缘',link:'/11-elt-pipeline/lineage'}]},
+                                                                        {text:'📊 OLAP 引擎',items:[{text:'ClickHouse',link:'/12-olap-engine/clickhouse'},{text:'Doris / StarRocks',link:'/12-olap-engine/doris-starrocks'},{text:'OLAP 选型',link:'/12-olap-engine/selection'}]},
+                                                                        {text:'🏢 企业案例',items:[{text:'用户画像',link:'/13-cases/user-profile'},{text:'推荐系统',link:'/13-cases/recommendation'},{text:'风控实时特征',link:'/13-cases/risk-control'},{text:'日志分析平台',link:'/13-cases/log-platform'}]},
+                                                                        {text:'🎯 面试',items:[{text:'高频题',link:'/14-interview-practice/questions'},{text:'项目案例',link:'/14-interview-practice/cases'}]}
+                                                                      ]
     },
 
     socialLinks: [{icon:'github',link:'https://github.com'}],

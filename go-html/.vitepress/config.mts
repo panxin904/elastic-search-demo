@@ -21,14 +21,16 @@ const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.u
 // P0: shared-assets/ 下的 .vue 组件 import vue 时需要显式 alias 指向本站点 node_modules。
 // 否则 rollup 在 SHARED_ASSETS 目录找不到 vue，会报 "Rollup failed to resolve import 'vue'"。
 // §8.81 QrShare 落地后暴露此问题。
-const VUE = fileURLToPath(new URL('../node_modules/vue', import.meta.url))
+// §8.81 二次修复：alias 还要覆盖 vue 子路径（vue/server-renderer · vue/compiler-sfc 等）
+// 否则 vitepress SSR 阶段 import 'vue/server-renderer' 仍会 resolve 失败。
+const VUE_DIR = fileURLToPath(new URL('../node_modules/vue/', import.meta.url))
 
 export default defineConfig({
   vite: {
     resolve: {
       alias: [
         { find: '@shared', replacement: SHARED_ASSETS },
-        { find: /^vue$/, replacement: VUE },
+        { find: /^vue(\/.*)?$/, replacement: `${VUE_DIR}$1` },
       ],
     },
     // §8.72：shared-assets/svg/ 共享 SVG 资产（CAP / Saga / 一致性 hash 等）
@@ -112,67 +114,68 @@ export default defineConfig({
                     
                         
                             
-                                                              '/': [
-                                                                {
-                                                                  text: '🐹 Go 基础', collapsed: false, items: [
-                                                                    { text: 'Go 总览', link: '/01-basics/overview' },
-                                                                    { text: '语法速览', link: '/01-basics/syntax-fundamentals' },
-                                                                    { text: '类型与函数', link: '/01-basics/types-and-functions' },
-                                                                    { text: '错误处理', link: '/01-basics/error-handling' },
-                                                                    { text: '包与模块管理', link: '/01-basics/package-and-module' },
-                                                                    { text: 'Hello World 实战', link: '/01-basics/hello-world' }
-                                                                  ]
-                                                                },
-                                                                {
-                                                                  text: '⚡ 并发模型', collapsed: false, items: [
-                                                                    { text: 'CSP 并发总览', link: '/02-concurrency/overview' },
-                                                                    { text: 'goroutine', link: '/02-concurrency/goroutine' },
-                                                                    { text: 'channel', link: '/02-concurrency/channel' },
-                                                                    { text: 'sync 包', link: '/02-concurrency/sync-package' },
-                                                                    { text: 'context 上下文', link: '/02-concurrency/context' },
-                                                                    { text: '并发模式实战', link: '/02-concurrency/patterns' }
-                                                                  ]
-                                                                },
-                                                                {
-                                                                  text: '🔧 生态与工具链', collapsed: false, items: [
-                                                                    { text: 'Go 生态总览', link: '/03-ecosystem/overview' },
-                                                                    { text: 'Go 工具链', link: '/03-ecosystem/go-toolchain' },
-                                                                    { text: '标准库', link: '/03-ecosystem/standard-library' },
-                                                                    { text: '测试与覆盖率', link: '/03-ecosystem/testing' },
-                                                                    { text: '性能基准与 pprof', link: '/03-ecosystem/benchmark' }
-                                                                  ]
-                                                                },
-                                                                {
-                                                                  text: '☁️ 云原生生态', collapsed: false, items: [
-                                                                    { text: '云原生总览', link: '/04-cloud-native/overview' },
-                                                                    { text: 'Docker 源码导读', link: '/04-cloud-native/docker-internals' },
-                                                                    { text: 'Kubernetes 源码导读', link: '/04-cloud-native/kubernetes-internals' },
-                                                                    { text: 'Prometheus 源码导读', link: '/04-cloud-native/prometheus-internals' },
-                                                                    { text: 'etcd 源码导读', link: '/04-cloud-native/etcd-internals' },
-                                                                    { text: 'CNCF 项目全景', link: '/04-cloud-native/cncf-ecosystem' }
-                                                                  ]
-                                                                },
-                                                                {
-                                                                  text: '🌐 后端微服务', collapsed: false, items: [
-                                                                    { text: '微服务总览', link: '/05-microservices/overview' },
-                                                                    { text: 'Gin 框架', link: '/05-microservices/gin-framework' },
-                                                                    { text: 'gRPC + Protobuf', link: '/05-microservices/grpc' },
-                                                                    { text: 'Kratos / go-zero / go-micro', link: '/05-microservices/kratos' },
-                                                                    { text: '服务治理', link: '/05-microservices/service-governance' },
-                                                                    { text: '微服务案例研究', link: '/05-microservices/case-study' }
-                                                                  ]
-                                                                },
-                                                                {
-                                                                  text: '🚀 进阶与 runtime', collapsed: false, items: [
-                                                                    { text: '进阶总览', link: '/06-advanced/overview' },
-                                                                    { text: 'runtime 调度器 GMP', link: '/06-advanced/runtime' },
-                                                                    { text: 'GC 三色标记', link: '/06-advanced/gc' },
-                                                                    { text: 'pprof 与 trace', link: '/06-advanced/pprof' },
-                                                                    { text: 'cgo 与 FFI', link: '/06-advanced/cgo' },
-                                                                    { text: '反射 reflect', link: '/06-advanced/reflection' }
-                                                                  ]
-                                                                }
-                                                              ]
+                                
+                                                                      '/': [
+                                                                        {
+                                                                          text: '🐹 Go 基础', collapsed: false, items: [
+                                                                            { text: 'Go 总览', link: '/01-basics/overview' },
+                                                                            { text: '语法速览', link: '/01-basics/syntax-fundamentals' },
+                                                                            { text: '类型与函数', link: '/01-basics/types-and-functions' },
+                                                                            { text: '错误处理', link: '/01-basics/error-handling' },
+                                                                            { text: '包与模块管理', link: '/01-basics/package-and-module' },
+                                                                            { text: 'Hello World 实战', link: '/01-basics/hello-world' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '⚡ 并发模型', collapsed: false, items: [
+                                                                            { text: 'CSP 并发总览', link: '/02-concurrency/overview' },
+                                                                            { text: 'goroutine', link: '/02-concurrency/goroutine' },
+                                                                            { text: 'channel', link: '/02-concurrency/channel' },
+                                                                            { text: 'sync 包', link: '/02-concurrency/sync-package' },
+                                                                            { text: 'context 上下文', link: '/02-concurrency/context' },
+                                                                            { text: '并发模式实战', link: '/02-concurrency/patterns' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '🔧 生态与工具链', collapsed: false, items: [
+                                                                            { text: 'Go 生态总览', link: '/03-ecosystem/overview' },
+                                                                            { text: 'Go 工具链', link: '/03-ecosystem/go-toolchain' },
+                                                                            { text: '标准库', link: '/03-ecosystem/standard-library' },
+                                                                            { text: '测试与覆盖率', link: '/03-ecosystem/testing' },
+                                                                            { text: '性能基准与 pprof', link: '/03-ecosystem/benchmark' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '☁️ 云原生生态', collapsed: false, items: [
+                                                                            { text: '云原生总览', link: '/04-cloud-native/overview' },
+                                                                            { text: 'Docker 源码导读', link: '/04-cloud-native/docker-internals' },
+                                                                            { text: 'Kubernetes 源码导读', link: '/04-cloud-native/kubernetes-internals' },
+                                                                            { text: 'Prometheus 源码导读', link: '/04-cloud-native/prometheus-internals' },
+                                                                            { text: 'etcd 源码导读', link: '/04-cloud-native/etcd-internals' },
+                                                                            { text: 'CNCF 项目全景', link: '/04-cloud-native/cncf-ecosystem' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '🌐 后端微服务', collapsed: false, items: [
+                                                                            { text: '微服务总览', link: '/05-microservices/overview' },
+                                                                            { text: 'Gin 框架', link: '/05-microservices/gin-framework' },
+                                                                            { text: 'gRPC + Protobuf', link: '/05-microservices/grpc' },
+                                                                            { text: 'Kratos / go-zero / go-micro', link: '/05-microservices/kratos' },
+                                                                            { text: '服务治理', link: '/05-microservices/service-governance' },
+                                                                            { text: '微服务案例研究', link: '/05-microservices/case-study' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '🚀 进阶与 runtime', collapsed: false, items: [
+                                                                            { text: '进阶总览', link: '/06-advanced/overview' },
+                                                                            { text: 'runtime 调度器 GMP', link: '/06-advanced/runtime' },
+                                                                            { text: 'GC 三色标记', link: '/06-advanced/gc' },
+                                                                            { text: 'pprof 与 trace', link: '/06-advanced/pprof' },
+                                                                            { text: 'cgo 与 FFI', link: '/06-advanced/cgo' },
+                                                                            { text: '反射 reflect', link: '/06-advanced/reflection' }
+                                                                          ]
+                                                                        }
+                                                                      ]
     },
 
     socialLinks: [],

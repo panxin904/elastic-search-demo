@@ -23,14 +23,16 @@ const SHARED_ASSETS = fileURLToPath(new URL('../../shared-assets', import.meta.u
 // P0: shared-assets/ 下的 .vue 组件 import vue 时需要显式 alias 指向本站点 node_modules。
 // 否则 rollup 在 SHARED_ASSETS 目录找不到 vue，会报 "Rollup failed to resolve import 'vue'"。
 // §8.81 QrShare 落地后暴露此问题。
-const VUE = fileURLToPath(new URL('../node_modules/vue', import.meta.url))
+// §8.81 二次修复：alias 还要覆盖 vue 子路径（vue/server-renderer · vue/compiler-sfc 等）
+// 否则 vitepress SSR 阶段 import 'vue/server-renderer' 仍会 resolve 失败。
+const VUE_DIR = fileURLToPath(new URL('../node_modules/vue/', import.meta.url))
 
 export default defineConfig({
   vite: {
     resolve: {
       alias: [
         { find: '@shared', replacement: SHARED_ASSETS },
-        { find: /^vue$/, replacement: VUE },
+        { find: /^vue(\/.*)?$/, replacement: `${VUE_DIR}$1` },
       ],
     },
     // §8.72：shared-assets/svg/ 共享 SVG 资产（CAP / Saga / 一致性 hash 等）
@@ -114,35 +116,36 @@ export default defineConfig({
                     
                         
                             
-                                                              '/': [
-                                                                {
-                                                                  text: 'JSON 系列',
-                                                                  items: [
-                                                                    { text: 'JSON 格式化 / 校验', link: '/json' },
-                                                                    { text: 'JSON ↔ YAML', link: '/json-yaml' },
-                                                                    { text: 'JSON ↔ CSV', link: '/json-csv' },
-                                                                    { text: 'JSON Diff 对比', link: '/json-diff' }
-                                                                  ]
-                                                                },
-                                                                {
-                                                                  text: '时间系列',
-                                                                  items: [
-                                                                    { text: '时间戳 ↔ 日期', link: '/timestamp' },
-                                                                    { text: 'ISO / RFC 格式化', link: '/iso' },
-                                                                    { text: '时区转换', link: '/timezone' },
-                                                                    { text: '相对时间', link: '/relative' }
-                                                                  ]
-                                                                },
-                                                                {
-                                                                  text: '编码 / 生成',
-                                                                  items: [
-                                                                    { text: 'URL 编解码', link: '/url' },
-                                                                    { text: 'Base64 编解码', link: '/base64' },
-                                                                    { text: 'UUID 生成器', link: '/uuid' },
-                                                                    { text: 'Cron 表达式', link: '/cron' }
-                                                                  ]
-                                                                }
-                                                              ]
+                                
+                                                                      '/': [
+                                                                        {
+                                                                          text: 'JSON 系列',
+                                                                          items: [
+                                                                            { text: 'JSON 格式化 / 校验', link: '/json' },
+                                                                            { text: 'JSON ↔ YAML', link: '/json-yaml' },
+                                                                            { text: 'JSON ↔ CSV', link: '/json-csv' },
+                                                                            { text: 'JSON Diff 对比', link: '/json-diff' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '时间系列',
+                                                                          items: [
+                                                                            { text: '时间戳 ↔ 日期', link: '/timestamp' },
+                                                                            { text: 'ISO / RFC 格式化', link: '/iso' },
+                                                                            { text: '时区转换', link: '/timezone' },
+                                                                            { text: '相对时间', link: '/relative' }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          text: '编码 / 生成',
+                                                                          items: [
+                                                                            { text: 'URL 编解码', link: '/url' },
+                                                                            { text: 'Base64 编解码', link: '/base64' },
+                                                                            { text: 'UUID 生成器', link: '/uuid' },
+                                                                            { text: 'Cron 表达式', link: '/cron' }
+                                                                          ]
+                                                                        }
+                                                                      ]
     },
 
     socialLinks: [
