@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Redis 持久化：RDB vs AOF vs 混合</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">三种策略权衡 · 数据丢失风险 · 重启恢复速度</text>
+
+  <!-- 三个对比列 -->
+  <g>
+    <!-- RDB -->
+    <rect x="40" y="90" width="165" height="320" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="122" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#1e40af">RDB（快照）</text>
+
+    <text x="60" y="145" font-size="11" font-weight="700" fill="#1e40af">✓ 优点</text>
+    <text x="60" y="163" font-size="10" fill="#475569">• 单文件 dump.rdb</text>
+    <text x="60" y="178" font-size="10" fill="#475569">• 启动加载快（10GB/秒）</text>
+    <text x="60" y="193" font-size="10" fill="#475569">• 适合备份/主从全量同步</text>
+    <text x="60" y="208" font-size="10" fill="#475569">• 压缩紧凑</text>
+
+    <text x="60" y="232" font-size="11" font-weight="700" fill="#dc2626">✗ 缺点</text>
+    <text x="60" y="250" font-size="10" fill="#475569">• 可能丢失数分钟数据</text>
+    <text x="60" y="265" font-size="10" fill="#475569">• fork 子进程：大内存慢</text>
+    <text x="60" y="280" font-size="10" fill="#475569">• bgsave 阻塞写 IO</text>
+
+    <text x="60" y="305" font-size="11" font-weight="700" fill="#475569">触发：</text>
+    <text x="60" y="320" font-size="10" font-family="monospace" fill="#1e2937">save 3600 1</text>
+    <text x="60" y="335" font-size="10" font-family="monospace" fill="#1e2937">save 300 100</text>
+
+    <text x="60" y="365" font-size="11" font-weight="700" fill="#065f46">数据丢失：分钟级</text>
+    <text x="60" y="385" font-size="11" font-weight="700" fill="#065f46">恢复速度：极快</text>
+
+    <!-- AOF -->
+    <rect x="220" y="90" width="165" height="320" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="302" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">AOF（追加日志）</text>
+
+    <text x="240" y="145" font-size="11" font-weight="700" fill="#92400e">✓ 优点</text>
+    <text x="240" y="163" font-size="10" fill="#475569">• appendonly.aof 记录每条写</text>
+    <text x="240" y="178" font-size="10" fill="#475569">• 最少丢失 1 秒数据</text>
+    <text x="240" y="193" font-size="10" fill="#475569">• appendfsync everysec 默认</text>
+
+    <text x="240" y="217" font-size="11" font-weight="700" fill="#dc2626">✗ 缺点</text>
+    <text x="240" y="235" font-size="10" fill="#475569">• 文件大（不压缩）</text>
+    <text x="240" y="250" font-size="10" fill="#475569">• 启动加载慢（R重写）</text>
+    <text x="240" y="265" font-size="10" fill="#475569">• fsync 影响性能</text>
+
+    <text x="240" y="290" font-size="11" font-weight="700" fill="#475569">策略：</text>
+    <text x="240" y="305" font-size="10" font-family="monospace" fill="#1e2937">always  # 安全</text>
+    <text x="240" y="320" font-size="10" font-family="monospace" fill="#1e2937">everysec</text>
+    <text x="240" y="335" font-size="10" font-family="monospace" fill="#1e2937">no  # 最快</text>
+
+    <text x="240" y="365" font-size="11" font-weight="700" fill="#065f46">数据丢失：秒级</text>
+    <text x="240" y="385" font-size="11" font-weight="700" fill="#065f46">恢复速度：慢</text>
+
+    <!-- 混合 -->
+    <rect x="400" y="90" width="165" height="320" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="482" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#065f46">RDB+AOF 混合</text>
+
+    <text x="420" y="135" text-anchor="middle" font-size="9" fill="#475569">（Redis 4+ 默认）</text>
+
+    <text x="420" y="160" font-size="11" font-weight="700" fill="#065f46">✓ 优点</text>
+    <text x="420" y="178" font-size="10" fill="#475569">• AOF 记录 RDB 后增量</text>
+    <text x="420" y="193" font-size="10" fill="#475569">• 启动加载 RDB 部分快</text>
+    <text x="420" y="208" font-size="10" fill="#475569">• 数据丢失少</text>
+    <text x="420" y="223" font-size="10" fill="#475569">• 文件可控</text>
+
+    <text x="420" y="247" font-size="11" font-weight="700" fill="#dc2626">✗ 缺点</text>
+    <text x="420" y="265" font-size="10" fill="#475569">• 配置稍复杂</text>
+    <text x="420" y="280" font-size="10" fill="#475569">• 重写时阻塞</text>
+
+    <text x="420" y="305" font-size="11" font-weight="700" fill="#475569">配置：</text>
+    <text x="420" y="320" font-size="10" font-family="monospace" fill="#1e2937">aof-use-rdb-preamble yes</text>
+
+    <text x="420" y="365" font-size="11" font-weight="700" fill="#065f46">数据丢失：很少</text>
+    <text x="420" y="385" font-size="11" font-weight="700" fill="#065f46">恢复速度：快</text>
+  </g>
+
+  <!-- 决策流程 -->
+  <g>
+    <rect x="40" y="425" width="525" height="45" rx="6" fill="#fef9c3" stroke="#facc15" stroke-width="2"/>
+    <text x="60" y="447" font-size="11" font-weight="700" fill="#854d0e">🎯 选型决策：</text>
+    <text x="60" y="463" font-size="11" fill="#854d0e">缓存场景 → RDB 即可 · 数据安全优先 → 混合（推荐）· 实时计算 → AOF everysec</text>
+  </g>
+</svg>
