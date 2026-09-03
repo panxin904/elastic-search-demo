@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Redis Sentinel vs Cluster</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">两种高可用方案对比 · 容量上限 · 数据分片 · 选型决策</text>
+
+  <!-- Sentinel 方案 -->
+  <g>
+    <text x="60" y="95" font-size="13" font-weight="700" fill="#1e293b">① Sentinel 模式（主从 + 故障转移）</text>
+
+    <rect x="40" y="115" width="250" height="220" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="165" y="138" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">Sentinel 集群</text>
+
+    <!-- 3 sentinels -->
+    <rect x="60" y="155" width="60" height="40" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="90" y="178" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">S1</text>
+
+    <rect x="125" y="155" width="60" height="40" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="155" y="178" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">S2</text>
+
+    <rect x="190" y="155" width="60" height="40" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="220" y="178" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">S3</text>
+
+    <!-- Master -->
+    <rect x="60" y="215" width="80" height="40" rx="4" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="100" y="238" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">Master</text>
+
+    <!-- Replicas -->
+    <rect x="145" y="215" width="60" height="40" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="175" y="238" text-anchor="middle" font-size="10" fill="#475569">R1</text>
+
+    <rect x="210" y="215" width="60" height="40" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="240" y="238" text-anchor="middle" font-size="10" fill="#475569">R2</text>
+
+    <!-- 连接 -->
+    <line x1="100" y1="255" x2="175" y2="255" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr)"/>
+    <line x1="100" y1="255" x2="240" y2="255" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr)"/>
+
+    <!-- 文字说明 -->
+    <text x="60" y="275" font-size="10" fill="#475569">✓ 部署简单 · 客户端 SDK 友好</text>
+    <text x="60" y="290" font-size="10" fill="#475569">✗ 单 Master 容量瓶颈</text>
+    <text x="60" y="305" font-size="10" fill="#475569">✗ 写无法水平扩展</text>
+    <text x="60" y="320" font-size="10" fill="#dc2626" font-weight="700">容量：受限于单机内存</text>
+  </g>
+
+  <!-- Cluster 方案 -->
+  <g>
+    <text x="320" y="95" font-size="13" font-weight="700" fill="#1e293b">② Cluster 模式（数据分片）</text>
+
+    <rect x="310" y="115" width="250" height="220" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="435" y="138" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">Cluster 集群</text>
+
+    <!-- 3 master + 3 replica -->
+    <rect x="325" y="155" width="60" height="40" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="355" y="178" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">M1</text>
+
+    <rect x="390" y="155" width="60" height="40" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="420" y="178" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">M2</text>
+
+    <rect x="455" y="155" width="60" height="40" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="485" y="178" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">M3</text>
+
+    <rect x="325" y="215" width="60" height="40" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="355" y="238" text-anchor="middle" font-size="10" fill="#475569">R1</text>
+
+    <rect x="390" y="215" width="60" height="40" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="420" y="238" text-anchor="middle" font-size="10" fill="#475569">R2</text>
+
+    <rect x="455" y="215" width="60" height="40" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="485" y="238" text-anchor="middle" font-size="10" fill="#475569">R3</text>
+
+    <!-- Gossip -->
+    <line x1="355" y1="195" x2="420" y2="195" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)" stroke-dasharray="3"/>
+    <line x1="420" y1="195" x2="485" y2="195" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)" stroke-dasharray="3"/>
+
+    <!-- 文字说明 -->
+    <text x="325" y="275" font-size="10" fill="#475569">✓ 数据分片 16384 slot</text>
+    <text x="325" y="290" font-size="10" fill="#475569">✓ 写水平扩展（多个 Master）</text>
+    <text x="325" y="305" font-size="10" fill="#475569">✗ 多 key 操作受限于同一 slot</text>
+    <text x="325" y="320" font-size="10" fill="#dc2626" font-weight="700">容量：N × 单机内存</text>
+  </g>
+
+  <!-- 选型决策 -->
+  <g>
+    <rect x="40" y="350" width="525" height="100" rx="8" fill="#fef9c3" stroke="#facc15" stroke-width="2"/>
+
+    <text x="60" y="372" font-size="13" font-weight="700" fill="#854d0e">选型决策</text>
+
+    <text x="60" y="392" font-size="10" fill="#854d0e">• 数据量 &lt; 10GB + 简单 → <tspan font-weight="700" fill="#1e40af">Sentinel</tspan></text>
+    <text x="60" y="407" font-size="10" fill="#854d0e">• 数据量 &gt; 50GB + 高写吞吐 → <tspan font-weight="700" fill="#065f46">Cluster</tspan></text>
+    <text x="60" y="422" font-size="10" fill="#854d0e">• 业务要求 Lua/Multi 原子多 key → <tspan font-weight="700" fill="#1e40af">Sentinel</tspan>（hash tag 强制同 slot 复杂）</text>
+    <text x="60" y="437" font-size="10" fill="#854d0e">• 大公司 / 缓存 + 数据库分离 → <tspan font-weight="700" fill="#065f46">Cluster</tspan></text>
+  </g>
+</svg>
