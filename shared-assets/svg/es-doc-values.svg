@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Elasticsearch Doc Values（列存）</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">列式存储 · 聚合 / 排序加速 · 替代 _source 加载</text>
+
+  <!-- 对比：行存 vs 列存 -->
+  <g>
+    <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">① 行存（_source）vs 列存（doc_values）</text>
+
+    <!-- 行存示例 -->
+    <rect x="40" y="105" width="250" height="155" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="165" y="125" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">行存 _source（JSON）</text>
+
+    <text x="55" y="148" font-size="9" font-family="monospace" fill="#1e293b">doc1: {name: "A", age: 25, city: "BJ"}</text>
+    <text x="55" y="166" font-size="9" font-family="monospace" fill="#1e293b">doc2: {name: "B", age: 30, city: "SH"}</text>
+    <text x="55" y="184" font-size="9" font-family="monospace" fill="#1e293b">doc3: {name: "C", age: 28, city: "BJ"}</text>
+
+    <text x="55" y="208" font-size="10" fill="#475569" font-weight="700">问题：聚合 age 字段</text>
+    <text x="55" y="224" font-size="10" fill="#dc2626">❌ 必须加载完整 JSON</text>
+    <text x="55" y="240" font-size="10" fill="#dc2626">❌ 解析所有字段</text>
+    <text x="55" y="256" font-size="10" fill="#dc2626">❌ 内存消耗大</text>
+
+    <!-- 列存示例 -->
+    <rect x="310" y="105" width="250" height="155" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="435" y="125" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">列存 doc_values</text>
+
+    <text x="325" y="148" font-size="9" font-family="monospace" fill="#1e293b">age: [25, 30, 28, ...]</text>
+    <text x="325" y="166" font-size="9" font-family="monospace" fill="#1e293b">city: ["BJ", "SH", "BJ", ...]</text>
+    <text x="325" y="184" font-size="9" font-family="monospace" fill="#1e293b">name: ["A", "B", "C", ...]</text>
+
+    <text x="325" y="208" font-size="10" fill="#475569" font-weight="700">优势：聚合 age 字段</text>
+    <text x="325" y="224" font-size="10" fill="#065f46">✅ 按列顺序读取</text>
+    <text x="325" y="240" font-size="10" fill="#065f46">✅ 紧凑二进制编码</text>
+    <text x="325" y="256" font-size="10" fill="#065f46">✅ 内存映射 + 跳过</text>
+  </g>
+
+  <!-- Doc Values 数据结构 -->
+  <g>
+    <text x="60" y="282" font-size="13" font-weight="700" fill="#1e293b">② Doc Values 数据结构（按列分文件）</text>
+
+    <rect x="40" y="295" width="520" height="100" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+
+    <!-- 列文件 1 -->
+    <rect x="55" y="308" width="80" height="75" rx="3" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="95" y="325" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">age.dvd</text>
+    <text x="95" y="343" text-anchor="middle" font-size="9" fill="#475569">long 编码</text>
+    <text x="95" y="358" text-anchor="middle" font-size="9" fill="#475569">+ delta-of-delta</text>
+    <text x="95" y="375" text-anchor="middle" font-size="9" fill="#475569">+ bitpacking</text>
+
+    <!-- 列文件 2 -->
+    <rect x="155" y="308" width="80" height="75" rx="3" fill="#dcfce7" stroke="#10b981"/>
+    <text x="195" y="325" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">city.dvd</text>
+    <text x="195" y="343" text-anchor="middle" font-size="9" fill="#475569">ordinal 字典</text>
+    <text x="195" y="358" text-anchor="middle" font-size="9" fill="#475569">+ 长度数组</text>
+    <text x="195" y="375" text-anchor="middle" font-size="9" fill="#475569">+ offset 数组</text>
+
+    <!-- 列文件 3 -->
+    <rect x="255" y="308" width="80" height="75" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="295" y="325" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">tags.dvd</text>
+    <text x="295" y="343" text-anchor="middle" font-size="9" fill="#475569">multi-values</text>
+    <text x="295" y="358" text-anchor="middle" font-size="9" fill="#475569">offsets[]</text>
+    <text x="295" y="375" text-anchor="middle" font-size="9" fill="#475569">+ 字典压缩</text>
+
+    <!-- meta -->
+    <rect x="355" y="308" width="190" height="75" rx="3" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="450" y="325" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">meta.dvm</text>
+    <text x="370" y="343" font-size="9" fill="#475569">• docID 计数</text>
+    <text x="370" y="358" font-size="9" fill="#475569">• 列字段元信息</text>
+    <text x="370" y="375" font-size="9" fill="#475569">• checksum</text>
+  </g>
+
+  <!-- 性能对比 -->
+  <g>
+    <text x="60" y="415" font-size="13" font-weight="700" fill="#1e293b">③ 聚合 / 排序场景性能</text>
+
+    <rect x="40" y="430" width="160" height="38" rx="4" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="120" y="447" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">无 doc_values</text>
+    <text x="120" y="461" text-anchor="middle" font-size="9" fill="#475569">聚合 + 排序 = 全字段解析</text>
+
+    <rect x="220" y="430" width="160" height="38" rx="4" fill="#dcfce7" stroke="#10b981"/>
+    <text x="300" y="447" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">有 doc_values</text>
+    <text x="300" y="461" text-anchor="middle" font-size="9" fill="#475569">只读相关列 · 5-10x↑</text>
+
+    <rect x="400" y="430" width="160" height="38" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="480" y="447" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">默认配置</text>
+    <text x="480" y="461" text-anchor="middle" font-size="9" fill="#475569">ES 自动开启（除 text 类型）</text>
+  </g>
+</svg>
