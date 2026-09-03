@@ -7437,3 +7437,38 @@ cd /tmp/ci-test/java-web-manual && npm install && npm run docs:build
 - **EOS 三层不能少**：幂等（防 Producer 重试）→ 事务（跨 partition 原子）→ read_committed（Consumer 只读已提交），缺一层都可能出现重复或丢失
 - **Next-Key Lock 是死锁之王**：RR 隔离级 + 范围查询 + 多 session 并发 → 高频死锁。生产建议用 RC 或缩短事务
 - **Validating vs Mutating Webhook**：Mutating 必须可幂等（可能重试多次），Validating 失败率 = 拒绝率
+
+
+## §8.72+ v10 — SVG 大规模扩展（第十批 5 张）
+
+**日期**：2026-09-03
+**目标**：把 SVG 图示密度从 131 提到 136，路线图进度 65.5% → 68.0%
+
+### 变更明细
+
+- **媒体层**：`feat(media)` commit，新增 5 张 SVG（5 站各 1 张分布式核心机制深度图）：
+  - **kafka-html**：kafka-isr-replica-sync（ISR 集合 + HW/LEO + Leader Epoch 防脑裂 + acks=all/min.insync.replicas 配置）
+  - **redis-html**：redis-rdb-vs-aof（RDB/AOF/混合三种策略对比 + 选型决策）
+  - **mysql-html**：mysql-mvcc-undo-log（多版本数据行 + Undo 版本链 + ReadView 可见性判断 + RC vs RR）
+  - **cloud-native-html**：k8s-service-mesh-sidecar（传统 vs Mesh + 注入流程 + iptables 劫持 + mTLS）
+  - **es-html**：es-cluster-state-machine（GREEN/YELLOW/RED 三状态 + 转换触发 + 分配决策矩阵）
+
+- **内容层**：`feat(content)` commit，5 个核心文档前注入：
+  - kafka-replica.md（副本同步流程前）
+  - redis-persistence-overview.md（持久化方案对比）
+  - mysql-mvcc.md（Undo Log 版本链前）
+  - k8s-istio.md（Service Mesh 主体）
+  - es-cluster.md（Cluster 主体）
+
+### 路线图进度
+
+- 当前 imgs=136 / 目标 ≥200 = **68.0%**
+- 剩余 64 张
+- 下一批 §8.72+ v11 候选：高频站第 7 轮深化（kafka broker 网络模型、redis Cluster Gossip 协议细节、mysql binlog 三种格式、k8s CNI/CSI 插件、es segment 索引恢复）
+
+### 经验
+
+- **HW/LEO 是副本同步核心**：HW（高水位）= 所有 ISR 已同步的最小 offset，决定 Consumer 可见上限；LEO（日志末端 offset）= 当前副本最后位置
+- **Leader Epoch 防脑裂**：旧 Leader 复活时携带旧 epoch，被新 Leader 拒绝（epoch 单调递增），自动 step down 加入 ISR
+- **MVCC 的关键：ReadView**：RC 每次 SELECT 创建新 ReadView 能看到其他事务最新提交；RR 复用 ReadView 保证可重复读
+- **Service Mesh = sidecar + iptables + mTLS**：应用代码零改动，透明获得服务发现/熔断/加密/可观测
