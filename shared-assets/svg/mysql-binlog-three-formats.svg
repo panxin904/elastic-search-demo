@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">MySQL Binlog 三种格式</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Statement / Row / Mixed · binlog_format 配置 · 数据一致性权衡</text>
+
+  <!-- 三列对比 -->
+  <g>
+    <!-- Statement -->
+    <rect x="40" y="90" width="165" height="320" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="122" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#1e40af">Statement（语句）</text>
+    <text x="122" y="132" text-anchor="middle" font-size="9" fill="#475569">MySQL 5.7 默认</text>
+
+    <text x="60" y="158" font-size="11" font-weight="700" fill="#1e40af">✓ 优点</text>
+    <text x="60" y="173" font-size="10" fill="#475569">• 日志量小</text>
+    <text x="60" y="188" font-size="10" fill="#475569">• 易读可审计</text>
+
+    <text x="60" y="210" font-size="11" font-weight="700" fill="#dc2626">✗ 缺点</text>
+    <text x="60" y="225" font-size="10" fill="#475569">• NOW() 随机函数</text>
+    <text x="60" y="240" font-size="10" fill="#475569">  不一致</text>
+    <text x="60" y="255" font-size="10" fill="#475569">• 自增 ID 不一致</text>
+    <text x="60" y="270" font-size="10" fill="#475569">• 触发器/UDF 不一致</text>
+
+    <rect x="60" y="285" width="125" height="80" rx="4" fill="#1f2937"/>
+    <text x="68" y="302" font-size="9" font-family="monospace" fill="#86efac">SET TIMESTAMP=1234</text>
+    <text x="68" y="318" font-size="9" font-family="monospace" fill="#fef3c7">UPDATE t SET x=x+1</text>
+    <text x="68" y="334" font-size="9" font-family="monospace" fill="#a5f3fc">  WHERE id=1</text>
+    <text x="68" y="350" font-size="8" fill="#94a3b8">（SQL 原样记录）</text>
+
+    <!-- Row -->
+    <rect x="220" y="90" width="165" height="320" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="302" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">Row（行）</text>
+    <text x="302" y="132" text-anchor="middle" font-size="9" fill="#475569">MySQL 8.0 默认</text>
+
+    <text x="240" y="158" font-size="11" font-weight="700" fill="#92400e">✓ 优点</text>
+    <text x="240" y="173" font-size="10" fill="#475569">• 完全记录行数据</text>
+    <text x="240" y="188" font-size="10" fill="#475569">• 强一致（不依赖上下文）</text>
+
+    <text x="240" y="210" font-size="11" font-weight="700" fill="#dc2626">✗ 缺点</text>
+    <text x="240" y="225" font-size="10" fill="#475569">• 日志量大（每行）</text>
+    <text x="240" y="240" font-size="10" fill="#475569">• 大批量 UPDATE 慢</text>
+    <text x="240" y="255" font-size="10" fill="#475569">• 不直观难审计</text>
+
+    <rect x="240" y="285" width="125" height="80" rx="4" fill="#1f2937"/>
+    <text x="248" y="302" font-size="9" font-family="monospace" fill="#86efac">Table: t</text>
+    <text x="248" y="318" font-size="9" font-family="monospace" fill="#fef3c7">UPDATE rows:</text>
+    <text x="248" y="334" font-size="9" font-family="monospace" fill="#a5f3fc">  id=1 x:1→2</text>
+    <text x="248" y="350" font-size="9" font-family="monospace" fill="#a5f3fc">  id=2 x:5→6</text>
+
+    <!-- Mixed -->
+    <rect x="400" y="90" width="165" height="320" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="482" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#065f46">Mixed（混合）</text>
+    <text x="482" y="132" text-anchor="middle" font-size="9" fill="#475569">自动切换</text>
+
+    <text x="420" y="158" font-size="11" font-weight="700" fill="#065f46">✓ 优点</text>
+    <text x="420" y="173" font-size="10" fill="#475569">• 自动选最佳</text>
+    <text x="420" y="188" font-size="10" fill="#475569">• 平衡日志量与一致性</text>
+
+    <text x="420" y="210" font-size="11" font-weight="700" fill="#475569">规则</text>
+    <text x="420" y="225" font-size="10" fill="#475569">• 普通 DDL/DML →</text>
+    <text x="435" y="240" font-size="10" fill="#475569">  Statement</text>
+    <text x="420" y="255" font-size="10" fill="#475569">• 含 UUID/NOW() 等</text>
+    <text x="435" y="270" font-size="10" fill="#475569">  → Row</text>
+
+    <rect x="420" y="285" width="125" height="80" rx="4" fill="#1f2937"/>
+    <text x="428" y="302" font-size="9" font-family="monospace" fill="#86efac">CREATE TABLE t ...</text>
+    <text x="428" y="318" font-size="9" font-family="monospace" fill="#86efac">  → Statement</text>
+    <text x="428" y="334" font-size="9" font-family="monospace" fill="#86efac">INSERT ... UUID()</text>
+    <text x="428" y="350" font-size="9" font-family="monospace" fill="#86efac">  → Row</text>
+  </g>
+
+  <!-- 选型决策 -->
+  <g>
+    <rect x="40" y="425" width="525" height="45" rx="6" fill="#fef9c3" stroke="#facc15" stroke-width="2"/>
+    <text x="60" y="447" font-size="11" font-weight="700" fill="#854d0e">🎯 选型：</text>
+    <text x="60" y="463" font-size="11" fill="#854d0e">主从复制 + 数据一致性优先 → Row · 大数据 ETL → Statement · 通用场景 → Mixed</text>
+  </g>
+</svg>

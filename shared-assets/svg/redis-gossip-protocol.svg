@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Redis Cluster Gossip 协议</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">ping/pong 消息 · MEET/PFAIL/FAIL · cluster_bus_port · gossip 扩散</text>
+
+  <!-- 6 节点环 -->
+  <g>
+    <text x="60" y="95" font-size="13" font-weight="700" fill="#1e293b">Gossip 节点选择（每节点维护随机 N 个 peer）</text>
+
+    <!-- 中心节点 -->
+    <circle cx="300" cy="220" r="40" fill="#dbeafe" stroke="#3b82f6" stroke-width="3"/>
+    <text x="300" y="218" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">节点 A</text>
+    <text x="300" y="234" text-anchor="middle" font-size="9" fill="#475569">发起 ping</text>
+
+    <!-- 周围节点 -->
+    <circle cx="120" cy="160" r="28" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="120" y="163" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">B</text>
+
+    <circle cx="480" cy="160" r="28" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="480" y="163" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">C</text>
+
+    <circle cx="120" cy="300" r="28" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="120" y="303" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">D</text>
+
+    <circle cx="480" cy="300" r="28" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="480" y="303" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">E</text>
+
+    <circle cx="300" cy="380" r="28" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2" stroke-dasharray="3"/>
+    <text x="300" y="383" text-anchor="middle" font-size="10" font-weight="700" fill="#475569">F</text>
+
+    <!-- ping 路径 -->
+    <line x1="280" y1="195" x2="148" y2="172" stroke="#3b82f6" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="210" y="180" text-anchor="middle" font-size="9" fill="#1e40af" font-weight="700">ping 1</text>
+
+    <line x1="320" y1="195" x2="452" y2="172" stroke="#3b82f6" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="385" y="180" text-anchor="middle" font-size="9" fill="#1e40af" font-weight="700">ping 2</text>
+
+    <line x1="280" y1="245" x2="148" y2="288" stroke="#3b82f6" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="210" y="270" text-anchor="middle" font-size="9" fill="#1e40af" font-weight="700">ping 3</text>
+
+    <!-- pong 返回 -->
+    <line x1="148" y1="178" x2="280" y2="205" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3" marker-end="url(#arr)"/>
+    <line x1="452" y1="178" x2="320" y2="205" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3" marker-end="url(#arr)"/>
+
+    <!-- 二次 gossip（带节点列表） -->
+    <text x="300" y="430" text-anchor="middle" font-size="11" fill="#475569">ping 消息携带：节点 B 的已知节点列表 → A 收到 → A 也认识这些节点</text>
+    <text x="300" y="447" text-anchor="middle" font-size="11" fill="#475569">→ gossip 二次扩散（指数级传播）</text>
+  </g>
+
+  <!-- 故障检测时序 -->
+  <g>
+    <text x="60" y="468" font-size="11" font-weight="700" fill="#1e293b">故障检测：</text>
+    <text x="170" y="468" font-size="11" fill="#475569">PFAIL（本地判定）→ gossip 扩散 → 多数节点确认 → FAIL（全局确认）</text>
+  </g>
+</svg>
