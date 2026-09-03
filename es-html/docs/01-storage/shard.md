@@ -9,6 +9,8 @@ graphNodeId: shard
 
 # 分片 Shard
 
+![Elasticsearch Query Shard 路由](/es-query-shard-routing.svg)
+
 ## 📌 一句话定义
 分片是 ES 索引数据的**物理切分单位**，每个分片本质上是一个**独立的 Lucene 索引**。
 

@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > Pod = 1+ 共享网络 / 存储的容器。**不是容器**。
 
+![Kubernetes Scheduler 调度流程](/k8s-scheduler-flow.svg)
+
 ## 🤔 为什么需要 Pod
 
 ```

@@ -227,6 +227,8 @@ WHERE u.status = 0;  -- 删除已注销用户的所有订单
 DELETE FROM logs WHERE created_at < '2024-01-01' LIMIT 10000;
 ```
 
+![MySQL Online DDL 三种算法](/mysql-online-ddl.svg)
+
 ## 🏗️ DDL：建表改表
 
 ### CREATE TABLE

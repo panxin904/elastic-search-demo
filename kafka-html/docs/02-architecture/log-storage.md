@@ -29,6 +29,8 @@ data/kafka-logs/
 [m1000000|m1000001|...]
 ```
 
+![Kafka Log Segment 索引](/kafka-log-segment-index.svg)
+
 ## 📂 Segment 文件详解
 
 ### Segment 组成

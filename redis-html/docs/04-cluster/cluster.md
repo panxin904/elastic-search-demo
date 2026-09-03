@@ -41,6 +41,8 @@ Cluster 的解决方案：
 - 数据自动分片到不同 Master
 ```
 
+![Redis Cluster 故障转移](/redis-cluster-failover.svg)
+
 ## 🆚 Cluster vs 主从 + 哨兵
 
 | 维度 | 主从复制 | Sentinel | Cluster |
