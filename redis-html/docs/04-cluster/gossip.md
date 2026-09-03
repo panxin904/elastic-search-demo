@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > Redis Cluster 节点之间通过 **Gossip 协议**通信，用于**节点发现、故障检测、状态传播**。每个节点每秒向随机几个节点发送 ping 消息，最终全集群状态达成**最终一致**。
 
+![Redis Cluster Gossip 协议](/redis-gossip-protocol.svg)
+
 ## 🎯 为什么用 Gossip？
 
 ```

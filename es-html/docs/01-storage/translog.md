@@ -59,6 +59,8 @@ GET /products/_stats?level=shards
 }
 ```
 
+![Elasticsearch Segment 索引恢复](/es-segment-recovery.svg)
+
 ## 🚨 崩溃恢复
 
 ```

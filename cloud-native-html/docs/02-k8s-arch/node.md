@@ -38,6 +38,8 @@ date: 2026-08-15  # date-auto-injected
 └────────────────────────────────────┘
 ```
 
+![Kubernetes CNI / CSI / CRI 插件体系](/k8s-cni-csi-cri.svg)
+
 ## 🛠 kubelet
 
 **Node 代理**，k8s 在每个 Node 上的"客户端"。

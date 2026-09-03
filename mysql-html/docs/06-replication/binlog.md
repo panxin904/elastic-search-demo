@@ -35,6 +35,8 @@ date: 2026-08-15  # date-auto-injected
 2. **数据恢复**：基于时间点恢复（Point-in-Time Recovery）
 3. **审计**：追踪所有数据变更
 
+![MySQL Binlog 三种格式](/mysql-binlog-three-formats.svg)
+
 ## 🎬 binlog 的三种格式
 
 ### STATEMENT（基于 SQL）

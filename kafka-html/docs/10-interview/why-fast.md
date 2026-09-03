@@ -25,6 +25,8 @@ date: 2026-08-15  # date-auto-injected
   Kafka 写入：~200 MB/s（无索引）
 ```
 
+![Kafka Broker 网络模型](/kafka-broker-network-model.svg)
+
 ## 🚀 性能优化 6 大秘诀
 
 ### 1. 顺序写盘
