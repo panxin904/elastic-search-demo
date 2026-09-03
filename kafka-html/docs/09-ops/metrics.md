@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > **Kafka 监控指标**是保障集群健康的基础。本章详解所有关键指标的采集、监控和告警。
 
+![Kafka Quota Throttle](/kafka-quota-throttle.svg)
+
 ## 🎯 监控层次
 
 ```

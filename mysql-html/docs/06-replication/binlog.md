@@ -208,6 +208,8 @@ Master                                          Slave
                                           8. 写入从库数据
 ```
 
+![Mysql Mgr Group Replication](/mysql-mgr-group-replication.svg)
+
 ## 🎯 复制模式
 
 ### 异步复制（默认）

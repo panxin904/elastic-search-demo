@@ -231,6 +231,8 @@ try (Jedis jedis = pool.getResource()) {
 
 客户端通过订阅 Sentinel 的 `+switch-master` 频道感知 Master 切换，无需重启即可自动连接新 Master。
 
+![Redis Sentinel Vs Cluster](/redis-sentinel-vs-cluster.svg)
+
 ## 九、Sentinel vs Cluster
 
 | 维度 | Sentinel | Cluster |

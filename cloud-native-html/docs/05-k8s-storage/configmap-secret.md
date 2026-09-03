@@ -212,6 +212,8 @@ spec:
       key: secret/data/db
 ```
 
+![K8S Configmap Vs Secret](/k8s-configmap-vs-secret.svg)
+
 ## 🆚 ConfigMap vs Secret
 
 | | ConfigMap | Secret |

@@ -9,6 +9,8 @@ graphNodeId: inverted-index
 
 # 倒排索引 Inverted Index
 
+![Es Inverted Index](/es-inverted-index.svg)
+
 ## 📌 一句话定义
 倒排索引是**从 term 到文档列表**的映射结构，是 ES/Lucene 实现快速搜索的核心数据结构。
 
