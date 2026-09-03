@@ -7472,3 +7472,38 @@ cd /tmp/ci-test/java-web-manual && npm install && npm run docs:build
 - **Leader Epoch 防脑裂**：旧 Leader 复活时携带旧 epoch，被新 Leader 拒绝（epoch 单调递增），自动 step down 加入 ISR
 - **MVCC 的关键：ReadView**：RC 每次 SELECT 创建新 ReadView 能看到其他事务最新提交；RR 复用 ReadView 保证可重复读
 - **Service Mesh = sidecar + iptables + mTLS**：应用代码零改动，透明获得服务发现/熔断/加密/可观测
+
+
+## §8.72+ v11 — SVG 大规模扩展（第十一批 5 张）
+
+**日期**：2026-09-03
+**目标**：把 SVG 图示密度从 136 提到 141，路线图进度 68.0% → 70.5%
+
+### 变更明细
+
+- **媒体层**：`feat(media)` commit，新增 5 张 SVG（5 站各 1 张架构底层原理图）：
+  - **kafka-html**：kafka-broker-network-model（Reactor 多线程模型：Acceptor → Processor 池 → Request Queue → KafkaRequestHandler + 零拷贝 sendfile/transferTo）
+  - **redis-html**：redis-gossip-protocol（6 节点 Gossip + ping/pong + 节点列表二次扩散 + PFAIL/FAIL 升级链）
+  - **mysql-html**：mysql-binlog-three-formats（Statement/Row/Mixed 三格式对比 + 选型决策）
+  - **cloud-native-html**：k8s-cni-csi-cri（kubelet 三种 hook 接口 + 具体实现示例 + gRPC 接口规范）
+  - **es-html**：es-segment-recovery（3 种恢复场景 + 5 步启动恢复流程 + translog replay）
+
+- **内容层**：`feat(content)` commit，5 个核心文档前注入：
+  - kafka-why-fast.md（性能优化 6 大秘诀前）
+  - redis-gossip.md（Gossip 主体）
+  - mysql-binlog.md（binlog 三种格式前）
+  - k8s-node.md（kubelet 章节前）
+  - es-translog.md（崩溃恢复章节前）
+
+### 路线图进度
+
+- 当前 imgs=141 / 目标 ≥200 = **70.5%**
+- 剩余 59 张
+- 下一批 §8.72+ v12 候选：高频站第 8 轮深化（kafka log segment 索引、redis Cluster 故障转移细节、mysql online DDL、k8s scheduler 调度流程、es query shard 路由）
+
+### 经验
+
+- **零拷贝核心**：sendfile 系统调用让数据从 PageCache → Socket DMA → 网卡，全程不经 JVM 用户态。传统 4 次拷贝变 1 次
+- **Gossip 是去中心化的关键**：每个节点维护 O(1) 邻居列表 + ping 消息携带已知节点列表 → 指数级信息扩散
+- **CNI/CSI/CRI 解耦**：kubelet 不耦合任何厂商，三种 gRPC 接口标准（CNISpec/CSI-Spec/CRI），自由切换方案
+- **Segment 恢复 3 场景**：本地重启（极快）→ 新副本（网络拉）→ 快照（灾难恢复）
