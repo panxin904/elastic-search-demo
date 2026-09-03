@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > Istio = 主流 **Service Mesh** 实现。把服务间通讯（流量 / 安全 / 可观测）从应用层抽到基础设施层。
 
+![Service Mesh Sidecar 注入](/k8s-service-mesh-sidecar.svg)
+
 ## 🤔 为什么需要 Service Mesh
 
 ```

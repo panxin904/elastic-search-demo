@@ -9,6 +9,8 @@ graphNodeId: cluster
 
 # 集群 Cluster
 
+![Elasticsearch Cluster 状态机](/es-cluster-state-machine.svg)
+
 ## 📌 一句话定义
 ES 集群是由**一个或多个节点**组成的、能对外提供统一搜索服务的分布式系统。
 

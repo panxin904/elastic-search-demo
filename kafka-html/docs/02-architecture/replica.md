@@ -51,6 +51,8 @@ Follower Replica
   - 备用 Leader
 ```
 
+![Kafka ISR 与副本同步机制](/kafka-isr-replica-sync.svg)
+
 ## 🔄 副本同步流程
 
 ### Follower 拉取同步

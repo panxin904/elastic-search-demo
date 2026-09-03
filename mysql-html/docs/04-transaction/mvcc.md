@@ -79,6 +79,8 @@ WHERE TABLE_ID = (
 );
 ```
 
+![MySQL MVCC 与 Undo Log 原理](/mysql-mvcc-undo-log.svg)
+
 ## 🔄 Undo Log 版本链
 
 每次 UPDATE/DELETE 都生成一个 Undo Log 记录，形成版本链：

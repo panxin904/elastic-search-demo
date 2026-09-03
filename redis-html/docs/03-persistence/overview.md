@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > Redis 是**内存数据库**，数据默认存在内存中。**一旦宕机，数据全部丢失**。持久化机制就是把内存数据保存到磁盘，让数据不丢。
 
+![Redis 持久化：RDB vs AOF vs 混合](/redis-rdb-vs-aof.svg)
+
 ## 🎯 为什么需要持久化？
 
 ```bash
