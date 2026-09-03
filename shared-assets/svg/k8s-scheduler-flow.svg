@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Kubernetes Scheduler 调度流程</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">预选（Filter）→ 优选（Score）→ Bind（绑定）· 两阶段调度</text>
+
+  <!-- 入口 -->
+  <g>
+    <rect x="40" y="85" width="120" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="100" y="102" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Pod 创建</text>
+    <text x="100" y="118" text-anchor="middle" font-size="9" fill="#475569">spec.nodeName=""</text>
+  </g>
+
+  <line x1="160" y1="105" x2="190" y2="105" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- 调度器 -->
+  <rect x="190" y="85" width="120" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="250" y="102" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">kube-scheduler</text>
+  <text x="250" y="118" text-anchor="middle" font-size="9" fill="#475569">watch + queue</text>
+
+  <line x1="310" y1="105" x2="340" y2="105" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- 调度扩展点 -->
+  <rect x="340" y="85" width="220" height="40" rx="6" fill="#1f2937"/>
+  <text x="450" y="102" text-anchor="middle" font-size="11" font-weight="700" fill="#86efac">Scheduling Framework</text>
+  <text x="450" y="118" text-anchor="middle" font-size="9" fill="#a5f3fc">QueueSort · PreFilter · Filter · Score · Permit · Reserve · Bind</text>
+
+  <!-- 调度算法详解 -->
+  <g>
+    <text x="60" y="160" font-size="13" font-weight="700" fill="#1e293b">两阶段调度（核心）</text>
+
+    <!-- 预选 -->
+    <rect x="40" y="180" width="250" height="180" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="165" y="205" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">① 预选（Filter）</text>
+    <text x="165" y="220" text-anchor="middle" font-size="10" fill="#475569">过滤不满足条件的节点</text>
+
+    <text x="60" y="245" font-size="11" font-weight="700" fill="#92400e">过滤规则：</text>
+    <text x="60" y="262" font-size="10" fill="#475569">• NodeSelector（label 匹配）</text>
+    <text x="60" y="277" font-size="10" fill="#475569">• Taints & Tolerations</text>
+    <text x="60" y="292" font-size="10" fill="#475569">• 资源（CPU/Mem request）</text>
+    <text x="60" y="307" font-size="10" fill="#475569">• NodeAffinity</text>
+    <text x="60" y="322" font-size="10" fill="#475569">• PodAffinity/AntiAffinity</text>
+    <text x="60" y="337" font-size="10" fill="#475569">• Volume 绑定（PVC/CSI）</text>
+
+    <text x="165" y="355" text-anchor="middle" font-size="10" fill="#10b981" font-weight="700">输出：候选节点列表</text>
+
+    <!-- 优选 -->
+    <rect x="320" y="180" width="240" height="180" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="440" y="205" text-anchor="middle" font-size="14" font-weight="700" fill="#065f46">② 优选（Score）</text>
+    <text x="440" y="220" text-anchor="middle" font-size="10" fill="#475569">为候选节点打分排序</text>
+
+    <text x="340" y="245" font-size="11" font-weight="700" fill="#065f46">打分维度：</text>
+    <text x="340" y="262" font-size="10" fill="#475569">• LeastRequested（空闲资源）</text>
+    <text x="340" y="277" font-size="10" fill="#475569">• BalancedResource（均衡）</text>
+    <text x="340" y="292" font-size="10" fill="#475569">• NodeAffinity（偏好）</text>
+    <text x="340" y="307" font-size="10" fill="#475569">• TaintSpread（污点）</text>
+    <text x="340" y="322" font-size="10" fill="#475569">• InterPodAffinity（拓扑）</text>
+    <text x="340" y="337" font-size="10" fill="#475569">• ImageLocality（镜像已缓存）</text>
+
+    <text x="440" y="355" text-anchor="middle" font-size="10" fill="#10b981" font-weight="700">输出：得分最高节点</text>
+  </g>
+
+  <!-- Bind 阶段 -->
+  <g>
+    <rect x="40" y="380" width="525" height="40" rx="6" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="300" y="400" text-anchor="middle" font-size="12" font-weight="700" fill="#5b21b6">③ Bind（绑定）</text>
+    <text x="300" y="415" text-anchor="middle" font-size="10" fill="#5b21b6">apiserver 接受 Pod.spec.nodeName 更新 → kubelet watch → 启动容器</text>
+  </g>
+
+  <!-- 抢占 -->
+  <g>
+    <rect x="40" y="435" width="525" height="35" rx="6" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="60" y="455" font-size="11" font-weight="700" fill="#7f1d1d">⚠️ Preemption 抢占：高优先级 Pod 无资源 → 删除低优先级 Pod（graceful）</text>
+  </g>
+</svg>
