@@ -37,6 +37,8 @@ date: 2026-08-15  # date-auto-injected
 
 ![MySQL Binlog 三种格式](/mysql-binlog-three-formats.svg)
 
+![Mysql Binlog Group Commit](/mysql-binlog-group-commit.svg)
+
 ## 🎬 binlog 的三种格式
 
 ### STATEMENT（基于 SQL）

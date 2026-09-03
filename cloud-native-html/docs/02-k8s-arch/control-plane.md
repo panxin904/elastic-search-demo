@@ -93,6 +93,8 @@ ETCDCTL_API=3 etcdctl snapshot restore /tmp/snap.db
 - KV 存储
 - 监听：apiserver 监听变化 → 通知 Controller / Scheduler
 
+![K8S Crd Extension](/k8s-crd-extension.svg)
+
 ## 🔌 cloud-controller-manager
 
 云厂商专用组件（AWS / GCP / Azure）：

@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > **Controller**是 Kafka 集群的**大脑**，负责集群元数据管理、Leader 选举、Broker 上下线通知。
 
+![Kafka Controller Quorum](/kafka-controller-quorum.svg)
+
 ## 🎯 Controller 是什么？
 
 ```

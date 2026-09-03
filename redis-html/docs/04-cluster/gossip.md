@@ -9,6 +9,8 @@ date: 2026-08-15  # date-auto-injected
 
 ![Redis Cluster Gossip 协议](/redis-gossip-protocol.svg)
 
+![Redis Cluster Bus](/redis-cluster-bus.svg)
+
 ## 🎯 为什么用 Gossip？
 
 ```

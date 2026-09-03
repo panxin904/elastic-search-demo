@@ -113,6 +113,8 @@ POST /products/_search
 }
 ```
 
+![Es Doc Values](/es-doc-values.svg)
+
 ## ⚠️ 聚合性能
 
 - `size: 0` 设置：只返回聚合，不返回 hits
