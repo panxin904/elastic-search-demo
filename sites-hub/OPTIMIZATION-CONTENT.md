@@ -7584,3 +7584,44 @@ cd /tmp/ci-test/java-web-manual && npm install && npm run docs:build
 - 5 站 build 全部成功（kafka 6.92s / redis 5.35s / mysql 7.67s / cloud-native 4.39s / es 3.04s）
 - 5 张 SVG 全部成功复制到各站 `.vitepress/dist/` 目录
 - audit 验证：files=1662, words=1,364,651, imgs=151, 全量 baseline 稳定
+
+## §8.72+ v14 — SVG 大规模扩展（第十四批 5 张）
+
+**日期**：2026-09-03
+**目标**：把 SVG 图示密度从 151 提到 156，路线图进度 75.5% → 78.0%
+
+### 变更明细
+- **媒体层**：5 张 SVG
+  - `shared-assets/svg/kafka-controller-quorum.svg` — KRaft Controller Quorum（3 节点 active+2 standby + RAFT 半数 ACK + KRaft vs ZK 对比）
+  - `shared-assets/svg/redis-cluster-bus.svg` — Redis Cluster 总线协议（端口 16379 拓扑 + 4 类 Gossip 消息 + epoch 机制）
+  - `shared-assets/svg/mysql-binlog-group-commit.svg` — binlog 组提交（Flush → Sync → Commit 三阶段 + 性能对比 200→3000→6000 TPS）
+  - `shared-assets/svg/k8s-crd-extension.svg` — CRD 三层扩展模型（CR/CRD/Controller + OpenAPI schema 示例 + Reconcile Loop）
+  - `shared-assets/svg/es-doc-values.svg` — Doc Values 列存（_source 行存 vs doc_values 列存对比 + 数据结构 + 聚合性能）
+- **内容层**：5 个核心文档前注入
+  - kafka → `02-architecture/controller.md` (## 🎯 Controller 是什么？ 前)
+  - redis → `04-cluster/gossip.md` (## 🎯 为什么用 Gossip？ 前)
+  - mysql → `06-replication/binlog.md` (## 🎬 binlog 的三种格式 前)
+  - cloud-native → `02-k8s-arch/control-plane.md` (## 🔌 cloud-controller-manager 前)
+  - es → `02-query/aggregation.md` (## ⚠️ 聚合性能 前)
+
+### 路线图进度
+- 当前 imgs=156 / 目标 ≥200 = **78.0%**
+- 剩余 44 张
+- 下一批 §8.72+ v15 候选：高频站第 11 轮深化
+  - kafka MirrorMaker2 跨集群同步
+  - redis Cluster 多 key 事务 / Lua 脚本
+  - mysql InnoDB Buffer Pool 内部结构
+  - k8s StatefulSet 有状态应用
+  - es Index Lifecycle Management (ILM) 生命周期
+
+### 经验
+- **Kafka KRaft**：半数 ACK 取代 ZK，可承载百万级 partition，3.x 即将移除 ZK 方案
+- **Redis Cluster Bus**：4 类 Gossip 消息（MEET/PING/PONG/FAIL），端口 16379，epoch 机制保证槽指派一致性
+- **MySQL 组提交**：Flush（队列+leader 选举）→ Sync（一次 fsync）→ Commit（并行唤醒），8.0 进一步拆 binlog_order_commits
+- **K8s CRD**：CRD 是 schema 模板 + CR 是 instance + Controller 是调谐逻辑，Reconcile Loop = Observe→Analyze→Act
+- **ES Doc Values**：列存解决聚合场景下 _source 全字段解析问题，long/keyword 多值字段用不同编码（bitpacking/dictionary/offset）
+
+### Build 验证
+- 5 站 build 全部成功（kafka 6.99s / redis 5.36s / mysql 7.68s / cloud-native 4.40s / es 3.01s）
+- 5 张 SVG 全部成功复制到各站 `.vitepress/dist/` 目录
+- audit 验证：files=1662, words=1,364,686, imgs=156, 全量 baseline 稳定
