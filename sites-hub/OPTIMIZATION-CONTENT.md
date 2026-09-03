@@ -7507,3 +7507,39 @@ cd /tmp/ci-test/java-web-manual && npm install && npm run docs:build
 - **Gossip 是去中心化的关键**：每个节点维护 O(1) 邻居列表 + ping 消息携带已知节点列表 → 指数级信息扩散
 - **CNI/CSI/CRI 解耦**：kubelet 不耦合任何厂商，三种 gRPC 接口标准（CNISpec/CSI-Spec/CRI），自由切换方案
 - **Segment 恢复 3 场景**：本地重启（极快）→ 新副本（网络拉）→ 快照（灾难恢复）
+
+
+## §8.72+ v12 — SVG 大规模扩展（第十二批 5 张）
+
+**日期**：2026-09-03
+**目标**：把 SVG 图示密度从 141 提到 146，路线图进度 70.5% → 73.0%
+
+### 变更明细
+
+- **媒体层**：`feat(media)` commit，新增 5 张 SVG（5 站各 1 张存储/调度底层原理图）：
+  - **kafka-html**：kafka-log-segment-index（partition 目录 .log/.index/.timeindex + 稀疏索引 offset→position 二分查找）
+  - **redis-html**：redis-cluster-failover（M1 宕机 → PFAIL → gossip → FAIL → Replica 选举 → 升 Master 接管 slot）
+  - **mysql-html**：mysql-online-ddl（INSTANT/INPLACE/COPY 三算法对比 + LOCK 级别）
+  - **cloud-native-html**：k8s-scheduler-flow（Pod → 预选 Filter → 优选 Score → Bind + Preemption 抢占）
+  - **es-html**：es-query-shard-routing（Client → 协调节点 → adaptive replica selection + 路由配置）
+
+- **内容层**：`feat(content)` commit，5 个核心文档前注入：
+  - kafka-log-storage.md（Segment 文件详解前）
+  - redis-cluster.md（Cluster vs 主从 + 哨兵前）
+  - mysql-crud.md（DDL：建表改表前）
+  - k8s-pod.md（Pod 主体）
+  - es-shard.md（Shard 主体）
+
+### 路线图进度
+
+- 当前 imgs=146 / 目标 ≥200 = **73.0%**
+- 剩余 54 张
+- 下一批 §8.72+ v13 候选：高频站第 9 轮深化（kafka Quota 流控 · redis Cluster failover vs Sentinel · mysql MGR vs 主从 · k8s ConfigMap vs Secret · es inverted index 倒排表）
+
+### 经验
+
+- **Kafka 稀疏索引 = log 不全索引**：每 4KB（可配）写一条 offset→position，避免巨大内存开销。Consumer 通过二分查 index（O(log n)）+ 顺序扫描 log 定位
+- **Redis Cluster failover 多数派投票**：与 Sentinel 类似但 Cluster 内置，无需独立 Sentinel 节点。关键时间窗：PFAIL→FAIL（5s）+ 选举（~1s）+ 接管（~1s）= 总计 ~7s
+- **MySQL INSTANT vs INPLACE**：8.0+ 加列默认 INSTANT（只改元数据，瞬间完成）。INPLACE 重建表但允许并发 DML。COPY 必须锁表，尽量避免
+- **K8s Scheduler 两阶段**：Filter 快速淘汰不合格节点（O(N)），Score 精细打分（O(N log N)）。总分公式加权各维度
+- **ES Adaptive Replica Selection**：协调节点本地缓存每副本响应时间，下次查询选最快副本，避免热点节点
