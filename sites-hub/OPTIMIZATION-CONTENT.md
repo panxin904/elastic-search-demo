@@ -7543,3 +7543,44 @@ cd /tmp/ci-test/java-web-manual && npm install && npm run docs:build
 - **MySQL INSTANT vs INPLACE**：8.0+ 加列默认 INSTANT（只改元数据，瞬间完成）。INPLACE 重建表但允许并发 DML。COPY 必须锁表，尽量避免
 - **K8s Scheduler 两阶段**：Filter 快速淘汰不合格节点（O(N)），Score 精细打分（O(N log N)）。总分公式加权各维度
 - **ES Adaptive Replica Selection**：协调节点本地缓存每副本响应时间，下次查询选最快副本，避免热点节点
+
+## §8.72+ v13 — SVG 大规模扩展（第十三批 5 张）
+
+**日期**：2026-09-03
+**目标**：把 SVG 图示密度从 146 提到 151，路线图进度 73.0% → 75.5%
+
+### 变更明细
+- **媒体层**：5 张 SVG
+  - `shared-assets/svg/kafka-quota-throttle.svg` — Kafka Quota 流控机制（三类配额 + 令牌桶 + client.id 维度）
+  - `shared-assets/svg/redis-sentinel-vs-cluster.svg` — Redis Sentinel vs Cluster 两种高可用方案对比
+  - `shared-assets/svg/mysql-mgr-group-replication.svg` — MySQL MGR（Paxos 组复制 + 写流程五阶段 + 单主/多主模式）
+  - `shared-assets/svg/k8s-configmap-vs-secret.svg` — ConfigMap vs Secret 用途 / 数据结构 / 挂载方式
+  - `shared-assets/svg/es-inverted-index.svg` — 倒排表结构（词项→posting list + BM25 评分流程）
+- **内容层**：5 个核心文档前注入
+  - kafka → `09-ops/metrics.md` (## 🎯 监控层次 前)
+  - redis → `04-cluster/sentinel.md` (## 九、Sentinel vs Cluster 前)
+  - mysql → `06-replication/binlog.md` (## 🎯 复制模式 前)
+  - cloud-native → `05-k8s-storage/configmap-secret.md` (## 🆚 ConfigMap vs Secret 前)
+  - es → `03-analysis/inverted-index.md` (## 📌 一句话定义 前)
+
+### 路线图进度
+- 当前 imgs=151 / 目标 ≥200 = **75.5%**
+- 剩余 49 张
+- 下一批 §8.72+ v14 候选：高频站第 10 轮深化
+  - kafka Controller Quorum 演进
+  - redis Cluster 总线协议（Gossip + 槽指派）
+  - mysql binlog 组装（mariaDB / 5.7 组提交）
+  - k8s CRD 扩展机制（OpenAPI schema + controller）
+  - es Doc Values 列存结构
+
+### 经验
+- **Kafka Quota**：令牌桶保证 client.id 公平，broker 端 enforce（QuotaManager）
+- **Redis Sentinel vs Cluster**：Sentinel 简单但容量受限（< 几十 GB），Cluster 分片但多 key 事务受限
+- **MySQL MGR**：基于 Paxos 保证强一致，写流程 5 阶段（本地写→写集提取→冲突检测→Paxos→apply），单主/多主模式选型
+- **K8s ConfigMap vs Secret**：ConfigMap 明文存非密配置（应用配置 / 命令行参数），Secret base64 存敏感（密码 / TLS 私钥），两者在 Pod 内挂载方式相同
+- **ES 倒排表**：词项 → posting list（含 docID/TF/位置/偏移），BM25 = TF-IDF 升级版，posting list 求交即查询
+
+### Build 验证
+- 5 站 build 全部成功（kafka 6.92s / redis 5.35s / mysql 7.67s / cloud-native 4.39s / es 3.04s）
+- 5 张 SVG 全部成功复制到各站 `.vitepress/dist/` 目录
+- audit 验证：files=1662, words=1,364,651, imgs=151, 全量 baseline 稳定
