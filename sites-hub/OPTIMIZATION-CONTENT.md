@@ -7871,3 +7871,46 @@ cd /tmp/ci-test/java-web-manual && npm install && npm run docs:build
 - 5 站 build 全部成功（kafka 7.14s / redis 5.51s / mysql 7.80s / cloud-native 4.58s / es 3.40s）
 - 5 张 SVG 全部成功复制到各站 `.vitepress/dist/` 目录
 - audit 验证：files=1662, words=1,364,888, imgs=186, 全量 baseline 稳定
+
+## §8.72+ v21 — SVG 大规模扩展（第二十一批 5 张）
+
+**日期**：2026-09-04
+**目标**：把 SVG 图示密度从 186 提到 191，路线图进度 93.0% → 95.5%
+
+### 变更明细
+- **媒体层**：5 张 SVG
+  - `shared-assets/svg/kafka-rebalance-protocol.svg` — 消费者 Rebalance 协议（4 触发条件 + Eager/Cooperative + 4 步协议）
+  - `shared-assets/svg/redis-geo-zset.svg` — GEO 地理位置（Geohash 编码 + ZSet 存储 + 6 核心命令）
+  - `shared-assets/svg/mysql-ai-lock.svg` — 自增 ID 锁（0/1/2 三模式 + mode=2 mutex 流程）
+  - `shared-assets/svg/k8s-ingress-routing.svg` — Ingress 7 层路由（架构 + Host/Path 规则 + TLS 终结）
+  - `shared-assets/svg/es-bulk-api.svg` — Bulk 批量写入（NDJSON 协议 + 5-15MB 甜区调优）
+- **内容层**：5 个核心文档前注入
+  - kafka → `03-cli/consumer-group.md` (## 🎯 查看消费者组 前)
+  - redis → `01-basics/datatypes.md` (## 🎯 5 大类型一览 前)
+  - mysql → `02-index/clustered.md` (## 🎯 主键设计的最佳实践 前)
+  - cloud-native → `04-k8s-service/ingress.md` (## 🤔 为什么需要 Ingress 前)
+  - es → `01-storage/document.md` (## 🔧 文档操作 前)
+
+### 路线图进度
+- 当前 imgs=191 / 目标 ≥200 = **95.5%**
+- 剩余 9 张
+- 下一批 §8.72+ v22 候选：高频站第 18 轮深化（最终冲刺 200 张）
+
+### 经验沉淀
+- **Kafka Rebalance**：Eager 协议停所有再分配（默认 Range），Cooperative 协议增量（StickyAssignor 推荐）
+- **Redis GEO**：ZSet 底层 + 52-bit geohash 整数作 score，范围查询 O(log N) 高效
+- **MySQL AI Lock**：mode=1 连续适合行复制，mode=2 交错并发高但 ID 跳号
+- **K8s Ingress**：七层路由（Host/Path 规则），替代多个 LoadBalancer 节省云厂商成本；TLS 终结在 Ingress Controller 解密节省 Pod CPU
+- **ES Bulk**：NDJSON 协议（每行 JSON + 换行），5-15MB batch size 是性能甜区，按字节而非文档数调优
+
+### Build 验证
+- 5 站 build 全部成功（kafka 7.51s / redis 5.74s / mysql 8.24s / cloud-native 4.84s / es 3.56s）
+- 5 张 SVG 全部成功复制到各站 `.vitepress/dist/` 目录
+- audit 验证：files=1662, imgs=191, 全量 baseline 稳定（no_fm=0, stale=0, broken=0）
+
+### v22 候选（最终冲刺 200）
+- kafka: 消息压缩（zstd/lz4/snappy）
+- redis: 慢查询分析（slowlog）
+- mysql: InnoDB 自适应哈希索引
+- cloud-native: 健康/就绪探针（livenessProbe/readinessProbe）
+- es: 跨集群搜索（CCS）
