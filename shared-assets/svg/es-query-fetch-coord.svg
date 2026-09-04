@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">ES Query / Fetch 两阶段协调</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">协调节点分发 + 各 shard 本地查询 + 汇总排序</text>
+
+  <!-- 整体流程 -->
+  <g>
+    <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">① 搜索请求两阶段</text>
+
+    <rect x="40" y="105" width="520" height="175" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+
+    <!-- Client -->
+    <rect x="55" y="125" width="100" height="50" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="105" y="145" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">Client</text>
+    <text x="105" y="162" text-anchor="middle" font-size="8" fill="#475569">GET /idx/_search</text>
+
+    <path d="M 155 150 L 195 150" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <!-- Coordinating Node -->
+    <rect x="195" y="120" width="160" height="60" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="275" y="140" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Coordinating Node</text>
+    <text x="275" y="160" text-anchor="middle" font-size="9" fill="#475569">解析 + 路由</text>
+    <text x="275" y="174" text-anchor="middle" font-size="8" font-family="monospace" fill="#1e293b">replica 优先</text>
+
+    <path d="M 195 180 L 155 180" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+    <path d="M 355 150 L 405 150" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+    <path d="M 355 165 L 405 195" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+    <path d="M 355 180 L 405 240" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <!-- Shard 1 -->
+    <rect x="405" y="125" width="140" height="50" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="475" y="145" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">Shard 0</text>
+    <text x="475" y="160" text-anchor="middle" font-size="8" fill="#475569">local query</text>
+
+    <!-- Shard 2 -->
+    <rect x="405" y="180" width="140" height="50" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="475" y="200" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">Shard 1</text>
+    <text x="475" y="215" text-anchor="middle" font-size="8" fill="#475569">local query</text>
+
+    <!-- Shard 3 -->
+    <rect x="405" y="235" width="140" height="50" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="475" y="255" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">Shard 2</text>
+    <text x="475" y="270" text-anchor="middle" font-size="8" fill="#475569">local query</text>
+
+    <text x="55" y="220" font-size="10" font-weight="700" fill="#1e293b">Query 阶段</text>
+    <text x="55" y="235" font-size="9" fill="#475569">协调节点 fan-out 到所有相关 shard（replica 优先）</text>
+    <text x="55" y="250" font-size="9" fill="#475569">每个 shard 算分并返回 top-K (size + from)</text>
+    <text x="55" y="265" font-size="9" fill="#475569">⚠️ 浅分页默认 10 shard × 10 = 100 doc 排序 → 协调节点汇总</text>
+  </g>
+
+  <!-- Fetch 阶段 -->
+  <g>
+    <text x="60" y="298" font-size="13" font-weight="700" fill="#1e293b">② Fetch 阶段（取文档源数据）</text>
+
+    <rect x="40" y="310" width="520" height="80" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+
+    <rect x="55" y="325" width="140" height="50" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="125" y="345" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">协调节点</text>
+    <text x="125" y="362" text-anchor="middle" font-size="9" fill="#475569">汇总 top-K</text>
+    <text x="125" y="375" text-anchor="middle" font-size="9" fill="#475569">+ 重新排序</text>
+
+    <path d="M 195 350 L 235 350" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect x="235" y="325" width="125" height="50" rx="4" fill="#dcfce7" stroke="#10b981"/>
+    <text x="297" y="345" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">GET _doc</text>
+    <text x="297" y="362" text-anchor="middle" font-size="8" fill="#475569">按 id 找 shard</text>
+    <text x="297" y="375" text-anchor="middle" font-size="8" fill="#475569">fetch _source</text>
+
+    <path d="M 360 350 L 400 350" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect x="400" y="325" width="140" height="50" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="470" y="345" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">返回结果</text>
+    <text x="470" y="362" text-anchor="middle" font-size="8" fill="#475569">hits + 聚合</text>
+    <text x="470" y="375" text-anchor="middle" font-size="8" fill="#475569">took / _shards</text>
+  </g>
+
+  <!-- 优化提示 -->
+  <g>
+    <text x="60" y="408" font-size="13" font-weight="700" fill="#1e293b">③ 性能优化方向</text>
+
+    <rect x="40" y="420" width="520" height="48" rx="4" fill="#fef9c3" stroke="#facc15"/>
+    <text x="60" y="438" font-size="10" font-weight="700" fill="#854d0e">1. size + from 浅分页受限于 size × number_of_shards</text>
+    <text x="60" y="455" font-size="10" font-weight="700" fill="#854d0e">2. 深度分页用 search_after（无状态 / 性能 O(N)）</text>
+  </g>
+</svg>

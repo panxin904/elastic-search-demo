@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">MySQL Undo Log 版本链与 Purge</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">insert / update undo · 何时清理 · purge 机制</text>
+
+  <!-- Undo 链 -->
+  <g>
+    <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">① Undo Log 类型与版本链</text>
+
+    <rect x="40" y="105" width="520" height="105" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+
+    <text x="60" y="128" font-size="10" font-weight="700" fill="#1e293b">两类 Undo：</text>
+    <text x="60" y="144" font-size="9" font-family="monospace" fill="#475569">insert_undo  →  insert 后可立即删除（其他事务不读）</text>
+    <text x="60" y="160" font-size="9" font-family="monospace" fill="#475569">update_undo  →  update / delete，需等所有 Read View 关闭</text>
+
+    <text x="60" y="180" font-size="10" font-weight="700" fill="#1e293b">版本链结构：</text>
+    <text x="60" y="196" font-size="9" font-family="monospace" fill="#1e293b">trx_id=300  →  trx_id=200  →  trx_id=100</text>
+    <text x="60" y="212" font-size="9" fill="#475569">每条记录头部 trx_id + roll_pointer 指向 undo log 形成链</text>
+  </g>
+
+  <!-- 清理条件 -->
+  <g>
+    <text x="60" y="232" font-size="13" font-weight="700" fill="#1e293b">② Purge 时机判定</text>
+
+    <rect x="40" y="245" width="520" height="155" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+
+    <rect x="55" y="262" width="170" height="65" rx="3" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="140" y="282" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">条件 1</text>
+    <text x="65" y="302" font-size="9" fill="#475569">trx_id &lt; 当前</text>
+    <text x="65" y="316" font-size="9" fill="#475569">所有 Read View</text>
+    <text x="65" y="330" font-size="9" font-weight="700" fill="#1e40af">→ 可清理</text>
+
+    <rect x="240" y="262" width="170" height="65" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="325" y="282" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">条件 2</text>
+    <text x="250" y="302" font-size="9" fill="#475569">undo 所在段</text>
+    <text x="250" y="316" font-size="9" fill="#475569">事务已提交</text>
+    <text x="250" y="330" font-size="9" font-weight="700" fill="#92400e">→ 可清理</text>
+
+    <rect x="425" y="262" width="120" height="65" rx="3" fill="#dcfce7" stroke="#10b981"/>
+    <text x="485" y="282" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">条件 3</text>
+    <text x="435" y="302" font-size="9" fill="#475569">超过</text>
+    <text x="435" y="316" font-size="9" fill="#475569">undo_retention</text>
+    <text x="435" y="330" font-size="9" font-weight="700" fill="#065f46">→ 强制清</text>
+
+    <text x="60" y="350" font-size="10" font-weight="700" fill="#1e293b">update_undo 不能立即清理的原因：</text>
+    <text x="60" y="368" font-size="9" fill="#475569">可能存在活跃事务的 Read View 还在引用该版本链 → purge 线程需扫描所有活跃 Read View</text>
+    <text x="60" y="385" font-size="9" fill="#dc2626">⚠️ 长时间未提交事务 → Undo 暴涨 → ibdata1 撑大 → 表空间碎片</text>
+  </g>
+
+  <!-- 配置 -->
+  <g>
+    <text x="60" y="418" font-size="13" font-weight="700" fill="#1e293b">③ 关键参数</text>
+
+    <rect x="40" y="430" width="250" height="35" rx="4" fill="#1e293b"/>
+    <text x="165" y="448" text-anchor="middle" font-size="9" font-family="monospace" fill="#a7f3d0">innodb_purge_threads = 4</text>
+    <text x="165" y="460" text-anchor="middle" font-size="9" fill="#a7f3d0">(并行清理)</text>
+
+    <rect x="310" y="430" width="250" height="35" rx="4" fill="#1e293b"/>
+    <text x="435" y="448" text-anchor="middle" font-size="9" font-family="monospace" fill="#a7f3d0">innodb_purge_batch_size</text>
+    <text x="435" y="460" text-anchor="middle" font-size="9" fill="#a7f3d0">= 300 (每次清 300 undo)</text>
+  </g>
+</svg>
