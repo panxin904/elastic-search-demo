@@ -20,6 +20,8 @@ date: 2026-08-15  # date-auto-injected
 | **NDB (Cluster)** | ✅ | 行锁 | ❌ | Hash | MySQL Cluster 分布式 | ❌ |
 | **TokuDB** | ✅ | 行锁 | ✅ | Fractal Tree | 高写入压缩（已被 Percona 收购，MariaDB 仍可用） | ❌ |
 
+![Mysql Innodb Buffer Pool](/mysql-innodb-buffer-pool.svg)
+
 ## 🏆 InnoDB：默认且推荐的引擎
 
 ### 核心特性

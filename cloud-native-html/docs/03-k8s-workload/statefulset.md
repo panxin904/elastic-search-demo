@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > StatefulSet = 有**稳定身份** + **持久存储**的 Pod。适合 DB、MQ、ZK 等。
 
+![K8S Statefulset](/k8s-statefulset.svg)
+
 ## 🤔 为什么需要 StatefulSet
 
 ```

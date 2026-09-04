@@ -9,6 +9,8 @@ graphNodeId: ilm
 
 # ILM 索引生命周期
 
+![Es Ilm Lifecycle](/es-ilm-lifecycle.svg)
+
 ## 📌 一句话定义
 ILM (Index Lifecycle Management) 自动管理索引从**创建到删除**的整个生命周期，按**阶段**触发动作。
 

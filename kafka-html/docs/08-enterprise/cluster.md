@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > **生产环境 Kafka 集群**的部署是高可用、高性能的基础。本章详解集群规划、部署和验证。
 
+![Kafka Mirrormaker2](/kafka-mirrormaker2.svg)
+
 ## 🎯 集群规划
 
 ### 集群规模评估

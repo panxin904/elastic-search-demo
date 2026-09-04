@@ -155,6 +155,8 @@ redis-cli --cluster add-node 192.168.1.10:7008 192.168.1.10:7001 \
     --cluster-slave --cluster-master-id <master-node-id>
 ```
 
+![Redis Multi Key Tx](/redis-multi-key-tx.svg)
+
 ## ⚠️ 集群限制
 
 ```bash
