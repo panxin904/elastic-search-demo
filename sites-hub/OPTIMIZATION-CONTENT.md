@@ -7748,3 +7748,44 @@ cd /tmp/ci-test/java-web-manual && npm install && npm run docs:build
 - 5 站 build 全部成功（kafka 7.12s / redis 5.45s / mysql 7.81s / cloud-native 4.50s / es 3.15s）
 - 5 张 SVG 全部成功复制到各站 `.vitepress/dist/` 目录
 - audit 验证：files=1662, words=1,364,781, imgs=171, 全量 baseline 稳定
+
+## §8.72+ v18 — SVG 大规模扩展（第十八批 5 张）
+
+**日期**：2026-09-04
+**目标**：把 SVG 图示密度从 171 提到 176，路线图进度 85.5% → 88.0%
+
+### 变更明细
+- **媒体层**：5 张 SVG
+  - `shared-assets/svg/kafka-broker-threads.svg` — Broker 线程模型（Acceptor / Processor / IO + 后台 5 类 + 请求处理流程）
+  - `shared-assets/svg/redis-replication-psync.svg` — 主从同步（runid+offset + 全量/增量 + 复制风暴树形结构）
+  - `shared-assets/svg/mysql-redo-log.svg` — InnoDB Redo Log（WAL 4 步流程 + Log Buffer + 循环写 LSN）
+  - `shared-assets/svg/k8s-scheduler-framework.svg` — kube-scheduler（2 阶段 + 7 扩展点 + 异步绑定）
+  - `shared-assets/svg/es-searcher-snapshot.svg` — Searcher 生命周期（SearcherManager + Refresh 原子切换 + Snapshot API）
+- **内容层**：5 个核心文档前注入
+  - kafka → `02-architecture/overview.md` (## 📊 Kafka 内部模块 前)
+  - redis → `04-cluster/replication.md` (## 一、为什么需要主从复制 前)
+  - mysql → `01-foundation/architecture.md` (## 🏛️ MySQL 整体架构 前)
+  - cloud-native → `02-k8s-arch/control-plane.md` (## 🧠 三大核心组件 前)
+  - es → `04-ops/snapshot.md` (## 📌 一句话定义 前)
+
+### 路线图进度
+- 当前 imgs=176 / 目标 ≥200 = **88.0%**
+- 剩余 24 张
+- 下一批 §8.72+ v19 候选：高频站第 15 轮深化
+  - kafka PageCache 写入 + 索引稀疏索引
+  - redis HyperLogLog / Bitmap 概率数据结构
+  - mysql Undo Log 版本链与 purge 清理
+  - k8s HPA / VPA / CA 三种自动扩缩
+  - es Query / Fetch 两阶段协调节点
+
+### 经验
+- **Kafka Broker 线程**：Acceptor 1 + Processor N（num.network.threads）+ IO M（num.io.threads），RequestChannel 解耦
+- **Redis 复制**：runid 唯一标识实例，断线重连优先 PSYNC 增量；repl_backlog_size 要够大否则退化全量
+- **MySQL WAL**：先 redo log 再 data page，crash 后 replay redo（物理日志）；innodb_log_files_in_group 默认 2 文件循环
+- **K8s Scheduler**：Filter（粗筛）+ Score（精选），Framework 7 个扩展点支持自定义插件（Volcano / scheduler-plugins）
+- **ES Searcher**：原子切换（volatile 引用），新 Searcher 通过 DirectoryReader.openIfChanged() 增量打开；Snapshot 复制 segment 硬链接无需停写
+
+### Build 验证
+- 5 站 build 全部成功（kafka 7.02s / redis 5.46s / mysql 7.78s / cloud-native 4.51s / es 3.22s）
+- 5 张 SVG 全部成功复制到各站 `.vitepress/dist/` 目录
+- audit 验证：files=1662, words=1,364,814, imgs=176, 全量 baseline 稳定
