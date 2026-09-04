@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > **AOF（Append Only File）**通过记录**所有写命令**到文件，实现**增量持久化**。Redis 默认关闭，需手动开启。
 
+![Redis Aof Fsync](/redis-aof-fsync.svg)
+
 ## 🎯 AOF 原理
 
 ```

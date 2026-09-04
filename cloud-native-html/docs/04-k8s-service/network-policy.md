@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > 默认 k8s 集群内所有 Pod 互通。NetworkPolicy = 集群内的"防火墙"。
 
+![K8S Network Policy](/k8s-network-policy.svg)
+
 ## 🤔 为什么需要 NetworkPolicy
 
 ```

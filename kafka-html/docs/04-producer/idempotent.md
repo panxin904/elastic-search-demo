@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > 默认情况下，Producer 可能因为**重试**发送**重复消息**。Kafka 0.11+ 引入**幂等性（Idempotence）**机制，保证消息**精确一次（Exactly Once）**。
 
+![Kafka Idempotent Producer](/kafka-idempotent-producer.svg)
+
 ## 🎯 什么是消息重复？
 
 ```

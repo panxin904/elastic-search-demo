@@ -9,6 +9,8 @@ graphNodeId: translog
 
 # Translog
 
+![Es Translog Recovery](/es-translog-recovery.svg)
+
 ## 📌 一句话定义
 Translog 是分片级别的**事务日志**，用于节点崩溃后**恢复尚未 flush 到磁盘的数据**。
 

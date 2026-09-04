@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > MVCC（Multi-Version Concurrency Control）是 InnoDB 实现**非阻塞读**的核心机制，让读不阻塞写、写不阻塞读。
 
+![Mysql Mvcc Readview](/mysql-mvcc-readview.svg)
+
 ## 🤔 为什么需要 MVCC？
 
 ### 传统锁读的问题
