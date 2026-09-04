@@ -7789,3 +7789,44 @@ cd /tmp/ci-test/java-web-manual && npm install && npm run docs:build
 - 5 站 build 全部成功（kafka 7.02s / redis 5.46s / mysql 7.78s / cloud-native 4.51s / es 3.22s）
 - 5 张 SVG 全部成功复制到各站 `.vitepress/dist/` 目录
 - audit 验证：files=1662, words=1,364,814, imgs=176, 全量 baseline 稳定
+
+## §8.72+ v19 — SVG 大规模扩展（第十九批 5 张）
+
+**日期**：2026-09-04
+**目标**：把 SVG 图示密度从 176 提到 181，路线图进度 88.0% → 90.5%
+
+### 变更明细
+- **媒体层**：5 张 SVG
+  - `shared-assets/svg/kafka-pagecache-index.svg` — PageCache + 稀疏索引（写入流程 + offset→position + 性能要点）
+  - `shared-assets/svg/redis-hyperloglog-bitmap.svg` — 概率统计（3 步流程 + 位图存储 + Set/HLL/Bitmap 选型）
+  - `shared-assets/svg/mysql-undo-purge.svg` — Undo 清理（insert/update 区别 + 3 条件 + 关键参数）
+  - `shared-assets/svg/k8s-hpa-vpa-ca.svg` — 三种扩缩（HPA 副本 + VPA 资源 + CA 节点 + HPA 工作流程）
+  - `shared-assets/svg/es-query-fetch-coord.svg` — Query/Fetch 两阶段（协调节点 + shard fan-out + 性能优化）
+- **内容层**：5 个核心文档前注入
+  - kafka → `02-architecture/log-storage.md` (## 🚀 高性能写盘机制 前)
+  - redis → `06-practice/counter.md` (## 🎯 计数器应用场景 前)
+  - mysql → `04-transaction/mvcc.md` (## 🔍 Undo Log 的清理 前)
+  - cloud-native → `03-k8s-workload/deployment.md` (## 🔄 副本管理 前)
+  - es → `02-query/query-dsl.md` (## 📌 一句话定义 前)
+
+### 路线图进度
+- 当前 imgs=181 / 目标 ≥200 = **90.5%**
+- 剩余 19 张
+- 下一批 §8.72+ v20 候选：高频站第 16 轮深化
+  - kafka Unclean leader election 行为
+  - redis 内存淘汰策略（8 种 LRU/LFU/allkeys）
+  - mysql Change Buffer 二级索引加速
+  - k8s Service 三种类型（ClusterIP/NodePort/LoadBalancer）
+  - es Mapping 字段类型（text/keyword/numeric/date）
+
+### 经验
+- **Kafka PageCache**：顺序写 + 零拷贝 + OS 页缓存 + 稀疏索引 = 单机百万级 TPS；offset→position 二分定位
+- **Redis HLL**：16384 桶（14 位哈希）+ 最大前导零 → 12KB 存亿级 UV（误差 0.81%）；Bitmap 1 bit/user 适合签到场景
+- **MySQL Undo purge**：insert_undo 可立即清，update_undo 需等所有 Read View 关闭；purge_threads 默认 4 并行清理
+- **K8s HPA**：最常用（扩副本），VPA 调资源（需重启），CA 弹节点（云厂商）；HPA 公式 = ceil(当前副本 × 当前指标/目标)
+- **ES Query/Fetch**：协调节点 fan-out → 各 shard 算分返回 top-K → 协调节点汇总排序 → fetch _source；浅分页 size × shards
+
+### Build 验证
+- 5 站 build 全部成功（kafka 7.10s / redis 5.44s / mysql 7.73s / cloud-native 4.55s / es 3.17s）
+- 5 张 SVG 全部成功复制到各站 `.vitepress/dist/` 目录
+- audit 验证：files=1662, words=1,364,851, imgs=181, 全量 baseline 稳定
