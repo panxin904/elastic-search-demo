@@ -130,6 +130,8 @@ kubectl rollout undo deploy/web
 kubectl rollout undo deploy/web --to-revision=2
 ```
 
+![K8S Hpa Vpa Ca](/k8s-hpa-vpa-ca.svg)
+
 ## 🔄 副本管理
 
 ```bash

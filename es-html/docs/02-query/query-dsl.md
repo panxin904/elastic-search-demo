@@ -9,6 +9,8 @@ graphNodeId: query-dsl
 
 # Query DSL
 
+![Es Query Fetch Coord](/es-query-fetch-coord.svg)
+
 ## 📌 一句话定义
 Query DSL 是 ES 的**基于 JSON 的结构化查询语言**，是所有查询/过滤的表达基础。
 

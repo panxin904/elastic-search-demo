@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > **计数器**是 Redis 最经典的应用之一。Redis 的 **INCR** 命令是**原子操作**，性能极高，是实现计数器的最佳方案。
 
+![Redis Hyperloglog Bitmap](/redis-hyperloglog-bitmap.svg)
+
 ## 🎯 计数器应用场景
 
 ```

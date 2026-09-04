@@ -257,6 +257,8 @@ SELECT * FROM users WHERE id = 1;       -- 快照读：用 Read View
 SELECT * FROM users WHERE id = 1 FOR UPDATE;  -- 当前读：读最新值
 ```
 
+![Mysql Undo Purge](/mysql-undo-purge.svg)
+
 ## 🔍 Undo Log 的清理
 
 ### Undo Log 会无限增长吗？

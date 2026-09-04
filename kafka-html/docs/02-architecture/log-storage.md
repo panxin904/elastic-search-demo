@@ -76,6 +76,8 @@ offset    physical_position
   4. 找到 offset=150 的消息
 ```
 
+![Kafka Pagecache Index](/kafka-pagecache-index.svg)
+
 ## 🚀 高性能写盘机制
 
 ### 顺序写 vs 随机写
