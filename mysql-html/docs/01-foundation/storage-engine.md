@@ -22,6 +22,8 @@ date: 2026-08-15  # date-auto-injected
 
 ![Mysql Innodb Buffer Pool](/mysql-innodb-buffer-pool.svg)
 
+![Mysql Change Buffer](/mysql-change-buffer.svg)
+
 ## 🏆 InnoDB：默认且推荐的引擎
 
 ### 核心特性

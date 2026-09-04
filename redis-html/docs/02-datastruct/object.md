@@ -11,6 +11,8 @@ date: 2026-08-15  # date-auto-injected
   <DataStructureViz />
 </ClientOnly>
 
+![Redis Maxmemory Policy](/redis-maxmemory-policy.svg)
+
 ## 一、为什么需要 RedisObject
 
 Redis 的命令处理层是**类型无关**的。比如 `GET` 命令在执行时并不知道底层到底是 int、embstr 还是 raw，它只看 `redisObject.type` 字段，再通过 `type` 特定的命令表分派。

@@ -35,6 +35,8 @@ spec:
   type: ClusterIP            # 默认
 ```
 
+![K8S Service Types](/k8s-service-types.svg)
+
 ## 🎯 三种类型
 
 ### 1. ClusterIP（默认 — 仅集群内）

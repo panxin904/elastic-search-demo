@@ -9,6 +9,8 @@ graphNodeId: mapping
 
 # 映射 Mapping
 
+![Es Mapping Field Types](/es-mapping-field-types.svg)
+
 ## 📌 一句话定义
 Mapping 定义了**索引中文档的字段类型与结构**，是 ES 的"schema"。
 

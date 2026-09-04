@@ -156,6 +156,8 @@ Producer 发送 m6 → Leader 写入 → Follower 未同步
 Consumer.poll() 读取 → 只看到 m0~m4（HW 边界）
 ```
 
+![Kafka Unclean Leader Election](/kafka-unclean-leader-election.svg)
+
 ## ⚠️ 副本同步异常场景
 
 ### 场景 1：Follower 落后
