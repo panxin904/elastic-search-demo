@@ -10,6 +10,8 @@ date: 2026-08-15  # date-auto-injected
 
 > Redis 不是简单的 key-value 缓存，**value 可以是 5 种不同的数据结构**，每种都针对特定场景优化。
 
+![Redis Geo Zset](/redis-geo-zset.svg)
+
 ## 🎯 5 大类型一览
 
 | 类型 | 描述 | 底层编码（Redis 7） | 适用场景 |

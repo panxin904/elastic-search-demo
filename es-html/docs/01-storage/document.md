@@ -25,6 +25,8 @@ graphNodeId: document
 }
 ```
 
+![Es Bulk Api](/es-bulk-api.svg)
+
 ## 🔧 文档操作
 
 ### 索引（写入）文档

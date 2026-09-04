@@ -198,6 +198,8 @@ EXPLAIN SELECT name, age FROM users WHERE name = '张三';
 └────────────────────────────────────┘
 ```
 
+![Mysql Ai Lock](/mysql-ai-lock.svg)
+
 ## 🎯 主键设计的最佳实践
 
 ### 1. 使用自增主键（推荐）

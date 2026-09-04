@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > Ingress = 集群对外的 HTTP / HTTPS 网关。Service 是 4 层，Ingress 是 7 层（懂 HTTP 头 / 路径 / 主机名）。
 
+![K8S Ingress Routing](/k8s-ingress-routing.svg)
+
 ## 🤔 为什么需要 Ingress
 
 ```
