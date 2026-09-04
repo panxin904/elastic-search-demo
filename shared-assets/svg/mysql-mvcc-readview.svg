@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">MySQL MVCC 可见性判断</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Read View + Undo Log 版本链 · 快照读 / 当前读</text>
+
+  <!-- Undo Log 版本链 -->
+  <g>
+    <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">① Undo Log 版本链（同一行多次修改）</text>
+
+    <rect x="40" y="105" width="520" height="90" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+
+    <rect x="55" y="120" width="125" height="60" rx="3" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="117" y="138" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">最新版本</text>
+    <text x="117" y="155" text-anchor="middle" font-size="9" font-family="monospace" fill="#1e293b">name=Bob</text>
+    <text x="117" y="170" text-anchor="middle" font-size="9" fill="#475569">trx_id=203</text>
+
+    <path d="M 180 150 L 215 150" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect x="215" y="120" width="125" height="60" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="277" y="138" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">v2</text>
+    <text x="277" y="155" text-anchor="middle" font-size="9" font-family="monospace" fill="#1e293b">name=Alice</text>
+    <text x="277" y="170" text-anchor="middle" font-size="9" fill="#475569">trx_id=202</text>
+
+    <path d="M 340 150 L 375 150" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect x="375" y="120" width="125" height="60" rx="3" fill="#dcfce7" stroke="#10b981"/>
+    <text x="437" y="138" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">v1</text>
+    <text x="437" y="155" text-anchor="middle" font-size="9" font-family="monospace" fill="#1e293b">name=Tom</text>
+    <text x="437" y="170" text-anchor="middle" font-size="9" fill="#475569">trx_id=201</text>
+
+    <text x="300" y="200" font-size="9" fill="#475569" text-anchor="middle">DB_ROLL_PTR 指针串联，按 trx_id 降序（最新→最旧）</text>
+  </g>
+
+  <!-- Read View 4 个边界 -->
+  <g>
+    <text x="60" y="220" font-size="13" font-weight="700" fill="#1e293b">② Read View 4 个边界（RR / RC 每次查询创建）</text>
+
+    <rect x="40" y="232" width="520" height="80" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+
+    <text x="55" y="252" font-size="10" font-weight="700" fill="#92400e">creator_trx_id</text>
+    <text x="55" y="266" font-size="9" fill="#475569">当前事务 ID</text>
+    <text x="55" y="280" font-size="9" font-family="monospace" fill="#1e293b">= 300</text>
+
+    <text x="195" y="252" font-size="10" font-weight="700" fill="#92400e">m_ids</text>
+    <text x="195" y="266" font-size="9" fill="#475569">活跃事务 ID 集合</text>
+    <text x="195" y="280" font-size="9" font-family="monospace" fill="#1e293b">[201, 205, 207]</text>
+
+    <text x="345" y="252" font-size="10" font-weight="700" fill="#92400e">min_trx_id</text>
+    <text x="345" y="266" font-size="9" fill="#475569">最小活跃 ID</text>
+    <text x="345" y="280" font-size="9" font-family="monospace" fill="#1e293b">= 201</text>
+
+    <text x="475" y="252" font-size="10" font-weight="700" fill="#92400e">max_trx_id</text>
+    <text x="475" y="266" font-size="9" fill="#475569">下一个分配 ID</text>
+    <text x="475" y="280" font-size="9" font-family="monospace" fill="#1e293b">= 308</text>
+  </g>
+
+  <!-- 可见性判断 -->
+  <g>
+    <text x="60" y="330" font-size="13" font-weight="700" fill="#1e293b">③ 可见性判断规则（基于 trx_id）</text>
+
+    <rect x="40" y="342" width="520" height="125" rx="6" fill="#1e293b"/>
+
+    <text x="55" y="362" font-size="10" font-family="monospace" fill="#a7f3d0">trx_id == creator_trx_id     → ✅ 自己改的可见</text>
+    <text x="55" y="380" font-size="10" font-family="monospace" fill="#a7f3d0">trx_id &lt; min_trx_id          → ✅ 之前已提交</text>
+    <text x="55" y="398" font-size="10" font-family="monospace" fill="#fde68a">trx_id &gt; max_trx_id          → ❌ 未来事务</text>
+    <text x="55" y="416" font-size="10" font-family="monospace" fill="#fde68a">trx_id ∈ m_ids               → ❌ 仍未提交</text>
+    <text x="55" y="434" font-size="10" font-family="monospace" fill="#a7f3d0">min ≤ trx_id &lt; max 且 ∉ m_ids  → ✅ 已提交</text>
+
+    <text x="55" y="455" font-size="9" font-family="monospace" fill="#94a3b8">不满足 → 沿 undo log 链找上一版本，递归判断</text>
+  </g>
+</svg>
