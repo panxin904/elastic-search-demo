@@ -7830,3 +7830,44 @@ cd /tmp/ci-test/java-web-manual && npm install && npm run docs:build
 - 5 站 build 全部成功（kafka 7.10s / redis 5.44s / mysql 7.73s / cloud-native 4.55s / es 3.17s）
 - 5 张 SVG 全部成功复制到各站 `.vitepress/dist/` 目录
 - audit 验证：files=1662, words=1,364,851, imgs=181, 全量 baseline 稳定
+
+## §8.72+ v20 — SVG 大规模扩展（第二十批 5 张）
+
+**日期**：2026-09-04
+**目标**：把 SVG 图示密度从 181 提到 186，路线图进度 90.5% → 93.0%
+
+### 变更明细
+- **媒体层**：5 张 SVG
+  - `shared-assets/svg/kafka-unclean-leader-election.svg` — ISR/OSR + 故障场景 + 强一致 vs 高可用策略
+  - `shared-assets/svg/redis-maxmemory-policy.svg` — 8 种淘汰策略（allkeys/volatile × lru/lfu/random/ttl + noeviction）
+  - `shared-assets/svg/mysql-change-buffer.svg` — 二级索引写入随机 IO 解决（缓存后合并 + 适用条件）
+  - `shared-assets/svg/k8s-service-types.svg` — ClusterIP/NodePort/LoadBalancer 三种类型对比
+  - `shared-assets/svg/es-mapping-field-types.svg` — text/keyword/numeric/date/object/array/geo 类型
+- **内容层**：5 个核心文档前注入
+  - kafka → `02-architecture/replica.md` (## ⚠️ 副本同步异常场景 前)
+  - redis → `02-datastruct/object.md` (## 一、为什么需要 RedisObject 前)
+  - mysql → `01-foundation/storage-engine.md` (## 🏆 InnoDB：默认且推荐的引擎 前)
+  - cloud-native → `04-k8s-service/service.md` (## 🎯 三种类型 前)
+  - es → `01-storage/mapping.md` (## 📌 一句话定义 前)
+
+### 路线图进度
+- 当前 imgs=186 / 目标 ≥200 = **93.0%**
+- 剩余 14 张
+- 下一批 §8.72+ v21 候选：高频站第 17 轮深化
+  - kafka 消费者组 Rebalance 协议
+  - redis GEO 地理位置编码
+  - mysql 自增 ID 锁机制
+  - k8s Ingress 7 层路由
+  - es Bulk API 批处理优化
+
+### 经验
+- **Kafka Unclean**：默认 false 保证一致，true 牺牲一致性换可用性；适合日志场景（可重建）
+- **Redis 淘汰**：8 策略分 allkeys/volatile × lru/lfu/random/ttl；allkeys-lru 默认推荐，4.x+ allkeys-lfu 抗突发
+- **MySQL Change Buffer**：仅非唯一二级索引有效，INSERT 主键/唯一键需立即读盘判断；合并时机是 page 读入 + 后台线程
+- **K8s Service 三型**：ClusterIP 默认集群内，NodePort 30000-32767 暴露节点，LoadBalancer 调云 LB（贵）；生产推荐 Ingress
+- **ES Mapping 核心**：text 分词+全文检索，keyword 不分词+聚合排序；numeric/date/boolean 精确值；object 拍平 vs nested 保关系
+
+### Build 验证
+- 5 站 build 全部成功（kafka 7.14s / redis 5.51s / mysql 7.80s / cloud-native 4.58s / es 3.40s）
+- 5 张 SVG 全部成功复制到各站 `.vitepress/dist/` 目录
+- audit 验证：files=1662, words=1,364,888, imgs=186, 全量 baseline 稳定
