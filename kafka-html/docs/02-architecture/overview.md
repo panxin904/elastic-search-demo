@@ -94,6 +94,8 @@ Replica = Partition 的副本
   Partition 0: [Leader=Broker1, Followers=Broker2,3, ISR={1,2,3}]
 ```
 
+![Kafka Broker Threads](/kafka-broker-threads.svg)
+
 ## 📊 Kafka 内部模块
 
 ```

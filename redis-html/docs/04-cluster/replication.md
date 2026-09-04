@@ -11,6 +11,8 @@ date: 2026-08-15  # date-auto-injected
   <DataStructureViz />
 </ClientOnly>
 
+![Redis Replication Psync](/redis-replication-psync.svg)
+
 ## 一、为什么需要主从复制
 
 单机 Redis 存在三个致命问题：**单点故障**（进程挂了就停服）、**读压力无法分担**（所有读都打到同一台机器）、**容量瓶颈**（单实例内存再大也有上限）。主从复制直接解决前两个，第三个留给 Cluster。

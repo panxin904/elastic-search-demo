@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > k8s 集群的"大脑" — 接收请求、调度、维护期望状态。
 
+![K8S Scheduler Framework](/k8s-scheduler-framework.svg)
+
 ## 🧠 三大核心组件
 
 ### 1. kube-apiserver

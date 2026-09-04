@@ -9,6 +9,8 @@ graphNodeId: snapshot
 
 # Snapshot 备份
 
+![Es Searcher Snapshot](/es-searcher-snapshot.svg)
+
 ## 📌 一句话定义
 Snapshot 是 ES 内置的**集群级备份机制**，基于**增量**原理，支持 S3/HDFS/共享文件系统等多种 repository。
 

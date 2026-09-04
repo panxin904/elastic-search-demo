@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > 理解 MySQL 是怎么运行的，是掌握所有高级特性的基础。
 
+![Mysql Redo Log](/mysql-redo-log.svg)
+
 ## 🏛️ MySQL 整体架构
 
 ```
