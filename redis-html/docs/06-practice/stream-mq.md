@@ -51,6 +51,8 @@ XREAD COUNT 10 BLOCK 5000 STREAMS stream:order $
 # $ 表示从最新位置开始读
 ```
 
+![Redis Stream Consumer](/redis-stream-consumer.svg)
+
 ## 🛠️ 消费者组（核心特性）
 
 > **消费者组（Consumer Group）**允许多个消费者协同消费，每个消息只会被组内的一个消费者处理。

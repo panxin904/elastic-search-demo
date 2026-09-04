@@ -9,6 +9,8 @@ date: 2026-08-15  # date-auto-injected
 
 ![Kubernetes RBAC 鉴权流程](/k8s-rbac-flow.svg)
 
+![K8S Rbac](/k8s-rbac.svg)
+
 ## 🤔 为什么需要 RBAC
 
 ```

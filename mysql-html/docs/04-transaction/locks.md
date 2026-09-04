@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > 理解 InnoDB 的锁机制，是排查并发问题和性能调优的基础。
 
+![Mysql Innodb Locks](/mysql-innodb-locks.svg)
+
 ## 🎯 锁的分类
 
 ### 按粒度分类

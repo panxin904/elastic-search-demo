@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > **零拷贝（Zero-Copy）**是 Kafka 高吞吐的关键技术之一。本章深入理解 Kafka 如何通过 sendfile 系统调用减少 CPU 与内存开销。
 
+![Kafka Zero Copy](/kafka-zero-copy.svg)
+
 ## 🎯 传统 IO 的问题
 
 ### 传统文件传输流程

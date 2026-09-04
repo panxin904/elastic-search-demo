@@ -9,6 +9,8 @@ graphNodeId: refresh
 
 # Refresh 机制
 
+![Es Nrt Refresh](/es-nrt-refresh.svg)
+
 ## 📌 一句话定义
 Refresh 是 ES 将**内存中的文档**转换为**可搜索的 segment**的过程，是 ES "**准实时 (NRT, Near Real-Time)**" 的核心。
 
