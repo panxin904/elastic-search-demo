@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Kubernetes StatefulSet 有状态应用</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">稳定网络标识 · 持久存储 · 顺序启停 · MySQL/MongoDB/Redis</text>
+
+  <!-- StatefulSet 三大特性 -->
+  <g>
+    <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">① StatefulSet 三大特性</text>
+
+    <rect x="40" y="105" width="160" height="115" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="120" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">稳定网络 ID</text>
+    <text x="55" y="148" font-size="10" fill="#475569" font-family="monospace">mysql-0</text>
+    <text x="55" y="164" font-size="10" fill="#475569" font-family="monospace">mysql-1</text>
+    <text x="55" y="180" font-size="10" fill="#475569" font-family="monospace">mysql-2</text>
+    <text x="55" y="200" font-size="9" fill="#475569">Headless Service</text>
+    <text x="55" y="215" font-size="9" fill="#475569">解析为 Pod IP</text>
+
+    <rect x="220" y="105" width="160" height="115" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="2"/>
+    <text x="300" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">稳定存储</text>
+    <text x="235" y="148" font-size="10" fill="#475569" font-family="monospace">pv-mysql-0</text>
+    <text x="235" y="164" font-size="10" fill="#475569" font-family="monospace">pv-mysql-1</text>
+    <text x="235" y="180" font-size="10" fill="#475569" font-family="monospace">pv-mysql-2</text>
+    <text x="235" y="200" font-size="9" fill="#475569">每 Pod 独立 PVC</text>
+    <text x="235" y="215" font-size="9" fill="#475569">删除不回收</text>
+
+    <rect x="400" y="105" width="160" height="115" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="480" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">顺序启停</text>
+    <text x="415" y="148" font-size="10" fill="#475569">Pod-0 → Pod-1 → Pod-2</text>
+    <text x="415" y="164" font-size="10" fill="#475569">（创建 / 终止）</text>
+    <text x="415" y="185" font-size="10" fill="#475569">滚动更新：</text>
+    <text x="415" y="200" font-size="9" fill="#475569">partition ≥ N</text>
+    <text x="415" y="215" font-size="9" fill="#475569">灰度回滚</text>
+  </g>
+
+  <!-- MySQL 主从示例 -->
+  <g>
+    <text x="60" y="240" font-size="13" font-weight="700" fill="#1e293b">② 典型应用：MySQL 一主两从</text>
+
+    <rect x="40" y="255" width="520" height="150" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+
+    <!-- Headless Service -->
+    <rect x="55" y="270" width="120" height="32" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="115" y="290" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">mysql-svc</text>
+
+    <line x1="115" y1="302" x2="115" y2="318" stroke="#64748b" stroke-width="1.5"/>
+    <line x1="180" y1="318" x2="50" y2="318" stroke="#64748b" stroke-width="1.5"/>
+    <line x1="50" y1="318" x2="50" y2="335" stroke="#64748b" stroke-width="1.5"/>
+
+    <!-- Pod 0 - Master -->
+    <rect x="80" y="335" width="130" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="145" y="355" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">mysql-0 (主)</text>
+    <text x="145" y="372" text-anchor="middle" font-size="9" fill="#475569">mysql-0.mysql-svc</text>
+    <text x="145" y="386" text-anchor="middle" font-size="9" fill="#475569">PV: data-mysql-0</text>
+
+    <line x1="200" y1="395" x2="240" y2="395" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+    <line x1="200" y1="365" x2="240" y2="365" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+
+    <!-- Pod 1 - Replica -->
+    <rect x="240" y="335" width="130" height="60" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="2"/>
+    <text x="305" y="355" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">mysql-1 (从)</text>
+    <text x="305" y="372" text-anchor="middle" font-size="9" fill="#475569">mysql-1.mysql-svc</text>
+    <text x="305" y="386" text-anchor="middle" font-size="9" fill="#475569">PV: data-mysql-1</text>
+
+    <!-- Pod 2 - Replica -->
+    <rect x="400" y="335" width="130" height="60" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="2"/>
+    <text x="465" y="355" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">mysql-2 (从)</text>
+    <text x="465" y="372" text-anchor="middle" font-size="9" fill="#475569">mysql-2.mysql-svc</text>
+    <text x="465" y="386" text-anchor="middle" font-size="9" fill="#475569">PV: data-mysql-2</text>
+
+    <line x1="370" y1="380" x2="400" y2="380" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)" stroke-dasharray="2,2"/>
+
+    <text x="300" y="425" font-size="10" fill="#475569" text-anchor="middle">主从复制：mysql-0 → mysql-1 → mysql-2（同步 GTID，半同步复制）</text>
+  </g>
+
+  <!-- 与 Deployment 对比 -->
+  <g>
+    <text x="60" y="445" font-size="13" font-weight="700" fill="#1e293b">③ vs Deployment：无状态</text>
+  </g>
+  <g>
+    <rect x="40" y="455" width="250" height="22" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="165" y="470" text-anchor="middle" font-size="9" fill="#92400e">Deployment：Pod 名字随机（web-7c9-x2k4）</text>
+
+    <rect x="310" y="455" width="250" height="22" rx="3" fill="#dcfce7" stroke="#10b981"/>
+    <text x="435" y="470" text-anchor="middle" font-size="9" fill="#065f46">StatefulSet：稳定有序（web-0 / web-1 / web-2）</text>
+  </g>
+</svg>
