@@ -7707,3 +7707,44 @@ cd /tmp/ci-test/java-web-manual && npm install && npm run docs:build
 - 5 站 build 全部成功（kafka 7.13s / redis 5.53s / mysql 7.90s / cloud-native 4.56s / es 3.24s）
 - 5 张 SVG 全部成功复制到各站 `.vitepress/dist/` 目录
 - audit 验证：files=1662, words=1,364,748, imgs=166, 全量 baseline 稳定
+
+## §8.72+ v17 — SVG 大规模扩展（第十七批 5 张）
+
+**日期**：2026-09-04
+**目标**：把 SVG 图示密度从 166 提到 171，路线图进度 83.0% → 85.5%
+
+### 变更明细
+- **媒体层**：5 张 SVG
+  - `shared-assets/svg/kafka-idempotent-producer.svg` — 幂等 Producer（重复来源 + PID/Seq 去重 + EOS 三件套）
+  - `shared-assets/svg/redis-aof-fsync.svg` — AOF 三种 fsync 策略（always/everysec/no 5 星对比 + 写入流程）
+  - `shared-assets/svg/mysql-mvcc-readview.svg` — MVCC 可见性（Undo 版本链 + Read View 4 边界 + 5 条判断规则）
+  - `shared-assets/svg/k8s-network-policy.svg` — NetworkPolicy（默认 vs 白名单 + 4 类规则 + frontend/backend 拓扑）
+  - `shared-assets/svg/es-translog-recovery.svg` — Translog 恢复（写入流程 + crash replay 4 步 + 关键配置）
+- **内容层**：5 个核心文档前注入
+  - kafka → `04-producer/idempotent.md` (## 🎯 什么是消息重复？ 前)
+  - redis → `03-persistence/aof.md` (## 🎯 AOF 原理 前)
+  - mysql → `04-transaction/mvcc.md` (## 🤔 为什么需要 MVCC？ 前)
+  - cloud-native → `04-k8s-service/network-policy.md` (## 🤔 为什么需要 NetworkPolicy 前)
+  - es → `01-storage/translog.md` (## 📌 一句话定义 前)
+
+### 路线图进度
+- 当前 imgs=171 / 目标 ≥200 = **85.5%**
+- 剩余 29 张
+- 下一批 §8.72+ v18 候选：高频站第 14 轮深化
+  - kafka Broker 内部线程模型（IO / acceptor / processor / fetcher）
+  - redis 主从同步完整流程（psync + runid + offset）
+  - mysql InnoDB redo log（WAL 机制 + 写盘流程）
+  - k8s Pod 调度器（kube-scheduler 框架与扩展点）
+  - es Searcher 打开 / 重新打开 / 快照 API
+
+### 经验
+- **Kafka 幂等**：Producer 端 enable.idempotence=true，Broker 端基于 PID + sequence 去重 buffer；EOS 三件套 = 幂等 + Transactional + Read Committed
+- **Redis AOF**：everysec 折中（性能 4⭐ + 安全 4⭐），always 极慢用于金融，no 不推荐；BGREWRITEAOF 解决文件膨胀
+- **MySQL MVCC**：Undo Log 链按 trx_id 降序串联，Read View 4 边界（creator/m_ids/min/max），5 条规则判断可见性
+- **K8s NetworkPolicy**：白名单模式（默认拒绝 + 显式 allow），需 CNI 插件（Calico/Cilium）支持，可实现微隔离
+- **ES Translog**：WAL 机制，先 fsync translog 再 200 OK；崩溃时 replay last_flush_id+1 起的操作，doc 不丢
+
+### Build 验证
+- 5 站 build 全部成功（kafka 7.12s / redis 5.45s / mysql 7.81s / cloud-native 4.50s / es 3.15s）
+- 5 张 SVG 全部成功复制到各站 `.vitepress/dist/` 目录
+- audit 验证：files=1662, words=1,364,781, imgs=171, 全量 baseline 稳定
