@@ -7666,3 +7666,44 @@ cd /tmp/ci-test/java-web-manual && npm install && npm run docs:build
 - 5 站 build 全部成功（kafka 7.20s / redis 5.43s / mysql 7.76s / cloud-native 4.56s / es 3.30s）
 - 5 张 SVG 全部成功复制到各站 `.vitepress/dist/` 目录
 - audit 验证：files=1662, words=1,364,717, imgs=161, 全量 baseline 稳定
+
+## §8.72+ v16 — SVG 大规模扩展（第十六批 5 张）
+
+**日期**：2026-09-04
+**目标**：把 SVG 图示密度从 161 提到 166，路线图进度 80.5% → 83.0%
+
+### 变更明细
+- **媒体层**：5 张 SVG
+  - `shared-assets/svg/kafka-zero-copy.svg` — 零拷贝（传统 IO 4 次拷贝 vs sendfile 1 次 DMA + SG-DMA + Kafka FileChannel.transferTo）
+  - `shared-assets/svg/redis-stream-consumer.svg` — Stream 消费者组（消息 ID + 3 worker 协同 + PEL ACK 生命周期）
+  - `shared-assets/svg/mysql-innodb-locks.svg` — 锁体系（行锁/间隙锁/Next-Key/表锁 + 索引范围可视化 + 意向锁 IS/IX）
+  - `shared-assets/svg/k8s-rbac.svg` — RBAC 权限模型（4 要素 + verbs×resources YAML + 鉴权决策流程）
+  - `shared-assets/svg/es-nrt-refresh.svg` — NRT 实时刷新（buffer→segment 时序 + Refresh vs Flush 对比）
+- **内容层**：5 个核心文档前注入
+  - kafka → `02-architecture/zero-copy.md` (## 🎯 传统 IO 的问题 前)
+  - redis → `06-practice/stream-mq.md` (## 🛠️ 消费者组（核心特性） 前)
+  - mysql → `04-transaction/locks.md` (## 🎯 锁的分类 前)
+  - cloud-native → `11-security/rbac.md` (## 🤔 为什么需要 RBAC 前)
+  - es → `01-storage/refresh.md` (## 📌 一句话定义 前)
+
+### 路线图进度
+- 当前 imgs=166 / 目标 ≥200 = **83.0%**
+- 剩余 34 张
+- 下一批 §8.72+ v17 候选：高频站第 13 轮深化
+  - kafka 幂等 producer / EOS 端到端
+  - redis 持久化（AOF 三种 fsync 策略）
+  - mysql MVCC 可见性判断（read view + undo log）
+  - k8s Network Policy 流量控制
+  - es Translog 数据恢复机制
+
+### 经验
+- **Kafka 零拷贝**：4 次拷贝降到 1 次 DMA + SG-DMA，CPU 利用率降低 50%，FileChannel.transferTo() 是关键 API
+- **Redis Stream**：XREADGROUP 读后写入 PEL，XACK 后移除；crash 后用 XREADGROUP 0 重投未确认消息
+- **MySQL Next-Key Lock**：RR 隔离级默认 = 行锁 + 间隙锁，范围 (20, 40] 防幻读
+- **K8s RBAC**：Subject + Role + Binding + Resource，verbs×resources 是核心表达，kubectl get pods 触发鉴权链
+- **ES NRT**：Refresh 是内存操作（1s 默认），Flush 是磁盘操作（30min 默认）；Refresh 使可搜，Flush 持久化
+
+### Build 验证
+- 5 站 build 全部成功（kafka 7.13s / redis 5.53s / mysql 7.90s / cloud-native 4.56s / es 3.24s）
+- 5 张 SVG 全部成功复制到各站 `.vitepress/dist/` 目录
+- audit 验证：files=1662, words=1,364,748, imgs=166, 全量 baseline 稳定
