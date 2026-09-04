@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Elasticsearch NRT 实时刷新</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">in-memory buffer → segment → searcher reopen · refresh_interval</text>
+
+  <!-- 时序图 -->
+  <g>
+    <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">① 文档写入时序（写入即可搜）</text>
+
+    <rect x="40" y="105" width="520" height="170" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+
+    <!-- 内存 buffer -->
+    <rect x="60" y="120" width="115" height="140" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="117" y="138" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">in-memory</text>
+    <text x="117" y="153" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">buffer</text>
+    <text x="117" y="173" text-anchor="middle" font-size="9" fill="#475569">新文档写入</text>
+    <text x="117" y="188" text-anchor="middle" font-size="9" fill="#475569">实时可读</text>
+    <text x="117" y="208" text-anchor="middle" font-size="9" fill="#475569">不写盘</text>
+    <text x="117" y="232" text-anchor="middle" font-size="9" fill="#475569">防丢失：</text>
+    <text x="117" y="247" text-anchor="middle" font-size="9" fill="#475569">translog</text>
+
+    <path d="M 175 160 L 215 160" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="195" y="152" font-size="8" fill="#475569" text-anchor="middle">1s 后</text>
+
+    <!-- segment 1 -->
+    <rect x="215" y="120" width="105" height="140" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="267" y="138" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">segment_0</text>
+    <text x="267" y="158" text-anchor="middle" font-size="9" fill="#475569">不可变</text>
+    <text x="267" y="178" text-anchor="middle" font-size="9" fill="#475569">倒排索引</text>
+    <text x="267" y="198" text-anchor="middle" font-size="9" fill="#475569">doc_values</text>
+    <text x="267" y="222" text-anchor="middle" font-size="9" fill="#475569">进入 query</text>
+    <text x="267" y="237" text-anchor="middle" font-size="9" fill="#475569">可搜索</text>
+
+    <path d="M 320 160 L 360 160" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="340" y="152" font-size="8" fill="#475569" text-anchor="middle">再 1s</text>
+
+    <!-- segment 2 -->
+    <rect x="360" y="120" width="105" height="140" rx="4" fill="#dcfce7" stroke="#10b981"/>
+    <text x="412" y="138" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">segment_1</text>
+    <text x="412" y="158" text-anchor="middle" font-size="9" fill="#475569">新 segment</text>
+    <text x="412" y="178" text-anchor="middle" font-size="9" fill="#475569">追加</text>
+    <text x="412" y="202" text-anchor="middle" font-size="9" fill="#475569">merge 时</text>
+    <text x="412" y="217" text-anchor="middle" font-size="9" fill="#475569">合并 segment_0</text>
+    <text x="412" y="237" text-anchor="middle" font-size="9" fill="#475569">+ 1</text>
+
+    <text x="500" y="160" font-size="9" font-weight="700" fill="#dc2626">合并</text>
+    <path d="M 467 170 L 467 230" fill="none" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3,2"/>
+
+    <text x="60" y="262" font-size="10" fill="#475569">每 1s（默认）buffer → 新 segment，searcher 重新打开（reopen）使新文档可搜</text>
+  </g>
+
+  <!-- refresh vs flush 对比 -->
+  <g>
+    <text x="60" y="295" font-size="13" font-weight="700" fill="#1e293b">② Refresh vs Flush（易混淆）</text>
+
+    <rect x="40" y="310" width="250" height="150" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="165" y="328" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">Refresh</text>
+    <text x="55" y="348" font-size="10" fill="#475569">• buffer → segment</text>
+    <text x="55" y="364" font-size="10" fill="#475569">• 内存操作</text>
+    <text x="55" y="380" font-size="10" fill="#475569">• 默认每 1s</text>
+    <text x="55" y="396" font-size="10" fill="#475569">• 不写盘 segment</text>
+    <text x="55" y="412" font-size="10" fill="#475569">• 只是使可搜</text>
+    <text x="55" y="430" font-size="10" font-weight="700" fill="#1e40af">高频写入场景</text>
+    <text x="55" y="445" font-size="9" fill="#475569">调大 → 减少 IO</text>
+
+    <rect x="310" y="310" width="250" height="150" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="435" y="328" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">Flush</text>
+    <text x="325" y="348" font-size="10" fill="#475569">• segment → 磁盘</text>
+    <text x="325" y="364" font-size="10" fill="#475569">• 写盘 + fsync</text>
+    <text x="325" y="380" font-size="10" fill="#475569">• 默认每 30min</text>
+    <text x="325" y="396" font-size="10" fill="#475569">• 清空 translog</text>
+    <text x="325" y="412" font-size="10" fill="#475569">• 数据持久化</text>
+    <text x="325" y="430" font-size="10" font-weight="700" fill="#065f46">故障恢复</text>
+    <text x="325" y="445" font-size="9" fill="#475569">从 translog replay</text>
+  </g>
+</svg>
