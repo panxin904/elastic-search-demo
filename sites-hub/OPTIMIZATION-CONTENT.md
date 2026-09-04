@@ -7625,3 +7625,44 @@ cd /tmp/ci-test/java-web-manual && npm install && npm run docs:build
 - 5 站 build 全部成功（kafka 6.99s / redis 5.36s / mysql 7.68s / cloud-native 4.40s / es 3.01s）
 - 5 张 SVG 全部成功复制到各站 `.vitepress/dist/` 目录
 - audit 验证：files=1662, words=1,364,686, imgs=156, 全量 baseline 稳定
+
+## §8.72+ v15 — SVG 大规模扩展（第十五批 5 张）
+
+**日期**：2026-09-04
+**目标**：把 SVG 图示密度从 156 提到 161，路线图进度 78.0% → 80.5%
+
+### 变更明细
+- **媒体层**：5 张 SVG
+  - `shared-assets/svg/kafka-mirrormaker2.svg` — 跨集群同步（双集群拓扑 + MM2 通道 + 4 类内部 topic）
+  - `shared-assets/svg/redis-multi-key-tx.svg` — 多 key 事务（MULTI/EXEC + EVAL Lua + Hash Tag 路由）
+  - `shared-assets/svg/mysql-innodb-buffer-pool.svg` — InnoDB Buffer Pool 内部（3 链表 + LRU midpoint + Change Buffer + AHI）
+  - `shared-assets/svg/k8s-statefulset.svg` — 有状态应用（三大特性 + MySQL 一主两从拓扑 + vs Deployment）
+  - `shared-assets/svg/es-ilm-lifecycle.svg` — 索引生命周期（4 阶段流水线 + 触发条件 + Rollover 机制）
+- **内容层**：5 个核心文档前注入
+  - kafka → `08-enterprise/cluster.md` (## 🎯 集群规划 前)
+  - redis → `04-cluster/cluster.md` (## ⚠️ 集群限制 前)
+  - mysql → `01-foundation/storage-engine.md` (## 🏆 InnoDB：默认且推荐的引擎 前)
+  - cloud-native → `03-k8s-workload/statefulset.md` (## 🤔 为什么需要 StatefulSet 前)
+  - es → `04-ops/ilm.md` (## 📌 一句话定义 前)
+
+### 路线图进度
+- 当前 imgs=161 / 目标 ≥200 = **80.5%**
+- 剩余 39 张
+- 下一批 §8.72+ v16 候选：高频站第 12 轮深化
+  - kafka 零拷贝 sendfile / IO 模型演进
+  - redis Stream 消费者组与 ACK 机制
+  - mysql InnoDB 锁体系（行锁 / 间隙锁 / Next-Key）
+  - k8s RBAC 权限模型（Role / ClusterRole / Binding）
+  - es Near Real-Time (NRT) search refresh_interval
+
+### 经验
+- **Kafka MirrorMaker2**：基于 Connect 框架，4 类内部 topic（heartbeat/checkpoints/offset-sync/config-sync），支持 ACL 同步
+- **Redis 多 Key 事务**：MULTI/EXEC 不支持回滚（失败继续），EVAL Lua 才是真正原子，Cluster 下用 Hash Tag 强制同 slot
+- **MySQL Buffer Pool**：LRU midpoint 优化（innodb_old_blocks_pct=37）防全表扫描污染，Change Buffer 仅对非唯一二级索引生效
+- **K8s StatefulSet**：核心是稳定网络 ID（headless service）+ 独立 PVC + 顺序启停，MySQL/Redis/ZK/Mongo 适用
+- **ES ILM**：四阶段 Hot→Warm→Cold→Frozen→Delete，触发条件支持时间/大小/文档数，Rollover 在热阶段内切换别名
+
+### Build 验证
+- 5 站 build 全部成功（kafka 7.20s / redis 5.43s / mysql 7.76s / cloud-native 4.56s / es 3.30s）
+- 5 张 SVG 全部成功复制到各站 `.vitepress/dist/` 目录
+- audit 验证：files=1662, words=1,364,717, imgs=161, 全量 baseline 稳定
