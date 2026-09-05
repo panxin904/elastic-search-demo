@@ -13,19 +13,19 @@
 
   <!-- 4 层节点 -->
   <g font-size="12" font-weight="600">
-    <rect x="60" y="120" width="100" height="50" rx="8" fill="#3b82f6" opacity="0.9"/>
+    <rect class="at-hover-card" x="60" y="120" width="100" height="50" rx="8" fill="#3b82f6" opacity="0.9"/>
     <text x="110" y="142" text-anchor="middle" fill="white">本地解析器</text>
     <text x="110" y="158" text-anchor="middle" font-size="10" fill="#dbeafe">Resolver</text>
 
-    <rect x="200" y="120" width="100" height="50" rx="8" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="200" y="120" width="100" height="50" rx="8" fill="#10b981" opacity="0.9"/>
     <text x="250" y="142" text-anchor="middle" fill="white">根 DNS</text>
     <text x="250" y="158" text-anchor="middle" font-size="10" fill="#d1fae5">Root (.)</text>
 
-    <rect x="340" y="120" width="100" height="50" rx="8" fill="#f59e0b" opacity="0.9"/>
+    <rect class="at-hover-card" x="340" y="120" width="100" height="50" rx="8" fill="#f59e0b" opacity="0.9"/>
     <text x="390" y="142" text-anchor="middle" fill="white">顶级域 DNS</text>
     <text x="390" y="158" text-anchor="middle" font-size="10" fill="#fef3c7">TLD (.com)</text>
 
-    <rect x="480" y="120" width="100" height="50" rx="8" fill="#ec4899" opacity="0.9"/>
+    <rect class="at-hover-card" x="480" y="120" width="100" height="50" rx="8" fill="#ec4899" opacity="0.9"/>
     <text x="530" y="142" text-anchor="middle" fill="white">权威 DNS</text>
     <text x="530" y="158" text-anchor="middle" font-size="10" fill="#fce7f3">Authoritative</text>
   </g>
@@ -57,7 +57,7 @@
 
   <!-- 解析步骤（底部） -->
   <g font-size="11">
-    <rect x="50" y="380" width="500" height="70" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <rect class="at-hover-card" x="50" y="380" width="500" height="70" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
     <text x="300" y="403" text-anchor="middle" font-weight="700" fill="#1e293b">完整链路</text>
     <text x="300" y="423" text-anchor="middle" fill="#475569">浏览器 → 操作系统缓存 → 本地 Resolver → ISP 缓存 → 根 → TLD → 权威</text>
     <text x="300" y="438" text-anchor="middle" fill="#475569">每级缓存 TTL 不等：浏览器 1min / OS 5min / ISP 1hr / 权威 NS 24hr</text>

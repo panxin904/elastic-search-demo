@@ -13,7 +13,7 @@
 
   <g font-size="11" font-weight="700">
     <!-- 阻塞 -->
-    <rect x="40" y="90" width="105" height="100" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="40" y="90" width="105" height="100" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
     <text x="92" y="110" text-anchor="middle" fill="#1e3a8a">① 阻塞 IO</text>
     <text x="92" y="130" text-anchor="middle" font-size="9" fill="#1e40af">Blocking</text>
     <text x="92" y="155" text-anchor="middle" font-size="10" fill="#1e40af">read 阻塞到数据</text>
@@ -21,7 +21,7 @@
     <text x="92" y="185" text-anchor="middle" font-size="9" fill="#3b82f6">最简单</text>
 
     <!-- 非阻塞 -->
-    <rect x="155" y="90" width="105" height="100" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="155" y="90" width="105" height="100" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
     <text x="207" y="110" text-anchor="middle" fill="#064e3b">② 非阻塞</text>
     <text x="207" y="130" text-anchor="middle" font-size="9" fill="#065f46">Non-blocking</text>
     <text x="207" y="155" text-anchor="middle" font-size="10" fill="#065f46">轮询 EAGAIN</text>
@@ -29,7 +29,7 @@
     <text x="207" y="185" text-anchor="middle" font-size="9" fill="#10b981">少见</text>
 
     <!-- 多路复用 -->
-    <rect x="270" y="90" width="105" height="100" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="270" y="90" width="105" height="100" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
     <text x="322" y="110" text-anchor="middle" fill="#92400e">③ IO 多路复用</text>
     <text x="322" y="125" text-anchor="middle" font-size="9" fill="#78350f">Multiplexing</text>
     <text x="322" y="155" text-anchor="middle" font-size="10" fill="#78350f">select/poll/epoll</text>
@@ -37,7 +37,7 @@
     <text x="322" y="185" text-anchor="middle" font-size="9" fill="#f59e0b">★ Redis/Nginx</text>
 
     <!-- 信号驱动 -->
-    <rect x="385" y="90" width="105" height="100" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="385" y="90" width="105" height="100" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
     <text x="437" y="110" text-anchor="middle" fill="#9f1239">④ 信号驱动</text>
     <text x="437" y="125" text-anchor="middle" font-size="9" fill="#9d174d">Signal-Driven</text>
     <text x="437" y="155" text-anchor="middle" font-size="10" fill="#9d174d">SIGIO 通知</text>
@@ -45,7 +45,7 @@
     <text x="437" y="185" text-anchor="middle" font-size="9" fill="#ec4899">不推荐</text>
 
     <!-- 异步 -->
-    <rect x="500" y="90" width="80" height="100" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="500" y="90" width="80" height="100" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
     <text x="540" y="110" text-anchor="middle" fill="#5b21b6">⑤ 异步</text>
     <text x="540" y="125" text-anchor="middle" font-size="9" fill="#6b21a8">Async I/O</text>
     <text x="540" y="155" text-anchor="middle" font-size="10" fill="#6b21a8">io_uring</text>
@@ -55,7 +55,7 @@
 
   <!-- 对比表 -->
   <g font-size="11">
-    <rect x="40" y="220" width="540" height="180" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <rect class="at-hover-card" x="40" y="220" width="540" height="180" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
     <text x="300" y="240" text-anchor="middle" font-weight="700" fill="#1e293b">同步 vs 异步 / 阻塞 vs 非阻塞</text>
 
     <g font-size="10" font-weight="700">

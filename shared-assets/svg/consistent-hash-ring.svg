@@ -54,16 +54,16 @@
 
   <!-- 图例 -->
   <g font-size="11">
-    <rect x="40" y="100" width="50" height="14" rx="3" fill="#3b82f6"/>
+    <rect class="at-hover-card" x="40" y="100" width="50" height="14" rx="3" fill="#3b82f6"/>
     <text x="105" y="111" font-weight="700" fill="#1e3a8a">Node 物理节点</text>
 
-    <rect x="40" y="125" width="50" height="14" rx="3" fill="#fbbf24"/>
+    <rect class="at-hover-card" x="40" y="125" width="50" height="14" rx="3" fill="#fbbf24"/>
     <text x="105" y="136" font-weight="700" fill="#92400e">Data Key</text>
   </g>
 
   <!-- 优势说明 -->
   <g font-size="11">
-    <rect x="40" y="370" width="520" height="90" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <rect class="at-hover-card" x="40" y="370" width="520" height="90" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
     <text x="300" y="390" text-anchor="middle" font-weight="700" fill="#1e293b">关键优势</text>
     <text x="60" y="412" fill="#475569">✓ 节点增删：仅影响相邻区间 · 最小化数据迁移</text>
     <text x="60" y="430" fill="#475569">✓ 传统 hash 取模：节点变化 → 几乎全部数据重映射</text>

@@ -18,10 +18,10 @@
     <text x="500" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">③ 完成阶段</text>
 
     <!-- 阶段 1: 准备 -->
-    <rect x="40" y="120" width="120" height="280" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" fill-opacity="0.3"/>
+    <rect class="at-hover-card" x="40" y="120" width="120" height="280" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" fill-opacity="0.3"/>
     <text x="100" y="145" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">源 M1</text>
     <text x="100" y="160" text-anchor="middle" font-size="9" fill="#475569">slots 0-5460</text>
-    <rect x="60" y="180" width="80" height="60" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="60" y="180" width="80" height="60" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
     <text x="100" y="200" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">slot 5000</text>
     <text x="100" y="215" text-anchor="middle" font-size="9" fill="#92400e">MIGRATING</text>
     <text x="100" y="230" text-anchor="middle" font-size="9" fill="#92400e">→ target M4</text>
@@ -36,11 +36,11 @@
     <text x="100" y="392" text-anchor="middle" font-size="9" fill="#64748b">老 key 仍命中 M1</text>
 
     <!-- 阶段 2: 迁移 -->
-    <rect x="240" y="120" width="120" height="280" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" fill-opacity="0.3"/>
+    <rect class="at-hover-card" x="240" y="120" width="120" height="280" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" fill-opacity="0.3"/>
     <text x="300" y="145" text-anchor="middle" font-size="11" font-weight="600" fill="#92400e">目标 M4</text>
     <text x="300" y="160" text-anchor="middle" font-size="9" fill="#475569">新节点（空）</text>
 
-    <rect x="260" y="180" width="80" height="60" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="260" y="180" width="80" height="60" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="300" y="200" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">slot 5000</text>
     <text x="300" y="215" text-anchor="middle" font-size="9" fill="#1e40af">IMPORTING</text>
     <text x="300" y="230" text-anchor="middle" font-size="9" fill="#1e40af">← from M1</text>
@@ -55,10 +55,10 @@
     <text x="200" y="385" text-anchor="middle" font-size="9" fill="#475569">逐 key 原子搬迁</text>
 
     <!-- 阶段 3: 完成 -->
-    <rect x="440" y="120" width="120" height="280" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5" fill-opacity="0.3"/>
+    <rect class="at-hover-card" x="440" y="120" width="120" height="280" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5" fill-opacity="0.3"/>
     <text x="500" y="145" text-anchor="middle" font-size="11" font-weight="600" fill="#065f46">最终状态</text>
 
-    <rect x="460" y="180" width="80" height="60" rx="4" fill="#d1fae5" stroke="#10b981"/>
+    <rect class="at-hover-card" x="460" y="180" width="80" height="60" rx="4" fill="#d1fae5" stroke="#10b981"/>
     <text x="500" y="200" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">slot 5000</text>
     <text x="500" y="215" text-anchor="middle" font-size="9" fill="#065f46">NODE M4</text>
 
@@ -73,7 +73,7 @@
   </g>
 
   <!-- 底部提示 -->
-  <rect x="20" y="425" width="560" height="45" rx="6" fill="#fef9c3" stroke="#facc15"/>
+  <rect class="at-hover-card" x="20" y="425" width="560" height="45" rx="6" fill="#fef9c3" stroke="#facc15"/>
   <text x="40" y="448" font-size="11" font-weight="700" fill="#854d0e">⚠️ 关键：迁移期间客户端请求可能落到源/目标任一方</text>
   <text x="40" y="463" font-size="10" fill="#854d0e">迁移完成后须所有 master 都执行 SETSLOT NODE，否则集群状态不一致</text>
 </svg>

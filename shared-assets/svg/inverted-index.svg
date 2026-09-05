@@ -13,62 +13,62 @@
 
   <!-- 左侧：文档 -->
   <g font-size="11" font-weight="700">
-    <rect x="40" y="100" width="160" height="280" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <rect class="at-hover-card" x="40" y="100" width="160" height="280" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
     <text x="120" y="120" text-anchor="middle" fill="#1e3a8a">文档集合</text>
     <text x="120" y="135" text-anchor="middle" font-size="10" fill="#1e40af">Documents</text>
 
-    <rect x="50" y="145" width="140" height="40" rx="4" fill="#3b82f6" opacity="0.9"/>
+    <rect class="at-hover-card" x="50" y="145" width="140" height="40" rx="4" fill="#3b82f6" opacity="0.9"/>
     <text x="120" y="162" text-anchor="middle" font-size="11" fill="white">Doc 1</text>
     <text x="120" y="178" text-anchor="middle" font-size="10" fill="#dbeafe">kafka is fast</text>
 
-    <rect x="50" y="190" width="140" height="40" rx="4" fill="#3b82f6" opacity="0.9"/>
+    <rect class="at-hover-card" x="50" y="190" width="140" height="40" rx="4" fill="#3b82f6" opacity="0.9"/>
     <text x="120" y="207" text-anchor="middle" font-size="11" fill="white">Doc 2</text>
     <text x="120" y="223" text-anchor="middle" font-size="10" fill="#dbeafe">redis is fast</text>
 
-    <rect x="50" y="235" width="140" height="40" rx="4" fill="#3b82f6" opacity="0.9"/>
+    <rect class="at-hover-card" x="50" y="235" width="140" height="40" rx="4" fill="#3b82f6" opacity="0.9"/>
     <text x="120" y="252" text-anchor="middle" font-size="11" fill="white">Doc 3</text>
     <text x="120" y="268" text-anchor="middle" font-size="10" fill="#dbeafe">kafka and redis</text>
 
-    <rect x="50" y="280" width="140" height="40" rx="4" fill="#3b82f6" opacity="0.9"/>
+    <rect class="at-hover-card" x="50" y="280" width="140" height="40" rx="4" fill="#3b82f6" opacity="0.9"/>
     <text x="120" y="297" text-anchor="middle" font-size="11" fill="white">Doc 4</text>
     <text x="120" y="313" text-anchor="middle" font-size="10" fill="#dbeafe">fast search engine</text>
 
-    <rect x="50" y="325" width="140" height="40" rx="4" fill="#3b82f6" opacity="0.9"/>
+    <rect class="at-hover-card" x="50" y="325" width="140" height="40" rx="4" fill="#3b82f6" opacity="0.9"/>
     <text x="120" y="342" text-anchor="middle" font-size="11" fill="white">Doc 5</text>
     <text x="120" y="358" text-anchor="middle" font-size="10" fill="#dbeafe">redis is key-value</text>
   </g>
 
   <!-- 中间：词典 -->
   <g font-size="11" font-weight="700">
-    <rect x="240" y="100" width="160" height="280" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <rect class="at-hover-card" x="240" y="100" width="160" height="280" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
     <text x="320" y="120" text-anchor="middle" fill="#064e3b">Term Dictionary</text>
     <text x="320" y="135" text-anchor="middle" font-size="10" fill="#065f46">词典（排序 + FST）</text>
 
-    <rect x="250" y="145" width="140" height="30" rx="4" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="250" y="145" width="140" height="30" rx="4" fill="#10b981" opacity="0.9"/>
     <text x="320" y="166" text-anchor="middle" fill="white">and</text>
 
-    <rect x="250" y="180" width="140" height="30" rx="4" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="250" y="180" width="140" height="30" rx="4" fill="#10b981" opacity="0.9"/>
     <text x="320" y="201" text-anchor="middle" fill="white">engine</text>
 
-    <rect x="250" y="215" width="140" height="30" rx="4" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="250" y="215" width="140" height="30" rx="4" fill="#10b981" opacity="0.9"/>
     <text x="320" y="236" text-anchor="middle" fill="white">fast</text>
 
-    <rect x="250" y="250" width="140" height="30" rx="4" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="250" y="250" width="140" height="30" rx="4" fill="#10b981" opacity="0.9"/>
     <text x="320" y="271" text-anchor="middle" fill="white">is</text>
 
-    <rect x="250" y="285" width="140" height="30" rx="4" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="250" y="285" width="140" height="30" rx="4" fill="#10b981" opacity="0.9"/>
     <text x="320" y="306" text-anchor="middle" fill="white">kafka</text>
 
-    <rect x="250" y="320" width="140" height="30" rx="4" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="250" y="320" width="140" height="30" rx="4" fill="#10b981" opacity="0.9"/>
     <text x="320" y="341" text-anchor="middle" fill="white">redis</text>
 
-    <rect x="250" y="355" width="140" height="30" rx="4" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="250" y="355" width="140" height="30" rx="4" fill="#10b981" opacity="0.9"/>
     <text x="320" y="376" text-anchor="middle" fill="white">search</text>
   </g>
 
   <!-- 右侧：posting list -->
   <g font-size="11" font-weight="700">
-    <rect x="440" y="100" width="120" height="280" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+    <rect class="at-hover-card" x="440" y="100" width="120" height="280" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
     <text x="500" y="120" text-anchor="middle" fill="#9f1239">Postings</text>
     <text x="500" y="135" text-anchor="middle" font-size="10" fill="#9d174d">倒排列表</text>
 
@@ -83,7 +83,7 @@
 
   <!-- 关键特性 -->
   <g font-size="11">
-    <rect x="50" y="405" width="510" height="55" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <rect class="at-hover-card" x="50" y="405" width="510" height="55" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
     <text x="60" y="425" font-weight="700" fill="#1e293b">关键机制：</text>
     <text x="60" y="445" fill="#475569">✓ FST 压缩词典（内存前缀查找 O(len)）</text>
     <text x="320" y="445" fill="#475569">✓ Roaring Bitmap 压缩 postings</text>

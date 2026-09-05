@@ -11,7 +11,7 @@
   <!-- 三个对比列 -->
   <g>
     <!-- RDB -->
-    <rect x="40" y="90" width="165" height="320" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <rect class="at-hover-card" x="40" y="90" width="165" height="320" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
     <text x="122" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#1e40af">RDB（快照）</text>
 
     <text x="60" y="145" font-size="11" font-weight="700" fill="#1e40af">✓ 优点</text>
@@ -33,7 +33,7 @@
     <text x="60" y="385" font-size="11" font-weight="700" fill="#065f46">恢复速度：极快</text>
 
     <!-- AOF -->
-    <rect x="220" y="90" width="165" height="320" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <rect class="at-hover-card" x="220" y="90" width="165" height="320" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
     <text x="302" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">AOF（追加日志）</text>
 
     <text x="240" y="145" font-size="11" font-weight="700" fill="#92400e">✓ 优点</text>
@@ -55,7 +55,7 @@
     <text x="240" y="385" font-size="11" font-weight="700" fill="#065f46">恢复速度：慢</text>
 
     <!-- 混合 -->
-    <rect x="400" y="90" width="165" height="320" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <rect class="at-hover-card" x="400" y="90" width="165" height="320" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
     <text x="482" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#065f46">RDB+AOF 混合</text>
 
     <text x="420" y="135" text-anchor="middle" font-size="9" fill="#475569">（Redis 4+ 默认）</text>
@@ -79,7 +79,7 @@
 
   <!-- 决策流程 -->
   <g>
-    <rect x="40" y="425" width="525" height="45" rx="6" fill="#fef9c3" stroke="#facc15" stroke-width="2"/>
+    <rect class="at-hover-card" x="40" y="425" width="525" height="45" rx="6" fill="#fef9c3" stroke="#facc15" stroke-width="2"/>
     <text x="60" y="447" font-size="11" font-weight="700" fill="#854d0e">🎯 选型决策：</text>
     <text x="60" y="463" font-size="11" fill="#854d0e">缓存场景 → RDB 即可 · 数据安全优先 → 混合（推荐）· 实时计算 → AOF everysec</text>
   </g>

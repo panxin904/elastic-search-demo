@@ -19,7 +19,7 @@
     <text x="60" y="95" font-size="13" font-weight="700" fill="#1e293b">三种恢复场景</text>
 
     <!-- 场景 1: 节点重启 -->
-    <rect x="40" y="115" width="165" height="130" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <rect class="at-hover-card" x="40" y="115" width="165" height="130" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
     <text x="122" y="138" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">① 节点重启</text>
     <text x="60" y="160" font-size="10" fill="#475569">本地 segment 仍在</text>
     <text x="60" y="178" font-size="10" fill="#475569">• 校验 checksum</text>
@@ -28,7 +28,7 @@
     <text x="60" y="232" font-size="10" fill="#10b981" font-weight="700">无需网络传输</text>
 
     <!-- 场景 2: 新副本 -->
-    <rect x="220" y="115" width="165" height="130" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <rect class="at-hover-card" x="220" y="115" width="165" height="130" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
     <text x="302" y="138" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">② 新副本分配</text>
     <text x="240" y="160" font-size="10" fill="#475569">节点丢失需要补副本</text>
     <text x="240" y="178" font-size="10" fill="#475569">• 从 Primary 拉 segment</text>
@@ -37,7 +37,7 @@
     <text x="240" y="232" font-size="10" fill="#92400e" font-weight="700">受 cluster.routing 限制</text>
 
     <!-- 场景 3: 快照恢复 -->
-    <rect x="400" y="115" width="165" height="130" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <rect class="at-hover-card" x="400" y="115" width="165" height="130" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
     <text x="482" y="138" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">③ 快照恢复</text>
     <text x="420" y="160" font-size="10" fill="#475569">从 S3 仓库还原</text>
     <text x="420" y="178" font-size="10" fill="#475569">• SNAPSHOT API</text>
@@ -50,7 +50,7 @@
   <g>
     <text x="60" y="270" font-size="13" font-weight="700" fill="#1e293b">节点启动恢复流程</text>
 
-    <rect x="40" y="285" width="520" height="160" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect class="at-hover-card" x="40" y="285" width="520" height="160" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
 
     <text x="60" y="307" font-size="11" font-weight="700" fill="#1e293b">步骤：</text>
     <text x="60" y="325" font-size="10" fill="#475569">1. 读取 latest commit point → 确认已持久化 segments 列表</text>
@@ -59,13 +59,13 @@
     <text x="60" y="379" font-size="10" fill="#475569">4. replay translog 中 commit 点后的操作（最多 512MB 默认）</text>
     <text x="60" y="397" font-size="10" fill="#475569">5. shard 状态恢复 → 接受请求</text>
 
-    <rect x="60" y="412" width="480" height="20" rx="4" fill="#fee2e2" stroke="#dc2626"/>
+    <rect class="at-hover-card" x="60" y="412" width="480" height="20" rx="4" fill="#fee2e2" stroke="#dc2626"/>
     <text x="300" y="427" text-anchor="middle" font-size="10" font-weight="700" fill="#7f1d1d">⚠️ translog 损坏 → 强制 flush 现有 segment（可能丢失未提交事务）</text>
   </g>
 
   <!-- 关键配置 -->
   <g>
-    <rect x="40" y="455" width="525" height="20" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="40" y="455" width="525" height="20" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="60" y="470" font-size="11" font-weight="700" fill="#1e40af">配置：index.translog.flush_threshold_size=512MB · gateway.recover_after_nodes=N · node.reroute.initial_delay</text>
   </g>
 </svg>

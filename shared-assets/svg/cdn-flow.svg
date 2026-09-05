@@ -12,40 +12,40 @@
   <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">边缘节点 · 智能调度 · 缓存策略</text>
 
   <!-- 源站 -->
-  <rect x="40" y="220" width="100" height="40" rx="6" fill="#3b82f6" opacity="0.9"/>
+  <rect class="at-hover-card" x="40" y="220" width="100" height="40" rx="6" fill="#3b82f6" opacity="0.9"/>
   <text x="90" y="245" text-anchor="middle" font-size="13" font-weight="700" fill="white">源站</text>
 
   <!-- DNS 调度 -->
-  <rect x="200" y="220" width="100" height="40" rx="6" fill="#10b981" opacity="0.9"/>
+  <rect class="at-hover-card" x="200" y="220" width="100" height="40" rx="6" fill="#10b981" opacity="0.9"/>
   <text x="250" y="245" text-anchor="middle" font-size="13" font-weight="700" fill="white">DNS 调度</text>
 
   <!-- 用户 -->
   <g font-size="11" font-weight="700">
-    <rect x="430" y="100" width="120" height="40" rx="6" fill="#ec4899" opacity="0.9"/>
+    <rect class="at-hover-card" x="430" y="100" width="120" height="40" rx="6" fill="#ec4899" opacity="0.9"/>
     <text x="490" y="125" text-anchor="middle" fill="white">用户 · 北京</text>
 
-    <rect x="430" y="160" width="120" height="40" rx="6" fill="#ec4899" opacity="0.9"/>
+    <rect class="at-hover-card" x="430" y="160" width="120" height="40" rx="6" fill="#ec4899" opacity="0.9"/>
     <text x="490" y="185" text-anchor="middle" fill="white">用户 · 上海</text>
 
-    <rect x="430" y="220" width="120" height="40" rx="6" fill="#ec4899" opacity="0.9"/>
+    <rect class="at-hover-card" x="430" y="220" width="120" height="40" rx="6" fill="#ec4899" opacity="0.9"/>
     <text x="490" y="245" text-anchor="middle" fill="white">用户 · 广州</text>
 
-    <rect x="430" y="280" width="120" height="40" rx="6" fill="#ec4899" opacity="0.9"/>
+    <rect class="at-hover-card" x="430" y="280" width="120" height="40" rx="6" fill="#ec4899" opacity="0.9"/>
     <text x="490" y="305" text-anchor="middle" fill="white">用户 · 成都</text>
   </g>
 
   <!-- 边缘节点 4 个 -->
   <g font-size="11" font-weight="700">
-    <rect x="320" y="100" width="100" height="40" rx="6" fill="#f59e0b" opacity="0.9"/>
+    <rect class="at-hover-card" x="320" y="100" width="100" height="40" rx="6" fill="#f59e0b" opacity="0.9"/>
     <text x="370" y="125" text-anchor="middle" fill="white">边缘 BJ</text>
 
-    <rect x="320" y="160" width="100" height="40" rx="6" fill="#f59e0b" opacity="0.9"/>
+    <rect class="at-hover-card" x="320" y="160" width="100" height="40" rx="6" fill="#f59e0b" opacity="0.9"/>
     <text x="370" y="185" text-anchor="middle" fill="white">边缘 SH</text>
 
-    <rect x="320" y="220" width="100" height="40" rx="6" fill="#f59e0b" opacity="0.9"/>
+    <rect class="at-hover-card" x="320" y="220" width="100" height="40" rx="6" fill="#f59e0b" opacity="0.9"/>
     <text x="370" y="245" text-anchor="middle" fill="white">边缘 GZ</text>
 
-    <rect x="320" y="280" width="100" height="40" rx="6" fill="#f59e0b" opacity="0.9"/>
+    <rect class="at-hover-card" x="320" y="280" width="100" height="40" rx="6" fill="#f59e0b" opacity="0.9"/>
     <text x="370" y="305" text-anchor="middle" fill="white">边缘 CD</text>
   </g>
 
@@ -68,7 +68,7 @@
 
   <!-- 关键点 -->
   <g font-size="11">
-    <rect x="40" y="360" width="520" height="95" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <rect class="at-hover-card" x="40" y="360" width="520" height="95" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
     <text x="300" y="380" text-anchor="middle" font-weight="700" fill="#1e293b">核心机制</text>
     <text x="60" y="402" fill="#475569">✓ 智能 DNS：GeoIP / Anycast · 解析到最近边缘</text>
     <text x="60" y="420" fill="#475569">✓ 缓存策略：Cache-Control / ETag / 304 · TTL 分层</text>

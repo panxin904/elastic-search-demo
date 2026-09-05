@@ -12,30 +12,30 @@
   <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">一对多依赖 · 主题变更自动通知</text>
 
   <!-- Subject 中心 -->
-  <rect x="230" y="180" width="140" height="80" rx="10" fill="#3b82f6" opacity="0.95"/>
+  <rect class="at-hover-card" x="230" y="180" width="140" height="80" rx="10" fill="#3b82f6" opacity="0.95"/>
   <text x="300" y="210" text-anchor="middle" font-size="16" font-weight="700" fill="white">Subject</text>
   <text x="300" y="230" text-anchor="middle" font-size="11" fill="#dbeafe">主题 / 被观察者</text>
   <text x="300" y="248" text-anchor="middle" font-size="10" fill="#dbeafe">attach / detach / notify</text>
 
   <!-- 5 个 Observer -->
   <g font-size="11" font-weight="700">
-    <rect x="40" y="100" width="120" height="45" rx="6" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="40" y="100" width="120" height="45" rx="6" fill="#10b981" opacity="0.9"/>
     <text x="100" y="123" text-anchor="middle" fill="white">Observer A</text>
     <text x="100" y="138" text-anchor="middle" font-size="10" fill="#d1fae5">update()</text>
 
-    <rect x="40" y="200" width="120" height="45" rx="6" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="40" y="200" width="120" height="45" rx="6" fill="#10b981" opacity="0.9"/>
     <text x="100" y="223" text-anchor="middle" fill="white">Observer B</text>
     <text x="100" y="238" text-anchor="middle" font-size="10" fill="#d1fae5">update()</text>
 
-    <rect x="40" y="300" width="120" height="45" rx="6" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="40" y="300" width="120" height="45" rx="6" fill="#10b981" opacity="0.9"/>
     <text x="100" y="323" text-anchor="middle" fill="white">Observer C</text>
     <text x="100" y="338" text-anchor="middle" font-size="10" fill="#d1fae5">update()</text>
 
-    <rect x="440" y="100" width="120" height="45" rx="6" fill="#f59e0b" opacity="0.9"/>
+    <rect class="at-hover-card" x="440" y="100" width="120" height="45" rx="6" fill="#f59e0b" opacity="0.9"/>
     <text x="500" y="123" text-anchor="middle" fill="white">Observer D</text>
     <text x="500" y="138" text-anchor="middle" font-size="10" fill="#fef3c7">update()</text>
 
-    <rect x="440" y="200" width="120" height="45" rx="6" fill="#f59e0b" opacity="0.9"/>
+    <rect class="at-hover-card" x="440" y="200" width="120" height="45" rx="6" fill="#f59e0b" opacity="0.9"/>
     <text x="500" y="223" text-anchor="middle" fill="white">Observer E</text>
     <text x="500" y="238" text-anchor="middle" font-size="10" fill="#fef3c7">update()</text>
   </g>
@@ -63,7 +63,7 @@
 
   <!-- 时序 -->
   <g font-size="11">
-    <rect x="40" y="370" width="520" height="80" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <rect class="at-hover-card" x="40" y="370" width="520" height="80" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
     <text x="300" y="390" text-anchor="middle" font-weight="700" fill="#1e293b">推/拉模型</text>
     <text x="60" y="410" fill="#475569">推：Subject 主动 send data 给 observer · 实时 · 浪费带宽</text>
     <text x="60" y="428" fill="#475569">拉：Observer 主动 pull · Subject 只 notify 编号 · 灵活</text>

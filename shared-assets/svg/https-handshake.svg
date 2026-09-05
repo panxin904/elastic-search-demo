@@ -13,10 +13,10 @@
 
   <!-- Client / Server -->
   <g font-size="13" font-weight="600">
-    <rect x="80" y="100" width="120" height="40" rx="8" fill="#3b82f6" opacity="0.9"/>
+    <rect class="at-hover-card" x="80" y="100" width="120" height="40" rx="8" fill="#3b82f6" opacity="0.9"/>
     <text x="140" y="125" text-anchor="middle" fill="white">Client</text>
 
-    <rect x="400" y="100" width="120" height="40" rx="8" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="400" y="100" width="120" height="40" rx="8" fill="#10b981" opacity="0.9"/>
     <text x="460" y="125" text-anchor="middle" fill="white">Server</text>
   </g>
 
@@ -43,21 +43,21 @@
 
   <!-- 加密通道 -->
   <g font-size="11">
-    <rect x="80" y="290" width="440" height="40" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="80" y="290" width="440" height="40" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
     <text x="300" y="313" text-anchor="middle" font-weight="700" fill="#064e3b">🔒 加密通道建立 · 前向保密（PFS）· ECDHE 密钥交换</text>
   </g>
 
   <!-- 关键概念 -->
   <g font-size="11">
-    <rect x="50" y="345" width="155" height="48" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+    <rect class="at-hover-card" x="50" y="345" width="155" height="48" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
     <text x="127" y="365" text-anchor="middle" font-weight="700" fill="#92400e">X.509 证书链</text>
     <text x="127" y="381" text-anchor="middle" fill="#78350f">CA 签名 · 域名验证</text>
 
-    <rect x="222" y="345" width="155" height="48" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+    <rect class="at-hover-card" x="222" y="345" width="155" height="48" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
     <text x="299" y="365" text-anchor="middle" font-weight="700" fill="#1e3a8a">ECDHE 密钥交换</text>
     <text x="299" y="381" text-anchor="middle" fill="#1e40af">临时密钥 · PFS</text>
 
-    <rect x="394" y="345" width="155" height="48" rx="6" fill="#fce7f3" stroke="#ec4899" stroke-width="1"/>
+    <rect class="at-hover-card" x="394" y="345" width="155" height="48" rx="6" fill="#fce7f3" stroke="#ec4899" stroke-width="1"/>
     <text x="471" y="365" text-anchor="middle" font-weight="700" fill="#9f1239">AEAD 加密</text>
     <text x="471" y="381" text-anchor="middle" fill="#9d174d">AES-GCM / ChaCha20</text>
   </g>

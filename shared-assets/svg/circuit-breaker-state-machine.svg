@@ -52,7 +52,7 @@
   <g>
     <text x="300" y="305" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">关键配置参数（Resilience4j / Hystrix）</text>
 
-    <rect x="20" y="320" width="270" height="140" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="20" y="320" width="270" height="140" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
     <text x="40" y="343" font-size="11" font-weight="700" fill="#1e293b">统计窗口</text>
     <text x="40" y="362" font-size="10" fill="#475569">slidingWindowSize: 100（请求数）</text>
     <text x="40" y="377" font-size="10" fill="#475569">slidingWindowType: COUNT_BASED</text>
@@ -62,7 +62,7 @@
     <text x="40" y="447" font-size="10" fill="#475569">slowCallRateThreshold: 50%</text>
     <text x="40" y="461" font-size="10" font-style="italic" fill="#94a3b8">慢调用 = duration &gt; slowCallDurationThreshold</text>
 
-    <rect x="310" y="320" width="270" height="140" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="310" y="320" width="270" height="140" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
     <text x="330" y="343" font-size="11" font-weight="700" fill="#1e293b">恢复机制</text>
     <text x="330" y="362" font-size="10" fill="#475569">waitDurationInOpenState: 60s</text>
     <text x="330" y="377" font-size="10" fill="#475569">permittedNumberOfCallsInHalfOpenState: 10</text>

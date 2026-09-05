@@ -12,7 +12,7 @@
   <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Git Flow · GitHub Flow · Trunk-Based</text>
 
   <!-- Git Flow -->
-  <rect x="40" y="90" width="160" height="290" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <rect class="at-hover-card" x="40" y="90" width="160" height="290" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
   <text x="120" y="115" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">Git Flow</text>
   <text x="120" y="130" text-anchor="middle" font-size="10" fill="#1e40af">Vincent Driessen 2010</text>
 
@@ -35,7 +35,7 @@
   <text x="120" y="365" text-anchor="middle" font-size="9" fill="#1e40af">⚠ 分支多 / 复杂</text>
 
   <!-- GitHub Flow -->
-  <rect x="220" y="90" width="160" height="290" rx="10" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+  <rect class="at-hover-card" x="220" y="90" width="160" height="290" rx="10" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
   <text x="300" y="115" text-anchor="middle" font-size="13" font-weight="700" fill="#064e3b">GitHub Flow</text>
   <text x="300" y="130" text-anchor="middle" font-size="10" fill="#065f46">轻量 · 持续部署</text>
 
@@ -55,7 +55,7 @@
   <text x="300" y="365" text-anchor="middle" font-size="9" fill="#065f46">⚠ main 必须稳定</text>
 
   <!-- Trunk-Based -->
-  <rect x="400" y="90" width="160" height="290" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <rect class="at-hover-card" x="400" y="90" width="160" height="290" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
   <text x="480" y="115" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">Trunk-Based</text>
   <text x="480" y="130" text-anchor="middle" font-size="10" fill="#78350f">Google · Facebook</text>
 

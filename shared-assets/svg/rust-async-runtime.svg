@@ -10,16 +10,16 @@
 
   <!-- 4 层 -->
   <g>
-    <rect x="60" y="90" width="480" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="60" y="90" width="480" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
     <text x="300" y="115" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">应用代码 · async fn main() · .await</text>
 
-    <rect x="60" y="140" width="480" height="40" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="60" y="140" width="480" height="40" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
     <text x="300" y="165" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">Future trait（惰性 · 未 await 不执行）</text>
 
-    <rect x="60" y="190" width="480" height="40" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="60" y="190" width="480" height="40" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
     <text x="300" y="215" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">Executor 调度器（Tokio / async-std / smol）</text>
 
-    <rect x="60" y="240" width="480" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="60" y="240" width="480" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
     <text x="300" y="265" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Reactor · epoll/kqueue/IOCP + 事件循环</text>
   </g>
 
@@ -31,13 +31,13 @@
 
   <!-- 关键点 -->
   <g>
-    <rect x="60" y="300" width="220" height="80" rx="6" fill="#fff" stroke="#e2e8f0"/>
+    <rect class="at-hover-card" x="60" y="300" width="220" height="80" rx="6" fill="#fff" stroke="#e2e8f0"/>
     <text x="80" y="323" font-size="11" font-weight="700" fill="#7c3aed">🔄 Future 状态机</text>
     <text x="80" y="342" font-size="10" fill="#1e293b">未启动 → Poll → Ready/</text>
     <text x="80" y="358" text-size="10" fill="#1e293b">Pending → 挂起到 waker</text>
     <text x="80" y="374" font-size="10" fill="#475569">→ 零分配（无栈）</text>
 
-    <rect x="320" y="300" width="220" height="80" rx="6" fill="#fff" stroke="#e2e8f0"/>
+    <rect class="at-hover-card" x="320" y="300" width="220" height="80" rx="6" fill="#fff" stroke="#e2e8f0"/>
     <text x="340" y="323" font-size="11" font-weight="700" fill="#dc2626">⚠️ 常见陷阱</text>
     <text x="340" y="342" font-size="10" fill="#1e293b">• async fn 中持锁 await</text>
     <text x="340" y="358" font-size="10" fill="#1e293b">• CPU 密集阻塞 executor</text>

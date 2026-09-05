@@ -18,22 +18,22 @@
 
   <!-- 4 个外围节点 -->
   <g>
-    <rect x="60" y="100" width="150" height="70" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="60" y="100" width="150" height="70" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
     <text x="135" y="125" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">① Thought 思考</text>
     <text x="135" y="143" text-anchor="middle" font-size="10" fill="#475569">拆解目标 + 制定计划</text>
     <text x="135" y="158" text-anchor="middle" font-size="9" fill="#475569">Chain-of-Thought</text>
 
-    <rect x="390" y="100" width="150" height="70" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="390" y="100" width="150" height="70" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
     <text x="465" y="125" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">② Action 执行</text>
     <text x="465" y="143" text-anchor="middle" font-size="10" fill="#475569">调用工具 / API</text>
     <text x="465" y="158" text-anchor="middle" font-size="9" fill="#065f46">Tool Use · Function Call</text>
 
-    <rect x="60" y="320" width="150" height="70" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="60" y="320" width="150" height="70" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
     <text x="135" y="345" text-anchor="middle" font-size="12" font-weight="700" fill="#5b21b6">③ Observation</text>
     <text x="135" y="363" text-anchor="middle" font-size="10" fill="#475569">观察结果</text>
     <text x="135" y="378" text-anchor="middle" font-size="9" fill="#5b21b6">Function 输出</text>
 
-    <rect x="390" y="320" width="150" height="70" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="390" y="320" width="150" height="70" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
     <text x="465" y="345" text-anchor="middle" font-size="12" font-weight="700" fill="#9d174d">④ Reflect 反思</text>
     <text x="465" y="363" text-anchor="middle" font-size="10" fill="#475569">结果是否符合预期</text>
     <text x="465" y="378" text-anchor="middle" font-size="9" fill="#9d174d">Re-plan</text>
@@ -49,7 +49,7 @@
 
   <!-- Memory -->
   <g>
-    <rect x="60" y="410" width="480" height="55" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <rect class="at-hover-card" x="60" y="410" width="480" height="55" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
     <text x="80" y="432" font-size="11" font-weight="700" fill="#475569">Memory 记忆</text>
     <text x="80" y="450" font-size="10" fill="#475569">短期：当前任务上下文（Prompt）</text>
     <text x="80" y="463" font-size="10" fill="#475569">长期：向量库 / 知识图谱 · 历史对话摘要</text>
@@ -60,7 +60,7 @@
 
   <!-- 终止 -->
   <g>
-    <rect x="240" y="180" width="120" height="35" rx="18" fill="#d1fae5" stroke="#10b981"/>
+    <rect class="at-hover-card" x="240" y="180" width="120" height="35" rx="18" fill="#d1fae5" stroke="#10b981"/>
     <text x="300" y="202" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">目标完成？</text>
   </g>
   <g stroke="#64748b" stroke-width="1.2" fill="none" marker-end="url(#arr)">

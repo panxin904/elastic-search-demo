@@ -17,7 +17,7 @@
   <!-- 三状态示意 -->
   <g>
     <!-- GREEN -->
-    <rect x="40" y="90" width="165" height="100" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <rect class="at-hover-card" x="40" y="90" width="165" height="100" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
     <text x="122" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#065f46">GREEN（绿）</text>
     <text x="60" y="138" font-size="11" font-weight="700" fill="#10b981">✓ 健康</text>
     <text x="60" y="155" font-size="10" fill="#475569">所有主+副本分片</text>
@@ -25,7 +25,7 @@
     <text x="60" y="185" font-size="10" fill="#475569">写入/查询不受限</text>
 
     <!-- YELLOW -->
-    <rect x="220" y="90" width="165" height="100" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <rect class="at-hover-card" x="220" y="90" width="165" height="100" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
     <text x="302" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">YELLOW（黄）</text>
     <text x="240" y="138" font-size="11" font-weight="700" fill="#f59e0b">⚠ 警告</text>
     <text x="240" y="155" font-size="10" fill="#475569">主分片正常</text>
@@ -33,7 +33,7 @@
     <text x="240" y="185" font-size="10" fill="#475569">查询正常，写入有风险</text>
 
     <!-- RED -->
-    <rect x="400" y="90" width="165" height="100" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+    <rect class="at-hover-card" x="400" y="90" width="165" height="100" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
     <text x="482" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#7f1d1d">RED（红）</text>
     <text x="420" y="138" font-size="11" font-weight="700" fill="#dc2626">✗ 异常</text>
     <text x="420" y="155" font-size="10" fill="#475569">至少一个主分片</text>
@@ -68,7 +68,7 @@
   <g>
     <text x="60" y="255" font-size="13" font-weight="700" fill="#1e293b">分配决策（Allocation Deciders）</text>
 
-    <rect x="40" y="270" width="520" height="100" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect class="at-hover-card" x="40" y="270" width="520" height="100" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
 
     <text x="60" y="290" font-size="10" fill="#475569">• <tspan font-weight="700">same_shard</tspan>：主副本不放同节点</text>
     <text x="60" y="305" font-size="10" fill="#475569">• <tspan font-weight="700">disk_threshold</tspan>：磁盘水位 low/high/flood_stage</text>
@@ -82,7 +82,7 @@
   <g>
     <text x="60" y="395" font-size="13" font-weight="700" fill="#1e293b">YELLOW 排查流程</text>
 
-    <rect x="40" y="410" width="525" height="55" rx="6" fill="#1f2937"/>
+    <rect class="at-hover-card" x="40" y="410" width="525" height="55" rx="6" fill="#1f2937"/>
     <text x="60" y="432" font-size="11" font-family="monospace" fill="#86efac">GET _cluster/allocation/explain   # 解释为什么某分片未分配</text>
     <text x="60" y="450" font-size="11" font-family="monospace" fill="#a5f3fc">GET _cat/shards?h=index,shard,prirep,state,node,unassigned.reason</text>
   </g>

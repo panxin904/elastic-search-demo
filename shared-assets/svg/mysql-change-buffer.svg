@@ -12,9 +12,9 @@
   <g>
     <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">① 问题：二级索引写入是随机 IO</text>
 
-    <rect x="40" y="105" width="520" height="100" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="40" y="105" width="520" height="100" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
 
-    <rect x="60" y="125" width="105" height="65" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="60" y="125" width="105" height="65" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
     <text x="112" y="143" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">Buffer Pool</text>
     <text x="112" y="160" text-anchor="middle" font-size="9" font-family="monospace" fill="#1e293b">聚簇索引 page</text>
     <text x="112" y="178" text-anchor="middle" font-size="8" fill="#475569">在内存 ✅</text>
@@ -22,7 +22,7 @@
     <path d="M 165 155 L 195 155" fill="none" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arr)"/>
     <text x="180" y="148" font-size="9" font-weight="700" fill="#dc2626">❌ 读盘</text>
 
-    <rect x="195" y="125" width="105" height="65" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="195" y="125" width="105" height="65" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
     <text x="247" y="143" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">磁盘</text>
     <text x="247" y="160" text-anchor="middle" font-size="9" font-family="monospace" fill="#1e293b">二级索引 page</text>
     <text x="247" y="178" text-anchor="middle" font-size="8" fill="#475569">随机 IO 慢</text>
@@ -38,9 +38,9 @@
   <g>
     <text x="60" y="225" font-size="13" font-weight="700" fill="#1e293b">② Change Buffer 解决：先缓存，后合并</text>
 
-    <rect x="40" y="240" width="520" height="100" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="40" y="240" width="520" height="100" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
 
-    <rect x="60" y="258" width="105" height="65" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="60" y="258" width="105" height="65" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
     <text x="112" y="276" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">Buffer Pool</text>
     <text x="112" y="293" text-anchor="middle" font-size="9" font-family="monospace" fill="#1e293b">聚簇 page</text>
     <text x="112" y="312" text-anchor="middle" font-size="8" fill="#475569">直接更新 ✅</text>
@@ -48,7 +48,7 @@
     <path d="M 165 290 L 195 290" fill="none" stroke="#10b981" stroke-width="2.5" marker-end="url(#arr)"/>
     <text x="180" y="282" font-size="9" font-weight="700" fill="#065f46">✅ 内存</text>
 
-    <rect x="195" y="258" width="105" height="65" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="195" y="258" width="105" height="65" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
     <text x="247" y="276" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">Change Buffer</text>
     <text x="247" y="293" text-anchor="middle" font-size="9" font-family="monospace" fill="#1e293b">记录变更</text>
     <text x="247" y="312" text-anchor="middle" font-size="8" fill="#475569">不读盘 ✅</text>
@@ -63,19 +63,19 @@
   <g>
     <text x="60" y="360" font-size="13" font-weight="700" fill="#1e293b">③ 适用条件：非唯一二级索引</text>
 
-    <rect x="40" y="375" width="520" height="90" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="40" y="375" width="520" height="90" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
 
-    <rect x="60" y="392" width="180" height="55" rx="4" fill="#dcfce7" stroke="#10b981"/>
+    <rect class="at-hover-card" x="60" y="392" width="180" height="55" rx="4" fill="#dcfce7" stroke="#10b981"/>
     <text x="150" y="410" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">✅ 适用</text>
     <text x="75" y="427" font-size="9" fill="#475569">普通索引 / 前缀索引</text>
     <text x="75" y="442" font-size="9" fill="#475569">INSERT 不会检查唯一性</text>
 
-    <rect x="255" y="392" width="180" height="55" rx="4" fill="#fee2e2" stroke="#dc2626"/>
+    <rect class="at-hover-card" x="255" y="392" width="180" height="55" rx="4" fill="#fee2e2" stroke="#dc2626"/>
     <text x="345" y="410" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">❌ 不适用</text>
     <text x="270" y="427" font-size="9" fill="#475569">主键 / 唯一索引</text>
     <text x="270" y="442" font-size="9" fill="#475569">（必须立即读盘判断唯一）</text>
 
-    <rect x="450" y="392" width="100" height="55" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="450" y="392" width="100" height="55" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="500" y="410" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">配置</text>
     <text x="465" y="427" font-size="9" font-family="monospace" fill="#1e293b">innodb_change_</text>
     <text x="465" y="442" font-size="9" font-family="monospace" fill="#1e293b">buffering = all</text>

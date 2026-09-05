@@ -10,19 +10,19 @@
 
   <!-- 5 层 -->
   <g>
-    <rect x="60" y="90" width="480" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="60" y="90" width="480" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
     <text x="300" y="115" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">用户态 · open()/read()/write() 系统调用</text>
 
-    <rect x="60" y="140" width="480" height="40" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="60" y="140" width="480" height="40" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
     <text x="300" y="165" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">VFS 抽象层（inode / dentry / file / super_block）</text>
 
-    <rect x="60" y="190" width="480" height="40" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="60" y="190" width="480" height="40" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
     <text x="300" y="215" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">具体文件系统 ext4 · xfs · btrfs · zfs · ntfs-3g</text>
 
-    <rect x="60" y="240" width="480" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="60" y="240" width="480" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
     <text x="300" y="265" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">块设备驱动（通用块层 + bio）</text>
 
-    <rect x="60" y="290" width="480" height="40" rx="6" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="60" y="290" width="480" height="40" rx="6" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
     <text x="300" y="315" text-anchor="middle" font-size="11" font-weight="700" fill="#9d174d">物理存储 · SSD/NVMe/HDD · SCSI · virtio-blk</text>
   </g>
 
@@ -31,7 +31,7 @@
   <line x1="540" y1="110" x2="540" y2="310" stroke="#cbd5e1" stroke-dasharray="3"/>
 
   <!-- 网络/特殊文件系统 -->
-  <rect x="40" y="345" width="520" height="40" rx="6" fill="#fff" stroke="#e2e8f0"/>
+  <rect class="at-hover-card" x="40" y="345" width="520" height="40" rx="6" fill="#fff" stroke="#e2e8f0"/>
   <text x="60" y="370" font-size="10" font-weight="700" fill="#475569">特殊 FS：</text>
   <text x="125" y="370" font-size="10" fill="#475569">proc · sysfs · tmpfs · devpts · NFS · CIFS · FUSE · overlay2</text>
 

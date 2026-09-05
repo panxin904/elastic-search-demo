@@ -16,21 +16,21 @@
     <text x="60" y="95" font-size="13" font-weight="700" fill="#1e293b">Kafka 2.x 多线程 Reactor 模型</text>
 
     <!-- Acceptor -->
-    <rect x="40" y="115" width="120" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <rect class="at-hover-card" x="40" y="115" width="120" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
     <text x="100" y="132" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Acceptor</text>
     <text x="100" y="148" text-anchor="middle" font-size="9" fill="#475569">1 thread</text>
 
     <!-- Processor 池 -->
     <g>
-      <rect x="180" y="115" width="60" height="40" rx="6" fill="#d1fae5" stroke="#10b981"/>
+      <rect class="at-hover-card" x="180" y="115" width="60" height="40" rx="6" fill="#d1fae5" stroke="#10b981"/>
       <text x="210" y="132" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">P 1</text>
       <text x="210" y="148" text-anchor="middle" font-size="9" fill="#065f46">N=3</text>
 
-      <rect x="245" y="115" width="60" height="40" rx="6" fill="#d1fae5" stroke="#10b981"/>
+      <rect class="at-hover-card" x="245" y="115" width="60" height="40" rx="6" fill="#d1fae5" stroke="#10b981"/>
       <text x="275" y="132" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">P 2</text>
       <text x="275" y="148" text-anchor="middle" font-size="9" fill="#065f46">N=3</text>
 
-      <rect x="310" y="115" width="60" height="40" rx="6" fill="#d1fae5" stroke="#10b981"/>
+      <rect class="at-hover-card" x="310" y="115" width="60" height="40" rx="6" fill="#d1fae5" stroke="#10b981"/>
       <text x="340" y="132" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">P 3</text>
       <text x="340" y="148" text-anchor="middle" font-size="9" fill="#065f46">N=3</text>
     </g>
@@ -40,16 +40,16 @@
     <text x="170" y="128" text-anchor="middle" font-size="9" fill="#1e40af">分发</text>
 
     <!-- Request Queue -->
-    <rect x="400" y="115" width="160" height="40" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect class="at-hover-card" x="400" y="115" width="160" height="40" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
     <text x="480" y="132" text-anchor="middle" font-size="11" font-weight="700" fill="#475569">Request Queue</text>
     <text x="480" y="148" text-anchor="middle" font-size="9" fill="#475569">num.network.threads</text>
 
     <!-- KafkaRequestHandler -->
-    <rect x="40" y="195" width="520" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="40" y="195" width="520" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
     <text x="60" y="218" font-size="11" font-weight="700" fill="#92400e">KafkaRequestHandler Pool（num.io.threads，默认 8）</text>
 
     <!-- Response Queue -->
-    <rect x="40" y="255" width="520" height="30" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect class="at-hover-card" x="40" y="255" width="520" height="30" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
     <text x="60" y="275" font-size="10" fill="#475569">Response Queue → Processor 异步写回 socket</text>
 
     <!-- 路径箭头 -->
@@ -64,25 +64,25 @@
     <text x="60" y="310" font-size="13" font-weight="700" fill="#1e293b">零拷贝（Zero-Copy）：sendfile() / transferTo()</text>
 
     <!-- 步骤 -->
-    <rect x="40" y="330" width="100" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="40" y="330" width="100" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="90" y="350" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">磁盘</text>
     <text x="90" y="368" text-anchor="middle" font-size="9" fill="#475569">log segment</text>
 
     <line x1="140" y1="355" x2="170" y2="355" stroke="#10b981" stroke-width="2" marker-end="url(#arr)"/>
 
-    <rect x="170" y="330" width="100" height="50" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <rect class="at-hover-card" x="170" y="330" width="100" height="50" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
     <text x="220" y="350" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">PageCache</text>
     <text x="220" y="368" text-anchor="middle" font-size="9" fill="#065f46">OS 内核</text>
 
     <line x1="270" y1="355" x2="300" y2="355" stroke="#10b981" stroke-width="2" marker-end="url(#arr)"/>
 
-    <rect x="300" y="330" width="100" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="300" y="330" width="100" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
     <text x="350" y="350" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Socket</text>
     <text x="350" y="368" text-anchor="middle" font-size="9" fill="#92400e">网卡发送</text>
 
     <line x1="400" y1="355" x2="430" y2="355" stroke="#10b981" stroke-width="2" marker-end="url(#arr)"/>
 
-    <rect x="430" y="330" width="130" height="50" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <rect class="at-hover-card" x="430" y="330" width="130" height="50" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
     <text x="495" y="350" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">Consumer</text>
     <text x="495" y="368" text-anchor="middle" font-size="9" fill="#065f46">零 JVM 拷贝</text>
 
@@ -92,7 +92,7 @@
 
   <!-- 关键调优 -->
   <g>
-    <rect x="40" y="430" width="525" height="40" rx="6" fill="#fef9c3" stroke="#facc15"/>
+    <rect class="at-hover-card" x="40" y="430" width="525" height="40" rx="6" fill="#fef9c3" stroke="#facc15"/>
     <text x="60" y="450" font-size="11" font-weight="700" fill="#854d0e">关键参数：</text>
     <text x="60" y="465" font-size="11" font-family="monospace" fill="#854d0e">num.network.threads=3 · num.io.threads=8 · socket.send.buffer.bytes=1MB · socket.receive.buffer.bytes=1MB</text>
   </g>

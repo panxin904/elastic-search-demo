@@ -13,18 +13,18 @@
 
   <!-- 3 个生产者 -->
   <g font-size="11" font-weight="700">
-    <rect x="40" y="110" width="120" height="50" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <rect class="at-hover-card" x="40" y="110" width="120" height="50" rx="6" fill="#3b82f6" opacity="0.9"/>
     <text x="100" y="135" text-anchor="middle" fill="white">订单服务</text>
 
-    <rect x="40" y="170" width="120" height="50" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <rect class="at-hover-card" x="40" y="170" width="120" height="50" rx="6" fill="#3b82f6" opacity="0.9"/>
     <text x="100" y="195" text-anchor="middle" fill="white">支付服务</text>
 
-    <rect x="40" y="230" width="120" height="50" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <rect class="at-hover-card" x="40" y="230" width="120" height="50" rx="6" fill="#3b82f6" opacity="0.9"/>
     <text x="100" y="255" text-anchor="middle" fill="white">库存服务</text>
   </g>
 
   <!-- Broker 中央 -->
-  <rect x="220" y="160" width="160" height="80" rx="12" fill="#ec4899" opacity="0.95"/>
+  <rect class="at-hover-card" x="220" y="160" width="160" height="80" rx="12" fill="#ec4899" opacity="0.95"/>
   <text x="300" y="190" text-anchor="middle" font-size="16" font-weight="700" fill="white">Event Broker</text>
   <text x="300" y="210" text-anchor="middle" font-size="11" fill="#fce7f3">Kafka / RabbitMQ</text>
   <text x="300" y="225" text-anchor="middle" font-size="10" fill="#fbcfe8">Topic: order.* / payment.*</text>
@@ -38,13 +38,13 @@
 
   <!-- 3 个消费者 -->
   <g font-size="11" font-weight="700">
-    <rect x="440" y="110" width="120" height="50" rx="6" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="440" y="110" width="120" height="50" rx="6" fill="#10b981" opacity="0.9"/>
     <text x="500" y="135" text-anchor="middle" fill="white">通知服务</text>
 
-    <rect x="440" y="170" width="120" height="50" rx="6" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="440" y="170" width="120" height="50" rx="6" fill="#10b981" opacity="0.9"/>
     <text x="500" y="195" text-anchor="middle" fill="white">报表服务</text>
 
-    <rect x="440" y="230" width="120" height="50" rx="6" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="440" y="230" width="120" height="50" rx="6" fill="#10b981" opacity="0.9"/>
     <text x="500" y="255" text-anchor="middle" fill="white">搜索索引</text>
   </g>
 
@@ -57,7 +57,7 @@
 
   <!-- 关键特性 -->
   <g font-size="11">
-    <rect x="40" y="320" width="520" height="130" rx="10" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <rect class="at-hover-card" x="40" y="320" width="520" height="130" rx="10" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
     <text x="300" y="343" text-anchor="middle" font-weight="700" fill="#1e293b">核心特性</text>
     <text x="60" y="368" fill="#475569">✓ 异步解耦：生产者无需知道消费者存在</text>
     <text x="60" y="386" fill="#475569">✓ 扩展性强：消费者独立扩缩容</text>

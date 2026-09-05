@@ -13,35 +13,35 @@
   </defs>
 
   <!-- Client -->
-  <rect x="40" y="200" width="100" height="60" rx="6" fill="#1e293b"/>
+  <rect class="at-hover-card" x="40" y="200" width="100" height="60" rx="6" fill="#1e293b"/>
   <text x="90" y="225" text-anchor="middle" font-size="13" font-weight="700" fill="white">客户端</text>
   <text x="90" y="243" text-anchor="middle" font-size="10" fill="#cbd5e1">Client</text>
 
   <!-- Circuit Breaker -->
-  <rect x="170" y="100" width="120" height="70" rx="6" fill="#fee2e2" stroke="#ef4444"/>
+  <rect class="at-hover-card" x="170" y="100" width="120" height="70" rx="6" fill="#fee2e2" stroke="#ef4444"/>
   <text x="230" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#b91c1c">🔌 断路器</text>
   <text x="230" y="143" text-anchor="middle" font-size="10" fill="#7f1d1d">Circuit Breaker</text>
   <text x="230" y="158" text-anchor="middle" font-size="10" fill="#7f1d1d">CLOSED → OPEN → HALF_OPEN</text>
 
   <!-- Bulkhead -->
-  <rect x="170" y="200" width="120" height="70" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <rect class="at-hover-card" x="170" y="200" width="120" height="70" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
   <text x="230" y="225" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">🧱 舱壁隔离</text>
   <text x="230" y="243" text-anchor="middle" font-size="10" fill="#78350f">Bulkhead</text>
   <text x="230" y="258" text-anchor="middle" font-size="10" fill="#78350f">线程池 / 连接池分离</text>
 
   <!-- Rate Limiter -->
-  <rect x="170" y="300" width="120" height="70" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <rect class="at-hover-card" x="170" y="300" width="120" height="70" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
   <text x="230" y="325" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">🚦 限流</text>
   <text x="230" y="343" text-anchor="middle" font-size="10" fill="#1e3a8a">Rate Limiter</text>
   <text x="230" y="358" text-anchor="middle" font-size="10" fill="#1e3a8a">令牌桶 / 滑动窗口</text>
 
   <!-- Service -->
-  <rect x="370" y="200" width="100" height="60" rx="6" fill="#dcfce7" stroke="#10b981"/>
+  <rect class="at-hover-card" x="370" y="200" width="100" height="60" rx="6" fill="#dcfce7" stroke="#10b981"/>
   <text x="420" y="225" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">依赖服务</text>
   <text x="420" y="243" text-anchor="middle" font-size="10" fill="#14532d">Downstream</text>
 
   <!-- Retry -->
-  <rect x="500" y="200" width="60" height="60" rx="6" fill="#e0e7ff" stroke="#6366f1"/>
+  <rect class="at-hover-card" x="500" y="200" width="60" height="60" rx="6" fill="#e0e7ff" stroke="#6366f1"/>
   <text x="530" y="225" text-anchor="middle" font-size="12" font-weight="700" fill="#3730a3">重试</text>
   <text x="530" y="243" text-anchor="middle" font-size="9" fill="#312e81">Retry</text>
   <text x="530" y="258" text-anchor="middle" font-size="9" fill="#312e81">+退避</text>

@@ -16,14 +16,14 @@
     <text x="60" y="95" font-size="13" font-weight="700" fill="#1e293b">查询路由流程（adaptive replica selection）</text>
 
     <!-- Client -->
-    <rect x="40" y="115" width="100" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <rect class="at-hover-card" x="40" y="115" width="100" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
     <text x="90" y="132" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Client App</text>
     <text x="90" y="148" text-anchor="middle" font-size="9" fill="#475569">查询 GET /idx/_search</text>
 
     <line x1="140" y1="135" x2="180" y2="135" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrB)"/>
 
     <!-- Coordinating -->
-    <rect x="180" y="115" width="140" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <rect class="at-hover-card" x="180" y="115" width="140" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
     <text x="250" y="132" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">协调节点</text>
     <text x="250" y="148" text-anchor="middle" font-size="9" fill="#475569">coordinating node</text>
 
@@ -32,32 +32,32 @@
 
   <!-- 集群拓扑 -->
   <g>
-    <rect x="360" y="90" width="200" height="310" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+    <rect class="at-hover-card" x="360" y="90" width="200" height="310" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
 
     <text x="460" y="110" text-anchor="middle" font-size="11" font-weight="700" fill="#1e293b">集群（3 节点 · 2 副本）</text>
 
     <!-- Node 1 (协调节点) -->
-    <rect x="370" y="125" width="180" height="80" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <rect class="at-hover-card" x="370" y="125" width="180" height="80" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
     <text x="460" y="143" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">Node 1（协调）</text>
-    <rect x="380" y="155" width="75" height="40" rx="3" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="380" y="155" width="75" height="40" rx="3" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="417" y="178" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">P0</text>
-    <rect x="465" y="155" width="75" height="40" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="465" y="155" width="75" height="40" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
     <text x="502" y="178" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">R0</text>
 
     <!-- Node 2 -->
-    <rect x="370" y="220" width="180" height="80" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect class="at-hover-card" x="370" y="220" width="180" height="80" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
     <text x="460" y="238" text-anchor="middle" font-size="10" font-weight="700" fill="#1e293b">Node 2</text>
-    <rect x="380" y="250" width="75" height="40" rx="3" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="380" y="250" width="75" height="40" rx="3" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="417" y="273" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">P1</text>
-    <rect x="465" y="250" width="75" height="40" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="465" y="250" width="75" height="40" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
     <text x="502" y="273" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">R1</text>
 
     <!-- Node 3 -->
-    <rect x="370" y="315" width="180" height="80" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect class="at-hover-card" x="370" y="315" width="180" height="80" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
     <text x="460" y="333" text-anchor="middle" font-size="10" font-weight="700" fill="#1e293b">Node 3</text>
-    <rect x="380" y="345" width="75" height="40" rx="3" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="380" y="345" width="75" height="40" rx="3" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="417" y="368" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">P2</text>
-    <rect x="465" y="345" width="75" height="40" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="465" y="345" width="75" height="40" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
     <text x="502" y="368" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">R2</text>
   </g>
 
@@ -66,7 +66,7 @@
     <text x="60" y="180" font-size="13" font-weight="700" fill="#1e293b">adaptive replica selection（ARS）</text>
     <text x="60" y="200" font-size="11" fill="#475569">协调节点本地缓存每副本响应时间</text>
 
-    <rect x="40" y="210" width="280" height="80" rx="6" fill="#fef9c3" stroke="#facc15"/>
+    <rect class="at-hover-card" x="40" y="210" width="280" height="80" rx="6" fill="#fef9c3" stroke="#facc15"/>
     <text x="60" y="232" font-size="11" font-weight="700" fill="#854d0e">评分公式（每次查询）：</text>
     <text x="60" y="248" font-size="10" font-family="monospace" fill="#1e2937">score = (queueSize + 1) ×</text>
     <text x="60" y="263" font-size="10" font-family="monospace" fill="#1e2937">        (responseTime + 1)</text>
@@ -77,7 +77,7 @@
   <g>
     <text x="60" y="315" font-size="13" font-weight="700" fill="#1e293b">路由偏好配置</text>
 
-    <rect x="40" y="330" width="290" height="120" rx="6" fill="#1f2937"/>
+    <rect class="at-hover-card" x="40" y="330" width="290" height="120" rx="6" fill="#1f2937"/>
     <text x="60" y="352" font-size="11" font-family="monospace" fill="#86efac">PUT /idx/_settings</text>
     <text x="60" y="370" font-size="11" font-family="monospace" fill="#a5f3fc">{</text>
     <text x="60" y="388" font-size="11" font-family="monospace" fill="#a5f3fc">  "index.routing.allocation.total_shards_per_node": 2,</text>

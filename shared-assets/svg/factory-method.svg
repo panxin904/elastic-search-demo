@@ -12,28 +12,28 @@
   <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">创建延迟到子类 · 解耦创建和使用</text>
 
   <!-- 客户端 -->
-  <rect x="40" y="220" width="100" height="40" rx="6" fill="#3b82f6" opacity="0.9"/>
+  <rect class="at-hover-card" x="40" y="220" width="100" height="40" rx="6" fill="#3b82f6" opacity="0.9"/>
   <text x="90" y="245" text-anchor="middle" font-size="12" font-weight="700" fill="white">Client</text>
 
   <!-- Creator 抽象 -->
-  <rect x="200" y="120" width="200" height="60" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <rect class="at-hover-card" x="200" y="120" width="200" height="60" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
   <text x="300" y="143" text-anchor="middle" font-weight="700" fill="#1e3a8a">«abstract» Creator</text>
   <text x="300" y="162" text-anchor="middle" font-size="10" fill="#1e40af">+ factoryMethod(): Product</text>
   <text x="300" y="175" text-anchor="middle" font-size="10" fill="#1e40af">+ someOperation()</text>
 
   <!-- Product 抽象 -->
-  <rect x="200" y="320" width="200" height="60" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+  <rect class="at-hover-card" x="200" y="320" width="200" height="60" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
   <text x="300" y="343" text-anchor="middle" font-weight="700" fill="#064e3b">«interface» Product</text>
   <text x="300" y="362" text-anchor="middle" font-size="10" fill="#065f46">+ use(): void</text>
 
   <!-- 2 个具体 Creator -->
   <g font-size="11" font-weight="700">
-    <rect x="450" y="90" width="110" height="60" rx="6" fill="#3b82f6" opacity="0.85"/>
+    <rect class="at-hover-card" x="450" y="90" width="110" height="60" rx="6" fill="#3b82f6" opacity="0.85"/>
     <text x="505" y="113" text-anchor="middle" fill="white">CreatorA</text>
     <text x="505" y="130" text-anchor="middle" font-size="10" fill="#dbeafe">+ createA()</text>
     <text x="505" y="143" text-anchor="middle" font-size="10" fill="#dbeafe">return ProductA</text>
 
-    <rect x="450" y="160" width="110" height="60" rx="6" fill="#3b82f6" opacity="0.85"/>
+    <rect class="at-hover-card" x="450" y="160" width="110" height="60" rx="6" fill="#3b82f6" opacity="0.85"/>
     <text x="505" y="183" text-anchor="middle" fill="white">CreatorB</text>
     <text x="505" y="200" text-anchor="middle" font-size="10" fill="#dbeafe">+ createB()</text>
     <text x="505" y="213" text-anchor="middle" font-size="10" fill="#dbeafe">return ProductB</text>
@@ -41,11 +41,11 @@
 
   <!-- 2 个具体 Product -->
   <g font-size="11" font-weight="700">
-    <rect x="450" y="290" width="110" height="60" rx="6" fill="#10b981" opacity="0.85"/>
+    <rect class="at-hover-card" x="450" y="290" width="110" height="60" rx="6" fill="#10b981" opacity="0.85"/>
     <text x="505" y="313" text-anchor="middle" fill="white">ProductA</text>
     <text x="505" y="330" text-anchor="middle" font-size="10" fill="#d1fae5">+ use()</text>
 
-    <rect x="450" y="360" width="110" height="60" rx="6" fill="#10b981" opacity="0.85"/>
+    <rect class="at-hover-card" x="450" y="360" width="110" height="60" rx="6" fill="#10b981" opacity="0.85"/>
     <text x="505" y="383" text-anchor="middle" fill="white">ProductB</text>
     <text x="505" y="400" text-anchor="middle" font-size="10" fill="#d1fae5">+ use()</text>
   </g>
@@ -70,7 +70,7 @@
 
   <!-- 关键点 -->
   <g font-size="11">
-    <rect x="50" y="430" width="500" height="40" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <rect class="at-hover-card" x="50" y="430" width="500" height="40" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
     <text x="60" y="450" font-weight="700" fill="#1e293b">vs 简单工厂：</text>
     <text x="180" y="450" fill="#475569">简单工厂用一个类创建所有；工厂方法把创建延迟到子类 · 扩展性好</text>
   </g>

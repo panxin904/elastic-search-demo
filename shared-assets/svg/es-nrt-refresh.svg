@@ -12,10 +12,10 @@
   <g>
     <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">① 文档写入时序（写入即可搜）</text>
 
-    <rect x="40" y="105" width="520" height="170" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="40" y="105" width="520" height="170" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
 
     <!-- 内存 buffer -->
-    <rect x="60" y="120" width="115" height="140" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="60" y="120" width="115" height="140" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
     <text x="117" y="138" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">in-memory</text>
     <text x="117" y="153" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">buffer</text>
     <text x="117" y="173" text-anchor="middle" font-size="9" fill="#475569">新文档写入</text>
@@ -28,7 +28,7 @@
     <text x="195" y="152" font-size="8" fill="#475569" text-anchor="middle">1s 后</text>
 
     <!-- segment 1 -->
-    <rect x="215" y="120" width="105" height="140" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="215" y="120" width="105" height="140" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="267" y="138" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">segment_0</text>
     <text x="267" y="158" text-anchor="middle" font-size="9" fill="#475569">不可变</text>
     <text x="267" y="178" text-anchor="middle" font-size="9" fill="#475569">倒排索引</text>
@@ -40,7 +40,7 @@
     <text x="340" y="152" font-size="8" fill="#475569" text-anchor="middle">再 1s</text>
 
     <!-- segment 2 -->
-    <rect x="360" y="120" width="105" height="140" rx="4" fill="#dcfce7" stroke="#10b981"/>
+    <rect class="at-hover-card" x="360" y="120" width="105" height="140" rx="4" fill="#dcfce7" stroke="#10b981"/>
     <text x="412" y="138" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">segment_1</text>
     <text x="412" y="158" text-anchor="middle" font-size="9" fill="#475569">新 segment</text>
     <text x="412" y="178" text-anchor="middle" font-size="9" fill="#475569">追加</text>
@@ -58,7 +58,7 @@
   <g>
     <text x="60" y="295" font-size="13" font-weight="700" fill="#1e293b">② Refresh vs Flush（易混淆）</text>
 
-    <rect x="40" y="310" width="250" height="150" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="40" y="310" width="250" height="150" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
     <text x="165" y="328" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">Refresh</text>
     <text x="55" y="348" font-size="10" fill="#475569">• buffer → segment</text>
     <text x="55" y="364" font-size="10" fill="#475569">• 内存操作</text>
@@ -68,7 +68,7 @@
     <text x="55" y="430" font-size="10" font-weight="700" fill="#1e40af">高频写入场景</text>
     <text x="55" y="445" font-size="9" fill="#475569">调大 → 减少 IO</text>
 
-    <rect x="310" y="310" width="250" height="150" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="310" y="310" width="250" height="150" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
     <text x="435" y="328" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">Flush</text>
     <text x="325" y="348" font-size="10" fill="#475569">• segment → 磁盘</text>
     <text x="325" y="364" font-size="10" fill="#475569">• 写盘 + fsync</text>

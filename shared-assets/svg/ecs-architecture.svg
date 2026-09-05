@@ -10,85 +10,85 @@
 
   <!-- Entity pool -->
   <g>
-    <rect x="20" y="90" width="560" height="110" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="20" y="90" width="560" height="110" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
     <text x="300" y="113" text-anchor="middle" font-size="13" font-weight="700" fill="#475569">Entities（实体池）</text>
 
-    <rect x="40" y="125" width="60" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="40" y="125" width="60" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="70" y="150" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">E1</text>
     <text x="70" y="167" text-anchor="middle" font-size="9" fill="#475569">id=1</text>
 
-    <rect x="110" y="125" width="60" height="60" rx="6" fill="#d1fae5" stroke="#10b981"/>
+    <rect class="at-hover-card" x="110" y="125" width="60" height="60" rx="6" fill="#d1fae5" stroke="#10b981"/>
     <text x="140" y="150" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">E2</text>
     <text x="140" y="167" text-anchor="middle" font-size="9" fill="#475569">id=2</text>
 
-    <rect x="180" y="125" width="60" height="60" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="180" y="125" width="60" height="60" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
     <text x="210" y="150" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">E3</text>
     <text x="210" y="167" text-anchor="middle" font-size="9" fill="#475569">id=3</text>
 
-    <rect x="250" y="125" width="60" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="250" y="125" width="60" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="280" y="150" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">E4</text>
     <text x="280" y="167" text-anchor="middle" font-size="9" fill="#475569">id=4</text>
 
-    <rect x="320" y="125" width="60" height="60" rx="6" fill="#d1fae5" stroke="#10b981"/>
+    <rect class="at-hover-card" x="320" y="125" width="60" height="60" rx="6" fill="#d1fae5" stroke="#10b981"/>
     <text x="350" y="150" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">E5</text>
     <text x="350" y="167" text-anchor="middle" font-size="9" fill="#475569">id=5</text>
 
-    <rect x="390" y="125" width="60" height="60" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+    <rect class="at-hover-card" x="390" y="125" width="60" height="60" rx="6" fill="#fce7f3" stroke="#ec4899"/>
     <text x="420" y="150" text-anchor="middle" font-size="11" font-weight="700" fill="#9d174d">E6</text>
     <text x="420" y="167" text-anchor="middle" font-size="9" fill="#475569">id=6</text>
 
-    <rect x="460" y="125" width="100" height="60" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3"/>
+    <rect class="at-hover-card" x="460" y="125" width="100" height="60" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3"/>
     <text x="510" y="158" text-anchor="middle" font-size="11" font-style="italic" fill="#475569">...N 个</text>
   </g>
 
   <!-- Components -->
   <g>
-    <rect x="20" y="215" width="270" height="120" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="20" y="215" width="270" height="120" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
     <text x="155" y="238" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">Components（纯数据）</text>
 
-    <rect x="35" y="250" width="75" height="35" rx="6" fill="white" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="35" y="250" width="75" height="35" rx="6" fill="white" stroke="#f59e0b"/>
     <text x="72" y="268" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">Position</text>
     <text x="72" y="280" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">x, y, z</text>
 
-    <rect x="115" y="250" width="75" height="35" rx="6" fill="white" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="115" y="250" width="75" height="35" rx="6" fill="white" stroke="#f59e0b"/>
     <text x="152" y="268" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">Velocity</text>
     <text x="152" y="280" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">vx, vy</text>
 
-    <rect x="195" y="250" width="75" height="35" rx="6" fill="white" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="195" y="250" width="75" height="35" rx="6" fill="white" stroke="#f59e0b"/>
     <text x="232" y="268" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">Health</text>
     <text x="232" y="280" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">hp, max_hp</text>
 
-    <rect x="35" y="290" width="75" height="35" rx="6" fill="white" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="35" y="290" width="75" height="35" rx="6" fill="white" stroke="#f59e0b"/>
     <text x="72" y="308" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">Render</text>
     <text x="72" y="320" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">mesh, tex</text>
 
-    <rect x="115" y="290" width="75" height="35" rx="6" fill="white" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="115" y="290" width="75" height="35" rx="6" fill="white" stroke="#f59e0b"/>
     <text x="152" y="308" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">AI</text>
     <text x="152" y="320" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">state</text>
 
-    <rect x="195" y="290" width="75" height="35" rx="6" fill="white" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="195" y="290" width="75" height="35" rx="6" fill="white" stroke="#f59e0b"/>
     <text x="232" y="308" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">Input</text>
     <text x="232" y="320" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">keys</text>
   </g>
 
   <!-- Systems -->
   <g>
-    <rect x="310" y="215" width="270" height="120" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="310" y="215" width="270" height="120" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
     <text x="445" y="238" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">Systems（纯逻辑）</text>
 
-    <rect x="325" y="250" width="120" height="35" rx="6" fill="white" stroke="#10b981"/>
+    <rect class="at-hover-card" x="325" y="250" width="120" height="35" rx="6" fill="white" stroke="#10b981"/>
     <text x="385" y="268" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">MovementSystem</text>
     <text x="385" y="280" text-anchor="middle" font-size="9" fill="#475569">position+velocity</text>
 
-    <rect x="455" y="250" width="120" height="35" rx="6" fill="white" stroke="#10b981"/>
+    <rect class="at-hover-card" x="455" y="250" width="120" height="35" rx="6" fill="white" stroke="#10b981"/>
     <text x="515" y="268" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">RenderSystem</text>
     <text x="515" y="280" text-anchor="middle" font-size="9" fill="#475569">position+render</text>
 
-    <rect x="325" y="290" width="120" height="35" rx="6" fill="white" stroke="#10b981"/>
+    <rect class="at-hover-card" x="325" y="290" width="120" height="35" rx="6" fill="white" stroke="#10b981"/>
     <text x="385" y="308" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">AISystem</text>
     <text x="385" y="320" text-anchor="middle" font-size="9" fill="#475569">ai+input</text>
 
-    <rect x="455" y="290" width="120" height="35" rx="6" fill="white" stroke="#10b981"/>
+    <rect class="at-hover-card" x="455" y="290" width="120" height="35" rx="6" fill="white" stroke="#10b981"/>
     <text x="515" y="308" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">CombatSystem</text>
     <text x="515" y="320" text-anchor="middle" font-size="9" fill="#475569">health+input</text>
   </g>
@@ -101,7 +101,7 @@
 
   <!-- 底部说明 -->
   <g font-size="10" fill="#64748b">
-    <rect x="20" y="345" width="560" height="125" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-dasharray="3"/>
+    <rect class="at-hover-card" x="20" y="345" width="560" height="125" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-dasharray="3"/>
     <text x="40" y="368" font-weight="700" fill="#1e293b">⚡ ECS 三大优势</text>
     <text x="40" y="388" font-size="10" fill="#475569">① 数据局部性（Data Locality）：同类 Component 在内存连续 → CPU Cache 命中高</text>
     <text x="40" y="408" font-size="10" fill="#475569">② 易并行：System 处理 Component 数组时 SIMD/多线程天然友好</text>

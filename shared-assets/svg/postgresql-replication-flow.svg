@@ -12,7 +12,7 @@
   <g>
     <text x="40" y="92" font-size="12" font-weight="700" fill="#475569">1️⃣ Streaming Replication（物理 · 默认）</text>
 
-    <rect x="40" y="105" width="100" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="40" y="105" width="100" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
     <text x="90" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">Primary</text>
     <text x="90" y="150" text-anchor="middle" font-size="10" fill="#1e40af">WAL 生成</text>
     <text x="90" y="170" text-anchor="middle" font-size="10" fill="#1e40af">R/W</text>
@@ -20,7 +20,7 @@
     <line x1="140" y1="145" x2="200" y2="145" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
     <text x="170" y="135" text-anchor="middle" font-size="9" fill="#475569">WAL 流</text>
 
-    <rect x="200" y="105" width="100" height="80" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="200" y="105" width="100" height="80" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
     <text x="250" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">Replica 1</text>
     <text x="250" y="150" text-anchor="middle" font-size="10" fill="#065f46">REPLAY</text>
     <text x="250" y="170" text-anchor="middle" font-size="10" fill="#065f46">R/O</text>
@@ -28,7 +28,7 @@
     <line x1="300" y1="145" x2="360" y2="145" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
     <text x="330" y="135" text-anchor="middle" font-size="9" fill="#475569">级联</text>
 
-    <rect x="360" y="105" width="100" height="80" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="360" y="105" width="100" height="80" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
     <text x="410" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">Replica 2</text>
     <text x="410" y="150" text-anchor="middle" font-size="10" fill="#065f46">REPLAY</text>
     <text x="410" y="170" text-anchor="middle" font-size="10" fill="#065f46">R/O</text>
@@ -38,7 +38,7 @@
   <g>
     <text x="40" y="220" font-size="12" font-weight="700" fill="#475569">2️⃣ Logical Replication（行级 · 跨版本/PG）</text>
 
-    <rect x="40" y="233" width="120" height="70" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="40" y="233" width="120" height="70" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
     <text x="100" y="258" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">Publisher</text>
     <text x="100" y="278" text-anchor="middle" font-size="10" fill="#92400e">wal2json</text>
     <text x="100" y="293" text-anchor="middle" font-size="10" fill="#92400e">→ pub_account</text>
@@ -46,7 +46,7 @@
     <line x1="160" y1="268" x2="240" y2="268" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
     <text x="200" y="258" text-anchor="middle" font-size="9" fill="#475569">逻辑变更</text>
 
-    <rect x="240" y="233" width="120" height="70" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="240" y="233" width="120" height="70" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
     <text x="300" y="258" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">Subscriber A</text>
     <text x="300" y="278" text-anchor="middle" font-size="10" fill="#065f46">PG 12</text>
     <text x="300" y="293" text-anchor="middle" font-size="10" fill="#065f46">account 表</text>
@@ -54,7 +54,7 @@
     <line x1="360" y1="268" x2="440" y2="268" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
     <text x="400" y="258" text-anchor="middle" font-size="9" fill="#475569">逻辑变更</text>
 
-    <rect x="440" y="233" width="120" height="70" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="440" y="233" width="120" height="70" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
     <text x="500" y="258" text-anchor="middle" font-size="12" font-weight="700" fill="#5b21b6">Subscriber B</text>
     <text x="500" y="278" text-anchor="middle" font-size="10" fill="#5b21b6">MySQL 8.0</text>
     <text x="500" y="293" text-anchor="middle" font-size="10" fill="#5b21b6">→ account</text>
@@ -62,7 +62,7 @@
 
   <!-- 对比表 -->
   <g>
-    <rect x="40" y="320" width="520" height="50" rx="6" fill="#fff" stroke="#e2e8f0"/>
+    <rect class="at-hover-card" x="40" y="320" width="520" height="50" rx="6" fill="#fff" stroke="#e2e8f0"/>
     <text x="60" y="340" font-size="10" font-weight="700" fill="#7c3aed">对比：</text>
     <text x="60" y="358" font-size="10" fill="#475569">
       <tspan>流复制 = 整库同步 · 低延迟 · 不能跨大版本</tspan>

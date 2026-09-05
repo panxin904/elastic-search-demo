@@ -12,7 +12,7 @@
   <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">CFS 完全公平调度 · 红黑树 · vruntime</text>
 
   <!-- 顶部 -->
-  <rect x="240" y="100" width="120" height="40" rx="8" fill="#3b82f6" opacity="0.9"/>
+  <rect class="at-hover-card" x="240" y="100" width="120" height="40" rx="8" fill="#3b82f6" opacity="0.9"/>
   <text x="300" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="white">调度器入口</text>
 
   <g stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)">
@@ -21,23 +21,23 @@
 
   <!-- 5 个调度类 -->
   <g font-size="11" font-weight="700">
-    <rect x="40" y="175" width="100" height="50" rx="8" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="40" y="175" width="100" height="50" rx="8" fill="#10b981" opacity="0.9"/>
     <text x="90" y="198" text-anchor="middle" fill="white">CFS</text>
     <text x="90" y="213" text-anchor="middle" font-size="10" fill="#d1fae5">普通进程</text>
 
-    <rect x="160" y="175" width="100" height="50" rx="8" fill="#f59e0b" opacity="0.9"/>
+    <rect class="at-hover-card" x="160" y="175" width="100" height="50" rx="8" fill="#f59e0b" opacity="0.9"/>
     <text x="210" y="198" text-anchor="middle" fill="white">RT</text>
     <text x="210" y="213" text-anchor="middle" font-size="10" fill="#fef3c7">实时</text>
 
-    <rect x="280" y="175" width="100" height="50" rx="8" fill="#ec4899" opacity="0.9"/>
+    <rect class="at-hover-card" x="280" y="175" width="100" height="50" rx="8" fill="#ec4899" opacity="0.9"/>
     <text x="330" y="198" text-anchor="middle" fill="white">Deadline</text>
     <text x="330" y="213" text-anchor="middle" font-size="10" fill="#fce7f3">限期</text>
 
-    <rect x="400" y="175" width="100" height="50" rx="8" fill="#8b5cf6" opacity="0.9"/>
+    <rect class="at-hover-card" x="400" y="175" width="100" height="50" rx="8" fill="#8b5cf6" opacity="0.9"/>
     <text x="450" y="198" text-anchor="middle" fill="white">Idle</text>
     <text x="450" y="213" text-anchor="middle" font-size="10" fill="#ede9fe">空闲</text>
 
-    <rect x="520" y="175" width="60" height="50" rx="8" fill="#64748b" opacity="0.9"/>
+    <rect class="at-hover-card" x="520" y="175" width="60" height="50" rx="8" fill="#64748b" opacity="0.9"/>
     <text x="550" y="200" text-anchor="middle" font-size="11" fill="white">Stop</text>
   </g>
 
@@ -45,12 +45,12 @@
   <g font-size="11">
     <text x="40" y="255" font-weight="700" fill="#1e293b">CFS 关键机制：</text>
 
-    <rect x="40" y="265" width="520" height="80" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
+    <rect class="at-hover-card" x="40" y="265" width="520" height="80" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
     <text x="60" y="285" font-weight="700" fill="#064e3b">vruntime（虚拟运行时间）</text>
     <text x="60" y="302" fill="#065f46">实际时间 × NICE_0_LOAD / 进程权重 → 进程无差别累加</text>
     <text x="60" y="318" fill="#065f46">调度始终选 vruntime 最小的进程（左侧红黑树最左节点）</text>
 
-    <rect x="40" y="358" width="520" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+    <rect class="at-hover-card" x="40" y="358" width="520" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
     <text x="60" y="378" font-weight="700" fill="#1e3a8a">调度延迟目标</text>
     <text x="60" y="395" fill="#1e40af">sched_latency_ns（默认 6ms）· 保证所有可运行进程在 N 周期内各跑一次</text>
     <text x="60" y="408" fill="#1e40af">最小粒度 sched_min_granularity_ns（默认 0.75ms）</text>
@@ -58,7 +58,7 @@
 
   <!-- 优先级 -->
   <g font-size="11">
-    <rect x="50" y="425" width="500" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+    <rect class="at-hover-card" x="50" y="425" width="500" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
     <text x="60" y="445" font-weight="700" fill="#92400e">优先级机制</text>
     <text x="200" y="445" fill="#78350f">Nice 值 -20 ~ 19 · 静态优先级 + 动态优先级 · O(1) 调度器（2.6 旧）· CFS 取代</text>
   </g>

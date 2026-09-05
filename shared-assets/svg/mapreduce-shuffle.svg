@@ -11,24 +11,24 @@
   <!-- Map side -->
   <g>
     <text x="100" y="90" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">Map 端</text>
-    <rect x="20" y="100" width="160" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="20" y="100" width="160" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="100" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">InputSplit + Mapper</text>
-    <rect x="20" y="155" width="160" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="20" y="155" width="160" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="100" y="180" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">环形缓冲区 100MB</text>
-    <rect x="20" y="210" width="75" height="35" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="20" y="210" width="75" height="35" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
     <text x="57" y="232" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">分区</text>
-    <rect x="105" y="210" width="75" height="35" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="105" y="210" width="75" height="35" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
     <text x="142" y="232" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">排序</text>
-    <rect x="20" y="255" width="160" height="35" rx="6" fill="#d1fae5" stroke="#10b981"/>
+    <rect class="at-hover-card" x="20" y="255" width="160" height="35" rx="6" fill="#d1fae5" stroke="#10b981"/>
     <text x="100" y="277" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">Spill（溢写磁盘）</text>
-    <rect x="20" y="300" width="160" height="35" rx="6" fill="#d1fae5" stroke="#10b981"/>
+    <rect class="at-hover-card" x="20" y="300" width="160" height="35" rx="6" fill="#d1fae5" stroke="#10b981"/>
     <text x="100" y="322" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">Merge（合并归并）</text>
   </g>
 
   <!-- Network -->
   <g>
     <text x="300" y="200" text-anchor="middle" font-size="13" font-weight="700" fill="#ef4444">⚡ Shuffle（网络拷贝）</text>
-    <rect x="220" y="220" width="160" height="40" rx="6" fill="#fee2e2" stroke="#ef4444"/>
+    <rect class="at-hover-card" x="220" y="220" width="160" height="40" rx="6" fill="#fee2e2" stroke="#ef4444"/>
     <text x="300" y="245" text-anchor="middle" font-size="11" font-weight="700" fill="#991b1b">HTTP 拉取 + 压缩</text>
     <text x="300" y="280" text-anchor="middle" font-size="10" fill="#64748b">同一节点走本地读</text>
     <text x="300" y="295" text-anchor="middle" font-size="10" fill="#64748b">跨节点走 ShuffleService</text>
@@ -37,15 +37,15 @@
   <!-- Reduce side -->
   <g>
     <text x="500" y="90" text-anchor="middle" font-size="13" font-weight="700" fill="#5b21b6">Reduce 端</text>
-    <rect x="420" y="100" width="160" height="40" rx="6" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect class="at-hover-card" x="420" y="100" width="160" height="40" rx="6" fill="#ede9fe" stroke="#8b5cf6"/>
     <text x="500" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">Copy（多线程拉取）</text>
-    <rect x="420" y="155" width="160" height="40" rx="6" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect class="at-hover-card" x="420" y="155" width="160" height="40" rx="6" fill="#ede9fe" stroke="#8b5cf6"/>
     <text x="500" y="180" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">内存 / 磁盘缓冲</text>
-    <rect x="420" y="210" width="160" height="35" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+    <rect class="at-hover-card" x="420" y="210" width="160" height="35" rx="6" fill="#fce7f3" stroke="#ec4899"/>
     <text x="500" y="232" text-anchor="middle" font-size="11" font-weight="700" fill="#9d174d">Merge Sort（归并）</text>
-    <rect x="420" y="255" width="160" height="35" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+    <rect class="at-hover-card" x="420" y="255" width="160" height="35" rx="6" fill="#fce7f3" stroke="#ec4899"/>
     <text x="500" y="277" text-anchor="middle" font-size="11" font-weight="700" fill="#9d174d">分组（GroupingComparator）</text>
-    <rect x="420" y="300" width="160" height="35" rx="6" fill="#d1fae5" stroke="#10b981"/>
+    <rect class="at-hover-card" x="420" y="300" width="160" height="35" rx="6" fill="#d1fae5" stroke="#10b981"/>
     <text x="500" y="322" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">Reducer.compute()</text>
   </g>
 
@@ -58,7 +58,7 @@
   </g>
 
   <g font-size="10" fill="#64748b">
-    <rect x="20" y="370" width="560" height="90" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-dasharray="4"/>
+    <rect class="at-hover-card" x="20" y="370" width="560" height="90" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-dasharray="4"/>
     <text x="40" y="392" font-weight="700" fill="#1e293b">⚡ 关键瓶颈</text>
     <text x="40" y="412">① 网络 IO：Reduce 端需要等所有 Map 完成后才能开始（除非启用推测执行）</text>
     <text x="40" y="430">② 磁盘 IO：Spill + Merge 多次读写；可通过压缩 / combiner / 增加内存缓解</text>

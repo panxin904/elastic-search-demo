@@ -10,53 +10,53 @@
 
   <!-- 左侧 User -->
   <g>
-    <rect x="30" y="85" width="240" height="350" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="30" y="85" width="240" height="350" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
     <text x="150" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#475569">User Space</text>
 
-    <rect x="50" y="120" width="200" height="50" rx="6" fill="white" stroke="#94a3b8"/>
+    <rect class="at-hover-card" x="50" y="120" width="200" height="50" rx="6" fill="white" stroke="#94a3b8"/>
     <text x="150" y="140" text-anchor="middle" font-size="11" font-weight="700" fill="#475569">应用代码</text>
     <text x="150" y="158" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">n = read(fd, buf, 1024)</text>
 
-    <rect x="50" y="185" width="200" height="50" rx="6" fill="white" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="50" y="185" width="200" height="50" rx="6" fill="white" stroke="#3b82f6"/>
     <text x="150" y="205" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">glibc read()</text>
     <text x="150" y="223" text-anchor="middle" font-size="9" fill="#475569">参数封装 + 错误码转换</text>
 
-    <rect x="50" y="250" width="200" height="60" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="50" y="250" width="200" height="60" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
     <text x="150" y="272" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">syscall 指令</text>
     <text x="150" y="290" text-anchor="middle" font-size="9" font-family="monospace" fill="#92400e">mov rax, 0  ; SYS_read</text>
     <text x="150" y="304" text-anchor="middle" font-size="9" font-family="monospace" fill="#92400e">syscall          ; 陷入内核</text>
 
-    <rect x="50" y="325" width="200" height="50" rx="6" fill="white" stroke="#ef4444"/>
+    <rect class="at-hover-card" x="50" y="325" width="200" height="50" rx="6" fill="white" stroke="#ef4444"/>
     <text x="150" y="345" text-anchor="middle" font-size="11" font-weight="700" fill="#991b1b">CPU 模式切换</text>
     <text x="150" y="363" text-anchor="middle" font-size="9" fill="#991b1b">Ring 3 → Ring 0（保存上下文）</text>
 
-    <rect x="50" y="390" width="200" height="40" rx="6" fill="#d1fae5" stroke="#10b981"/>
+    <rect class="at-hover-card" x="50" y="390" width="200" height="40" rx="6" fill="#d1fae5" stroke="#10b981"/>
     <text x="150" y="408" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">返回值</text>
     <text x="150" y="422" text-anchor="middle" font-size="9" font-family="monospace" fill="#065f46">n &gt;= 0 字节数 | -1 errno</text>
   </g>
 
   <!-- 右侧 Kernel -->
   <g>
-    <rect x="320" y="85" width="250" height="350" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="320" y="85" width="250" height="350" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
     <text x="445" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">Kernel Space</text>
 
-    <rect x="340" y="120" width="210" height="45" rx="6" fill="white" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="340" y="120" width="210" height="45" rx="6" fill="white" stroke="#f59e0b"/>
     <text x="445" y="140" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">sys_read() 系统调用入口</text>
     <text x="445" y="156" text-anchor="middle" font-size="9" fill="#475569">arch/x86/entry/syscall_64.c</text>
 
-    <rect x="340" y="180" width="210" height="50" rx="6" fill="white" stroke="#06b6d4"/>
+    <rect class="at-hover-card" x="340" y="180" width="210" height="50" rx="6" fill="white" stroke="#06b6d4"/>
     <text x="445" y="200" text-anchor="middle" font-size="11" font-weight="700" fill="#155e75">权限 / 参数检查</text>
     <text x="445" y="218" text-anchor="middle" font-size="9" fill="#475569">fd 合法？buf 可写？</text>
 
-    <rect x="340" y="245" width="210" height="55" rx="6" fill="white" stroke="#8b5cf6"/>
+    <rect class="at-hover-card" x="340" y="245" width="210" height="55" rx="6" fill="white" stroke="#8b5cf6"/>
     <text x="445" y="265" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">VFS 通用层</text>
     <text x="445" y="285" text-anchor="middle" font-size="9" fill="#475569">vfs_read → file-&gt;f_op-&gt;read</text>
 
-    <rect x="340" y="315" width="210" height="50" rx="6" fill="white" stroke="#ec4899"/>
+    <rect class="at-hover-card" x="340" y="315" width="210" height="50" rx="6" fill="white" stroke="#ec4899"/>
     <text x="445" y="335" text-anchor="middle" font-size="11" font-weight="700" fill="#9d174d">具体文件系统</text>
     <text x="445" y="353" text-anchor="middle" font-size="9" fill="#475569">ext4_read / proc_read</text>
 
-    <rect x="340" y="380" width="210" height="45" rx="6" fill="white" stroke="#10b981"/>
+    <rect class="at-hover-card" x="340" y="380" width="210" height="45" rx="6" fill="white" stroke="#10b981"/>
     <text x="445" y="400" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">块设备驱动</text>
     <text x="445" y="416" text-anchor="middle" font-size="9" fill="#475569">DMA · Page Cache 命中？</text>
   </g>
@@ -72,7 +72,7 @@
   </g>
 
   <g font-size="10" fill="#64748b">
-    <rect x="30" y="450" width="540" height="22" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-dasharray="4"/>
+    <rect class="at-hover-card" x="30" y="450" width="540" height="22" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-dasharray="4"/>
     <text x="50" y="465">⚡ 单次 syscall ~ 1-2μs · 高频调用（epoll busy loop）可走 io_uring 减少切换</text>
   </g>
 </svg>

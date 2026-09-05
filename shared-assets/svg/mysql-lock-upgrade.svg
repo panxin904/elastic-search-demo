@@ -10,7 +10,7 @@
 
   <!-- 四种锁对比表 -->
   <g>
-    <rect x="40" y="90" width="520" height="170" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+    <rect class="at-hover-card" x="40" y="90" width="520" height="170" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
 
     <!-- 标题行 -->
     <text x="100" y="115" text-anchor="middle" font-size="12" font-weight="700" fill="#1e293b">锁类型</text>
@@ -65,7 +65,7 @@
     <text x="300" y="385" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">30</text>
 
     <!-- 锁定区间 (15, 25) -->
-    <rect x="110" y="345" width="180" height="40" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" fill-opacity="0.5"/>
+    <rect class="at-hover-card" x="110" y="345" width="180" height="40" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" fill-opacity="0.5"/>
     <text x="200" y="360" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">Next-Key Lock</text>
     <text x="200" y="375" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">(15, 25]</text>
 
@@ -82,7 +82,7 @@
 
   <!-- 死锁警示 -->
   <g>
-    <rect x="40" y="455" width="520" height="20" rx="4" fill="#fee2e2" stroke="#dc2626"/>
+    <rect class="at-hover-card" x="40" y="455" width="520" height="20" rx="4" fill="#fee2e2" stroke="#dc2626"/>
     <text x="300" y="470" text-anchor="middle" font-size="11" font-weight="700" fill="#7f1d1d">⚠️ Next-Key Lock 是 RR 下死锁高发原因（多 session 范围查询重叠）</text>
   </g>
 </svg>

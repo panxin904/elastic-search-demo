@@ -46,25 +46,25 @@
   <!-- 详情卡 -->
   <g font-size="11">
     <!-- CAP -->
-    <rect x="40" y="100" width="120" height="55" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+    <rect class="at-hover-card" x="40" y="100" width="120" height="55" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
     <text x="100" y="120" text-anchor="middle" font-weight="700" fill="#1e3a8a">CAP 2000</text>
     <text x="100" y="138" text-anchor="middle" fill="#1e40af">C/A/P 三选二</text>
     <text x="100" y="151" text-anchor="middle" fill="#1e40af">Brewer 猜想</text>
 
     <!-- BASE -->
-    <rect x="180" y="100" width="120" height="55" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
+    <rect class="at-hover-card" x="180" y="100" width="120" height="55" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
     <text x="240" y="120" text-anchor="middle" font-weight="700" fill="#064e3b">BASE 2008</text>
     <text x="240" y="138" text-anchor="middle" fill="#065f46">基本可用 + 最终一致</text>
     <text x="240" y="151" text-anchor="middle" fill="#065f46">牺牲强一致换可用</text>
 
     <!-- NoSQL -->
-    <rect x="320" y="100" width="120" height="55" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+    <rect class="at-hover-card" x="320" y="100" width="120" height="55" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
     <text x="380" y="120" text-anchor="middle" font-weight="700" fill="#92400e">NoSQL</text>
     <text x="380" y="138" text-anchor="middle" fill="#78350f">KV / Document / Column</text>
     <text x="380" y="151" text-anchor="middle" fill="#78350f">水平扩展 + 最终一致</text>
 
     <!-- NewSQL -->
-    <rect x="460" y="100" width="120" height="55" rx="6" fill="#fce7f3" stroke="#ec4899" stroke-width="1"/>
+    <rect class="at-hover-card" x="460" y="100" width="120" height="55" rx="6" fill="#fce7f3" stroke="#ec4899" stroke-width="1"/>
     <text x="520" y="120" text-anchor="middle" font-weight="700" fill="#9f1239">NewSQL</text>
     <text x="520" y="138" text-anchor="middle" fill="#9d174d">SQL + 水平扩展</text>
     <text x="520" y="151" text-anchor="middle" fill="#9d174d">强一致 + 高可用</text>
@@ -72,7 +72,7 @@
 
   <!-- 关键比较 -->
   <g font-size="11">
-    <rect x="40" y="340" width="520" height="115" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <rect class="at-hover-card" x="40" y="340" width="520" height="115" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
     <text x="300" y="360" text-anchor="middle" font-weight="700" fill="#1e293b">CAP vs BASE</text>
     <text x="60" y="382" fill="#475569">CAP：证明分布式系统不可能三角 · 理论上限</text>
     <text x="60" y="400" fill="#475569">BASE：放弃强一致换可用性 · 实践选择</text>

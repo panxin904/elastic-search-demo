@@ -11,42 +11,42 @@
   <!-- 6 种索引 -->
   <g>
     <!-- BTree -->
-    <rect x="30" y="90" width="170" height="100" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="30" y="90" width="170" height="100" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
     <text x="115" y="115" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">BTree</text>
     <text x="115" y="135" text-anchor="middle" font-size="10" fill="#475569">默认 · 平衡树</text>
     <text x="115" y="155" font-size="10" fill="#1e293b">=, &lt;, &gt;, BETWEEN</text>
     <text x="115" y="175" text-anchor="middle" font-size="9" fill="#059669">最常用 90%</text>
 
     <!-- Hash -->
-    <rect x="215" y="90" width="170" height="100" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="215" y="90" width="170" height="100" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
     <text x="300" y="115" text-anchor="middle" font-size="13" font-weight="700" fill="#5b21b6">Hash</text>
     <text x="300" y="135" text-anchor="middle" font-size="10" fill="#475569">哈希表</text>
     <text x="300" y="155" text-anchor="middle" font-size="10" fill="#1e293b">= 精确等值</text>
     <text x="300" y="175" text-anchor="middle" font-size="9" fill="#dc2626">不推荐 · BTree 替代</text>
 
     <!-- GIN -->
-    <rect x="400" y="90" width="170" height="100" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="400" y="90" width="170" height="100" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
     <text x="485" y="115" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">GIN</text>
     <text x="485" y="135" text-anchor="middle" font-size="10" fill="#475569">倒排索引</text>
     <text x="485" y="155" text-anchor="middle" font-size="10" fill="#1e293b">jsonb · 全文 · 数组</text>
     <text x="485" y="175" text-anchor="middle" font-size="9" fill="#059669">多值字段</text>
 
     <!-- GiST -->
-    <rect x="30" y="210" width="170" height="100" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="30" y="210" width="170" height="100" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
     <text x="115" y="235" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">GiST</text>
     <text x="115" y="255" text-anchor="middle" font-size="10" fill="#475569">通用搜索树</text>
     <text x="115" y="275" text-anchor="middle" font-size="10" fill="#1e293b">几何 · 范围 · IP</text>
     <text x="115" y="295" text-anchor="middle" font-size="9" fill="#059669">空间数据</text>
 
     <!-- BRIN -->
-    <rect x="215" y="210" width="170" height="100" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="215" y="210" width="170" height="100" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
     <text x="300" y="235" text-anchor="middle" font-size="13" font-weight="700" fill="#9d174d">BRIN</text>
     <text x="300" y="255" text-anchor="middle" font-size="10" fill="#475569">块范围索引</text>
     <text x="300" y="275" text-anchor="middle" font-size="10" fill="#1e293b">时序 · 日志 · 大表</text>
     <text x="300" y="295" text-anchor="middle" font-size="9" fill="#059669">超小 · 物理有序</text>
 
     <!-- SP-GiST -->
-    <rect x="400" y="210" width="170" height="100" rx="8" fill="#f3e8ff" stroke="#a855f7" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="400" y="210" width="170" height="100" rx="8" fill="#f3e8ff" stroke="#a855f7" stroke-width="1.5"/>
     <text x="485" y="235" text-anchor="middle" font-size="13" font-weight="700" fill="#6b21a8">SP-GiST</text>
     <text x="485" y="255" text-anchor="middle" font-size="10" fill="#475569">空间分区</text>
     <text x="485" y="275" text-anchor="middle" font-size="10" fill="#1e293b">IP · quad-tree</text>
@@ -54,7 +54,7 @@
   </g>
 
   <!-- 选型建议 -->
-  <rect x="30" y="330" width="540" height="50" rx="6" fill="#fff" stroke="#e2e8f0"/>
+  <rect class="at-hover-card" x="30" y="330" width="540" height="50" rx="6" fill="#fff" stroke="#e2e8f0"/>
   <text x="50" y="352" font-size="11" font-weight="700" fill="#7c3aed">💡 选型建议：</text>
   <text x="50" y="372" font-size="10" fill="#475569">
     <tspan>等值/范围 → BTree</tspan>

@@ -13,19 +13,19 @@
 
   <!-- 客户端 2 个 -->
   <g font-size="13" font-weight="600">
-    <rect x="60" y="130" width="120" height="70" rx="8" fill="#3b82f6" opacity="0.9"/>
+    <rect class="at-hover-card" x="60" y="130" width="120" height="70" rx="8" fill="#3b82f6" opacity="0.9"/>
     <text x="120" y="158" text-anchor="middle" fill="white">发布者</text>
     <text x="120" y="175" text-anchor="middle" font-size="11" fill="#dbeafe">Publisher</text>
     <text x="120" y="190" text-anchor="middle" font-size="11" fill="#dbeafe">设备 A</text>
 
-    <rect x="420" y="130" width="120" height="70" rx="8" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="420" y="130" width="120" height="70" rx="8" fill="#10b981" opacity="0.9"/>
     <text x="480" y="158" text-anchor="middle" fill="white">订阅者</text>
     <text x="480" y="175" text-anchor="middle" font-size="11" fill="#d1fae5">Subscriber</text>
     <text x="480" y="190" text-anchor="middle" fill="#d1fae5">应用 B</text>
   </g>
 
   <!-- Broker 中央 -->
-  <rect x="240" y="220" width="120" height="90" rx="10" fill="#ec4899" opacity="0.95"/>
+  <rect class="at-hover-card" x="240" y="220" width="120" height="90" rx="10" fill="#ec4899" opacity="0.95"/>
   <text x="300" y="248" text-anchor="middle" font-size="16" font-weight="700" fill="white">MQTT Broker</text>
   <text x="300" y="266" text-anchor="middle" font-size="11" fill="#fce7f3">EMQX / Mosquitto</text>
   <text x="300" y="285" text-anchor="middle" font-size="10" fill="#fbcfe8">主题：sensors/+/temp</text>
@@ -44,19 +44,19 @@
 
   <!-- QoS 对比表 -->
   <g font-size="11">
-    <rect x="50" y="350" width="160" height="90" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+    <rect class="at-hover-card" x="50" y="350" width="160" height="90" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
     <text x="130" y="370" text-anchor="middle" font-weight="700" fill="#92400e">QoS 0 · 至多一次</text>
     <text x="130" y="390" text-anchor="middle" fill="#78350f">fire-and-forget</text>
     <text x="130" y="408" text-anchor="middle" fill="#78350f">无 ACK · 网络抖动丢包</text>
     <text x="130" y="426" text-anchor="middle" fill="#78350f">场景：高频遥测</text>
 
-    <rect x="220" y="350" width="160" height="90" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
+    <rect class="at-hover-card" x="220" y="350" width="160" height="90" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
     <text x="300" y="370" text-anchor="middle" font-weight="700" fill="#064e3b">QoS 1 · 至少一次</text>
     <text x="300" y="390" text-anchor="middle" fill="#065f46">PUBACK 确认</text>
     <text x="300" y="408" text-anchor="middle" fill="#065f46">可能重复 · 业务幂等</text>
     <text x="300" y="426" text-anchor="middle" fill="#065f46">场景：开关控制</text>
 
-    <rect x="390" y="350" width="160" height="90" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+    <rect class="at-hover-card" x="390" y="350" width="160" height="90" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
     <text x="470" y="370" text-anchor="middle" font-weight="700" fill="#1e3a8a">QoS 2 · 恰好一次</text>
     <text x="470" y="390" text-anchor="middle" fill="#1e40af">4 次握手</text>
     <text x="470" y="408" text-anchor="middle" fill="#1e40af">PUBREC/PUBREL/PUBCOMP</text>

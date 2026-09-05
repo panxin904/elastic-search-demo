@@ -12,14 +12,14 @@
   <g>
     <text x="50" y="90" font-size="13" font-weight="700" fill="#1e293b">① 查询路径对比（开启 AHI vs 未开启）</text>
 
-    <rect x="40" y="100" width="260" height="105" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="40" y="100" width="260" height="105" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
     <text x="170" y="122" text-anchor="middle" font-size="12" font-weight="700" fill="#991b1b">❌ 未开启 AHI（B+Tree）</text>
     <text x="55" y="142" font-size="10" fill="#475569">SELECT * WHERE id = 100</text>
     <text x="55" y="160" font-size="10" fill="#475569">  ↓  根节点 → 中间节点 → 叶子节点</text>
     <text x="55" y="178" font-size="10" fill="#475569">  ↓  3 层 B+Tree = 3 次磁盘 IO</text>
     <text x="55" y="196" font-size="10" fill="#dc2626">复杂度 O(log N) · 受磁盘 IO 限制</text>
 
-    <rect x="310" y="100" width="250" height="105" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="310" y="100" width="250" height="105" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
     <text x="435" y="122" text-anchor="middle" font-size="12" font-weight="700" fill="#047857">✅ 开启 AHI（哈希直达）</text>
     <text x="325" y="142" font-size="10" fill="#475569">SELECT * WHERE id = 100</text>
     <text x="325" y="160" font-size="10" fill="#475569">  ↓  哈希表 key="100" → value=页号</text>
@@ -31,21 +31,21 @@
   <g>
     <text x="50" y="235" font-size="13" font-weight="700" fill="#1e293b">② AHI 自动建立（基于热点页访问）</text>
 
-    <rect x="40" y="245" width="120" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="40" y="245" width="120" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
     <text x="100" y="268" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">B+Tree 索引页</text>
     <text x="100" y="285" text-anchor="middle" font-size="10" fill="#475569">page_no=42</text>
     <text x="100" y="298" text-anchor="middle" font-size="9" fill="#3b82f6">热点页</text>
 
     <path d="M160,275 L195,275" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
 
-    <rect x="195" y="245" width="150" height="60" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="195" y="245" width="150" height="60" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
     <text x="270" y="268" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">InnoDB 监控线程</text>
     <text x="210" y="285" font-size="10" fill="#475569">连续 N 次访问同一索引页</text>
     <text x="210" y="298" font-size="9" fill="#92400e">触发 AHI 构建条件</text>
 
     <path d="M345,275 L380,275" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
 
-    <rect x="380" y="245" width="180" height="60" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="380" y="245" width="180" height="60" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
     <text x="470" y="268" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">AHI 内存哈希表</text>
     <text x="395" y="285" font-size="10" fill="#475569" font-family="monospace">key="idx=42,id=100"</text>
     <text x="395" y="298" font-size="9" fill="#10b981">value → page_no=42</text>
@@ -55,7 +55,7 @@
   <g>
     <text x="50" y="335" font-size="13" font-weight="700" fill="#1e293b">③ 关键参数（innodb_adaptive_hash_index）</text>
 
-    <rect x="40" y="345" width="520" height="55" rx="6" fill="#1e293b" stroke="#1e293b" stroke-width="1"/>
+    <rect class="at-hover-card" x="40" y="345" width="520" height="55" rx="6" fill="#1e293b" stroke="#1e293b" stroke-width="1"/>
     <text x="55" y="367" font-size="10" font-weight="700" fill="#10b981"># 默认 ON（5.7+）</text>
     <text x="55" y="382" font-size="10" fill="#e2e8f0" font-family="monospace">SET GLOBAL innodb_adaptive_hash_index = ON;</text>
     <text x="55" y="397" font-size="10" font-weight="700" fill="#10b981"># AHI 分区数（减少锁竞争）</text>

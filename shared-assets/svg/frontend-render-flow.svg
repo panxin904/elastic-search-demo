@@ -11,53 +11,53 @@
   <!-- 3 列对比 -->
   <g>
     <!-- React -->
-    <rect x="30" y="90" width="170" height="240" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="30" y="90" width="170" height="240" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
     <text x="115" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#1e40af">React</text>
     <text x="115" y="135" text-anchor="middle" font-size="10" fill="#475569">VDOM + Diff</text>
     
-    <rect x="50" y="155" width="130" height="32" rx="4" fill="#dbeafe"/>
+    <rect class="at-hover-card" x="50" y="155" width="130" height="32" rx="4" fill="#dbeafe"/>
     <text x="115" y="175" text-anchor="middle" font-size="10" fill="#1e40af">JSX → vnode</text>
     <line x1="115" y1="187" x2="115" y2="195" stroke="#64748b" marker-end="url(#arr)"/>
     
-    <rect x="50" y="200" width="130" height="32" rx="4" fill="#dbeafe"/>
+    <rect class="at-hover-card" x="50" y="200" width="130" height="32" rx="4" fill="#dbeafe"/>
     <text x="115" y="220" text-anchor="middle" font-size="10" fill="#1e40af">diff 算法</text>
     <line x1="115" y1="232" x2="115" y2="240" stroke="#64748b" marker-end="url(#arr)"/>
     
-    <rect x="50" y="245" width="130" height="32" rx="4" fill="#dbeafe"/>
+    <rect class="at-hover-card" x="50" y="245" width="130" height="32" rx="4" fill="#dbeafe"/>
     <text x="115" y="265" text-anchor="middle" font-size="10" fill="#1e40af">patch 真实 DOM</text>
     <text x="115" y="305" text-anchor="middle" font-size="9" fill="#64748b">运行时 + 编译时</text>
 
     <!-- Vue -->
-    <rect x="215" y="90" width="170" height="240" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="215" y="90" width="170" height="240" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5"/>
     <text x="300" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#065f46">Vue 3</text>
     <text x="300" y="135" text-anchor="middle" font-size="10" fill="#475569">响应式 Proxy</text>
     
-    <rect x="235" y="155" width="130" height="32" rx="4" fill="#d1fae5"/>
+    <rect class="at-hover-card" x="235" y="155" width="130" height="32" rx="4" fill="#d1fae5"/>
     <text x="300" y="175" text-anchor="middle" font-size="10" fill="#065f46">template 编译</text>
     <line x1="300" y1="187" x2="300" y2="195" stroke="#64748b" marker-end="url(#arr)"/>
     
-    <rect x="235" y="200" width="130" height="32" rx="4" fill="#d1fae5"/>
+    <rect class="at-hover-card" x="235" y="200" width="130" height="32" rx="4" fill="#d1fae5"/>
     <text x="300" y="220" text-anchor="middle" font-size="10" fill="#065f46">reactive 追踪</text>
     <line x1="300" y1="232" x2="300" y2="240" stroke="#64748b" marker-end="url(#arr)"/>
     
-    <rect x="235" y="245" width="130" height="32" rx="4" fill="#d1fae5"/>
+    <rect class="at-hover-card" x="235" y="245" width="130" height="32" rx="4" fill="#d1fae5"/>
     <text x="300" y="265" text-anchor="middle" font-size="10" fill="#065f46">精确更新</text>
     <text x="300" y="305" text-anchor="middle" font-size="9" fill="#64748b">依赖收集 + 编译时</text>
 
     <!-- Svelte -->
-    <rect x="400" y="90" width="170" height="240" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="400" y="90" width="170" height="240" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
     <text x="485" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">Svelte</text>
     <text x="485" y="135" text-anchor="middle" font-size="10" fill="#475569">编译时 + 0 runtime</text>
     
-    <rect x="420" y="155" width="130" height="32" rx="4" fill="#fef3c7"/>
+    <rect class="at-hover-card" x="420" y="155" width="130" height="32" rx="4" fill="#fef3c7"/>
     <text x="485" y="175" text-anchor="middle" font-size="10" fill="#92400e">编译为 JS</text>
     <line x1="485" y1="187" x2="485" y2="195" stroke="#64748b" marker-end="url(#arr)"/>
     
-    <rect x="420" y="200" width="130" height="32" rx="4" fill="#fef3c7"/>
+    <rect class="at-hover-card" x="420" y="200" width="130" height="32" rx="4" fill="#fef3c7"/>
     <text x="485" y="220" text-anchor="middle" font-size="10" fill="#92400e">细粒度更新</text>
     <line x1="485" y1="232" x2="485" y2="240" stroke="#64748b" marker-end="url(#arr)"/>
     
-    <rect x="420" y="245" width="130" height="32" rx="4" fill="#fef3c7"/>
+    <rect class="at-hover-card" x="420" y="245" width="130" height="32" rx="4" fill="#fef3c7"/>
     <text x="485" y="265" text-anchor="middle" font-size="10" fill="#92400e">直接 DOM 操作</text>
     <text x="485" y="305" text-anchor="middle" font-size="9" fill="#64748b">编译时 + 极小运行时</text>
   </g>

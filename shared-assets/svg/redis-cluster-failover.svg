@@ -19,23 +19,23 @@
     <text x="60" y="95" font-size="13" font-weight="700" fill="#1e293b">故障转移时序（6 节点 · M1宕机）</text>
 
     <!-- Master 1 -->
-    <rect x="40" y="120" width="80" height="30" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-dasharray="4"/>
+    <rect class="at-hover-card" x="40" y="120" width="80" height="30" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-dasharray="4"/>
     <text x="80" y="140" text-anchor="middle" font-size="11" font-weight="700" fill="#7f1d1d">M1 ✗</text>
 
     <!-- Replica 1 -->
-    <rect x="160" y="120" width="80" height="30" rx="4" fill="#d1fae5" stroke="#10b981"/>
+    <rect class="at-hover-card" x="160" y="120" width="80" height="30" rx="4" fill="#d1fae5" stroke="#10b981"/>
     <text x="200" y="140" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">R1 (候选)</text>
 
     <!-- M2 -->
-    <rect x="280" y="120" width="80" height="30" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="280" y="120" width="80" height="30" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="320" y="140" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">M2</text>
 
     <!-- M3 -->
-    <rect x="400" y="120" width="80" height="30" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="400" y="120" width="80" height="30" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="440" y="140" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">M3</text>
 
     <!-- R2 -->
-    <rect x="520" y="120" width="50" height="30" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect class="at-hover-card" x="520" y="120" width="50" height="30" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
     <text x="545" y="140" text-anchor="middle" font-size="10" fill="#475569">R2</text>
   </g>
 
@@ -100,7 +100,7 @@
 
   <!-- 关键参数 -->
   <g>
-    <rect x="40" y="345" width="525" height="100" rx="6" fill="#fef9c3" stroke="#facc15"/>
+    <rect class="at-hover-card" x="40" y="345" width="525" height="100" rx="6" fill="#fef9c3" stroke="#facc15"/>
     <text x="60" y="367" font-size="11" font-weight="700" fill="#854d0e">关键参数：</text>
     <text x="60" y="385" font-size="10" font-family="monospace" fill="#1e2937">cluster-node-timeout=15000          # 15s 未响应 → PFAIL</text>
     <text x="60" y="402" font-size="10" font-family="monospace" fill="#1e2937">cluster-replica-validity-factor=10  # replica 数据落后不超过 10 倍</text>

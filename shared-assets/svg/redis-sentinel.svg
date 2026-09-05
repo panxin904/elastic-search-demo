@@ -12,36 +12,36 @@
   <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Sentinel 集群 · 自动故障转移</text>
 
   <!-- 客户端 -->
-  <rect x="40" y="220" width="100" height="40" rx="6" fill="#3b82f6" opacity="0.9"/>
+  <rect class="at-hover-card" x="40" y="220" width="100" height="40" rx="6" fill="#3b82f6" opacity="0.9"/>
   <text x="90" y="245" text-anchor="middle" font-size="12" font-weight="700" fill="white">客户端</text>
 
   <!-- Sentinel 集群 -->
   <g font-size="11" font-weight="700">
-    <rect x="200" y="100" width="160" height="40" rx="6" fill="#ec4899" opacity="0.95"/>
+    <rect class="at-hover-card" x="200" y="100" width="160" height="40" rx="6" fill="#ec4899" opacity="0.95"/>
     <text x="280" y="118" text-anchor="middle" fill="white">Sentinel 1</text>
     <text x="280" y="132" text-anchor="middle" font-size="9" fill="#fce7f3">主观/客观下线</text>
 
-    <rect x="200" y="150" width="160" height="40" rx="6" fill="#ec4899" opacity="0.95"/>
+    <rect class="at-hover-card" x="200" y="150" width="160" height="40" rx="6" fill="#ec4899" opacity="0.95"/>
     <text x="280" y="168" text-anchor="middle" fill="white">Sentinel 2</text>
     <text x="280" y="182" text-anchor="middle" font-size="9" fill="#fce7f3">投票选举</text>
 
-    <rect x="200" y="200" width="160" height="40" rx="6" fill="#ec4899" opacity="0.95"/>
+    <rect class="at-hover-card" x="200" y="200" width="160" height="40" rx="6" fill="#ec4899" opacity="0.95"/>
     <text x="280" y="218" text-anchor="middle" fill="white">Sentinel 3</text>
     <text x="280" y="232" text-anchor="middle" font-size="9" fill="#fce7f3">配置下发</text>
   </g>
 
   <!-- 主从节点 -->
   <g font-size="11" font-weight="700">
-    <rect x="430" y="100" width="130" height="60" rx="6" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="430" y="100" width="130" height="60" rx="6" fill="#10b981" opacity="0.9"/>
     <text x="495" y="125" text-anchor="middle" fill="white">Redis Master</text>
     <text x="495" y="140" text-anchor="middle" font-size="9" fill="#d1fae5">读写</text>
     <text x="495" y="153" text-anchor="middle" font-size="9" fill="#d1fae5">写操作</text>
 
-    <rect x="430" y="180" width="120" height="40" rx="6" fill="#94a3b8" opacity="0.85"/>
+    <rect class="at-hover-card" x="430" y="180" width="120" height="40" rx="6" fill="#94a3b8" opacity="0.85"/>
     <text x="490" y="203" text-anchor="middle" fill="white">Replica 1</text>
     <text x="490" y="215" text-anchor="middle" font-size="9" fill="#f1f5f9">读</text>
 
-    <rect x="430" y="230" width="120" height="40" rx="6" fill="#94a3b8" opacity="0.85"/>
+    <rect class="at-hover-card" x="430" y="230" width="120" height="40" rx="6" fill="#94a3b8" opacity="0.85"/>
     <text x="490" y="253" text-anchor="middle" fill="white">Replica 2</text>
     <text x="490" y="265" text-anchor="middle" font-size="9" fill="#f1f5f9">读</text>
   </g>
@@ -72,23 +72,23 @@
 
   <!-- 故障转移流程 -->
   <g font-size="11">
-    <rect x="40" y="320" width="520" height="135" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <rect class="at-hover-card" x="40" y="320" width="520" height="135" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
     <text x="300" y="340" text-anchor="middle" font-weight="700" fill="#1e293b">故障转移流程</text>
 
     <g font-size="10" font-weight="700">
-      <rect x="55" y="355" width="100" height="40" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+      <rect class="at-hover-card" x="55" y="355" width="100" height="40" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
       <text x="105" y="372" text-anchor="middle" fill="#92400e">① 主观下线</text>
       <text x="105" y="386" text-anchor="middle" font-size="9" fill="#78350f">PING 失败</text>
 
-      <rect x="170" y="355" width="100" height="40" rx="4" fill="#fce7f3" stroke="#ec4899" stroke-width="1"/>
+      <rect class="at-hover-card" x="170" y="355" width="100" height="40" rx="4" fill="#fce7f3" stroke="#ec4899" stroke-width="1"/>
       <text x="220" y="372" text-anchor="middle" fill="#9f1239">② 客观下线</text>
       <text x="220" y="386" text-anchor="middle" font-size="9" fill="#9d174d">半数同意</text>
 
-      <rect x="285" y="355" width="100" height="40" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+      <rect class="at-hover-card" x="285" y="355" width="100" height="40" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
       <text x="335" y="372" text-anchor="middle" fill="#1e3a8a">③ 选举 leader</text>
       <text x="335" y="386" text-anchor="middle" font-size="9" fill="#1e40af">Raft 简化</text>
 
-      <rect x="400" y="355" width="100" height="40" rx="4" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
+      <rect class="at-hover-card" x="400" y="355" width="100" height="40" rx="4" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
       <text x="450" y="372" text-anchor="middle" fill="#064e3b">④ failover</text>
       <text x="450" y="386" text-anchor="middle" font-size="9" fill="#065f46">提升从为主</text>
 

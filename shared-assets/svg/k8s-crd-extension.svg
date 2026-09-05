@@ -12,10 +12,10 @@
   <g>
     <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">① CRD 三层扩展模型</text>
 
-    <rect x="40" y="105" width="520" height="125" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="40" y="105" width="520" height="125" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
 
     <!-- 用户层 -->
-    <rect x="60" y="120" width="160" height="100" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <rect class="at-hover-card" x="60" y="120" width="160" height="100" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
     <text x="140" y="142" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">用户层</text>
     <text x="140" y="165" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">CR (CustomResource)</text>
     <text x="75" y="185" font-size="9" fill="#475569">kubectl apply -f</text>
@@ -23,7 +23,7 @@
     <text x="75" y="215" font-size="9" font-weight="700" fill="#1e293b">类比：CRD 是 class</text>
 
     <!-- API 层 -->
-    <rect x="240" y="120" width="160" height="100" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <rect class="at-hover-card" x="240" y="120" width="160" height="100" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
     <text x="320" y="142" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">API 层</text>
     <text x="320" y="165" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">CRD 定义</text>
     <text x="255" y="185" font-size="9" fill="#475569">OpenAPI v3 schema</text>
@@ -31,7 +31,7 @@
     <text x="255" y="215" font-size="9" font-weight="700" fill="#1e293b">类比：CR 是 instance</text>
 
     <!-- 控制层 -->
-    <rect x="420" y="120" width="120" height="100" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="2"/>
+    <rect class="at-hover-card" x="420" y="120" width="120" height="100" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="2"/>
     <text x="480" y="142" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">控制层</text>
     <text x="480" y="165" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">Controller</text>
     <text x="435" y="185" font-size="9" fill="#475569">watch CR 变化</text>
@@ -48,7 +48,7 @@
   <g>
     <text x="60" y="252" font-size="13" font-weight="700" fill="#1e293b">② CRD 定义（OpenAPI schema）</text>
 
-    <rect x="40" y="265" width="520" height="120" rx="4" fill="#1e293b"/>
+    <rect class="at-hover-card" x="40" y="265" width="520" height="120" rx="4" fill="#1e293b"/>
     <text x="55" y="283" font-size="10" font-family="monospace" fill="#a7f3d0">apiVersion: apiextensions.k8s.io/v1</text>
     <text x="55" y="297" font-size="10" font-family="monospace" fill="#a7f3d0">kind: CustomResourceDefinition</text>
     <text x="55" y="311" font-size="10" font-family="monospace" fill="#a7f3d0">metadata:</text>

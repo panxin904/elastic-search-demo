@@ -15,7 +15,7 @@
   <g>
     <text x="60" y="95" font-size="13" font-weight="700" fill="#1e293b">kubelet 三种插件接口</text>
 
-    <rect x="40" y="115" width="120" height="220" rx="8" fill="#1f2937"/>
+    <rect class="at-hover-card" x="40" y="115" width="120" height="220" rx="8" fill="#1f2937"/>
     <text x="100" y="135" text-anchor="middle" font-size="13" font-weight="700" fill="#86efac">kubelet</text>
     <text x="100" y="153" text-anchor="middle" font-size="9" fill="#94a3b8">节点代理</text>
 
@@ -26,17 +26,17 @@
     <text x="100" y="320" text-anchor="middle" font-size="9" fill="#94a3b8">三种 hook 调用</text>
 
     <!-- CNI 详情 -->
-    <rect x="220" y="105" width="160" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <rect class="at-hover-card" x="220" y="105" width="160" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
     <text x="300" y="125" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">CNI（网络）</text>
     <text x="300" y="143" text-anchor="middle" font-size="10" fill="#475569">Pod 网络配置</text>
 
     <!-- CSI 详情 -->
-    <rect x="220" y="165" width="160" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <rect class="at-hover-card" x="220" y="165" width="160" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
     <text x="300" y="185" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">CSI（存储）</text>
     <text x="300" y="203" text-anchor="middle" font-size="10" fill="#475569">Volume 挂载</text>
 
     <!-- CRI 详情 -->
-    <rect x="220" y="225" width="160" height="50" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <rect class="at-hover-card" x="220" y="225" width="160" height="50" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
     <text x="300" y="245" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">CRI（运行时）</text>
     <text x="300" y="263" text-anchor="middle" font-size="10" fill="#475569">容器进程管理</text>
 
@@ -46,15 +46,15 @@
     <line x1="160" y1="245" x2="220" y2="250" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr)"/>
 
     <!-- 右侧具体实现 -->
-    <rect x="420" y="105" width="140" height="50" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect class="at-hover-card" x="420" y="105" width="140" height="50" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
     <text x="490" y="123" text-anchor="middle" font-size="11" font-weight="700" fill="#1e293b">Calico / Flannel</text>
     <text x="490" y="142" text-anchor="middle" font-size="9" fill="#475569">Cilium / Weave</text>
 
-    <rect x="420" y="165" width="140" height="50" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect class="at-hover-card" x="420" y="165" width="140" height="50" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
     <text x="490" y="183" text-anchor="middle" font-size="11" font-weight="700" fill="#1e293b">AWS EBS / Ceph</text>
     <text x="490" y="202" text-anchor="middle" font-size="9" fill="#475569">NFS / Longhorn</text>
 
-    <rect x="420" y="225" width="140" height="50" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect class="at-hover-card" x="420" y="225" width="140" height="50" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
     <text x="490" y="243" text-anchor="middle" font-size="11" font-weight="700" fill="#1e293b">containerd / CRI-O</text>
     <text x="490" y="262" text-anchor="middle" font-size="9" fill="#475569">Docker (弃用)</text>
 
@@ -68,7 +68,7 @@
   <g>
     <text x="60" y="360" font-size="13" font-weight="700" fill="#1e293b">接口规范（gRPC 协议）</text>
 
-    <rect x="40" y="375" width="520" height="65" rx="6" fill="#1f2937"/>
+    <rect class="at-hover-card" x="40" y="375" width="520" height="65" rx="6" fill="#1f2937"/>
     <text x="60" y="395" font-size="11" font-family="monospace" fill="#86efac">type CNI interface {</text>
     <text x="60" y="412" font-size="11" font-family="monospace" fill="#a5f3fc">  AddNetwork(net *NetworkConfig, rt *RuntimeConf) (types.Result, error)</text>
     <text x="60" y="429" font-size="11" font-family="monospace" fill="#a5f3fc">  DelNetwork(net *NetworkConfig, rt *RuntimeConf) error</text>
@@ -76,7 +76,7 @@
 
   <!-- 优势 -->
   <g>
-    <rect x="40" y="450" width="525" height="20" rx="4" fill="#fef9c3" stroke="#facc15"/>
+    <rect class="at-hover-card" x="40" y="450" width="525" height="20" rx="4" fill="#fef9c3" stroke="#facc15"/>
     <text x="60" y="465" font-size="11" font-weight="700" fill="#854d0e">价值：kubelet 不耦合任何厂商实现 → 自由切换网络/存储/运行时方案</text>
   </g>
 </svg>

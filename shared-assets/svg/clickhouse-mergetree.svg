@@ -12,20 +12,20 @@
   <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">列存 + LSM 思想 · 后台合并 · 高压缩</text>
 
   <!-- 数据写入 -->
-  <rect x="40" y="100" width="120" height="35" rx="6" fill="#3b82f6" opacity="0.9"/>
+  <rect class="at-hover-card" x="40" y="100" width="120" height="35" rx="6" fill="#3b82f6" opacity="0.9"/>
   <text x="100" y="123" text-anchor="middle" font-size="13" font-weight="700" fill="white">INSERT</text>
 
   <!-- Part 1 -->
   <g font-size="11" font-weight="700">
-    <rect x="200" y="100" width="120" height="40" rx="4" fill="#10b981" opacity="0.85"/>
+    <rect class="at-hover-card" x="200" y="100" width="120" height="40" rx="4" fill="#10b981" opacity="0.85"/>
     <text x="260" y="118" text-anchor="middle" fill="white">Part 1</text>
     <text x="260" y="132" text-anchor="middle" font-size="9" fill="#d1fae5">1000 行</text>
 
-    <rect x="340" y="100" width="120" height="40" rx="4" fill="#10b981" opacity="0.85"/>
+    <rect class="at-hover-card" x="340" y="100" width="120" height="40" rx="4" fill="#10b981" opacity="0.85"/>
     <text x="400" y="118" text-anchor="middle" fill="white">Part 2</text>
     <text x="400" y="132" text-anchor="middle" font-size="9" fill="#d1fae5">5000 行</text>
 
-    <rect x="480" y="100" width="100" height="40" rx="4" fill="#10b981" opacity="0.85"/>
+    <rect class="at-hover-card" x="480" y="100" width="100" height="40" rx="4" fill="#10b981" opacity="0.85"/>
     <text x="530" y="118" text-anchor="middle" fill="white">Part 3</text>
     <text x="530" y="132" text-anchor="middle" font-size="9" fill="#d1fae5">8000 行</text>
   </g>
@@ -53,7 +53,7 @@
   </g>
 
   <!-- 后台合并 -->
-  <rect x="200" y="240" width="380" height="50" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <rect class="at-hover-card" x="200" y="240" width="380" height="50" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
   <text x="390" y="263" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">Background Merge（后台合并）</text>
   <text x="390" y="280" text-anchor="middle" font-size="10" fill="#78350f">Part 1+2+3 → Merged Part（按主键排序 + 压缩）</text>
 
@@ -64,7 +64,7 @@
   </g>
 
   <!-- Merged -->
-  <rect x="220" y="320" width="340" height="40" rx="4" fill="#10b981" opacity="0.95"/>
+  <rect class="at-hover-card" x="220" y="320" width="340" height="40" rx="4" fill="#10b981" opacity="0.95"/>
   <text x="390" y="338" text-anchor="middle" fill="white">Merged Part（排序 + 压缩）</text>
   <text x="390" y="352" text-anchor="middle" font-size="9" fill="#d1fae5">14000 行 · 1 列存储</text>
 
@@ -73,7 +73,7 @@
   </g>
 
   <!-- SELECT -->
-  <rect x="240" y="400" width="120" height="35" rx="6" fill="#3b82f6" opacity="0.9"/>
+  <rect class="at-hover-card" x="240" y="400" width="120" height="35" rx="6" fill="#3b82f6" opacity="0.9"/>
   <text x="300" y="423" text-anchor="middle" font-size="13" font-weight="700" fill="white">SELECT</text>
 
   <g stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#arrow)">
@@ -82,11 +82,11 @@
 
   <!-- 关键能力 -->
   <g font-size="10">
-    <rect x="40" y="400" width="120" height="35" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
+    <rect class="at-hover-card" x="40" y="400" width="120" height="35" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
     <text x="100" y="416" text-anchor="middle" font-weight="700" fill="#064e3b">向量化</text>
     <text x="100" y="430" text-anchor="middle" font-size="9" fill="#065f46">SIMD</text>
 
-    <rect x="450" y="400" width="120" height="35" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+    <rect class="at-hover-card" x="450" y="400" width="120" height="35" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
     <text x="510" y="416" text-anchor="middle" font-weight="700" fill="#1e3a8a">压缩</text>
     <text x="510" y="430" text-anchor="middle" font-size="9" fill="#1e40af">LZ4 / ZSTD</text>
   </g>

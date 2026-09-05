@@ -13,7 +13,7 @@
 
   <!-- 入口 -->
   <g>
-    <rect x="40" y="85" width="120" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <rect class="at-hover-card" x="40" y="85" width="120" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
     <text x="100" y="102" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Pod 创建</text>
     <text x="100" y="118" text-anchor="middle" font-size="9" fill="#475569">spec.nodeName=""</text>
   </g>
@@ -21,14 +21,14 @@
   <line x1="160" y1="105" x2="190" y2="105" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
 
   <!-- 调度器 -->
-  <rect x="190" y="85" width="120" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <rect class="at-hover-card" x="190" y="85" width="120" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
   <text x="250" y="102" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">kube-scheduler</text>
   <text x="250" y="118" text-anchor="middle" font-size="9" fill="#475569">watch + queue</text>
 
   <line x1="310" y1="105" x2="340" y2="105" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
 
   <!-- 调度扩展点 -->
-  <rect x="340" y="85" width="220" height="40" rx="6" fill="#1f2937"/>
+  <rect class="at-hover-card" x="340" y="85" width="220" height="40" rx="6" fill="#1f2937"/>
   <text x="450" y="102" text-anchor="middle" font-size="11" font-weight="700" fill="#86efac">Scheduling Framework</text>
   <text x="450" y="118" text-anchor="middle" font-size="9" fill="#a5f3fc">QueueSort · PreFilter · Filter · Score · Permit · Reserve · Bind</text>
 
@@ -37,7 +37,7 @@
     <text x="60" y="160" font-size="13" font-weight="700" fill="#1e293b">两阶段调度（核心）</text>
 
     <!-- 预选 -->
-    <rect x="40" y="180" width="250" height="180" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <rect class="at-hover-card" x="40" y="180" width="250" height="180" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
     <text x="165" y="205" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">① 预选（Filter）</text>
     <text x="165" y="220" text-anchor="middle" font-size="10" fill="#475569">过滤不满足条件的节点</text>
 
@@ -52,7 +52,7 @@
     <text x="165" y="355" text-anchor="middle" font-size="10" fill="#10b981" font-weight="700">输出：候选节点列表</text>
 
     <!-- 优选 -->
-    <rect x="320" y="180" width="240" height="180" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <rect class="at-hover-card" x="320" y="180" width="240" height="180" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
     <text x="440" y="205" text-anchor="middle" font-size="14" font-weight="700" fill="#065f46">② 优选（Score）</text>
     <text x="440" y="220" text-anchor="middle" font-size="10" fill="#475569">为候选节点打分排序</text>
 
@@ -69,14 +69,14 @@
 
   <!-- Bind 阶段 -->
   <g>
-    <rect x="40" y="380" width="525" height="40" rx="6" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+    <rect class="at-hover-card" x="40" y="380" width="525" height="40" rx="6" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
     <text x="300" y="400" text-anchor="middle" font-size="12" font-weight="700" fill="#5b21b6">③ Bind（绑定）</text>
     <text x="300" y="415" text-anchor="middle" font-size="10" fill="#5b21b6">apiserver 接受 Pod.spec.nodeName 更新 → kubelet watch → 启动容器</text>
   </g>
 
   <!-- 抢占 -->
   <g>
-    <rect x="40" y="435" width="525" height="35" rx="6" fill="#fee2e2" stroke="#dc2626"/>
+    <rect class="at-hover-card" x="40" y="435" width="525" height="35" rx="6" fill="#fee2e2" stroke="#dc2626"/>
     <text x="60" y="455" font-size="11" font-weight="700" fill="#7f1d1d">⚠️ Preemption 抢占：高优先级 Pod 无资源 → 删除低优先级 Pod（graceful）</text>
   </g>
 </svg>

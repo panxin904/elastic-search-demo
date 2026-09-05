@@ -12,7 +12,7 @@
   <g>
     <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">① Undo Log 类型与版本链</text>
 
-    <rect x="40" y="105" width="520" height="105" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="40" y="105" width="520" height="105" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
 
     <text x="60" y="128" font-size="10" font-weight="700" fill="#1e293b">两类 Undo：</text>
     <text x="60" y="144" font-size="9" font-family="monospace" fill="#475569">insert_undo  →  insert 后可立即删除（其他事务不读）</text>
@@ -27,21 +27,21 @@
   <g>
     <text x="60" y="232" font-size="13" font-weight="700" fill="#1e293b">② Purge 时机判定</text>
 
-    <rect x="40" y="245" width="520" height="155" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="40" y="245" width="520" height="155" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
 
-    <rect x="55" y="262" width="170" height="65" rx="3" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="55" y="262" width="170" height="65" rx="3" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="140" y="282" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">条件 1</text>
     <text x="65" y="302" font-size="9" fill="#475569">trx_id &lt; 当前</text>
     <text x="65" y="316" font-size="9" fill="#475569">所有 Read View</text>
     <text x="65" y="330" font-size="9" font-weight="700" fill="#1e40af">→ 可清理</text>
 
-    <rect x="240" y="262" width="170" height="65" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="240" y="262" width="170" height="65" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
     <text x="325" y="282" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">条件 2</text>
     <text x="250" y="302" font-size="9" fill="#475569">undo 所在段</text>
     <text x="250" y="316" font-size="9" fill="#475569">事务已提交</text>
     <text x="250" y="330" font-size="9" font-weight="700" fill="#92400e">→ 可清理</text>
 
-    <rect x="425" y="262" width="120" height="65" rx="3" fill="#dcfce7" stroke="#10b981"/>
+    <rect class="at-hover-card" x="425" y="262" width="120" height="65" rx="3" fill="#dcfce7" stroke="#10b981"/>
     <text x="485" y="282" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">条件 3</text>
     <text x="435" y="302" font-size="9" fill="#475569">超过</text>
     <text x="435" y="316" font-size="9" fill="#475569">undo_retention</text>
@@ -56,11 +56,11 @@
   <g>
     <text x="60" y="418" font-size="13" font-weight="700" fill="#1e293b">③ 关键参数</text>
 
-    <rect x="40" y="430" width="250" height="35" rx="4" fill="#1e293b"/>
+    <rect class="at-hover-card" x="40" y="430" width="250" height="35" rx="4" fill="#1e293b"/>
     <text x="165" y="448" text-anchor="middle" font-size="9" font-family="monospace" fill="#a7f3d0">innodb_purge_threads = 4</text>
     <text x="165" y="460" text-anchor="middle" font-size="9" fill="#a7f3d0">(并行清理)</text>
 
-    <rect x="310" y="430" width="250" height="35" rx="4" fill="#1e293b"/>
+    <rect class="at-hover-card" x="310" y="430" width="250" height="35" rx="4" fill="#1e293b"/>
     <text x="435" y="448" text-anchor="middle" font-size="9" font-family="monospace" fill="#a7f3d0">innodb_purge_batch_size</text>
     <text x="435" y="460" text-anchor="middle" font-size="9" fill="#a7f3d0">= 300 (每次清 300 undo)</text>
   </g>

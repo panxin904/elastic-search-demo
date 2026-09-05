@@ -41,7 +41,7 @@
 
   <!-- 详情 -->
   <g>
-    <rect x="20" y="200" width="110" height="200" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="20" y="200" width="110" height="200" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="75" y="222" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">稳态假设</text>
     <text x="75" y="245" text-anchor="middle" font-size="10" fill="#475569">• SLI 指标</text>
     <text x="75" y="265" text-anchor="middle" font-size="10" fill="#475569">• 业务指标</text>
@@ -52,7 +52,7 @@
     <text x="75" y="357" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">err &lt; 0.1%</text>
     <text x="75" y="385" text-anchor="middle" font-size="10" fill="#1e40af">⚡ 无假设=赌博</text>
 
-    <rect x="145" y="200" width="110" height="200" rx="6" fill="#d1fae5" stroke="#10b981"/>
+    <rect class="at-hover-card" x="145" y="200" width="110" height="200" rx="6" fill="#d1fae5" stroke="#10b981"/>
     <text x="200" y="222" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">控制范围</text>
     <text x="200" y="245" text-anchor="middle" font-size="10" fill="#475569">• 影响应用</text>
     <text x="200" y="265" text-anchor="middle" font-size="10" fill="#475569">• 影响 Pod 数</text>
@@ -62,7 +62,7 @@
     <text x="200" y="343" text-anchor="middle" font-size="9" fill="#475569">staging 100%</text>
     <text x="200" y="385" text-anchor="middle" font-size="10" fill="#065f46">⚡ 先小后大</text>
 
-    <rect x="270" y="200" width="110" height="200" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="270" y="200" width="110" height="200" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
     <text x="325" y="222" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">故障类型</text>
     <text x="325" y="245" text-anchor="middle" font-size="10" fill="#475569">• Pod kill</text>
     <text x="325" y="265" text-anchor="middle" font-size="10" fill="#475569">• 网络丢包</text>
@@ -72,7 +72,7 @@
     <text x="325" y="345" text-anchor="middle" font-size="10" fill="#475569">• 时间偏移</text>
     <text x="325" y="385" text-anchor="middle" font-size="10" fill="#92400e">⚡ 可回滚</text>
 
-    <rect x="395" y="200" width="110" height="200" rx="6" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect class="at-hover-card" x="395" y="200" width="110" height="200" rx="6" fill="#ede9fe" stroke="#8b5cf6"/>
     <text x="450" y="222" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">观测指标</text>
     <text x="450" y="245" text-anchor="middle" font-size="10" fill="#475569">• Prometheus</text>
     <text x="450" y="265" text-anchor="middle" font-size="10" fill="#475569">• Grafana</text>
@@ -82,7 +82,7 @@
     <text x="450" y="345" text-anchor="middle" font-size="10" fill="#475569">• 用户反馈</text>
     <text x="450" y="385" text-anchor="middle" font-size="10" fill="#5b21b6">⚡ 全链路</text>
 
-    <rect x="520" y="200" width="60" height="200" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+    <rect class="at-hover-card" x="520" y="200" width="60" height="200" rx="6" fill="#fce7f3" stroke="#ec4899"/>
     <text x="550" y="222" text-anchor="middle" font-size="11" font-weight="700" fill="#9d174d">复盘</text>
     <text x="550" y="245" text-anchor="middle" font-size="10" fill="#475569">• 记录</text>
     <text x="550" y="265" text-anchor="middle" font-size="10" fill="#475569">• 改进</text>
@@ -90,7 +90,7 @@
   </g>
 
   <g font-size="10" fill="#64748b">
-    <rect x="20" y="420" width="560" height="48" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-dasharray="4"/>
+    <rect class="at-hover-card" x="20" y="420" width="560" height="48" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-dasharray="4"/>
     <text x="40" y="442" font-weight="700" fill="#1e293b">⚡ Netflix Chaos Monkey 原则</text>
     <text x="40" y="460">生产环境注入故障 → 逼出隐性依赖 → 让系统从"经常失败"中学到"如何恢复"</text>
   </g>

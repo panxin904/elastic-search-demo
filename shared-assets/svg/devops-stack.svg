@@ -60,19 +60,19 @@
 
   <!-- 工具映射 -->
   <g font-size="11">
-    <rect x="40" y="115" width="115" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+    <rect class="at-hover-card" x="40" y="115" width="115" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
     <text x="97" y="133" text-anchor="middle" font-weight="700" fill="#1e3a8a">Jira / 禅道</text>
     <text x="97" y="148" text-anchor="middle" font-size="9" fill="#1e40af">需求 / 任务</text>
 
-    <rect x="450" y="115" width="115" height="40" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
+    <rect class="at-hover-card" x="450" y="115" width="115" height="40" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
     <text x="507" y="133" text-anchor="middle" font-weight="700" fill="#064e3b">Git / GitHub</text>
     <text x="507" y="148" text-anchor="middle" font-size="9" fill="#065f46">代码托管</text>
 
-    <rect x="500" y="270" width="85" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+    <rect class="at-hover-card" x="500" y="270" width="85" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
     <text x="542" y="288" text-anchor="middle" font-weight="700" fill="#92400e">Maven</text>
     <text x="542" y="303" text-anchor="middle" font-size="9" fill="#78350f">Gradle</text>
 
-    <rect x="450" y="380" width="115" height="40" rx="6" fill="#fee2e2" stroke="#ef4444" stroke-width="1"/>
+    <rect class="at-hover-card" x="450" y="380" width="115" height="40" rx="6" fill="#fee2e2" stroke="#ef4444" stroke-width="1"/>
     <text x="507" y="398" text-anchor="middle" font-weight="700" fill="#7f1d1d">SonarQube</text>
     <text x="507" y="413" text-anchor="middle" font-size="9" fill="#991b1b">Junit / Postman</text>
 

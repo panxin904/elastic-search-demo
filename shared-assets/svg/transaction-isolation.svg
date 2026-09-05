@@ -13,7 +13,7 @@
 
   <g font-size="11" font-weight="700">
     <!-- RU -->
-    <rect x="40" y="100" width="130" height="320" rx="8" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="40" y="100" width="130" height="320" rx="8" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
     <text x="105" y="125" text-anchor="middle" font-size="13" fill="#dc2626">RU</text>
     <text x="105" y="142" text-anchor="middle" font-size="10" fill="#991b1b">Read Uncommitted</text>
     <text x="105" y="158" text-anchor="middle" font-size="10" fill="#991b1b">读未提交</text>
@@ -28,7 +28,7 @@
     <text x="55" y="350" font-size="9" fill="#991b1b">仅诊断场景</text>
 
     <!-- RC -->
-    <rect x="180" y="100" width="130" height="320" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="180" y="100" width="130" height="320" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
     <text x="245" y="125" text-anchor="middle" font-size="13" fill="#92400e">RC</text>
     <text x="245" y="142" text-anchor="middle" font-size="10" fill="#78350f">Read Committed</text>
     <text x="245" y="158" text-anchor="middle" font-size="10" fill="#78350f">读已提交</text>
@@ -43,7 +43,7 @@
     <text x="195" y="340" font-size="9" fill="#78350f">实时数据</text>
 
     <!-- RR -->
-    <rect x="320" y="100" width="130" height="320" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="320" y="100" width="130" height="320" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
     <text x="385" y="125" text-anchor="middle" font-size="13" fill="#064e3b">RR</text>
     <text x="385" y="142" text-anchor="middle" font-size="10" fill="#065f46">Repeatable Read</text>
     <text x="385" y="158" text-anchor="middle" font-size="10" fill="#065f46">可重复读</text>
@@ -58,7 +58,7 @@
     <text x="335" y="340" font-size="9" fill="#065f46">解决幻读</text>
 
     <!-- SERIALIZABLE -->
-    <rect x="460" y="100" width="120" height="320" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="460" y="100" width="120" height="320" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
     <text x="520" y="125" text-anchor="middle" font-size="13" fill="#5b21b6">SERIAL</text>
     <text x="520" y="142" text-anchor="middle" font-size="10" fill="#6b21a8">Serializable</text>
     <text x="520" y="158" text-anchor="middle" font-size="10" fill="#6b21a8">可串行化</text>

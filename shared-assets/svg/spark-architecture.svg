@@ -10,51 +10,51 @@
 
   <!-- Driver -->
   <g>
-    <rect x="30" y="90" width="540" height="100" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="30" y="90" width="540" height="100" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
     <text x="300" y="113" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">Driver（JVM 进程）</text>
-    <rect x="50" y="125" width="120" height="50" rx="6" fill="white" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="50" y="125" width="120" height="50" rx="6" fill="white" stroke="#f59e0b"/>
     <text x="110" y="143" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">SparkContext</text>
     <text x="110" y="160" text-anchor="middle" font-size="9" fill="#475569">应用入口</text>
-    <rect x="190" y="125" width="120" height="50" rx="6" fill="white" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="190" y="125" width="120" height="50" rx="6" fill="white" stroke="#f59e0b"/>
     <text x="250" y="143" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">DAGScheduler</text>
     <text x="250" y="160" text-anchor="middle" font-size="9" fill="#475569">Stage 切分</text>
-    <rect x="330" y="125" width="120" height="50" rx="6" fill="white" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="330" y="125" width="120" height="50" rx="6" fill="white" stroke="#f59e0b"/>
     <text x="390" y="143" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">TaskScheduler</text>
     <text x="390" y="160" text-anchor="middle" font-size="9" fill="#475569">任务下发</text>
-    <rect x="470" y="125" width="80" height="50" rx="6" fill="white" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="470" y="125" width="80" height="50" rx="6" fill="white" stroke="#f59e0b"/>
     <text x="510" y="148" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">BlockMgr</text>
     <text x="510" y="163" text-anchor="middle" font-size="9" fill="#475569">广播变量</text>
   </g>
 
   <!-- ClusterManager -->
   <g>
-    <rect x="30" y="220" width="540" height="50" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="30" y="220" width="540" height="50" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
     <text x="300" y="243" text-anchor="middle" font-size="12" font-weight="700" fill="#5b21b6">Cluster Manager</text>
     <text x="300" y="260" text-anchor="middle" font-size="10" fill="#475569">Standalone · YARN · Kubernetes · Mesos</text>
   </g>
 
   <!-- Executors -->
   <g>
-    <rect x="30" y="295" width="170" height="135" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="30" y="295" width="170" height="135" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
     <text x="115" y="318" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">Executor 1 (JVM)</text>
-    <rect x="50" y="330" width="130" height="25" rx="4" fill="white" stroke="#10b981"/>
+    <rect class="at-hover-card" x="50" y="330" width="130" height="25" rx="4" fill="white" stroke="#10b981"/>
     <text x="115" y="347" text-anchor="middle" font-size="10" fill="#065f46">Task Pool（多核）</text>
-    <rect x="50" y="362" width="130" height="25" rx="4" fill="white" stroke="#10b981"/>
+    <rect class="at-hover-card" x="50" y="362" width="130" height="25" rx="4" fill="white" stroke="#10b981"/>
     <text x="115" y="379" text-anchor="middle" font-size="10" fill="#065f46">BlockManager</text>
-    <rect x="50" y="394" width="130" height="25" rx="4" fill="white" stroke="#10b981"/>
+    <rect class="at-hover-card" x="50" y="394" width="130" height="25" rx="4" fill="white" stroke="#10b981"/>
     <text x="115" y="411" text-anchor="middle" font-size="10" fill="#065f46">Cache（persist）</text>
 
-    <rect x="215" y="295" width="170" height="135" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="215" y="295" width="170" height="135" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
     <text x="300" y="318" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">Executor 2 (JVM)</text>
-    <rect x="235" y="330" width="130" height="25" rx="4" fill="white" stroke="#10b981"/>
-    <rect x="235" y="362" width="130" height="25" rx="4" fill="white" stroke="#10b981"/>
-    <rect x="235" y="394" width="130" height="25" rx="4" fill="white" stroke="#10b981"/>
+    <rect class="at-hover-card" x="235" y="330" width="130" height="25" rx="4" fill="white" stroke="#10b981"/>
+    <rect class="at-hover-card" x="235" y="362" width="130" height="25" rx="4" fill="white" stroke="#10b981"/>
+    <rect class="at-hover-card" x="235" y="394" width="130" height="25" rx="4" fill="white" stroke="#10b981"/>
 
-    <rect x="400" y="295" width="170" height="135" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="400" y="295" width="170" height="135" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
     <text x="485" y="318" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">Executor N (JVM)</text>
-    <rect x="420" y="330" width="130" height="25" rx="4" fill="white" stroke="#10b981"/>
-    <rect x="420" y="362" width="130" height="25" rx="4" fill="white" stroke="#10b981"/>
-    <rect x="420" y="394" width="130" height="25" rx="4" fill="white" stroke="#10b981"/>
+    <rect class="at-hover-card" x="420" y="330" width="130" height="25" rx="4" fill="white" stroke="#10b981"/>
+    <rect class="at-hover-card" x="420" y="362" width="130" height="25" rx="4" fill="white" stroke="#10b981"/>
+    <rect class="at-hover-card" x="420" y="394" width="130" height="25" rx="4" fill="white" stroke="#10b981"/>
   </g>
 
   <!-- 箭头 -->

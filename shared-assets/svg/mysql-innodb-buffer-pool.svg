@@ -12,16 +12,16 @@
   <g>
     <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">① Buffer Pool 三大链表（innodb_buffer_pool_size）</text>
 
-    <rect x="40" y="105" width="520" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <rect class="at-hover-card" x="40" y="105" width="520" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
     <text x="300" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">Buffer Pool 实例（默认 1，可配 instance）</text>
 
-    <rect x="60" y="145" width="155" height="30" rx="4" fill="#fff" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="60" y="145" width="155" height="30" rx="4" fill="#fff" stroke="#3b82f6"/>
     <text x="137" y="165" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">LRU 链表（热数据）</text>
 
-    <rect x="225" y="145" width="155" height="30" rx="4" fill="#fff" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="225" y="145" width="155" height="30" rx="4" fill="#fff" stroke="#3b82f6"/>
     <text x="302" y="165" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">Free 链表（空闲页）</text>
 
-    <rect x="390" y="145" width="155" height="30" rx="4" fill="#fff" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="390" y="145" width="155" height="30" rx="4" fill="#fff" stroke="#3b82f6"/>
     <text x="467" y="165" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">Flush 链表（脏页）</text>
   </g>
 
@@ -29,10 +29,10 @@
   <g>
     <text x="60" y="208" font-size="13" font-weight="700" fill="#1e293b">② LRU 链表（midpoint 优化）</text>
 
-    <rect x="40" y="220" width="520" height="100" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="40" y="220" width="520" height="100" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
 
     <!-- Young 区 -->
-    <rect x="60" y="235" width="220" height="65" rx="3" fill="#dcfce7" stroke="#10b981"/>
+    <rect class="at-hover-card" x="60" y="235" width="220" height="65" rx="3" fill="#dcfce7" stroke="#10b981"/>
     <text x="170" y="255" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">Young 区（热数据 5/8）</text>
     <text x="170" y="272" text-anchor="middle" font-size="9" fill="#475569">频繁访问的 page</text>
     <text x="170" y="287" text-anchor="middle" font-size="9" fill="#475569">innodb_old_blocks_pct=37</text>
@@ -42,7 +42,7 @@
     <text x="280" y="225" font-size="9" fill="#dc2626" text-anchor="middle">midpoint</text>
 
     <!-- Old 区 -->
-    <rect x="280" y="235" width="260" height="65" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="280" y="235" width="260" height="65" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
     <text x="410" y="255" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">Old 区（冷数据 3/8）</text>
     <text x="410" y="272" text-anchor="middle" font-size="9" fill="#475569">新读入的 page</text>
     <text x="410" y="287" text-anchor="middle" font-size="9" fill="#475569">innodb_old_blocks_time=1000ms</text>
@@ -54,7 +54,7 @@
   <g>
     <text x="60" y="338" font-size="13" font-weight="700" fill="#1e293b">③ Change Buffer（写优化，非唯一二级索引）</text>
 
-    <rect x="40" y="350" width="250" height="115" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="40" y="350" width="250" height="115" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
     <text x="165" y="370" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">二级索引变更</text>
     <text x="55" y="390" font-size="10" fill="#475569">• 写入 change buffer</text>
     <text x="55" y="405" font-size="10" fill="#475569">• 暂不读盘</text>
@@ -62,7 +62,7 @@
     <text x="55" y="438" font-size="10" fill="#475569">• 减少随机 IO 4-9x</text>
     <text x="55" y="453" font-size="9" fill="#dc2626">⚠️ 主键 / 唯一索引不适用</text>
 
-    <rect x="310" y="350" width="250" height="115" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="310" y="350" width="250" height="115" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
     <text x="435" y="370" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">Adaptive Hash Index</text>
     <text x="325" y="390" font-size="10" fill="#475569">• B+Tree 顶层 hash 化</text>
     <text x="325" y="405" font-size="10" fill="#475569">• 热点 page 加速</text>

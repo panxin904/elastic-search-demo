@@ -10,18 +10,18 @@
 
   <!-- 加载器层级 -->
   <g>
-    <rect x="30" y="85" width="540" height="180" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="30" y="85" width="540" height="180" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
     <text x="300" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#475569">类加载器层级（双亲委派）</text>
 
-    <rect x="60" y="125" width="480" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="60" y="125" width="480" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="300" y="142" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Bootstrap ClassLoader（启动类加载器）</text>
     <text x="300" y="158" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">%JAVA_HOME%/lib/rt.jar · java.lang.* · 由 C++ 实现</text>
 
-    <rect x="120" y="175" width="420" height="35" rx="6" fill="#d1fae5" stroke="#10b981"/>
+    <rect class="at-hover-card" x="120" y="175" width="420" height="35" rx="6" fill="#d1fae5" stroke="#10b981"/>
     <text x="330" y="191" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">Platform ClassLoader（平台类加载器 · Java 9+）</text>
     <text x="330" y="204" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">%JAVA_HOME%/lib/modules · jrt-fs · ext 类路径</text>
 
-    <rect x="180" y="220" width="360" height="35" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="180" y="220" width="360" height="35" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
     <text x="360" y="236" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Application ClassLoader（应用类加载器）</text>
     <text x="360" y="249" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">classpath · -cp / -classpath</text>
   </g>
@@ -39,25 +39,25 @@
     <text x="300" y="295" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">类生命周期 7 阶段</text>
 
     <g>
-      <rect x="20" y="310" width="80" height="35" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+      <rect class="at-hover-card" x="20" y="310" width="80" height="35" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
       <text x="60" y="332" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">① 加载</text>
 
-      <rect x="105" y="310" width="80" height="35" rx="6" fill="#d1fae5" stroke="#10b981"/>
+      <rect class="at-hover-card" x="105" y="310" width="80" height="35" rx="6" fill="#d1fae5" stroke="#10b981"/>
       <text x="145" y="332" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">② 验证</text>
 
-      <rect x="190" y="310" width="80" height="35" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+      <rect class="at-hover-card" x="190" y="310" width="80" height="35" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
       <text x="230" y="332" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">③ 准备</text>
 
-      <rect x="275" y="310" width="80" height="35" rx="6" fill="#ede9fe" stroke="#8b5cf6"/>
+      <rect class="at-hover-card" x="275" y="310" width="80" height="35" rx="6" fill="#ede9fe" stroke="#8b5cf6"/>
       <text x="315" y="332" text-anchor="middle" font-size="10" font-weight="700" fill="#5b21b6">④ 解析</text>
 
-      <rect x="360" y="310" width="80" height="35" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+      <rect class="at-hover-card" x="360" y="310" width="80" height="35" rx="6" fill="#fce7f3" stroke="#ec4899"/>
       <text x="400" y="332" text-anchor="middle" font-size="10" font-weight="700" fill="#9d174d">⑤ 初始化</text>
 
-      <rect x="445" y="310" width="80" height="35" rx="6" fill="#fee2e2" stroke="#ef4444"/>
+      <rect class="at-hover-card" x="445" y="310" width="80" height="35" rx="6" fill="#fee2e2" stroke="#ef4444"/>
       <text x="485" y="332" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">⑥ 使用</text>
 
-      <rect x="530" y="310" width="50" height="35" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+      <rect class="at-hover-card" x="530" y="310" width="50" height="35" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
       <text x="555" y="332" text-anchor="middle" font-size="9" font-weight="700" fill="#1e40af">⑦卸载</text>
     </g>
 
@@ -73,7 +73,7 @@
 
   <!-- 底部说明 -->
   <g font-size="10" fill="#64748b">
-    <rect x="20" y="370" width="560" height="100" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-dasharray="4"/>
+    <rect class="at-hover-card" x="20" y="370" width="560" height="100" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-dasharray="4"/>
     <text x="40" y="392" font-weight="700" fill="#1e293b">⚡ 双亲委派好处</text>
     <text x="40" y="410" font-size="10">① 避免类重复加载（同一个类由最上层加载器加载）② 防止核心 API 被篡改（java.lang.String 永远由 Bootstrap 加载）</text>
     <text x="40" y="430" font-weight="700" fill="#1e293b">⚡ 打破双亲委派的场景</text>

@@ -13,27 +13,27 @@
     <text x="300" y="92" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">经典管道示例</text>
 
     <g>
-      <rect x="20" y="105" width="105" height="45" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+      <rect class="at-hover-card" x="20" y="105" width="105" height="45" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
       <text x="72" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">cat access.log</text>
       <text x="72" y="142" text-anchor="middle" font-size="9" fill="#475569">读取文件</text>
 
-      <rect x="135" y="105" width="80" height="45" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+      <rect class="at-hover-card" x="135" y="105" width="80" height="45" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
       <text x="175" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">grep -E</text>
       <text x="175" y="142" text-anchor="middle" font-size="9" fill="#475569">过滤</text>
 
-      <rect x="225" y="105" width="80" height="45" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+      <rect class="at-hover-card" x="225" y="105" width="80" height="45" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
       <text x="265" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">awk '{print $1}'</text>
       <text x="265" y="142" text-anchor="middle" font-size="9" fill="#475569">提取字段</text>
 
-      <rect x="315" y="105" width="80" height="45" rx="6" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+      <rect class="at-hover-card" x="315" y="105" width="80" height="45" rx="6" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
       <text x="355" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">sort</text>
       <text x="355" y="142" text-anchor="middle" font-size="9" fill="#475569">排序</text>
 
-      <rect x="405" y="105" width="80" height="45" rx="6" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+      <rect class="at-hover-card" x="405" y="105" width="80" height="45" rx="6" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
       <text x="445" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#9d174d">uniq -c</text>
       <text x="445" y="142" text-anchor="middle" font-size="9" fill="#475569">去重计数</text>
 
-      <rect x="495" y="105" width="85" height="45" rx="6" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5"/>
+      <rect class="at-hover-card" x="495" y="105" width="85" height="45" rx="6" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5"/>
       <text x="537" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#991b1b">sort -rn | head</text>
       <text x="537" y="142" text-anchor="middle" font-size="9" fill="#475569">TOP 10</text>
     </g>
@@ -51,21 +51,21 @@
   <g>
     <text x="300" y="180" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">核心工具分类</text>
 
-    <rect x="20" y="195" width="180" height="100" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="20" y="195" width="180" height="100" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="110" y="218" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">文本处理（text）</text>
     <text x="35" y="240" font-size="10" fill="#475569">grep · awk · sed · cut</text>
     <text x="35" y="255" font-size="10" fill="#475569">tr · sort · uniq · wc</text>
     <text x="35" y="270" font-size="10" fill="#475569">head · tail · less · diff</text>
     <text x="35" y="285" font-size="10" fill="#475569">xargs · column · paste</text>
 
-    <rect x="210" y="195" width="180" height="100" rx="6" fill="#d1fae5" stroke="#10b981"/>
+    <rect class="at-hover-card" x="210" y="195" width="180" height="100" rx="6" fill="#d1fae5" stroke="#10b981"/>
     <text x="300" y="218" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">数据格式化</text>
     <text x="225" y="240" font-size="10" fill="#475569">jq（JSON 处理）</text>
     <text x="225" y="255" font-size="10" fill="#475569">yq（YAML 处理）</text>
     <text x="225" y="270" font-size="10" fill="#475569">xmllint（XML）</text>
     <text x="225" y="285" font-size="10" fill="#475569">base64 · xxd · md5sum</text>
 
-    <rect x="400" y="195" width="180" height="100" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="400" y="195" width="180" height="100" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
     <text x="490" y="218" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">网络与调试</text>
     <text x="415" y="240" font-size="10" fill="#475569">curl · wget · httpie</text>
     <text x="415" y="255" font-size="10" fill="#475569">netstat · ss · lsof</text>
@@ -75,7 +75,7 @@
 
   <!-- 设计哲学 -->
   <g>
-    <rect x="20" y="310" width="560" height="155" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="20" y="310" width="560" height="155" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
     <text x="40" y="333" font-size="12" font-weight="700" fill="#1e293b">⚡ Unix 哲学（Doug McIlroy / ESR）</text>
 
     <text x="40" y="358" font-size="10" fill="#475569">① Rule of Composition：设计能与其他程序配合的程序（管道接口）</text>

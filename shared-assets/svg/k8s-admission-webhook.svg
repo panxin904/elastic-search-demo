@@ -22,25 +22,25 @@
     <text x="60" y="95" font-size="13" font-weight="700" fill="#1e293b">apiserver 请求处理链</text>
 
     <!-- User -->
-    <rect x="40" y="115" width="80" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <rect class="at-hover-card" x="40" y="115" width="80" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
     <text x="80" y="138" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">kubectl</text>
 
     <!-- Auth -->
-    <rect x="140" y="115" width="80" height="40" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect class="at-hover-card" x="140" y="115" width="80" height="40" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
     <text x="180" y="138" text-anchor="middle" font-size="10" fill="#475569">AuthN</text>
 
     <!-- Authz -->
-    <rect x="240" y="115" width="80" height="40" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect class="at-hover-card" x="240" y="115" width="80" height="40" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
     <text x="280" y="138" text-anchor="middle" font-size="10" fill="#475569">AuthZ</text>
 
     <!-- Mutating Webhook -->
-    <rect x="340" y="105" width="100" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <rect class="at-hover-card" x="340" y="105" width="100" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
     <text x="390" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Mutating</text>
     <text x="390" y="142" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Webhook</text>
     <text x="390" y="158" text-anchor="middle" font-size="9" fill="#1e40af">修改对象</text>
 
     <!-- Validating Webhook -->
-    <rect x="460" y="105" width="100" height="60" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <rect class="at-hover-card" x="460" y="105" width="100" height="60" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
     <text x="510" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Validating</text>
     <text x="510" y="142" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Webhook</text>
     <text x="510" y="158" text-anchor="middle" font-size="9" fill="#92400e">仅校验</text>
@@ -52,7 +52,7 @@
     <line x1="440" y1="135" x2="460" y2="135" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arr)"/>
 
     <!-- etcd -->
-    <rect x="500" y="195" width="60" height="40" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <rect class="at-hover-card" x="500" y="195" width="60" height="40" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
     <text x="530" y="218" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">etcd</text>
 
     <line x1="510" y1="165" x2="510" y2="195" stroke="#10b981" stroke-width="1.5" marker-end="url(#arrG)"/>
@@ -61,7 +61,7 @@
     <!-- 失败路径 -->
     <line x1="390" y1="105" x2="350" y2="60" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrR)"/>
     <line x1="510" y1="105" x2="470" y2="60" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrR)"/>
-    <rect x="330" y="30" width="160" height="30" rx="4" fill="#fee2e2" stroke="#dc2626"/>
+    <rect class="at-hover-card" x="330" y="30" width="160" height="30" rx="4" fill="#fee2e2" stroke="#dc2626"/>
     <text x="410" y="50" text-anchor="middle" font-size="11" font-weight="700" fill="#7f1d1d">拒绝（403）</text>
   </g>
 
@@ -69,7 +69,7 @@
   <g>
     <text x="60" y="265" font-size="13" font-weight="700" fill="#1e293b">Webhook 配置示例</text>
 
-    <rect x="40" y="280" width="520" height="125" rx="6" fill="#1f2937"/>
+    <rect class="at-hover-card" x="40" y="280" width="520" height="125" rx="6" fill="#1f2937"/>
     <text x="60" y="302" font-size="11" font-family="monospace" fill="#a5f3fc">apiVersion: admissionregistration.k8s.io/v1</text>
     <text x="60" y="319" font-size="11" font-family="monospace" fill="#fef3c7">kind: ValidatingWebhookConfiguration</text>
     <text x="60" y="336" font-size="11" font-family="monospace" fill="#e0e7ff">webhooks:</text>
@@ -81,15 +81,15 @@
 
   <!-- 关键字段 -->
   <g>
-    <rect x="40" y="420" width="170" height="50" rx="6" fill="#fef9c3" stroke="#facc15"/>
+    <rect class="at-hover-card" x="40" y="420" width="170" height="50" rx="6" fill="#fef9c3" stroke="#facc15"/>
     <text x="125" y="440" text-anchor="middle" font-size="11" font-weight="700" fill="#854d0e">failurePolicy</text>
     <text x="125" y="455" text-anchor="middle" font-size="10" fill="#854d0e">Ignore / Fail</text>
 
-    <rect x="220" y="420" width="170" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="220" y="420" width="170" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="305" y="440" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">namespaceSelector</text>
     <text x="305" y="455" text-anchor="middle" font-size="10" fill="#1e40af">限定触发范围</text>
 
-    <rect x="400" y="420" width="160" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="400" y="420" width="160" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
     <text x="480" y="440" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">rules + resources</text>
     <text x="480" y="455" text-anchor="middle" font-size="10" fill="#92400e">CREATE / UPDATE 过滤</text>
   </g>

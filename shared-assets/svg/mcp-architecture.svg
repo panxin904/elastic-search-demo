@@ -10,24 +10,24 @@
 
   <!-- 左侧 Host -->
   <g>
-    <rect x="30" y="95" width="170" height="350" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="30" y="95" width="170" height="350" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
     <text x="115" y="118" text-anchor="middle" font-size="13" font-weight="700" fill="#475569">MCP Host</text>
     <text x="115" y="135" text-anchor="middle" font-size="10" fill="#475569">Claude / Cursor / IDE</text>
 
-    <rect x="45" y="155" width="140" height="40" rx="6" fill="white" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="45" y="155" width="140" height="40" rx="6" fill="white" stroke="#3b82f6"/>
     <text x="115" y="178" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">LLM Runtime</text>
 
-    <rect x="45" y="205" width="140" height="40" rx="6" fill="white" stroke="#10b981"/>
+    <rect class="at-hover-card" x="45" y="205" width="140" height="40" rx="6" fill="white" stroke="#10b981"/>
     <text x="115" y="228" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">MCP Client</text>
     <text x="115" y="241" text-anchor="middle" font-size="9" font-style="italic" fill="#475569">1 Host : N Clients</text>
 
-    <rect x="45" y="255" width="140" height="40" rx="6" fill="white" stroke="#10b981"/>
+    <rect class="at-hover-card" x="45" y="255" width="140" height="40" rx="6" fill="white" stroke="#10b981"/>
     <text x="115" y="278" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">MCP Client</text>
 
-    <rect x="45" y="305" width="140" height="40" rx="6" fill="white" stroke="#10b981"/>
+    <rect class="at-hover-card" x="45" y="305" width="140" height="40" rx="6" fill="white" stroke="#10b981"/>
     <text x="115" y="328" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">MCP Client</text>
 
-    <rect x="45" y="355" width="140" height="35" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="45" y="355" width="140" height="35" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
     <text x="115" y="377" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">stdio / SSE / HTTP</text>
   </g>
 
@@ -38,30 +38,30 @@
 
   <!-- 右侧 Servers -->
   <g>
-    <rect x="290" y="95" width="280" height="350" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="290" y="95" width="280" height="350" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
     <text x="430" y="118" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">MCP Servers（工具集）</text>
 
-    <rect x="305" y="140" width="250" height="55" rx="6" fill="white" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="305" y="140" width="250" height="55" rx="6" fill="white" stroke="#f59e0b"/>
     <text x="430" y="163" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Filesystem Server</text>
     <text x="430" y="180" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">read_file · write_file · glob</text>
     <text x="430" y="192" text-anchor="middle" font-size="9" fill="#475569">本地文件操作</text>
 
-    <rect x="305" y="205" width="250" height="55" rx="6" fill="white" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="305" y="205" width="250" height="55" rx="6" fill="white" stroke="#f59e0b"/>
     <text x="430" y="228" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">GitHub Server</text>
     <text x="430" y="245" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">create_issue · search_code</text>
     <text x="430" y="257" text-anchor="middle" font-size="9" fill="#475569">GitHub API 封装</text>
 
-    <rect x="305" y="270" width="250" height="55" rx="6" fill="white" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="305" y="270" width="250" height="55" rx="6" fill="white" stroke="#f59e0b"/>
     <text x="430" y="293" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Database Server</text>
     <text x="430" y="310" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">query_sql · list_tables</text>
     <text x="430" y="322" text-anchor="middle" font-size="9" fill="#475569">只读查询 · schema 浏览</text>
 
-    <rect x="305" y="335" width="250" height="55" rx="6" fill="white" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="305" y="335" width="250" height="55" rx="6" fill="white" stroke="#f59e0b"/>
     <text x="430" y="358" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Web Fetch Server</text>
     <text x="430" y="375" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">fetch_url · web_search</text>
     <text x="430" y="387" text-anchor="middle" font-size="9" fill="#475569">HTTP 抓取 + 解析</text>
 
-    <rect x="305" y="400" width="250" height="40" rx="6" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect class="at-hover-card" x="305" y="400" width="250" height="40" rx="6" fill="#ede9fe" stroke="#8b5cf6"/>
     <text x="430" y="423" text-anchor="middle" font-size="10" font-weight="700" fill="#5b21b6">+ Resources · Prompts · Sampling</text>
   </g>
 
@@ -74,7 +74,7 @@
   </g>
 
   <g font-size="10" fill="#64748b">
-    <rect x="20" y="455" width="555" height="22" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-dasharray="4"/>
+    <rect class="at-hover-card" x="20" y="455" width="555" height="22" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-dasharray="4"/>
     <text x="40" y="470">⚡ 类似 LSP（Language Server Protocol）之于 IDE：MCP 之于 AI 工具生态</text>
   </g>
 </svg>

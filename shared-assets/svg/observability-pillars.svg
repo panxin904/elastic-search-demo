@@ -4,22 +4,22 @@
   <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Metrics · Logs · Traces · 三者关联构成完整视图</text>
 
   <!-- 顶部应用 -->
-  <rect x="220" y="90" width="160" height="50" rx="6" fill="#1e293b"/>
+  <rect class="at-hover-card" x="220" y="90" width="160" height="50" rx="6" fill="#1e293b"/>
   <text x="300" y="115" text-anchor="middle" font-size="14" font-weight="600" fill="white">应用 / 服务</text>
   <text x="300" y="132" text-anchor="middle" font-size="10" fill="#cbd5e1">App / Service</text>
 
   <!-- 三大信号 -->
-  <rect x="60" y="200" width="140" height="70" rx="6" fill="#3b82f6"/>
+  <rect class="at-hover-card" x="60" y="200" width="140" height="70" rx="6" fill="#3b82f6"/>
   <text x="130" y="225" text-anchor="middle" font-size="15" font-weight="700" fill="white">📊 Metrics</text>
   <text x="130" y="245" text-anchor="middle" font-size="11" fill="#cbd5e1">指标 / 时序数据</text>
   <text x="130" y="260" text-anchor="middle" font-size="9" fill="#cbd5e1">聚合 / 阈值告警</text>
 
-  <rect x="230" y="200" width="140" height="70" rx="6" fill="#10b981"/>
+  <rect class="at-hover-card" x="230" y="200" width="140" height="70" rx="6" fill="#10b981"/>
   <text x="300" y="225" text-anchor="middle" font-size="15" font-weight="700" fill="white">📝 Logs</text>
   <text x="300" y="245" text-anchor="middle" font-size="11" fill="#d1fae5">日志 / 离散事件</text>
   <text x="300" y="260" text-anchor="middle" font-size="9" fill="#d1fae5">排障 / 上下文</text>
 
-  <rect x="400" y="200" width="140" height="70" rx="6" fill="#f59e0b"/>
+  <rect class="at-hover-card" x="400" y="200" width="140" height="70" rx="6" fill="#f59e0b"/>
   <text x="470" y="225" text-anchor="middle" font-size="15" font-weight="700" fill="white">🔗 Traces</text>
   <text x="470" y="245" text-anchor="middle" font-size="11" fill="#fef3c7">追踪 / 调用链</text>
   <text x="470" y="260" text-anchor="middle" font-size="9" fill="#fef3c7">延迟 / 拓扑</text>
@@ -38,15 +38,15 @@
   <line x1="320" y1="140" x2="440" y2="195" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow-obs)"/>
 
   <!-- 三大信号 → 存储后端 -->
-  <rect x="60" y="320" width="140" height="50" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <rect class="at-hover-card" x="60" y="320" width="140" height="50" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="130" y="340" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">Prometheus</text>
   <text x="130" y="356" text-anchor="middle" font-size="10" fill="#64748b">VictoriaMetrics / Mimir</text>
 
-  <rect x="230" y="320" width="140" height="50" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <rect class="at-hover-card" x="230" y="320" width="140" height="50" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="300" y="340" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">Loki / ELK</text>
   <text x="300" y="356" text-anchor="middle" font-size="10" fill="#64748b">ClickHouse / ES</text>
 
-  <rect x="400" y="320" width="140" height="50" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <rect class="at-hover-card" x="400" y="320" width="140" height="50" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
   <text x="470" y="340" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">Jaeger / Tempo</text>
   <text x="470" y="356" text-anchor="middle" font-size="10" fill="#64748b">Zipkin</text>
 
@@ -55,7 +55,7 @@
   <line x1="470" y1="270" x2="470" y2="315" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow-obs)"/>
 
   <!-- 三大信号 → Grafana -->
-  <rect x="200" y="410" width="200" height="50" rx="6" fill="#8b5cf6"/>
+  <rect class="at-hover-card" x="200" y="410" width="200" height="50" rx="6" fill="#8b5cf6"/>
   <text x="300" y="435" text-anchor="middle" font-size="14" font-weight="700" fill="white">📈 Grafana</text>
   <text x="300" y="450" text-anchor="middle" font-size="10" fill="#e9d5f5">统一查询 / 关联 / 告警</text>
 

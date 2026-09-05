@@ -10,36 +10,36 @@
 
   <!-- 客户端 -->
   <g>
-    <rect x="220" y="85" width="160" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="220" y="85" width="160" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
     <text x="300" y="108" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">客户端（RestHighLevelClient）</text>
     <text x="300" y="125" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">PUT /idx/_doc/42</text>
   </g>
 
   <!-- 公式 -->
   <g>
-    <rect x="40" y="155" width="520" height="60" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="40" y="155" width="520" height="60" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
     <text x="300" y="180" text-anchor="middle" font-size="14" font-weight="700" font-family="monospace" fill="#92400e">shard_num = hash(_id) % (num_primary_shards + 1)</text>
     <text x="300" y="200" text-anchor="middle" font-size="10" fill="#475569">⚡ routing 自定义时：hash(_routing) · 若 _routing 缺失则回退到 _id</text>
   </g>
 
   <!-- Cluster -->
   <g>
-    <rect x="40" y="235" width="520" height="195" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="40" y="235" width="520" height="195" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
     <text x="300" y="258" text-anchor="middle" font-size="13" font-weight="700" fill="#475569">Cluster（3 主分片 × 2 副本 = 6 分片）</text>
 
     <!-- 主分片 P0/P1/P2 -->
     <g>
-      <rect x="60" y="275" width="80" height="65" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+      <rect class="at-hover-card" x="60" y="275" width="80" height="65" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
       <text x="100" y="298" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">P0</text>
       <text x="100" y="313" text-anchor="middle" font-size="9" fill="#065f46">hash % 3 = 0</text>
       <text x="100" y="328" text-anchor="middle" font-size="9" fill="#475569">primary</text>
 
-      <rect x="240" y="275" width="80" height="65" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+      <rect class="at-hover-card" x="240" y="275" width="80" height="65" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
       <text x="280" y="298" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">P1</text>
       <text x="280" y="313" text-anchor="middle" font-size="9" fill="#1e40af">hash % 3 = 1</text>
       <text x="280" y="328" text-anchor="middle" font-size="9" fill="#475569">primary</text>
 
-      <rect x="420" y="275" width="80" height="65" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+      <rect class="at-hover-card" x="420" y="275" width="80" height="65" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
       <text x="460" y="298" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">P2</text>
       <text x="460" y="313" text-anchor="middle" font-size="9" fill="#92400e">hash % 3 = 2</text>
       <text x="460" y="328" text-anchor="middle" font-size="9" fill="#475569">primary</text>
@@ -47,15 +47,15 @@
 
     <!-- 副本 R0/R1/R2 -->
     <g>
-      <rect x="150" y="275" width="80" height="65" rx="6" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="4"/>
+      <rect class="at-hover-card" x="150" y="275" width="80" height="65" rx="6" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="4"/>
       <text x="190" y="298" text-anchor="middle" font-size="12" font-weight="700" fill="#5b21b6">R0</text>
       <text x="190" y="313" text-anchor="middle" font-size="9" fill="#5b21b6">P0 副本</text>
 
-      <rect x="330" y="275" width="80" height="65" rx="6" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5" stroke-dasharray="4"/>
+      <rect class="at-hover-card" x="330" y="275" width="80" height="65" rx="6" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5" stroke-dasharray="4"/>
       <text x="370" y="298" text-anchor="middle" font-size="12" font-weight="700" fill="#9d174d">R1</text>
       <text x="370" y="313" text-anchor="middle" font-size="9" fill="#9d174d">P1 副本</text>
 
-      <rect x="510" y="275" width="40" height="65" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4"/>
+      <rect class="at-hover-card" x="510" y="275" width="40" height="65" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4"/>
       <text x="530" y="305" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">R2</text>
     </g>
 
@@ -70,7 +70,7 @@
 
   <!-- 注释 -->
   <g font-size="10" fill="#64748b">
-    <rect x="40" y="450" width="520" height="22" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <rect class="at-hover-card" x="40" y="450" width="520" height="22" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
     <text x="55" y="465">⚡ 写：先到 P 主分片 → 同步副本（默认 quorum = 多数）→ 索引 refresh</text>
   </g>
 </svg>

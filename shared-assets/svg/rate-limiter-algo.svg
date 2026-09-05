@@ -14,14 +14,14 @@
   <!-- 4 个算法卡片 -->
   <g font-size="11" font-weight="700">
     <!-- 固定窗口 -->
-    <rect x="40" y="100" width="125" height="240" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <rect class="at-hover-card" x="40" y="100" width="125" height="240" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
     <text x="102" y="125" text-anchor="middle" font-size="13" fill="#1e3a8a">固定窗口</text>
     <text x="102" y="142" text-anchor="middle" font-size="10" fill="#1e40af">Fixed Window</text>
 
-    <rect x="50" y="155" width="105" height="22" rx="3" fill="#3b82f6" opacity="0.9"/>
+    <rect class="at-hover-card" x="50" y="155" width="105" height="22" rx="3" fill="#3b82f6" opacity="0.9"/>
     <text x="102" y="170" text-anchor="middle" font-size="10" fill="white">00-01s · 100</text>
 
-    <rect x="50" y="178" width="105" height="22" rx="3" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="50" y="178" width="105" height="22" rx="3" fill="#10b981" opacity="0.9"/>
     <text x="102" y="193" text-anchor="middle" font-size="10" fill="white">01-02s · 100</text>
 
     <text x="102" y="220" text-anchor="middle" font-size="10" fill="#1e40af">简单 · 边界突刺</text>
@@ -29,21 +29,21 @@
     <text x="102" y="255" text-anchor="middle" font-size="10" fill="#1e40af">= 200/s 实际</text>
 
     <!-- 滑动窗口 -->
-    <rect x="180" y="100" width="125" height="240" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <rect class="at-hover-card" x="180" y="100" width="125" height="240" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
     <text x="242" y="125" text-anchor="middle" font-size="13" fill="#064e3b">滑动窗口</text>
     <text x="242" y="142" text-anchor="middle" font-size="10" fill="#065f46">Sliding</text>
 
-    <rect x="190" y="155" width="105" height="22" rx="3" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="190" y="155" width="105" height="22" rx="3" fill="#10b981" opacity="0.9"/>
     <text x="242" y="170" text-anchor="middle" font-size="10" fill="white">最近 1s · 100</text>
 
-    <rect x="190" y="178" width="105" height="22" rx="3" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="190" y="178" width="105" height="22" rx="3" fill="#10b981" opacity="0.9"/>
     <text x="242" y="193" text-anchor="middle" font-size="10" fill="white">精确 · 平滑</text>
 
     <text x="242" y="220" text-anchor="middle" font-size="10" fill="#065f46">滑动 log/counter</text>
     <text x="242" y="240" text-anchor="middle" font-size="10" fill="#065f46">内存成本高</text>
 
     <!-- 令牌桶 -->
-    <rect x="320" y="100" width="125" height="240" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <rect class="at-hover-card" x="320" y="100" width="125" height="240" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
     <text x="382" y="125" text-anchor="middle" font-size="13" fill="#92400e">令牌桶</text>
     <text x="382" y="142" text-anchor="middle" font-size="10" fill="#78350f">Token Bucket</text>
 
@@ -56,7 +56,7 @@
     <text x="382" y="240" text-anchor="middle" font-size="10" fill="#78350f">允许突发流量</text>
 
     <!-- 漏桶 -->
-    <rect x="460" y="100" width="100" height="240" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+    <rect class="at-hover-card" x="460" y="100" width="100" height="240" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
     <text x="510" y="125" text-anchor="middle" font-size="13" fill="#9f1239">漏桶</text>
     <text x="510" y="142" text-anchor="middle" font-size="10" fill="#9d174d">Leaky Bucket</text>
 
@@ -70,7 +70,7 @@
 
   <!-- 选型矩阵 -->
   <g font-size="11">
-    <rect x="40" y="365" width="520" height="90" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <rect class="at-hover-card" x="40" y="365" width="520" height="90" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
     <text x="300" y="385" text-anchor="middle" font-weight="700" fill="#1e293b">选型指南</text>
     <text x="60" y="405" fill="#475569">固定窗口：简单场景 · 监控告警</text>
     <text x="60" y="423" fill="#475569">滑动窗口：精确控制 · API 网关配额</text>

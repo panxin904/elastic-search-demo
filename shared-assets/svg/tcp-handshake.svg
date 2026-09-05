@@ -13,10 +13,10 @@
 
   <!-- Client / Server -->
   <g font-size="13" font-weight="600">
-    <rect x="80" y="100" width="120" height="40" rx="8" fill="#3b82f6" opacity="0.9"/>
+    <rect class="at-hover-card" x="80" y="100" width="120" height="40" rx="8" fill="#3b82f6" opacity="0.9"/>
     <text x="140" y="125" text-anchor="middle" fill="white">Client</text>
 
-    <rect x="400" y="100" width="120" height="40" rx="8" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="400" y="100" width="120" height="40" rx="8" fill="#10b981" opacity="0.9"/>
     <text x="460" y="125" text-anchor="middle" fill="white">Server</text>
   </g>
 
@@ -45,7 +45,7 @@
 
   <!-- 状态说明 -->
   <g font-size="11">
-    <rect x="50" y="395" width="500" height="55" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+    <rect class="at-hover-card" x="50" y="395" width="500" height="55" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
     <text x="300" y="415" text-anchor="middle" font-weight="700" fill="#1e3a8a">为什么是 3 次？</text>
     <text x="300" y="433" text-anchor="middle" fill="#1e40af">双向确认：双方各自确认对方的发送/接收能力 · 防失效 SYN 报文</text>
     <text x="300" y="448" text-anchor="middle" fill="#1e40af">2 次不够（无法确认 Client 接收能力）· 4 次冗余（合并为 3 次）</text>

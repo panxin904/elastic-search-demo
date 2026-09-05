@@ -10,20 +10,20 @@
 
   <!-- UI 层 -->
   <g>
-    <rect x="20" y="85" width="560" height="100" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="20" y="85" width="560" height="100" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
     <text x="300" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">UI 层</text>
 
-    <rect x="40" y="120" width="160" height="55" rx="6" fill="white" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="40" y="120" width="160" height="55" rx="6" fill="white" stroke="#3b82f6"/>
     <text x="120" y="142" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Jetpack Compose</text>
     <text x="120" y="160" text-anchor="middle" font-size="9" fill="#475569">声明式 UI · @Composable</text>
     <text x="120" y="172" text-anchor="middle" font-size="9" font-style="italic" fill="#94a3b8">取代 XML + View</text>
 
-    <rect x="215" y="120" width="160" height="55" rx="6" fill="white" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="215" y="120" width="160" height="55" rx="6" fill="white" stroke="#3b82f6"/>
     <text x="295" y="142" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">View + XML</text>
     <text x="295" y="160" text-anchor="middle" font-size="9" fill="#475569">传统命令式</text>
     <text x="295" y="172" text-anchor="middle" font-size="9" font-style="italic" fill="#94a3b8">兼容模式</text>
 
-    <rect x="390" y="120" width="170" height="55" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="390" y="120" width="170" height="55" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
     <text x="475" y="142" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">ViewModel</text>
     <text x="475" y="160" text-anchor="middle" font-size="9" fill="#475569">持有 UI 状态</text>
     <text x="475" y="172" text-anchor="middle" font-size="9" font-style="italic" fill="#94a3b8">跨配置存活</text>
@@ -31,7 +31,7 @@
 
   <!-- Domain -->
   <g>
-    <rect x="20" y="200" width="560" height="60" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="20" y="200" width="560" height="60" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
     <text x="300" y="223" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">Domain（业务用例层 · 可选）</text>
     <text x="300" y="245" text-anchor="middle" font-size="10" fill="#475569">UseCase / Interactor 封装单一业务逻辑 · Clean Architecture 时使用</text>
     <text x="300" y="257" text-anchor="middle" font-size="9" font-style="italic" fill="#94a3b8">小项目可省略 · 直接 ViewModel → Repository</text>
@@ -39,27 +39,27 @@
 
   <!-- Data -->
   <g>
-    <rect x="20" y="275" width="560" height="155" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="20" y="275" width="560" height="155" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
     <text x="300" y="298" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">Data 层</text>
 
-    <rect x="40" y="310" width="510" height="50" rx="6" fill="white" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="40" y="310" width="510" height="50" rx="6" fill="white" stroke="#f59e0b"/>
     <text x="295" y="332" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Repository（仓库）</text>
     <text x="295" y="350" text-anchor="middle" font-size="9" fill="#475569">统一数据来源 · 协调 Remote + Local · 暴露 Flow / LiveData / StateFlow</text>
 
     <!-- 左侧 remote -->
-    <rect x="40" y="370" width="120" height="50" rx="6" fill="white" stroke="#10b981"/>
+    <rect class="at-hover-card" x="40" y="370" width="120" height="50" rx="6" fill="white" stroke="#10b981"/>
     <text x="100" y="390" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">Remote</text>
     <text x="100" y="406" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">Retrofit + OkHttp</text>
     <text x="100" y="418" text-anchor="middle" font-size="9" font-style="italic" fill="#94a3b8">网络 API</text>
 
     <!-- 中间 DB -->
-    <rect x="170" y="370" width="200" height="50" rx="6" fill="white" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="170" y="370" width="200" height="50" rx="6" fill="white" stroke="#3b82f6"/>
     <text x="270" y="390" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">Local Persistence</text>
     <text x="270" y="406" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">Room (SQLite ORM)</text>
     <text x="270" y="418" text-anchor="middle" font-size="9" font-style="italic" fill="#94a3b8">DataStore (KV)</text>
 
     <!-- 右侧 cache -->
-    <rect x="380" y="370" width="170" height="50" rx="6" fill="white" stroke="#ec4899"/>
+    <rect class="at-hover-card" x="380" y="370" width="170" height="50" rx="6" fill="white" stroke="#ec4899"/>
     <text x="465" y="390" text-anchor="middle" font-size="10" font-weight="700" fill="#9d174d">Memory Cache</text>
     <text x="465" y="406" text-anchor="middle" font-size="9" fill="#475569">单例 · Flow 共享</text>
     <text x="465" y="418" text-anchor="middle" font-size="9" font-style="italic" fill="#94a3b8">PagingSource</text>
@@ -67,7 +67,7 @@
 
   <!-- DI -->
   <g>
-    <rect x="20" y="445" width="560" height="22" rx="6" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect class="at-hover-card" x="20" y="445" width="560" height="22" rx="6" fill="#ede9fe" stroke="#8b5cf6"/>
     <text x="40" y="460" font-size="10" font-weight="700" fill="#5b21b6">DI: Hilt / Koin（依赖注入）</text>
     <text x="240" y="460" font-size="10" fill="#475569">NavController（导航）</text>
     <text x="380" y="460" font-size="10" fill="#475569">WorkManager（后台任务）</text>

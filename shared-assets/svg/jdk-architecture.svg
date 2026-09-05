@@ -10,47 +10,47 @@
 
   <!-- 顶层 JDK -->
   <g>
-    <rect x="30" y="85" width="540" height="160" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <rect class="at-hover-card" x="30" y="85" width="540" height="160" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
     <text x="300" y="108" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">JDK（Java Development Kit）</text>
     <text x="300" y="124" text-anchor="middle" font-size="10" fill="#475569">开发工具 + JRE · Oracle / OpenJDK / Eclipse Temurin / Azul Zulu / Amazon Corretto</text>
 
     <!-- JRE 子层 -->
-    <rect x="50" y="140" width="240" height="90" rx="6" fill="white" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="50" y="140" width="240" height="90" rx="6" fill="white" stroke="#f59e0b"/>
     <text x="170" y="163" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">JRE（Java Runtime Environment）</text>
-    <rect x="65" y="175" width="105" height="42" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="65" y="175" width="105" height="42" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="117" y="194" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">Java SE API</text>
     <text x="117" y="208" text-anchor="middle" font-size="9" fill="#475569">rt.jar / modules</text>
 
-    <rect x="180" y="175" width="100" height="42" rx="4" fill="#d1fae5" stroke="#10b981"/>
+    <rect class="at-hover-card" x="180" y="175" width="100" height="42" rx="4" fill="#d1fae5" stroke="#10b981"/>
     <text x="230" y="194" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">JVM</text>
     <text x="230" y="208" text-anchor="middle" font-size="9" fill="#065f46">HotSpot / OpenJ9</text>
 
     <!-- 开发工具 -->
-    <rect x="310" y="140" width="240" height="90" rx="6" fill="white" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="310" y="140" width="240" height="90" rx="6" fill="white" stroke="#f59e0b"/>
     <text x="430" y="163" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">开发工具</text>
 
-    <rect x="325" y="175" width="50" height="18" rx="3" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect class="at-hover-card" x="325" y="175" width="50" height="18" rx="3" fill="#ede9fe" stroke="#8b5cf6"/>
     <text x="350" y="188" text-anchor="middle" font-size="9" font-family="monospace" fill="#5b21b6">javac</text>
-    <rect x="380" y="175" width="50" height="18" rx="3" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect class="at-hover-card" x="380" y="175" width="50" height="18" rx="3" fill="#ede9fe" stroke="#8b5cf6"/>
     <text x="405" y="188" text-anchor="middle" font-size="9" font-family="monospace" fill="#5b21b6">java</text>
-    <rect x="435" y="175" width="50" height="18" rx="3" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect class="at-hover-card" x="435" y="175" width="50" height="18" rx="3" fill="#ede9fe" stroke="#8b5cf6"/>
     <text x="460" y="188" text-anchor="middle" font-size="9" font-family="monospace" fill="#5b21b6">jar</text>
-    <rect x="490" y="175" width="50" height="18" rx="3" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect class="at-hover-card" x="490" y="175" width="50" height="18" rx="3" fill="#ede9fe" stroke="#8b5cf6"/>
     <text x="515" y="188" text-anchor="middle" font-size="9" font-family="monospace" fill="#5b21b6">jlink</text>
 
-    <rect x="325" y="198" width="50" height="18" rx="3" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect class="at-hover-card" x="325" y="198" width="50" height="18" rx="3" fill="#ede9fe" stroke="#8b5cf6"/>
     <text x="350" y="211" text-anchor="middle" font-size="9" font-family="monospace" fill="#5b21b6">jdeps</text>
-    <rect x="380" y="198" width="50" height="18" rx="3" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect class="at-hover-card" x="380" y="198" width="50" height="18" rx="3" fill="#ede9fe" stroke="#8b5cf6"/>
     <text x="405" y="211" text-anchor="middle" font-size="9" font-family="monospace" fill="#5b21b6">javadoc</text>
-    <rect x="435" y="198" width="50" height="18" rx="3" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect class="at-hover-card" x="435" y="198" width="50" height="18" rx="3" fill="#ede9fe" stroke="#8b5cf6"/>
     <text x="460" y="211" text-anchor="middle" font-size="9" font-family="monospace" fill="#5b21b6">jshell</text>
-    <rect x="490" y="198" width="50" height="18" rx="3" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect class="at-hover-card" x="490" y="198" width="50" height="18" rx="3" fill="#ede9fe" stroke="#8b5cf6"/>
     <text x="515" y="211" text-anchor="middle" font-size="9" font-family="monospace" fill="#5b21b6">jpackage</text>
   </g>
 
   <!-- 模块系统 -->
   <g>
-    <rect x="30" y="260" width="540" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="30" y="260" width="540" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
     <text x="300" y="283" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">JPMS 模块系统（Java 9+）</text>
     <text x="300" y="302" text-anchor="middle" font-size="10" fill="#475569">java.base / java.sql / java.logging / java.net.http / jdk.httpserver</text>
     <text x="300" y="318" text-anchor="middle" font-size="10" fill="#475569">module-info.java 声明 exports / requires / opens / uses / provides</text>
@@ -58,22 +58,22 @@
 
   <!-- JVM 内部 -->
   <g>
-    <rect x="30" y="355" width="540" height="100" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="30" y="355" width="540" height="100" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
     <text x="300" y="378" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">HotSpot JVM 内部（运行时）</text>
 
-    <rect x="50" y="390" width="100" height="50" rx="6" fill="white" stroke="#10b981"/>
+    <rect class="at-hover-card" x="50" y="390" width="100" height="50" rx="6" fill="white" stroke="#10b981"/>
     <text x="100" y="410" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">Class Loader</text>
     <text x="100" y="425" text-anchor="middle" font-size="9" fill="#475569">Boot / Ext / App</text>
 
-    <rect x="165" y="390" width="100" height="50" rx="6" fill="white" stroke="#10b981"/>
+    <rect class="at-hover-card" x="165" y="390" width="100" height="50" rx="6" fill="white" stroke="#10b981"/>
     <text x="215" y="410" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">运行时数据区</text>
     <text x="215" y="425" text-anchor="middle" font-size="9" fill="#475569">堆/栈/方法区</text>
 
-    <rect x="280" y="390" width="100" height="50" rx="6" fill="white" stroke="#10b981"/>
+    <rect class="at-hover-card" x="280" y="390" width="100" height="50" rx="6" fill="white" stroke="#10b981"/>
     <text x="330" y="410" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">执行引擎</text>
     <text x="330" y="425" text-anchor="middle" font-size="9" fill="#475569">解释器 + JIT</text>
 
-    <rect x="395" y="390" width="155" height="50" rx="6" fill="white" stroke="#10b981"/>
+    <rect class="at-hover-card" x="395" y="390" width="155" height="50" rx="6" fill="white" stroke="#10b981"/>
     <text x="472" y="410" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">GC</text>
     <text x="472" y="425" text-anchor="middle" font-size="9" fill="#475569">G1 / ZGC / Shenandoah / Parallel</text>
   </g>

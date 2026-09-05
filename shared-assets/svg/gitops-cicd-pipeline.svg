@@ -11,7 +11,7 @@
   <!-- 5 步流程 -->
   <g>
     <!-- 1. Git Push -->
-    <rect x="20" y="100" width="100" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="20" y="100" width="100" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
     <text x="70" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">① Git Push</text>
     <text x="70" y="148" text-anchor="middle" font-size="9" fill="#1e40af">开发分支</text>
     <text x="70" y="163" text-anchor="middle" font-size="9" fill="#64748b">commit / MR</text>
@@ -19,7 +19,7 @@
     <line x1="120" y1="140" x2="140" y2="140" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
 
     <!-- 2. CI Build -->
-    <rect x="140" y="100" width="100" height="80" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="140" y="100" width="100" height="80" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
     <text x="190" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">② CI 构建</text>
     <text x="190" y="148" text-anchor="middle" font-size="9" fill="#5b21b6">单元/集成测试</text>
     <text x="190" y="163" text-anchor="middle" font-size="9" fill="#64748b">镜像打包</text>
@@ -27,7 +27,7 @@
     <line x1="240" y1="140" x2="260" y2="140" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
 
     <!-- 3. Image Registry -->
-    <rect x="260" y="100" width="100" height="80" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="260" y="100" width="100" height="80" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
     <text x="310" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">③ Registry</text>
     <text x="310" y="148" text-anchor="middle" font-size="9" fill="#92400e">镜像仓库</text>
     <text x="310" y="163" text-anchor="middle" font-size="9" fill="#64748b">tag: v1.2.3</text>
@@ -35,7 +35,7 @@
     <line x1="360" y1="140" x2="380" y2="140" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
 
     <!-- 4. Git Update -->
-    <rect x="380" y="100" width="100" height="80" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="380" y="100" width="100" height="80" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
     <text x="430" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">④ GitOps 仓库</text>
     <text x="430" y="148" text-anchor="middle" font-size="9" fill="#065f46">k8s manifest</text>
     <text x="430" y="163" text-anchor="middle" font-size="9" fill="#64748b">image: v1.2.3</text>
@@ -43,7 +43,7 @@
     <line x1="480" y1="140" x2="500" y2="140" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
 
     <!-- 5. CD Sync -->
-    <rect x="500" y="100" width="100" height="80" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="500" y="100" width="100" height="80" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
     <text x="550" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#9d174d">⑤ CD 调和</text>
     <text x="550" y="148" text-anchor="middle" font-size="9" fill="#9d174d">ArgoCD/Flux</text>
     <text x="550" y="163" text-anchor="middle" font-size="9" fill="#64748b">apply → K8s</text>
@@ -51,13 +51,13 @@
 
   <!-- 中部：双向反馈 -->
   <g>
-    <rect x="20" y="200" width="280" height="80" rx="8" fill="#fff" stroke="#e2e8f0"/>
+    <rect class="at-hover-card" x="20" y="200" width="280" height="80" rx="8" fill="#fff" stroke="#e2e8f0"/>
     <text x="40" y="225" font-size="12" font-weight="700" fill="#7c3aed">🔄 Git 单一事实源</text>
     <text x="40" y="248" font-size="10" fill="#1e293b">• 应用代码仓库：源代码</text>
     <text x="40" y="263" font-size="10" fill="#1e293b">• GitOps 配置仓库：期望状态</text>
     <text x="40" y="278" font-size="10" fill="#475569">→ 谁是 source of truth？</text>
 
-    <rect x="320" y="200" width="280" height="80" rx="8" fill="#fff" stroke="#e2e8f0"/>
+    <rect class="at-hover-card" x="320" y="200" width="280" height="80" rx="8" fill="#fff" stroke="#e2e8f0"/>
     <text x="340" y="225" font-size="12" font-weight="700" fill="#dc2626">⚠️ 反模式：CI 直接 apply</text>
     <text x="340" y="248" font-size="10" fill="#1e293b">• kubectl apply in CI pipeline</text>
     <text x="340" y="263" font-size="10" fill="#1e293b">• 漂移无法追踪，权限难收口</text>
@@ -66,7 +66,7 @@
 
   <!-- 关键工具 -->
   <g>
-    <rect x="20" y="295" width="560" height="70" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+    <rect class="at-hover-card" x="20" y="295" width="560" height="70" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
     <text x="40" y="318" font-size="12" font-weight="700" fill="#92400e">🧰 主流工具链</text>
     <text x="40" y="340" font-size="10" fill="#1e293b">
       <tspan font-weight="700">CI：</tspan> GitHub Actions · GitLab CI · Jenkins · Tekton

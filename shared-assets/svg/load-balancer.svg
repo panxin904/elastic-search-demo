@@ -12,29 +12,29 @@
   <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">L4 vs L7 · 静态 vs 动态</text>
 
   <!-- 客户端 -->
-  <rect x="40" y="120" width="100" height="35" rx="6" fill="#3b82f6" opacity="0.9"/>
+  <rect class="at-hover-card" x="40" y="120" width="100" height="35" rx="6" fill="#3b82f6" opacity="0.9"/>
   <text x="90" y="143" text-anchor="middle" font-size="11" font-weight="700" fill="white">Client</text>
 
   <!-- LB -->
-  <rect x="200" y="110" width="200" height="55" rx="10" fill="#ec4899" opacity="0.95"/>
+  <rect class="at-hover-card" x="200" y="110" width="200" height="55" rx="10" fill="#ec4899" opacity="0.95"/>
   <text x="300" y="135" text-anchor="middle" font-size="14" font-weight="700" fill="white">Load Balancer</text>
   <text x="300" y="153" text-anchor="middle" font-size="11" fill="#fce7f3">L4 / L7 · 策略</text>
 
   <!-- 4 个后端 -->
   <g font-size="11" font-weight="700">
-    <rect x="460" y="80" width="100" height="50" rx="6" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="460" y="80" width="100" height="50" rx="6" fill="#10b981" opacity="0.9"/>
     <text x="510" y="103" text-anchor="middle" fill="white">Server A</text>
     <text x="510" y="118" text-anchor="middle" font-size="10" fill="#d1fae5">活跃</text>
 
-    <rect x="460" y="140" width="100" height="50" rx="6" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="460" y="140" width="100" height="50" rx="6" fill="#10b981" opacity="0.9"/>
     <text x="510" y="163" text-anchor="middle" fill="white">Server B</text>
     <text x="510" y="178" text-anchor="middle" font-size="10" fill="#d1fae5">活跃</text>
 
-    <rect x="460" y="200" width="100" height="50" rx="6" fill="#94a3b8" opacity="0.6"/>
+    <rect class="at-hover-card" x="460" y="200" width="100" height="50" rx="6" fill="#94a3b8" opacity="0.6"/>
     <text x="510" y="223" text-anchor="middle" fill="white">Server C</text>
     <text x="510" y="238" text-anchor="middle" font-size="10" fill="#475569">下线</text>
 
-    <rect x="460" y="260" width="100" height="50" rx="6" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="460" y="260" width="100" height="50" rx="6" fill="#10b981" opacity="0.9"/>
     <text x="510" y="283" text-anchor="middle" fill="white">Server D</text>
     <text x="510" y="298" text-anchor="middle" font-size="10" fill="#d1fae5">活跃</text>
   </g>
@@ -48,21 +48,21 @@
 
   <!-- 策略对比 -->
   <g font-size="11">
-    <rect x="40" y="350" width="160" height="105" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+    <rect class="at-hover-card" x="40" y="350" width="160" height="105" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
     <text x="120" y="370" text-anchor="middle" font-weight="700" fill="#92400e">静态策略</text>
     <text x="120" y="390" text-anchor="middle" fill="#78350f">轮询 (Round Robin)</text>
     <text x="120" y="408" text-anchor="middle" fill="#78350f">加权轮询</text>
     <text x="120" y="426" text-anchor="middle" fill="#78350f">IP Hash（会话保持）</text>
     <text x="120" y="444" text-anchor="middle" fill="#78350f">URL Hash（缓存友好）</text>
 
-    <rect x="220" y="350" width="160" height="105" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
+    <rect class="at-hover-card" x="220" y="350" width="160" height="105" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
     <text x="300" y="370" text-anchor="middle" font-weight="700" fill="#064e3b">动态策略</text>
     <text x="300" y="390" text-anchor="middle" fill="#065f46">最少连接</text>
     <text x="300" y="408" text-anchor="middle" fill="#065f46">最快响应</text>
     <text x="300" y="426" text-anchor="middle" fill="#065f46">CPU/内存利用率</text>
     <text x="300" y="444" text-anchor="middle" fill="#065f46">预测（AI/ML）</text>
 
-    <rect x="400" y="350" width="160" height="105" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+    <rect class="at-hover-card" x="400" y="350" width="160" height="105" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
     <text x="480" y="370" text-anchor="middle" font-weight="700" fill="#1e3a8a">L4 vs L7</text>
     <text x="480" y="390" text-anchor="middle" fill="#1e40af">L4：TCP/UDP · 快</text>
     <text x="480" y="408" text-anchor="middle" fill="#1e40af">L7：HTTP · 内容路由</text>

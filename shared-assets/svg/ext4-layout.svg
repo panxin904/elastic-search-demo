@@ -10,30 +10,30 @@
 
   <!-- 横向条 -->
   <g>
-    <rect x="30" y="100" width="540" height="40" rx="4" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="30" y="100" width="540" height="40" rx="4" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
     <text x="300" y="125" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">整个磁盘 / 分区（按 Block Group 划分）</text>
   </g>
 
   <!-- 1024 字节块 / 4MB Group -->
   <g>
-    <rect x="30" y="155" width="100" height="50" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="30" y="155" width="100" height="50" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
     <text x="80" y="178" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Boot Block</text>
     <text x="80" y="194" text-anchor="middle" font-size="9" fill="#92400e">1024 字节</text>
 
-    <rect x="140" y="155" width="155" height="50" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="140" y="155" width="155" height="50" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="217" y="175" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Group 0</text>
     <text x="217" y="193" text-anchor="middle" font-size="9" font-family="monospace" fill="#1e40af">SB · GDT · Bitmap</text>
     <text x="217" y="206" text-anchor="middle" font-size="9" font-family="monospace" fill="#1e40af">Inode Table · Data</text>
 
-    <rect x="305" y="155" width="125" height="50" rx="4" fill="#d1fae5" stroke="#10b981"/>
+    <rect class="at-hover-card" x="305" y="155" width="125" height="50" rx="4" fill="#d1fae5" stroke="#10b981"/>
     <text x="367" y="175" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">Group 1</text>
     <text x="367" y="193" text-anchor="middle" font-size="9" font-family="monospace" fill="#065f46">Bitmap · Inode</text>
     <text x="367" y="206" text-anchor="middle" font-size="9" font-family="monospace" fill="#065f46">Table · Data</text>
 
-    <rect x="440" y="155" width="65" height="50" rx="4" fill="#d1fae5" stroke="#10b981"/>
+    <rect class="at-hover-card" x="440" y="155" width="65" height="50" rx="4" fill="#d1fae5" stroke="#10b981"/>
     <text x="472" y="175" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">Group 2</text>
 
-    <rect x="515" y="155" width="55" height="50" rx="4" fill="#fce7f3" stroke="#ec4899"/>
+    <rect class="at-hover-card" x="515" y="155" width="55" height="50" rx="4" fill="#fce7f3" stroke="#ec4899"/>
     <text x="542" y="180" text-anchor="middle" font-size="11" font-weight="700" fill="#9d174d">...</text>
   </g>
 
@@ -41,19 +41,19 @@
   <g>
     <text x="300" y="240" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">单个 Block Group 内部布局</text>
 
-    <rect x="30" y="255" width="540" height="40" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="30" y="255" width="540" height="40" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
     <text x="300" y="280" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Super Block 备份 + Group Descriptor Table</text>
 
-    <rect x="30" y="305" width="135" height="35" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="30" y="305" width="135" height="35" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="97" y="328" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Block Bitmap</text>
 
-    <rect x="175" y="305" width="135" height="35" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="175" y="305" width="135" height="35" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="242" y="328" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Inode Bitmap</text>
 
-    <rect x="320" y="305" width="135" height="35" rx="4" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect class="at-hover-card" x="320" y="305" width="135" height="35" rx="4" fill="#ede9fe" stroke="#8b5cf6"/>
     <text x="387" y="328" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">Inode Table</text>
 
-    <rect x="465" y="305" width="105" height="35" rx="4" fill="#d1fae5" stroke="#10b981"/>
+    <rect class="at-hover-card" x="465" y="305" width="105" height="35" rx="4" fill="#d1fae5" stroke="#10b981"/>
     <text x="517" y="328" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">Data Blocks</text>
 
     <text x="97" y="358" text-anchor="middle" font-size="9" fill="#475569">块位图（用/闲）</text>
@@ -66,17 +66,17 @@
   <g>
     <text x="300" y="395" text-anchor="middle" font-size="12" font-weight="700" fill="#1e293b">关键特性</text>
 
-    <rect x="30" y="405" width="175" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="30" y="405" width="175" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="117" y="425" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Extent</text>
     <text x="117" y="442" text-anchor="middle" font-size="9" fill="#475569">extent 树代替间接块</text>
     <text x="117" y="455" text-anchor="middle" font-size="9" fill="#475569">大文件 IO 性能 ↑</text>
 
-    <rect x="215" y="405" width="175" height="50" rx="6" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect class="at-hover-card" x="215" y="405" width="175" height="50" rx="6" fill="#ede9fe" stroke="#8b5cf6"/>
     <text x="302" y="425" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">Journal（日志）</text>
     <text x="302" y="442" text-anchor="middle" font-size="9" fill="#475569">先写日志 → 再写数据</text>
     <text x="302" y="455" text-anchor="middle" font-size="9" fill="#475569">崩溃恢复</text>
 
-    <rect x="400" y="405" width="170" height="50" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+    <rect class="at-hover-card" x="400" y="405" width="170" height="50" rx="6" fill="#fce7f3" stroke="#ec4899"/>
     <text x="485" y="425" text-anchor="middle" font-size="11" font-weight="700" fill="#9d174d">多块分配</text>
     <text x="485" y="442" text-anchor="middle" font-size="9" fill="#475569">默认 4KB · 可 1-64KB</text>
     <text x="485" y="455" text-anchor="middle" font-size="9" fill="#475569">分配 mballoc</text>

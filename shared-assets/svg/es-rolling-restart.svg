@@ -14,41 +14,41 @@
 
     <text x="55" y="118" font-size="10" font-weight="700" fill="#475569">第 1 轮</text>
     <text x="55" y="138" font-size="10" fill="#475569">重启节点 1/2/3</text>
-    <rect x="55" y="148" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="55" y="148" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
     <text x="75" y="172" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">N1</text>
-    <rect x="100" y="148" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="100" y="148" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
     <text x="120" y="172" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">N2</text>
-    <rect x="145" y="148" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="145" y="148" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
     <text x="165" y="172" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">N3</text>
-    <rect x="190" y="148" width="40" height="40" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+    <rect class="at-hover-card" x="190" y="148" width="40" height="40" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
     <text x="210" y="172" text-anchor="middle" font-size="9" fill="#dc2626">restarting</text>
     <text x="245" y="148" font-size="9" fill="#475569">→</text>
-    <rect x="265" y="148" width="40" height="40" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+    <rect class="at-hover-card" x="265" y="148" width="40" height="40" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
     <text x="285" y="172" text-anchor="middle" font-size="9" fill="#dc2626">restarting</text>
     <text x="320" y="148" font-size="9" fill="#475569">→</text>
-    <rect x="340" y="148" width="40" height="40" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+    <rect class="at-hover-card" x="340" y="148" width="40" height="40" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
     <text x="360" y="172" text-anchor="middle" font-size="9" fill="#dc2626">restarting</text>
     <text x="395" y="172" text-anchor="middle" font-size="9" fill="#10b981">cluster: YELLOW</text>
 
     <text x="55" y="208" font-size="10" font-weight="700" fill="#475569">第 2 轮</text>
     <text x="55" y="228" font-size="10" fill="#475569">等待 GREEN → 重启 4/5/6</text>
-    <rect x="55" y="238" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="55" y="238" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
     <text x="75" y="262" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">N1</text>
-    <rect x="100" y="238" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="100" y="238" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
     <text x="120" y="262" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">N2</text>
-    <rect x="145" y="238" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="145" y="238" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
     <text x="165" y="262" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">N3</text>
-    <rect x="190" y="238" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="190" y="238" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
     <text x="210" y="262" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">N4</text>
-    <rect x="235" y="238" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="235" y="238" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
     <text x="255" y="262" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">N5</text>
-    <rect x="280" y="238" width="40" height="40" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+    <rect class="at-hover-card" x="280" y="238" width="40" height="40" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
     <text x="300" y="262" text-anchor="middle" font-size="9" fill="#dc2626">restarting</text>
     <text x="335" y="262" text-anchor="middle" font-size="9" fill="#10b981">cluster: GREEN</text>
 
     <text x="55" y="298" font-size="10" font-weight="700" fill="#475569">第 3 轮</text>
     <text x="55" y="318" font-size="10" fill="#475569">重启 N6 → 验证版本</text>
-    <rect x="55" y="328" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="55" y="328" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
     <text x="75" y="352" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">N1-6</text>
     <text x="115" y="352" text-anchor="middle" font-size="10" fill="#10b981" font-weight="700">✅ 全部升级完毕</text>
     <text x="280" y="352" text-anchor="middle" font-size="9" fill="#10b981">cluster: GREEN · zero downtime</text>

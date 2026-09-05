@@ -11,7 +11,7 @@
   <!-- 三列对比 -->
   <g>
     <!-- INSTANT -->
-    <rect x="40" y="90" width="165" height="320" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <rect class="at-hover-card" x="40" y="90" width="165" height="320" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
     <text x="122" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#065f46">INSTANT</text>
     <text x="122" y="132" text-anchor="middle" font-size="9" fill="#475569">MySQL 8.0+</text>
 
@@ -25,14 +25,14 @@
     <text x="60" y="273" font-size="10" fill="#475569">• 改列默认值</text>
     <text x="60" y="288" font-size="10" fill="#475569">• 加/删索引</text>
 
-    <rect x="60" y="305" width="125" height="30" rx="4" fill="#1f2937"/>
+    <rect class="at-hover-card" x="60" y="305" width="125" height="30" rx="4" fill="#1f2937"/>
     <text x="68" y="325" font-size="9" font-family="monospace" fill="#86efac">ALTER TABLE t</text>
     <text x="68" y="338" font-size="9" font-family="monospace" fill="#86efac">ADD c INT DEFAULT 0</text>
 
     <text x="122" y="395" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">LOCK=NONE</text>
 
     <!-- INPLACE -->
-    <rect x="220" y="90" width="165" height="320" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <rect class="at-hover-card" x="220" y="90" width="165" height="320" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
     <text x="302" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">INPLACE</text>
     <text x="302" y="132" text-anchor="middle" font-size="9" fill="#475569">原地修改</text>
 
@@ -46,14 +46,14 @@
     <text x="240" y="273" font-size="10" fill="#475569">• 改列类型</text>
     <text x="240" y="288" font-size="10" fill="#475569">• 加/删主键</text>
 
-    <rect x="240" y="305" width="125" height="30" rx="4" fill="#1f2937"/>
+    <rect class="at-hover-card" x="240" y="305" width="125" height="30" rx="4" fill="#1f2937"/>
     <text x="248" y="325" font-size="9" font-family="monospace" fill="#86efac">ALTER TABLE t</text>
     <text x="248" y="338" font-size="9" font-family="monospace" fill="#86efac">ADD COLUMN c TEXT</text>
 
     <text x="302" y="395" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">LOCK=NONE/SHARED</text>
 
     <!-- COPY -->
-    <rect x="400" y="90" width="165" height="320" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+    <rect class="at-hover-card" x="400" y="90" width="165" height="320" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
     <text x="482" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#7f1d1d">COPY</text>
     <text x="482" y="132" text-anchor="middle" font-size="9" fill="#475569">整表拷贝</text>
 
@@ -67,7 +67,7 @@
     <text x="420" y="273" font-size="10" fill="#475569">• 加全文索引</text>
     <text x="420" y="288" font-size="10" fill="#475569">• 加 SPATIAL 索引</text>
 
-    <rect x="420" y="305" width="125" height="30" rx="4" fill="#1e2937"/>
+    <rect class="at-hover-card" x="420" y="305" width="125" height="30" rx="4" fill="#1e2937"/>
     <text x="428" y="325" font-size="9" font-family="monospace" fill="#86efac">ALTER TABLE t</text>
     <text x="428" y="338" font-size="9" font-family="monospace" fill="#86efac">ADD FULLTEXT(c)</text>
 

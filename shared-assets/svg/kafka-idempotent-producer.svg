@@ -12,7 +12,7 @@
   <g>
     <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">① 为什么会有重复？</text>
 
-    <rect x="40" y="105" width="520" height="65" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="40" y="105" width="520" height="65" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
     <text x="60" y="125" font-size="10" font-weight="700" fill="#991b1b">Producer 发送 → Broker 写盘 → ACK 丢失</text>
     <text x="60" y="143" font-size="10" fill="#475569">→ Producer 重试（at-least-once）→ 重复消息</text>
     <text x="60" y="161" font-size="9" fill="#475569">影响：金融扣款、库存扣减、订单状态机（同一操作执行多次）</text>
@@ -22,10 +22,10 @@
   <g>
     <text x="60" y="188" font-size="13" font-weight="700" fill="#1e293b">② 幂等性原理：PID + Sequence + 去重</text>
 
-    <rect x="40" y="200" width="520" height="135" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="40" y="200" width="520" height="135" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
 
     <!-- Producer -->
-    <rect x="55" y="215" width="120" height="100" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="55" y="215" width="120" height="100" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
     <text x="115" y="234" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Producer</text>
     <text x="65" y="252" font-size="9" font-family="monospace" fill="#1e293b">PID: 9001</text>
     <text x="65" y="266" font-size="9" font-family="monospace" fill="#1e293b">seq: 0, 1, 2, 3...</text>
@@ -37,7 +37,7 @@
     <text x="195" y="258" font-size="8" fill="#475569" text-anchor="middle">消息</text>
 
     <!-- Broker -->
-    <rect x="215" y="215" width="140" height="100" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="215" y="215" width="140" height="100" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
     <text x="285" y="234" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">Broker</text>
     <text x="225" y="252" font-size="9" font-family="monospace" fill="#1e293b">dedup buffer</text>
     <text x="225" y="266" font-size="9" font-family="monospace" fill="#1e293b">PID=9001, seq ≤ 2</text>
@@ -49,7 +49,7 @@
     <text x="375" y="258" font-size="8" fill="#475569" text-anchor="middle">commit</text>
 
     <!-- 存储 -->
-    <rect x="395" y="215" width="150" height="100" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="395" y="215" width="150" height="100" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
     <text x="470" y="234" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Log</text>
     <text x="405" y="252" font-size="9" font-family="monospace" fill="#1e293b">offset: 100</text>
     <text x="405" y="266" font-size="9" font-family="monospace" fill="#1e293b">seq: 0  1  2  3</text>
@@ -62,21 +62,21 @@
   <g>
     <text x="60" y="355" font-size="13" font-weight="700" fill="#1e293b">③ EOS 端到端三件套（kafka-transactional-api）</text>
 
-    <rect x="40" y="370" width="170" height="95" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="40" y="370" width="170" height="95" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
     <text x="125" y="388" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">幂等 Producer</text>
     <text x="55" y="406" font-size="9" fill="#475569">PID + sequence</text>
     <text x="55" y="420" font-size="9" fill="#475569">broker 去重</text>
     <text x="55" y="436" font-size="9" fill="#475569">防 producer 重试重复</text>
     <text x="55" y="452" font-size="9" fill="#475569">单分区作用域</text>
 
-    <rect x="220" y="370" width="170" height="95" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="220" y="370" width="170" height="95" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
     <text x="305" y="388" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">Transactional API</text>
     <text x="235" y="406" font-size="9" fill="#475569">initTransactions()</text>
     <text x="235" y="420" font-size="9" fill="#475569">beginTransaction()</text>
     <text x="235" y="436" font-size="9" fill="#475569">commit/abort</text>
     <text x="235" y="452" font-size="9" fill="#475569">跨分区 / topic</text>
 
-    <rect x="400" y="370" width="160" height="95" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="400" y="370" width="160" height="95" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
     <text x="480" y="388" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Read Committed</text>
     <text x="415" y="406" font-size="9" fill="#475569">consumer 配置</text>
     <text x="415" y="420" font-size="9" fill="#475569">isolation.level</text>

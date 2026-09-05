@@ -16,13 +16,13 @@
 
   <!-- 幂等 vs 事务对比 -->
   <g>
-    <rect x="40" y="90" width="250" height="90" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <rect class="at-hover-card" x="40" y="90" width="250" height="90" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
     <text x="165" y="112" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">幂等性（Idempotent）</text>
     <text x="60" y="135" font-size="11" fill="#475569">• enable.idempotence=true</text>
     <text x="60" y="153" font-size="11" fill="#475569">• Producer ID + Sequence Number</text>
     <text x="60" y="171" font-size="11" fill="#475569">• 防 Producer 重试重复</text>
 
-    <rect x="310" y="90" width="250" height="90" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <rect class="at-hover-card" x="310" y="90" width="250" height="90" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
     <text x="435" y="112" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">事务（Transaction）</text>
     <text x="330" y="135" font-size="11" fill="#475569">• transactional.id=...</text>
     <text x="330" y="153" font-size="11" fill="#475569">• 跨 partition/跨 topic 原子写</text>
@@ -34,13 +34,13 @@
     <text x="60" y="210" font-size="13" font-weight="700" fill="#1e293b">事务写入 2PC 时序</text>
 
     <!-- 角色 -->
-    <rect x="20" y="225" width="80" height="30" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="20" y="225" width="80" height="30" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="60" y="245" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">Producer</text>
 
-    <rect x="230" y="225" width="120" height="30" rx="4" fill="#d1fae5" stroke="#10b981"/>
+    <rect class="at-hover-card" x="230" y="225" width="120" height="30" rx="4" fill="#d1fae5" stroke="#10b981"/>
     <text x="290" y="245" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">Transaction Coordinator</text>
 
-    <rect x="450" y="225" width="120" height="30" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+    <rect class="at-hover-card" x="450" y="225" width="120" height="30" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
     <text x="510" y="245" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">__transaction_state</text>
 
     <!-- 时序线 -->
@@ -71,7 +71,7 @@
     <text x="400" y="413" text-anchor="middle" font-size="10" fill="#475569">⑥ WriteTxnMarker(COMMIT) 到所有 partition</text>
 
     <!-- consumer -->
-    <rect x="20" y="430" width="80" height="25" rx="4" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect class="at-hover-card" x="20" y="430" width="80" height="25" rx="4" fill="#ede9fe" stroke="#8b5cf6"/>
     <text x="60" y="447" text-anchor="middle" font-size="10" font-weight="700" fill="#5b21b6">Consumer</text>
     <line x1="290" y1="442" x2="100" y2="442" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
     <text x="195" y="436" text-anchor="middle" font-size="10" fill="#475569">⑦ read_committed 过滤未提交</text>

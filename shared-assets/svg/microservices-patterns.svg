@@ -14,7 +14,7 @@
   <!-- 6 个模式卡片 -->
   <g font-size="11" font-weight="700">
     <!-- 熔断 -->
-    <rect x="40" y="100" width="160" height="110" rx="8" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="40" y="100" width="160" height="110" rx="8" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
     <text x="120" y="125" text-anchor="middle" font-size="13" fill="#dc2626">熔断</text>
     <text x="120" y="145" text-anchor="middle" font-size="10" fill="#991b1b">Circuit Breaker</text>
     <text x="120" y="170" text-anchor="middle" fill="#991b1b">失败 ≥ 阈值</text>
@@ -22,7 +22,7 @@
     <text x="120" y="206" text-anchor="middle" fill="#991b1b">Resilience4j</text>
 
     <!-- 降级 -->
-    <rect x="220" y="100" width="160" height="110" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="220" y="100" width="160" height="110" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
     <text x="300" y="125" text-anchor="middle" font-size="13" fill="#92400e">降级</text>
     <text x="300" y="145" text-anchor="middle" font-size="10" fill="#78350f">Fallback</text>
     <text x="300" y="170" text-anchor="middle" fill="#78350f">返回兜底值</text>
@@ -30,7 +30,7 @@
     <text x="300" y="206" text-anchor="middle" fill="#78350f">默认 / 缓存 / null</text>
 
     <!-- 限流 -->
-    <rect x="400" y="100" width="160" height="110" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="400" y="100" width="160" height="110" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
     <text x="480" y="125" text-anchor="middle" font-size="13" fill="#1e3a8a">限流</text>
     <text x="480" y="145" text-anchor="middle" font-size="10" fill="#1e40af">Rate Limit</text>
     <text x="480" y="170" text-anchor="middle" fill="#1e40af">令牌桶 / 漏桶</text>
@@ -38,7 +38,7 @@
     <text x="480" y="206" text-anchor="middle" fill="#1e40af">保护系统容量</text>
 
     <!-- 超时 -->
-    <rect x="40" y="230" width="160" height="110" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="40" y="230" width="160" height="110" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
     <text x="120" y="255" text-anchor="middle" font-size="13" fill="#064e3b">超时</text>
     <text x="120" y="275" text-anchor="middle" font-size="10" fill="#065f46">Timeout</text>
     <text x="120" y="300" text-anchor="middle" fill="#065f46">合理设置</text>
@@ -46,7 +46,7 @@
     <text x="120" y="336" text-anchor="middle" fill="#065f46">P99 + buffer</text>
 
     <!-- 重试 -->
-    <rect x="220" y="230" width="160" height="110" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="220" y="230" width="160" height="110" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
     <text x="300" y="255" text-anchor="middle" font-size="13" fill="#9f1239">重试</text>
     <text x="300" y="275" text-anchor="middle" font-size="10" fill="#9d174d">Retry</text>
     <text x="300" y="300" text-anchor="middle" fill="#9d174d">指数退避</text>
@@ -54,7 +54,7 @@
     <text x="300" y="336" text-anchor="middle" fill="#9d174d">限定次数</text>
 
     <!-- 隔离 -->
-    <rect x="400" y="230" width="160" height="110" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="400" y="230" width="160" height="110" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
     <text x="480" y="255" text-anchor="middle" font-size="13" fill="#5b21b6">隔离</text>
     <text x="480" y="275" text-anchor="middle" font-size="10" fill="#6b21a8">Bulkhead</text>
     <text x="480" y="300" text-anchor="middle" fill="#6b21a8">资源池独立</text>
@@ -64,7 +64,7 @@
 
   <!-- 关键经验 -->
   <g font-size="11">
-    <rect x="40" y="360" width="520" height="95" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <rect class="at-hover-card" x="40" y="360" width="520" height="95" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
     <text x="300" y="380" text-anchor="middle" font-weight="700" fill="#1e293b">关键原则</text>
     <text x="60" y="402" fill="#475569">✓ 设计时考虑失败：任何依赖都不可靠</text>
     <text x="60" y="420" fill="#475569">✓ 失败快速扩散优于资源耗尽：fail-fast</text>

@@ -13,18 +13,18 @@
 
   <!-- 客户端 -->
   <g font-size="11" font-weight="700">
-    <rect x="40" y="200" width="80" height="35" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <rect class="at-hover-card" x="40" y="200" width="80" height="35" rx="6" fill="#3b82f6" opacity="0.9"/>
     <text x="80" y="222" text-anchor="middle" fill="white">Client 1</text>
 
-    <rect x="40" y="250" width="80" height="35" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <rect class="at-hover-card" x="40" y="250" width="80" height="35" rx="6" fill="#3b82f6" opacity="0.9"/>
     <text x="80" y="272" text-anchor="middle" fill="white">Client 2</text>
 
-    <rect x="40" y="300" width="80" height="35" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <rect class="at-hover-card" x="40" y="300" width="80" height="35" rx="6" fill="#3b82f6" opacity="0.9"/>
     <text x="80" y="322" text-anchor="middle" fill="white">Client 3</text>
   </g>
 
   <!-- Postmaster -->
-  <rect x="170" y="160" width="120" height="180" rx="10" fill="#ec4899" opacity="0.95"/>
+  <rect class="at-hover-card" x="170" y="160" width="120" height="180" rx="10" fill="#ec4899" opacity="0.95"/>
   <text x="230" y="185" text-anchor="middle" font-size="14" font-weight="700" fill="white">Postmaster</text>
   <text x="230" y="202" text-anchor="middle" font-size="10" fill="#fce7f3">主进程</text>
   <text x="230" y="225" text-anchor="middle" font-size="10" fill="#fce7f3">监听连接</text>
@@ -32,21 +32,21 @@
 
   <!-- Backend 进程 -->
   <g font-size="11" font-weight="700">
-    <rect x="350" y="170" width="100" height="40" rx="6" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="350" y="170" width="100" height="40" rx="6" fill="#10b981" opacity="0.9"/>
     <text x="400" y="195" text-anchor="middle" fill="white">Backend</text>
     <text x="400" y="207" text-anchor="middle" font-size="9" fill="#d1fae5">P1</text>
 
-    <rect x="350" y="220" width="100" height="40" rx="6" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="350" y="220" width="100" height="40" rx="6" fill="#10b981" opacity="0.9"/>
     <text x="400" y="245" text-anchor="middle" fill="white">Backend</text>
     <text x="400" y="257" text-anchor="middle" font-size="9" fill="#d1fae5">P2</text>
 
-    <rect x="350" y="270" width="100" height="40" rx="6" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="350" y="270" width="100" height="40" rx="6" fill="#10b981" opacity="0.9"/>
     <text x="400" y="295" text-anchor="middle" fill="white">Backend</text>
     <text x="400" y="307" text-anchor="middle" font-size="9" fill="#d1fae5">P3</text>
   </g>
 
   <!-- 共享缓冲 -->
-  <rect x="490" y="160" width="80" height="160" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect class="at-hover-card" x="490" y="160" width="80" height="160" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
   <text x="530" y="178" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">Shared</text>
   <text x="530" y="192" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">Buffers</text>
   <text x="530" y="218" text-anchor="middle" font-size="9" fill="#78350f">共享</text>
@@ -73,17 +73,17 @@
 
   <!-- 后台进程 -->
   <g font-size="11">
-    <rect x="40" y="380" width="160" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+    <rect class="at-hover-card" x="40" y="380" width="160" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
     <text x="120" y="398" text-anchor="middle" font-weight="700" fill="#1e3a8a">后台进程</text>
     <text x="60" y="416" font-size="9" fill="#1e40af">WAL Writer · checkpointer</text>
     <text x="60" y="430" font-size="9" fill="#1e40af">autovacuum · bgwriter</text>
 
-    <rect x="220" y="380" width="160" height="60" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
+    <rect class="at-hover-card" x="220" y="380" width="160" height="60" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
     <text x="300" y="398" text-anchor="middle" font-weight="700" fill="#064e3b">MVCC 机制</text>
     <text x="240" y="416" font-size="9" fill="#065f46">多版本 · xmin/xmax</text>
     <text x="240" y="430" font-size="9" fill="#065f46">Snapshot Isolation</text>
 
-    <rect x="400" y="380" width="160" height="60" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+    <rect class="at-hover-card" x="400" y="380" width="160" height="60" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
     <text x="480" y="398" text-anchor="middle" font-weight="700" fill="#92400e">查询执行器</text>
     <text x="420" y="416" font-size="9" fill="#78350f">规划 + 优化器 + 执行</text>
     <text x="420" y="430" font-size="9" fill="#78350f">CBO · 成本估算</text>

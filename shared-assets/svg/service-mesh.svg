@@ -12,48 +12,48 @@
   <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Sidecar 代理 · 数据面/控制面分离</text>
 
   <!-- Control Plane -->
-  <rect x="40" y="100" width="520" height="80" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <rect class="at-hover-card" x="40" y="100" width="520" height="80" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
   <text x="60" y="120" font-size="13" font-weight="700" fill="#1e3a8a">Control Plane（istiod）</text>
 
   <g font-size="11" font-weight="700">
-    <rect x="60" y="135" width="115" height="35" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <rect class="at-hover-card" x="60" y="135" width="115" height="35" rx="6" fill="#3b82f6" opacity="0.9"/>
     <text x="117" y="152" text-anchor="middle" font-size="10" fill="white">Pilot</text>
     <text x="117" y="165" text-anchor="middle" font-size="8" fill="#dbeafe">配置分发</text>
 
-    <rect x="185" y="135" width="115" height="35" rx="6" fill="#10b981" opacity="0.9"/>
+    <rect class="at-hover-card" x="185" y="135" width="115" height="35" rx="6" fill="#10b981" opacity="0.9"/>
     <text x="242" y="152" text-anchor="middle" font-size="10" fill="white">Citadel</text>
     <text x="242" y="165" text-anchor="middle" font-size="8" fill="#d1fae5">证书 · mTLS</text>
 
-    <rect x="310" y="135" width="115" height="35" rx="6" fill="#f59e0b" opacity="0.9"/>
+    <rect class="at-hover-card" x="310" y="135" width="115" height="35" rx="6" fill="#f59e0b" opacity="0.9"/>
     <text x="367" y="152" text-anchor="middle" font-size="10" fill="white">Galley</text>
     <text x="367" y="165" text-anchor="middle" font-size="8" fill="#fef3c7">配置验证</text>
 
-    <rect x="435" y="135" width="115" height="35" rx="6" fill="#ec4899" opacity="0.9"/>
+    <rect class="at-hover-card" x="435" y="135" width="115" height="35" rx="6" fill="#ec4899" opacity="0.9"/>
     <text x="492" y="152" text-anchor="middle" font-size="10" fill="white">Mixer（旧）</text>
     <text x="492" y="165" text-anchor="middle" font-size="8" fill="#fce7f3">策略/遥测</text>
   </g>
 
   <!-- Data Plane：2 个 Pod -->
   <g font-size="11" font-weight="700">
-    <rect x="60" y="220" width="240" height="200" rx="10" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <rect class="at-hover-card" x="60" y="220" width="240" height="200" rx="10" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
     <text x="180" y="240" text-anchor="middle" fill="#064e3b">Pod 1（service-a）</text>
 
-    <rect x="80" y="260" width="200" height="60" rx="6" fill="#10b981" opacity="0.85"/>
+    <rect class="at-hover-card" x="80" y="260" width="200" height="60" rx="6" fill="#10b981" opacity="0.85"/>
     <text x="180" y="285" text-anchor="middle" fill="white">Envoy Sidecar</text>
     <text x="180" y="300" text-anchor="middle" font-size="9" fill="#d1fae5">拦截进出流量</text>
 
-    <rect x="80" y="335" width="200" height="60" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <rect class="at-hover-card" x="80" y="335" width="200" height="60" rx="6" fill="#3b82f6" opacity="0.9"/>
     <text x="180" y="360" text-anchor="middle" fill="white">业务容器</text>
     <text x="180" y="375" text-anchor="middle" font-size="9" fill="#dbeafe">app:1.0</text>
 
-    <rect x="320" y="220" width="220" height="200" rx="10" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <rect class="at-hover-card" x="320" y="220" width="220" height="200" rx="10" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
     <text x="430" y="240" text-anchor="middle" fill="#064e3b">Pod 2（service-b）</text>
 
-    <rect x="335" y="260" width="190" height="60" rx="6" fill="#10b981" opacity="0.85"/>
+    <rect class="at-hover-card" x="335" y="260" width="190" height="60" rx="6" fill="#10b981" opacity="0.85"/>
     <text x="430" y="285" text-anchor="middle" fill="white">Envoy Sidecar</text>
     <text x="430" y="300" text-anchor="middle" font-size="9" fill="#d1fae5">mTLS · 路由</text>
 
-    <rect x="335" y="335" width="190" height="60" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <rect class="at-hover-card" x="335" y="335" width="190" height="60" rx="6" fill="#3b82f6" opacity="0.9"/>
     <text x="430" y="360" text-anchor="middle" fill="white">业务容器</text>
     <text x="430" y="375" text-anchor="middle" font-size="9" fill="#dbeafe">app:1.0</text>
   </g>
@@ -71,7 +71,7 @@
 
   <!-- 关键能力 -->
   <g font-size="11">
-    <rect x="40" y="440" width="520" height="35" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <rect class="at-hover-card" x="40" y="440" width="520" height="35" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
     <text x="300" y="455" text-anchor="middle" font-weight="700" fill="#1e293b">能力</text>
     <text x="60" y="470" fill="#475569">流量管理 · 可观测 · 安全 mTLS · 策略 · 灰度 · 重试 · 超时</text>
   </g>

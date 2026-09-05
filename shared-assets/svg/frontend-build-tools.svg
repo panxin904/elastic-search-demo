@@ -11,7 +11,7 @@
   <!-- 4 代对比 -->
   <g>
     <!-- Webpack -->
-    <rect x="30" y="100" width="130" height="200" rx="8" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="30" y="100" width="130" height="200" rx="8" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1.5"/>
     <text x="95" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#3730a3">Webpack</text>
     <text x="95" y="143" text-anchor="middle" font-size="9" fill="#64748b">2014 · 1.x</text>
     
@@ -24,7 +24,7 @@
     <text x="95" y="285" text-anchor="middle" font-size="10" fill="#475569">Bundle</text>
 
     <!-- Vite -->
-    <rect x="175" y="100" width="130" height="200" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="175" y="100" width="130" height="200" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
     <text x="240" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">Vite</text>
     <text x="240" y="143" text-anchor="middle" font-size="9" fill="#64748b">2020 · 1.x</text>
     
@@ -37,7 +37,7 @@
     <text x="240" y="285" text-anchor="middle" font-size="10" fill="#475569">prod: Rollup</text>
 
     <!-- esbuild -->
-    <rect x="320" y="100" width="130" height="200" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="320" y="100" width="130" height="200" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
     <text x="385" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">esbuild</text>
     <text x="385" y="143" text-anchor="middle" font-size="9" fill="#64748b">2020 · Go</text>
     
@@ -50,7 +50,7 @@
     <text x="385" y="285" text-anchor="middle" font-size="10" fill="#475569">Bundler</text>
 
     <!-- Turbopack -->
-    <rect x="465" y="100" width="130" height="200" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="465" y="100" width="130" height="200" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
     <text x="530" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#9d174d">Turbopack</text>
     <text x="530" y="143" text-anchor="middle" font-size="9" fill="#64748b">2023 · Rust</text>
     

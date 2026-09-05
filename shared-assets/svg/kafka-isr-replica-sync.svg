@@ -19,19 +19,19 @@
     <text x="60" y="95" font-size="13" font-weight="700" fill="#1e293b">partition-0 副本集（replication.factor=3）</text>
 
     <!-- Leader -->
-    <rect x="60" y="115" width="120" height="60" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <rect class="at-hover-card" x="60" y="115" width="120" height="60" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
     <text x="120" y="138" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">Leader (B1)</text>
     <text x="120" y="155" text-anchor="middle" font-size="10" fill="#475569">offset: 100</text>
     <text x="120" y="170" text-anchor="middle" font-size="10" fill="#065f46" font-weight="700">★ ISR</text>
 
     <!-- Follower 1 -->
-    <rect x="220" y="115" width="120" height="60" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <rect class="at-hover-card" x="220" y="115" width="120" height="60" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
     <text x="280" y="138" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">Follower (B2)</text>
     <text x="280" y="155" text-anchor="middle" font-size="10" fill="#475569">offset: 100</text>
     <text x="280" y="170" text-anchor="middle" font-size="10" fill="#065f46" font-weight="700">★ ISR</text>
 
     <!-- Follower 2 (lagging) -->
-    <rect x="380" y="115" width="120" height="60" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4"/>
+    <rect class="at-hover-card" x="380" y="115" width="120" height="60" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4"/>
     <text x="440" y="138" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">Follower (B3)</text>
     <text x="440" y="155" text-anchor="middle" font-size="10" fill="#475569">offset: 95 (落后 5)</text>
     <text x="440" y="170" text-anchor="middle" font-size="10" fill="#dc2626" font-weight="700">× OUT of ISR</text>
@@ -47,7 +47,7 @@
   <g>
     <text x="60" y="205" font-size="13" font-weight="700" fill="#1e293b">HW（High Watermark）与 LEO</text>
 
-    <rect x="60" y="225" width="480" height="70" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect class="at-hover-card" x="60" y="225" width="480" height="70" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
     <text x="80" y="248" font-size="11" fill="#475569">Log segments（offset 90 → 100）</text>
 
     <!-- 9 个格子 -->
@@ -82,7 +82,7 @@
   <g>
     <text x="60" y="325" font-size="13" font-weight="700" fill="#1e293b">Leader Epoch 防脑裂（旧 Leader 复活场景）</text>
 
-    <rect x="60" y="345" width="480" height="100" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+    <rect class="at-hover-card" x="60" y="345" width="480" height="100" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
 
     <text x="80" y="367" font-size="11" fill="#475569">t=0  L=B1, epoch=1, HW=100</text>
     <text x="80" y="385" font-size="11" fill="#dc2626">t=10  B1 宕机</text>
@@ -93,7 +93,7 @@
 
   <!-- 关键配置 -->
   <g>
-    <rect x="40" y="455" width="520" height="20" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect class="at-hover-card" x="40" y="455" width="520" height="20" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
     <text x="60" y="470" font-size="11" font-weight="700" fill="#1e40af">关键配置：acks=all · min.insync.replicas=2 · replica.lag.time.max.ms=30000 · unclean.leader.election.enable=false</text>
   </g>
 </svg>

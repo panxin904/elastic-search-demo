@@ -14,7 +14,7 @@
   <!-- 三支柱方框 -->
   <g font-size="12" font-weight="700">
     <!-- Metrics -->
-    <rect x="40" y="100" width="160" height="160" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <rect class="at-hover-card" x="40" y="100" width="160" height="160" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
     <text x="120" y="125" text-anchor="middle" font-size="14" fill="#1e3a8a">Metrics</text>
     <text x="120" y="145" text-anchor="middle" font-size="11" fill="#1e40af">指标</text>
     <text x="120" y="170" text-anchor="middle" font-size="10" fill="#1e40af">数值 + 时间戳</text>
@@ -24,7 +24,7 @@
     <text x="120" y="244" text-anchor="middle" font-size="11" fill="#3b82f6">InfluxDB · Mimir</text>
 
     <!-- Logs -->
-    <rect x="220" y="100" width="160" height="160" rx="10" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <rect class="at-hover-card" x="220" y="100" width="160" height="160" rx="10" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
     <text x="300" y="125" text-anchor="middle" font-size="14" fill="#064e3b">Logs</text>
     <text x="300" y="145" text-anchor="middle" font-size="11" fill="#065f46">日志</text>
     <text x="300" y="170" text-anchor="middle" font-size="10" fill="#065f46">离散事件记录</text>
@@ -34,7 +34,7 @@
     <text x="300" y="244" text-anchor="middle" font-size="11" fill="#10b981">Loki · Splunk</text>
 
     <!-- Traces -->
-    <rect x="400" y="100" width="160" height="160" rx="10" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+    <rect class="at-hover-card" x="400" y="100" width="160" height="160" rx="10" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
     <text x="480" y="125" text-anchor="middle" font-size="14" fill="#9f1239">Traces</text>
     <text x="480" y="145" text-anchor="middle" font-size="11" fill="#9d174d">链路追踪</text>
     <text x="480" y="170" text-anchor="middle" font-size="10" fill="#9d174d">请求因果</text>
@@ -45,7 +45,7 @@
   </g>
 
   <!-- 统一采集层 -->
-  <rect x="40" y="285" width="520" height="55" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+  <rect class="at-hover-card" x="40" y="285" width="520" height="55" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
   <text x="300" y="305" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">OpenTelemetry（统一采集）</text>
   <text x="60" y="325" text-anchor="middle" font-size="11" fill="#475569">SDK · 自动埋点 · OTLP 协议 · Collector 汇聚</text>
 
@@ -57,7 +57,7 @@
   </g>
 
   <!-- 应用 -->
-  <rect x="40" y="365" width="520" height="90" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <rect class="at-hover-card" x="40" y="365" width="520" height="90" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
   <text x="60" y="385" font-size="13" font-weight="700" fill="#92400e">应用 / 服务（产生三类数据）</text>
 
   <g font-size="11">

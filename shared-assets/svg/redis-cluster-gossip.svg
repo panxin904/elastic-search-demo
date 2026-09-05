@@ -49,7 +49,7 @@
 
   <!-- Gossip 消息内容 -->
   <g>
-    <rect x="20" y="395" width="560" height="75" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+    <rect class="at-hover-card" x="20" y="395" width="560" height="75" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
     <text x="40" y="418" font-size="11" font-weight="700" fill="#1e293b">⚡ Gossip 消息字段（ping/pong 共享）</text>
     <text x="40" y="438" font-size="10" fill="#475569">node.id · node.ip:port · node.flags（PFAIL/FAIL）· hash slot（cluster slots 16384）</text>
     <text x="40" y="455" font-size="10" fill="#475569">⚡ PFAIL → FAIL：半数以上 master 在 gossip 超时内（cluster-node-timeout）确认某节点不可达</text>
