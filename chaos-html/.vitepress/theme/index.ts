@@ -1,6 +1,8 @@
 import DefaultTheme from 'vitepress/theme'
 import WhyThisGraph from './components/WhyThisGraph.vue'
 import { setupReadingProgress } from '@shared/vitepress-template/theme/composables/readingProgress'
+import { setupSvgTheme } from '@shared/vitepress-template/theme/composables/svgTheme'
+import { setupSvgZoom } from '@shared/vitepress-template/theme/composables/svgZoom'
 import { injectReadingTime } from '@shared/vitepress-template/theme/composables/readingTime'
 import { setupBackToTop } from '@shared/vitepress-template/theme/composables/backToTop'
 import './style.css'
