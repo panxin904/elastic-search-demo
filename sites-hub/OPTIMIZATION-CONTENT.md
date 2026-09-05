@@ -8404,3 +8404,86 @@ export default {
 - v23-C: 198 张（注入 class）
 - v23-C2/C3: 193 张（注入 hover）
 - **v24: 228 张 SVG 文件 / 14 篇新内联 = 累计 44 篇含 SVG**
+
+---
+
+## §8.72+ v25 — 长尾站补图（postgresql/python/go/rust/observability · 14 张）
+
+### 任务背景
+
+v24 给 filesystem/linux/video/chaos/java-language 5 站长尾站补图 14 张后，剩余密度较低的长尾站为：
+postgresql(0.070) / python(0.072) / go(0.075) / rust(0.077) / observability(0.093)。
+本批 v25 集中补齐这 5 站。
+
+### 本批补图清单（14 张）
+
+**postgresql-html (3/3)**
+- `postgresql-mvcc-chain.svg` → `05-transaction/mvcc.md` (## 1. 什么是 MVCC 前)
+- `postgresql-wal-flow.svg` → `01-basics/architecture.md` (## 一句话定义 前)
+- `postgresql-btree-index.svg` → `03-tables-and-indexes/hash.md` (# Hash 索引 后)
+
+**python-html (3/3)**
+- `python-gil-arch.svg` → `04-concurrency/threading.md` (# threading 后)
+- `python-asyncio-loop.svg` → `04-concurrency/asyncio.md` (# asyncio 后)
+- `python-decorator-flow.svg` → `01-basics/syntax.md` (# 基础语法 后)
+
+**go-html (2/3 · 1 张已存在为 `<img>` 标签)**
+- `go-gmp-scheduler.svg` → `02-concurrency/goroutine.md` (v23-B 已 img 引用，未内联)
+- `go-channel-internals.svg` → `02-concurrency/channel.md` (# channel 后)
+- `go-interface-memory.svg` → `01-basics/types-and-functions.md` (## 一句话总结 前)
+
+**rust-html (3/3)**
+- `rust-ownership-borrow.svg` → `02-types-traits/advanced-types.md` (## 一句话总结 前)
+- `rust-lifetime-elision.svg` → `02-types-traits/trait.md` (## 一句话总结 前)
+- `rust-trait-dispatch.svg` → `02-types-traits/trait-objects.md` (## 一句话总结 前)
+
+**observability-html (3/3)**
+- `observability-otel-pipeline.svg` → `02-opentelemetry/overview.md` (## 一句话定义 前)
+- `observability-prometheus-arch.svg` → `03-prometheus/overview.md` (## 一句话定义 前)
+- `observability-three-pillars.svg` → `01-foundations/observability-vs-monitoring.md` (## 一句话定义 前)
+
+### 注入策略（沿用 v24 双模式）
+
+- **有 `##` 锚点**（postgresql mvcc/architecture + go types-and-functions + rust 3 篇 + observability 3 篇）：在 `##` 标题前一行插入
+- **无 `##` 锚点**（postgresql hash + python 3 篇 + go channel）：在 `#` 一级标题后立即插入
+- **统一规范**：viewBox `0 0 600 480`、font-family `-apple-system,...`、`at-svg-bg`/`at-svg-title`/`at-hover-card` class
+
+### 密度提升效果
+
+| 站点 | v24 末 | v25 后 | 提升 |
+|---|---|---|---|
+| postgresql-html | 0.070 | 0.123 | +76% |
+| python-html | 0.072 | 0.116 | +61% |
+| go-html | 0.075 | 0.125 | +67% |
+| rust-html | 0.077 | 0.154 | +100% |
+| observability-html | 0.093 | 0.148 | +59% |
+
+### Build & Audit 验证
+
+- **31/31 站 build 全绿**，1698 页面
+- **audit-content.py**：1662 文件 / 1,383,512 词 / 216 imgs（audit 不含内联 SVG）
+- **内联 SVG 累计**：58 篇 markdown 含 `<svg>`（v25 +14 → 58 总）
+
+### 候选后续（C-12 / §8.80 续）
+
+补图方面密度 ≤ 0.15 的长尾站已基本消除；剩余两个长尾候选：
+- **kafka-html (0.274)** — 已较密，候选补图主题：分区副本 / consumer group rebalance
+- **redis-html (0.373)** — 已较密，候选补图主题：持久化 RDB/AOF / 集群 slot
+
+后续可转向：
+- **C-12** 内容质量纵深（薄页 / stale 内容）
+- **§8.80** 跨站链接 / 死链 / 站间推荐
+- **§8.81** SVG 动效 / 交互性进一步增强（折叠 / 全屏已就位）
+- **§8.82** 内容审计自动化（CI 阻断）
+
+### 累计里程碑
+
+- v22: 200 张 SVG
+- v23: 203 张
+- v23-C: 198 张（注入 class）
+- v23-C2/C3: 193 张（注入 hover + 折叠）
+- v23-B: 213 张
+- v24: 228 张
+- **v25: 241 张 SVG 文件 / 14 篇新内联 = 累计 58 篇含 SVG**
+
+至此长尾站补图任务基本完成（密度 ≥ 0.10 的站点覆盖率 100%）。
