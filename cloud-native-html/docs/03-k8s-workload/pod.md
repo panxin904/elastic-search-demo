@@ -206,6 +206,8 @@ resources:
 
 **始终设 requests**，否则 Pod 可能调度到无法承载的 Node。
 
+![K8S Topology Spread](/k8s-topology-spread.svg)
+
 ## 🪜 Pod 调度
 
 ```yaml

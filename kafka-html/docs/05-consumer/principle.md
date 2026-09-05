@@ -121,6 +121,8 @@ Offset = 消息在 Partition 中的位置
   → 决定哪个 Broker 当 Coordinator
 ```
 
+![Kafka Consumer Fetch](/kafka-consumer-fetch.svg)
+
 ## 🔄 消息拉取流程
 
 ```

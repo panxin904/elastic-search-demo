@@ -60,6 +60,8 @@ PUT /_cluster/settings
 
 > ⚠️ **不要**同时重启所有节点（特别是 master 节点同时宕机会导致脑裂）
 
+![Es Rolling Restart](/es-rolling-restart.svg)
+
 ## 📋 滚动升级 (跨版本)
 
 ```bash

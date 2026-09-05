@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > **Index Condition Pushdown（ICP）** 是 MySQL 5.6 引入的优化，可以让查询**减少 50% 以上的回表次数**。
 
+![Mysql Icp Flow](/mysql-icp-flow.svg)
+
 ## 🤔 优化前的问题
 
 在 ICP 出现之前，MySQL 处理这样的查询：

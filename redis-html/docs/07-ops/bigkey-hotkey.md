@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 大 Key 和热 Key 是 Redis 运维的两大隐形炸弹。前者让运维动作"卡住"，后者让流量"打爆"。这一篇讲清楚怎么识别、怎么处理。
 
+![Redis Bigkey Detection](/redis-bigkey-detection.svg)
+
 ## 大 Key：定义与危害
 
 ### 什么是大 Key
