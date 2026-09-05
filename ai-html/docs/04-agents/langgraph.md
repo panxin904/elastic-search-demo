@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > LangChain 团队出的 **Agent 框架**。把 agent 表达成**有状态图**（StateGraph）。**生产首选**。
 
+![Agent Loop Architecture](/agent-loop-architecture.svg)
+
 ## 🤔 为什么 LangGraph
 
 ```

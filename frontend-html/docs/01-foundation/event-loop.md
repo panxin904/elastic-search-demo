@@ -5,6 +5,8 @@ date: 2026-08-15  # date-auto-injected
 
 # JavaScript Event Loop
 
+![Browser Event Loop](/browser-event-loop.svg)
+
 ## 🎯 为什么需要 Event Loop
 
 JS 是单线程语言，但有大量异步操作（I/O、setTimeout、Promise）。Event Loop 用任务调度让单线程也能并发。

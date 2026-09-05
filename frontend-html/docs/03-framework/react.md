@@ -5,6 +5,8 @@ date: 2026-08-15  # date-auto-injected
 
 # React 核心与 Hooks
 
+![React Fiber Tree](/react-fiber-tree.svg)
+
 ## 🧬 心智模型
 
 React = **声明式 UI + 单向数据流 + 不可变状态**

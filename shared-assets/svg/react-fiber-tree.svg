@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600">React Fiber 树与调度</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">链表替代递归 · 可中断渲染 · 优先级调度</text>
+
+  <!-- Fiber 树 -->
+  <g>
+    <text x="50" y="90" font-size="13" font-weight="700" fill="#1e293b">① 链表式 Fiber 树（child/sibling/return）</text>
+
+    <rect class="at-hover-card" x="40" y="105" width="100" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="90" y="123" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">App</text>
+    <text x="90" y="138" text-anchor="middle" font-size="9" fill="#475569">root</text>
+
+    <path d="M90,145 L90,170" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="40" y="170" width="100" height="40" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="90" y="188" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">Header</text>
+    <text x="90" y="203" text-anchor="middle" font-size="9" fill="#475569">child</text>
+
+    <path d="M140,190 L180,190" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="180" y="170" width="100" height="40" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="230" y="188" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">Content</text>
+    <text x="230" y="203" text-anchor="middle" font-size="9" fill="#475569">sibling</text>
+
+    <path d="M280,190 L320,190" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="320" y="170" width="100" height="40" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="370" y="188" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">Sidebar</text>
+    <text x="370" y="203" text-anchor="middle" font-size="9" fill="#475569">sibling</text>
+
+    <path d="M230,210 L230,240" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="180" y="240" width="100" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="230" y="258" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Article</text>
+    <text x="230" y="273" text-anchor="middle" font-size="9" fill="#475569">child</text>
+
+    <text x="510" y="120" text-anchor="middle" font-size="10" fill="#64748b" font-weight="700">3 个指针</text>
+    <text x="510" y="140" text-anchor="middle" font-size="9" fill="#475569">· child（首子）</text>
+    <text x="510" y="155" text-anchor="middle" font-size="9" fill="#475569">· sibling（兄弟）</text>
+    <text x="510" y="170" text-anchor="middle" font-size="9" fill="#475569">· return（父节点）</text>
+    <text x="510" y="200" text-anchor="middle" font-size="9" fill="#10b981">链表替代递归栈</text>
+    <text x="510" y="215" text-anchor="middle" font-size="9" fill="#10b981">→ 可中断恢复</text>
+  </g>
+
+  <!-- 双缓冲 -->
+  <g>
+    <text x="50" y="305" font-size="13" font-weight="700" fill="#1e293b">② 双缓冲（current tree → workInProgress）</text>
+
+    <rect class="at-hover-card" x="40" y="315" width="120" height="120" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="100" y="335" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Current Tree</text>
+    <text x="100" y="355" text-anchor="middle" font-size="9" fill="#475569">当前显示</text>
+    <text x="100" y="372" text-anchor="middle" font-size="9" fill="#475569">用户可见</text>
+    <text x="100" y="395" text-anchor="middle" font-size="9" fill="#3b82f6">App → Header → Content</text>
+    <text x="100" y="412" text-anchor="middle" font-size="9" fill="#3b82f6">App → Header → Sidebar</text>
+    <text x="100" y="430" text-anchor="middle" font-size="9" fill="#3b82f6">└ Content → Article</text>
+
+    <path d="M160,375 L210,375" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+    <text x="185" y="368" text-anchor="middle" font-size="9" font-weight="700" fill="#64748b">commit</text>
+
+    <rect class="at-hover-card" x="210" y="315" width="120" height="120" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="270" y="335" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">WorkInProgress</text>
+    <text x="270" y="355" text-anchor="middle" font-size="9" fill="#475569">构建中</text>
+    <text x="270" y="372" text-anchor="middle" font-size="9" fill="#475569">用户不可见</text>
+    <text x="270" y="395" text-anchor="middle" font-size="9" fill="#10b981">复用 current 节点</text>
+    <text x="270" y="412" text-anchor="middle" font-size="9" fill="#10b981">（effectTag 标记）</text>
+    <text x="270" y="430" text-anchor="middle" font-size="9" fill="#10b981">完成后指针交换</text>
+
+    <rect class="at-hover-card" x="360" y="315" width="200" height="120" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="460" y="335" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">调度策略</text>
+    <text x="375" y="360" font-size="10" fill="#475569">· Reconciliation = 构建 WIP 树</text>
+    <text x="375" y="378" font-size="10" fill="#475569">· Commit = 原子切换指针</text>
+    <text x="375" y="396" font-size="10" fill="#475569">· 双缓冲避免画面撕裂</text>
+    <text x="375" y="418" font-size="9" fill="#92400e">用户始终看到完整帧</text>
+  </g>
+
+  <!-- 优先级 -->
+  <g>
+    <text x="50" y="455" font-size="10" fill="#64748b">💡 优先级调度：用户输入（ImmediatePriority）&gt; 动画（UserBlocking）&gt; 普通更新（NormalPriority）&gt; 低优先级（LowPriority）</text>
+  </g>
+</svg>

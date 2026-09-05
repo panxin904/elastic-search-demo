@@ -5,6 +5,8 @@ date: 2026-08-15  # date-auto-injected
 
 # Webpack / Rspack
 
+![Webpack Build Pipeline](/webpack-build-pipeline.svg)
+
 ## ⚙️ Webpack 是什么
 
 老牌模块打包器（2012）。所有项目在生产构建时（曾经）都会经过 Webpack：

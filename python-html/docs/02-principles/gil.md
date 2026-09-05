@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > **GIL（Global Interpreter Lock）**是 CPython 最具争议的设计。它**限制 Python 多线程**的并行能力，但对**IO 密集型**任务影响有限。
 
+![Python Gil](/python-gil.svg)
+
 ## 🎯 GIL 是什么？
 
 ```

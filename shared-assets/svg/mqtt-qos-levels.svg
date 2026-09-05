@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600">MQTT QoS 三级服务质量</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">QoS 0（至多一次）· QoS 1（至少一次）· QoS 2（恰好一次）</text>
+
+  <!-- QoS 对比 -->
+  <g>
+    <text x="50" y="90" font-size="13" font-weight="700" fill="#1e293b">① 三级 QoS 时序对比</text>
+
+    <rect class="at-hover-card" x="40" y="100" width="165" height="135" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="122" y="122" text-anchor="middle" font-size="12" font-weight="700" fill="#047857">QoS 0 · 至多一次</text>
+    <text x="55" y="145" font-size="10" fill="#475569">Publisher → Broker</text>
+    <text x="55" y="160" font-size="10" fill="#475569">单条 PUBLISH</text>
+    <text x="55" y="175" font-size="10" fill="#475569">无 ACK · 无重试</text>
+    <text x="55" y="195" font-size="10" fill="#10b981">最快 · 最低开销</text>
+    <text x="55" y="215" font-size="9" fill="#475569">⚠️ 可能丢失</text>
+    <text x="122" y="232" text-anchor="middle" font-size="9" fill="#475569">场景：传感器周期性上报</text>
+
+    <rect class="at-hover-card" x="215" y="100" width="165" height="135" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="297" y="122" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">QoS 1 · 至少一次</text>
+    <text x="230" y="145" font-size="10" fill="#475569">PUBLISH → PUBACK</text>
+    <text x="230" y="160" font-size="10" fill="#475569">Publisher 重试直到</text>
+    <text x="230" y="172" font-size="10" fill="#475569">收到 ACK</text>
+    <text x="230" y="195" font-size="10" fill="#f59e0b">保证送达</text>
+    <text x="230" y="215" font-size="9" fill="#475569">⚠️ 可能重复</text>
+    <text x="297" y="232" text-anchor="middle" font-size="9" fill="#475569">场景：消息推送</text>
+
+    <rect class="at-hover-card" x="390" y="100" width="170" height="135" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="475" y="122" text-anchor="middle" font-size="12" font-weight="700" fill="#991b1b">QoS 2 · 恰好一次</text>
+    <text x="405" y="145" font-size="10" fill="#475569">4 步握手：</text>
+    <text x="405" y="160" font-size="9" fill="#475569">PUBLISH → PUBREC</text>
+    <text x="405" y="172" font-size="9" fill="#475569">PUBREL → PUBCOMP</text>
+    <text x="405" y="195" font-size="10" fill="#dc2626">保证唯一性</text>
+    <text x="405" y="215" font-size="9" fill="#475569">最慢 · 最复杂</text>
+    <text x="475" y="232" text-anchor="middle" font-size="9" fill="#475569">场景：支付 / 计费</text>
+  </g>
+
+  <!-- QoS 2 详细 4 步 -->
+  <g>
+    <text x="50" y="265" font-size="13" font-weight="700" fill="#1e293b">② QoS 2 详细 4 步握手（防止重复）</text>
+
+    <rect class="at-hover-card" x="40" y="275" width="100" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="90" y="298" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Publisher</text>
+
+    <rect class="at-hover-card" x="250" y="275" width="100" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="300" y="298" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Broker</text>
+
+    <rect class="at-hover-card" x="460" y="275" width="100" height="50" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="510" y="298" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">Subscriber</text>
+
+    <path d="M140,310 L250,310" stroke="#3b82f6" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+    <text x="195" y="305" text-anchor="middle" font-size="9" fill="#3b82f6">① PUBLISH</text>
+
+    <path d="M250,330 L140,330" stroke="#f59e0b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+    <text x="195" y="350" text-anchor="middle" font-size="9" fill="#f59e0b">② PUBREC</text>
+
+    <path d="M140,350 L250,350" stroke="#3b82f6" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+    <text x="195" y="370" text-anchor="middle" font-size="9" fill="#3b82f6">③ PUBREL</text>
+
+    <path d="M250,370 L140,370" stroke="#f59e0b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+    <text x="195" y="390" text-anchor="middle" font-size="9" fill="#f59e0b">④ PUBCOMP</text>
+
+    <path d="M250,310 L460,310" stroke="#10b981" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+    <text x="355" y="305" text-anchor="middle" font-size="9" fill="#10b981">① 转发</text>
+
+    <text x="510" y="395" text-anchor="middle" font-size="9" fill="#10b981">只转发一次 ✅</text>
+  </g>
+
+  <!-- 选型 -->
+  <g>
+    <text x="50" y="415" font-size="13" font-weight="700" fill="#1e293b">③ 选型决策</text>
+
+    <rect class="at-hover-card" x="40" y="425" width="510" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="55" y="447" font-size="10" font-weight="700" fill="#92400e">💡 经验：</text>
+    <text x="115" y="447" font-size="10" fill="#475569">默认 QoS 0 · 消息可靠但可丢失用 QoS 1 · 金融/计费用 QoS 2 · Topic 维度灵活设置</text>
+    <text x="115" y="460" font-size="9" fill="#475569">⚠️ QoS 仅保证 Publisher → Broker 和 Broker → Subscriber 两个链路，不保证跨链路整体</text>
+  </g>
+</svg>

@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600">MCP 模型上下文协议</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Model Context Protocol · AI 工具调用标准 · JSON-RPC 2.0</text>
+
+  <!-- 架构：Host + Client + Server -->
+  <g>
+    <text x="50" y="90" font-size="13" font-weight="700" fill="#1e293b">① 3 层架构（Host + Client + Server）</text>
+
+    <rect class="at-hover-card" x="40" y="100" width="160" height="200" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="120" y="122" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">MCP Host</text>
+    <text x="55" y="148" font-size="10" fill="#475569">Claude Desktop</text>
+    <text x="55" y="166" font-size="10" fill="#475569">Cursor / Codex</text>
+    <text x="55" y="184" font-size="10" fill="#475569">· 内嵌 LLM</text>
+    <text x="55" y="202" font-size="10" fill="#475569">· 多 Client 管理</text>
+    <text x="55" y="222" font-size="10" fill="#475569">· 用户权限代理</text>
+    <text x="55" y="244" font-size="9" fill="#3b82f6">⭐ 信任边界</text>
+    <text x="120" y="265" text-anchor="middle" font-size="9" fill="#475569">stays sandboxed</text>
+
+    <rect class="at-hover-card" x="220" y="100" width="160" height="200" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="300" y="122" text-anchor="middle" font-size="12" font-weight="700" fill="#047857">MCP Client</text>
+    <text x="235" y="148" font-size="10" fill="#475569">SDK 客户端</text>
+    <text x="235" y="166" font-size="10" fill="#475569">maintain 1:1 连接</text>
+    <text x="235" y="186" font-size="10" fill="#475569">· 能力协商</text>
+    <text x="235" y="204" font-size="10" fill="#475569">· 协议转换</text>
+    <text x="235" y="222" font-size="10" fill="#475569">· 路由转发</text>
+    <text x="300" y="250" text-anchor="middle" font-size="9" fill="#10b981">轻量进程</text>
+    <text x="300" y="265" text-anchor="middle" font-size="9" fill="#475569">per Server</text>
+
+    <rect class="at-hover-card" x="400" y="100" width="160" height="200" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="480" y="122" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">MCP Server</text>
+    <text x="415" y="148" font-size="10" fill="#475569">工具提供者</text>
+    <text x="415" y="166" font-size="10" fill="#475569">@modelcontextprotocol/</text>
+    <text x="425" y="180" font-size="9" fill="#475569">sdk-server</text>
+    <text x="415" y="200" font-size="10" fill="#475569">· Resources</text>
+    <text x="415" y="218" font-size="10" fill="#475569">· Tools</text>
+    <text x="415" y="236" font-size="10" fill="#475569">· Prompts</text>
+    <text x="480" y="265" text-anchor="middle" font-size="9" fill="#f59e0b">对外服务</text>
+
+    <path d="M200,200 L220,200" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)" stroke-dasharray="3 3"/>
+    <text x="210" y="195" text-anchor="middle" font-size="8" fill="#64748b">spawn</text>
+
+    <path d="M380,200 L400,200" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)" stroke-dasharray="3 3"/>
+    <text x="390" y="195" text-anchor="middle" font-size="8" fill="#64748b">JSON-RPC</text>
+  </g>
+
+  <!-- 3 类原语 -->
+  <g>
+    <text x="50" y="325" font-size="13" font-weight="700" fill="#1e293b">② 3 类原语（Primitives）</text>
+
+    <rect class="at-hover-card" x="40" y="335" width="170" height="65" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="125" y="357" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">Tools 工具</text>
+    <text x="125" y="375" text-anchor="middle" font-size="9" fill="#475569">可调用的函数</text>
+    <text x="125" y="390" text-anchor="middle" font-size="9" fill="#10b981">LLM 决定何时调用</text>
+
+    <rect class="at-hover-card" x="220" y="335" width="170" height="65" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="305" y="357" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Resources 资源</text>
+    <text x="305" y="375" text-anchor="middle" font-size="9" fill="#475569">结构化数据</text>
+    <text x="305" y="390" text-anchor="middle" font-size="9" fill="#3b82f6">应用控制读写</text>
+
+    <rect class="at-hover-card" x="400" y="335" width="160" height="65" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="480" y="357" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Prompts 提示模板</text>
+    <text x="480" y="375" text-anchor="middle" font-size="9" fill="#475569">预定义提示</text>
+    <text x="480" y="390" text-anchor="middle" font-size="9" fill="#f59e0b">用户主动触发</text>
+  </g>
+
+  <!-- Transport -->
+  <g>
+    <text x="50" y="420" font-size="13" font-weight="700" fill="#1e293b">③ 2 种传输层</text>
+
+    <rect class="at-hover-card" x="40" y="430" width="255" height="35" rx="6" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>
+    <text x="167" y="453" text-anchor="middle" font-size="10" font-weight="700" fill="#3730a3">stdio（标准 IO）本地进程</text>
+
+    <rect class="at-hover-card" x="305" y="430" width="255" height="35" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="432" y="453" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">HTTP + SSE（远程服务）</text>
+  </g>
+</svg>

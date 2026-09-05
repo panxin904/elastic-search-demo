@@ -5,6 +5,8 @@ date: 2026-08-15  # date-auto-injected
 
 # OWASP Top 10 2025 概览
 
+![Owasp Top10 2025](/owasp-top10-2025.svg)
+
 ## 一句话总结
 
 > **OWASP Top 10 = 业界权威 Web 安全风险清单**。**2025 版涵盖访问控制失效、注入、不安全设计、SSRF 等 10 大类**。**每条都给出"原理 + 危害 + 防御 + 实战代码"**。

@@ -7,6 +7,8 @@ date: 2026-08-27  # date-auto-injected
 
 > 消息队列遥测传输协议，IoT 事实标准。轻量、发布订阅、QoS 等级、遗嘱消息。
 
+![Mqtt Qos Levels](/mqtt-qos-levels.svg)
+
 ## 🎯 核心要点
 
 - 协议基于 TCP，默认端口 1883 / TLS 8883

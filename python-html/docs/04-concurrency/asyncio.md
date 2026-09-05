@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > **asyncio** 是 Python 3.4+ 引入的**异步 I/O 框架**。用**协程（coroutine）**实现高并发，是 IO 密集型任务的**最佳选择**。
 
+![Python Asyncio Event Loop](/python-asyncio-event-loop.svg)
+
 ## 🎯 为什么用 asyncio？
 
 ```

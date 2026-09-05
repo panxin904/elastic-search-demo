@@ -5,6 +5,8 @@ date: 2026-08-15  # date-auto-injected
 
 # OAuth 2.0 详解
 
+![Oauth2 Flow Comparison](/oauth2-flow-comparison.svg)
+
 ## 一句话总结
 
 > **OAuth 2.0 = 授权框架**（不是认证）。**核心：让第三方应用代表用户访问资源**。**4 种 flow：authorization code（最常用）/ client credentials / implicit（废弃）/ password（遗留）**。**PKCE 强制要求**。

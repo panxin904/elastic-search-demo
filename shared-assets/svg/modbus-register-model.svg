@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600">Modbus 寄存器模型</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">4 类寄存器 · RS485 主从 · 工业控制经典协议</text>
+
+  <!-- 4 类寄存器 -->
+  <g>
+    <text x="50" y="90" font-size="13" font-weight="700" fill="#1e293b">① 4 类寄存器（Function Code 区分）</text>
+
+    <rect class="at-hover-card" x="40" y="100" width="125" height="120" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="102" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">Coil 线圈</text>
+    <text x="102" y="140" text-anchor="middle" font-size="9" fill="#475569">0xxxxx</text>
+    <text x="55" y="160" font-size="9" fill="#475569">可读可写</text>
+    <text x="55" y="176" font-size="9" fill="#475569">1 bit</text>
+    <text x="55" y="195" font-size="9" fill="#475569">FC: 01/05/15</text>
+    <text x="102" y="212" text-anchor="middle" font-size="9" fill="#10b981">DO 输出</text>
+
+    <rect class="at-hover-card" x="175" y="100" width="125" height="120" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="237" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">DI 离散输入</text>
+    <text x="237" y="140" text-anchor="middle" font-size="9" fill="#475569">1xxxxx</text>
+    <text x="190" y="160" font-size="9" fill="#475569">只读</text>
+    <text x="190" y="176" font-size="9" fill="#475569">1 bit</text>
+    <text x="190" y="195" font-size="9" fill="#475569">FC: 02</text>
+    <text x="237" y="212" text-anchor="middle" font-size="9" fill="#3b82f6">DI 输入</text>
+
+    <rect class="at-hover-card" x="310" y="100" width="125" height="120" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="372" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">HR 保持寄存器</text>
+    <text x="372" y="140" text-anchor="middle" font-size="9" fill="#475569">4xxxxx</text>
+    <text x="325" y="160" font-size="9" fill="#475569">可读可写</text>
+    <text x="325" y="176" font-size="9" fill="#475569">16 bit</text>
+    <text x="325" y="195" font-size="9" fill="#475569">FC: 03/06/16</text>
+    <text x="372" y="212" text-anchor="middle" font-size="9" fill="#f59e0b">AI/AO 设定值</text>
+
+    <rect class="at-hover-card" x="445" y="100" width="115" height="120" rx="6" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="502" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">IR 输入寄存器</text>
+    <text x="502" y="140" text-anchor="middle" font-size="9" fill="#475569">3xxxxx</text>
+    <text x="460" y="160" font-size="9" fill="#475569">只读</text>
+    <text x="460" y="176" font-size="9" fill="#475569">16 bit</text>
+    <text x="460" y="195" font-size="9" fill="#475569">FC: 04</text>
+    <text x="502" y="212" text-anchor="middle" font-size="9" fill="#8b5cf6">AI 采样值</text>
+  </g>
+
+  <!-- 主从通信 -->
+  <g>
+    <text x="50" y="245" font-size="13" font-weight="700" fill="#1e293b">② 主从通信（单主多从 RS485）</text>
+
+    <rect class="at-hover-card" x="40" y="255" width="100" height="55" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="90" y="278" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Master</text>
+    <text x="90" y="295" text-anchor="middle" font-size="10" fill="#475569">PLC/上位机</text>
+
+    <path d="M140,283 L195,283" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+    <text x="167" y="275" text-anchor="middle" font-size="9" fill="#64748b">FC 03</text>
+
+    <rect class="at-hover-card" x="195" y="255" width="80" height="55" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="235" y="278" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">Slave #1</text>
+    <text x="235" y="295" text-anchor="middle" font-size="9" fill="#475569">addr=1</text>
+
+    <path d="M275,283 L195,283" stroke="#10b981" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+    <text x="235" y="312" text-anchor="middle" font-size="9" fill="#10b981">响应数据</text>
+
+    <path d="M275,283 L350,283" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+    <text x="312" y="275" text-anchor="middle" font-size="9" fill="#64748b">FC 03</text>
+
+    <rect class="at-hover-card" x="350" y="255" width="80" height="55" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="390" y="278" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">Slave #2</text>
+    <text x="390" y="295" text-anchor="middle" font-size="9" fill="#475569">addr=2</text>
+
+    <path d="M430,283 L350,283" stroke="#10b981" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+    <text x="390" y="312" text-anchor="middle" font-size="9" fill="#10b981">响应数据</text>
+
+    <path d="M430,283 L505,283" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+    <text x="467" y="275" text-anchor="middle" font-size="9" fill="#64748b">FC 03</text>
+
+    <rect class="at-hover-card" x="505" y="255" width="55" height="55" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="532" y="278" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">#3</text>
+    <text x="532" y="295" text-anchor="middle" font-size="9" fill="#475569">addr=3</text>
+
+    <text x="300" y="338" text-anchor="middle" font-size="10" fill="#64748b">RS485 总线（最多 247 设备）</text>
+  </g>
+
+  <!-- 报文结构 -->
+  <g>
+    <text x="50" y="360" font-size="13" font-weight="700" fill="#1e293b">③ Modbus RTU 报文结构</text>
+
+    <rect class="at-hover-card" x="40" y="370" width="520" height="60" rx="6" fill="#1e293b" stroke="#1e293b" stroke-width="1"/>
+    <text x="55" y="395" font-size="10" font-weight="700" fill="#10b981">| Slave Addr | Function Code | Data | CRC |</text>
+    <text x="55" y="412" font-size="10" fill="#e2e8f0" font-family="monospace">1 byte     1 byte         N bytes   2 bytes</text>
+    <text x="55" y="425" font-size="9" fill="#94a3b8">例：01 03 00 00 00 0A C5 CD → 读从站 1 保持寄存器，起始 0，读 10 个</text>
+  </g>
+
+  <!-- 关键点 -->
+  <text x="50" y="455" font-size="10" fill="#64748b">💡 Modbus TCP 与 RTU 类似，但去掉 CRC 增加 MBAP 头（7 字节事务标识）</text>
+  <text x="50" y="470" text-size="10" fill="#10b981">📌 寄存器地址从 0 开始，但文档常说 40001 = 保持寄存器 0 号</text>
+</svg>

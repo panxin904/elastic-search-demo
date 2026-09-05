@@ -7,6 +7,8 @@ date: 2026-08-27  # date-auto-injected
 
 > 工业现场总线协议，Modbus 简单通用，OPC-UA 工业 4.0 标准。
 
+![Modbus Register Model](/modbus-register-model.svg)
+
 ## 🎯 核心要点
 
 - Modbus RTU（串口） / Modbus TCP（以太网，端口 502）

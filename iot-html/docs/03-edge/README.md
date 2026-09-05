@@ -22,6 +22,8 @@ date: 2026-08-27  # date-auto-injected
 - 多节点协同：KubeEdge / OpenYurt
 - 纯框架：EdgeX Foundry
 - AI 推理：TF Lite / ONNX Runtime
+![Edge Cloud Collaboration](/edge-cloud-collaboration.svg)
+
 ## 🎯 云边协同模式
 
 - **数据上行**：边缘 → 云（聚合 / 过滤 / 压缩）

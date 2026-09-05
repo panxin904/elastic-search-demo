@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > **R**etrieval-**A**ugmented **G**eneration。**让 LLM 回答自己不知道的（私有 / 实时）数据**。
 
+![Rag Pipeline](/rag-pipeline.svg)
+
 ## 🤔 为什么需要 RAG
 
 ```

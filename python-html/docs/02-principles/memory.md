@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > Python 的**内存管理**由**引用计数**和**垃圾回收（GC）**共同完成。理解内存管理是**避免内存泄漏、优化内存占用**的关键。
 
+![Python Memory Management](/python-memory-management.svg)
+
 ## 🎯 Python 内存管理三件套
 
 ```

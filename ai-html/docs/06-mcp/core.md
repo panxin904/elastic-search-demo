@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > **M**odel **C**context **P**rotocol。Anthropic 2024 年提出的**开放标准**，让 LLM 标准化连接外部数据源 / 工具。
 
+![Mcp Protocol Stack](/mcp-protocol-stack.svg)
+
 ## 🤔 为什么需要 MCP
 
 ```

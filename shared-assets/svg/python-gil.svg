@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600">Python GIL 全局解释器锁</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Global Interpreter Lock · CPython 核心机制 · 单线程字节码执行</text>
+
+  <!-- GIL 影响范围 -->
+  <g>
+    <text x="50" y="90" font-size="13" font-weight="700" fill="#1e293b">① GIL 作用范围（CPython 进程内）</text>
+
+    <rect class="at-hover-card" x="40" y="100" width="255" height="170" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="167" y="122" text-anchor="middle" font-size="12" font-weight="700" fill="#991b1b">❌ 受 GIL 限制</text>
+    <text x="55" y="144" font-size="10" fill="#475569">CPU 密集型 · threading</text>
+    <text x="55" y="162" font-size="10" fill="#475569">多线程无法并行利用多核</text>
+    <text x="55" y="180" font-size="10" fill="#475569">受 IO 阻塞时释放 GIL</text>
+    <text x="55" y="200" font-size="10" fill="#475569">NumPy 内部释放（绕过）</text>
+    <text x="55" y="220" font-size="10" fill="#dc2626">⚠️ 4 核 CPU 也只能跑 1 个线程</text>
+    <text x="55" y="240" font-size="9" fill="#475569">✅ 单线程性能不受影响</text>
+    <text x="55" y="256" font-size="9" fill="#475569">✅ IO 密集场景可并发</text>
+
+    <rect class="at-hover-card" x="305" y="100" width="255" height="170" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="432" y="122" text-anchor="middle" font-size="12" font-weight="700" fill="#047857">✅ 绕过 GIL 的方案</text>
+    <text x="320" y="144" font-size="10" fill="#475569">multiprocessing（多进程）</text>
+    <text x="320" y="162" font-size="10" fill="#475569">subprocess（独立进程）</text>
+    <text x="320" y="180" font-size="10" fill="#475569">C 扩展（释放 GIL）</text>
+    <text x="320" y="198" font-size="10" fill="#475569">asyncio（协程，单线程）</text>
+    <text x="320" y="218" font-size="10" fill="#475569">concurrent.futures + ProcessPool</text>
+    <text x="320" y="234" font-size="9" fill="#10b981">Python 3.13+ free-threaded mode</text>
+    <text x="320" y="252" font-size="9" fill="#10b981">PEP 703（no-GIL 实验性）</text>
+  </g>
+
+  <!-- GIL 锁机制 -->
+  <g>
+    <text x="50" y="295" font-size="13" font-weight="700" fill="#1e293b">② GIL 工作机制（每 100 tick 检查一次）</text>
+
+    <rect class="at-hover-card" x="40" y="305" width="130" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="105" y="328" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Thread A</text>
+    <text x="105" y="345" text-anchor="middle" font-size="10" fill="#475569">持有 GIL</text>
+    <text x="105" y="358" text-anchor="middle" font-size="9" fill="#3b82f6">执行字节码</text>
+
+    <path d="M170,335 L195,335" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="195" y="305" width="130" height="60" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="260" y="328" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Thread B</text>
+    <text x="260" y="345" text-anchor="middle" font-size="10" fill="#475569">等待 GIL</text>
+    <text x="260" y="358" text-anchor="middle" font-size="9" fill="#f59e0b">blocked</text>
+
+    <path d="M325,335 L350,335" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="350" y="305" width="210" height="60" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="455" y="328" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">GIL</text>
+    <text x="455" y="345" text-anchor="middle" font-size="10" fill="#475569">每 100 tick 检查</text>
+    <text x="455" y="358" text-anchor="middle" font-size="9" fill="#10b981">timeout → 强制释放</text>
+  </g>
+
+  <!-- 历史 -->
+  <g>
+    <text x="50" y="395" font-size="13" font-weight="700" fill="#1e293b">③ GIL 历史与未来</text>
+
+    <rect class="at-hover-card" x="40" y="405" width="510" height="55" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="55" y="428" font-size="11" font-weight="700" fill="#92400e">📜 历史：</text>
+    <text x="120" y="428" font-size="10" fill="#475569">1991 引入 → 2009 GIL v2 (gilinterval=5ms) → 2023 nogil 实验 → 2025 PEP 703 持续推进</text>
+    <text x="55" y="448" font-size="10" fill="#dc2626">⚠️ 设计初衷：保护 CPython 内存管理（引用计数）简单安全 · 移除需要重写大量 C 扩展</text>
+  </g>
+</svg>

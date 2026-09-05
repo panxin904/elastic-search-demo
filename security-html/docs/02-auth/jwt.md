@@ -5,6 +5,8 @@ date: 2026-08-15  # date-auto-injected
 
 # JWT（JSON Web Token）详解
 
+![Jwt Token Anatomy](/jwt-token-anatomy.svg)
+
 ## 一句话总结
 
 > **JWT = 自包含的令牌**（Header + Payload + Signature）**。**3 类算法：HS256（对称）/ RS256（非对称）/ ES256（椭圆曲线）**。**优势：无状态 / 跨域 / 可携信息**。**陷阱：注销难 / 体积大 / 不能放敏感数据**。
