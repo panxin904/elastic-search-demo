@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 Redis 命令的"快"是相对的。一个 O(1) 的 GET 在大 Key 面前可能变成"卡住整个 Redis 的慢操作"。SLOWLOG 是定位慢命令的标准武器。
 
+![Redis Slowlog Anatomy](/redis-slowlog-anatomy.svg)
+
 ## SLOWLOG 三个命令
 
 ```bash

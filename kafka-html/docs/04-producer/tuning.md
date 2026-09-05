@@ -7,6 +7,8 @@ date: 2026-08-15  # date-auto-injected
 
 > Kafka Producer 默认配置已经很好，但**生产环境的高并发场景**仍需要精细调优。本章整理实战调优策略。
 
+![Kafka Compression Types](/kafka-compression-types.svg)
+
 ## 🎯 性能调优 4 大方向
 
 ```

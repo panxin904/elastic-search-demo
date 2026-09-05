@@ -9,6 +9,8 @@ graphNodeId: cluster-health
 
 # 集群健康 Cluster Health
 
+![Es Cross Cluster Search](/es-cross-cluster-search.svg)
+
 ## 🔧 查看集群状态
 
 ```bash

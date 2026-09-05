@@ -146,6 +146,8 @@ kubectl logs <pod> -c <container>
 kubectl logs <pod> --previous    # 上一个实例
 ```
 
+![K8S Probe Lifecycle](/k8s-probe-lifecycle.svg)
+
 ## 🚦 健康检查
 
 ### livenessProbe（活着没）

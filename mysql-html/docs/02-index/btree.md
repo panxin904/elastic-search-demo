@@ -16,6 +16,8 @@ B+Tree 索引：树高度 3-4 层 = 3-4 次磁盘 IO ≈ 0.03 秒
 
 **提升 3 万倍以上！**
 
+![Mysql Adaptive Hash Index](/mysql-adaptive-hash-index.svg)
+
 ## 🌳 B+Tree 的结构
 
 ```
