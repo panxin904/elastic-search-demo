@@ -8129,3 +8129,105 @@ import { setupSvgTheme } from '@shared/vitepress-template/theme/composables/svgT
 ### 后续增强（C-2 / C-3 候选）
 - **C-2 hover 高亮**：SVG 内关键节点加 `<g class="hover-target">`，CSS `:hover` 高亮
 - **C-3 点击展开**：复杂流程图分组可点击展开/收起细节（需 SVG `<details>` 改造或 JS toggle）
+
+## §8.72+ v23-C2/C3 · SVG 交互性升级（hover 高亮 + 点击全屏/折叠）
+
+**日期**：2026-09-05
+**目标**：在 C-1 主题感知基础上叠加交互层，让 SVG 不只是静态图
+
+### C-2：hover 高亮（卡片级别）
+
+**方案**：批量给 SVG 内"卡片矩形"（带 rx 圆角的 rect）添加 `at-hover-card` class
+
+**改造范围**：
+- 193 张 SVG 自动识别带 rx 的 rect 并加 class
+- 共新增 **1804 个** at-hover-card 实例（平均每张 9.3 个）
+- 5 张无 rx rect 的 SVG（通常是时间线/箭头图）跳过
+
+**CSS 效果**（自动 follow light/dark 主题）：
+```css
+.at-hover-card {
+  transition: filter 0.2s ease, transform 0.2s ease;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+.at-hover-card:hover {
+  filter: brightness(1.06);     /* 变亮 6% */
+  transform: translateY(-1px);  /* 微向上浮 */
+  cursor: pointer;
+}
+```
+
+**用户体验**：
+- 鼠标悬停时卡片变亮 + 微微上浮，提示"这是个可交互元素"
+- 仅作用于卡片矩形，不影响标题/副标题/箭头等其他 SVG 元素
+
+### C-3：点击全屏查看 + 分组折叠（双模式）
+
+#### 设计权衡
+最初方案是"每张 SVG 定制分组折叠"，但发现多数 SVG（kafka-topology 等）是扁平结构，无 `<g>` 包裹，改造成本高。改为通用方案：
+
+**双模式交互**：
+1. **点击 SVG 任何区域**（非 trigger）→ 全屏 modal 查看大图
+2. **点击 `.at-expand-trigger`**（含 `data-target`）→ 切换 `.at-expandable.is-collapsed` 折叠/展开分组
+
+这样：
+- 所有 SVG 都享受"点击全屏"（通用）
+- 少数 SVG 可选用 `.at-expandable` / `.at-expand-trigger` 实现分组折叠（可选）
+
+#### 改动清单
+
+**1. composable（新增 setupSvgZoom）**
+文件：`shared-assets/vitepress-template/theme/composables/svgZoom.ts`
+- 监听 SVG 内 click 事件
+- 检测 trigger → 切换 `.is-collapsed`
+- 其他区域 → 创建/打开全屏 modal
+- modal：clone SVG → 95vw × 85vh → 显示
+- 关闭方式：ESC / 点遮罩 / 点关闭按钮
+- SPA 路由切换后重新扫描绑定
+
+**2. modal CSS（新增）**
+```css
+.at-svg-modal {
+  position: fixed; inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  /* + 淡入动画 + 关闭按钮 + 提示文字 */
+}
+```
+
+**3. flink-architecture.svg demo（1 张 SVG）**
+- TaskManagers 分组标记为 `at-expandable`（默认展开）
+- 数据源/汇 分组标记为 `at-expandable is-collapsed`（默认折叠）
+- SVG 底部加 2 个 trigger text：▶ TaskManagers 详情 / ▶ 数据源/汇详情
+- 点击 trigger → 切换可见性 + 更新 ▶/▼ 图标
+
+**4. 6 站启用**（kafka / redis / mysql / cloud-native / es / **bigdata**）
+bigdata 站特别启用是因为 flink-architecture.svg 在该站被引用。
+
+### 验证结果
+
+| 项 | 结果 |
+|---|---|
+| at-hover-card class 注入 | ✅ 1804 个（193 SVG） |
+| CSS hover 效果生效 | ✅ 仅 inline SVG（依赖 setupSvgTheme） |
+| 6 站 build 全绿 | ✅ kafka 7.48s / redis 5.75s / mysql 8.43s / cloud-native 4.67s / es 3.41s / bigdata 4.73s |
+| flink 分组折叠 demo | ✅ TaskManagers 默认展开 / 数据源/汇默认折叠 |
+| audit 无回归 | ✅ imgs=201, files=1662 |
+
+### 用户体验总结
+
+| 交互 | 触发 | 反馈 |
+|---|---|---|
+| 卡片 hover | 鼠标悬停 | 变亮 6% + 微上移 |
+| SVG 全屏 | 点击 SVG | 弹 modal，95vw × 85vh，ESC 关闭 |
+| 分组折叠 | 点击 ▶ trigger | 切换可见性，更新 ▶/▼ 图标 |
+
+### 文件清单（本次新增/改动）
+- 新增：`shared-assets/vitepress-template/theme/composables/svgZoom.ts`（141 行）
+- 新增：`shared-assets/svg/flink-architecture.svg`（+18 行 demo）
+- 改动：`shared-assets/vitepress-template/theme/style.css`（+hover +modal 规则）
+- 改动：193 个 SVG（+at-hover-card class）
+- 改动：6 个 theme/index.ts（启用 composable）
+
+**总交互能力**：light/dark 主题感知 + 卡片 hover + 点击全屏 + 可选分组折叠
