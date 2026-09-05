@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 460" font-family="--apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
-  <rect width="600" height="460" fill="#fafafa"/>
-  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Kafka 集群拓扑</text>
+  <rect class="at-svg-bg" width="600" height="460"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Kafka 集群拓扑</text>
   <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Broker 集群 + 分区副本 + Consumer Group</text>
 
   <defs>

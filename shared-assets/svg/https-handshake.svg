@@ -7,8 +7,8 @@
       <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
     </marker>
   </defs>
-  <rect width="600" height="480" fill="#fafafa"/>
-  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">HTTPS 握手（TLS 1.3）</text>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >HTTPS 握手（TLS 1.3）</text>
   <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">1-RTT 握手 · 0-RTT 恢复 · 前向保密</text>
 
   <!-- Client / Server -->

@@ -8,9 +8,9 @@
     </marker>
   </defs>
   <!-- 背景 -->
-  <rect width="600" height="480" fill="#fafafa"/>
+  <rect class="at-svg-bg" width="600" height="480"/>
   <!-- 标题 -->
-  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">CAP 定理：分布式系统三选二</text>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >CAP 定理：分布式系统三选二</text>
   <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Eric Brewer (2000) · 任何分布式系统最多同时满足其中两项</text>
 
   <!-- 三角形 -->

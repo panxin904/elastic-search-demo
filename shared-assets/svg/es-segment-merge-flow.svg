@@ -7,8 +7,8 @@
       <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
     </marker>
   </defs>
-  <rect width="600" height="480" fill="#fafafa"/>
-  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Elasticsearch Segment Merge 流程</text>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Elasticsearch Segment Merge 流程</text>
   <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Tiered merge policy · force-merge · 删除文档真正释放磁盘时机</text>
 
   <!-- 写流程入口 -->

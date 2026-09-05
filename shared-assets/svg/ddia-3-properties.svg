@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 460" font-family="--apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
   <defs><marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
-  <rect width="600" height="460" fill="#fafafa"/>
-  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">DDIA 三大数据系统属性</text>
+  <rect class="at-svg-bg" width="600" height="460"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >DDIA 三大数据系统属性</text>
   <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">可靠性 (Reliability) · 可扩展性 (Scalability) · 可维护性 (Maintainability)</text>
 
   <!-- 可靠性 -->

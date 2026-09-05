@@ -7,8 +7,8 @@
       <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
     </marker>
   </defs>
-  <rect width="600" height="480" fill="#fafafa"/>
-  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">OAuth 2.0 Authorization Code 流程</text>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >OAuth 2.0 Authorization Code 流程</text>
   <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">最安全的授权模式 · 适合第三方应用</text>
 
   <!-- 4 角色 -->

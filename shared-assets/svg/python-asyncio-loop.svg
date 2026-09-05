@@ -4,8 +4,8 @@
       <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
     </marker>
   </defs>
-  <rect width="600" height="480" fill="#fafafa"/>
-  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Python asyncio 事件循环</text>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Python asyncio 事件循环</text>
   <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">单线程协作并发 · await 挂起点 · 任务调度</text>
 
   <!-- 中心事件循环 -->

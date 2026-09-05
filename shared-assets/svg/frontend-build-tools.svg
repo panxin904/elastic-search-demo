@@ -4,8 +4,8 @@
       <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
     </marker>
   </defs>
-  <rect width="600" height="380" fill="#fafafa"/>
-  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">前端构建工具演进</text>
+  <rect class="at-svg-bg" width="600" height="380"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >前端构建工具演进</text>
   <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">从打包到原生 ESM · 4 代工具链</text>
 
   <!-- 4 代对比 -->

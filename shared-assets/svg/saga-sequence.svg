@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" font-family="--apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
-  <rect width="600" height="320" fill="#fafafa"/>
-  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Saga 分布式事务时序图</text>
+  <rect class="at-svg-bg" width="600" height="320"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Saga 分布式事务时序图</text>
   <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">每个本地事务 Tᵢ 有对应的补偿 Cᵢ · 失败时按反序回滚</text>
 
   <defs>

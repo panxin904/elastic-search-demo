@@ -4,8 +4,8 @@
       <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
     </marker>
   </defs>
-  <rect width="600" height="480" fill="#fafafa"/>
-  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">InnoDB 自适应哈希索引（AHI）</text>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >InnoDB 自适应哈希索引（AHI）</text>
   <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">B+Tree 之上的内存哈希 · O(log N) → O(1) · 自动建立/淘汰</text>
 
   <!-- 查询路径对比 -->

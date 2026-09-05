@@ -4,8 +4,8 @@
       <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
     </marker>
   </defs>
-  <rect width="600" height="400" fill="#fafafa"/>
-  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Service Mesh Sidecar 模式</text>
+  <rect class="at-svg-bg" width="600" height="400"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Service Mesh Sidecar 模式</text>
   <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">业务容器 + 代理容器同 Pod · 流量 / 安全 / 可观测下沉</text>
 
   <!-- 3 个 Pod（每个 Pod 内 2 容器） -->
