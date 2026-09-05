@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Kafka 消息压缩算法对比</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">gzip · snappy · lz4 · zstd · 按场景选型</text>
+
+  <!-- 压缩流程 -->
+  <g>
+    <text x="50" y="90" font-size="13" font-weight="700" fill="#1e293b">① 压缩流程（Producer 端压缩 → Broker 存储 → Consumer 解压）</text>
+
+    <rect x="40" y="100" width="100" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="90" y="123" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">原始消息</text>
+    <text x="90" y="140" text-anchor="middle" font-size="10" fill="#475569">10 MB</text>
+
+    <path d="M140,125 L175,125" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+    <rect x="175" y="100" width="100" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="225" y="123" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">压缩</text>
+    <text x="225" y="140" text-anchor="middle" font-size="10" fill="#475569">Producer</text>
+
+    <path d="M275,125 L310,125" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+    <rect x="310" y="100" width="100" height="50" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="360" y="123" text-anchor="middle" font-size="12" font-weight="700" fill="#047857">压缩消息</text>
+    <text x="360" y="140" text-anchor="middle" font-size="10" fill="#475569">3 MB（节省 70%）</text>
+
+    <path d="M410,125 L445,125" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+    <rect x="445" y="100" width="115" height="50" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="502" y="123" text-anchor="middle" font-size="12" font-weight="700" fill="#991b1b">解压消费</text>
+    <text x="502" y="140" text-anchor="middle" font-size="10" fill="#475569">Consumer</text>
+  </g>
+
+  <!-- 4 种压缩算法对比 -->
+  <g>
+    <text x="50" y="185" font-size="13" font-weight="700" fill="#1e293b">② 4 种算法对比（性能 / 压缩比）</text>
+
+    <rect x="40" y="195" width="130" height="115" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="105" y="217" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">gzip</text>
+    <text x="55" y="237" font-size="9" fill="#475569">压缩比：⭐⭐⭐⭐</text>
+    <text x="55" y="252" font-size="9" fill="#475569">CPU：⭐⭐（高）</text>
+    <text x="55" y="267" font-size="9" fill="#475569">速度：⭐⭐（慢）</text>
+    <text x="55" y="287" font-size="9" fill="#475569">典型：60-70% 压缩</text>
+    <text x="105" y="303" text-anchor="middle" font-size="9" font-weight="700" fill="#1e40af">带宽敏感场景</text>
+
+    <rect x="180" y="195" width="130" height="115" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="245" y="217" text-anchor="middle" font-size="12" font-weight="700" fill="#047857">snappy</text>
+    <text x="195" y="237" font-size="9" fill="#475569">压缩比：⭐⭐</text>
+    <text x="195" y="252" font-size="9" fill="#475569">CPU：⭐⭐⭐⭐（低）</text>
+    <text x="195" y="267" font-size="9" fill="#475569">速度：⭐⭐⭐⭐⭐</text>
+    <text x="195" y="287" font-size="9" fill="#475569">典型：40-50% 压缩</text>
+    <text x="245" y="303" text-anchor="middle" font-size="9" font-weight="700" fill="#047857">吞吐优先场景</text>
+
+    <rect x="320" y="195" width="130" height="115" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="385" y="217" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">lz4</text>
+    <text x="335" y="237" font-size="9" fill="#475569">压缩比：⭐⭐⭐</text>
+    <text x="335" y="252" font-size="9" fill="#475569">CPU：⭐⭐⭐⭐⭐</text>
+    <text x="335" y="267" font-size="9" fill="#475569">速度：⭐⭐⭐⭐⭐</text>
+    <text x="335" y="287" font-size="9" fill="#475569">典型：50-60% 压缩</text>
+    <text x="385" y="303" text-anchor="middle" font-size="9" font-weight="700" fill="#92400e">Kafka 默认推荐</text>
+
+    <rect x="460" y="195" width="100" height="115" rx="6" fill="#e9d5ff" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="510" y="217" text-anchor="middle" font-size="12" font-weight="700" fill="#5b21b6">zstd</text>
+    <text x="475" y="237" font-size="9" fill="#475569">压缩比：⭐⭐⭐⭐⭐</text>
+    <text x="475" y="252" font-size="9" fill="#475569">CPU：⭐⭐⭐</text>
+    <text x="475" y="267" font-size="9" fill="#475569">速度：⭐⭐⭐⭐</text>
+    <text x="475" y="287" font-size="9" fill="#475569">典型：65-75% 压缩</text>
+    <text x="510" y="303" text-anchor="middle" font-size="9" font-weight="700" fill="#5b21b6">Kafka 2.1+ 推荐</text>
+  </g>
+
+  <!-- 关键参数 -->
+  <g>
+    <text x="50" y="345" font-size="13" font-weight="700" fill="#1e293b">③ 关键参数（broker / topic / producer）</text>
+
+    <rect x="40" y="355" width="520" height="60" rx="6" fill="#1e293b" stroke="#1e293b" stroke-width="1"/>
+    <text x="55" y="377" font-size="10" font-weight="700" fill="#10b981"># Broker 端（默认 none）</text>
+    <text x="55" y="392" font-size="10" fill="#e2e8f0" font-family="monospace">compression.type = producer</text>
+    <text x="55" y="407" font-size="10" font-weight="700" fill="#10b981"># Producer 端（推荐 zstd）</text>
+    <text x="330" y="407" font-size="10" fill="#e2e8f0" font-family="monospace">compression.type = zstd</text>
+  </g>
+
+  <!-- 选型建议 -->
+  <g>
+    <rect x="40" y="430" width="520" height="36" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="55" y="453" font-size="11" font-weight="700" fill="#92400e">💡 选型建议：</text>
+    <text x="125" y="453" font-size="10" fill="#475569">JSON 文本 → zstd（高压缩）；二进制 → lz4（低 CPU）；磁盘带宽瓶颈 → gzip；CPU 瓶颈 → snappy</text>
+  </g>
+</svg>

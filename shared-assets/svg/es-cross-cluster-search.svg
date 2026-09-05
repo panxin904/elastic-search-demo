@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Elasticsearch 跨集群搜索（CCS）</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">cluster_one,cluster_two:*  · 远程集群配置 · 跨域聚合</text>
+
+  <!-- 架构 -->
+  <g>
+    <text x="50" y="90" font-size="13" font-weight="700" fill="#1e293b">① CCS 架构（本地协调节点 → 远程集群）</text>
+
+    <rect x="40" y="100" width="240" height="110" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="160" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">本地集群（local）</text>
+    <rect x="55" y="140" width="100" height="55" rx="4" fill="#e0e7ff" stroke="#6366f1" stroke-width="1"/>
+    <text x="105" y="160" text-anchor="middle" font-size="10" font-weight="700" fill="#4338ca">协调节点</text>
+    <text x="105" y="178" text-anchor="middle" font-size="9" fill="#475569">node-1</text>
+    <text x="105" y="190" text-anchor="middle" font-size="9" fill="#475569">CCP 入口</text>
+    <rect x="170" y="140" width="100" height="55" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+    <text x="220" y="160" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">本地索引</text>
+    <text x="220" y="178" text-anchor="middle" font-size="9" fill="#475569">logs-2026-*</text>
+    <text x="220" y="190" text-anchor="middle" font-size="9" fill="#475569">本地分片</text>
+
+    <path d="M280,155 L320,155" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 3" fill="none" marker-end="url(#arr)"/>
+    <text x="300" y="148" text-anchor="middle" font-size="9" font-weight="700" fill="#64748b">CCS</text>
+
+    <rect x="320" y="100" width="240" height="110" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="440" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#047857">远程集群（remote）</text>
+    <rect x="335" y="140" width="100" height="55" rx="4" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
+    <text x="385" y="160" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">seeds 节点</text>
+    <text x="385" y="178" text-anchor="middle" font-size="9" fill="#475569">10.0.1.10:9300</text>
+    <text x="385" y="190" text-anchor="middle" font-size="9" fill="#475569">对接入口</text>
+    <rect x="450" y="140" width="100" height="55" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1"/>
+    <text x="500" y="160" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">远程索引</text>
+    <text x="500" y="178" text-anchor="middle" font-size="9" fill="#475569">metrics-*</text>
+    <text x="500" y="190" text-anchor="middle" font-size="9" fill="#475569">异地分片</text>
+  </g>
+
+  <!-- 配置 -->
+  <g>
+    <text x="50" y="240" font-size="13" font-weight="700" fill="#1e293b">② 配置远程集群（持久化 / 临时）</text>
+
+    <rect x="40" y="250" width="520" height="95" rx="6" fill="#1e293b" stroke="#1e293b" stroke-width="1"/>
+    <text x="55" y="272" font-size="10" font-weight="700" fill="#10b981"># elasticsearch.yml 持久化</text>
+    <text x="55" y="287" font-size="10" fill="#e2e8f0" font-family="monospace">cluster.remote.cluster_one.seeds: 10.0.1.10:9300, 10.0.1.11:9300</text>
+    <text x="55" y="302" font-size="10" fill="#e2e8f0" font-family="monospace">cluster.remote.cluster_two.seeds: 10.0.2.10:9300</text>
+    <text x="55" y="320" font-size="10" font-weight="700" fill="#10b981"># API 临时（动态生效，无需重启）</text>
+    <text x="55" y="340" font-size="10" fill="#e2e8f0" font-family="monospace">PUT _cluster/settings { "persistent": { "cluster.remote.cluster_one.seeds": ["10.0.1.10:9300"] } }</text>
+  </g>
+
+  <!-- 查询语法 -->
+  <g>
+    <text x="50" y="375" font-size="13" font-weight="700" fill="#1e293b">③ CCS 查询语法（cluster_alias:index_pattern）</text>
+
+    <rect x="40" y="385" width="520" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="55" y="407" font-size="11" font-weight="700" fill="#92400e" font-family="monospace">GET cluster_one:logs-*,cluster_two:metrics-*/_search</text>
+    <text x="55" y="427" font-size="10" fill="#475569">→ 同时查询远程 cluster_one 的 logs-* 和 cluster_two 的 metrics-*</text>
+  </g>
+
+  <!-- 关键点 -->
+  <text x="300" y="458" text-anchor="middle" font-size="10" fill="#64748b">💡 CCS 增加网络/聚合开销 · 远程集群需 ES 版本兼容（±1 个大版本）</text>
+  <text x="300" y="475" text-anchor="middle" font-size="10" fill="#10b981">📌 CCR（跨集群复制）写主备 + CCS 联合查询是异地多活标配组合</text>
+</svg>
