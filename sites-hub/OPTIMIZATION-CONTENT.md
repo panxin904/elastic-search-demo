@@ -8487,3 +8487,47 @@ postgresql(0.070) / python(0.072) / go(0.075) / rust(0.077) / observability(0.09
 - **v25: 241 张 SVG 文件 / 14 篇新内联 = 累计 58 篇含 SVG**
 
 至此长尾站补图任务基本完成（密度 ≥ 0.10 的站点覆盖率 100%）。
+
+---
+
+## §8.72+ v26 — kafka/redis 深化补图（6 张）
+
+### 任务背景
+
+v25 完成了密度 ≤ 0.15 的长尾站补图。剩余两个较密站点 kafka(0.274) / redis(0.373)
+虽然密度不低，但内联 SVG 数量为 0（全部用 `<img>` 标签引用）。v26 聚焦这两个站
+的核心概念做深化补图，让最关键的内容页享受主题感知 + hover 高亮。
+
+### 本批补图清单（6 张）
+
+**kafka-html (3/3)**
+- `kafka-zero-copy-detail.svg` → `02-architecture/zero-copy.md` (## 传统 IO 的问题 前)
+- `kafka-rebalance-stages.svg` → `05-consumer/rebalance.md` (## Rebalance 流程 前)
+- `kafka-eos-transaction.svg` → `10-interview/exactly-once.md` (## Layer 2：事务 前)
+
+**redis-html (3/3)**
+- `redis-cluster-slot-routing.svg` → `04-cluster/cluster.md` (## Cluster 架构 前)
+- `redis-sentinel-election.svg` → `04-cluster/sentinel.md` (## Leader 选举 前)
+- `redis-bigkey-strategy.svg` → `07-ops/bigkey-hotkey.md` (## 大 Key：定义与危害 前)
+
+### 注入策略（统一 ## 锚点模式）
+
+6 个目标文件均有 `## 二级标题`，全部用 `## 标题前一行插入` 模式。
+
+### 累计成果
+
+- **内联 SVG 累计**：58 → **64** 篇 markdown 含 `<svg>`（v26 +6）
+- **SVG 文件总数**：241 → **247**
+- **kafka/redis 各新增 3 篇内联**（此前均为 0）
+- **build**：31/31 站通过，1698 页面
+- **audit**：1662 文件 / 1,387,602 词 / 216 imgs（audit 不含内联 SVG）
+
+### 候选后续
+
+- **kafka/redis 仍可继续深化**：现有 35 张 `<img>` SVG 资产可逐步迁移为内联
+  - kafka 现 15 张 `<img>` SVG（含 partition/replica/rebalance 等核心主题）
+  - redis 现 17 张 `<img>` SVG（含 sentinel/cluster/persistence 等核心主题）
+  - 后续 v27+ 可批量迁移为内联（享受主题感知 + hover）
+- **§8.80 跨站链接 / 站间推荐** — 改善 SEO 与导航
+- **C-12 内容质量纵深** — 薄页 / stale 内容审计
+- **§8.82 内容审计自动化（CI 阻断）** — 防止回归
