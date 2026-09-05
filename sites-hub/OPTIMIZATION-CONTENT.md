@@ -7956,3 +7956,49 @@ cd /tmp/ci-test/java-web-manual && npm install && npm run docs:build
 - redis: BigKey 发现与拆分（debug object / mem usage）
 - mysql: 索引下推 ICP（Index Condition Pushdown）
 - cloud-native: Pod 拓扑分布约束（topologySpreadConstraints）
+
+## §8.72+ v23 — SVG 大规模扩展（第二十三批 5 张 · 突破 200 张里程碑 🎯）
+
+**日期**：2026-09-05
+**目标**：把 SVG 图示密度从 196 提到 201，路线图进度 98.0% → **100.5%（突破 200 张里程碑）**
+
+### 变更明细
+- **媒体层**：5 张 SVG
+  - `shared-assets/svg/kafka-consumer-fetch.svg` — Kafka 消费者拉取（Fetcher 线程 + min.bytes/max.wait.ms + 4 种策略组合）
+  - `shared-assets/svg/redis-bigkey-detection.svg` — Redis BigKey（4 大危害 + 3 种检测 + 按类型阈值）
+  - `shared-assets/svg/mysql-icp-flow.svg` — ICP 索引下推（关闭 vs 开启 + 5 步流程 + 适用场景）
+  - `shared-assets/svg/k8s-topology-spread.svg` — Pod 拓扑分布（默认 vs 均衡 + 3 字段配置 + 3 种策略）
+  - `shared-assets/svg/es-rolling-restart.svg` — ES 滚动重启（6 节点 3 轮时序 + 6 步标准流程）
+- **内容层**：5 个核心文档前注入
+  - kafka → `05-consumer/principle.md` (## 🔄 消息拉取流程 前)
+  - redis → `07-ops/bigkey-hotkey.md` (## 大 Key：定义与危害 前)
+  - mysql → `02-index/icp.md` (## 🤔 优化前的问题 前)
+  - cloud-native → `03-k8s-workload/pod.md` (## 🪜 Pod 调度 前)
+  - es → `04-ops/restart.md` (## 📋 滚动升级 (跨版本) 前)
+
+### 🎯 路线图里程碑达成
+- **当前 imgs=201 / 目标 ≥200 = 100.5%** ✅
+- 🎉 **突破 200 张里程碑**（计划 23 批提前完成）
+- 跨 23 批累计 115 张新增 SVG（v1-v23，每批 5 张）
+- 平均每站 SVG 覆盖 6+ 篇核心文档
+
+### 经验沉淀
+- **Kafka 拉取**：min.bytes 控吞吐（1B=低延迟，1MB=高吞吐），max.wait.ms 控延迟（10ms=实时，2s=ETL）；Broker 任一满足即返回
+- **Redis BigKey**：阈值需按类型分（String 10KB / 集合 5000 元素）；DEBUG OBJECT 简单，rdb-tools 离线全量；拆分优先按 hash 槽位分段
+- **MySQL ICP**：5.6+ 默认开启；优化 90% 的回表 IO；EXPLAIN 中 `Using index condition` 是命中标识；不适用覆盖索引和主键查询
+- **K8s 拓扑分布**：maxSkew=1 时分布最均匀；topologyKey 常用 zone/hostname/rack；whenUnsatisfiable: DoNotSchedule 是最稳妥选择
+- **ES 滚动重启**：先关闭 shard 分配再逐节点重启，避免数据搬迁抖动；等待 GREEN 再进入下一轮；零停机但需监控 cluster health
+
+### Build 验证
+- 5 站 build 全部成功（kafka 7.16s / redis 5.54s / mysql 7.78s / cloud-native 4.51s / es 3.30s）
+- 5 张 SVG 全部成功复制到各站 `.vitepress/dist/` 目录
+- audit 验证：files=1662, imgs=**201**, 全量 baseline 稳定（no_fm=0, stale=0, broken=0, heading_jump=0）
+
+### 后续规划
+- 200 张目标达成，下阶段从「数量扩张」转向「质量深化」
+- **优先级**：
+  - A. SVG 视觉一致性 review（不同时期的图可能风格偏差）
+  - B. 长尾站补图（frontend/security/observability/cloud/architecture 等站 SVG 密度较低）
+  - C. SVG 交互性升级（点击查看详细说明 / 折叠/展开）
+  - D. SVG 替代 Mermaid 评估（部分复杂 Mermaid 图可改 SVG 提升加载速度）
+- 待用户确认下阶段方向后再继续
