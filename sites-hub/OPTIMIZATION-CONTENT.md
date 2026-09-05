@@ -8231,3 +8231,76 @@ bigdata 站特别启用是因为 flink-architecture.svg 在该站被引用。
 - 改动：6 个 theme/index.ts（启用 composable）
 
 **总交互能力**：light/dark 主题感知 + 卡片 hover + 点击全屏 + 可选分组折叠
+
+## §8.72+ v23-B · 长尾站补图（5 站 × 3 张）
+
+**日期**：2026-09-05
+**目标**：补齐长尾站的 SVG 密度，提升整体阅读体验
+
+### 长尾站识别（按密度排序）
+
+| 站点 | SVG | md | 密度 | 状态 |
+|---|---|---|---|---|
+| python-html | 2 | 69 | 0.03 | ❌ 最缺 |
+| filesystem-html | 4 | 94 | 0.04 | 候选未做 |
+| java-language-html | 2 | 55 | 0.04 | 候选未做 |
+| iot-html | 2 | 42 | 0.05 | ✅ 已做 |
+| security-html | 2 | 40 | 0.05 | ✅ 已做 |
+| chaos-html | 2 | 36 | 0.06 | 候选未做 |
+| ai-html | 4 | 67 | 0.06 | ✅ 已做 |
+| frontend-html | 4 | 66 | 0.06 | ✅ 已做 |
+| linux-html | 4 | 71 | 0.06 | 候选未做 |
+| video-html | 4 | 67 | 0.06 | 候选未做 |
+
+### 改动明细（5 站 × 3 张 = 15 张 SVG）
+
+#### python-html（补 3 张 → 5 张）
+- `python-gil.svg` → `02-principles/gil.md` (## 🎯 GIL 是什么？)
+- `python-memory-management.svg` → `02-principles/memory.md` (## 🎯 Python 内存管理三件套)
+- `python-asyncio-event-loop.svg` → `04-concurrency/asyncio.md` (## 🎯 为什么用 asyncio？)
+
+#### frontend-html（补 3 张 → 7 张）
+- `browser-event-loop.svg` → `01-foundation/event-loop.md`
+- `webpack-build-pipeline.svg` → `05-build/webpack.md`
+- `react-fiber-tree.svg` → `03-framework/react.md`
+
+#### iot-html（补 3 张 → 5 张）
+- `mqtt-qos-levels.svg` → `01-protocol/mqtt.md`
+- `modbus-register-model.svg` → `01-protocol/modbus.md`
+- `edge-cloud-collaboration.svg` → `03-edge/README.md`
+
+#### security-html（补 3 张 → 5 张）
+- `oauth2-flow-comparison.svg` → `02-auth/oauth2.md`
+- `jwt-token-anatomy.svg` → `02-auth/jwt.md`
+- `owasp-top10-2025.svg` → `01-web-top10/overview.md`
+
+#### ai-html（补 3 张 → 7 张）
+- `rag-pipeline.svg` → `05-rag/patterns.md`
+- `mcp-protocol-stack.svg` → `06-mcp/core.md`
+- `agent-loop-architecture.svg` → `04-agents/langgraph.md`
+
+### 5 站 composable 启用（新增长尾站）
+- python-html / frontend-html / iot-html / security-html / ai-html 全部启用 setupSvgTheme + setupSvgZoom
+- 享受：主题感知 + hover 高亮 + 全屏查看 + 可选分组折叠
+
+### 密度提升效果
+
+| 站点 | 补图前 | 补图后 | 提升 |
+|---|---|---|---|
+| python-html | 0.03 | 0.07 | +133% |
+| frontend-html | 0.06 | 0.11 | +75% |
+| iot-html | 0.05 | 0.12 | +140% |
+| security-html | 0.05 | 0.12 | +140% |
+| ai-html | 0.06 | 0.10 | +75% |
+
+### Build 验证
+
+- 5 站 build 全绿（python 9.08s / frontend 6.34s / iot 5.48s / security 3.06s / ai 5.93s）
+- audit: imgs **201 → 216**（+15 张，路线图进度 100.5% → **108%**）
+
+### 候选后续
+- **filesystem-html** (0.04) - ext4 / inode / 文件描述符等核心概念图
+- **java-language-html** (0.04) - 类加载器 / 锁升级 / HashMap 红黑树等
+- **linux-html** (0.06) - VFS / 进程调度 / 内存管理
+- **video-html** (0.06) - 编解码栈 / 流媒体协议
+- **chaos-html** (0.06) - 故障注入 / 混沌工程
