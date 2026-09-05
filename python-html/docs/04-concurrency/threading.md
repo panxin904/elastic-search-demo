@@ -4,6 +4,72 @@ date: 2026-08-15  # date-auto-injected
 ---
 
 # 🧵 threading 多线程
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600">Python GIL 与多线程真相</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">CPython 全局解释器锁 · 单进程仅 1 线程执行字节码</text>
+
+  <!-- 进程框 -->
+  <rect x="30" y="90" width="540" height="280" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="300" y="115" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">Python 进程（单进程）</text>
+
+  <!-- GIL 锁 -->
+  <rect class="at-hover-card" x="230" y="135" width="140" height="40" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="300" y="160" text-anchor="middle" font-size="12" font-weight="700" fill="#991b1b">🔒 GIL Mutex</text>
+
+  <!-- 线程 1..4 -->
+  <rect class="at-hover-card" x="50" y="200" width="115" height="55" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="107" y="223" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Thread-1</text>
+  <text x="107" y="240" text-anchor="middle" font-size="9" fill="#334155">持有 GIL ✓</text>
+
+  <rect class="at-hover-card" x="180" y="200" width="115" height="55" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="237" y="223" text-anchor="middle" font-size="11" font-weight="700" fill="#475569">Thread-2</text>
+  <text x="237" y="240" text-anchor="middle" font-size="9" fill="#64748b">等待 GIL</text>
+
+  <rect class="at-hover-card" x="310" y="200" width="115" height="55" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="367" y="223" text-anchor="middle" font-size="11" font-weight="700" fill="#475569">Thread-3</text>
+  <text x="367" y="240" text-anchor="middle" font-size="9" fill="#64748b">等待 GIL</text>
+
+  <rect class="at-hover-card" x="440" y="200" width="115" height="55" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="497" y="223" text-anchor="middle" font-size="11" font-weight="700" fill="#475569">Thread-4</text>
+  <text x="497" y="240" text-anchor="middle" font-size="9" fill="#64748b">等待 GIL</text>
+
+  <!-- GIL → 持有线程箭头 -->
+  <line x1="270" y1="175" x2="107" y2="200" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="290" y1="175" x2="237" y2="200" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="310" y1="175" x2="367" y2="200" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="330" y1="175" x2="497" y2="200" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- 时间轴 -->
+  <rect x="50" y="280" width="500" height="60" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="65" y="298" font-size="10" font-weight="700" fill="#1e293b">时间线（5ms tick）</text>
+  <line x1="65" y1="320" x2="540" y2="320" stroke="#64748b" stroke-width="1"/>
+  <rect x="100" y="305" width="80" height="22" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="140" y="320" text-anchor="middle" font-size="9" fill="#1e40af">T1</text>
+  <rect x="180" y="305" width="80" height="22" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="220" y="320" text-anchor="middle" font-size="9" fill="#475569">T2</text>
+  <rect x="260" y="305" width="80" height="22" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="300" y="320" text-anchor="middle" font-size="9" fill="#1e40af">T3</text>
+  <rect x="340" y="305" width="80" height="22" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="380" y="320" text-anchor="middle" font-size="9" fill="#475569">T4</text>
+  <rect x="420" y="305" width="80" height="22" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="460" y="320" text-anchor="middle" font-size="9" fill="#1e40af">T1</text>
+  <text x="540" y="335" text-anchor="end" font-size="9" fill="#64748b" font-style="italic">tick 切换（条件变量 + timeout）</text>
+
+  <!-- 关键结论 -->
+  <rect x="30" y="385" width="540" height="80" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="300" y="408" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">关键结论</text>
+  <text x="50" y="428" font-size="11" fill="#334155">· CPU 密集：多线程 ≈ 单线程（GIL 串行化字节码执行）</text>
+  <text x="50" y="446" font-size="11" fill="#334155">· IO 密集：多线程有效（GIL 在 IO 系统调用时释放）</text>
+  <text x="320" y="428" font-size="11" fill="#334155">· CPU 密集替代：multiprocessing / C 扩展 / Cython</text>
+  <text x="320" y="446" font-size="11" fill="#334155">· Python 3.13+ free-threaded mode（PEP 703，无 GIL）</text>
+</svg>
+
 
 > Python **threading** 模块支持**多线程**编程。但因为 **GIL** 的存在，多线程只适合 **IO 密集型任务**。
 

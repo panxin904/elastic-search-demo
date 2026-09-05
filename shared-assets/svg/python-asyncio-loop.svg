@@ -5,74 +5,53 @@
     </marker>
   </defs>
   <rect class="at-svg-bg" width="600" height="480"/>
-  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Python asyncio 事件循环</text>
-  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">单线程协作并发 · await 挂起点 · 任务调度</text>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600">Python asyncio 事件循环</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">单线程协作式调度 · await 让出执行权</text>
 
-  <!-- 中心事件循环 -->
-  <g>
-    <circle cx="300" cy="240" r="60" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
-    <text x="300" y="232" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">Event</text>
-    <text x="300" y="250" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">Loop</text>
-    <text x="300" y="266" text-anchor="middle" font-size="9" font-style="italic" fill="#475569">单线程主循环</text>
-  </g>
+  <!-- 事件循环 -->
+  <ellipse cx="300" cy="250" rx="160" ry="55" fill="#dcfce7" stroke="#10b981" stroke-width="2"/>
+  <text x="300" y="245" text-anchor="middle" font-size="13" font-weight="700" fill="#047857">Event Loop</text>
+  <text x="300" y="263" text-anchor="middle" font-size="11" fill="#475569">asyncio.run()</text>
 
-  <!-- 4 个协程 -->
-  <g>
-    <rect class="at-hover-card" x="40" y="100" width="160" height="55" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
-    <text x="120" y="123" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Coroutine A</text>
-    <text x="120" y="140" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">await fetch('a')</text>
-    <text x="120" y="152" text-anchor="middle" font-size="9" fill="#475569">等响应...</text>
+  <!-- 协程 1 -->
+  <rect class="at-hover-card" x="40" y="115" width="120" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="100" y="138" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Coroutine A</text>
+  <text x="100" y="155" text-anchor="middle" font-size="9" fill="#475569">await fetch()</text>
 
-    <rect class="at-hover-card" x="400" y="100" width="160" height="55" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
-    <text x="480" y="123" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">Coroutine B</text>
-    <text x="480" y="140" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">await db.query()</text>
-    <text x="480" y="152" text-anchor="middle" font-size="9" fill="#475569">等查询...</text>
+  <!-- 协程 2 -->
+  <rect class="at-hover-card" x="40" y="335" width="120" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="100" y="358" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Coroutine B</text>
+  <text x="100" y="375" text-anchor="middle" font-size="9" fill="#475569">await db()</text>
 
-    <rect class="at-hover-card" x="40" y="335" width="160" height="55" rx="6" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
-    <text x="120" y="358" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">Coroutine C</text>
-    <text x="120" y="375" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">await sleep(2)</text>
-    <text x="120" y="387" text-anchor="middle" font-size="9" fill="#475569">休眠 2s...</text>
+  <!-- 协程 3 -->
+  <rect class="at-hover-card" x="440" y="115" width="120" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="500" y="138" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Coroutine C</text>
+  <text x="500" y="155" text-anchor="middle" font-size="9" fill="#475569">await sleep()</text>
 
-    <rect class="at-hover-card" x="400" y="335" width="160" height="55" rx="6" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
-    <text x="480" y="358" text-anchor="middle" font-size="11" font-weight="700" fill="#9d174d">Coroutine D</text>
-    <text x="480" y="375" text-anchor="middle" font-size="9" font-family="monospace" fill="#475569">await file.read()</text>
-    <text x="480" y="387" text-anchor="middle" font-size="9" fill="#475569">等 IO...</text>
-  </g>
+  <!-- 协程 4 -->
+  <rect class="at-hover-card" x="440" y="335" width="120" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="500" y="358" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Coroutine D</text>
+  <text x="500" y="375" text-anchor="middle" font-size="9" fill="#475569">await queue.get()</text>
 
-  <!-- 箭头（往返） -->
-  <g stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)">
-    <path d="M200,127 L250,200"/>
-    <path d="M400,127 L350,200"/>
-    <path d="M200,362 L250,280"/>
-    <path d="M400,362 L350,280"/>
-  </g>
+  <!-- 双向箭头 -->
+  <line x1="160" y1="140" x2="200" y2="220" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)" marker-start="url(#arr)"/>
+  <line x1="160" y1="360" x2="200" y2="280" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)" marker-start="url(#arr)"/>
+  <line x1="440" y1="140" x2="400" y2="220" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)" marker-start="url(#arr)"/>
+  <line x1="440" y1="360" x2="400" y2="280" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)" marker-start="url(#arr)"/>
 
-  <!-- 状态机 -->
-  <g>
-    <text x="300" y="405" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">协程生命周期</text>
+  <!-- Ready queue -->
+  <rect x="195" y="115" width="210" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="300" y="138" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Ready Queue</text>
+  <text x="300" y="155" text-anchor="middle" font-size="9" fill="#475569">asyncio.Queue / Task</text>
 
-    <g>
-      <rect class="at-hover-card" x="30" y="420" width="80" height="32" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
-      <text x="70" y="441" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">READY</text>
+  <!-- IO 多路复用 -->
+  <rect x="195" y="335" width="210" height="50" rx="6" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="300" y="358" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">Selector (epoll/kqueue)</text>
+  <text x="300" y="375" text-anchor="middle" font-size="9" fill="#475569">监听 fd 就绪事件</text>
 
-      <rect class="at-hover-card" x="135" y="420" width="80" height="32" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
-      <text x="175" y="441" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">RUNNING</text>
-
-      <rect class="at-hover-card" x="240" y="420" width="80" height="32" rx="6" fill="#ede9fe" stroke="#8b5cf6"/>
-      <text x="280" y="441" text-anchor="middle" font-size="10" font-weight="700" fill="#5b21b6">WAITING</text>
-
-      <rect class="at-hover-card" x="345" y="420" width="80" height="32" rx="6" fill="#d1fae5" stroke="#10b981"/>
-      <text x="385" y="441" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">DONE</text>
-
-      <rect class="at-hover-card" x="450" y="420" width="120" height="32" rx="6" fill="#fee2e2" stroke="#ef4444"/>
-      <text x="510" y="441" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">CANCELLED</text>
-    </g>
-
-    <g stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)">
-      <path d="M110,436 L135,436"/>
-      <path d="M215,436 L240,436"/>
-      <path d="M320,436 L345,436"/>
-      <path d="M425,436 L450,436"/>
-    </g>
-  </g>
+  <!-- 步骤说明 -->
+  <rect x="30" y="400" width="540" height="65" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="300" y="422" text-anchor="middle" font-size="12" font-weight="700" fill="#1e293b">执行流程</text>
+  <text x="50" y="442" font-size="10" fill="#334155">① 调度协程 → ② 遇到 await 让出 → ③ 注册到 Selector</text>
+  <text x="50" y="458" font-size="10" fill="#334155">④ 阻塞等待 fd 就绪 → ⑤ 唤醒协程 → 回到 Ready → 继续</text>
 </svg>

@@ -8,6 +8,97 @@ description: Prometheus 整体架构与核心组件
 
 > **TL;DR**：Prometheus 是**云原生监控的事实标准**。核心架构是"Pull 模型 + TSDB 存储 + PromQL 查询 + Alertmanager 告警"。**2026 年新项目，监控层 80% 选 Prometheus**。
 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600">Prometheus 架构</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Pull 模型 · 多维标签 · PromQL · Alertmanager</text>
+
+  <!-- Targets (左) -->
+  <text x="80" y="95" text-anchor="middle" font-size="12" font-weight="700" fill="#1e293b">Targets（被采集）</text>
+
+  <rect class="at-hover-card" x="30" y="105" width="100" height="35" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="80" y="128" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">App /metrics</text>
+
+  <rect class="at-hover-card" x="30" y="150" width="100" height="35" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="80" y="173" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">Node Exporter</text>
+
+  <rect class="at-hover-card" x="30" y="195" width="100" height="35" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="80" y="218" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">cAdvisor</text>
+
+  <rect class="at-hover-card" x="30" y="240" width="100" height="35" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="80" y="263" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">Pushgateway</text>
+
+  <!-- 中央 Prometheus Server -->
+  <rect class="at-hover-card" x="200" y="100" width="220" height="200" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="310" y="125" text-anchor="middle" font-size="14" font-weight="700" fill="#991b1b">Prometheus Server</text>
+
+  <rect x="215" y="135" width="190" height="30" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="310" y="155" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">Retrieval（抓取）</text>
+
+  <rect x="215" y="170" width="190" height="30" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+  <text x="310" y="190" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">TSDB 时序存储</text>
+
+  <rect x="215" y="205" width="190" height="30" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="310" y="225" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">PromQL 引擎</text>
+
+  <rect x="215" y="240" width="190" height="30" rx="4" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="310" y="260" text-anchor="middle" font-size="10" font-weight="700" fill="#5b21b6">HTTP API + Web UI</text>
+
+  <!-- 抓取箭头 -->
+  <line x1="130" y1="122" x2="200" y2="155" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="130" y1="167" x2="200" y2="155" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="130" y1="212" x2="200" y2="155" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="130" y1="257" x2="200" y2="220" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arr)" stroke-dasharray="4,2"/>
+  <text x="165" y="270" font-size="9" fill="#92400e">push</text>
+
+  <!-- Alertmanager -->
+  <rect class="at-hover-card" x="460" y="100" width="120" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="520" y="123" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Alertmanager</text>
+  <text x="520" y="140" text-anchor="middle" font-size="9" fill="#475569">去重 / 路由 / 抑制</text>
+
+  <line x1="420" y1="145" x2="460" y2="125" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- 通知目标 -->
+  <rect class="at-hover-card" x="460" y="170" width="120" height="35" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+  <text x="520" y="190" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">Slack / Email</text>
+
+  <rect class="at-hover-card" x="460" y="215" width="120" height="35" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+  <text x="520" y="235" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">PagerDuty / Webhook</text>
+
+  <line x1="520" y1="150" x2="520" y2="170" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="520" y1="205" x2="520" y2="215" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- 远端存储 -->
+  <rect class="at-hover-card" x="460" y="270" width="120" height="35" rx="6" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="520" y="290" text-anchor="middle" font-size="10" font-weight="700" fill="#5b21b6">Remote Storage</text>
+
+  <line x1="420" y1="280" x2="460" y2="285" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arr)" stroke-dasharray="4,2"/>
+  <text x="430" y="275" font-size="9" fill="#5b21b6">remote_write</text>
+
+  <!-- 关键点 -->
+  <rect x="30" y="325" width="540" height="140" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="300" y="348" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">关键属性</text>
+
+  <text x="50" y="372" font-size="11" font-weight="600" fill="#1e293b">① 数据模型</text>
+  <text x="50" y="390" font-size="10" fill="#475569">metric_name{label1=v1, label2=v2} value timestamp</text>
+
+  <text x="320" y="372" font-size="11" font-weight="600" fill="#1e293b">② 4 种 metric 类型</text>
+  <text x="320" y="390" font-size="10" fill="#475569">Counter / Gauge / Histogram / Summary</text>
+
+  <text x="50" y="415" font-size="11" font-weight="600" fill="#1e293b">③ Pull 模型优势</text>
+  <text x="50" y="433" font-size="10" fill="#475569">· 服务发现自动扩缩容友好</text>
+  <text x="50" y="448" font-size="10" fill="#475569">· 单点故障时易观测（采集失败暴露）</text>
+
+  <text x="320" y="415" font-size="11" font-weight="600" fill="#1e293b">④ 局限</text>
+  <text x="320" y="433" font-size="10" fill="#475569">· 短生命周期任务用 Pushgateway</text>
+  <text x="320" y="448" font-size="10" fill="#475569">· 高基数（label 爆炸）→ TSDB 压力大</text>
+</svg>
+
 ## 一句话定义
 
 ```

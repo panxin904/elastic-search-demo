@@ -7,6 +7,40 @@ date: 2026-08-15  # date-auto-injected
 
 Trait 是 Rust 行为抽象的核心：定义共享行为，支持默认方法、关联类型、Trait bound。
 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600">Rust 生命周期省略规则</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Lifetime Elision · 3 条规则让编译器自动推导</text>
+
+  <!-- 规则 1 -->
+  <rect class="at-hover-card" x="30" y="90" width="540" height="90" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="50" y="115" font-size="13" font-weight="700" fill="#1e40af">规则 ① 输入生命周期：每个引用参数各得一个</text>
+  <text x="50" y="140" font-size="11" font-family="monospace" fill="#1e293b">fn foo(x: &amp;str, y: &amp;str)  →  fn foo&lt;'a, 'b&gt;(x: &amp;'a str, y: &amp;'b str)</text>
+  <text x="50" y="162" font-size="10" fill="#475569" font-style="italic">编译器为每个引用参数分配独立生命周期参数 'a, 'b</text>
+
+  <!-- 规则 2 -->
+  <rect class="at-hover-card" x="30" y="195" width="540" height="100" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+  <text x="50" y="220" font-size="13" font-weight="700" fill="#047857">规则 ② 单输入生命周期：输出与该输入一致</text>
+  <text x="50" y="245" font-size="11" font-family="monospace" fill="#1e293b">fn foo(x: &amp;str) -&gt; &amp;str  →  fn foo&lt;'a&gt;(x: &amp;'a str) -&gt; &amp;'a str</text>
+  <text x="50" y="268" font-size="10" fill="#475569" font-style="italic">仅 1 个引用参数 → 输出生命周期默认为它</text>
+
+  <!-- 规则 3 -->
+  <rect class="at-hover-card" x="30" y="310" width="540" height="100" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="50" y="335" font-size="13" font-weight="700" fill="#991b1b">规则 ③ 方法中 &amp;self / &amp;mut self：输出与 self 一致</text>
+  <text x="50" y="360" font-size="11" font-family="monospace" fill="#1e293b">impl Foo { fn name(&amp;self) -&gt; &amp;str }</text>
+  <text x="50" y="378" font-size="11" font-family="monospace" fill="#1e293b">          → fn name&lt;'a&gt;(&amp;'a self) -&gt; &amp;'a str</text>
+
+  <!-- 多输出失败示例 -->
+  <rect x="30" y="425" width="540" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="50" y="448" font-size="12" font-weight="700" fill="#92400e">多输入 + 输出引用：编译器无法推导 → 必须显式标注</text>
+  <text x="50" y="465" font-size="11" font-family="monospace" fill="#1e293b">fn longest&lt;'a&gt;(x: &amp;'a str, y: &amp;'a str) -&gt; &amp;'a str  // 手动声明</text>
+</svg>
+
 ## 一句话总结
 
 > **Trait = 行为接口 + 默认实现 + 关联类型**。**类比 Java interface 但更强（默认方法 + 默认泛型 + 关联类型）**。

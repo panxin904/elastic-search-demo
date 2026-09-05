@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600">Go Interface 内存布局</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">类型指针 + 数据指针 · 16 字节 · 静态/动态分发</text>
+
+  <!-- iface 框 -->
+  <rect class="at-hover-card" x="40" y="100" width="170" height="100" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="125" y="123" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">iface（带方法）</text>
+  <rect x="50" y="135" width="150" height="25" fill="#3b82f6" opacity="0.3"/>
+  <text x="125" y="153" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">itab *itab</text>
+  <rect x="50" y="170" width="150" height="25" fill="#3b82f6" opacity="0.3"/>
+  <text x="125" y="188" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">data unsafe.Pointer</text>
+
+  <!-- eface 框 -->
+  <rect class="at-hover-card" x="240" y="100" width="170" height="100" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+  <text x="325" y="123" text-anchor="middle" font-size="12" font-weight="700" fill="#047857">eface（空 interface）</text>
+  <rect x="250" y="135" width="150" height="25" fill="#10b981" opacity="0.3"/>
+  <text x="325" y="153" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">_type *type</text>
+  <rect x="250" y="170" width="150" height="25" fill="#10b981" opacity="0.3"/>
+  <text x="325" y="188" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">data unsafe.Pointer</text>
+
+  <!-- itab 展开 -->
+  <rect x="440" y="100" width="140" height="120" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="510" y="123" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">itab</text>
+  <text x="450" y="148" font-size="10" fill="#334155">· inter (*itab)</text>
+  <text x="450" y="166" font-size="10" fill="#334155">· _type (*type)</text>
+  <text x="450" y="184" font-size="10" fill="#334155">· hash  uint32</text>
+  <text x="450" y="202" font-size="10" fill="#334155">· [N]func() 方法表</text>
+
+  <!-- 数据指针指向具体类型 -->
+  <rect class="at-hover-card" x="80" y="240" width="170" height="50" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="165" y="263" text-anchor="middle" font-size="11" font-weight="700" fill="#991b1b">*MyStruct</text>
+  <text x="165" y="280" text-anchor="middle" font-size="10" fill="#475569">a int, b string</text>
+
+  <rect class="at-hover-card" x="290" y="240" width="170" height="50" rx="6" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="375" y="263" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">[]byte / string</text>
+  <text x="375" y="280" text-anchor="middle" font-size="10" fill="#475569">ptr + len + cap</text>
+
+  <!-- 箭头 -->
+  <line x1="125" y1="200" x2="165" y2="240" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arr)"/>
+  <line x1="325" y1="200" x2="375" y2="240" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arr)"/>
+  <line x1="210" y1="150" x2="440" y2="150" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- 关键点 -->
+  <rect x="30" y="320" width="540" height="145" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="300" y="343" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">关键属性</text>
+
+  <text x="50" y="368" font-size="11" font-weight="600" fill="#1e293b">① interface == 比较：要求类型 + 数据相同</text>
+  <text x="50" y="386" font-size="10" fill="#475569">· 可比较类型 → interface 也可比较（map key）</text>
+  <text x="50" y="402" font-size="10" fill="#dc2626">· 不可比较类型（slice/map/func）→ panic: runtime error</text>
+
+  <text x="320" y="368" font-size="11" font-weight="600" fill="#1e293b">② nil interface ≠ typed nil</text>
+  <text x="320" y="386" font-size="10" fill="#475569">· var i I = nil → i == nil ✓</text>
+  <text x="320" y="402" font-size="10" fill="#dc2626">· var p *T = nil; var i I = p → i != nil（data nil, type 非 nil）</text>
+
+  <text x="50" y="425" font-size="11" font-weight="600" fill="#1e293b">③ 类型断言 / 类型 switch</text>
+  <text x="50" y="443" font-size="10" fill="#475569">· v, ok := i.(ConcreteType) — 失败 ok=false 不 panic</text>
+  <text x="320" y="425" font-size="11" font-weight="600" fill="#1e293b">④ 性能：调用走 itab 方法表，无虚函数开销</text>
+  <text x="320" y="443" font-size="10" fill="#475569">· 编译器静态优化：若类型已知，直接内联</text>
+</svg>

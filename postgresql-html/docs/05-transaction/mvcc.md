@@ -7,6 +7,64 @@ date: 2026-08-15  # date-auto-injected
 
 > PostgreSQL 的灵魂：让读不阻塞写、写不阻塞读。**xmin / xmax 是 PG 的版本号系统**。
 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600">PostgreSQL MVCC 版本链</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">多版本并发控制 · xmin/xmax · 元组可见性</text>
+
+  <!-- 行级版本链 -->
+  <text x="50" y="100" font-size="12" font-weight="700" fill="#1e293b">同一行的多个版本（按 xmin 排序）</text>
+
+  <!-- Tuple v1 -->
+  <rect class="at-hover-card" x="50" y="115" width="160" height="120" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="130" y="138" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">Tuple v1</text>
+  <text x="60" y="160" font-size="10" fill="#334155">xmin = 100</text>
+  <text x="60" y="178" font-size="10" fill="#334155">xmax = 200</text>
+  <text x="60" y="196" font-size="10" fill="#334155">data = {a:1}</text>
+  <text x="60" y="214" font-size="10" fill="#64748b">t_xmin: T1</text>
+  <text x="60" y="230" font-size="10" fill="#64748b">t_xmax: T2</text>
+
+  <!-- Tuple v2 -->
+  <rect class="at-hover-card" x="220" y="115" width="160" height="120" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+  <text x="300" y="138" text-anchor="middle" font-size="12" font-weight="700" fill="#047857">Tuple v2 (current)</text>
+  <text x="230" y="160" font-size="10" fill="#334155">xmin = 200</text>
+  <text x="230" y="178" font-size="10" fill="#334155">xmax = 0 (活跃)</text>
+  <text x="230" y="196" font-size="10" fill="#334155">data = {a:2}</text>
+  <text x="230" y="214" font-size="10" fill="#64748b">t_xmin: T2</text>
+  <text x="230" y="230" font-size="10" fill="#64748b">ctid = (0,1)</text>
+
+  <!-- Tuple v3 -->
+  <rect class="at-hover-card" x="390" y="115" width="160" height="120" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="470" y="138" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">Tuple v3 (in-flight)</text>
+  <text x="400" y="160" font-size="10" fill="#334155">xmin = 300</text>
+  <text x="400" y="178" font-size="10" fill="#334155">xmax = 0</text>
+  <text x="400" y="196" font-size="10" fill="#334155">data = {a:3}</text>
+  <text x="400" y="214" font-size="10" fill="#64748b">t_xmin: T3</text>
+  <text x="400" y="230" font-size="10" fill="#64748b">uncommitted</text>
+
+  <!-- 箭头 -->
+  <line x1="210" y1="175" x2="220" y2="175" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="380" y1="175" x2="390" y2="175" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- 可见性规则 -->
+  <rect x="40" y="260" width="520" height="120" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="300" y="285" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">可见性判定规则（简化版）</text>
+  <text x="60" y="310" font-size="11" fill="#334155">事务 T 在快照 S 下看到元组 v 当且仅当：</text>
+  <text x="60" y="332" font-size="11" font-weight="600" fill="#1e40af">① v.xmin 已提交  AND  v.xmin &lt; S.xmax</text>
+  <text x="60" y="354" font-size="11" font-weight="600" fill="#dc2626">② v.xmax = 0  OR  v.xmax 未提交  OR  v.xmax &gt; S.xmin</text>
+  <text x="60" y="372" font-size="10" fill="#475569" font-style="italic">即：插入事务先于快照完成，且删除事务尚未影响快照</text>
+
+  <!-- 底部 -->
+  <text x="300" y="410" text-anchor="middle" font-size="11" font-weight="600" fill="#1e293b">VACUUM 回收死亡元组</text>
+  <text x="300" y="430" text-anchor="middle" font-size="10" fill="#64748b">UPDATE 不改原行，而是插入新版本（append-only） → 膨胀 → 需 VACUUM / autovacuum</text>
+  <text x="300" y="450" text-anchor="middle" font-size="10" fill="#64748b">HOT update：同页内更新可避免索引膨胀（fillfactor 触发）</text>
+</svg>
+
 ## 1. 什么是 MVCC？
 
 ```

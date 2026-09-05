@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600">Python 装饰器栈调用</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">闭包 + 包装 · 顺序自下而上、调用自上而下</text>
+
+  <!-- 调用栈（左） -->
+  <text x="120" y="100" text-anchor="middle" font-size="12" font-weight="700" fill="#1e293b">调用栈（运行时）</text>
+  <rect class="at-hover-card" x="50" y="115" width="140" height="50" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="120" y="138" text-anchor="middle" font-size="11" font-weight="700" fill="#991b1b">@retry(max=3)</text>
+  <text x="120" y="155" text-anchor="middle" font-size="9" fill="#475569">最先包裹，最外层</text>
+
+  <rect class="at-hover-card" x="50" y="180" width="140" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="120" y="203" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">@timing</text>
+  <text x="120" y="220" text-anchor="middle" font-size="9" fill="#475569">测耗时</text>
+
+  <rect class="at-hover-card" x="50" y="245" width="140" height="50" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+  <text x="120" y="268" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">@cache</text>
+  <text x="120" y="285" text-anchor="middle" font-size="9" fill="#475569">命中走缓存</text>
+
+  <rect class="at-hover-card" x="50" y="310" width="140" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="120" y="333" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">def foo():</text>
+  <text x="120" y="350" text-anchor="middle" font-size="9" fill="#475569">原始函数</text>
+
+  <!-- 箭头 -->
+  <line x1="120" y1="165" x2="120" y2="178" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="120" y1="230" x2="120" y2="243" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="120" y1="295" x2="120" y2="308" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- 等价展开 -->
+  <text x="430" y="100" text-anchor="middle" font-size="12" font-weight="700" fill="#1e293b">等价于</text>
+
+  <rect x="280" y="115" width="320" height="245" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="295" y="140" font-size="11" font-family="monospace" fill="#1e293b">foo = retry(max=3)(</text>
+  <text x="315" y="160" font-size="11" font-family="monospace" fill="#1e293b">timing(</text>
+  <text x="335" y="180" font-size="11" font-family="monospace" fill="#1e293b">cache(foo)</text>
+  <text x="315" y="200" font-size="11" font-family="monospace" fill="#1e293b">)</text>
+  <text x="295" y="220" font-size="11" font-family="monospace" fill="#1e293b">)</text>
+  <text x="295" y="248" font-size="10" fill="#475569" font-style="italic">↓</text>
+  <text x="295" y="270" font-size="10" fill="#475569" font-style="italic">装饰顺序 = 自下而上：</text>
+  <text x="295" y="288" font-size="10" fill="#475569" font-style="italic">cache 最先包 foo，</text>
+  <text x="295" y="306" font-size="10" fill="#475569" font-style="italic">retry 最后包整个栈</text>
+  <text x="295" y="332" font-size="10" fill="#475569" font-style="italic">调用顺序 = 自上而下：</text>
+  <text x="295" y="350" font-size="10" fill="#475569" font-style="italic">retry → timing → cache → foo</text>
+
+  <!-- 关键点 -->
+  <rect x="30" y="385" width="540" height="80" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="300" y="408" text-anchor="middle" font-size="12" font-weight="700" fill="#1e293b">关键点</text>
+  <text x="50" y="428" font-size="10" fill="#334155">· functools.wraps(func) 保留原函数 __name__/__doc__</text>
+  <text x="50" y="446" font-size="10" fill="#334155">· 带参装饰器 = 装饰器工厂：外层接受参数返回装饰器</text>
+  <text x="320" y="428" font-size="10" fill="#334155">· 类装饰器：__call__ 实现可调用；或继承实现</text>
+  <text x="320" y="446" font-size="10" fill="#334155">· stack 顺序决定执行顺序，retry 包最外层才有 retry 缓存</text>
+</svg>

@@ -4,6 +4,64 @@ date: 2026-08-15  # date-auto-injected
 ---
 
 # ⚡ asyncio 协程
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600">Python asyncio 事件循环</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">单线程协作式调度 · await 让出执行权</text>
+
+  <!-- 事件循环 -->
+  <ellipse cx="300" cy="250" rx="160" ry="55" fill="#dcfce7" stroke="#10b981" stroke-width="2"/>
+  <text x="300" y="245" text-anchor="middle" font-size="13" font-weight="700" fill="#047857">Event Loop</text>
+  <text x="300" y="263" text-anchor="middle" font-size="11" fill="#475569">asyncio.run()</text>
+
+  <!-- 协程 1 -->
+  <rect class="at-hover-card" x="40" y="115" width="120" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="100" y="138" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Coroutine A</text>
+  <text x="100" y="155" text-anchor="middle" font-size="9" fill="#475569">await fetch()</text>
+
+  <!-- 协程 2 -->
+  <rect class="at-hover-card" x="40" y="335" width="120" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="100" y="358" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Coroutine B</text>
+  <text x="100" y="375" text-anchor="middle" font-size="9" fill="#475569">await db()</text>
+
+  <!-- 协程 3 -->
+  <rect class="at-hover-card" x="440" y="115" width="120" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="500" y="138" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Coroutine C</text>
+  <text x="500" y="155" text-anchor="middle" font-size="9" fill="#475569">await sleep()</text>
+
+  <!-- 协程 4 -->
+  <rect class="at-hover-card" x="440" y="335" width="120" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="500" y="358" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Coroutine D</text>
+  <text x="500" y="375" text-anchor="middle" font-size="9" fill="#475569">await queue.get()</text>
+
+  <!-- 双向箭头 -->
+  <line x1="160" y1="140" x2="200" y2="220" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)" marker-start="url(#arr)"/>
+  <line x1="160" y1="360" x2="200" y2="280" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)" marker-start="url(#arr)"/>
+  <line x1="440" y1="140" x2="400" y2="220" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)" marker-start="url(#arr)"/>
+  <line x1="440" y1="360" x2="400" y2="280" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)" marker-start="url(#arr)"/>
+
+  <!-- Ready queue -->
+  <rect x="195" y="115" width="210" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="300" y="138" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Ready Queue</text>
+  <text x="300" y="155" text-anchor="middle" font-size="9" fill="#475569">asyncio.Queue / Task</text>
+
+  <!-- IO 多路复用 -->
+  <rect x="195" y="335" width="210" height="50" rx="6" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="300" y="358" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">Selector (epoll/kqueue)</text>
+  <text x="300" y="375" text-anchor="middle" font-size="9" fill="#475569">监听 fd 就绪事件</text>
+
+  <!-- 步骤说明 -->
+  <rect x="30" y="400" width="540" height="65" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="300" y="422" text-anchor="middle" font-size="12" font-weight="700" fill="#1e293b">执行流程</text>
+  <text x="50" y="442" font-size="10" fill="#334155">① 调度协程 → ② 遇到 await 让出 → ③ 注册到 Selector</text>
+  <text x="50" y="458" font-size="10" fill="#334155">④ 阻塞等待 fd 就绪 → ⑤ 唤醒协程 → 回到 Ready → 继续</text>
+</svg>
+
 
 > **asyncio** 是 Python 3.4+ 引入的**异步 I/O 框架**。用**协程（coroutine）**实现高并发，是 IO 密集型任务的**最佳选择**。
 

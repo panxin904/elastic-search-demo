@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600">可观测性三大支柱</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Metrics · Logs · Traces（互补而非替代）</text>
+
+  <!-- Metrics -->
+  <rect class="at-hover-card" x="30" y="90" width="170" height="240" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="115" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#1e40af">📊 Metrics</text>
+  <text x="115" y="135" text-anchor="middle" font-size="10" fill="#475569">指标 · 聚合数值</text>
+
+  <text x="50" y="165" font-size="10" font-weight="700" fill="#1e293b">形态</text>
+  <text x="50" y="180" font-size="10" fill="#334155">数值 + 时间戳 + 标签</text>
+
+  <text x="50" y="205" font-size="10" font-weight="700" fill="#1e293b">工具</text>
+  <text x="50" y="220" font-size="9" fill="#475569">Prometheus / InfluxDB</text>
+  <text x="50" y="232" font-size="9" fill="#475569">Datadog / CloudWatch</text>
+
+  <text x="50" y="252" font-size="10" font-weight="700" fill="#10b981">+ 低成本 / 适合告警</text>
+  <text x="50" y="267" font-size="10" font-weight="700" fill="#10b981">+ 趋势分析 / 容量规划</text>
+  <text x="50" y="287" font-size="10" font-weight="600" fill="#dc2626">- 缺上下文（why？）</text>
+  <text x="50" y="302" font-size="10" font-weight="600" fill="#dc2626">- 需预设指标</text>
+
+  <text x="50" y="322" font-size="9" fill="#475569" font-style="italic">问「系统是否健康」</text>
+
+  <!-- Logs -->
+  <rect class="at-hover-card" x="215" y="90" width="170" height="240" rx="8" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+  <text x="300" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#047857">📜 Logs</text>
+  <text x="300" y="135" text-anchor="middle" font-size="10" fill="#475569">日志 · 离散事件</text>
+
+  <text x="235" y="165" font-size="10" font-weight="700" fill="#1e293b">形态</text>
+  <text x="235" y="180" font-size="10" fill="#334155">结构化 / 半结构化文本</text>
+
+  <text x="235" y="205" font-size="10" font-weight="700" fill="#1e293b">工具</text>
+  <text x="235" y="220" font-size="9" fill="#475569">ELK / Loki / Splunk</text>
+  <text x="235" y="232" font-size="9" fill="#475569">Fluentd / Vector</text>
+
+  <text x="235" y="252" font-size="10" font-weight="700" fill="#10b981">+ 上下文丰富</text>
+  <text x="235" y="267" font-size="10" font-weight="700" fill="#10b981">+ 根因定位</text>
+  <text x="235" y="287" font-size="10" font-weight="600" fill="#dc2626">- 存储 / 解析成本高</text>
+  <text x="235" y="302" font-size="10" font-weight="600" fill="#dc2626">- 高基数爆炸</text>
+
+  <text x="235" y="322" font-size="9" fill="#475569" font-style="italic">问「发生了什么」</text>
+
+  <!-- Traces -->
+  <rect class="at-hover-card" x="400" y="90" width="170" height="240" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="485" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">🔗 Traces</text>
+  <text x="485" y="135" text-anchor="middle" font-size="10" fill="#475569">链路 · 因果关系</text>
+
+  <text x="420" y="165" font-size="10" font-weight="700" fill="#1e293b">形态</text>
+  <text x="420" y="180" font-size="10" fill="#334155">Span DAG + Context</text>
+
+  <text x="420" y="205" font-size="10" font-weight="700" fill="#1e293b">工具</text>
+  <text x="420" y="220" font-size="9" fill="#475569">Jaeger / Zipkin / Tempo</text>
+  <text x="420" y="232" font-size="9" fill="#475569">OpenTelemetry SDK</text>
+
+  <text x="420" y="252" font-size="10" font-weight="700" fill="#10b981">+ 跨服务因果</text>
+  <text x="420" y="267" font-size="10" font-weight="700" fill="#10b981">+ 延迟分析</text>
+  <text x="420" y="287" font-size="10" font-weight="600" fill="#dc2626">- 采样难 / 存储大</text>
+  <text x="420" y="302" font-size="10" font-weight="600" fill="#dc2626">- 侵入性（需插桩）</text>
+
+  <text x="420" y="322" font-size="9" fill="#475569" font-style="italic">问「请求经过哪里」</text>
+
+  <!-- 底部关系图 -->
+  <rect x="30" y="350" width="540" height="115" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="300" y="375" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">三者关系：互为正交、互补缺失</text>
+
+  <text x="50" y="402" font-size="11" fill="#334155">· Metric 告警 → Log 定位上下文 → Trace 找跨服务瓶颈</text>
+  <text x="50" y="422" font-size="11" fill="#334155">· Trace 上的 span 可携带 metric / log 属性（事件嵌入）</text>
+  <text x="50" y="442" font-size="11" fill="#334155">· Log 通过 trace_id / span_id 关联到具体链路</text>
+  <text x="50" y="458" font-size="10" fill="#475569" font-style="italic">现代可观测性平台（如 Datadog / Grafana Stack）将三者统一</text>
+</svg>

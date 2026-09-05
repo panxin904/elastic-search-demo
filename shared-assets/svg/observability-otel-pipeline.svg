@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600">OpenTelemetry 数据管道</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Instrumentation → SDK → Collector → Backend</text>
+
+  <!-- Apps (源) -->
+  <rect class="at-hover-card" x="30" y="100" width="100" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="80" y="123" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">App A</text>
+  <text x="80" y="140" text-anchor="middle" font-size="9" fill="#475569">SDK + Agent</text>
+
+  <rect class="at-hover-card" x="30" y="160" width="100" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="80" y="183" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">App B</text>
+  <text x="80" y="200" text-anchor="middle" font-size="9" fill="#475569">Auto-Instr</text>
+
+  <rect class="at-hover-card" x="30" y="220" width="100" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="80" y="243" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">App C</text>
+  <text x="80" y="260" text-anchor="middle" font-size="9" fill="#475569">Sidecar eBPF</text>
+
+  <!-- OTLP -->
+  <rect class="at-hover-card" x="170" y="120" width="120" height="120" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="230" y="143" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">OTLP</text>
+  <text x="230" y="161" text-anchor="middle" font-size="10" fill="#475569">gRPC / HTTP</text>
+  <text x="230" y="183" text-anchor="middle" font-size="10" fill="#475569">Trace + Metric</text>
+  <text x="230" y="200" text-anchor="middle" font-size="10" fill="#475569">+ Log</text>
+  <text x="230" y="222" text-anchor="middle" font-size="9" fill="#92400e" font-style="italic">protobuf / JSON</text>
+
+  <!-- Collector -->
+  <rect class="at-hover-card" x="320" y="100" width="120" height="160" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="2"/>
+  <text x="380" y="123" text-anchor="middle" font-size="13" font-weight="700" fill="#047857">Collector</text>
+  <text x="380" y="145" text-anchor="middle" font-size="10" fill="#475569">Receivers</text>
+  <text x="380" y="163" text-anchor="middle" font-size="10" fill="#475569">Processors</text>
+  <text x="380" y="181" text-anchor="middle" font-size="10" fill="#475569">Exporters</text>
+  <text x="380" y="205" text-anchor="middle" font-size="9" fill="#475569" font-style="italic">批处理 / 采样</text>
+  <text x="380" y="223" text-anchor="middle" font-size="9" fill="#475569" font-style="italic">路由 / 转换</text>
+  <text x="380" y="248" text-anchor="middle" font-size="9" fill="#10b981" font-weight="700">FAN-OUT</text>
+
+  <!-- Backends -->
+  <rect class="at-hover-card" x="470" y="100" width="100" height="40" rx="6" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="520" y="118" text-anchor="middle" font-size="10" font-weight="700" fill="#5b21b6">Jaeger</text>
+  <text x="520" y="133" text-anchor="middle" font-size="9" fill="#475569">Trace</text>
+
+  <rect class="at-hover-card" x="470" y="150" width="100" height="40" rx="6" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="520" y="168" text-anchor="middle" font-size="10" font-weight="700" fill="#5b21b6">Prometheus</text>
+  <text x="520" y="183" text-anchor="middle" font-size="9" fill="#475569">Metric</text>
+
+  <rect class="at-hover-card" x="470" y="200" width="100" height="40" rx="6" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="520" y="218" text-anchor="middle" font-size="10" font-weight="700" fill="#5b21b6">Loki / ES</text>
+  <text x="520" y="233" text-anchor="middle" font-size="9" fill="#475569">Log</text>
+
+  <rect class="at-hover-card" x="470" y="250" width="100" height="40" rx="6" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="520" y="268" text-anchor="middle" font-size="10" font-weight="700" fill="#5b21b6">Tempo / S3</text>
+  <text x="520" y="283" text-anchor="middle" font-size="9" fill="#475569">Trace 归档</text>
+
+  <!-- 箭头 -->
+  <line x1="130" y1="125" x2="170" y2="160" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="130" y1="185" x2="170" y2="180" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="130" y1="245" x2="170" y2="200" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <line x1="290" y1="180" x2="320" y2="180" stroke="#f59e0b" stroke-width="2" marker-end="url(#arr)"/>
+
+  <line x1="440" y1="140" x2="470" y2="120" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="440" y1="170" x2="470" y2="170" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="440" y1="200" x2="470" y2="220" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="440" y1="230" x2="470" y2="270" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- 关键点 -->
+  <rect x="30" y="295" width="540" height="170" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="300" y="318" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">关键设计点</text>
+
+  <text x="50" y="343" font-size="11" font-weight="600" fill="#1e293b">① 三种信号统一</text>
+  <text x="50" y="361" font-size="10" fill="#475569">· Trace / Metric / Log 通过 OTLP 同协议</text>
+  <text x="50" y="376" font-size="10" fill="#475569">· Context Propagation（W3C TraceContext）</text>
+
+  <text x="320" y="343" font-size="11" font-weight="600" fill="#1e293b">② Collector 角色</text>
+  <text x="320" y="361" font-size="10" fill="#475569">· Agent（每节点）vs Gateway（中心）</text>
+  <text x="320" y="376" font-size="10" fill="#475569">· 采样、过滤、协议转换、缓冲重试</text>
+
+  <text x="50" y="400" font-size="11" font-weight="600" fill="#1e293b">③ 部署模式</text>
+  <text x="50" y="418" font-size="10" fill="#475569">· 直接上报后端（简单）</text>
+  <text x="50" y="433" font-size="10" fill="#475569">· 经 Collector 中转（推荐）</text>
+
+  <text x="320" y="400" font-size="11" font-weight="600" fill="#1e293b">④ 与厂商解耦</text>
+  <text x="320" y="418" font-size="10" fill="#475569">· 后端可换：Jaeger → Tempo / SigNoz</text>
+  <text x="320" y="433" font-size="10" fill="#475569">· 数据模型与协议标准化，避免锁定</text>
+</svg>

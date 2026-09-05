@@ -7,6 +7,65 @@ date: 2026-08-15  # date-auto-injected
 
 Newtype / 类型别名 / 永不返回类型 / DST / PhantomData — Rust 类型系统的"瑞士军刀"。
 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600">Rust 所有权与借用规则</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">每值唯一所有者 · 借用即时检查 · 零成本抽象</text>
+
+  <!-- 三种关系 -->
+  <text x="120" y="95" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">所有权 (move)</text>
+  <rect class="at-hover-card" x="40" y="105" width="160" height="80" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="120" y="128" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">let s1 = String::from</text>
+  <text x="120" y="146" text-anchor="middle" font-size="10" fill="#475569">("hello");</text>
+  <text x="120" y="163" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">let s2 = s1;</text>
+  <text x="120" y="180" text-anchor="middle" font-size="10" fill="#dc2626">// s1 已失效</text>
+
+  <text x="300" y="95" text-anchor="middle" font-size="13" font-weight="700" fill="#047857">不可变借用 (&amp;)</text>
+  <rect class="at-hover-card" x="220" y="105" width="160" height="80" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+  <text x="300" y="128" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">let r1 = &amp;s;</text>
+  <text x="300" y="146" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">let r2 = &amp;s;</text>
+  <text x="300" y="163" text-anchor="middle" font-size="10" fill="#475569">// 同时多个 OK</text>
+  <text x="300" y="180" text-anchor="middle" font-size="10" fill="#047857">// 只读不修改</text>
+
+  <text x="480" y="95" text-anchor="middle" font-size="13" font-weight="700" fill="#991b1b">可变借用 (&amp;mut)</text>
+  <rect class="at-hover-card" x="400" y="105" width="160" height="80" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="480" y="128" text-anchor="middle" font-size="11" font-weight="700" fill="#991b1b">let r = &amp;mut s;</text>
+  <text x="480" y="146" text-anchor="middle" font-size="10" fill="#475569">// 同一时刻唯一</text>
+  <text x="480" y="163" text-anchor="middle" font-size="10" fill="#475569">// 不能与 &amp; 共存</text>
+  <text x="480" y="180" text-anchor="middle" font-size="10" fill="#dc2626">// 不可与其他别名</text>
+
+  <!-- 借用规则 -->
+  <rect x="40" y="210" width="520" height="100" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="300" y="233" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">借用检查三大规则</text>
+  <text x="60" y="255" font-size="11" font-weight="600" fill="#1e40af">① 任意时刻只能有 0 或 N 个 &amp;T（共享读）</text>
+  <text x="60" y="275" font-size="11" font-weight="600" fill="#dc2626">② 任意时刻只能有 1 个 &amp;mut T（独占写）</text>
+  <text x="60" y="295" font-size="11" font-weight="600" fill="#92400e">③ 引用必须始终有效（无悬垂指针）</text>
+
+  <!-- 内存布局示意 -->
+  <text x="300" y="335" text-anchor="middle" font-size="12" font-weight="700" fill="#1e293b">内存布局：String 由 ptr + len + cap 三段组成</text>
+  <rect x="80" y="350" width="40" height="50" fill="#3b82f6" opacity="0.4" stroke="#3b82f6"/>
+  <text x="100" y="380" text-anchor="middle" font-size="10" fill="white" font-weight="700">ptr</text>
+  <rect x="120" y="350" width="40" height="50" fill="#10b981" opacity="0.4" stroke="#10b981"/>
+  <text x="140" y="380" text-anchor="middle" font-size="10" fill="white" font-weight="700">len</text>
+  <rect x="160" y="350" width="40" height="50" fill="#f59e0b" opacity="0.4" stroke="#f59e0b"/>
+  <text x="180" y="380" text-anchor="middle" font-size="10" fill="white" font-weight="700">cap</text>
+  <text x="220" y="370" font-size="10" fill="#475569">→</text>
+  <rect x="240" y="360" width="80" height="30" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="280" y="380" text-anchor="middle" font-size="10" fill="#1e40af">"hello"</text>
+
+  <text x="350" y="370" font-size="10" fill="#475569">move 时浅拷贝 ptr/len/cap，原变量失效（避免 double free）</text>
+
+  <!-- Copy 类型例外 -->
+  <rect x="40" y="415" width="520" height="55" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="300" y="438" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">Copy 类型例外（i32 / bool / char / f64 等栈类型）</text>
+  <text x="60" y="458" font-size="11" fill="#334155">let x = 5; let y = x;   // x 仍有效，整数按位复制</text>
+</svg>
+
 ## 一句话总结
 
 > **高级类型 = 表达领域语义 + 类型安全 + 零成本抽象**。**核心：Newtype 模式 / PhantomData / never 类型**。
