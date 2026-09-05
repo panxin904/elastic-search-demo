@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="480" fill="#fafafa"/>
+  <text x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">ES 滚动重启 / 升级流程</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">_cluster/health · shard relocation · 零停机</text>
+
+  <!-- 6 节点集群滚动升级时序 -->
+  <g>
+    <text x="50" y="90" font-size="13" font-weight="700" fill="#1e293b">① 6 节点集群滚动升级时序（3 轮完成）</text>
+
+    <text x="55" y="118" font-size="10" font-weight="700" fill="#475569">第 1 轮</text>
+    <text x="55" y="138" font-size="10" fill="#475569">重启节点 1/2/3</text>
+    <rect x="55" y="148" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="75" y="172" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">N1</text>
+    <rect x="100" y="148" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="120" y="172" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">N2</text>
+    <rect x="145" y="148" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="165" y="172" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">N3</text>
+    <rect x="190" y="148" width="40" height="40" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+    <text x="210" y="172" text-anchor="middle" font-size="9" fill="#dc2626">restarting</text>
+    <text x="245" y="148" font-size="9" fill="#475569">→</text>
+    <rect x="265" y="148" width="40" height="40" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+    <text x="285" y="172" text-anchor="middle" font-size="9" fill="#dc2626">restarting</text>
+    <text x="320" y="148" font-size="9" fill="#475569">→</text>
+    <rect x="340" y="148" width="40" height="40" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+    <text x="360" y="172" text-anchor="middle" font-size="9" fill="#dc2626">restarting</text>
+    <text x="395" y="172" text-anchor="middle" font-size="9" fill="#10b981">cluster: YELLOW</text>
+
+    <text x="55" y="208" font-size="10" font-weight="700" fill="#475569">第 2 轮</text>
+    <text x="55" y="228" font-size="10" fill="#475569">等待 GREEN → 重启 4/5/6</text>
+    <rect x="55" y="238" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="75" y="262" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">N1</text>
+    <rect x="100" y="238" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="120" y="262" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">N2</text>
+    <rect x="145" y="238" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="165" y="262" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">N3</text>
+    <rect x="190" y="238" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="210" y="262" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">N4</text>
+    <rect x="235" y="238" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="255" y="262" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">N5</text>
+    <rect x="280" y="238" width="40" height="40" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+    <text x="300" y="262" text-anchor="middle" font-size="9" fill="#dc2626">restarting</text>
+    <text x="335" y="262" text-anchor="middle" font-size="9" fill="#10b981">cluster: GREEN</text>
+
+    <text x="55" y="298" font-size="10" font-weight="700" fill="#475569">第 3 轮</text>
+    <text x="55" y="318" font-size="10" fill="#475569">重启 N6 → 验证版本</text>
+    <rect x="55" y="328" width="40" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="75" y="352" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">N1-6</text>
+    <text x="115" y="352" text-anchor="middle" font-size="10" fill="#10b981" font-weight="700">✅ 全部升级完毕</text>
+    <text x="280" y="352" text-anchor="middle" font-size="9" fill="#10b981">cluster: GREEN · zero downtime</text>
+  </g>
+
+  <!-- 关键步骤 -->
+  <g>
+    <text x="50" y="395" font-size="13" font-weight="700" fill="#1e293b">② 6 步标准流程</text>
+
+    <text x="50" y="418" font-size="10" fill="#475569">① 关闭 shard 分配（PUT _cluster/settings { "persistent": { "cluster.routing.allocation.enable": "none" } }）</text>
+    <text x="50" y="434" font-size="10" fill="#475569">② 关闭单节点（POST _cluster/nodes/N1/_shutdown）· 可选 graceful</text>
+    <text x="50" y="450" font-size="10" fill="#475569">③ 升级二进制/配置 → 启动节点 → 等待 YELLOW/GREEN → 重复 ④-⑤ 直到全部完成 → ⑥ 重新开启分配</text>
+  </g>
+</svg>
