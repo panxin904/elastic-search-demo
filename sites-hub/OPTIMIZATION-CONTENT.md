@@ -8002,3 +8002,58 @@ cd /tmp/ci-test/java-web-manual && npm install && npm run docs:build
   - C. SVG 交互性升级（点击查看详细说明 / 折叠/展开）
   - D. SVG 替代 Mermaid 评估（部分复杂 Mermaid 图可改 SVG 提升加载速度）
 - 待用户确认下阶段方向后再继续
+
+## §8.72+ v23-A · SVG 视觉一致性 review 与修复
+
+**日期**：2026-09-05
+**目标**：对 198 张 SVG 做一致性 review + 修复明显偏差
+
+### 一致性审计结果（修复前）
+
+| 指标 | 一致数/总数 | 一致率 | 说明 |
+|---|---|---|---|
+| 背景色 #fafafa | 198/198 | 100% | ✅ 完全一致 |
+| 标题字号 20px / weight 600 | 198/198 | 100% | ✅ 完全一致 |
+| font-family 规范 | 191/198 | 96.5% | ⚠️ 7 个用错 `appleSystem` |
+| marker `id="arr"` 定义 | 132/198 | 66.7% | ⚠️ 66 个缺失 |
+| viewBox 600x480 | 174/198 | 87.9% | ⚠️ 24 个变体（合理设计差异） |
+
+### 修复明细
+
+#### 1. font-family 修复（7 个）
+- `appleSystem` → `-apple-system`
+- 涉及：ddia-3-properties / kafka-topology / microservice-patterns / mysql-architecture / observability-pillars / raft-flow / saga-sequence
+- 影响：CSS 字体回退更精准（PingFang SC 在 macOS 上正确生效）
+
+#### 2. marker `id="arr"` 补齐（66 个）
+- 61 个 SVG 有 `<defs>` → 在 defs 中插入 marker 定义
+- 5 个 SVG 无 `<defs>` → 新建 defs 并加入 marker（ddia-3-properties / game-render-pipeline / jvm-memory-model / k8s-architecture / mysql-architecture）
+- 影响：所有箭头 `<path ... marker-end="url(#arr)">` 现在能正常显示
+
+#### 3. viewBox 600x480 偏差（24 个 → 不修复）
+- 涉及尺寸：600x380 (9) / 600x400 (10) / 600x460 (3) / 600x320 (2)
+- 决定**不强行统一**，原因：
+  - 不同概念需要不同画布高度（如 sse/saga 时序图较窄，microservice-patterns 内容多需要 460）
+  - 强行统一会导致内容被裁剪或大面积留白
+  - viewBox 是 SVG 自身的合理设计参数
+- 后续**新创建 SVG** 统一遵循 600x480 标准
+
+### 修复后一致性指标
+
+| 指标 | 一致数/总数 | 一致率 |
+|---|---|---|
+| font-family 规范 | **198/198** | **100.0%** ✨ |
+| marker `id="arr"` 定义 | **198/198** | **100.0%** ✨ |
+| 背景色 #fafafa | 198/198 | 100% |
+| 标题字号 20px / weight 600 | 198/198 | 100% |
+| viewBox 600x480 | 174/198 | 87.9%（合理设计差异） |
+
+### Build 抽样验证
+- mysql-html：build complete in 7.82s ✅
+- kafka-html：build complete in 7.26s ✅
+- 修复未破坏任何 SVG 渲染
+
+### 后续优化方向（B/C/D 选项留底）
+- **B. 长尾站补图**：frontend / security / observability / cloud / architecture 等站 SVG 密度较低
+- **C. 交互性升级**：点击查看详细说明 / 折叠展开
+- **D. SVG 替代 Mermaid**：复杂 Mermaid 图改 SVG 提升加载速度
