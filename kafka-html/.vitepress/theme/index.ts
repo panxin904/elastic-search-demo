@@ -9,6 +9,7 @@ import { setupReadingProgress } from '@shared/vitepress-template/theme/composabl
 import { injectReadingTime } from '@shared/vitepress-template/theme/composables/readingTime'
 import { setupBackToTop } from '@shared/vitepress-template/theme/composables/backToTop'
 import { setupSvgTheme } from '@shared/vitepress-template/theme/composables/svgTheme'
+import { setupSvgZoom } from '@shared/vitepress-template/theme/composables/svgZoom'
 import './style.css'
 import QrShare from '@shared/vitepress-template/theme/components/QrShare.vue'
 
@@ -18,6 +19,7 @@ export default {
     injectReadingTime()
     setupBackToTop()
     setupSvgTheme()
+    setupSvgZoom()
   },
   extends: DefaultTheme,
   enhanceApp({ app }) {
