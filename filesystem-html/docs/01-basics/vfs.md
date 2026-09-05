@@ -4,6 +4,79 @@ date: 2026-08-15  # date-auto-injected
 ---
 
 # VFS 虚拟文件系统
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600">Linux VFS 虚拟文件系统解剖</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">统一抽象层 · 屏蔽具体 FS 差异 · 4 大核心对象</text>
+
+  <!-- 4 大对象 -->
+  <g>
+    <text x="50" y="90" font-size="13" font-weight="700" fill="#1e293b">① VFS 4 大核心对象</text>
+
+    <rect class="at-hover-card" x="40" y="100" width="125" height="105" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="102" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">super_block</text>
+    <text x="102" y="142" text-anchor="middle" font-size="9" fill="#475569">已挂载 FS</text>
+    <text x="55" y="162" font-size="9" fill="#475569">· 整盘元数据</text>
+    <text x="55" y="178" font-size="9" fill="#475569">· 块大小</text>
+    <text x="55" y="194" font-size="9" fill="#475569">· 操作 ops</text>
+
+    <rect class="at-hover-card" x="175" y="100" width="125" height="105" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="237" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">inode</text>
+    <text x="237" y="142" text-anchor="middle" font-size="9" fill="#475569">文件元数据</text>
+    <text x="190" y="162" font-size="9" fill="#475569">· 大小/权限/时间</text>
+    <text x="190" y="178" font-size="9" fill="#475569">· 数据块位置</text>
+    <text x="190" y="194" font-size="9" fill="#475569">· 无文件名</text>
+
+    <rect class="at-hover-card" x="310" y="100" width="125" height="105" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="372" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">dentry</text>
+    <text x="372" y="142" text-anchor="middle" font-size="9" fill="#475569">目录项</text>
+    <text x="325" y="162" font-size="9" fill="#475569">· 文件名 → inode</text>
+    <text x="325" y="178" font-size="9" fill="#475569">· 缓存热点</text>
+    <text x="325" y="194" font-size="9" fill="#475569">· 父子关系</text>
+
+    <rect class="at-hover-card" x="445" y="100" width="115" height="105" rx="6" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="502" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">file</text>
+    <text x="502" y="142" text-anchor="middle" font-size="9" fill="#475569">进程打开</text>
+    <text x="460" y="162" font-size="9" fill="#475569">· fd → file</text>
+    <text x="460" y="178" font-size="9" fill="#475569">· 偏移量</text>
+    <text x="460" y="194" font-size="9" fill="#475569">· 读写 flags</text>
+  </g>
+
+  <!-- VFS 分层 -->
+  <g>
+    <text x="50" y="230" font-size="13" font-weight="700" fill="#1e293b">② VFS 抽象分层</text>
+
+    <rect class="at-hover-card" x="40" y="240" width="520" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="55" y="262" font-size="11" font-weight="700" fill="#1e40af">用户态系统调用层</text>
+    <text x="200" y="262" font-size="10" fill="#475569">open() / read() / write() / stat() / mkdir()</text>
+    <text x="200" y="282" font-size="9" fill="#3b82f6">通过 fd 访问 file 对象</text>
+
+    <path d="M300,290 L300,310" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="40" y="310" width="520" height="50" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="55" y="332" font-size="11" font-weight="700" fill="#047857">VFS 抽象层（核心）</text>
+    <text x="160" y="332" font-size="10" fill="#475569">file_operations / inode_operations / super_operations</text>
+    <text x="160" y="352" font-size="9" fill="#10b981">统一接口 → 调用具体 FS 实现</text>
+
+    <path d="M300,360 L300,380" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="40" y="380" width="520" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="55" y="402" font-size="11" font-weight="700" fill="#92400e">具体文件系统</text>
+    <text x="160" y="402" font-size="10" fill="#475569">ext4 · xfs · btrfs · zfs · nfs · fat32 · tmpfs</text>
+    <text x="160" y="422" font-size="9" fill="#f59e0b">实现 VFS 定义的 ops 结构体</text>
+
+    <path d="M300,430 L300,450" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="40" y="450" width="520" height="20" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="300" y="465" text-anchor="middle" font-size="10" font-weight="700" fill="#475569">Block I/O 层 · 通用块设备驱动 · 磁盘</text>
+  </g>
+</svg>
+
 
 <span class="kg-badge kg-badge-basics">基础</span>
 

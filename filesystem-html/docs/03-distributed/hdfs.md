@@ -55,6 +55,71 @@ HDFS 默认 **3 副本**：
 **副本 1 和 2 同机架**：保证写带宽（机架内带宽高）。
 **副本 3 跨机架**：保证机架故障时的可用性。
 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600">HDFS 写流程剖析</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">客户端-NameNode-DataNode 三方协同 · Pipeline 流水线</text>
+
+  <!-- 写流程 -->
+  <g>
+    <text x="50" y="90" font-size="13" font-weight="700" fill="#1e293b">① HDFS 写流程（8 步）</text>
+
+    <rect class="at-hover-card" x="40" y="105" width="100" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="90" y="128" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Client</text>
+    <text x="90" y="145" text-anchor="middle" font-size="9" fill="#475569">发起写请求</text>
+
+    <rect class="at-hover-card" x="240" y="105" width="120" height="60" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="300" y="128" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">NameNode</text>
+    <text x="300" y="145" text-anchor="middle" font-size="9" fill="#475569">元数据 + 副本选址</text>
+
+    <rect class="at-hover-card" x="460" y="105" width="100" height="60" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="510" y="128" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">DataNodes</text>
+    <text x="510" y="145" text-anchor="middle" font-size="9" fill="#475569">DN1 / DN2 / DN3</text>
+
+    <path d="M140,135 L240,135" stroke="#3b82f6" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+    <text x="190" y="128" text-anchor="middle" font-size="9" fill="#3b82f6">① create 请求</text>
+
+    <path d="M240,150 L140,150" stroke="#f59e0b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+    <text x="190" y="178" text-anchor="middle" font-size="9" fill="#f59e0b">② 返回 DN 列表</text>
+
+    <path d="M140,180 L240,180" stroke="#3b82f6" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+    <text x="190" y="195" text-anchor="middle" font-size="9" fill="#3b82f6">③ write</text>
+
+    <path d="M240,210 L460,210" stroke="#3b82f6" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+    <text x="350" y="200" text-anchor="middle" font-size="9" fill="#3b82f6">④ 建立 pipeline</text>
+
+    <path d="M460,230 L520,230 L520,260 L100,260 L100,245" stroke="#10b981" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+    <text x="300" y="252" text-anchor="middle" font-size="9" fill="#10b981">⑤ 流水线写入（packets 沿 DN1→DN2→DN3）</text>
+
+    <path d="M140,280 L240,280" stroke="#10b981" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+    <text x="190" y="295" text-anchor="middle" font-size="9" fill="#10b981">⑥ ack 确认</text>
+
+    <path d="M140,310 L240,310" stroke="#3b82f6" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+    <text x="190" y="325" text-anchor="middle" font-size="9" fill="#3b82f6">⑦ close</text>
+
+    <path d="M240,340 L140,340" stroke="#f59e0b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+    <text x="190" y="358" text-anchor="middle" font-size="9" fill="#f59e0b">⑧ 元数据持久化</text>
+  </g>
+
+  <!-- Pipeline 复制 -->
+  <g>
+    <text x="50" y="380" font-size="13" font-weight="700" fill="#1e293b">② 副本策略 + Pipeline 流水线</text>
+
+    <rect class="at-hover-card" x="40" y="390" width="510" height="40" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="55" y="412" font-size="11" font-weight="700" fill="#047857">副本数（默认 3）</text>
+    <text x="180" y="412" font-size="10" fill="#475569">Client → DN1（同 Rack）→ DN2（同 Rack）→ DN3（异 Rack）</text>
+
+    <rect class="at-hover-card" x="40" y="438" width="510" height="32" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="55" y="458" font-size="11" font-weight="700" fill="#92400e">⭐ Pipeline 优势</text>
+    <text x="195" y="458" font-size="10" fill="#475569">数据同时流向 3 个 DN（不是串行复制）→ 写带宽 = 单 DN 带宽</text>
+  </g>
+</svg>
+
 ## 写流程
 
 ```java

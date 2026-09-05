@@ -5,6 +5,55 @@ date: 2026-08-15  # date-auto-injected
 
 # 韧性模式总览
 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600">韧性模式 4 件套</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">重试 · 熔断 · 限流 · 舱壁</text>
+
+  <!-- 重试 -->
+  <rect class="at-hover-card" x="30" y="85" width="265" height="170" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="162" y="110" text-anchor="middle" font-size="14" font-weight="700" fill="#1e40af">① 重试 Retry</text>
+  <text x="50" y="135" font-size="10" fill="#334155">· 幂等前提下对瞬时错误</text>
+  <text x="50" y="155" font-size="10" fill="#334155">· 指数退避 + 抖动 jitter</text>
+  <text x="50" y="175" font-size="10" fill="#334155">· 上限：最多 N 次 / 总时长 T</text>
+  <text x="50" y="195" font-size="10" fill="#334155">· 适用：网络抖动、超时</text>
+  <text x="50" y="220" font-size="10" fill="#64748b" font-style="italic">陷阱：放大雪崩、无退避</text>
+
+  <!-- 熔断 -->
+  <rect class="at-hover-card" x="305" y="85" width="265" height="170" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="437" y="110" text-anchor="middle" font-size="14" font-weight="700" fill="#991b1b">② 熔断 Circuit Breaker</text>
+  <text x="325" y="135" font-size="10" fill="#334155">· Closed → Open → Half-Open</text>
+  <text x="325" y="155" font-size="10" fill="#334155">· 失败率阈值触发 Open</text>
+  <text x="325" y="175" font-size="10" fill="#334155">· 冷却后试探 Half-Open</text>
+  <text x="325" y="195" font-size="10" fill="#334155">· 适用：下游不可用保护</text>
+  <text x="325" y="220" font-size="10" fill="#64748b" font-style="italic">陷阱：阈值过敏感</text>
+
+  <!-- 限流 -->
+  <rect class="at-hover-card" x="30" y="270" width="265" height="170" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="162" y="295" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">③ 限流 Rate Limit</text>
+  <text x="50" y="320" font-size="10" fill="#334155">· 令牌桶 / 漏桶 / 滑动窗口</text>
+  <text x="50" y="340" font-size="10" fill="#334155">· QPS / 并发数 / 带宽</text>
+  <text x="50" y="360" font-size="10" fill="#334155">· 拒绝策略：快失败 / 排队</text>
+  <text x="50" y="380" font-size="10" fill="#334155">· 适用：入口防护、削峰</text>
+  <text x="50" y="405" font-size="10" fill="#64748b" font-style="italic">陷阱：误杀真实流量</text>
+
+  <!-- 舱壁 -->
+  <rect class="at-hover-card" x="305" y="270" width="265" height="170" rx="8" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+  <text x="437" y="295" text-anchor="middle" font-size="14" font-weight="700" fill="#047857">④ 舱壁 Bulkhead</text>
+  <text x="325" y="320" font-size="10" fill="#334155">· 资源隔离：线程池 / 连接池</text>
+  <text x="325" y="340" font-size="10" fill="#334155">· 按业务 / 用户 / 租户分组</text>
+  <text x="325" y="360" font-size="10" fill="#334155">· 单分区故障不全局扩散</text>
+  <text x="325" y="380" font-size="10" fill="#334155">· 适用：核心/非核心业务隔离</text>
+  <text x="325" y="405" font-size="10" fill="#64748b" font-style="italic">陷阱：资源利用率下降</text>
+
+  <text x="300" y="460" text-anchor="middle" font-size="11" fill="#475569">组合策略：熔断防雪崩 → 重试恢复瞬时 → 限流削峰 → 舱壁隔离爆炸半径</text>
+</svg>
+
 ## 韧性模式定义
 
 韧性模式（Resilience Patterns）是**系统应对故障的设计模式**，与设计模式（Design Patterns）层级类似，但聚焦「**在故障下保持功能**」而非「解决常见设计问题」。

@@ -9,6 +9,65 @@ date: 2026-08-15  # date-auto-injected
 
 Ceph 的 POSIX 文件系统——统一块/对象/文件三种接口的存储平台。
 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600">CephFS 分布式文件系统架构</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">MDS 元数据 + OSD 数据 + CRUSH 算法 · 无中心</text>
+
+  <!-- CephFS 整体架构 -->
+  <g>
+    <text x="50" y="90" font-size="13" font-weight="700" fill="#1e293b">① CephFS 5 大组件</text>
+
+    <rect class="at-hover-card" x="40" y="100" width="125" height="100" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="102" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Client</text>
+    <text x="102" y="142" text-anchor="middle" font-size="9" fill="#475569">内核态 FUSE</text>
+    <text x="55" y="162" font-size="9" fill="#475569">· cephfs 内核模块</text>
+    <text x="55" y="178" font-size="9" fill="#475569">· librados 直连</text>
+    <text x="55" y="194" font-size="9" fill="#3b82f6">POSIX 兼容</text>
+
+    <rect class="at-hover-card" x="220" y="100" width="160" height="100" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="300" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">MDS（Metadata Server）</text>
+    <text x="235" y="142" text-anchor="middle" font-size="9" fill="#475569">管理目录树/权限/元数据</text>
+    <text x="235" y="158" font-size="9" fill="#475569">· 多个 MDS 分片</text>
+    <text x="235" y="174" font-size="9" fill="#475569">· 元数据缓存</text>
+    <text x="235" y="190" font-size="9" fill="#10b981">⭐ 不存数据</text>
+
+    <rect class="at-hover-card" x="430" y="100" width="130" height="100" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="495" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">MON（Monitor）</text>
+    <text x="495" y="142" text-anchor="middle" font-size="9" fill="#475569">集群状态</text>
+    <text x="445" y="162" font-size="9" fill="#475569">· 选举仲裁</text>
+    <text x="445" y="178" font-size="9" fill="#475569">· CRUSH map</text>
+    <text x="445" y="194" font-size="9" fill="#f59e0b">奇数节点</text>
+
+    <rect class="at-hover-card" x="40" y="220" width="520" height="50" rx="6" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="55" y="242" font-size="11" font-weight="700" fill="#5b21b6">CRUSH 算法（核心）</text>
+    <text x="200" y="242" font-size="10" fill="#475569">伪随机一致性哈希 · 对象 → OSD 映射</text>
+    <text x="200" y="262" font-size="9" fill="#8b5cf6">按权重/拓扑/故障域自动分布数据，无需中心路由</text>
+
+    <rect class="at-hover-card" x="40" y="285" width="520" height="65" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="55" y="308" font-size="11" font-weight="700" fill="#991b1b">OSD（Object Storage Daemon）</text>
+    <text x="200" y="308" font-size="10" fill="#475569">实际存数据 · 一块盘一个 OSD · 副本 3 份</text>
+    <text x="55" y="328" font-size="19" font-weight="700" fill="#dc2626">┌─ OSD.0 ─┐  ┌─ OSD.1 ─┐  ┌─ OSD.2 ─┐  ┌─ OSD.3 ─┐</text>
+    <text x="55" y="346" font-size="9" fill="#475569">对象 pg（placement group）→ 分布到不同 OSD · 自动 rebalance</text>
+  </g>
+
+  <!-- 数据读写流程 -->
+  <g>
+    <text x="50" y="370" font-size="13" font-weight="700" fill="#1e293b">② 数据读写流程（直接寻址）</text>
+
+    <rect class="at-hover-card" x="40" y="380" width="520" height="80" rx="6" fill="#1e293b" stroke="#1e293b" stroke-width="1"/>
+    <text x="55" y="402" font-size="10" font-weight="700" fill="#10b981">读文件流程：</text>
+    <text x="55" y="420" font-size="10" fill="#e2e8f0" font-family="monospace">1. Client 用文件名查 MDS → 拿到 inode → 知道 object IDs</text>
+    <text x="55" y="438" font-size="10" fill="#e2e8f0" font-family="monospace">2. Client 用 object ID + CRUSH 直接算 OSD 位置（无需查路由）</text>
+    <text x="55" y="455" font-size="10" fill="#10b981">⭐ 无单点瓶颈：数据 I/O 完全旁路 MDS（OSD 直接响应）</text>
+  </g>
+</svg>
+
 ## Ceph 架构
 
 Ceph 提供三种存储接口：

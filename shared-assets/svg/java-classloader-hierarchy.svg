@@ -1,8 +1,3 @@
----
-title: 类加载机制
-date: 2026-08-15  # date-auto-injected
----
-# 类加载机制
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
   <defs>
     <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
@@ -74,13 +69,3 @@ date: 2026-08-15  # date-auto-injected
   <text x="300" y="430" text-anchor="middle" font-size="11" fill="#475569">JVM 唯一性：同一个类加载器 + 同一个类 = 唯一 Class 对象</text>
   <text x="300" y="450" text-anchor="middle" font-size="11" fill="#475569">不同加载器加载同名类 → Class 隔离 → 强转 ClassCastException</text>
 </svg>
-
-- Bootstrap ClassLoader (JVM built-in, loads rt.jar)
-- Extension/Platform ClassLoader (jre/lib/ext, Java 9+ Platform)
-- Application ClassLoader (classpath)
-- Parent delegation: child asks parent first, parent can't load then child loads
-- Breaking delegation: Tomcat WebappClassLoader, OSGi, JDBC SPI (Thread Context ClassLoader)
-```java
-ClassLoader cl = String.class.getClassLoader();  // null = Bootstrap
-ClassLoader app = MyClass.class.getClassLoader(); // AppClassLoader
-```
