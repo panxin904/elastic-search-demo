@@ -8531,3 +8531,67 @@ v25 完成了密度 ≤ 0.15 的长尾站补图。剩余两个较密站点 kafka
 - **§8.80 跨站链接 / 站间推荐** — 改善 SEO 与导航
 - **C-12 内容质量纵深** — 薄页 / stale 内容审计
 - **§8.82 内容审计自动化（CI 阻断）** — 防止回归
+
+---
+
+## §8.72+ v27 — kafka/redis `<img>` SVG 批量迁移内联
+
+### 任务背景
+
+v25/v26 集中补图后，kafka(18 张) / redis(20 张) 共有 38 张 SVG 通过 `<img>` 标签引用。
+`<img>` 引入的 SVG 被浏览器当作独立文档，外部 CSS 无法穿透：
+- dark/light 主题切换不生效（仍以原始配色显示）
+- hover 高亮不生效
+- 全屏查看走浏览器默认 img 全屏而非 svgZoom 全屏
+
+v27 用脚本批量把 38 张 `<img>` SVG 替换为内联 `<svg>` 块（运行时由 setupSvgTheme composable
+自动转 inline 享受主题感知；本次替换让 markdown 源层面也直接是 inline，享受全部 composable 增强）。
+
+### 迁移方法（自动化脚本）
+
+- 用 SVG 文件前 256 字节 SHA1 作为指纹（避免同一 SVG 在不同文件中重复 inline）
+- 用正则 `!\[alt\]\((/xxx\.svg)\)` 匹配 img 行
+- 已 inline（指纹存在）的 SVG：删除多余 img 行（去重）
+- 未 inline：删除 img 行，在该位置插入完整 `<svg>...</svg>` 块
+- 同步清理跨文件重复引用（如 `kafka-rebalance-protocol.svg` 同时出现在 rebalance.md 与 consumer-group.md，只 inline 一次）
+
+### 迁移结果（41 处替换 / 35 张 svg）
+
+**kafka (14 篇 → 22 inline 块)**
+- 10-interview/why-fast.md · 02-architecture/overview.md · 04-producer/tuning.md
+- 05-consumer/principle.md · 02-architecture/controller.md (×2) · 04-producer/idempotent.md
+- 02-architecture/replica.md (×2) · 02-architecture/log-storage.md (×2)
+- 08-enterprise/cluster.md · 09-ops/metrics.md · 01-basics/intro.md (×2)
+- 10-interview/exactly-once.md · 05-consumer/rebalance.md (×2)
+- 02-architecture/zero-copy.md
+
+**redis (15 篇 → 25 inline 块)**
+- 03-persistence/aof.md · 04-cluster/gossip.md (×2) · 04-cluster/scale.md
+- 01-basics/datatypes.md (×2) · 06-practice/counter.md · 02-datastruct/object.md
+- 01-basics/intro.md (×2) · 03-persistence/overview.md · 04-cluster/replication.md
+- 07-ops/slowlog.md · 08-interview/advanced.md · 06-practice/stream-mq.md
+- 07-ops/bigkey-hotkey.md · 04-cluster/cluster.md (×4) · 04-cluster/sentinel.md (×2)
+
+### 累计成果
+
+- **内联 SVG 累计**：64 → **87** 篇 markdown 含 `<svg>`（v27 +23）
+- **inline 块**：64 → **105** 个（v27 +41）
+- **kafka/redis 全部文档 0 张 `<img>` SVG**（仅剩其他内联图）
+- **audit imgs**：216 → **174**（-42，证明 42 处 img 成功转 inline）
+- **build**：31/31 站通过，1698 页面
+- **audit**：1662 文件 / 1,416,517 词
+
+### 享受增强
+
+所有迁移后的内联 SVG 现在自动享受：
+- 主题感知（dark/light 自动切换 fill/stroke）
+- hover 高亮（at-hover-card）
+- 全屏查看（svgZoom composable）
+- 可选分组折叠（at-foldable）
+
+### 候选后续
+
+- **§8.80 跨站链接 / 站间推荐** — 改善 SEO 与导航
+- **C-12 内容质量纵深** — 薄页 / stale / 无日期内容审计
+- **§8.82 内容审计自动化（CI 阻断）** — 防止回归
+- **其他站的 `<img>` SVG 迁移**：如 postgresql(3 张)、kafka/redis 之外的站（按需）
