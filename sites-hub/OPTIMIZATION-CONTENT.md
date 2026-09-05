@@ -8304,3 +8304,103 @@ bigdata 站特别启用是因为 flink-architecture.svg 在该站被引用。
 - **linux-html** (0.06) - VFS / 进程调度 / 内存管理
 - **video-html** (0.06) - 编解码栈 / 流媒体协议
 - **chaos-html** (0.06) - 故障注入 / 混沌工程
+
+---
+
+## §8.72+ v24 — 长尾站补图（filesystem/linux/video/chaos/java · 14 张）
+
+### 任务背景
+
+v23-B 给 python/frontend/iot/security/ai 5 站长尾站补图 15 张后，audit-imgs 命中率从 100.5% → 108%。
+仍有 5 个密度偏低的长尾站（filesystem / linux / video / chaos / java-language）需要补图。
+
+### 本批补图清单（14 张）
+
+**filesystem-html (3/3)**
+- `vfs-anatomy.svg` → `01-basics/vfs.md` (# VFS 后)
+- `cephfs-architecture.svg` → `03-distributed/cephfs.md` (## Ceph 架构 前)
+- `hdfs-write-flow.svg` → `03-distributed/hdfs.md` (## 写流程 前)
+
+**linux-html (3/3)**
+- `linux-process-lifecycle.svg` → `04-process/ps-top.md` (# ps/top 后)
+- `linux-jobs-control.svg` → `04-process/jobs.md` (## 前台/后台 前)
+- `linux-grub-boot-sequence.svg` → `14-kernel/grub.md` (# GRUB 后)
+
+**video-html (3/3)**
+- `video-codec-stack-detail.svg` → `02-codec/dct-quant.md` (# DCT 后)
+- `video-intra-prediction.svg` → `02-codec/intra-prediction.md` (# 帧内预测 后)
+- `video-loop-filter.svg` → `02-codec/loop-filter.md` (# 环路滤波 后)
+
+**chaos-html (2/3)**
+- `chaos-resilience-patterns.svg` → `05-resilience-patterns/overview.md` (## 韧性模式定义 前)
+- `chaos-observability-loop.svg` → `07-observability-for-chaos/overview.md` (## 核心思想 前)
+
+**java-language-html (3/3)**
+- `java-classloader-hierarchy.svg` → `04-jvm/classloading.md` (# 类加载机制 后)
+- `java-hashmap-internals.svg` → `02-collections/map.md` (# HashMap 后)
+- `java-synchronized-upgrade.svg` → `03-concurrency/locks.md` (# synchronized 后)
+
+### 注入策略
+
+- **有 `##` 锚点**（filesystem cephfs/hdfs + chaos + linux jobs）：在 `##` 标题前一行插入
+- **无 `##` 锚点**（filesystem vfs + linux ps-top/grub + video codec + java-language 3 篇）：在 `# 一级标题` 后立即插入
+- **统一规范**：viewBox `0 0 600 480`、font-family `-apple-system,...`、`at-svg-bg`/`at-svg-title`/`at-hover-card` class
+- **调色板**：blue #3b82f6 / green #10b981 / amber #f59e0b / red #dc2626 / purple #8b5cf6
+
+### 5 站长尾站启用 composable
+
+filesystem / linux / video / chaos / java-language 5 站全部启用 `setupSvgTheme` + `setupSvgZoom`：
+
+```ts
+// .vitepress/theme/index.ts 或 index.js
+import { setupSvgTheme } from '@shared/vitepress-template/theme/composables/svgTheme'
+import { setupSvgZoom } from '@shared/vitepress-template/theme/composables/svgZoom'
+
+export default {
+  setup() {
+    setupReadingProgress()
+    injectReadingTime()
+    setupBackToTop()
+    setupSvgTheme()   // ← 新增
+    setupSvgZoom()    // ← 新增
+  },
+  ...
+}
+```
+
+享受：主题感知（dark 模式）+ hover 高亮 + 全屏查看 + 可选分组折叠
+
+### Build & Audit 验证
+
+- **31/31 站 build 全绿**，1698 页面，254 widgets
+- **audit-content.py**：1662 文件 / 1,374,552 词 / **216 imgs** / 1387 跨站链接
+- **内联 SVG 累计**：44 个 markdown 文件含 `<svg>`（v24 +14 → 44 总）
+- 注：audit imgs 统计的是 `<img>` 标签与 markdown 图片语法，不含内联 SVG
+
+### 密度提升预期
+
+| 站点 | v23-B 末 | v24 后（预期） | 提升 |
+|---|---|---|---|
+| filesystem-html | 0.04 | 0.10 | +150% |
+| linux-html | 0.06 | 0.13 | +117% |
+| video-html | 0.06 | 0.13 | +117% |
+| chaos-html | 0.06 | 0.12 | +100% |
+| java-language-html | 0.04 | 0.08 | +100% |
+
+### 候选后续（C-12 / §8.80 续）
+
+- **go-html** (密度 ~0.05) - goroutine 调度 / channel 内部
+- **observability-html** (密度 ~0.05) - Prometheus 架构 / OTel 数据流
+- **kafka-html** (密度 ~0.06) - 分区副本 / consumer group rebalance
+- **postgresql-html** (密度 ~0.06) - MVCC / WAL / 索引结构
+- **rust-html** (密度 ~0.06) - 所有权 / 借用 / 生命周期
+- **redis-html** (密度 ~0.06) - 持久化 / 集群 / 主从
+
+### 累计里程碑
+
+- v22: 200 张
+- v23: 203 张
+- v23-A: 198 张（修复后）
+- v23-C: 198 张（注入 class）
+- v23-C2/C3: 193 张（注入 hover）
+- **v24: 228 张 SVG 文件 / 14 篇新内联 = 累计 44 篇含 SVG**
