@@ -7914,3 +7914,45 @@ cd /tmp/ci-test/java-web-manual && npm install && npm run docs:build
 - mysql: InnoDB 自适应哈希索引
 - cloud-native: 健康/就绪探针（livenessProbe/readinessProbe）
 - es: 跨集群搜索（CCS）
+
+## §8.72+ v22 — SVG 大规模扩展（第二十二批 5 张）
+
+**日期**：2026-09-05
+**目标**：把 SVG 图示密度从 191 提到 196，路线图进度 95.5% → 98.0%
+
+### 变更明细
+- **媒体层**：5 张 SVG
+  - `shared-assets/svg/kafka-compression-types.svg` — Kafka 消息压缩算法（gzip/snappy/lz4/zstd 对比 + 选型指南）
+  - `shared-assets/svg/redis-slowlog-anatomy.svg` — Redis 慢查询分析（SLOWLOG 3 命令 + 条目结构 + 4 步定位法）
+  - `shared-assets/svg/mysql-adaptive-hash-index.svg` — InnoDB AHI 自适应哈希索引（B+Tree vs 哈希 + 自动建立 + 适用场景）
+  - `shared-assets/svg/k8s-probe-lifecycle.svg` — K8s 探针（liveness/readiness/startup 3 种 + Pod 生命周期状态机 + 4 核心参数）
+  - `shared-assets/svg/es-cross-cluster-search.svg` — ES CCS 跨集群搜索（本地+远程架构 + 配置 + 查询语法）
+- **内容层**：5 个核心文档前注入
+  - kafka → `04-producer/tuning.md` (## 🎯 性能调优 4 大方向 前)
+  - redis → `07-ops/slowlog.md` (## SLOWLOG 三个命令 前)
+  - mysql → `02-index/btree.md` (## 🌳 B+Tree 的结构 前)
+  - cloud-native → `03-k8s-workload/pod.md` (## 🚦 健康检查 前)
+  - es → `04-ops/cluster-health.md` (## 🔧 查看集群状态 前)
+
+### 路线图进度
+- 当前 imgs=196 / 目标 ≥200 = **98.0%**
+- 剩余 4 张（v23 一批即可达标 200）
+- 跨 5 站分配保持节奏
+
+### 经验沉淀
+- **Kafka 压缩**：zstd 平衡压缩比与速度（2.1+ 推荐），lz4 是默认的保守选择，gzip 适合带宽敏感场景
+- **Redis 慢查询**：SLOWLOG 默认阈值 10ms，业务敏感型建议调到 5ms；慢命令大都是 O(N)（KEYS/HGETALL/SMEMBERS）替换为 SCAN 系列
+- **MySQL AHI**：基于 B+Tree 热点页自动构建的内存哈希，O(log N) → O(1)；不适合写密集 + 范围查询；AHI 分区数可调缓解锁竞争
+- **K8s 探针**：liveness 不要指向外部依赖（DB 挂 ≠ Pod 该死），readiness 用于滚动更新期间摘流量，startupProbe 解决慢启动误杀
+- **ES CCS**：语法 cluster_alias:index_pattern；远程集群需 ES 版本兼容（±1 大版本）；CCR + CCS 是异地多活标配
+
+### Build 验证
+- 5 站 build 全部成功（kafka 7.23s / redis 5.69s / mysql 7.93s / cloud-native 4.60s / es 3.34s）
+- 5 张 SVG 全部成功复制到各站 `.vitepress/dist/` 目录
+- audit 验证：files=1662, imgs=196, 全量 baseline 稳定（no_fm=0, stale=0, broken=0, heading_jump=0）
+
+### v23 候选（最终冲刺 200 张，还差 4 张）
+- kafka: 消费者拉取策略（fetch.min.bytes / fetch.max.wait.ms）
+- redis: BigKey 发现与拆分（debug object / mem usage）
+- mysql: 索引下推 ICP（Index Condition Pushdown）
+- cloud-native: Pod 拓扑分布约束（topologySpreadConstraints）
