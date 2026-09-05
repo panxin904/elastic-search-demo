@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600">Kafka 零拷贝 sendfile 原理</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">传统 4 次拷贝 / 4 次切换 → 零拷贝 2 次拷贝 / 2 次切换</text>
+
+  <!-- 传统 IO -->
+  <text x="155" y="90" text-anchor="middle" font-size="13" font-weight="700" fill="#dc2626">传统 IO（4 次拷贝）</text>
+
+  <rect class="at-hover-card" x="40" y="105" width="100" height="40" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="90" y="129" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">Disk 文件</text>
+
+  <rect class="at-hover-card" x="40" y="155" width="100" height="40" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="90" y="173" text-anchor="middle" font-size="9" font-weight="700" fill="#92400e">Kernel</text>
+  <text x="90" y="186" text-anchor="middle" font-size="9" fill="#92400e">Page Cache</text>
+
+  <rect class="at-hover-card" x="40" y="205" width="100" height="40" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="90" y="229" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">App Buffer</text>
+
+  <rect class="at-hover-card" x="40" y="255" width="100" height="40" rx="4" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="90" y="279" text-anchor="middle" font-size="10" font-weight="700" fill="#5b21b6">Socket</text>
+  <text x="90" y="291" text-anchor="middle" font-size="9" fill="#5b21b6">Buffer</text>
+
+  <rect class="at-hover-card" x="40" y="305" width="100" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+  <text x="90" y="329" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">NIC → 网卡</text>
+
+  <!-- 拷贝箭头（上下跳动） -->
+  <line x1="160" y1="125" x2="200" y2="125" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="200" y1="125" x2="200" y2="175" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="215" y="155" font-size="9" fill="#dc2626">① DMA</text>
+
+  <line x1="160" y1="175" x2="160" y2="225" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="115" y="205" font-size="9" fill="#dc2626">② CPU</text>
+
+  <line x1="200" y1="225" x2="200" y2="275" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="215" y="255" font-size="9" fill="#dc2626">③ CPU</text>
+
+  <line x1="160" y1="275" x2="160" y2="325" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="115" y="305" font-size="9" fill="#dc2626">④ DMA</text>
+
+  <text x="155" y="370" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">4 次拷贝 · 4 次上下文切换</text>
+  <text x="155" y="388" text-anchor="middle" font-size="10" fill="#475569">CPU 全程参与数据搬运</text>
+
+  <!-- 零拷贝 -->
+  <text x="445" y="90" text-anchor="middle" font-size="13" font-weight="700" fill="#10b981">零拷贝 sendfile（2 次拷贝）</text>
+
+  <rect class="at-hover-card" x="330" y="105" width="100" height="40" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="380" y="129" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">Disk 文件</text>
+
+  <rect class="at-hover-card" x="330" y="155" width="100" height="40" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="380" y="173" text-anchor="middle" font-size="9" font-weight="700" fill="#92400e">Kernel</text>
+  <text x="380" y="186" text-anchor="middle" font-size="9" fill="#92400e">Page Cache</text>
+
+  <rect class="at-hover-card" x="445" y="155" width="100" height="40" rx="4" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="495" y="173" text-anchor="middle" font-size="9" font-weight="700" fill="#5b21b6">Socket</text>
+  <text x="495" y="186" text-anchor="middle" font-size="9" fill="#5b21b6">Buffer</text>
+
+  <rect class="at-hover-card" x="330" y="305" width="100" height="40" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+  <text x="380" y="329" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">NIC → 网卡</text>
+
+  <!-- 拷贝箭头 -->
+  <line x1="450" y1="125" x2="450" y2="175" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="465" y="155" font-size="9" fill="#10b981">① DMA</text>
+
+  <line x1="430" y1="195" x2="380" y2="305" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="350" y="265" font-size="9" fill="#10b981">② DMA</text>
+  <text x="345" y="280" font-size="8" fill="#10b981">gather</text>
+
+  <text x="445" y="370" text-anchor="middle" font-size="11" font-weight="700" fill="#10b981">2 次拷贝 · 2 次上下文切换</text>
+  <text x="445" y="388" text-anchor="middle" font-size="10" fill="#475569">CPU 仅拷贝描述符（offset + length）</text>
+
+  <!-- 性能对比 -->
+  <rect x="30" y="405" width="540" height="65" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="300" y="428" text-anchor="middle" font-size="12" font-weight="700" fill="#1e293b">Kafka 使用 FileChannel.transferTo()</text>
+  <text x="50" y="448" font-size="11" fill="#334155">· 从 PageCache 直接 sendfile 到 Socket</text>
+  <text x="50" y="465" font-size="11" fill="#334155">· 节省 2 次 CPU 拷贝 + 2 次上下文切换</text>
+</svg>

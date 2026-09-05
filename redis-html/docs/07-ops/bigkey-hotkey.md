@@ -9,6 +9,82 @@ date: 2026-08-15  # date-auto-injected
 
 ![Redis Bigkey Detection](/redis-bigkey-detection.svg)
 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600">Redis 大 Key / 热 Key 处理</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">识别 · 拆分 · 监控 · 一致性</text>
+
+  <!-- 大 Key 类型 -->
+  <text x="155" y="95" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">典型大 Key 类型</text>
+
+  <rect class="at-hover-card" x="30" y="110" width="120" height="70" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="90" y="133" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">String</text>
+  <text x="90" y="151" text-anchor="middle" font-size="10" fill="#475569">单个 value &gt; 10MB</text>
+  <text x="90" y="167" text-anchor="middle" font-size="9" fill="#64748b" font-style="italic">缓存 JSON 大对象</text>
+
+  <rect class="at-hover-card" x="160" y="110" width="120" height="70" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+  <text x="220" y="133" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">Hash/List/Set</text>
+  <text x="220" y="151" text-anchor="middle" font-size="10" fill="#475569">元素 &gt; 1万</text>
+  <text x="220" y="167" text-anchor="middle" font-size="9" fill="#64748b" font-style="italic">粉丝列表 / 队列</text>
+
+  <rect class="at-hover-card" x="30" y="190" width="250" height="60" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="155" y="213" text-anchor="middle" font-size="11" font-weight="700" fill="#991b1b">危害</text>
+  <text x="50" y="232" font-size="10" fill="#334155">· DEL 阻塞（删除 1MB+ 元素需秒级）</text>
+  <text x="50" y="248" font-size="10" fill="#334155">· 集群 slot 倾斜（请求集中）</text>
+
+  <!-- 热 Key -->
+  <text x="445" y="95" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">典型热 Key 模式</text>
+
+  <rect class="at-hover-card" x="320" y="110" width="120" height="70" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="380" y="133" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">秒杀商品</text>
+  <text x="380" y="151" text-anchor="middle" font-size="10" fill="#475569">秒杀:item:10086</text>
+  <text x="380" y="167" text-anchor="middle" font-size="9" fill="#64748b" font-style="italic">QPS 瞬间 10w+</text>
+
+  <rect class="at-hover-card" x="450" y="110" width="120" height="70" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="510" y="133" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">热点新闻</text>
+  <text x="510" y="151" text-anchor="middle" font-size="10" fill="#475569">news:hot:top10</text>
+  <text x="510" y="167" text-anchor="middle" font-size="9" fill="#64748b" font-style="italic">某条新闻刷屏</text>
+
+  <rect class="at-hover-card" x="320" y="190" width="250" height="60" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="445" y="213" text-anchor="middle" font-size="11" font-weight="700" fill="#991b1b">危害</text>
+  <text x="340" y="232" font-size="10" fill="#334155">· 单节点带宽 / CPU 饱和</text>
+  <text x="340" y="248" font-size="10" fill="#334155">· 集群扩容无法缓解（数据集中 1 节点）</text>
+
+  <!-- 解决策略 -->
+  <text x="300" y="280" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">处理策略</text>
+
+  <rect class="at-hover-card" x="30" y="295" width="260" height="170" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+  <text x="160" y="318" text-anchor="middle" font-size="12" font-weight="700" fill="#047857">大 Key 处理</text>
+
+  <text x="50" y="345" font-size="11" font-weight="700" fill="#1e293b">① 拆分</text>
+  <text x="50" y="362" font-size="10" fill="#475569">Hash 分桶：user:100 → user:100:1 / :2 / :3</text>
+
+  <text x="50" y="383" font-size="11" font-weight="700" fill="#1e293b">② UNLINK 异步删除</text>
+  <text x="50" y="400" font-size="10" fill="#475569">替代 DEL（Redis 4.0+）后台回收</text>
+
+  <text x="50" y="421" font-size="11" font-weight="700" fill="#1e293b">③ SCAN 渐进遍历</text>
+  <text x="50" y="438" font-size="10" fill="#475569">避免 KEYS * 阻塞（O(N) 全扫描）</text>
+  <text x="50" y="453" font-size="10" fill="#475569">SCAN cursor MATCH pattern COUNT 100</text>
+
+  <rect class="at-hover-card" x="310" y="295" width="260" height="170" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="440" y="318" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">热 Key 处理</text>
+
+  <text x="330" y="345" font-size="11" font-weight="700" fill="#1e293b">① 本地缓存</text>
+  <text x="330" y="362" font-size="10" fill="#475569">Caffeine + Redis 二级缓存（5s TTL）</text>
+
+  <text x="330" y="383" font-size="11" font-weight="700" fill="#1e293b">② Key 分散</text>
+  <text x="330" y="400" font-size="10" fill="#475569">item:10086 → item:10086:{0..N} 随机</text>
+
+  <text x="330" y="421" font-size="11" font-weight="700" fill="#1e293b">③ 读写分离</text>
+  <text x="330" y="438" font-size="10" fill="#475569">主写 + 多从读，负载分散</text>
+  <text x="330" y="453" font-size="10" fill="#475569">注意：可能读到 stale</text>
+</svg>
+
 ## 大 Key：定义与危害
 
 ### 什么是大 Key
