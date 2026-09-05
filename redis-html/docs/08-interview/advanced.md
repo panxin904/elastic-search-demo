@@ -220,8 +220,94 @@ Stream 的 ID 是毫秒时间戳 + 序号，天然有序；Consumer Group 通过
 
 ---
 
-![Redis Stream + Consumer Group](/redis-stream-consumer-group.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Redis Stream + Consumer Group</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">XADD/XREADGROUP/XACK · PEL · 类似 Kafka 但更轻</text>
 
+  <!-- Stream 结构 -->
+  <g>
+    <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">Stream 结构（类似 append-only log）</text>
+
+    <rect class="at-hover-card" x="60" y="105" width="480" height="60" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="300" y="135" text-anchor="middle" font-size="11" fill="#475569">id = timestamp-seq · entry = [field1, field2, ...]</text>
+
+    <g font-family="monospace" font-size="10">
+      <rect class="at-hover-card" x="70" y="148" width="160" height="22" rx="3" fill="#dbeafe" stroke="#3b82f6"/>
+      <text x="150" y="163" text-anchor="middle" fill="#1e40af">1693622400-0 {user:1}</text>
+
+      <rect class="at-hover-card" x="240" y="148" width="160" height="22" rx="3" fill="#dbeafe" stroke="#3b82f6"/>
+      <text x="320" y="163" text-anchor="middle" fill="#1e40af">1693622401-0 {user:2}</text>
+
+      <rect class="at-hover-card" x="410" y="148" width="125" height="22" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
+      <text x="473" y="163" text-anchor="middle" fill="#92400e">1693622402-0 {user:3}</text>
+    </g>
+  </g>
+
+  <!-- Consumer Group 工作模式 -->
+  <g>
+    <text x="60" y="195" font-size="13" font-weight="700" fill="#1e293b">Consumer Group 三角色</text>
+
+    <!-- Stream -->
+    <rect class="at-hover-card" x="60" y="215" width="100" height="170" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="110" y="238" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Stream</text>
+    <text x="110" y="253" text-anchor="middle" font-size="9" fill="#475569">mystream</text>
+
+    <!-- 3 entries -->
+    <rect class="at-hover-card" x="75" y="265" width="70" height="20" rx="3" fill="#d1fae5" stroke="#10b981"/>
+    <text x="110" y="278" text-anchor="middle" font-size="8" fill="#065f46">1693622400-0</text>
+    <rect class="at-hover-card" x="75" y="290" width="70" height="20" rx="3" fill="#d1fae5" stroke="#10b981"/>
+    <text x="110" y="303" text-anchor="middle" font-size="8" fill="#065f46">1693622401-0</text>
+    <rect class="at-hover-card" x="75" y="315" width="70" height="20" rx="3" fill="#d1fae5" stroke="#10b981"/>
+    <text x="110" y="328" text-anchor="middle" font-size="8" fill="#065f46">1693622402-0</text>
+    <text x="110" y="355" text-anchor="middle" font-size="9" fill="#475569">PEL</text>
+    <text x="110" y="370" text-anchor="middle" font-size="9" fill="#475569">（待 ACK）</text>
+
+    <!-- Consumer A -->
+    <rect class="at-hover-card" x="220" y="215" width="100" height="50" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="270" y="238" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Consumer A</text>
+    <text x="270" y="253" text-anchor="middle" font-size="9" fill="#475569">claim: id 1, 2</text>
+
+    <!-- Consumer B -->
+    <rect class="at-hover-card" x="220" y="290" width="100" height="50" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="270" y="313" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Consumer B</text>
+    <text x="270" y="328" text-anchor="middle" font-size="9" fill="#475569">claim: id 3</text>
+
+    <!-- Coordinator -->
+    <rect class="at-hover-card" x="380" y="215" width="180" height="125" rx="4" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="470" y="238" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">Consumer Group 状态</text>
+    <text x="395" y="258" font-size="9" font-family="monospace" fill="#475569">last-delivered-id:</text>
+    <text x="395" y="272" font-size="9" font-family="monospace" fill="#475569">  1693622402-0</text>
+    <text x="395" y="290" font-size="9" font-family="monospace" fill="#475569">consumers:</text>
+    <text x="395" y="304" font-size="9" font-family="monospace" fill="#475569">  A: pending=[1,2]</text>
+    <text x="395" y="318" font-size="9" font-family="monospace" fill="#475569">  B: pending=[3]</text>
+    <text x="395" y="332" font-size="9" font-family="monospace" fill="#475569">entries-read: 3</text>
+
+    <!-- 连接 -->
+    <line x1="320" y1="240" x2="380" y2="260" stroke="#64748b" stroke-width="1" marker-end="url(#arr)"/>
+    <line x1="320" y1="315" x2="380" y2="290" stroke="#64748b" stroke-width="1" marker-end="url(#arr)"/>
+
+    <!-- 与 Kafka 对比 -->
+    <rect class="at-hover-card" x="380" y="345" width="180" height="30" rx="4" fill="#fef9c3" stroke="#facc15"/>
+    <text x="470" y="365" text-anchor="middle" font-size="10" font-weight="700" fill="#854d0e">vs Kafka：单实例，无副本</text>
+  </g>
+
+  <!-- 命令序列 -->
+  <g>
+    <text x="60" y="410" font-size="13" font-weight="700" fill="#1e293b">典型命令</text>
+    <rect class="at-hover-card" x="60" y="420" width="480" height="50" rx="6" fill="#1f2937"/>
+    <text x="80" y="440" font-size="11" font-family="monospace" fill="#86efac">XADD mystream * user 1  # 追加</text>
+    <text x="80" y="458" font-size="11" font-family="monospace" fill="#a5f3fc">XREADGROUP GROUP g1 A COUNT 1 STREAMS mystream &gt;  # 消费（&gt; 表示未消费过）</text>
+  </g>
+</svg>
 ## 二、集群深入篇
 
 ### Q8. Redis Pipeline 原理？

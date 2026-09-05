@@ -7,8 +7,95 @@ date: 2026-08-15  # date-auto-injected
 
 > **零拷贝（Zero-Copy）**是 Kafka 高吞吐的关键技术之一。本章深入理解 Kafka 如何通过 sendfile 系统调用减少 CPU 与内存开销。
 
-![Kafka Zero Copy](/kafka-zero-copy.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Kafka 零拷贝（Zero-Copy）</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">sendfile / FileChannel · 4 次拷贝 → 1 次 DMA · Context Switch 减半</text>
 
+  <!-- 传统 IO -->
+  <g>
+    <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">① 传统 IO：4 次拷贝 + 4 次切换</text>
+
+    <rect class="at-hover-card" x="40" y="105" width="520" height="135" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+
+    <rect class="at-hover-card" x="60" y="120" width="80" height="40" rx="3" fill="#fff" stroke="#dc2626"/>
+    <text x="100" y="138" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">磁盘</text>
+    <text x="100" y="153" text-anchor="middle" font-size="9" fill="#475569">file</text>
+
+    <rect class="at-hover-card" x="180" y="120" width="80" height="40" rx="3" fill="#fff" stroke="#dc2626"/>
+    <text x="220" y="138" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">内核缓冲</text>
+    <text x="220" y="153" text-anchor="middle" font-size="9" fill="#475569">kernel</text>
+
+    <rect class="at-hover-card" x="300" y="120" width="80" height="40" rx="3" fill="#fff" stroke="#dc2626"/>
+    <text x="340" y="138" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">用户缓冲</text>
+    <text x="340" y="153" text-anchor="middle" font-size="9" fill="#475569">user</text>
+
+    <rect class="at-hover-card" x="420" y="120" width="80" height="40" rx="3" fill="#fff" stroke="#dc2626"/>
+    <text x="460" y="138" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">Socket</text>
+    <text x="460" y="153" text-anchor="middle" font-size="9" fill="#475569">→ NIC</text>
+
+    <!-- 箭头（实线 + 虚线） -->
+    <path d="M 140 135 L 180 135" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="160" y="128" font-size="8" fill="#dc2626">① DMA</text>
+    <path d="M 260 140 L 300 140" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="280" y="133" font-size="8" fill="#dc2626">② CPU</text>
+    <path d="M 380 140 L 420 140" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="400" y="133" font-size="8" fill="#dc2626">③ CPU</text>
+    <path d="M 500 140 L 540 140 L 540 175 L 60 175 L 60 155" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="300" y="190" font-size="8" fill="#dc2626">④ DMA → NIC</text>
+
+    <text x="60" y="220" font-size="10" fill="#dc2626">❌ 4 次拷贝（DMA + CPU ×2 + DMA）+ 4 次上下文切换</text>
+  </g>
+
+  <!-- 零拷贝 sendfile -->
+  <g>
+    <text x="60" y="245" font-size="13" font-weight="700" fill="#1e293b">② sendfile 零拷贝：1 次 DMA + 1 次 SG-DMA</text>
+
+    <rect class="at-hover-card" x="40" y="260" width="520" height="135" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+
+    <rect class="at-hover-card" x="60" y="275" width="80" height="40" rx="3" fill="#fff" stroke="#10b981"/>
+    <text x="100" y="293" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">磁盘</text>
+    <text x="100" y="308" text-anchor="middle" font-size="9" fill="#475569">file</text>
+
+    <rect class="at-hover-card" x="180" y="275" width="80" height="40" rx="3" fill="#fff" stroke="#10b981"/>
+    <text x="220" y="293" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">内核缓冲</text>
+    <text x="220" y="308" text-anchor="middle" font-size="9" fill="#475569">kernel</text>
+
+    <rect class="at-hover-card" x="420" y="275" width="80" height="40" rx="3" fill="#fff" stroke="#10b981"/>
+    <text x="460" y="293" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">Socket</text>
+    <text x="460" y="308" text-anchor="middle" font-size="9" fill="#475569">→ NIC</text>
+
+    <path d="M 140 290 L 180 290" fill="none" stroke="#10b981" stroke-width="2.5" marker-end="url(#arr)"/>
+    <text x="160" y="282" font-size="9" font-weight="700" fill="#065f46">DMA</text>
+
+    <!-- SG-DCI 跨过 user buffer 走 -->
+    <path d="M 260 295 Q 320 320 380 340 L 420 295" fill="none" stroke="#10b981" stroke-width="2.5" stroke-dasharray="4,2" marker-end="url(#arr)"/>
+    <text x="320" y="350" font-size="9" font-weight="700" fill="#065f46" text-anchor="middle">SG-DMA（Scatter-Gather）</text>
+
+    <text x="60" y="375" font-size="10" fill="#065f46">✅ 跳过用户空间，只经过内核；CPU 只发指令不搬数据</text>
+  </g>
+
+  <!-- Kafka 中的实现 -->
+  <g>
+    <text x="60" y="405" font-size="13" font-weight="700" fill="#1e293b">③ Kafka 中 FileChannel.transferTo()</text>
+
+    <rect class="at-hover-card" x="40" y="420" width="520" height="50" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+
+    <rect class="at-hover-card" x="55" y="432" width="170" height="30" rx="3" fill="#1e293b"/>
+    <text x="140" y="450" text-anchor="middle" font-size="9" font-family="monospace" fill="#a7f3d0">transferTo(position, count, socket)</text>
+
+    <text x="240" y="442" font-size="10" font-weight="700" fill="#1e293b">linux 2.4+ 调 sendfile64</text>
+    <text x="240" y="458" font-size="9" fill="#475569">consumer 从 broker 拉取消息直接走 zero-copy 路径</text>
+
+    <text x="450" y="442" font-size="10" font-weight="700" fill="#10b981">性能提升 2-3x</text>
+    <text x="450" y="458" font-size="9" fill="#475569">CPU 利用率 ↓ 50%</text>
+  </g>
+</svg>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
   <defs>
     <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">

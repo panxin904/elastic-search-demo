@@ -122,8 +122,151 @@ redis-cli -h 127.0.0.1 -p 6379 INFO replication | grep role
 
 <!-- svg-injected:do-not-edit -->
 
-![redis data structures](/redis-data-structures.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Redis 5 大数据类型</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">底层编码 · sds / listpack / skiplist</text>
 
+  <g font-size="11" font-weight="700">
+    <!-- String -->
+    <rect class="at-hover-card" x="40" y="100" width="100" height="100" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="90" y="120" text-anchor="middle" font-size="12" fill="#1e3a8a">String</text>
+    <text x="90" y="140" text-anchor="middle" font-size="10" fill="#1e40af">SET / GET</text>
+    <text x="90" y="158" text-anchor="middle" font-size="9" fill="#3b82f6">int / embstr</text>
+    <text x="90" y="172" font-size="9" fill="#3b82f6" text-anchor="middle">raw</text>
+    <text x="90" y="190" text-anchor="middle" font-size="9" fill="#1e40af">场景：缓存</text>
+
+    <!-- Hash -->
+    <rect class="at-hover-card" x="160" y="100" width="100" height="100" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="210" y="120" text-anchor="middle" font-size="12" fill="#064e3b">Hash</text>
+    <text x="210" y="140" text-anchor="middle" font-size="10" fill="#065f46">HSET / HGET</text>
+    <text x="210" y="158" text-anchor="middle" font-size="9" fill="#10b981">listpack</text>
+    <text x="210" y="172" font-size="9" fill="#10b981" text-anchor="middle">hashtable</text>
+    <text x="210" y="190" text-anchor="middle" font-size="9" fill="#065f46">场景：对象</text>
+
+    <!-- List -->
+    <rect class="at-hover-card" x="280" y="100" width="100" height="100" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="330" y="120" text-anchor="middle" font-size="12" fill="#92400e">List</text>
+    <text x="330" y="140" text-anchor="middle" font-size="10" fill="#78350f">LPUSH / RPOP</text>
+    <text x="330" y="158" text-anchor="middle" font-size="9" fill="#f59e0b">listpack</text>
+    <text x="330" y="172" font-size="9" fill="#f59e0b" text-anchor="middle">quicklist</text>
+    <text x="330" y="190" text-anchor="middle" font-size="9" fill="#78350f">场景：队列</text>
+
+    <!-- Set -->
+    <rect class="at-hover-card" x="400" y="100" width="100" height="100" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+    <text x="450" y="120" text-anchor="middle" font-size="12" fill="#9f1239">Set</text>
+    <text x="450" y="140" text-anchor="middle" font-size="10" fill="#9d174d">SADD / SMEMBERS</text>
+    <text x="450" y="158" text-anchor="middle" font-size="9" fill="#ec4899">intset</text>
+    <text x="450" y="172" font-size="9" fill="#ec4899" text-anchor="middle">hashtable</text>
+    <text x="450" y="190" text-anchor="middle" font-size="9" fill="#9d174d">场景：标签</text>
+
+    <!-- Sorted Set -->
+    <rect class="at-hover-card" x="100" y="240" width="200" height="100" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="200" y="260" text-anchor="middle" font-size="12" fill="#5b21b6">Sorted Set</text>
+    <text x="200" y="280" text-anchor="middle" font-size="10" fill="#6b21a8">ZADD / ZRANGEBYSCORE</text>
+    <text x="200" y="298" text-anchor="middle" font-size="9" fill="#8b5cf6">listpack + skiplist</text>
+    <text x="200" y="315" text-anchor="middle" font-size="9" fill="#6b21a8">场景：排行榜</text>
+    <text x="200" y="330" text-anchor="middle" font-size="9" fill="#6b21a8">延迟队列</text>
+
+    <!-- 高级 -->
+    <rect class="at-hover-card" x="320" y="240" width="200" height="100" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="420" y="260" text-anchor="middle" font-size="12" fill="#92400e">Stream / Bitmap / Geo</text>
+    <text x="420" y="280" text-anchor="middle" font-size="10" fill="#78350f">XADD / SETBIT / GEOADD</text>
+    <text x="420" y="298" text-anchor="middle" font-size="9" fill="#78350f">消息流 / 位图 / 地理位置</text>
+    <text x="420" y="315" text-anchor="middle" font-size="9" fill="#78350f">Redis 6+ 模块化</text>
+    <text x="420" y="330" text-anchor="middle" font-size="9" fill="#78350f">RedisJSON / RediSearch</text>
+  </g>
+
+  <!-- 底层编码说明 -->
+  <g font-size="11">
+    <rect class="at-hover-card" x="40" y="375" width="520" height="80" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <text x="300" y="395" text-anchor="middle" font-weight="700" fill="#1e293b">底层编码演进</text>
+    <text x="60" y="415" fill="#475569">SDS：Simple Dynamic String · 替代 C 字符串 · O(1) 取长度</text>
+    <text x="60" y="432" fill="#475569">listpack：紧凑列表 · 替代 ziplist · 节省内存</text>
+    <text x="60" y="449" fill="#475569">skiplist：跳跃表 · ZSet 排序 · 范围查询 O(logN)</text>
+    <text x="320" y="415" fill="#475569">embstr：≤44 字节内嵌 · 减少分配</text>
+    <text x="320" y="432" fill="#475569">quicklist：list + zlist 组合</text>
+    <text x="320" y="449" fill="#475569">编码自动切换 · 阈值由 redis.conf 配置</text>
+  </g>
+</svg>
 <!-- svg-injected:do-not-edit -->
 
-![redis persistence](/redis-persistence.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Redis 持久化：RDB vs AOF</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">快照 vs 日志 · 混合模式</text>
+
+  <!-- RDB 左侧 -->
+  <rect class="at-hover-card" x="40" y="100" width="240" height="280" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="160" y="125" text-anchor="middle" font-size="16" font-weight="700" fill="#1e3a8a">RDB（快照）</text>
+  <text x="160" y="142" text-anchor="middle" font-size="11" fill="#1e40af">Redis Database</text>
+
+  <g font-size="11" font-weight="700">
+    <rect class="at-hover-card" x="60" y="155" width="200" height="40" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <text x="160" y="180" text-anchor="middle" fill="white">save / bgsave</text>
+    <text x="160" y="195" text-anchor="middle" font-size="10" fill="#dbeafe">fork 子进程</text>
+
+    <rect class="at-hover-card" x="60" y="205" width="200" height="40" rx="6" fill="#10b981" opacity="0.9"/>
+    <text x="160" y="230" text-anchor="middle" fill="white">dump.rdb</text>
+    <text x="160" y="245" text-anchor="middle" font-size="10" fill="#d1fae5">二进制压缩</text>
+
+    <rect class="at-hover-card" x="60" y="255" width="200" height="40" rx="6" fill="#f59e0b" opacity="0.9"/>
+    <text x="160" y="280" text-anchor="middle" fill="white">触发策略</text>
+    <text x="160" y="295" text-anchor="middle" font-size="10" fill="#fef3c7">900s 1 次 / 300s 10 / 60s 10000</text>
+
+    <rect class="at-hover-card" x="60" y="305" width="200" height="40" rx="6" fill="#ec4899" opacity="0.9"/>
+    <text x="160" y="330" text-anchor="middle" fill="white">优点 / 缺点</text>
+    <text x="160" y="345" text-anchor="middle" font-size="10" fill="#fce7f3">快 / 可能丢分钟级数据</text>
+
+    <text x="160" y="365" text-anchor="middle" font-size="10" font-weight="700" fill="#1e3a8a">适合：备份 · 容灾</text>
+  </g>
+
+  <!-- AOF 右侧 -->
+  <rect class="at-hover-card" x="320" y="100" width="240" height="280" rx="10" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+  <text x="440" y="125" text-anchor="middle" font-size="16" font-weight="700" fill="#064e3b">AOF（日志）</text>
+  <text x="440" y="142" text-anchor="middle" font-size="11" fill="#065f46">Append Only File</text>
+
+  <g font-size="11" font-weight="700">
+    <rect class="at-hover-card" x="340" y="155" width="200" height="40" rx="6" fill="#10b981" opacity="0.9"/>
+    <text x="440" y="180" text-anchor="middle" fill="white">everysec / always</text>
+    <text x="440" y="195" text-anchor="middle" font-size="10" fill="#d1fae5">fsync 策略</text>
+
+    <rect class="at-hover-card" x="340" y="205" width="200" height="40" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <text x="440" y="230" text-anchor="middle" fill="white">appendonly.aof</text>
+    <text x="440" y="245" text-anchor="middle" font-size="10" fill="#dbeafe">RESP 协议文本</text>
+
+    <rect class="at-hover-card" x="340" y="255" width="200" height="40" rx="6" fill="#f59e0b" opacity="0.9"/>
+    <text x="440" y="280" text-anchor="middle" fill="white">rewrite 重写</text>
+    <text x="440" y="295" text-anchor="middle" font-size="10" fill="#fef3c7">bgrewriteaof</text>
+
+    <rect class="at-hover-card" x="340" y="305" width="200" height="40" rx="6" fill="#ec4899" opacity="0.9"/>
+    <text x="440" y="330" text-anchor="middle" fill="white">优点 / 缺点</text>
+    <text x="440" y="345" text-anchor="middle" font-size="10" fill="#fce7f3">丢 ≤1s 数据 / 文件大</text>
+
+    <text x="440" y="365" text-anchor="middle" font-size="10" font-weight="700" fill="#064e3b">适合：金融 · 关键数据</text>
+  </g>
+
+  <!-- 混合模式 -->
+  <g font-size="11">
+    <rect class="at-hover-card" x="40" y="400" width="520" height="60" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="60" y="420" font-weight="700" fill="#92400e">Redis 4+ 混合持久化（推荐）</text>
+    <text x="60" y="438" fill="#78350f">RDB 全量 + AOF 增量：RDB 记录快照点 · AOF 记录快照后的增量</text>
+    <text x="60" y="455" fill="#78350f">恢复快 + 数据全 · 配置 aof-use-rdb-preamble yes</text>
+  </g>
+</svg>

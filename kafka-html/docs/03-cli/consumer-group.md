@@ -7,7 +7,6 @@ date: 2026-08-15  # date-auto-injected
 
 > kafka-consumer-groups.sh 是 Kafka 运维的瑞士军刀，可以查看 lag、重置 offset、管理 group 等。
 
-![Kafka Rebalance Protocol](/kafka-rebalance-protocol.svg)
 
 ## 🎯 查看消费者组
 

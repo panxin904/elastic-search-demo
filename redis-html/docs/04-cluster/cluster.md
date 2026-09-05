@@ -106,8 +106,116 @@ Cluster 的解决方案：
 - 数据自动分片到不同 Master
 ```
 
-![Redis Cluster 故障转移](/redis-cluster-failover.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Redis Cluster 故障转移</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">PFAIL → FAIL → Replica Election → Slots 接管 · 多数派投票</text>
 
+  <!-- 时间线 -->
+  <g>
+    <text x="60" y="95" font-size="13" font-weight="700" fill="#1e293b">故障转移时序（6 节点 · M1宕机）</text>
+
+    <!-- Master 1 -->
+    <rect class="at-hover-card" x="40" y="120" width="80" height="30" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-dasharray="4"/>
+    <text x="80" y="140" text-anchor="middle" font-size="11" font-weight="700" fill="#7f1d1d">M1 ✗</text>
+
+    <!-- Replica 1 -->
+    <rect class="at-hover-card" x="160" y="120" width="80" height="30" rx="4" fill="#d1fae5" stroke="#10b981"/>
+    <text x="200" y="140" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">R1 (候选)</text>
+
+    <!-- M2 -->
+    <rect class="at-hover-card" x="280" y="120" width="80" height="30" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="320" y="140" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">M2</text>
+
+    <!-- M3 -->
+    <rect class="at-hover-card" x="400" y="120" width="80" height="30" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="440" y="140" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">M3</text>
+
+    <!-- R2 -->
+    <rect class="at-hover-card" x="520" y="120" width="50" height="30" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="545" y="140" text-anchor="middle" font-size="10" fill="#475569">R2</text>
+  </g>
+
+  <!-- 流程步骤 -->
+  <g>
+    <line x1="60" y1="170" x2="540" y2="170" stroke="#94a3b8" stroke-width="2"/>
+
+    <!-- t1: PFAIL -->
+    <circle cx="80" cy="170" r="8" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="80" y="195" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">t=0</text>
+    <text x="80" y="208" text-anchor="middle" font-size="9" fill="#475569">M1 宕机</text>
+
+    <!-- t2: gossip PFAIL -->
+    <circle cx="160" cy="170" r="8" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="160" y="195" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">t=1s</text>
+    <text x="160" y="208" text-anchor="middle" font-size="9" fill="#475569">R1 PFAIL</text>
+
+    <line x1="88" y1="170" x2="152" y2="170" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+
+    <!-- t3: gossip 扩散 -->
+    <circle cx="280" cy="170" r="8" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="280" y="195" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">t=2s</text>
+    <text x="280" y="208" text-anchor="middle" font-size="9" fill="#475569">M2 收到 PFAIL</text>
+
+    <line x1="168" y1="170" x2="272" y2="170" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+
+    <!-- t4: 多数派确认 -->
+    <circle cx="440" cy="170" r="8" fill="#dc2626"/>
+    <text x="440" y="195" text-anchor="middle" font-size="10" font-weight="700" fill="#7f1d1d">t=5s</text>
+    <text x="440" y="208" text-anchor="middle" font-size="9" fill="#475569">M2/M3 确认 FAIL</text>
+
+    <line x1="288" y1="170" x2="432" y2="170" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+
+    <!-- t5: 选举 -->
+    <circle cx="80" cy="260" r="8" fill="#10b981"/>
+    <text x="80" y="285" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">t=6s</text>
+    <text x="80" y="298" text-anchor="middle" font-size="9" fill="#475569">R1 发起选举</text>
+
+    <line x1="448" y1="170" x2="88" y2="252" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3" marker-end="url(#arrG)"/>
+
+    <!-- t6: 投票 -->
+    <circle cx="200" cy="260" r="8" fill="#10b981"/>
+    <text x="200" y="285" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">t=7s</text>
+    <text x="200" y="298" text-anchor="middle" font-size="9" fill="#475569">M2 投票赞成</text>
+
+    <line x1="88" y1="270" x2="192" y2="270" stroke="#10b981" stroke-width="1.5" marker-end="url(#arrG)"/>
+
+    <!-- t7: 升 Master -->
+    <circle cx="320" cy="260" r="8" fill="#10b981"/>
+    <text x="320" y="285" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">t=8s</text>
+    <text x="320" y="298" text-anchor="middle" font-size="9" fill="#475569">多数票达成</text>
+
+    <line x1="208" y1="270" x2="312" y2="270" stroke="#10b981" stroke-width="1.5" marker-end="url(#arrG)"/>
+
+    <!-- t8: 接管 slot -->
+    <circle cx="440" cy="260" r="8" fill="#10b981"/>
+    <text x="440" y="285" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">t=9s</text>
+    <text x="440" y="298" text-anchor="middle" font-size="9" fill="#475569">R1 升 M + 接管 slot</text>
+
+    <line x1="328" y1="270" x2="432" y2="270" stroke="#10b981" stroke-width="1.5" marker-end="url(#arrG)"/>
+  </g>
+
+  <!-- 关键参数 -->
+  <g>
+    <rect class="at-hover-card" x="40" y="345" width="525" height="100" rx="6" fill="#fef9c3" stroke="#facc15"/>
+    <text x="60" y="367" font-size="11" font-weight="700" fill="#854d0e">关键参数：</text>
+    <text x="60" y="385" font-size="10" font-family="monospace" fill="#1e2937">cluster-node-timeout=15000          # 15s 未响应 → PFAIL</text>
+    <text x="60" y="402" font-size="10" font-family="monospace" fill="#1e2937">cluster-replica-validity-factor=10  # replica 数据落后不超过 10 倍</text>
+    <text x="60" y="419" font-size="10" font-family="monospace" fill="#1e2937">cluster-migration-barrier=1         # 接管时至少 1 个客户端</text>
+    <text x="60" y="436" font-size="11" fill="#854d0e" font-weight="700">⚠️ M1 复活后：自动成为 R1 的 Replica，不会双 Master 脑裂</text>
+  </g>
+</svg>
 ## 🆚 Cluster vs 主从 + 哨兵
 
 | 维度 | 主从复制 | Sentinel | Cluster |
@@ -220,8 +328,84 @@ redis-cli --cluster add-node 192.168.1.10:7008 192.168.1.10:7001 \
     --cluster-slave --cluster-master-id <master-node-id>
 ```
 
-![Redis Multi Key Tx](/redis-multi-key-tx.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Redis 多 Key 事务与 Lua 脚本</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">MULTI/EXEC · WATCH · EVAL 原子性 · Cluster 下 hash tag</text>
 
+  <!-- MULTI/EXEC 事务 -->
+  <g>
+    <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">① MULTI/EXEC 事务（非原子）</text>
+
+    <rect class="at-hover-card" x="40" y="105" width="520" height="125" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+
+    <rect class="at-hover-card" x="60" y="120" width="110" height="32" rx="3" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="115" y="140" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">MULTI</text>
+
+    <rect class="at-hover-card" x="60" y="160" width="110" height="32" rx="3" fill="#dcfce7" stroke="#10b981"/>
+    <text x="115" y="180" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">SET k1 v1</text>
+
+    <rect class="at-hover-card" x="190" y="160" width="110" height="32" rx="3" fill="#dcfce7" stroke="#10b981"/>
+    <text x="245" y="180" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">INCR k2</text>
+
+    <rect class="at-hover-card" x="320" y="160" width="110" height="32" rx="3" fill="#dcfce7" stroke="#10b981"/>
+    <text x="375" y="180" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">LPUSH k3 x</text>
+
+    <rect class="at-hover-card" x="60" y="200" width="110" height="32" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="115" y="220" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">EXEC</text>
+
+    <text x="450" y="140" font-size="10" font-weight="700" fill="#1e293b">特性</text>
+    <text x="450" y="160" font-size="9" fill="#475569">• 串行执行，不被打断</text>
+    <text x="450" y="178" font-size="9" fill="#475569">• 不支持回滚（失败继续）</text>
+    <text x="450" y="196" font-size="9" fill="#475569">• 乐观锁：WATCH + CAS</text>
+    <text x="450" y="214" font-size="9" fill="#dc2626">⚠️ Cluster: 多 key 必须</text>
+  </g>
+
+  <!-- Lua 脚本 -->
+  <g>
+    <text x="60" y="252" font-size="13" font-weight="700" fill="#1e293b">② EVAL Lua 脚本（真正原子）</text>
+
+    <rect class="at-hover-card" x="40" y="265" width="520" height="115" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+
+    <rect class="at-hover-card" x="60" y="278" width="480" height="55" rx="3" fill="#1e293b"/>
+    <text x="75" y="296" font-size="10" font-family="monospace" fill="#a7f3d0">EVAL "local v = redis.call('GET', KEYS[1])</text>
+    <text x="75" y="312" font-size="10" font-family="monospace" fill="#a7f3d0">       if v == ARGV[1] then</text>
+    <text x="75" y="328" font-size="10" font-family="monospace" fill="#a7f3d0">         return redis.call('SET', KEYS[1], ARGV[2]) end"</text>
+
+    <text x="60" y="350" font-size="10" font-weight="700" fill="#10b981">✅ 优势</text>
+    <text x="60" y="368" font-size="9" fill="#475569">• 整段脚本在 server 端原子执行</text>
+    <text x="60" y="383" font-size="9" fill="#475569">• 减少网络 RTT（一次往返）</text>
+  </g>
+
+  <!-- Cluster 下 hash tag -->
+  <g>
+    <text x="60" y="402" font-size="13" font-weight="700" fill="#1e293b">③ Cluster 下多 Key：Hash Tag</text>
+
+    <rect class="at-hover-card" x="40" y="415" width="170" height="50" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="125" y="433" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">{user}:profile</text>
+    <text x="125" y="447" text-anchor="middle" font-size="9" fill="#475569">{} 内只算 hash</text>
+    <text x="125" y="461" text-anchor="middle" font-size="9" fill="#475569">→ 同一 slot</text>
+
+    <path d="M 210 440 L 240 440" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="240" y="415" width="160" height="50" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="320" y="433" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">{user}:orders</text>
+    <text x="320" y="447" text-anchor="middle" font-size="9" fill="#475569">同 user 哈希</text>
+    <text x="320" y="461" text-anchor="middle" font-size="9" fill="#475569">→ 同一 slot</text>
+
+    <path d="M 400 440 L 430 440" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="430" y="415" width="130" height="50" rx="4" fill="#dcfce7" stroke="#10b981"/>
+    <text x="495" y="433" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">同节点</text>
+    <text x="495" y="447" text-anchor="middle" font-size="9" fill="#475569">保证原子性</text>
+    <text x="495" y="461" text-anchor="middle" font-size="9" fill="#475569">支持事务</text>
+  </g>
+</svg>
 ## ⚠️ 集群限制
 
 ```bash
@@ -335,10 +519,151 @@ public class RedisClusterConfig {
 
 <!-- svg-injected:do-not-edit -->
 
-![cluster slot](/cluster-slot.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Redis Cluster 哈希槽</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">16384 slot · CRC16(key) % 16384</text>
 
+  <!-- 顶部：客户端 -->
+  <rect class="at-hover-card" x="240" y="90" width="120" height="40" rx="8" fill="#3b82f6" opacity="0.9"/>
+  <text x="300" y="115" text-anchor="middle" font-size="13" font-weight="700" fill="white">Client</text>
+  <text x="300" y="130" text-anchor="middle" font-size="10" fill="#dbeafe">任意节点</text>
+
+  <!-- 3 个主节点 -->
+  <g font-size="12" font-weight="700">
+    <rect class="at-hover-card" x="60" y="180" width="120" height="50" rx="8" fill="#10b981" opacity="0.9"/>
+    <text x="120" y="202" text-anchor="middle" fill="white">Master A</text>
+    <text x="120" y="220" text-anchor="middle" font-size="10" fill="#d1fae5">slot 0-5460</text>
+
+    <rect class="at-hover-card" x="240" y="180" width="120" height="50" rx="8" fill="#10b981" opacity="0.9"/>
+    <text x="300" y="202" text-anchor="middle" fill="white">Master B</text>
+    <text x="300" y="220" text-anchor="middle" font-size="10" fill="#d1fae5">slot 5461-10922</text>
+
+    <rect class="at-hover-card" x="420" y="180" width="120" height="50" rx="8" fill="#10b981" opacity="0.9"/>
+    <text x="480" y="202" text-anchor="middle" fill="white">Master C</text>
+    <text x="480" y="220" text-anchor="middle" font-size="10" fill="#d1fae5">slot 10923-16383</text>
+  </g>
+
+  <!-- 箭头 -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <line x1="180" y1="130" x2="120" y2="178"/>
+    <line x1="300" y1="130" x2="300" y2="178"/>
+    <line x1="420" y1="130" x2="480" y2="178"/>
+  </g>
+
+  <!-- 3 个从节点 -->
+  <g font-size="12" font-weight="700">
+    <rect class="at-hover-card" x="60" y="270" width="120" height="50" rx="8" fill="#94a3b8" opacity="0.85"/>
+    <text x="120" y="292" text-anchor="middle" fill="white">Replica A'</text>
+    <text x="120" y="310" text-anchor="middle" font-size="10" fill="#f1f5f9">复制 A</text>
+
+    <rect class="at-hover-card" x="240" y="270" width="120" height="50" rx="8" fill="#94a3b8" opacity="0.85"/>
+    <text x="300" y="292" text-anchor="middle" fill="white">Replica B'</text>
+    <text x="300" y="310" text-anchor="middle" font-size="10" fill="#f1f5f9">复制 B</text>
+
+    <rect class="at-hover-card" x="420" y="270" width="120" height="50" rx="8" fill="#94a3b8" opacity="0.85"/>
+    <text x="480" y="292" text-anchor="middle" fill="white">Replica C'</text>
+    <text x="480" y="310" text-anchor="middle" font-size="10" fill="#f1f5f9">复制 C</text>
+  </g>
+
+  <!-- 复制箭头 -->
+  <g stroke="#ec4899" stroke-width="2" fill="none" stroke-dasharray="4 3" marker-end="url(#arrow)">
+    <line x1="120" y1="230" x2="120" y2="268"/>
+    <line x1="300" y1="230" x2="300" y2="268"/>
+    <line x1="480" y1="230" x2="480" y2="268"/>
+  </g>
+
+  <!-- 关键概念 -->
+  <g font-size="11">
+    <rect class="at-hover-card" x="50" y="345" width="160" height="100" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+    <text x="130" y="365" text-anchor="middle" font-weight="700" fill="#1e3a8a">哈希槽算法</text>
+    <text x="130" y="383" text-anchor="middle" fill="#1e40af">HASH_SLOT =</text>
+    <text x="130" y="398" text-anchor="middle" fill="#1e40af">CRC16(key) % 16384</text>
+    <text x="130" y="418" text-anchor="middle" fill="#1e40af">#{}  #{}  #{}</text>
+    <text x="130" y="435" text-anchor="middle" fill="#1e40af">key 含 {} 取 {} 内</text>
+
+    <rect class="at-hover-card" x="230" y="345" width="160" height="100" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+    <text x="310" y="365" text-anchor="middle" font-weight="700" fill="#92400e">MOVED 重定向</text>
+    <text x="310" y="383" text-anchor="middle" fill="#78350f">-MOVED slot ip:port</text>
+    <text x="310" y="400" text-anchor="middle" fill="#78350f">客户端更新路由表</text>
+    <text x="310" y="418" text-anchor="middle" fill="#78350f">ASK 临时重定向</text>
+    <text x="310" y="435" text-anchor="middle" fill="#78350f">（迁移中）</text>
+
+    <rect class="at-hover-card" x="410" y="345" width="160" height="100" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
+    <text x="490" y="365" text-anchor="middle" font-weight="700" fill="#064e3b">故障转移</text>
+    <text x="490" y="383" text-anchor="middle" fill="#065f46">主节点 ping pong</text>
+    <text x="490" y="400" text-anchor="middle" fill="#065f46">半数投票 → 升级</text>
+    <text x="490" y="418" text-anchor="middle" fill="#065f46">从节点接管 slot</text>
+    <text x="490" y="435" text-anchor="middle" fill="#065f46">CLUSTER FAILOVER</text>
+  </g>
+</svg>
 <!-- svg-injected:do-not-edit -->
 
 ## 图示：Redis Cluster Gossip 协议与故障检测
 
-![Redis Cluster Gossip 协议与故障检测](/redis-cluster-gossip.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Redis Cluster Gossip 协议</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">去中心化集群 · ping/pong 消息 · 16384 slot · 故障检测</text>
+
+  <!-- 6 节点 -->
+  <g>
+    <circle cx="120" cy="160" r="35" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="120" y="158" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Master 1</text>
+    <text x="120" y="172" text-anchor="middle" font-size="9" fill="#475569">slots 0-5460</text>
+
+    <circle cx="300" cy="100" r="35" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="300" y="98" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">Master 2</text>
+    <text x="300" y="112" text-anchor="middle" font-size="9" fill="#475569">slots 5461-10922</text>
+
+    <circle cx="480" cy="160" r="35" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="480" y="158" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Master 3</text>
+    <text x="480" y="172" text-anchor="middle" font-size="9" fill="#475569">slots 10923-16383</text>
+
+    <circle cx="120" cy="280" r="30" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5" stroke-dasharray="3"/>
+    <text x="120" y="280" text-anchor="middle" font-size="10" font-weight="700" fill="#9d174d">Replica</text>
+    <text x="120" y="293" text-anchor="middle" font-size="9" fill="#475569">M1 副本</text>
+
+    <circle cx="300" cy="340" r="30" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="3"/>
+    <text x="300" y="340" text-anchor="middle" font-size="10" font-weight="700" fill="#5b21b6">Replica</text>
+    <text x="300" y="353" text-anchor="middle" font-size="9" fill="#475569">M2 副本</text>
+
+    <circle cx="480" cy="280" r="30" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3"/>
+    <text x="480" y="280" text-anchor="middle" font-size="10" font-weight="700" fill="#475569">Replica</text>
+    <text x="480" y="293" text-anchor="middle" font-size="9" fill="#475569">M3 副本</text>
+  </g>
+
+  <!-- Gossip 连线（双向 ping/pong） -->
+  <g stroke="#64748b" stroke-width="1.2" fill="none" stroke-dasharray="4">
+    <path d="M155,160 L265,100" marker-end="url(#arr)" marker-start="url(#arr)"/>
+    <path d="M335,100 L445,160" marker-end="url(#arr)" marker-start="url(#arr)"/>
+    <path d="M120,195 L120,250" marker-end="url(#arr)" marker-start="url(#arr)"/>
+    <path d="M300,135 L300,310" marker-end="url(#arr)" marker-start="url(#arr)"/>
+    <path d="M480,195 L480,250" marker-end="url(#arr)" marker-start="url(#arr)"/>
+    <path d="M150,280 L270,340" marker-end="url(#arr)" marker-start="url(#arr)"/>
+    <path d="M450,280 L330,340" marker-end="url(#arr)" marker-start="url(#arr)"/>
+  </g>
+  <text x="300" y="80" text-anchor="middle" font-size="9" fill="#64748b">ping / pong（每 100ms）</text>
+
+  <!-- Gossip 消息内容 -->
+  <g>
+    <rect class="at-hover-card" x="20" y="395" width="560" height="75" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="40" y="418" font-size="11" font-weight="700" fill="#1e293b">⚡ Gossip 消息字段（ping/pong 共享）</text>
+    <text x="40" y="438" font-size="10" fill="#475569">node.id · node.ip:port · node.flags（PFAIL/FAIL）· hash slot（cluster slots 16384）</text>
+    <text x="40" y="455" font-size="10" fill="#475569">⚡ PFAIL → FAIL：半数以上 master 在 gossip 超时内（cluster-node-timeout）确认某节点不可达</text>
+    <text x="40" y="467" font-size="10" font-style="italic" fill="#94a3b8">⚡ 故障转移：master FAIL 后，其副本之一被晋升；其他 master 通过 gossip 感知新拓扑</text>
+  </g>
+</svg>

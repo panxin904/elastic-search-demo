@@ -41,8 +41,85 @@ date: 2026-08-15  # date-auto-injected
 
 ## 🔄 Slot 重分配流程
 
-![Redis Cluster Slot 重分配](/redis-cluster-slot-reshard.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrM" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Redis Cluster Slot 重分配流程</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">reshard · 16384 slot · SETSLOT · MIGRATING/IMPORTING 状态</text>
 
+  <!-- 三阶段流程 -->
+  <g>
+    <text x="100" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">① 准备阶段</text>
+    <text x="300" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">② 迁移阶段</text>
+    <text x="500" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">③ 完成阶段</text>
+
+    <!-- 阶段 1: 准备 -->
+    <rect class="at-hover-card" x="40" y="120" width="120" height="280" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" fill-opacity="0.3"/>
+    <text x="100" y="145" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">源 M1</text>
+    <text x="100" y="160" text-anchor="middle" font-size="9" fill="#475569">slots 0-5460</text>
+    <rect class="at-hover-card" x="60" y="180" width="80" height="60" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="100" y="200" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">slot 5000</text>
+    <text x="100" y="215" text-anchor="middle" font-size="9" fill="#92400e">MIGRATING</text>
+    <text x="100" y="230" text-anchor="middle" font-size="9" fill="#92400e">→ target M4</text>
+
+    <text x="100" y="270" text-anchor="middle" font-size="10" fill="#475569">执行：</text>
+    <text x="100" y="290" text-anchor="middle" font-size="10" fill="#1f2937">CLUSTER SETSLOT 5000</text>
+    <text x="100" y="305" text-anchor="middle" font-size="10" fill="#1f2937">MIGRATING M4-id</text>
+    <text x="100" y="330" text-anchor="middle" font-size="10" fill="#475569">同步给所有 master</text>
+    <text x="100" y="345" text-anchor="middle" font-size="10" fill="#475569">→ 标记 slot 为迁移中</text>
+
+    <text x="100" y="378" text-anchor="middle" font-size="9" fill="#64748b">ASK 重定向：</text>
+    <text x="100" y="392" text-anchor="middle" font-size="9" fill="#64748b">老 key 仍命中 M1</text>
+
+    <!-- 阶段 2: 迁移 -->
+    <rect class="at-hover-card" x="240" y="120" width="120" height="280" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" fill-opacity="0.3"/>
+    <text x="300" y="145" text-anchor="middle" font-size="11" font-weight="600" fill="#92400e">目标 M4</text>
+    <text x="300" y="160" text-anchor="middle" font-size="9" fill="#475569">新节点（空）</text>
+
+    <rect class="at-hover-card" x="260" y="180" width="80" height="60" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="300" y="200" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">slot 5000</text>
+    <text x="300" y="215" text-anchor="middle" font-size="9" fill="#1e40af">IMPORTING</text>
+    <text x="300" y="230" text-anchor="middle" font-size="9" fill="#1e40af">← from M1</text>
+
+    <text x="300" y="270" text-anchor="middle" font-size="10" fill="#475569">执行：</text>
+    <text x="300" y="290" text-anchor="middle" font-size="10" fill="#1f2937">CLUSTER SETSLOT 5000</text>
+    <text x="300" y="305" text-anchor="middle" font-size="10" fill="#1f2937">IMPORTING M1-id</text>
+
+    <!-- 迁移箭头 -->
+    <line x1="160" y1="370" x2="240" y2="370" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrM)"/>
+    <text x="200" y="365" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">MIGRATE</text>
+    <text x="200" y="385" text-anchor="middle" font-size="9" fill="#475569">逐 key 原子搬迁</text>
+
+    <!-- 阶段 3: 完成 -->
+    <rect class="at-hover-card" x="440" y="120" width="120" height="280" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5" fill-opacity="0.3"/>
+    <text x="500" y="145" text-anchor="middle" font-size="11" font-weight="600" fill="#065f46">最终状态</text>
+
+    <rect class="at-hover-card" x="460" y="180" width="80" height="60" rx="4" fill="#d1fae5" stroke="#10b981"/>
+    <text x="500" y="200" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">slot 5000</text>
+    <text x="500" y="215" text-anchor="middle" font-size="9" fill="#065f46">NODE M4</text>
+
+    <text x="500" y="270" text-anchor="middle" font-size="10" fill="#475569">执行：</text>
+    <text x="500" y="290" text-anchor="middle" font-size="10" fill="#1f2937">CLUSTER SETSLOT 5000</text>
+    <text x="500" y="305" text-anchor="middle" font-size="10" fill="#1f2937">NODE M4-id</text>
+    <text x="500" y="320" text-anchor="middle" font-size="10" fill="#1f2937">（双方都执行）</text>
+
+    <text x="500" y="345" text-anchor="middle" font-size="10" fill="#475569">广播 slot 归属</text>
+    <text x="500" y="360" text-anchor="middle" font-size="10" fill="#475569">到所有节点</text>
+    <text x="500" y="378" text-anchor="middle" font-size="9" fill="#065f46">→ slot 正式归属 M4</text>
+  </g>
+
+  <!-- 底部提示 -->
+  <rect class="at-hover-card" x="20" y="425" width="560" height="45" rx="6" fill="#fef9c3" stroke="#facc15"/>
+  <text x="40" y="448" font-size="11" font-weight="700" fill="#854d0e">⚠️ 关键：迁移期间客户端请求可能落到源/目标任一方</text>
+  <text x="40" y="463" font-size="10" fill="#854d0e">迁移完成后须所有 master 都执行 SETSLOT NODE，否则集群状态不一致</text>
+</svg>
 ## 📋 扩容步骤（3 → 4 Master）
 
 ### 1. 启动新节点

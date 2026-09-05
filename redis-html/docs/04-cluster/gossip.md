@@ -7,10 +7,163 @@ date: 2026-08-15  # date-auto-injected
 
 > Redis Cluster 节点之间通过 **Gossip 协议**通信，用于**节点发现、故障检测、状态传播**。每个节点每秒向随机几个节点发送 ping 消息，最终全集群状态达成**最终一致**。
 
-![Redis Cluster Gossip 协议](/redis-gossip-protocol.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Redis Cluster Gossip 协议</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">ping/pong 消息 · MEET/PFAIL/FAIL · cluster_bus_port · gossip 扩散</text>
 
-![Redis Cluster Bus](/redis-cluster-bus.svg)
+  <!-- 6 节点环 -->
+  <g>
+    <text x="60" y="95" font-size="13" font-weight="700" fill="#1e293b">Gossip 节点选择（每节点维护随机 N 个 peer）</text>
 
+    <!-- 中心节点 -->
+    <circle cx="300" cy="220" r="40" fill="#dbeafe" stroke="#3b82f6" stroke-width="3"/>
+    <text x="300" y="218" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">节点 A</text>
+    <text x="300" y="234" text-anchor="middle" font-size="9" fill="#475569">发起 ping</text>
+
+    <!-- 周围节点 -->
+    <circle cx="120" cy="160" r="28" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="120" y="163" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">B</text>
+
+    <circle cx="480" cy="160" r="28" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="480" y="163" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">C</text>
+
+    <circle cx="120" cy="300" r="28" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="120" y="303" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">D</text>
+
+    <circle cx="480" cy="300" r="28" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="480" y="303" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">E</text>
+
+    <circle cx="300" cy="380" r="28" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2" stroke-dasharray="3"/>
+    <text x="300" y="383" text-anchor="middle" font-size="10" font-weight="700" fill="#475569">F</text>
+
+    <!-- ping 路径 -->
+    <line x1="280" y1="195" x2="148" y2="172" stroke="#3b82f6" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="210" y="180" text-anchor="middle" font-size="9" fill="#1e40af" font-weight="700">ping 1</text>
+
+    <line x1="320" y1="195" x2="452" y2="172" stroke="#3b82f6" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="385" y="180" text-anchor="middle" font-size="9" fill="#1e40af" font-weight="700">ping 2</text>
+
+    <line x1="280" y1="245" x2="148" y2="288" stroke="#3b82f6" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="210" y="270" text-anchor="middle" font-size="9" fill="#1e40af" font-weight="700">ping 3</text>
+
+    <!-- pong 返回 -->
+    <line x1="148" y1="178" x2="280" y2="205" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3" marker-end="url(#arr)"/>
+    <line x1="452" y1="178" x2="320" y2="205" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3" marker-end="url(#arr)"/>
+
+    <!-- 二次 gossip（带节点列表） -->
+    <text x="300" y="430" text-anchor="middle" font-size="11" fill="#475569">ping 消息携带：节点 B 的已知节点列表 → A 收到 → A 也认识这些节点</text>
+    <text x="300" y="447" text-anchor="middle" font-size="11" fill="#475569">→ gossip 二次扩散（指数级传播）</text>
+  </g>
+
+  <!-- 故障检测时序 -->
+  <g>
+    <text x="60" y="468" font-size="11" font-weight="700" fill="#1e293b">故障检测：</text>
+    <text x="170" y="468" font-size="11" fill="#475569">PFAIL（本地判定）→ gossip 扩散 → 多数节点确认 → FAIL（全局确认）</text>
+  </g>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Redis Cluster 总线协议</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Gossip 消息传播 · 4 类消息 · 槽指派一致性</text>
+
+  <!-- 总线连接拓扑 -->
+  <g>
+    <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">① Cluster 总线连接（端口 16379）</text>
+
+    <!-- 6 节点 -->
+    <rect class="at-hover-card" x="80" y="115" width="90" height="65" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="125" y="138" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">N1 (6379)</text>
+    <text x="125" y="158" text-anchor="middle" font-size="9" fill="#475569">slots 0-5460</text>
+    <text x="125" y="172" text-anchor="middle" font-size="9" fill="#475569">master</text>
+
+    <rect class="at-hover-card" x="200" y="115" width="90" height="65" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="245" y="138" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">N2 (6379)</text>
+    <text x="245" y="158" text-anchor="middle" font-size="9" fill="#475569">slots 5461-10922</text>
+    <text x="245" y="172" text-anchor="middle" font-size="9" fill="#475569">master</text>
+
+    <rect class="at-hover-card" x="320" y="115" width="90" height="65" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="365" y="138" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">N3 (6379)</text>
+    <text x="365" y="158" text-anchor="middle" font-size="9" fill="#475569">slots 10923-16383</text>
+    <text x="365" y="172" text-anchor="middle" font-size="9" fill="#475569">master</text>
+
+    <rect class="at-hover-card" x="440" y="115" width="90" height="65" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="2"/>
+    <text x="485" y="138" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">N4 (6379)</text>
+    <text x="485" y="158" text-anchor="middle" font-size="9" fill="#475569">N1 replica</text>
+    <text x="485" y="172" text-anchor="middle" font-size="9" fill="#475569">replica</text>
+
+    <!-- 双向连接线 -->
+    <path d="M 170 140 L 200 140" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+    <path d="M 290 140 L 320 140" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+    <path d="M 410 140 L 440 140" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+
+    <!-- 节点间连接 (全部对) -->
+    <path d="M 125 180 L 245 195" fill="none" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="2,2"/>
+    <path d="M 245 195 L 365 180" fill="none" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="2,2"/>
+    <path d="M 365 195 L 125 195" fill="none" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="2,2"/>
+
+    <text x="300" y="207" text-anchor="middle" font-size="9" fill="#475569">每节点每秒随机 ping 3 个其他节点</text>
+  </g>
+
+  <!-- 4 类消息 -->
+  <g>
+    <text x="60" y="240" font-size="13" font-weight="700" fill="#1e293b">② 4 类 Gossip 消息</text>
+
+    <rect class="at-hover-card" x="40" y="255" width="125" height="42" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="102" y="273" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">MEET</text>
+    <text x="102" y="287" text-anchor="middle" font-size="9" fill="#475569">握手 / 加入</text>
+
+    <rect class="at-hover-card" x="175" y="255" width="125" height="42" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="237" y="273" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">PING</text>
+    <text x="237" y="287" text-anchor="middle" font-size="9" fill="#475569">心跳 + 元数据</text>
+
+    <rect class="at-hover-card" x="310" y="255" width="125" height="42" rx="4" fill="#dcfce7" stroke="#10b981"/>
+    <text x="372" y="273" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">PONG</text>
+    <text x="372" y="287" text-anchor="middle" font-size="9" fill="#475569">响应 + 自状态</text>
+
+    <rect class="at-hover-card" x="445" y="255" width="125" height="42" rx="4" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="507" y="273" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">FAIL</text>
+    <text x="507" y="287" text-anchor="middle" font-size="9" fill="#475569">节点下线广播</text>
+  </g>
+
+  <!-- 槽指派一致性 -->
+  <g>
+    <text x="60" y="325" font-size="13" font-weight="700" fill="#1e293b">③ 槽指派一致性（epoch 机制）</text>
+
+    <rect class="at-hover-card" x="40" y="340" width="520" height="100" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+
+    <!-- epoch 时间线 -->
+    <line x1="80" y1="380" x2="520" y2="380" stroke="#64748b" stroke-width="1.5"/>
+
+    <circle cx="120" cy="380" r="6" fill="#3b82f6"/>
+    <text x="120" y="365" font-size="9" text-anchor="middle" fill="#1e40af">epoch=1</text>
+    <text x="120" y="402" font-size="9" text-anchor="middle" fill="#475569">初始槽分配</text>
+
+    <circle cx="220" cy="380" r="6" fill="#f59e0b"/>
+    <text x="220" y="365" font-size="9" text-anchor="middle" fill="#92400e">epoch=2</text>
+    <text x="220" y="402" font-size="9" text-anchor="middle" fill="#475569">N4 接管 N1 槽位</text>
+
+    <circle cx="320" cy="380" r="6" fill="#dc2626"/>
+    <text x="320" y="365" font-size="9" text-anchor="middle" fill="#991b1b">epoch=3</text>
+    <text x="320" y="402" font-size="9" text-anchor="middle" fill="#475569">N1 重新加入</text>
+
+    <circle cx="420" cy="380" r="6" fill="#10b981"/>
+    <text x="420" y="365" font-size="9" text-anchor="middle" fill="#065f46">当前</text>
+    <text x="420" y="402" font-size="9" text-anchor="middle" fill="#475569">cluster-epoch++</text>
+
+    <text x="300" y="425" font-size="10" fill="#475569" text-anchor="middle">Gossip 携带 currentEpoch + configEpoch，接收方丢弃旧 epoch 消息</text>
+  </g>
+</svg>
 ## 🎯 为什么用 Gossip？
 
 ```

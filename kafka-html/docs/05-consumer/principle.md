@@ -121,8 +121,98 @@ Offset = 消息在 Partition 中的位置
   → 决定哪个 Broker 当 Coordinator
 ```
 
-![Kafka Consumer Fetch](/kafka-consumer-fetch.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Kafka 消费者拉取策略</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">fetch.min.bytes · fetch.max.wait.ms · 吞吐/延迟权衡</text>
 
+  <!-- 拉取流程 -->
+  <g>
+    <text x="50" y="90" font-size="13" font-weight="700" fill="#1e293b">① 消费者拉取流程（Fetcher 线程）</text>
+
+    <rect class="at-hover-card" x="40" y="100" width="100" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="90" y="123" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Consumer</text>
+    <text x="90" y="140" text-anchor="middle" font-size="10" fill="#475569">poll()</text>
+    <text x="90" y="155" text-anchor="middle" font-size="9" fill="#3b82f6">主线程</text>
+
+    <path d="M140,130 L175,130" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="175" y="100" width="115" height="60" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="232" y="123" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Fetcher 线程</text>
+    <text x="232" y="140" text-anchor="middle" font-size="10" fill="#475569">sendFetchRequest</text>
+    <text x="232" y="155" text-anchor="middle" font-size="9" fill="#92400e">异步拉取</text>
+
+    <path d="M290,130 L325,130" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="325" y="100" width="100" height="60" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="375" y="123" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">Broker</text>
+    <text x="375" y="140" text-anchor="middle" font-size="10" fill="#475569">Partition</text>
+    <text x="375" y="155" text-anchor="middle" font-size="9" fill="#10b981">响应</text>
+
+    <path d="M425,130 L460,130" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="460" y="100" width="100" height="60" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="510" y="123" text-anchor="middle" font-size="11" font-weight="700" fill="#991b1b">缓存队列</text>
+    <text x="510" y="140" text-anchor="middle" font-size="10" fill="#475569">records</text>
+    <text x="510" y="155" text-anchor="middle" font-size="9" fill="#dc2626">可消费</text>
+  </g>
+
+  <!-- 两个核心参数 -->
+  <g>
+    <text x="50" y="195" font-size="13" font-weight="700" fill="#1e293b">② 两个核心参数（控制拉取节奏）</text>
+
+    <rect class="at-hover-card" x="40" y="205" width="260" height="100" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="170" y="227" text-anchor="middle" font-size="13" font-weight="700" fill="#047857">fetch.min.bytes（吞吐）</text>
+    <text x="55" y="250" font-size="11" fill="#475569" font-family="monospace">默认 1 byte</text>
+    <text x="55" y="270" font-size="10" fill="#475569">Broker 至少累积这么多字节</text>
+    <text x="55" y="285" font-size="10" fill="#475569">才返回响应</text>
+    <text x="170" y="220" text-anchor="end" font-size="9" fill="#10b981" text-anchor="end"></text>
+
+    <rect class="at-hover-card" x="310" y="205" width="250" height="100" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="435" y="227" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">fetch.max.wait.ms（延迟）</text>
+    <text x="325" y="250" font-size="11" fill="#475569" font-family="monospace">默认 500ms</text>
+    <text x="325" y="270" font-size="10" fill="#475569">Broker 等待这么久还没攒够</text>
+    <text x="325" y="285" font-size="10" fill="#475569">就立即返回（哪怕不够）</text>
+  </g>
+
+  <!-- 4 种策略组合 -->
+  <g>
+    <text x="50" y="335" font-size="13" font-weight="700" fill="#1e293b">③ 4 种策略组合（场景化调优）</text>
+
+    <rect class="at-hover-card" x="40" y="345" width="125" height="65" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="102" y="367" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">低延迟实时</text>
+    <text x="55" y="386" font-size="9" fill="#475569" font-family="monospace">min=1B</text>
+    <text x="55" y="400" font-size="9" fill="#475569" font-family="monospace">wait=10ms</text>
+    <text x="102" y="412" text-anchor="middle" font-size="9" fill="#dc2626">⚠️ 实时交易</text>
+
+    <rect class="at-hover-card" x="175" y="345" width="125" height="65" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="237" y="367" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">通用场景</text>
+    <text x="190" y="386" font-size="9" fill="#475569" font-family="monospace">min=1B</text>
+    <text x="190" y="400" font-size="9" fill="#475569" font-family="monospace">wait=500ms</text>
+    <text x="237" y="412" text-anchor="middle" font-size="9" fill="#f59e0b">⭐ Kafka 默认</text>
+
+    <rect class="at-hover-card" x="310" y="345" width="125" height="65" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="372" y="367" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">批量日志</text>
+    <text x="325" y="386" font-size="9" fill="#475569" font-family="monospace">min=1MB</text>
+    <text x="325" y="400" font-size="9" fill="#475569" font-family="monospace">wait=500ms</text>
+    <text x="372" y="412" text-anchor="middle" font-size="9" fill="#10b981">✅ 高吞吐</text>
+
+    <rect class="at-hover-card" x="445" y="345" width="115" height="65" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="502" y="367" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">超大批量</text>
+    <text x="460" y="386" font-size="9" fill="#475569" font-family="monospace">min=10MB</text>
+    <text x="460" y="400" font-size="9" fill="#475569" font-family="monospace">wait=2s</text>
+    <text x="502" y="412" text-anchor="middle" font-size="9" fill="#3b82f6">📦 ETL</text>
+  </g>
+
+  <!-- 关键点 -->
+  <text x="300" y="445" text-anchor="middle" font-size="10" fill="#64748b">💡 Broker 端满足任一条件就返回（达到 min.bytes 或到达 max.wait.ms）</text>
+  <text x="300" y="465" text-anchor="middle" font-size="10" fill="#10b981">📌 max.partition.fetch.bytes（默认 1MB）控制单分区最大返回量，避免大分区撑爆内存</text>
+</svg>
 ## 🔄 消息拉取流程
 
 ```

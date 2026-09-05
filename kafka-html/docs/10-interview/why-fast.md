@@ -25,8 +25,105 @@ date: 2026-08-15  # date-auto-injected
   Kafka 写入：~200 MB/s（无索引）
 ```
 
-![Kafka Broker 网络模型](/kafka-broker-network-model.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Kafka Broker 网络模型</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Reactor 多线程模型 · PageCache 零拷贝 · NIO Selector · Kafka 2.x</text>
 
+  <!-- Kafka 2.x 多线程 Reactor -->
+  <g>
+    <text x="60" y="95" font-size="13" font-weight="700" fill="#1e293b">Kafka 2.x 多线程 Reactor 模型</text>
+
+    <!-- Acceptor -->
+    <rect class="at-hover-card" x="40" y="115" width="120" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="100" y="132" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Acceptor</text>
+    <text x="100" y="148" text-anchor="middle" font-size="9" fill="#475569">1 thread</text>
+
+    <!-- Processor 池 -->
+    <g>
+      <rect class="at-hover-card" x="180" y="115" width="60" height="40" rx="6" fill="#d1fae5" stroke="#10b981"/>
+      <text x="210" y="132" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">P 1</text>
+      <text x="210" y="148" text-anchor="middle" font-size="9" fill="#065f46">N=3</text>
+
+      <rect class="at-hover-card" x="245" y="115" width="60" height="40" rx="6" fill="#d1fae5" stroke="#10b981"/>
+      <text x="275" y="132" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">P 2</text>
+      <text x="275" y="148" text-anchor="middle" font-size="9" fill="#065f46">N=3</text>
+
+      <rect class="at-hover-card" x="310" y="115" width="60" height="40" rx="6" fill="#d1fae5" stroke="#10b981"/>
+      <text x="340" y="132" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">P 3</text>
+      <text x="340" y="148" text-anchor="middle" font-size="9" fill="#065f46">N=3</text>
+    </g>
+
+    <!-- 连接箭头 -->
+    <line x1="160" y1="135" x2="180" y2="135" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrB)"/>
+    <text x="170" y="128" text-anchor="middle" font-size="9" fill="#1e40af">分发</text>
+
+    <!-- Request Queue -->
+    <rect class="at-hover-card" x="400" y="115" width="160" height="40" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="480" y="132" text-anchor="middle" font-size="11" font-weight="700" fill="#475569">Request Queue</text>
+    <text x="480" y="148" text-anchor="middle" font-size="9" fill="#475569">num.network.threads</text>
+
+    <!-- KafkaRequestHandler -->
+    <rect class="at-hover-card" x="40" y="195" width="520" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="60" y="218" font-size="11" font-weight="700" fill="#92400e">KafkaRequestHandler Pool（num.io.threads，默认 8）</text>
+
+    <!-- Response Queue -->
+    <rect class="at-hover-card" x="40" y="255" width="520" height="30" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="60" y="275" font-size="10" fill="#475569">Response Queue → Processor 异步写回 socket</text>
+
+    <!-- 路径箭头 -->
+    <line x1="370" y1="135" x2="400" y2="135" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+    <line x1="480" y1="155" x2="480" y2="195" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+    <line x1="60" y1="235" x2="60" y2="255" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+    <line x1="540" y1="235" x2="540" y2="255" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  </g>
+
+  <!-- 零拷贝流程 -->
+  <g>
+    <text x="60" y="310" font-size="13" font-weight="700" fill="#1e293b">零拷贝（Zero-Copy）：sendfile() / transferTo()</text>
+
+    <!-- 步骤 -->
+    <rect class="at-hover-card" x="40" y="330" width="100" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="90" y="350" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">磁盘</text>
+    <text x="90" y="368" text-anchor="middle" font-size="9" fill="#475569">log segment</text>
+
+    <line x1="140" y1="355" x2="170" y2="355" stroke="#10b981" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="170" y="330" width="100" height="50" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="220" y="350" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">PageCache</text>
+    <text x="220" y="368" text-anchor="middle" font-size="9" fill="#065f46">OS 内核</text>
+
+    <line x1="270" y1="355" x2="300" y2="355" stroke="#10b981" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="300" y="330" width="100" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="350" y="350" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Socket</text>
+    <text x="350" y="368" text-anchor="middle" font-size="9" fill="#92400e">网卡发送</text>
+
+    <line x1="400" y1="355" x2="430" y2="355" stroke="#10b981" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="430" y="330" width="130" height="50" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="495" y="350" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">Consumer</text>
+    <text x="495" y="368" text-anchor="middle" font-size="9" fill="#065f46">零 JVM 拷贝</text>
+
+    <text x="300" y="395" text-anchor="middle" font-size="10" fill="#10b981" font-weight="700">DMA → DMA（全程不经 JVM 用户态）</text>
+    <text x="300" y="410" text-anchor="middle" font-size="9" fill="#475569">传统：4 次上下文切换 + 4 次拷贝 → sendfile：2 次 DMA + 1 次 CPU 拷贝</text>
+  </g>
+
+  <!-- 关键调优 -->
+  <g>
+    <rect class="at-hover-card" x="40" y="430" width="525" height="40" rx="6" fill="#fef9c3" stroke="#facc15"/>
+    <text x="60" y="450" font-size="11" font-weight="700" fill="#854d0e">关键参数：</text>
+    <text x="60" y="465" font-size="11" font-family="monospace" fill="#854d0e">num.network.threads=3 · num.io.threads=8 · socket.send.buffer.bytes=1MB · socket.receive.buffer.bytes=1MB</text>
+  </g>
+</svg>
 ## 🚀 性能优化 6 大秘诀
 
 ### 1. 顺序写盘

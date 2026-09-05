@@ -51,8 +51,105 @@ Follower Replica
   - 备用 Leader
 ```
 
-![Kafka ISR 与副本同步机制](/kafka-isr-replica-sync.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+    <marker id="arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Kafka ISR 与副本同步机制</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">In-Sync Replicas · Leader Epoch · HW/LEO · replica.lag.time.max.ms</text>
 
+  <!-- ISR 集合 -->
+  <g>
+    <text x="60" y="95" font-size="13" font-weight="700" fill="#1e293b">partition-0 副本集（replication.factor=3）</text>
+
+    <!-- Leader -->
+    <rect class="at-hover-card" x="60" y="115" width="120" height="60" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="120" y="138" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">Leader (B1)</text>
+    <text x="120" y="155" text-anchor="middle" font-size="10" fill="#475569">offset: 100</text>
+    <text x="120" y="170" text-anchor="middle" font-size="10" fill="#065f46" font-weight="700">★ ISR</text>
+
+    <!-- Follower 1 -->
+    <rect class="at-hover-card" x="220" y="115" width="120" height="60" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="280" y="138" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">Follower (B2)</text>
+    <text x="280" y="155" text-anchor="middle" font-size="10" fill="#475569">offset: 100</text>
+    <text x="280" y="170" text-anchor="middle" font-size="10" fill="#065f46" font-weight="700">★ ISR</text>
+
+    <!-- Follower 2 (lagging) -->
+    <rect class="at-hover-card" x="380" y="115" width="120" height="60" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4"/>
+    <text x="440" y="138" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">Follower (B3)</text>
+    <text x="440" y="155" text-anchor="middle" font-size="10" fill="#475569">offset: 95 (落后 5)</text>
+    <text x="440" y="170" text-anchor="middle" font-size="10" fill="#dc2626" font-weight="700">× OUT of ISR</text>
+
+    <!-- 同步箭头 -->
+    <line x1="180" y1="135" x2="220" y2="135" stroke="#10b981" stroke-width="1.5" marker-end="url(#arrG)"/>
+    <text x="200" y="128" text-anchor="middle" font-size="9" fill="#065f46">fetch</text>
+    <line x1="180" y1="155" x2="380" y2="155" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrR)" stroke-dasharray="3"/>
+    <text x="280" y="148" text-anchor="middle" font-size="9" fill="#dc2626">慢 → 被踢出 ISR</text>
+  </g>
+
+  <!-- HW/LEO -->
+  <g>
+    <text x="60" y="205" font-size="13" font-weight="700" fill="#1e293b">HW（High Watermark）与 LEO</text>
+
+    <rect class="at-hover-card" x="60" y="225" width="480" height="70" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="80" y="248" font-size="11" fill="#475569">Log segments（offset 90 → 100）</text>
+
+    <!-- 9 个格子 -->
+    <g font-family="monospace" font-size="9">
+      <rect x="80" y="258" width="48" height="28" fill="#ffffff" stroke="#cbd5e1"/>
+      <text x="104" y="276" text-anchor="middle" fill="#64748b">90</text>
+      <rect x="130" y="258" width="48" height="28" fill="#dbeafe" stroke="#3b82f6"/>
+      <text x="154" y="276" text-anchor="middle" fill="#1e40af">91</text>
+      <rect x="180" y="258" width="48" height="28" fill="#dbeafe" stroke="#3b82f6"/>
+      <text x="204" y="276" text-anchor="middle" fill="#1e40af">92</text>
+      <rect x="230" y="258" width="48" height="28" fill="#dbeafe" stroke="#3b82f6"/>
+      <text x="254" y="276" text-anchor="middle" fill="#1e40af">93</text>
+      <rect x="280" y="258" width="48" height="28" fill="#dbeafe" stroke="#3b82f6"/>
+      <text x="304" y="276" text-anchor="middle" fill="#1e40af">94</text>
+      <rect x="330" y="258" width="48" height="28" fill="#fef3c7" stroke="#f59e0b"/>
+      <text x="354" y="276" text-anchor="middle" fill="#92400e">95</text>
+      <rect x="380" y="258" width="48" height="28" fill="#fef3c7" stroke="#f59e0b"/>
+      <text x="404" y="276" text-anchor="middle" fill="#92400e">96</text>
+      <rect x="430" y="258" width="48" height="28" fill="#fef3c7" stroke="#f59e0b"/>
+      <text x="454" y="276" text-anchor="middle" fill="#92400e">97</text>
+      <rect x="480" y="258" width="48" height="28" fill="#f1f5f9" stroke="#cbd5e1" stroke-dasharray="3"/>
+      <text x="504" y="276" text-anchor="middle" fill="#94a3b8">98-100</text>
+    </g>
+
+    <!-- HW 线 -->
+    <line x1="475" y1="248" x2="475" y2="295" stroke="#dc2626" stroke-width="2" stroke-dasharray="4"/>
+    <text x="475" y="245" text-anchor="middle" font-size="10" font-weight="700" fill="#dc2626">HW=95</text>
+    <text x="475" y="307" text-anchor="middle" font-size="9" fill="#dc2626">Consumer 可见上限</text>
+  </g>
+
+  <!-- Leader Epoch 防脑裂 -->
+  <g>
+    <text x="60" y="325" font-size="13" font-weight="700" fill="#1e293b">Leader Epoch 防脑裂（旧 Leader 复活场景）</text>
+
+    <rect class="at-hover-card" x="60" y="345" width="480" height="100" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+
+    <text x="80" y="367" font-size="11" fill="#475569">t=0  L=B1, epoch=1, HW=100</text>
+    <text x="80" y="385" font-size="11" fill="#dc2626">t=10  B1 宕机</text>
+    <text x="80" y="403" font-size="11" fill="#475569">t=15  B2 晋升 Leader, epoch=2, HW=100</text>
+    <text x="80" y="421" font-size="11" fill="#475569">t=20  B1 复活 → 携带 epoch=1 请求写入</text>
+    <text x="80" y="439" font-size="11" fill="#10b981" font-weight="700">     B2 拒绝（epoch=2 &gt; 1）→ 自动 step down → 重新加入 ISR</text>
+  </g>
+
+  <!-- 关键配置 -->
+  <g>
+    <rect class="at-hover-card" x="40" y="455" width="520" height="20" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="60" y="470" font-size="11" font-weight="700" fill="#1e40af">关键配置：acks=all · min.insync.replicas=2 · replica.lag.time.max.ms=30000 · unclean.leader.election.enable=false</text>
+  </g>
+</svg>
 ## 🔄 副本同步流程
 
 ### Follower 拉取同步
@@ -156,8 +253,92 @@ Producer 发送 m6 → Leader 写入 → Follower 未同步
 Consumer.poll() 读取 → 只看到 m0~m4（HW 边界）
 ```
 
-![Kafka Unclean Leader Election](/kafka-unclean-leader-election.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Kafka Unclean Leader Election</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">可用性 vs 一致性 · 丢数据 vs 不可服务</text>
 
+  <!-- 概念 -->
+  <g>
+    <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">① ISR / OSR / Leader 关系</text>
+
+    <rect class="at-hover-card" x="40" y="105" width="520" height="100" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+
+    <rect class="at-hover-card" x="55" y="120" width="160" height="70" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="135" y="140" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">ISR (in-sync)</text>
+    <text x="135" y="158" text-anchor="middle" font-size="9" fill="#475569">同步副本集</text>
+    <text x="135" y="175" text-anchor="middle" font-size="9" fill="#475569">可被选为 Leader</text>
+    <text x="135" y="187" text-anchor="middle" font-size="9" font-weight="700" fill="#065f46">推荐 ✅</text>
+
+    <rect class="at-hover-card" x="225" y="120" width="160" height="70" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="305" y="140" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">OSR (out-of-sync)</text>
+    <text x="305" y="158" text-anchor="middle" font-size="9" fill="#475569">落后副本</text>
+    <text x="305" y="175" text-anchor="middle" font-size="9" fill="#475569">默认不可被选</text>
+    <text x="305" y="187" text-anchor="middle" font-size="9" font-weight="700" fill="#92400e">需 unclean 开启</text>
+
+    <rect class="at-hover-card" x="395" y="120" width="160" height="70" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="475" y="140" text-anchor="middle" font-size="11" font-weight="700" fill="#991b1b">unclean 开启</text>
+    <text x="475" y="158" text-anchor="middle" font-size="9" fill="#475569">允许 OSR 选 Leader</text>
+    <text x="475" y="175" text-anchor="middle" font-size="9" fill="#475569">→ 高可用</text>
+    <text x="475" y="187" text-anchor="middle" font-size="9" font-weight="700" fill="#dc2626">⚠️ 丢数据风险</text>
+  </g>
+
+  <!-- 故障场景 -->
+  <g>
+    <text x="60" y="225" font-size="13" font-weight="700" fill="#1e293b">② 场景：Leader 宕机 + ISR 全挂</text>
+
+    <rect class="at-hover-card" x="40" y="240" width="520" height="100" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+
+    <rect class="at-hover-card" x="60" y="255" width="60" height="35" rx="3" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="90" y="270" text-anchor="middle" font-size="9" font-weight="700" fill="#991b1b">L0</text>
+    <text x="90" y="285" text-anchor="middle" font-size="8" fill="#475569">Leader</text>
+    <text x="90" y="297" text-anchor="middle" font-size="8" fill="#475569">宕</text>
+
+    <rect class="at-hover-card" x="140" y="255" width="60" height="35" rx="3" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="170" y="270" text-anchor="middle" font-size="9" font-weight="700" fill="#991b1b">F1</text>
+    <text x="170" y="285" text-anchor="middle" font-size="8" fill="#475569">Follower</text>
+    <text x="170" y="297" text-anchor="middle" font-size="8" fill="#475569">宕</text>
+
+    <rect class="at-hover-card" x="220" y="255" width="60" height="35" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="250" y="270" text-anchor="middle" font-size="9" font-weight="700" fill="#92400e">F2</text>
+    <text x="250" y="285" text-anchor="middle" font-size="8" fill="#475569">Follower</text>
+    <text x="250" y="297" text-anchor="middle" font-size="8" fill="#475569">OSR</text>
+
+    <rect class="at-hover-card" x="300" y="255" width="60" height="35" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="330" y="270" text-anchor="middle" font-size="9" font-weight="700" fill="#92400e">F3</text>
+    <text x="330" y="285" text-anchor="middle" font-size="8" fill="#475569">Follower</text>
+    <text x="330" y="297" text-anchor="middle" font-size="8" fill="#475569">OSR</text>
+
+    <text x="380" y="270" font-size="10" font-weight="700" fill="#1e293b">ISR = {}</text>
+    <text x="380" y="290" font-size="9" fill="#475569">所有 in-sync 副本都不可用</text>
+
+    <text x="60" y="320" font-size="10" fill="#475569">⚠️ 此时若不允许 unclean：partition 不可用，等待 OSR 追上</text>
+  </g>
+
+  <!-- 决策 -->
+  <g>
+    <text x="60" y="358" font-size="13" font-weight="700" fill="#1e293b">③ 两种策略对比</text>
+
+    <rect class="at-hover-card" x="40" y="373" width="250" height="90" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="165" y="393" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">unclean.leader.election.enable=false（默认）</text>
+    <text x="55" y="413" font-size="10" font-weight="700" fill="#1e293b">✅ 强一致</text>
+    <text x="55" y="430" font-size="9" fill="#475569">ISR 全挂时拒绝选主</text>
+    <text x="55" y="445" font-size="9" fill="#475569">→ partition 不可用</text>
+    <text x="55" y="458" font-size="9" fill="#475569">→ 等待 F2/F3 追上</text>
+
+    <rect class="at-hover-card" x="310" y="373" width="250" height="90" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="435" y="393" text-anchor="middle" font-size="12" font-weight="700" fill="#991b1b">unclean.leader.election.enable=true</text>
+    <text x="325" y="413" font-size="10" font-weight="700" fill="#1e293b">✅ 高可用</text>
+    <text x="325" y="430" font-size="9" fill="#475569">F2/F3 直接被选为 Leader</text>
+    <text x="325" y="445" font-size="9" fill="#dc2626">⚠️ 丢失 L0/F1 未同步消息</text>
+    <text x="325" y="458" font-size="9" fill="#475569">→ 适合：日志可重建</text>
+  </g>
+</svg>
 ## ⚠️ 副本同步异常场景
 
 ### 场景 1：Follower 落后

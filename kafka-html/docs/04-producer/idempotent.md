@@ -7,8 +7,92 @@ date: 2026-08-15  # date-auto-injected
 
 > 默认情况下，Producer 可能因为**重试**发送**重复消息**。Kafka 0.11+ 引入**幂等性（Idempotence）**机制，保证消息**精确一次（Exactly Once）**。
 
-![Kafka Idempotent Producer](/kafka-idempotent-producer.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Kafka 幂等 Producer + EOS</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">PID + Sequence · Broker 去重 · Exactly-Once 三件套</text>
 
+  <!-- 重复问题 -->
+  <g>
+    <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">① 为什么会有重复？</text>
+
+    <rect class="at-hover-card" x="40" y="105" width="520" height="65" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="60" y="125" font-size="10" font-weight="700" fill="#991b1b">Producer 发送 → Broker 写盘 → ACK 丢失</text>
+    <text x="60" y="143" font-size="10" fill="#475569">→ Producer 重试（at-least-once）→ 重复消息</text>
+    <text x="60" y="161" font-size="9" fill="#475569">影响：金融扣款、库存扣减、订单状态机（同一操作执行多次）</text>
+  </g>
+
+  <!-- 幂等原理 -->
+  <g>
+    <text x="60" y="188" font-size="13" font-weight="700" fill="#1e293b">② 幂等性原理：PID + Sequence + 去重</text>
+
+    <rect class="at-hover-card" x="40" y="200" width="520" height="135" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+
+    <!-- Producer -->
+    <rect class="at-hover-card" x="55" y="215" width="120" height="100" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="115" y="234" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Producer</text>
+    <text x="65" y="252" font-size="9" font-family="monospace" fill="#1e293b">PID: 9001</text>
+    <text x="65" y="266" font-size="9" font-family="monospace" fill="#1e293b">seq: 0, 1, 2, 3...</text>
+    <text x="65" y="282" font-size="9" fill="#475569">enable.idempotence=true</text>
+    <text x="65" y="297" font-size="9" fill="#475569">acks=all</text>
+    <text x="65" y="312" font-size="9" fill="#475569">max.in.flight ≤ 5</text>
+
+    <path d="M 175 265 L 215 265" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="195" y="258" font-size="8" fill="#475569" text-anchor="middle">消息</text>
+
+    <!-- Broker -->
+    <rect class="at-hover-card" x="215" y="215" width="140" height="100" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="285" y="234" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">Broker</text>
+    <text x="225" y="252" font-size="9" font-family="monospace" fill="#1e293b">dedup buffer</text>
+    <text x="225" y="266" font-size="9" font-family="monospace" fill="#1e293b">PID=9001, seq ≤ 2</text>
+    <text x="225" y="285" font-size="9" fill="#475569">收到 seq=2 → 接受</text>
+    <text x="225" y="300" font-size="9" fill="#475569">再收 seq=2 → 丢弃</text>
+    <text x="225" y="315" font-size="9" fill="#dc2626">broker 端去重</text>
+
+    <path d="M 355 265 L 395 265" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="375" y="258" font-size="8" fill="#475569" text-anchor="middle">commit</text>
+
+    <!-- 存储 -->
+    <rect class="at-hover-card" x="395" y="215" width="150" height="100" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="470" y="234" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Log</text>
+    <text x="405" y="252" font-size="9" font-family="monospace" fill="#1e293b">offset: 100</text>
+    <text x="405" y="266" font-size="9" font-family="monospace" fill="#1e293b">seq: 0  1  2  3</text>
+    <text x="405" y="285" font-size="9" fill="#475569">每条消息唯一</text>
+    <text x="405" y="300" font-size="9" fill="#475569">保证不重复</text>
+    <text x="405" y="315" font-size="9" fill="#475569">仅单分区有序</text>
+  </g>
+
+  <!-- EOS 三件套 -->
+  <g>
+    <text x="60" y="355" font-size="13" font-weight="700" fill="#1e293b">③ EOS 端到端三件套（kafka-transactional-api）</text>
+
+    <rect class="at-hover-card" x="40" y="370" width="170" height="95" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="125" y="388" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">幂等 Producer</text>
+    <text x="55" y="406" font-size="9" fill="#475569">PID + sequence</text>
+    <text x="55" y="420" font-size="9" fill="#475569">broker 去重</text>
+    <text x="55" y="436" font-size="9" fill="#475569">防 producer 重试重复</text>
+    <text x="55" y="452" font-size="9" fill="#475569">单分区作用域</text>
+
+    <rect class="at-hover-card" x="220" y="370" width="170" height="95" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="305" y="388" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">Transactional API</text>
+    <text x="235" y="406" font-size="9" fill="#475569">initTransactions()</text>
+    <text x="235" y="420" font-size="9" fill="#475569">beginTransaction()</text>
+    <text x="235" y="436" font-size="9" fill="#475569">commit/abort</text>
+    <text x="235" y="452" font-size="9" fill="#475569">跨分区 / topic</text>
+
+    <rect class="at-hover-card" x="400" y="370" width="160" height="95" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="480" y="388" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Read Committed</text>
+    <text x="415" y="406" font-size="9" fill="#475569">consumer 配置</text>
+    <text x="415" y="420" font-size="9" fill="#475569">isolation.level</text>
+    <text x="415" y="436" font-size="9" fill="#475569">过滤未提交消息</text>
+    <text x="415" y="452" font-size="9" fill="#475569">abort 消息不可见</text>
+  </g>
+</svg>
 ## 🎯 什么是消息重复？
 
 ```

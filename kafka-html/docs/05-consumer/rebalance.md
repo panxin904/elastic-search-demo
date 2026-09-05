@@ -556,10 +556,177 @@ long lastRebalanceTimestampMs;       // 上次 Rebalance 时间
 
 <!-- svg-injected:do-not-edit -->
 
-![partition rebalance](/partition-rebalance.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Kafka Consumer Group Rebalance</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Range / RoundRobin / Sticky · Group Coordinator</text>
 
+  <!-- 4 阶段 -->
+  <g font-size="11" font-weight="600">
+    <rect class="at-hover-card" x="40" y="100" width="125" height="45" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="102" y="120" text-anchor="middle" font-weight="700" fill="#1e3a8a">1. 触发</text>
+    <text x="102" y="135" text-anchor="middle" fill="#1e40af">成员变更 / 订阅变更</text>
+
+    <rect class="at-hover-card" x="180" y="100" width="125" height="45" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <text x="242" y="120" text-anchor="middle" font-weight="700" fill="#064e3b">2. 同步组</text>
+    <text x="242" y="135" text-anchor="middle" fill="#065f46">JoinGroup 协议</text>
+
+    <rect class="at-hover-card" x="320" y="100" width="125" height="45" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="382" y="120" text-anchor="middle" font-weight="700" fill="#92400e">3. 分配方案</text>
+    <text x="382" y="135" text-anchor="middle" fill="#78350f">分区再分配</text>
+
+    <rect class="at-hover-card" x="460" y="100" width="100" height="45" rx="6" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+    <text x="510" y="120" text-anchor="middle" font-weight="700" fill="#9f1239">4. 同步</text>
+    <text x="510" y="135" text-anchor="middle" fill="#9d174d">SyncGroup</text>
+  </g>
+
+  <!-- 箭头 -->
+  <g stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <line x1="165" y1="122" x2="180" y2="122"/>
+    <line x1="305" y1="122" x2="320" y2="122"/>
+    <line x1="445" y1="122" x2="460" y2="122"/>
+  </g>
+
+  <!-- 分区分配对比 -->
+  <g font-size="11" font-weight="600">
+    <text x="40" y="180" fill="#1e293b">3 种分配策略对比：</text>
+
+    <rect class="at-hover-card" x="40" y="190" width="160" height="65" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+    <text x="120" y="210" text-anchor="middle" font-weight="700" fill="#92400e">Range（默认）</text>
+    <text x="120" y="228" text-anchor="middle" fill="#78350f">按 topic 分段</text>
+    <text x="120" y="245" text-anchor="middle" fill="#78350f">前 N 个 consumer 多分 1 个</text>
+
+    <rect class="at-hover-card" x="220" y="190" width="160" height="65" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
+    <text x="300" y="210" text-anchor="middle" font-weight="700" fill="#064e3b">RoundRobin</text>
+    <text x="300" y="228" text-anchor="middle" fill="#065f46">全 topic 全 partition</text>
+    <text x="300" y="245" text-anchor="middle" fill="#065f46">轮询分配 · 最均匀</text>
+
+    <rect class="at-hover-card" x="400" y="190" width="160" height="65" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+    <text x="480" y="210" text-anchor="middle" font-weight="700" fill="#1e3a8a">Sticky（Kafka）</text>
+    <text x="480" y="228" text-anchor="middle" fill="#1e40af">保留原分配</text>
+    <text x="480" y="245" text-anchor="middle" fill="#1e40af">最小化分区迁移</text>
+  </g>
+
+  <!-- Stop-the-world 警告 -->
+  <g font-size="12">
+    <rect class="at-hover-card" x="40" y="280" width="520" height="70" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="60" y="302" font-weight="700" fill="#7f1d1d">⚠ Rebalance 期间消费暂停（Eager 协议）</text>
+    <text x="60" y="322" fill="#991b1b">所有 consumer 停止拉取 → 重新加入 → 重新分配 → 恢复</text>
+    <text x="60" y="340" fill="#991b1b">耗时与 partition 数 / consumer 数相关，大集群可能分钟级</text>
+  </g>
+
+  <!-- 优化建议 -->
+  <g font-size="11">
+    <rect class="at-hover-card" x="50" y="370" width="500" height="80" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <text x="300" y="390" text-anchor="middle" font-weight="700" fill="#1e293b">优化方向</text>
+    <text x="60" y="410" fill="#475569">✓ partition.assignors = [CooperativeSticky]</text>
+    <text x="320" y="410" fill="#475569">✓ 增量协作（只迁移受影响）</text>
+    <text x="60" y="428" fill="#475569">✓ session.timeout.ms 调长（避免心跳抖动）</text>
+    <text x="320" y="428" fill="#475569">✓ max.poll.interval.ms 调长</text>
+    <text x="60" y="445" fill="#475569">✓ 静态成员（KIP-345）· 重连不重平衡</text>
+    <text x="320" y="445" fill="#475569">✓ 单 partition 多 consumer 需谨慎</text>
+  </g>
+</svg>
 <!-- svg-injected:do-not-edit -->
 
 ## 图示：Kafka Consumer Rebalance 时序（JoinGroup→SyncGroup）
 
-![Kafka Consumer Rebalance 时序（JoinGroup→SyncGroup）](/kafka-rebalance-protocol.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Kafka 消费者 Rebalance 协议</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Eager / Cooperative / Range / RoundRobin · 触发条件</text>
+
+  <!-- 触发条件 -->
+  <g>
+    <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">① 触发 Rebalance 的 4 类事件</text>
+
+    <rect class="at-hover-card" x="40" y="105" width="520" height="100" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+
+    <rect class="at-hover-card" x="55" y="120" width="115" height="70" rx="4" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="112" y="138" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">新消费者</text>
+    <text x="112" y="156" text-anchor="middle" font-size="9" fill="#475569">加入 group</text>
+    <text x="112" y="172" text-anchor="middle" font-size="9" fill="#475569">加入分区</text>
+    <text x="112" y="186" text-anchor="middle" font-size="8" fill="#475569">数量变化</text>
+
+    <rect class="at-hover-card" x="180" y="120" width="115" height="70" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="237" y="138" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">消费者离开</text>
+    <text x="237" y="156" text-anchor="middle" font-size="9" fill="#475569">crash / close</text>
+    <text x="237" y="172" text-anchor="middle" font-size="9" fill="#475569">数量变化</text>
+
+    <rect class="at-hover-card" x="305" y="120" width="115" height="70" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="362" y="138" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">分区数变化</text>
+    <text x="362" y="156" text-anchor="middle" font-size="9" fill="#475569">topic 扩分区</text>
+    <text x="362" y="172" text-anchor="middle" font-size="9" fill="#475569">订阅变化</text>
+
+    <rect class="at-hover-card" x="430" y="120" width="120" height="70" rx="4" fill="#dcfce7" stroke="#10b981"/>
+    <text x="490" y="138" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">心跳超时</text>
+    <text x="490" y="156" text-anchor="middle" font-size="9" fill="#475569">session.timeout.ms</text>
+    <text x="490" y="172" text-anchor="middle" font-size="9" fill="#475569">默认 10s</text>
+    <text x="490" y="186" text-anchor="middle" font-size="8" fill="#475569">Group Coordinator</text>
+  </g>
+
+  <!-- Eager vs Cooperative -->
+  <g>
+    <text x="60" y="225" font-size="13" font-weight="700" fill="#1e293b">② Eager (stop-the-world) vs Cooperative (增量)</text>
+
+    <rect class="at-hover-card" x="40" y="240" width="250" height="125" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="165" y="260" text-anchor="middle" font-size="12" font-weight="700" fill="#991b1b">Eager (RangeAssignor)</text>
+    <text x="55" y="282" font-size="10" fill="#475569">• 所有 consumer 撤销所有分区</text>
+    <text x="55" y="298" font-size="10" fill="#475569">• 全部停止拉取（STW）</text>
+    <text x="55" y="314" font-size="10" fill="#475569">• 重新分配后再启动</text>
+    <text x="55" y="332" font-size="10" font-weight="700" fill="#dc2626">⚠️ 长尾延迟（slowest）</text>
+    <text x="55" y="350" font-size="9" font-family="monospace" fill="#1e293b">partition.assignment.strategy</text>
+    <text x="55" y="362" font-size="9" font-family="monospace" fill="#1e293b">= range/roundrobin</text>
+
+    <rect class="at-hover-card" x="310" y="240" width="250" height="125" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="435" y="260" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">Cooperative (增量)</text>
+    <text x="325" y="282" font-size="10" fill="#475569">• 只迁移需要变动的分区</text>
+    <text x="325" y="298" font-size="10" fill="#475569">• 其余 consumer 继续工作</text>
+    <text x="325" y="314" font-size="10" fill="#475569">• 渐进式再平衡</text>
+    <text x="325" y="332" font-size="10" font-weight="700" fill="#065f46">✅ 抖动小</text>
+    <text x="325" y="350" font-size="9" font-family="monospace" fill="#1e293b">CooperativeSticky</text>
+    <text x="325" y="362" font-size="9" font-family="monospace" fill="#1e293b">StickyAssignor</text>
+  </g>
+
+  <!-- 流程 -->
+  <g>
+    <text x="60" y="385" font-size="13" font-weight="700" fill="#1e293b">③ Rebalance 协议流程（4 步）</text>
+
+    <rect class="at-hover-card" x="40" y="398" width="520" height="68" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+
+    <rect class="at-hover-card" x="55" y="412" width="110" height="42" rx="3" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="110" y="430" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">1. JOIN</text>
+    <text x="110" y="445" text-anchor="middle" font-size="8" fill="#475569">发送 JoinGroup</text>
+
+    <path d="M 165 433 L 195 433" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="195" y="412" width="110" height="42" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="250" y="430" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">2. SYNC</text>
+    <text x="250" y="445" text-anchor="middle" font-size="8" fill="#475569">SyncGroup 同步</text>
+
+    <path d="M 305 433 L 335 433" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="335" y="412" width="110" height="42" rx="3" fill="#dcfce7" stroke="#10b981"/>
+    <text x="390" y="430" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">3. ASSIGN</text>
+    <text x="390" y="445" text-anchor="middle" font-size="8" fill="#475569">分配分区</text>
+
+    <path d="M 445 433 L 475 433" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="475" y="412" width="75" height="42" rx="3" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="512" y="430" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">4. FETCH</text>
+    <text x="512" y="445" text-anchor="middle" font-size="8" fill="#475569">重新消费</text>
+  </g>
+</svg>

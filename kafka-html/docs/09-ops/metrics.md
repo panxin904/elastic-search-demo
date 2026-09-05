@@ -7,8 +7,84 @@ date: 2026-08-15  # date-auto-injected
 
 > **Kafka 监控指标**是保障集群健康的基础。本章详解所有关键指标的采集、监控和告警。
 
-![Kafka Quota Throttle](/kafka-quota-throttle.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Kafka Quota 流控机制</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">producer/consumer/request 三种配额 · 令牌桶 · client.id 维度</text>
 
+  <!-- 三种配额类型 -->
+  <g>
+    <text x="60" y="95" font-size="13" font-weight="700" fill="#1e293b">三类配额（broker 端 enforce）</text>
+
+    <!-- Producer quota -->
+    <rect class="at-hover-card" x="40" y="115" width="165" height="120" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="122" y="138" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">Producer 配额</text>
+    <text x="60" y="160" font-size="10" fill="#475569">byte_rate / request_rate</text>
+    <text x="60" y="180" font-size="10" fill="#475569">key:</text>
+    <text x="60" y="195" font-size="10" font-family="monospace" fill="#1e2937">producer_byte_rate</text>
+    <text x="60" y="210" font-size="10" font-family="monospace" fill="#1e2937">producer_byte_rate=10485760</text>
+    <text x="60" y="226" text-anchor="middle" font-size="10" fill="#10b981" font-weight="700">10MB/s 默认</text>
+
+    <!-- Consumer quota -->
+    <rect class="at-hover-card" x="220" y="115" width="165" height="120" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="302" y="138" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">Consumer 配额</text>
+    <text x="240" y="160" font-size="10" fill="#475569">fetch byte_rate</text>
+    <text x="240" y="180" font-size="10" fill="#475569">key:</text>
+    <text x="240" y="195" font-size="10" font-family="monospace" fill="#1e2937">consumer_byte_rate</text>
+    <text x="240" y="210" font-size="10" font-family="monospace" fill="#1e2937">consumer_byte_rate=5242880</text>
+    <text x="302" y="226" text-anchor="middle" font-size="10" fill="#10b981" font-weight="700">5MB/s 默认</text>
+
+    <!-- Request quota -->
+    <rect class="at-hover-card" x="400" y="115" width="165" height="120" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="482" y="138" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">Request 配额</text>
+    <text x="420" y="160" font-size="10" fill="#475569">CPU 时间占比</text>
+    <text x="420" y="180" font-size="10" fill="#475569">key:</text>
+    <text x="420" y="195" font-size="10" font-family="monospace" fill="#1e2937">request_percentage</text>
+    <text x="420" y="210" font-size="10" font-family="monospace" fill="#1e2937">request_percentage=25</text>
+    <text x="482" y="226" text-anchor="middle" font-size="10" fill="#10b981" font-weight="700">25% CPU 默认</text>
+  </g>
+
+  <!-- 令牌桶算法 -->
+  <g>
+    <text x="60" y="260" font-size="13" font-weight="700" fill="#1e293b">令牌桶算法（Token Bucket）</text>
+
+    <rect class="at-hover-card" x="40" y="280" width="525" height="100" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+
+    <!-- 令牌桶 -->
+    <rect class="at-hover-card" x="60" y="305" width="100" height="60" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="110" y="325" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">令牌桶</text>
+    <text x="110" y="345" text-anchor="middle" font-size="9" fill="#475569">容量 = byte_rate</text>
+
+    <!-- 令牌流入 -->
+    <line x1="200" y1="320" x2="160" y2="320" stroke="#10b981" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="180" y="313" text-anchor="middle" font-size="10" fill="#10b981" font-weight="700">补令牌</text>
+
+    <!-- 流出（限流） -->
+    <line x1="160" y1="345" x2="200" y2="345" stroke="#dc2626" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="180" y="365" text-anchor="middle" font-size="10" fill="#dc2626" font-weight="700">请求消费</text>
+
+    <!-- 解释 -->
+    <text x="220" y="305" font-size="11" fill="#475569">每个 client.id 维护独立令牌桶</text>
+    <text x="220" y="322" font-size="11" fill="#475569">• 桶容量 = 配置的 byte_rate</text>
+    <text x="220" y="339" font-size="11" fill="#475569">• 每秒补充 byte_rate/second 个令牌</text>
+    <text x="220" y="356" font-size="11" fill="#475569">• 请求所需令牌 = 请求字节数</text>
+    <text x="220" y="373" font-size="11" fill="#dc2626" font-weight="700">• 令牌不足 → 抛 throttling 异常</text>
+  </g>
+
+  <!-- 动态修改 -->
+  <g>
+    <text x="60" y="405" font-size="13" font-weight="700" fill="#1e293b">动态修改 + 错误处理</text>
+
+    <rect class="at-hover-card" x="40" y="420" width="525" height="50" rx="6" fill="#1f2937"/>
+    <text x="60" y="438" font-size="11" font-family="monospace" fill="#86efac">kafka-configs.sh --alter --add-config 'producer_byte_rate=20971520' --entity-type clients</text>
+    <text x="60" y="455" font-size="10" font-family="monospace" fill="#a5f3fc">客户端 Java: catch QuotaExceededException → 退避重试（指数）</text>
+  </g>
+</svg>
 ## 🎯 监控层次
 
 ```

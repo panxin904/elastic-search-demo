@@ -6,12 +6,164 @@ date: 2026-08-15  # date-auto-injected
 # 📦 5 大基础类型
 
 
-![Redis 五大数据类型 + 底层编码](/redis-data-structures.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Redis 5 大数据类型</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">底层编码 · sds / listpack / skiplist</text>
 
+  <g font-size="11" font-weight="700">
+    <!-- String -->
+    <rect class="at-hover-card" x="40" y="100" width="100" height="100" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="90" y="120" text-anchor="middle" font-size="12" fill="#1e3a8a">String</text>
+    <text x="90" y="140" text-anchor="middle" font-size="10" fill="#1e40af">SET / GET</text>
+    <text x="90" y="158" text-anchor="middle" font-size="9" fill="#3b82f6">int / embstr</text>
+    <text x="90" y="172" font-size="9" fill="#3b82f6" text-anchor="middle">raw</text>
+    <text x="90" y="190" text-anchor="middle" font-size="9" fill="#1e40af">场景：缓存</text>
+
+    <!-- Hash -->
+    <rect class="at-hover-card" x="160" y="100" width="100" height="100" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="210" y="120" text-anchor="middle" font-size="12" fill="#064e3b">Hash</text>
+    <text x="210" y="140" text-anchor="middle" font-size="10" fill="#065f46">HSET / HGET</text>
+    <text x="210" y="158" text-anchor="middle" font-size="9" fill="#10b981">listpack</text>
+    <text x="210" y="172" font-size="9" fill="#10b981" text-anchor="middle">hashtable</text>
+    <text x="210" y="190" text-anchor="middle" font-size="9" fill="#065f46">场景：对象</text>
+
+    <!-- List -->
+    <rect class="at-hover-card" x="280" y="100" width="100" height="100" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="330" y="120" text-anchor="middle" font-size="12" fill="#92400e">List</text>
+    <text x="330" y="140" text-anchor="middle" font-size="10" fill="#78350f">LPUSH / RPOP</text>
+    <text x="330" y="158" text-anchor="middle" font-size="9" fill="#f59e0b">listpack</text>
+    <text x="330" y="172" font-size="9" fill="#f59e0b" text-anchor="middle">quicklist</text>
+    <text x="330" y="190" text-anchor="middle" font-size="9" fill="#78350f">场景：队列</text>
+
+    <!-- Set -->
+    <rect class="at-hover-card" x="400" y="100" width="100" height="100" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+    <text x="450" y="120" text-anchor="middle" font-size="12" fill="#9f1239">Set</text>
+    <text x="450" y="140" text-anchor="middle" font-size="10" fill="#9d174d">SADD / SMEMBERS</text>
+    <text x="450" y="158" text-anchor="middle" font-size="9" fill="#ec4899">intset</text>
+    <text x="450" y="172" font-size="9" fill="#ec4899" text-anchor="middle">hashtable</text>
+    <text x="450" y="190" text-anchor="middle" font-size="9" fill="#9d174d">场景：标签</text>
+
+    <!-- Sorted Set -->
+    <rect class="at-hover-card" x="100" y="240" width="200" height="100" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="200" y="260" text-anchor="middle" font-size="12" fill="#5b21b6">Sorted Set</text>
+    <text x="200" y="280" text-anchor="middle" font-size="10" fill="#6b21a8">ZADD / ZRANGEBYSCORE</text>
+    <text x="200" y="298" text-anchor="middle" font-size="9" fill="#8b5cf6">listpack + skiplist</text>
+    <text x="200" y="315" text-anchor="middle" font-size="9" fill="#6b21a8">场景：排行榜</text>
+    <text x="200" y="330" text-anchor="middle" font-size="9" fill="#6b21a8">延迟队列</text>
+
+    <!-- 高级 -->
+    <rect class="at-hover-card" x="320" y="240" width="200" height="100" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="420" y="260" text-anchor="middle" font-size="12" fill="#92400e">Stream / Bitmap / Geo</text>
+    <text x="420" y="280" text-anchor="middle" font-size="10" fill="#78350f">XADD / SETBIT / GEOADD</text>
+    <text x="420" y="298" text-anchor="middle" font-size="9" fill="#78350f">消息流 / 位图 / 地理位置</text>
+    <text x="420" y="315" text-anchor="middle" font-size="9" fill="#78350f">Redis 6+ 模块化</text>
+    <text x="420" y="330" text-anchor="middle" font-size="9" fill="#78350f">RedisJSON / RediSearch</text>
+  </g>
+
+  <!-- 底层编码说明 -->
+  <g font-size="11">
+    <rect class="at-hover-card" x="40" y="375" width="520" height="80" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+    <text x="300" y="395" text-anchor="middle" font-weight="700" fill="#1e293b">底层编码演进</text>
+    <text x="60" y="415" fill="#475569">SDS：Simple Dynamic String · 替代 C 字符串 · O(1) 取长度</text>
+    <text x="60" y="432" fill="#475569">listpack：紧凑列表 · 替代 ziplist · 节省内存</text>
+    <text x="60" y="449" fill="#475569">skiplist：跳跃表 · ZSet 排序 · 范围查询 O(logN)</text>
+    <text x="320" y="415" fill="#475569">embstr：≤44 字节内嵌 · 减少分配</text>
+    <text x="320" y="432" fill="#475569">quicklist：list + zlist 组合</text>
+    <text x="320" y="449" fill="#475569">编码自动切换 · 阈值由 redis.conf 配置</text>
+  </g>
+</svg>
 > Redis 不是简单的 key-value 缓存，**value 可以是 5 种不同的数据结构**，每种都针对特定场景优化。
 
-![Redis Geo Zset](/redis-geo-zset.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Redis GEO 地理位置</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Geohash 编码 + ZSet 存储 · 附近的人 / 餐厅搜索</text>
 
+  <!-- Geohash 原理 -->
+  <g>
+    <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">① Geohash 编码（二分 → Base32）</text>
+
+    <rect class="at-hover-card" x="40" y="105" width="520" height="120" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+
+    <!-- 经度 116.40, 纬度 39.90 -->
+    <text x="60" y="128" font-size="10" font-weight="700" fill="#1e293b">例：北京天安门 (116.40, 39.90)</text>
+
+    <rect class="at-hover-card" x="60" y="138" width="240" height="75" rx="3" fill="#1e293b"/>
+    <text x="75" y="155" font-size="9" font-family="monospace" fill="#a7f3d0">经度 [-180, 180] 二分:</text>
+    <text x="75" y="170" font-size="9" font-family="monospace" fill="#fde68a">116.40 ∈ [0, 180) → 1</text>
+    <text x="75" y="185" font-size="9" font-family="monospace" fill="#fde68a">116.40 ∈ [90, 180) → 1</text>
+    <text x="75" y="200" font-size="9" font-family="monospace" fill="#fde68a">...</text>
+    <text x="75" y="215" font-size="9" font-family="monospace" fill="#a7f3d0">纬度 [-90, 90] 同理</text>
+
+    <path d="M 300 175 L 335 175" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="335" y="138" width="210" height="75" rx="3" fill="#dcfce7" stroke="#10b981"/>
+    <text x="450" y="160" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">geohash = "wx4g8c"</text>
+    <text x="450" y="180" text-anchor="middle" font-size="9" font-family="monospace" fill="#1e293b">1101001110111011...</text>
+    <text x="450" y="197" text-anchor="middle" font-size="9" font-family="monospace" fill="#1e293b">→ base32 编码</text>
+    <text x="450" y="210" text-anchor="middle" font-size="8" fill="#475569">精度 ≈ 5m × 5m</text>
+  </g>
+
+  <!-- ZSet 存储 -->
+  <g>
+    <text x="60" y="245" font-size="13" font-weight="700" fill="#1e293b">② Redis 内部用 ZSet 存储（geohash 52-bit 整数）</text>
+
+    <rect class="at-hover-card" x="40" y="260" width="520" height="100" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+
+    <rect class="at-hover-card" x="55" y="275" width="140" height="70" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="125" y="295" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">ZSet 键</text>
+    <text x="125" y="313" text-anchor="middle" font-size="9" font-family="monospace" fill="#1e293b">"places:bj"</text>
+    <text x="125" y="330" text-anchor="middle" font-size="8" fill="#475569">score = geohash</text>
+    <text x="125" y="342" text-anchor="middle" font-size="8" fill="#475569">value = 地点名</text>
+
+    <path d="M 195 310 L 225 310" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="225" y="275" width="160" height="70" rx="4" fill="#dcfce7" stroke="#10b981"/>
+    <text x="305" y="293" text-anchor="middle" font-size="9" font-weight="700" fill="#065f46">ZSet 元素</text>
+    <text x="240" y="312" font-size="9" font-family="monospace" fill="#1e293b">天安门   4069865812</text>
+    <text x="240" y="325" font-size="9" font-family="monospace" fill="#1e293b">故宫     4069865522</text>
+    <text x="240" y="338" font-size="9" font-family="monospace" fill="#1e293b">国贸     4069871225</text>
+
+    <path d="M 385 310 L 415 310" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="415" y="275" width="135" height="70" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="482" y="293" text-anchor="middle" font-size="9" font-weight="700" fill="#92400e">跳表索引</text>
+    <text x="430" y="312" font-size="9" fill="#475569">范围查询 O(log N)</text>
+    <text x="430" y="325" font-size="9" fill="#475569">附近搜索：</text>
+    <text x="430" y="338" font-size="9" font-family="monospace" fill="#1e293b">ZRANGEBYSCORE</text>
+  </g>
+
+  <!-- 6 个核心命令 -->
+  <g>
+    <text x="60" y="380" font-size="13" font-weight="700" fill="#1e293b">③ 6 个核心命令</text>
+
+    <rect class="at-hover-card" x="40" y="395" width="250" height="70" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="60" y="412" font-size="9" font-family="monospace" fill="#1e293b">GEOADD k 116.40 39.90 place</text>
+    <text x="60" y="427" font-size="9" font-family="monospace" fill="#1e293b">GEODIST k p1 p2 [km]</text>
+    <text x="60" y="442" font-size="9" font-family="monospace" fill="#1e293b">GEOHASH k place</text>
+    <text x="60" y="457" font-size="9" font-family="monospace" fill="#1e293b">GEOPOS k place</text>
+
+    <rect class="at-hover-card" x="310" y="395" width="250" height="70" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="330" y="412" font-size="9" font-family="monospace" fill="#1e293b">GEOSEARCH k FROMLONLAT x y</text>
+    <text x="330" y="427" font-size="9" font-family="monospace" fill="#1e293b">  BYRADIUS 5 km</text>
+    <text x="330" y="442" font-size="9" font-family="monospace" fill="#1e293b">  WITHCOORD WITHDIST</text>
+    <text x="330" y="457" font-size="9" font-family="monospace" fill="#1e293b">GEORADIUS k 116.40 39.90 5 km</text>
+  </g>
+</svg>
 ## 🎯 5 大类型一览
 
 | 类型 | 描述 | 底层编码（Redis 7） | 适用场景 |

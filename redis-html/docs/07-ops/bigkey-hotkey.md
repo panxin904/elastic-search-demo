@@ -7,8 +7,87 @@ date: 2026-08-15  # date-auto-injected
 
 大 Key 和热 Key 是 Redis 运维的两大隐形炸弹。前者让运维动作"卡住"，后者让流量"打爆"。这一篇讲清楚怎么识别、怎么处理。
 
-![Redis Bigkey Detection](/redis-bigkey-detection.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Redis BigKey 发现与拆分</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">DEBUG OBJECT · MEMORY USAGE · redis-rdb-tools · 4 步拆分</text>
 
+  <!-- BigKey 危害 -->
+  <g>
+    <text x="50" y="90" font-size="13" font-weight="700" fill="#1e293b">① BigKey 危害（4 大痛点）</text>
+
+    <rect class="at-hover-card" x="40" y="100" width="125" height="80" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="102" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#991b1b">⏱ 阻塞</text>
+    <text x="55" y="142" font-size="10" fill="#475569">DEL 大 Key</text>
+    <text x="55" y="158" font-size="10" fill="#475569">单线程阻塞</text>
+    <text x="55" y="172" font-size="9" fill="#dc2626">整个 Redis 卡顿</text>
+
+    <rect class="at-hover-card" x="175" y="100" width="125" height="80" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="237" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">🌐 网络</text>
+    <text x="190" y="142" font-size="10" fill="#475569">HGETALL 1MB</text>
+    <text x="190" y="158" font-size="10" fill="#475569">单次返回过大</text>
+    <text x="190" y="172" font-size="9" fill="#f59e0b">带宽打满</text>
+
+    <rect class="at-hover-card" x="310" y="100" width="125" height="80" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="372" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">📦 倾斜</text>
+    <text x="325" y="142" font-size="10" fill="#475569">Cluster 模式下</text>
+    <text x="325" y="158" font-size="10" fill="#475569">大 Key 集中一个 slot</text>
+    <text x="325" y="172" font-size="9" fill="#3b82f6">节点倾斜</text>
+
+    <rect class="at-hover-card" x="445" y="100" width="125" height="80" rx="6" fill="#e9d5ff" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="507" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">💥 删除</text>
+    <text x="460" y="142" font-size="10" fill="#475569">RDB 生成时</text>
+    <text x="460" y="158" font-size="10" fill="#475569">大 Key 序列化阻塞</text>
+    <text x="460" y="172" font-size="9" fill="#7c3aed">fork 失败风险</text>
+  </g>
+
+  <!-- 3 种检测方法 -->
+  <g>
+    <text x="50" y="210" font-size="13" font-weight="700" fill="#1e293b">② 3 种检测方法（DEBUG OBJECT / MEMORY USAGE / rdb-tools）</text>
+
+    <rect class="at-hover-card" x="40" y="220" width="160" height="80" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="120" y="243" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">DEBUG OBJECT key</text>
+    <text x="55" y="262" font-size="9" fill="#475569" font-family="monospace">serializedlength</text>
+    <text x="55" y="278" font-size="10" fill="#475569">实时查询单 Key 大小</text>
+    <text x="120" y="293" text-anchor="middle" font-size="9" fill="#10b981">✅ 简单直观</text>
+
+    <rect class="at-hover-card" x="210" y="220" width="170" height="80" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="295" y="243" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">MEMORY USAGE key</text>
+    <text x="225" y="262" font-size="9" fill="#475569" font-family="monospace">includes overhead</text>
+    <text x="225" y="278" font-size="10" fill="#475569">4.0+ 包含元数据开销</text>
+    <text x="295" y="293" text-anchor="middle" font-size="9" fill="#3b82f6">⭐ 推荐</text>
+
+    <rect class="at-hover-card" x="390" y="220" width="170" height="80" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="475" y="243" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">redis-rdb-tools</text>
+    <text x="405" y="262" font-size="9" fill="#475569" font-family="monospace">rdb -c memory dump.rdb</text>
+    <text x="405" y="278" font-size="10" fill="#475569">离线分析全量 Key</text>
+    <text x="475" y="293" text-anchor="middle" font-size="9" fill="#f59e0b">📊 大规模</text>
+  </g>
+
+  <!-- 阈值参考 -->
+  <g>
+    <text x="50" y="335" font-size="13" font-weight="700" fill="#1e293b">③ BigKey 阈值参考（按类型）</text>
+
+    <rect class="at-hover-card" x="40" y="345" width="510" height="60" rx="6" fill="#1e293b" stroke="#1e293b" stroke-width="1"/>
+    <text x="55" y="367" font-size="10" font-weight="700" fill="#10b981">String</text>
+    <text x="120" y="367" font-size="10" fill="#e2e8f0" font-family="monospace">size &gt; 10 KB</text>
+    <text x="270" y="367" font-size="10" font-weight="700" fill="#10b981">Hash / List / Set / ZSet</text>
+    <text x="55" y="387" font-size="10" fill="#e2e8f0" font-family="monospace">元素数 &gt; 5,000</text>
+    <text x="270" y="397" font-size="9" fill="#94a3b8">⚠️ 具体阈值按业务调整（核心业务可降到 1 KB / 500 元素）</text>
+  </g>
+
+  <!-- 拆分方案 -->
+  <g>
+    <text x="50" y="430" font-size="13" font-weight="700" fill="#1e293b">④ 拆分方案（按类型）</text>
+
+    <text x="50" y="452" font-size="11" fill="#475569">String 拆成多 Key（hash 槽位分段） · Hash 拆成多 Hash（按 user_id 分片） · List 用 LPOP/RPOP 渐进删除 · ZSet 按时间窗拆分</text>
+  </g>
+</svg>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
   <defs>
     <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">

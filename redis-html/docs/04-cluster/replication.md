@@ -11,8 +11,95 @@ date: 2026-08-15  # date-auto-injected
   <DataStructureViz />
 </ClientOnly>
 
-![Redis Replication Psync](/redis-replication-psync.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Redis 主从复制完整流程</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">runid + offset · 全量 / 增量同步 · 复制风暴防护</text>
 
+  <!-- 节点拓扑 -->
+  <g>
+    <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">① 主从节点标识（每个 Redis 实例独有）</text>
+
+    <rect class="at-hover-card" x="40" y="105" width="240" height="105" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="160" y="128" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">Master</text>
+    <text x="55" y="150" font-size="9" font-family="monospace" fill="#1e293b">runid: 8f3a1c2b...</text>
+    <text x="55" y="167" font-size="9" font-family="monospace" fill="#1e293b">repl_offset: 1024</text>
+    <text x="55" y="184" font-size="9" fill="#475569">repl_backlog（环形缓冲）</text>
+    <text x="55" y="201" font-size="9" fill="#475569">repl_backlog_size = 1mb</text>
+
+    <rect class="at-hover-card" x="320" y="105" width="240" height="105" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="440" y="128" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">Replica</text>
+    <text x="335" y="150" font-size="9" font-family="monospace" fill="#1e293b">master_runid: 8f3a1c2b...</text>
+    <text x="335" y="167" font-size="9" font-family="monospace" fill="#1e293b">slave_offset: 1024</text>
+    <text x="335" y="184" font-size="9" fill="#475569">从 master 增量复制</text>
+    <text x="335" y="201" font-size="9" fill="#475569">offset 必须 ≤ master</text>
+  </g>
+
+  <!-- 全量同步 -->
+  <g>
+    <text x="60" y="232" font-size="13" font-weight="700" fill="#1e293b">② 全量同步（首次 / runid 不匹配）</text>
+
+    <rect class="at-hover-card" x="40" y="245" width="520" height="70" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+
+    <rect class="at-hover-card" x="55" y="258" width="105" height="40" rx="3" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="107" y="276" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">PSYNC ? -1</text>
+    <text x="107" y="291" text-anchor="middle" font-size="8" fill="#475569">runid 未知</text>
+
+    <path d="M 160 278 L 190 278" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+    <path d="M 200 278 L 230 278" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="230" y="258" width="120" height="40" rx="3" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="290" y="276" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">FULLRESYNC</text>
+    <text x="290" y="291" text-anchor="middle" font-size="8" fill="#475569">runid + offset</text>
+
+    <path d="M 350 278 L 380 278" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="380" y="258" width="115" height="40" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="437" y="276" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">BGSAVE</text>
+    <text x="437" y="291" text-anchor="middle" font-size="8" fill="#475569">RDB 传输</text>
+
+    <text x="60" y="305" font-size="9" fill="#475569">⚠️ 阻塞 master（fork 子进程）→ 大 key 影响严重，建议低峰期</text>
+  </g>
+
+  <!-- 增量同步 -->
+  <g>
+    <text x="60" y="335" font-size="13" font-weight="700" fill="#1e293b">③ 增量同步（断线重连，offset 仍在 backlog）</text>
+
+    <rect class="at-hover-card" x="40" y="348" width="520" height="65" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+
+    <rect class="at-hover-card" x="55" y="361" width="135" height="40" rx="3" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="122" y="379" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">PSYNC runid offset</text>
+    <text x="122" y="394" text-anchor="middle" font-size="8" fill="#475569">带偏移</text>
+
+    <path d="M 190 381 L 220 381" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+    <path d="M 230 381 L 260 381" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="260" y="361" width="115" height="40" rx="3" fill="#dcfce7" stroke="#10b981"/>
+    <text x="317" y="379" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">+CONTINUE</text>
+    <text x="317" y="394" text-anchor="middle" font-size="8" fill="#475569">接受续传</text>
+
+    <path d="M 375 381 L 405 381" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="405" y="361" width="140" height="40" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="475" y="379" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">+OFFSET bytes</text>
+    <text x="475" y="394" text-anchor="middle" font-size="8" fill="#475569">backlog 字节</text>
+
+    <text x="60" y="403" font-size="9" fill="#475569">✅ 几乎不阻塞，毫秒级；repl_backlog_size 要 ≥ max(网络中断时间 × 写入速率)</text>
+  </g>
+
+  <!-- 复制风暴 -->
+  <g>
+    <text x="60" y="425" font-size="13" font-weight="700" fill="#1e293b">④ 复制风暴防护（树形结构）</text>
+
+    <rect class="at-hover-card" x="40" y="438" width="520" height="32" rx="4" fill="#fef9c3" stroke="#facc15"/>
+    <text x="300" y="459" text-anchor="middle" font-size="10" fill="#854d0e">主 → 中间层 → 多从：避免 N 个从同时连主（树形结构降低 master 压力）</text>
+  </g>
+</svg>
 ## 一、为什么需要主从复制
 
 单机 Redis 存在三个致命问题：**单点故障**（进程挂了就停服）、**读压力无法分担**（所有读都打到同一台机器）、**容量瓶颈**（单实例内存再大也有上限）。主从复制直接解决前两个，第三个留给 Cluster。

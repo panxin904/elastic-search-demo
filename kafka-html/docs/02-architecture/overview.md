@@ -94,8 +94,101 @@ Replica = Partition 的副本
   Partition 0: [Leader=Broker1, Followers=Broker2,3, ISR={1,2,3}]
 ```
 
-![Kafka Broker Threads](/kafka-broker-threads.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Kafka Broker 内部线程模型</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">Acceptor / Processor / IO / ReplicaFetcher / LogCompactor</text>
 
+  <!-- 线程分类 -->
+  <g>
+    <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">① 网络层（3 类）</text>
+
+    <rect class="at-hover-card" x="40" y="105" width="165" height="120" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="122" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">Acceptor</text>
+    <text x="122" y="148" text-anchor="middle" font-size="9" fill="#475569">1 个（每端点）</text>
+    <text x="55" y="166" font-size="9" fill="#475569">• 接收新连接</text>
+    <text x="55" y="181" font-size="9" fill="#475569">• round-robin 分配</text>
+    <text x="55" y="196" font-size="9" fill="#475569">• 给 Processor</text>
+    <text x="55" y="215" font-size="9" font-weight="700" fill="#1e40af">无读 socket</text>
+
+    <rect class="at-hover-card" x="220" y="105" width="165" height="120" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="302" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">Processor</text>
+    <text x="302" y="148" text-anchor="middle" font-size="9" fill="#475569">N 个（num.network.threads）</text>
+    <text x="235" y="166" font-size="9" fill="#475569">• 维护 client 连接</text>
+    <text x="235" y="181" font-size="9" fill="#475569">• read 请求</text>
+    <text x="235" y="196" font-size="9" fill="#475569">• 解析协议</text>
+    <text x="235" y="215" font-size="9" font-weight="700" fill="#065f46">→ RequestChannel</text>
+
+    <rect class="at-hover-card" x="400" y="105" width="160" height="120" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="480" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">IO Thread</text>
+    <text x="480" y="148" text-anchor="middle" font-size="9" fill="#475569">M 个（num.io.threads）</text>
+    <text x="415" y="166" font-size="9" fill="#475569">• 从 channel 拉请求</text>
+    <text x="415" y="181" font-size="9" fill="#475569">• 写 log + 副本同步</text>
+    <text x="415" y="196" font-size="9" fill="#475569">• 写 response</text>
+    <text x="415" y="215" font-size="9" font-weight="700" fill="#92400e">CPU 密集</text>
+  </g>
+
+  <!-- 后台线程 -->
+  <g>
+    <text x="60" y="245" font-size="13" font-weight="700" fill="#1e293b">② 后台线程（5 类）</text>
+
+    <rect class="at-hover-card" x="40" y="260" width="110" height="80" rx="4" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="95" y="280" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">ReplicaFetcher</text>
+    <text x="95" y="298" text-anchor="middle" font-size="9" fill="#475569">从 leader 拉数据</text>
+    <text x="95" y="315" text-anchor="middle" font-size="9" fill="#475569">per follower</text>
+
+    <rect class="at-hover-card" x="160" y="260" width="110" height="80" rx="4" fill="#dcfce7" stroke="#10b981"/>
+    <text x="215" y="280" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">LogCompactor</text>
+    <text x="215" y="298" text-anchor="middle" font-size="9" fill="#475569">压缩 topic</text>
+    <text x="215" y="315" text-anchor="middle" font-size="9" fill="#475569">compact 策略</text>
+
+    <rect class="at-hover-card" x="280" y="260" width="110" height="80" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="335" y="280" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">LogCleaner</text>
+    <text x="335" y="298" text-anchor="middle" font-size="9" fill="#475569">delete 策略</text>
+    <text x="335" y="315" text-anchor="middle" font-size="9" fill="#475569">delete.retention</text>
+
+    <rect class="at-hover-card" x="400" y="260" width="160" height="80" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="480" y="280" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">KafkaProducer/Consumer</text>
+    <text x="480" y="298" text-anchor="middle" font-size="9" fill="#475569">应用层线程</text>
+    <text x="480" y="315" text-anchor="middle" font-size="9" fill="#475569">+ 业务线程</text>
+  </g>
+
+  <!-- 请求处理流程 -->
+  <g>
+    <text x="60" y="360" font-size="13" font-weight="700" fill="#1e293b">③ 请求处理流程（ProduceRequest 路径）</text>
+
+    <rect class="at-hover-card" x="40" y="375" width="520" height="90" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+
+    <rect class="at-hover-card" x="55" y="390" width="100" height="35" rx="3" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="105" y="408" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">Acceptor</text>
+    <text x="105" y="422" text-anchor="middle" font-size="8" fill="#475569">新连接</text>
+
+    <path d="M 155 407 L 180 407" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="180" y="390" width="105" height="35" rx="3" fill="#dcfce7" stroke="#10b981"/>
+    <text x="232" y="408" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">Processor</text>
+    <text x="232" y="422" text-anchor="middle" font-size="8" fill="#475569">read + 解析</text>
+
+    <path d="M 285 407 L 310 407" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="310" y="390" width="115" height="35" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="367" y="408" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">RequestChannel</text>
+    <text x="367" y="422" text-anchor="middle" font-size="8" fill="#475569">共享队列</text>
+
+    <path d="M 425 407 L 450 407" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="450" y="390" width="100" height="35" rx="3" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="500" y="408" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">IO Thread</text>
+    <text x="500" y="422" text-anchor="middle" font-size="8" fill="#475569">写 log + 副本</text>
+
+    <text x="60" y="445" font-size="9" fill="#475569">RequestChannel 是 Processor / IO 之间的解耦桥梁（生产者消费者模式）</text>
+  </g>
+</svg>
 ## 📊 Kafka 内部模块
 
 ```

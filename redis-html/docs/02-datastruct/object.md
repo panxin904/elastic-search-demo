@@ -11,8 +11,84 @@ date: 2026-08-15  # date-auto-injected
   <DataStructureViz />
 </ClientOnly>
 
-![Redis Maxmemory Policy](/redis-maxmemory-policy.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Redis 内存淘汰 8 大策略</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">maxmemory-policy · LRU / LFU · allkeys / volatile</text>
 
+  <!-- 8 策略 -->
+  <g>
+    <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">① 8 种策略总览（按维度分 4 组）</text>
+
+    <rect class="at-hover-card" x="40" y="105" width="125" height="90" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="102" y="123" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">allkeys-lru</text>
+    <text x="55" y="142" font-size="9" fill="#475569">全键 LRU</text>
+    <text x="55" y="157" font-size="9" fill="#475569">推荐 ⭐</text>
+
+    <rect class="at-hover-card" x="170" y="105" width="125" height="90" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="232" y="123" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">volatile-lru</text>
+    <text x="185" y="142" font-size="9" fill="#475569">有过期键 LRU</text>
+    <text x="185" y="157" font-size="9" fill="#475569">保非过期</text>
+
+    <rect class="at-hover-card" x="300" y="105" width="125" height="90" rx="4" fill="#dcfce7" stroke="#10b981"/>
+    <text x="362" y="123" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">allkeys-lfu</text>
+    <text x="315" y="142" font-size="9" fill="#475569">全键 LFU</text>
+    <text x="315" y="157" font-size="9" fill="#475569">4.x+ 推荐 ⭐</text>
+
+    <rect class="at-hover-card" x="430" y="105" width="125" height="90" rx="4" fill="#dcfce7" stroke="#10b981"/>
+    <text x="492" y="123" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">volatile-lfu</text>
+    <text x="445" y="142" font-size="9" fill="#475569">过期键 LFU</text>
+    <text x="445" y="157" font-size="9" fill="#475569">4.x+</text>
+
+    <rect class="at-hover-card" x="40" y="205" width="125" height="90" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="102" y="223" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">allkeys-random</text>
+    <text x="55" y="242" font-size="9" fill="#475569">全键随机</text>
+    <text x="55" y="257" font-size="9" fill="#475569">少用</text>
+
+    <rect class="at-hover-card" x="170" y="205" width="125" height="90" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="232" y="223" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">volatile-random</text>
+    <text x="185" y="242" font-size="9" fill="#475569">过期键随机</text>
+    <text x="185" y="257" font-size="9" fill="#475569">少用</text>
+
+    <rect class="at-hover-card" x="300" y="205" width="125" height="90" rx="4" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="362" y="223" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">volatile-ttl</text>
+    <text x="315" y="242" font-size="9" fill="#475569">过期键按 TTL</text>
+    <text x="315" y="257" font-size="9" fill="#475569">优先快过期</text>
+
+    <rect class="at-hover-card" x="430" y="205" width="125" height="90" rx="4" fill="#1e293b"/>
+    <text x="492" y="223" text-anchor="middle" font-size="10" font-weight="700" fill="#a7f3d0">noeviction</text>
+    <text x="445" y="242" font-size="9" fill="#a7f3d0">拒绝写入</text>
+    <text x="445" y="257" font-size="9" fill="#a7f3d0">默认 ⛔</text>
+  </g>
+
+  <!-- LRU vs LFU -->
+  <g>
+    <text x="60" y="318" font-size="13" font-weight="700" fill="#1e293b">② LRU vs LFU 区别</text>
+
+    <rect class="at-hover-card" x="40" y="333" width="250" height="130" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="165" y="352" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">LRU (Least Recently Used)</text>
+    <text x="55" y="372" font-size="10" fill="#475569">• 淘汰最久没访问的</text>
+    <text x="55" y="388" font-size="10" fill="#475569">• 记录 24-bit 时间戳</text>
+    <text x="55" y="404" font-size="10" fill="#475569">• 问题：突发访问误杀</text>
+    <text x="55" y="425" font-size="10" font-family="monospace" fill="#1e293b">OBJECT IDLETIME k</text>
+    <text x="55" y="441" font-size="9" fill="#475569">→ 看空闲秒数</text>
+    <text x="55" y="456" font-size="9" font-weight="700" fill="#1e40af">场景：均匀访问</text>
+
+    <rect class="at-hover-card" x="310" y="333" width="250" height="130" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="435" y="352" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">LFU (Least Frequently Used)</text>
+    <text x="325" y="372" font-size="10" fill="#475569">• 淘汰访问频率最低的</text>
+    <text x="325" y="388" font-size="10" fill="#475569">• 8-bit counter + 衰减</text>
+    <text x="325" y="404" font-size="10" fill="#475569">• 优势：抗突发访问</text>
+    <text x="325" y="425" font-size="10" font-family="monospace" fill="#1e293b">OBJECT FREQ k</text>
+    <text x="325" y="441" font-size="9" fill="#475569">→ 看访问频率</text>
+    <text x="325" y="456" font-size="9" font-weight="700" fill="#065f46">场景：热点分布</text>
+  </g>
+</svg>
 ## 一、为什么需要 RedisObject
 
 Redis 的命令处理层是**类型无关**的。比如 `GET` 命令在执行时并不知道底层到底是 int、embstr 还是 raw，它只看 `redisObject.type` 字段，再通过 `type` 特定的命令表分派。

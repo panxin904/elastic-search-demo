@@ -29,8 +29,72 @@ data/kafka-logs/
 [m1000000|m1000001|...]
 ```
 
-![Kafka Log Segment 索引](/kafka-log-segment-index.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Kafka Log Segment 索引</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">稀疏索引 · offset → position · O(log n) 二分查找 · index.interval.bytes</text>
 
+  <!-- 物理文件布局 -->
+  <g>
+    <text x="60" y="95" font-size="13" font-weight="700" fill="#1e293b">partition-0 目录</text>
+
+    <!-- log 文件 -->
+    <rect class="at-hover-card" x="40" y="110" width="400" height="50" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="60" y="130" font-size="11" font-weight="700" fill="#92400e">00000000000000000000.log</text>
+    <text x="60" y="148" font-size="10" fill="#475569">真实数据：message1, message2, ...</text>
+
+    <!-- index 文件 -->
+    <rect class="at-hover-card" x="40" y="170" width="400" height="50" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="60" y="190" font-size="11" font-weight="700" fill="#1e40af">00000000000000000000.index</text>
+    <text x="60" y="208" font-size="10" fill="#475569">稀疏索引：每隔 N bytes 记录一个 offset→position 映射</text>
+
+    <!-- timeindex 文件 -->
+    <rect class="at-hover-card" x="40" y="230" width="400" height="40" rx="4" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="60" y="248" font-size="11" font-weight="700" fill="#065f46">00000000000000000000.timeindex</text>
+    <text x="60" y="263" font-size="10" fill="#475569">timestamp → offset 映射（用于按时间消费）</text>
+
+    <!-- 注意 -->
+    <text x="60" y="295" font-size="10" fill="#dc2626" font-weight="700">⚠️ 索引文件加载到内存（mmap），log 文件按需 mmap 部分页</text>
+  </g>
+
+  <!-- 索引查找流程 -->
+  <g>
+    <text x="60" y="325" font-size="13" font-weight="700" fill="#1e293b">offset=5000 查找示例</text>
+
+    <!-- log 内容示意 -->
+    <rect class="at-hover-card" x="40" y="345" width="525" height="60" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="60" y="365" font-size="10" fill="#475569">index.interval.bytes=4096 · 每 4KB 写一条索引</text>
+
+    <g font-family="monospace" font-size="9">
+      <rect class="at-hover-card" x="60" y="375" width="100" height="20" rx="3" fill="#dbeafe" stroke="#3b82f6"/>
+      <text x="110" y="389" text-anchor="middle" fill="#1e40af">offset 0 → 0</text>
+
+      <rect class="at-hover-card" x="170" y="375" width="100" height="20" rx="3" fill="#dbeafe" stroke="#3b82f6"/>
+      <text x="220" y="389" text-anchor="middle" fill="#1e40af">offset 100 → 4096</text>
+
+      <rect class="at-hover-card" x="280" y="375" width="100" height="20" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
+      <text x="330" y="389" text-anchor="middle" fill="#92400e" font-weight="700">offset 5000 → 204800</text>
+
+      <rect class="at-hover-card" x="390" y="375" width="155" height="20" rx="3" fill="#dbeafe" stroke="#3b82f6"/>
+      <text x="467" y="389" text-anchor="middle" fill="#1e40af">offset 5102 → 208896</text>
+    </g>
+
+    <!-- 箭头 -->
+    <line x1="330" y1="395" x2="330" y2="420" stroke="#10b981" stroke-width="2" marker-end="url(#arr)"/>
+  </g>
+
+  <!-- 关键说明 -->
+  <g>
+    <rect class="at-hover-card" x="40" y="425" width="525" height="45" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="60" y="447" font-size="11" font-weight="700" fill="#1e40af">查找流程：</text>
+    <text x="60" y="463" font-size="11" fill="#1e40af">二分索引（O(log n)）→ 找到 ≤5000 的最大 offset → 从 position 开始顺序扫描</text>
+  </g>
+</svg>
 ## 📂 Segment 文件详解
 
 ### Segment 组成
@@ -76,8 +140,92 @@ offset    physical_position
   4. 找到 offset=150 的消息
 ```
 
-![Kafka Pagecache Index](/kafka-pagecache-index.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Kafka PageCache + 稀疏索引</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">顺序写 + OS PageCache · offset → position 映射</text>
 
+  <!-- PageCache 写入流程 -->
+  <g>
+    <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">① 写入流程：Producer → PageCache → 异步刷盘</text>
+
+    <rect class="at-hover-card" x="40" y="105" width="520" height="100" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+
+    <rect class="at-hover-card" x="55" y="120" width="115" height="70" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="112" y="140" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Producer</text>
+    <text x="112" y="158" text-anchor="middle" font-size="9" font-family="monospace" fill="#1e293b">append</text>
+    <text x="112" y="174" text-anchor="middle" font-size="9" fill="#475569">顺序写</text>
+
+    <path d="M 170 155 L 200 155" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="200" y="120" width="115" height="70" rx="4" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="257" y="140" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">JVM 堆</text>
+    <text x="257" y="158" text-anchor="middle" font-size="9" fill="#475569">ByteBuffer</text>
+    <text x="257" y="174" text-anchor="middle" font-size="9" fill="#475569">memory mapped</text>
+
+    <path d="M 315 155 L 345 155" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="345" y="120" width="115" height="70" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="402" y="140" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">OS PageCache</text>
+    <text x="402" y="158" text-anchor="middle" font-size="9" fill="#475569">4KB 页面</text>
+    <text x="402" y="174" text-anchor="middle" font-size="9" fill="#475569">内核缓冲</text>
+
+    <path d="M 460 155 L 490 155" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)" stroke-dasharray="3,2"/>
+
+    <rect class="at-hover-card" x="490" y="120" width="60" height="70" rx="4" fill="#1e293b"/>
+    <text x="520" y="140" text-anchor="middle" font-size="10" font-weight="700" fill="#a7f3d0">磁盘</text>
+    <text x="520" y="158" text-anchor="middle" font-size="9" fill="#a7f3d0">async</text>
+    <text x="520" y="174" text-anchor="middle" font-size="9" fill="#a7f3d0">fsync</text>
+
+    <text x="55" y="195" font-size="9" fill="#475569">⚡ 性能：Producer 写仅 0.0001ms，OS 后续异步刷盘（fsync 由 OS 策略决定）</text>
+  </g>
+
+  <!-- 稀疏索引 -->
+  <g>
+    <text x="60" y="225" font-size="13" font-weight="700" fill="#1e293b">② Kafka 稀疏索引（offset → byte position）</text>
+
+    <rect class="at-hover-card" x="40" y="240" width="520" height="155" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+
+    <!-- 索引条目 -->
+    <rect class="at-hover-card" x="55" y="258" width="490" height="50" rx="3" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="70" y="278" font-size="10" font-weight="700" fill="#1e40af">index (稀疏索引)</text>
+    <text x="70" y="296" font-size="9" font-family="monospace" fill="#1e293b">offset 0    → position 0</text>
+    <text x="240" y="296" font-size="9" font-family="monospace" fill="#1e293b">offset 1000 → position 16384</text>
+    <text x="430" y="296" font-size="9" font-family="monospace" fill="#1e293b">offset 2000 → position 32768</text>
+
+    <path d="M 300 308 L 300 330" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <!-- log 文件 -->
+    <text x="70" y="345" font-size="10" font-weight="700" fill="#1e293b">log 文件（连续字节）</text>
+
+    <rect class="at-hover-card" x="70" y="350" width="100" height="32" rx="2" fill="#dcfce7" stroke="#10b981"/>
+    <text x="120" y="370" text-anchor="middle" font-size="9" font-weight="700" fill="#065f46">msg 0-999</text>
+
+    <rect class="at-hover-card" x="180" y="350" width="100" height="32" rx="2" fill="#dcfce7" stroke="#10b981"/>
+    <text x="230" y="370" text-anchor="middle" font-size="9" font-weight="700" fill="#065f46">msg 1000-1999</text>
+
+    <rect class="at-hover-card" x="290" y="350" width="100" height="32" rx="2" fill="#dcfce7" stroke="#10b981"/>
+    <text x="340" y="370" text-anchor="middle" font-size="9" font-weight="700" fill="#065f46">msg 2000-2999</text>
+
+    <rect class="at-hover-card" x="400" y="350" width="155" height="32" rx="2" fill="#dcfce7" stroke="#10b981"/>
+    <text x="477" y="370" text-anchor="middle" font-size="9" font-weight="700" fill="#065f46">msg 3000+ (未索引)</text>
+
+    <text x="55" y="390" font-size="9" fill="#475569">查找 offset 1500 → 二分索引 → 落在 offset 1000 → 线性扫描到 1500（2 步 O(log N + N)）</text>
+  </g>
+
+  <!-- 性能优势 -->
+  <g>
+    <text x="60" y="415" font-size="13" font-weight="700" fill="#1e293b">③ 为什么 Kafka 这么快？</text>
+
+    <rect class="at-hover-card" x="40" y="428" width="520" height="40" rx="4" fill="#fef9c3" stroke="#facc15"/>
+    <text x="300" y="446" text-anchor="middle" font-size="10" fill="#854d0e">顺序写 + 零拷贝 + PageCache + 稀疏索引 = 单机百万级 TPS</text>
+  </g>
+</svg>
 ## 🚀 高性能写盘机制
 
 ### 顺序写 vs 随机写

@@ -7,8 +7,92 @@ date: 2026-08-15  # date-auto-injected
 
 > **生产环境 Kafka 集群**的部署是高可用、高性能的基础。本章详解集群规划、部署和验证。
 
-![Kafka Mirrormaker2](/kafka-mirrormaker2.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Kafka MirrorMaker2 跨集群同步</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">基于 Connect 框架 · 双向同步 · Topic 路由 · 容灾</text>
 
+  <!-- 双集群 -->
+  <g>
+    <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">① 双活 / 主备集群拓扑</text>
+
+    <!-- 源集群 -->
+    <rect class="at-hover-card" x="40" y="105" width="240" height="160" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="160" y="128" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">源集群 (primary)</text>
+
+    <rect class="at-hover-card" x="60" y="145" width="80" height="40" rx="4" fill="#fff" stroke="#3b82f6"/>
+    <text x="100" y="163" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">Broker 1</text>
+    <text x="100" y="178" text-anchor="middle" font-size="9" fill="#475569">orders</text>
+
+    <rect class="at-hover-card" x="160" y="145" width="80" height="40" rx="4" fill="#fff" stroke="#3b82f6"/>
+    <text x="200" y="163" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">Broker 2</text>
+    <text x="200" y="178" text-anchor="middle" font-size="9" fill="#475569">users</text>
+
+    <rect class="at-hover-card" x="110" y="200" width="80" height="40" rx="4" fill="#fff" stroke="#3b82f6"/>
+    <text x="150" y="218" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">Broker 3</text>
+    <text x="150" y="233" text-anchor="middle" font-size="9" fill="#475569">events</text>
+
+    <!-- 目标集群 -->
+    <rect class="at-hover-card" x="320" y="105" width="240" height="160" rx="8" fill="#dcfce7" stroke="#10b981" stroke-width="2"/>
+    <text x="440" y="128" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">目标集群 (DR)</text>
+
+    <rect class="at-hover-card" x="340" y="145" width="80" height="40" rx="4" fill="#fff" stroke="#10b981"/>
+    <text x="380" y="163" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">Broker A</text>
+    <text x="380" y="178" text-anchor="middle" font-size="9" fill="#475569">orders</text>
+
+    <rect class="at-hover-card" x="440" y="145" width="80" height="40" rx="4" fill="#fff" stroke="#10b981"/>
+    <text x="480" y="163" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">Broker B</text>
+    <text x="480" y="178" text-anchor="middle" font-size="9" fill="#475569">users</text>
+
+    <rect class="at-hover-card" x="390" y="200" width="80" height="40" rx="4" fill="#fff" stroke="#10b981"/>
+    <text x="430" y="218" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">Broker C</text>
+    <text x="430" y="233" text-anchor="middle" font-size="9" fill="#475569">events</text>
+
+    <!-- MM2 通道 -->
+    <rect class="at-hover-card" x="200" y="280" width="200" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="300" y="302" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">MirrorMaker2</text>
+    <text x="300" y="318" text-anchor="middle" font-size="9" fill="#475569">基于 Kafka Connect 框架</text>
+
+    <path d="M 160 245 Q 160 270 240 290" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+    <path d="M 440 245 Q 440 270 360 290" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="195" y="265" font-size="9" fill="#475569">consume</text>
+    <text x="395" y="265" font-size="9" fill="#475569">produce</text>
+  </g>
+
+  <!-- 4 类 topic -->
+  <g>
+    <text x="60" y="350" font-size="13" font-weight="700" fill="#1e293b">② 4 类内部 Topic（自动创建）</text>
+
+    <rect class="at-hover-card" x="40" y="365" width="125" height="80" rx="4" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="102" y="383" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">heartbeat</text>
+    <text x="55" y="402" font-size="9" fill="#475569">探测对端存活</text>
+    <text x="55" y="418" font-size="9" fill="#475569">每 3s 心跳</text>
+    <text x="55" y="434" font-size="9" fill="#475569">用于 failover</text>
+
+    <rect class="at-hover-card" x="175" y="365" width="125" height="80" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="237" y="383" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">checkpoints</text>
+    <text x="190" y="402" font-size="9" fill="#475569">同步 offset 位点</text>
+    <text x="190" y="418" font-size="9" fill="#475569">per consumer</text>
+    <text x="190" y="434" font-size="9" fill="#475569">per partition</text>
+
+    <rect class="at-hover-card" x="310" y="365" width="125" height="80" rx="4" fill="#dcfce7" stroke="#10b981"/>
+    <text x="372" y="383" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">offset-sync</text>
+    <text x="325" y="402" font-size="9" fill="#475569">消费组 offset</text>
+    <text x="325" y="418" font-size="9" fill="#475569">跨集群同步</text>
+    <text x="325" y="434" font-size="9" fill="#475569">支持 failover</text>
+
+    <rect class="at-hover-card" x="445" y="365" width="115" height="80" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="502" y="383" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">config-sync</text>
+    <text x="460" y="402" font-size="9" fill="#475569">ACL / 主题配置</text>
+    <text x="460" y="418" font-size="9" fill="#475569">topic 策略</text>
+    <text x="460" y="434" font-size="9" fill="#475569">跨集群同步</text>
+  </g>
+</svg>
 ## 🎯 集群规划
 
 ### 集群规模评估

@@ -7,8 +7,95 @@ date: 2026-08-15  # date-auto-injected
 
 > **Controller**是 Kafka 集群的**大脑**，负责集群元数据管理、Leader 选举、Broker 上下线通知。
 
-![Kafka Controller Quorum](/kafka-controller-quorum.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Kafka Controller Quorum（KRaft）</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">元数据 RAFT 共识 · 取代 ZK · active + 2 standby</text>
 
+  <!-- Controller 集群 -->
+  <g>
+    <text x="60" y="90" font-size="13" font-weight="700" fill="#1e293b">① Controller Quorum（3 节点）</text>
+
+    <rect class="at-hover-card" x="40" y="105" width="520" height="125" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+
+    <!-- Active -->
+    <rect class="at-hover-card" x="80" y="120" width="130" height="90" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="145" y="143" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">Active</text>
+    <text x="145" y="163" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">C1</text>
+    <text x="145" y="183" font-size="9" fill="#475569" text-anchor="middle">处理请求</text>
+    <text x="145" y="198" font-size="9" fill="#475569" text-anchor="middle">写入 __cluster_metadata</text>
+
+    <!-- Standby 1 -->
+    <rect class="at-hover-card" x="235" y="120" width="130" height="90" rx="8" fill="#dcfce7" stroke="#10b981" stroke-width="2"/>
+    <text x="300" y="143" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">Standby</text>
+    <text x="300" y="163" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">C2</text>
+    <text x="300" y="183" font-size="9" fill="#475569" text-anchor="middle">replication factor 3</text>
+    <text x="300" y="198" font-size="9" fill="#475569" text-anchor="middle">读 log + apply</text>
+
+    <!-- Standby 2 -->
+    <rect class="at-hover-card" x="390" y="120" width="130" height="90" rx="8" fill="#dcfce7" stroke="#10b981" stroke-width="2"/>
+    <text x="475" y="143" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">Standby</text>
+    <text x="475" y="163" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">C3</text>
+    <text x="475" y="183" font-size="9" fill="#475569" text-anchor="middle">replication factor 3</text>
+    <text x="475" y="198" font-size="9" fill="#475569" text-anchor="middle">读 log + apply</text>
+
+    <!-- 互相连线 -->
+    <path d="M 210 165 L 235 165" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+    <path d="M 365 165 L 390 165" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+    <path d="M 210 175 L 390 175" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)" stroke-dasharray="3,2"/>
+  </g>
+
+  <!-- 写入流程 -->
+  <g>
+    <text x="60" y="252" font-size="13" font-weight="700" fill="#1e293b">② 写入流程（半数确认 = 2/3 成功）</text>
+
+    <rect class="at-hover-card" x="40" y="266" width="105" height="40" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="92" y="284" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">Client 请求</text>
+    <text x="92" y="298" text-anchor="middle" font-size="9" fill="#475569">CreateTopic</text>
+
+    <path d="M 145 286 L 170 286" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="170" y="266" width="105" height="40" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="222" y="284" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">Active Log</text>
+    <text x="222" y="298" text-anchor="middle" font-size="9" fill="#475569">持久化 entry</text>
+
+    <path d="M 275 286 L 300 286" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="300" y="266" width="105" height="40" rx="4" fill="#dcfce7" stroke="#10b981"/>
+    <text x="352" y="284" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">Follower</text>
+    <text x="352" y="298" text-anchor="middle" font-size="9" fill="#475569">C2 + C3 同步</text>
+
+    <path d="M 405 286 L 430 286" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="430" y="266" width="130" height="40" rx="4" fill="#dcfce7" stroke="#10b981"/>
+    <text x="495" y="284" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">Commit</text>
+    <text x="495" y="298" text-anchor="middle" font-size="9" fill="#475569">半数 ACK → 返回</text>
+  </g>
+
+  <!-- 对比 -->
+  <g>
+    <text x="60" y="335" font-size="13" font-weight="700" fill="#1e293b">③ KRaft vs ZK（旧方案）</text>
+
+    <rect class="at-hover-card" x="40" y="350" width="250" height="110" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="165" y="370" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">KRaft（推荐，2.8+）</text>
+    <text x="55" y="392" font-size="10" fill="#475569">✅ 无 ZK 依赖</text>
+    <text x="55" y="408" font-size="10" fill="#475569">✅ 元数据一致</text>
+    <text x="55" y="424" font-size="10" fill="#475569">✅ 启动快（无 ZK session）</text>
+    <text x="55" y="440" font-size="10" fill="#475569">✅ 可承载百万级 partition</text>
+
+    <rect class="at-hover-card" x="310" y="350" width="250" height="110" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="435" y="370" text-anchor="middle" font-size="12" font-weight="700" fill="#991b1b">ZK（已废弃）</text>
+    <text x="325" y="392" font-size="10" fill="#475569">⚠️ ZK 集群运维复杂</text>
+    <text x="325" y="408" font-size="10" fill="#475569">⚠️ 元数据双写不一致</text>
+    <text x="325" y="424" font-size="10" fill="#475569">⚠️ partition 上限 ~200k</text>
+    <text x="325" y="440" font-size="10" fill="#475569">⚠️ 3.x 即将移除</text>
+  </g>
+</svg>
 ## 🎯 Controller 是什么？
 
 ```
@@ -89,8 +176,81 @@ Controller = 集群中负责协调的 Broker
 
 ## 🔄 Controller 选举流程
 
-![Kafka Controller 选举时序](/kafka-controller-election.svg)
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600" >Kafka Controller 选举时序</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">KRaft 模式（Kafka 2.8+）· Controller Quorum · epoch 防脑裂</text>
 
+  <!-- 角色 -->
+  <g>
+    <rect class="at-hover-card" x="20" y="85" width="90" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="65" y="110" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Controller 1</text>
+
+    <rect class="at-hover-card" x="240" y="85" width="90" height="40" rx="6" fill="#d1fae5" stroke="#10b981"/>
+    <text x="285" y="110" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">Controller 2</text>
+
+    <rect class="at-hover-card" x="460" y="85" width="90" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="505" y="110" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Controller 3</text>
+  </g>
+
+  <!-- 时序线 -->
+  <g>
+    <line x1="65" y1="125" x2="65" y2="450" stroke="#3b82f6" stroke-dasharray="3"/>
+    <line x1="285" y1="125" x2="285" y2="450" stroke="#10b981" stroke-dasharray="3"/>
+    <line x1="505" y1="125" x2="505" y2="450" stroke="#f59e0b" stroke-dasharray="3"/>
+  </g>
+
+  <!-- 1. 发起投票 -->
+  <line x1="65" y1="155" x2="285" y2="155" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="65" y1="155" x2="505" y2="155" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="180" y="148" text-anchor="middle" font-size="10" fill="#475569">① RequestVote(epoch=1, lastLog=100)</text>
+
+  <!-- 2. 应答 -->
+  <line x1="285" y1="180" x2="65" y2="180" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="180" y="173" text-anchor="middle" font-size="10" fill="#475569">② VoteGranted</text>
+
+  <line x1="505" y1="180" x2="65" y2="180" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="350" y="195" text-anchor="middle" font-size="10" fill="#475569">③ VoteGranted（多数派达成）</text>
+
+  <!-- 3. Leader 广播 -->
+  <line x1="65" y1="220" x2="285" y2="220" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="65" y1="220" x2="505" y2="220" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="285" y="213" text-anchor="middle" font-size="10" fill="#475569">④ BeginEpoch(epoch=1)</text>
+
+  <!-- 4. 心跳 -->
+  <line x1="65" y1="255" x2="285" y2="255" stroke="#64748b" stroke-width="1" stroke-dasharray="4" marker-end="url(#arr)"/>
+  <line x1="65" y1="255" x2="505" y2="255" stroke="#64748b" stroke-width="1" stroke-dasharray="4" marker-end="url(#arr)"/>
+  <text x="285" y="248" text-anchor="middle" font-size="10" fill="#475569">⑤ Heartbeat (100ms)</text>
+
+  <!-- 5. C1 故障 -->
+  <rect class="at-hover-card" x="35" y="290" width="60" height="40" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-dasharray="4"/>
+  <text x="65" y="307" text-anchor="middle" font-size="10" font-weight="700" fill="#7f1d1d">C1 DOWN</text>
+  <text x="65" y="322" text-anchor="middle" font-size="9" fill="#7f1d1d">t=30s</text>
+
+  <!-- 6. C2 发起新一轮 -->
+  <line x1="285" y1="350" x2="505" y2="350" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="395" y="343" text-anchor="middle" font-size="10" fill="#475569">⑥ RequestVote(epoch=2)</text>
+
+  <!-- 7. C3 应答 + epoch 升级 -->
+  <line x1="505" y1="375" x2="285" y2="375" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="395" y="368" text-anchor="middle" font-size="10" fill="#475569">⑦ VoteGranted → C2 升 epoch=2</text>
+
+  <!-- 8. 新 Leader 广播 -->
+  <line x1="285" y1="410" x2="505" y2="410" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="395" y="403" text-anchor="middle" font-size="10" fill="#475569">⑧ BeginEpoch(epoch=2)</text>
+
+  <!-- 关键规则 -->
+  <rect class="at-hover-card" x="20" y="435" width="560" height="35" rx="6" fill="#ecfdf5" stroke="#10b981"/>
+  <text x="40" y="455" font-size="11" font-weight="700" fill="#065f46">关键规则：epoch 单调递增 · 旧 Leader 收到更高 epoch 自动 step down · 多数派（≥2/3）确认即生效</text>
+</svg>
 ### 启动时选举
 
 ```
