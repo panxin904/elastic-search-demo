@@ -8057,3 +8057,75 @@ cd /tmp/ci-test/java-web-manual && npm install && npm run docs:build
 - **B. 长尾站补图**：frontend / security / observability / cloud / architecture 等站 SVG 密度较低
 - **C. 交互性升级**：点击查看详细说明 / 折叠展开
 - **D. SVG 替代 Mermaid**：复杂 Mermaid 图改 SVG 提升加载速度
+
+## §8.72+ v23-C · SVG 交互性升级（C-1 主题感知）
+
+**日期**：2026-09-05
+**目标**：让所有 SVG 在站点切换 light/dark 主题时自动跟随，提升可读性
+
+### 痛点分析
+- 198 张 SVG 全部使用写死颜色（`fill="#fafafa"`、`fill="#1e293b"` 等）
+- 当前站点已有 `.dark` 主题切换能力，但 SVG 作为 `<img>` 引入时被浏览器当独立文档
+- 外部（站点级）CSS 变量无法穿透到 SVG 内部，切换主题后 SVG 仍保持浅色背景 → 与暗色站点视觉冲突
+
+### 解决方案
+**两步走**：
+1. **静态改造**：批量给 SVG 关键元素加 `class`（`.at-svg-bg` / `.at-svg-title`），保留视觉但接受 CSS 变量覆盖
+2. **运行时 inline 化**：自动 fetch 所有 `<img src="*.svg">` → 替换为 inline `<svg>`，让站点级 CSS 变量能影响 SVG 内部 class
+
+### 改动清单
+
+#### 1. CSS 变量定义（shared-assets/vitepress-template/theme/style.css）
+```css
+:root {
+  --at-svg-bg: #fafafa;
+  --at-svg-title: #1e293b;
+}
+.dark {
+  --at-svg-bg: #0e0e10;
+  --at-svg-title: #f5f5f7;
+}
+.at-svg-bg { fill: var(--at-svg-bg); }
+.at-svg-title { fill: var(--at-svg-title); }
+```
+
+#### 2. SVG class 注入（198 张）
+- 背景 rect：`fill="#fafafa"` → `class="at-svg-bg"`
+- 主标题 text：`fill="#1e293b"` + `font-size="20"` + `font-weight="600"` → `class="at-svg-title"`
+- 不修改 SVG 中其他颜色（彩色块、边框、辅助文字保持不变，避免破坏视觉层次）
+
+#### 3. setupSvgTheme composable（新增）
+文件：`shared-assets/vitepress-template/theme/composables/svgTheme.ts`
+- 拦截 `img[src$=".svg"]:not([data-at-themed])`
+- fetch SVG 文本 → 提取 `<svg>` 元素
+- 替换 img 为 inline svg（保留 alt 作为 `<title>` 无障碍标签）
+- 监听 SPA 路由切换（popstate / pushstate）
+- 失败降级：fetch 失败时保留 `<img>`，不破坏现有显示
+
+#### 4. 5 站启用（kafka / redis / mysql / cloud-native / es）
+每个 `theme/index.ts` 增加：
+```ts
+import { setupSvgTheme } from '@shared/vitepress-template/theme/composables/svgTheme'
+// setup() 中：setupSvgTheme()
+```
+
+### 验证结果
+
+| 验证项 | 结果 |
+|---|---|
+| 198 张 SVG 注入 class | ✅ 100% |
+| CSS bundle 含 light + dark 变量 | ✅ |
+| `.dark` 类下覆盖 dark 变量 | ✅ `#0e0e10` / `#f5f5f7` |
+| 5 站 build 全绿 | ✅ kafka 7.42s / redis 5.72s / mysql 8.13s / cloud-native 4.77s / es 3.42s |
+| audit 指标无回归 | ✅ imgs=201, files=1662 |
+
+### 用户体验
+
+- **Light 模式**：SVG 背景 `#fafafa`（保持原样）
+- **Dark 模式**：SVG 背景 `#0e0e10`（深色），主标题 `#f5f5f7`（浅色），跟随站点主题自动切换
+- **无副作用**：彩色 SVG 卡片（绿/蓝/黄/红）保持彩色，主题感知仅作用于背景和主标题
+- **降级保护**：fetch 失败时 `<img>` 仍能显示（不会变成空白）
+
+### 后续增强（C-2 / C-3 候选）
+- **C-2 hover 高亮**：SVG 内关键节点加 `<g class="hover-target">`，CSS `:hover` 高亮
+- **C-3 点击展开**：复杂流程图分组可点击展开/收起细节（需 SVG `<details>` 改造或 JS toggle）
