@@ -179,3 +179,13 @@ key: value
 - 实战案例
 - 参考资料
 <!-- auto-enrich:do-not-edit -->
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [frontend](https://java-px.bot.cd/frontend/):前端工具
+- [devops](https://java-px.bot.cd/devops/):运维工具
+- [python](https://java-px.bot.cd/python/):Python 工具

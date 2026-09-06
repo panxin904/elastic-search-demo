@@ -128,3 +128,13 @@ POST /products/_search
 ## 📚 延伸阅读
 - [Script Query](/02-query/script)
 - [字段类型 keyword](/01-storage/field-types)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [mysql](https://java-px.bot.cd/mysql/):MySQL 全文索引对比
+- [clickhouse](https://java-px.bot.cd/clickhouse/):ClickHouse OLAP 对比
+- [bigdata](https://java-px.bot.cd/bigdata/):大数据生态

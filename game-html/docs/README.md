@@ -112,3 +112,13 @@ graph LR
   questions["游戏开发面试与常见问题"]
   ROOT --> questions
 ```
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [frontend](https://java-px.bot.cd/frontend/):客户端基础
+- [rust](https://java-px.bot.cd/rust/):高性能原生
+- [ai](https://java-px.bot.cd/ai/):NPC AI

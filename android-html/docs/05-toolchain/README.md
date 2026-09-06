@@ -89,3 +89,13 @@ graph LR
 <!-- svg-injected:do-not-edit -->
 
 ![android gradle build](/android-gradle-build.svg)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [java-language](https://java-px.bot.cd/java-language/):Java / Kotlin JVM
+- [frontend](https://java-px.bot.cd/frontend/):前端基础
+- [iot](https://java-px.bot.cd/iot/):IoT / 嵌入式

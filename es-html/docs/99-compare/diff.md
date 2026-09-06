@@ -170,3 +170,13 @@ PUT /metrics
 ## 🗺️ 在图谱中的位置
 
 <KnowledgeGraph mode="full" :height="500" />
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [mysql](https://java-px.bot.cd/mysql/):MySQL 全文索引对比
+- [clickhouse](https://java-px.bot.cd/clickhouse/):ClickHouse OLAP 对比
+- [bigdata](https://java-px.bot.cd/bigdata/):大数据生态

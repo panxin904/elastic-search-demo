@@ -87,3 +87,13 @@ SearchRequest.of(s -> s
 - [Java Client 官方文档](https://www.elastic.co/guide/en/elasticsearch/client/java-api-client/current/introduction.html)
 - [Match Query](/02-query/match)
 - [聚合 Aggregation](/02-query/aggregation)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [mysql](https://java-px.bot.cd/mysql/):MySQL 全文索引对比
+- [clickhouse](https://java-px.bot.cd/clickhouse/):ClickHouse OLAP 对比
+- [bigdata](https://java-px.bot.cd/bigdata/):大数据生态

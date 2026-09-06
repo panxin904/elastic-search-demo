@@ -425,3 +425,13 @@ config.width = 640; config.height = 360;
 - 中转 Bridge SFU
 - AI 实时翻译（多语言字幕）
 - 自动纪要
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [frontend](https://java-px.bot.cd/frontend/):Web 播放器
+- [ai](https://java-px.bot.cd/ai/):视频 AI
+- [python](https://java-px.bot.cd/python/):Python 处理

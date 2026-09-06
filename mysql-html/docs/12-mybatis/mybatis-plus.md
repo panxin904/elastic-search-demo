@@ -712,3 +712,13 @@ public void batchInsert(List<User> users) {
 - ✅ 复杂查询仍用 XML（动态 SQL）
 
 **下一步：** [⚙️ MyBatis 缓存机制](/12-mybatis/cache) — 一级缓存 / 二级缓存的正确打开方式
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [postgresql](https://java-px.bot.cd/postgresql/):PostgreSQL 对比
+- [redis](https://java-px.bot.cd/redis/):Redis 缓存层
+- [clickhouse](https://java-px.bot.cd/clickhouse/):ClickHouse OLAP

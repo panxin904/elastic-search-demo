@@ -81,3 +81,13 @@ map.get("a");
 // JDK 8+ computeIfAbsent
 map.computeIfAbsent("b", k -> map.size() + 1);
 ```
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [java](https://java-px.bot.cd/java-web-manual/):Java Web 开发
+- [system-design](https://java-px.bot.cd/system-design/):JVM 调优实战
+- [architecture](https://java-px.bot.cd/architecture/):JVM 在架构中的角色

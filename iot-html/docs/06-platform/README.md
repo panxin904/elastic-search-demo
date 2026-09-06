@@ -73,3 +73,13 @@ graph LR
   smart_home["智能家居 Matter"]
   ROOT --> smart_home
 ```
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [android](https://java-px.bot.cd/android/):Android Things
+- [linux](https://java-px.bot.cd/linux/):Linux 嵌入式
+- [rust](https://java-px.bot.cd/rust/):Rust 嵌入式

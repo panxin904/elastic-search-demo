@@ -457,3 +457,13 @@ bin/kafka-reassign-partitions.sh \
 - ⚠️ 副本数影响磁盘空间和写入延迟
 
 **下一步：** [👑 Leader 选举](/02-architecture/leader-election) — 故障转移详解
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [redis](https://java-px.bot.cd/redis/):Redis 缓存对比
+- [java](https://java-px.bot.cd/java-web-manual/):Java 客户端集成
+- [system-design](https://java-px.bot.cd/system-design/):消息可靠性

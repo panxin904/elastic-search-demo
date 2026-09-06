@@ -281,3 +281,13 @@ ffmpeg -i in.mp4 -c:v libx264 -preset slow out.mp4
 
 - [熵编码 CABAC/CAVLC](/02-codec/entropy-codec)
 - [环路滤波](/02-codec/loop-filter)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [frontend](https://java-px.bot.cd/frontend/):Web 播放器
+- [ai](https://java-px.bot.cd/ai/):视频 AI
+- [python](https://java-px.bot.cd/python/):Python 处理

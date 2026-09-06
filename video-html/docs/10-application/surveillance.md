@@ -438,3 +438,13 @@ H5 Video Player
 6. **设备心跳**：定期 Ping + 状态上报
 7. **权限管理**：摄像机/录像精细权限
 8. **审计日志**：所有操作可追溯
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [frontend](https://java-px.bot.cd/frontend/):Web 播放器
+- [ai](https://java-px.bot.cd/ai/):视频 AI
+- [python](https://java-px.bot.cd/python/):Python 处理

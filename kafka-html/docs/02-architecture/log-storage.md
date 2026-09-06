@@ -516,3 +516,13 @@ log.segment.index.bytes=10485760       # 同上（兼容）
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [redis](https://java-px.bot.cd/redis/):Redis 缓存对比
+- [java](https://java-px.bot.cd/java-web-manual/):Java 客户端集成
+- [system-design](https://java-px.bot.cd/system-design/):消息可靠性

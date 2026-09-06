@@ -50,3 +50,13 @@ date: 2026-08-15  # date-auto-injected
 - [ILM 索引生命周期管理](/04-ops/ilm)
 - [Mapping 设计](/01-storage/mapping)
 - [Search DSL](../02-query)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [mysql](https://java-px.bot.cd/mysql/):MySQL 全文索引对比
+- [clickhouse](https://java-px.bot.cd/clickhouse/):ClickHouse OLAP 对比
+- [bigdata](https://java-px.bot.cd/bigdata/):大数据生态

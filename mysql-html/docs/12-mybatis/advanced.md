@@ -584,3 +584,13 @@ public class UserService {
 - ✅ 大字段懒加载
 
 **下一步：** [🔧 MyBatis 与 Spring Boot 集成实战](/12-mybatis/spring-boot) — 完整项目实战
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [postgresql](https://java-px.bot.cd/postgresql/):PostgreSQL 对比
+- [redis](https://java-px.bot.cd/redis/):Redis 缓存层
+- [clickhouse](https://java-px.bot.cd/clickhouse/):ClickHouse OLAP

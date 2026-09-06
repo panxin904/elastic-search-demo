@@ -244,3 +244,13 @@ public String resolveServer(String userId) {
 - [BASE / 最终一致性](/03-ha-theory/base)
 - [Raft 共识](/03-ha-theory/raft)
 - [Saga 模式](/07-distributed-tx/saga)
+
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [system-design](https://java-px.bot.cd/system-design/):系统设计模式
+- [cloud](https://java-px.bot.cd/cloud/):微服务架构
+- [cloud-native](https://java-px.bot.cd/cloud-native/):云原生
