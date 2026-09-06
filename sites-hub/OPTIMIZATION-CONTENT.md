@@ -8595,3 +8595,75 @@ v27 用脚本批量把 38 张 `<img>` SVG 替换为内联 `<svg>` 块（运行�
 - **C-12 内容质量纵深** — 薄页 / stale / 无日期内容审计
 - **§8.82 内容审计自动化（CI 阻断）** — 防止回归
 - **其他站的 `<img>` SVG 迁移**：如 postgresql(3 张)、kafka/redis 之外的站（按需）
+
+---
+
+## §8.80 v28 — 跨站推荐批量注入（11 站 66 篇）
+
+### 任务背景
+
+§8.80 跨站推荐机制早期已覆盖 19 站 319 篇，但仍有 11 个站未注入：
+android / architecture / es / game / iot / java-language / kafka / mysql / rust / tools / video
+（共 562 篇 markdown）。
+
+这些站虽然通过 sidebar nav 实现了入口可见，但内容页内缺少站间互引 → SEO
+与站内发现性不足。v28 复用 §8.76 时期的 `xlink-inject-subpages.py` 注入机制，给
+每站挑 6 个 top-n 子页面（按字节），每页注入 3 条 xlink-terms.json 中预配置的
+相关站链接。
+
+### 本批注入清单（11 站 66 篇）
+
+| 站 | 配置目标数 | 注入子页数 |
+|---|---|---|
+| android | 5 | 6 |
+| architecture | 7 | 6 |
+| es | 6 | 6 |
+| game | 6 | 6 |
+| iot | 6 | 6 |
+| java-language | 4 | 6 |
+| kafka | 6 | 6 |
+| mysql | 7 | 6 |
+| rust | 4 | 6 |
+| tools | 3 | 6 |
+| video | 3 | 6 |
+| **总计** | — | **66** |
+
+### 注入位置
+
+每页末尾插入：
+
+```markdown
+## 🔗 相关阅读（跨站导航）
+
+<!-- xlink-subpage-injected:do-not-edit -->
+
+本页相关主题的跨站入口:
+
+- [java-language](https://java-px.bot.cd/java-language/):JVM 调优 / 字节码 / 类加载器
+- [system-design](https://java-px.bot.cd/system-design/):系统设计 / 高并发 / 分布式
+- ...
+```
+
+### 累计成果
+
+- **xlink 覆盖**：319 → **385** 篇 markdown 含"🔗 相关阅读"section
+- **audit xsite 链接**：1387 → **1585**（+198 跨站链接，等于 66 篇 × 3 链接/篇）
+- **build**：31/31 站通过，1698 页面
+- **audit**：1662 文件 / 1,420,459 词
+
+### 完整覆盖矩阵（30 站）
+
+之前已覆盖：ai / bigdata / chaos / clickhouse / cloud-native / design-pattern / devops /
+filesystem / frontend / go / linux / network / observability / postgresql / python /
+redis / security / system-design
+
+本批新增（11 站 → 全覆盖）：android / architecture / es / game / iot / java-language /
+kafka / mysql / rust / tools / video
+
+至此 §8.80 跨站推荐机制覆盖全部 **30 站**（不含 cloud/springcloud 已删除的站）。
+
+### 候选后续
+
+- **C-12 内容质量纵深**：28 个薄页 + 38 个 intra-site 重复内容审计
+- **§8.82 内容审计自动化（CI 阻断）**：增强现有 audit-content.yml / sites-hub-ci.yml
+- **§8.81 SVG 动效 / 交互性进一步增强**：折叠/全屏已就位，可加 zoom 比例持久化
