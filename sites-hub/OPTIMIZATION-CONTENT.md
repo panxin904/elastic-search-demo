@@ -8667,3 +8667,65 @@ kafka / mysql / rust / tools / video
 - **C-12 内容质量纵深**：28 个薄页 + 38 个 intra-site 重复内容审计
 - **§8.82 内容审计自动化（CI 阻断）**：增强现有 audit-content.yml / sites-hub-ci.yml
 - **§8.81 SVG 动效 / 交互性进一步增强**：折叠/全屏已就位，可加 zoom 比例持久化
+
+---
+
+## §8.81 v30 — 全局响应式工具类（at-* 命名空间）
+
+### 任务背景
+
+之前每个 md / 每个站都自己写 CSS，重复且难以维护。响应式布局只能依赖
+媒体查询硬编码断点。v30 在共享 `shared-assets/vitepress-template/theme/style.css`
+中追加 `at-*` 工具类，全站自动可用，无需每页单独处理。
+
+### 实施内容
+
+#### 1. 全局工具类（追加 110 行 CSS）
+
+- **网格**：`at-grid-cards`（自适应 1→4 列）、`at-grid-2`、`at-grid-3`
+- **弹性容器**：`at-stack`（垂直/水平自适应）、`at-row`
+- **流式字号**：`at-h1/h2/h3`、`at-text-sm/lg`（使用 `clamp()`）
+- **间距**：`at-p-{1,2,3}`、`at-mt-{1,2,3}`（基于 `clamp()`）
+- **卡片**：`at-card`（悬浮上浮）、`at-link-card`（横向滑动）
+- **容器查询**：`at-container` 包裹即启用 @container 响应式
+- **内容宽度**：`at-prose`（75ch）、`at-prose-wide`（90ch）
+- **预设文本**：`at-content-text`、`at-meta`、`at-banner`
+- **断点类**：`sm:` `md:` `lg:` `xs:` 前缀（mobile-first）
+
+#### 2. 演示页面
+
+`ai-html/docs/style-demo.md` 创建完整演示页，覆盖：
+- 网格 / 流式字号 / 弹性容器 / 容器查询 / 显式断点
+- 包含可拖动 resize 的容器查询演示块
+
+访问：`https://java-px.bot.cd/ai/style-demo`
+
+### 关键设计
+
+```css
+/* 自适应网格：移动 1 列 → 大屏 4 列，无需 media query */
+.at-grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: clamp(0.75rem, 1.5vw, 1.5rem);
+}
+
+/* 容器查询：元素级响应式（比 media query 更精准） */
+.at-container { container-type: inline-size; container-name: at; }
+@container at (min-width: 600px) {
+  .at-container .at-stack { flex-direction: row; }
+}
+```
+
+### 累计成果
+
+- **共享 style.css**：453 → **563** 行（+110 行）
+- **新增演示页**：ai-html/docs/style-demo.md（121 行）
+- **build**：31/31 站通过，1698 页面
+- **零侵入**：29 站无需任何额外改动，自动继承
+
+### 候选后续
+
+- **§8.82 内容审计自动化（CI 阻断）**
+- **CSS 进一步压缩**：把 at-* 类提取到独立 CSS 文件（按需加载）
+- **shadcn-vue 引入**：在工具类基础上补组件（如 alert / dialog / dropdown）
