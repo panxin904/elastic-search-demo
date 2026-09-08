@@ -451,3 +451,113 @@ body {
   font-size: 13px;
   font-family: var(--at-font-family, -apple-system, sans-serif);
 }
+
+/* ============================================================
+ * §8.81 v30 — 全站响应式工具类（at-* 命名空间）
+ * 设计目标：md 中只需写 class，无需写 media query
+ * 引入方式：@shared/vitepress-template/theme/style.css 自动加载
+ * ============================================================ */
+
+/* === 网格布局 === */
+.at-grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: clamp(0.75rem, 1.5vw, 1.5rem);
+  margin: 1.5rem 0;
+}
+.at-grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 1rem; }
+.at-grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 1rem; }
+
+/* === 弹性容器 === */
+.at-stack { display: flex; flex-direction: column; gap: 1rem; }
+.at-row   { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+
+/* === 流式字号（clamp） === */
+.at-h1 { font-size: clamp(1.5rem, 3vw + 0.5rem, 2.5rem); line-height: 1.2; font-weight: 600; }
+.at-h2 { font-size: clamp(1.25rem, 2vw + 0.5rem, 2rem); line-height: 1.3; font-weight: 600; }
+.at-h3 { font-size: clamp(1.1rem, 1.5vw + 0.3rem, 1.5rem); line-height: 1.4; font-weight: 600; }
+.at-text-sm { font-size: clamp(0.85rem, 0.5vw + 0.8rem, 0.95rem); }
+.at-text-lg { font-size: clamp(1.1rem, 1vw + 0.9rem, 1.25rem); }
+
+/* === 内容宽度限制 === */
+.at-prose { max-width: min(100%, 75ch); margin-inline: auto; padding-inline: clamp(0.5rem, 2vw, 1.5rem); }
+.at-prose-wide { max-width: min(100%, 90ch); margin-inline: auto; }
+
+/* === 卡片 === */
+.at-card {
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border-radius: var(--at-radius-md, 8px);
+  border: 1px solid var(--vp-c-divider, #e5e7eb);
+  background: var(--vp-c-bg-soft, #f8fafc);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.at-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--at-shadow-md, 0 4px 12px rgba(0, 0, 0, 0.08));
+}
+
+/* === 容器查询（元素级响应式） === */
+.at-container { container-type: inline-size; container-name: at; }
+@container at (min-width: 600px) {
+  .at-container .at-stack { flex-direction: row; align-items: flex-start; }
+  .at-container .at-row   { flex-wrap: nowrap; }
+}
+
+/* === 通用断点（默认 mobile-first） === */
+@media (min-width: 640px)  { .sm\:at-grid-2 { grid-template-columns: repeat(2, 1fr) !important; }
+                              .sm\:at-hide   { display: none !important; } }
+@media (min-width: 768px)  { .md\:at-grid-3 { grid-template-columns: repeat(3, 1fr) !important; } }
+@media (min-width: 1024px) { .lg\:at-grid-4 { grid-template-columns: repeat(4, 1fr) !important; }
+                              .lg\:at-row    { flex-direction: row !important; } }
+@media (max-width: 639px)  { .xs\:at-stack  { flex-direction: column !important; }
+                              .xs\:at-hide   { display: none !important; } }
+
+/* === 间距（响应式 padding/margin） === */
+.at-p-1 { padding: clamp(0.5rem, 1vw, 1rem); }
+.at-p-2 { padding: clamp(1rem, 2vw, 1.5rem); }
+.at-p-3 { padding: clamp(1.5rem, 3vw, 2.5rem); }
+.at-mt-1 { margin-top: clamp(0.5rem, 1vw, 1rem); }
+.at-mt-2 { margin-top: clamp(1rem, 2vw, 1.5rem); }
+.at-mt-3 { margin-top: clamp(1.5rem, 3vw, 2.5rem); }
+
+/* === Banner 提示条（全站可复用） === */
+.at-banner {
+  background: var(--vp-c-brand-soft, rgba(139, 92, 246, 0.1));
+  border-left: 4px solid var(--at-brand, #8b5cf6);
+  color: var(--vp-c-text-1, #1e293b);
+  padding: clamp(0.5rem, 1.5vw, 1rem) clamp(0.75rem, 2vw, 1.5rem);
+  border-radius: var(--at-radius-sm, 6px);
+  margin: 1rem 0;
+  font-size: clamp(0.85rem, 0.5vw + 0.8rem, 0.95rem);
+}
+
+/* === 信息密度（内容卡片） === */
+.at-meta {
+  font-size: clamp(0.75rem, 0.4vw + 0.7rem, 0.85rem);
+  color: var(--vp-c-text-2, #64748b);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* === 跳转链接（参考卡片） === */
+.at-link-card {
+  display: block;
+  padding: clamp(0.75rem, 1.5vw, 1rem);
+  border-radius: var(--at-radius-sm, 6px);
+  background: var(--vp-c-bg-soft, #f8fafc);
+  border: 1px solid var(--vp-c-divider, #e5e7eb);
+  color: var(--vp-c-text-1, #1e293b);
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+.at-link-card:hover {
+  background: var(--vp-c-brand-soft, rgba(139, 92, 246, 0.1));
+  border-color: var(--at-brand, #8b5cf6);
+  transform: translateX(2px);
+}
+
+/* === 段落正文优化 === */
+.at-content-text {
+  font-size: clamp(0.95rem, 0.5vw + 0.9rem, 1.05rem);
+  line-height: 1.8;
+  color: var(--vp-c-text-1, #1e293b);
+}
