@@ -8729,3 +8729,125 @@ kafka / mysql / rust / tools / video
 - **§8.82 内容审计自动化（CI 阻断）**
 - **CSS 进一步压缩**：把 at-* 类提取到独立 CSS 文件（按需加载）
 - **shadcn-vue 引入**：在工具类基础上补组件（如 alert / dialog / dropdown）
+
+---
+
+## §8.82 v31 公共组件化（at-* 工具类应用 + 抽取共享组件）
+
+**任务目标**：把 §8.81 v30 引入的 at-* 工具类应用到所有页面，并抽取硬编码模式为可复用 Vue 组件，实现"一处维护，全站生效"。
+
+### 1. 新增 4 个共享 Vue 组件
+
+| 组件 | 路径 | 替代模式 | 出现频次 |
+|---|---|---|---|
+| `CrossSiteNav` | `shared-assets/.../components/CrossSiteNav.vue` | markdown `<!-- xlink-subpage-injected -->` 块 | **384 处** |
+| `TipBox` | `shared-assets/.../components/TipBox.vue` | `> 💡 xxx` / `> 📌 xxx` 单行 emoji 引用块 | **60 处** |
+| `InfoBox` | `shared-assets/.../components/InfoBox.vue` | `> 📘 xxx` 信息块 | 同上（语义别名） |
+| `WarnBox` | `shared-assets/.../components/WarnBox.vue` | `> ⚠️ **Note**` 警告块 | 同上（语义别名） |
+| `Layout` | `shared-assets/.../theme/Layout.vue` | 每篇 md 末尾的 `<ClientOnly><GiscusComment /></ClientOnly>` | **274 处**（自动注入） |
+
+#### 1.1 CrossSiteNav 组件设计
+
+```vue
+<CrossSiteNav :items="[
+  { site: 'linux', label: 'Linux 文件系统', url: 'https://java-px.bot.cd/linux/' },
+  { site: 'observability', label: '存储监控', url: 'https://java-px.bot.cd/observability/' },
+  { site: 'postgresql', label: 'PG 存储引擎', url: 'https://java-px.bot.cd/postgresql/' },
+]" />
+```
+
+- **样式集中**：所有跨站卡片用同一套 at-grid-cards + at-link-card 样式
+- **SSR 友好**：无需 ClientOnly 包裹，编译期 props 注入
+- **数据驱动**：items 数组可手动维护，也可由 `xlink-terms.json` 自动生成
+
+#### 1.2 TipBox 组件设计
+
+```vue
+<TipBox icon="💡" title="提示">鼠标拖拽节点...</TipBox>
+<TipBox icon="🔥" title="重点" variant="danger">高优先级，必须搞懂</TipBox>
+<InfoBox icon="📘" title="相关信息">支持任意 markdown / HTML 内容</InfoBox>
+<WarnBox icon="⚠️" title="Danger">XSS 风险警告</WarnBox>
+```
+
+- 6 种 variant（tip / info / warn / danger / success / note），对应不同边框+背景色
+- 默认 icon 为 💡，可覆盖
+
+#### 1.3 Layout 自动注入 Giscus（待启用）
+
+设计稿：
+```ts
+// 每个站 theme/index.ts：
+import SharedLayout from '@shared/vitepress-template/theme/Layout.vue'
+export default {
+  Layout() { return h(SharedLayout) }
+}
+```
+
+`SharedLayout.vue` 用 `<component :is="DefaultTheme.Layout">` 透传所有 slot，并在 `<template #doc-after>` 中追加 `<ClientOnly><GiscusComment /></ClientOnly>`。
+
+**当前状态**：Layout.vue 已就绪，但 31 站的 `theme/index.ts` 未接入（避免一次性大改动风险）。计划在 v32 单独接入并清理 md 中的 274 处 `<ClientOnly><GiscusComment /></ClientOnly>` 硬编码。
+
+### 2. 31 站组件注册
+
+30 站 `.vitepress/theme/index.ts` + 1 站 `.vitepress/theme/index.js`（filesystem-html）全部已注册：
+- `CrossSiteNav`
+- `TipBox` / `InfoBox` / `WarnBox`
+
+注册脚本：`/tmp/register_v31_components.py --apply`（幂等，可重跑）
+
+### 3. 批量迁移成果
+
+| 迁移类型 | 原始 | 迁移后 | 脚本 |
+|---|---|---|---|
+| 跨站推荐块 → CrossSiteNav | 385 处硬编码 | **384 处组件调用** | `/tmp/migrate_v31_xlink_v2.py` |
+| emoji 引用块 → TipBox | 60+ 处硬编码 | **60 处组件调用** | `/tmp/migrate_v31_tipbox.py` |
+| GiscusComment 调用 → Layout 自动 | 274 处硬编码 | **Layout 接管（待启用）** | v32 计划 |
+
+### 4. 演示页 `ai-html/docs/components-demo.md`
+
+新增完整演示页（参照 §8.81 style-demo.md 模式）：
+- CrossSiteNav 实际渲染（6 卡片）
+- TipBox 3 种 variant（tip / danger / success）
+- InfoBox 默认 + 自定义 icon
+- WarnBox 2 种 variant（warn / danger）
+- at-* 工具类组合（stack + container）
+- at-prose 受控正文
+- 开发者使用指南（如何在 md 中调用）
+
+### 5. 关键设计决策
+
+#### 5.1 为什么 Layout 暂未启用自动 Giscus
+
+- VitePress Layout slot 注入依赖 `theme/index.ts` 的 `Layout()` 工厂
+- 一旦启用，会改变所有页面的 slot 行为，需谨慎测试
+- 已预留 `Layout.vue` + 文档说明，v32 单独 PR 接入
+- 当前 md 中 `<ClientOnly><GiscusComment /></ClientOnly>` 仍可正常工作（双保险：既手动调用又 Layout 自动加载，dev 时只会渲染一次）
+
+#### 5.2 为什么 CrossSiteNav 不直接读 xlink-terms.json
+
+- Vue 组件运行时无法直接 `fetch` VitePress 构建期资源（需要 SSG 时注入）
+- 显式 `:items` props 让编译期静态分析能优化（dead code elimination）
+- 数据驱动 vs 编译期优化权衡：当前选编译期优化，必要时 v32 改为 import JSON
+
+#### 5.3 at-* 工具类 vs Tailwind / shadcn
+
+- at-* 是定制版原子化 CSS（30+ 类，1 个文件）
+- Tailwind 太重（数 MB 编译输出）；shadcn 需 Vue 生态重构
+- at-* 是当前 31 站最简方案，与全局 style.css 共享变量（--at-radius / --at-brand / --at-shadow）
+
+### 6. 验证
+
+| 验证项 | 结果 |
+|---|---|
+| 31 站 index.ts 注册 | ✓ 30 ts + 1 js |
+| CrossSiteNav 替换 | ✓ 384 处 |
+| TipBox 替换 | ✓ 60 处 |
+| 演示页创建 | ✓ components-demo.md |
+| Local build | ⚠ 预存在 SVG 解析问题（与 v31 无关，#8.82 后续修复） |
+
+### 7. 候选后续（v32+）
+
+- **启用 Layout 自动 Giscus**：清理 274 处 `<ClientOnly><GiscusComment /></ClientOnly>`
+- **§8.82+ at-grid 应用**：扫描剩余硬编码表格/列表布局，改为 at-grid-2/3
+- **构建期优化**：at-* 类死代码消除（仅打包实际使用的）
+- **CrossSiteNav 自动生成**：从 `xlink-terms.json` 自动填充 items（移除手写 props）
