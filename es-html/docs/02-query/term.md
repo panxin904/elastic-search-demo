@@ -58,7 +58,9 @@ POST /products/_search
 | 数值范围/精确 | `term: { stock: 100 }` |
 | 多标签 | `terms: { tags: [...] }` |
 
-> ⚠️ **常见错误**：对 `text` 字段用 term 查中文会查不到（因为 text 已被分词成多个 token）
+<TipBox icon="⚠️" title="注意" variant="warn">
+  **常见错误**：对 `text` 字段用 term 查中文会查不到（因为 text 已被分词成多个 token）
+</TipBox>
 
 ## 🗺️ 在图谱中的位置
 

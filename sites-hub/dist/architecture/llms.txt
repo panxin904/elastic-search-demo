@@ -1,8 +1,8 @@
 # architecture 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 51 个文档页 · 148,573 字
-> 生成时间：2026-08-27T21:42:04
+> 51 个文档页 · 151,212 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [CAS / Lock-Free](https://java-px.bot.cd/architecture/01-concurrency-theory/cas)
 > **Compare-And-Swap**（比较并交换），CPU 硬件原语： **乐观锁**：不断重试直到成功。 **解决**：版本号（AtomicStampedReference）或加锁。 高竞争下 CAS 反复失败 → CPU 空转。**解决**：自适应自旋 / Exponential Backoff / 让出 CPU。 CAS 只能保护**一个**变量。多变量一致性需要**事务 / 锁**。
@@ -143,7 +143,7 @@
 > 长链 https://example.com/article/2024/01/15/long-title → 短链 https://ex.co/Ab3xY 点击短链 → 302 跳转长链 | 要求 | 数值 | |------|------| | QPS | 100 万 (读) / 1 万 (写) | | 延迟 | P99 < 50ms | | 存储 | 千亿短链 / PB 级 | | 命中率 |
 
 ## [命令速查](https://java-px.bot.cd/architecture/cheatsheet)
-> > 30+ 高频命令，分类速查。 - [秒杀系统](/14-enterprise-cases/flash-sale) - [CAP 定理](/03-ha-theory/cap) - [分布式事务 2PC](/07-distributed-tx/2pc)
+> > 30+ 高频命令，分类速查。 - [秒杀系统](/14-enterprise-cases/flash-sale) - [CAP 定理](/03-ha-theory/cap) - [分布式事务 2PC](/07-distributed-tx/2pc) <ClientOnly> <QrShare /> </ClientOnly>
 
 ## [知识图谱](https://java-px.bot.cd/architecture/graph)
 > > 50+ 节点，14 大主题分类，节点可点击跳转。 <ClientOnly><KnowledgeGraph :height="820" /></ClientOnly> | 颜色 | 分类 | 主题数 | |------|------|--------| | ⚫ 石 | 并发理论 | 4 | | 🩵 青 | 线程池 | 3 | | 🟣 紫 | 高可用理论 | 5 | | 🩷 粉 | 限流 | 3

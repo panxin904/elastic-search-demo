@@ -69,7 +69,9 @@ POST /products/_search
 | 性能 | 较慢 | **快**（可缓存） |
 | 使用 | `must` / `should` | `filter` / `must_not` |
 
-> 💡 最佳实践：能 filter 就 filter，**过滤不需要评分的条件**。
+<TipBox icon="💡" title="提示" variant="tip">
+  最佳实践：能 filter 就 filter，**过滤不需要评分的条件**。
+</TipBox>
 
 ## 🗺️ 在图谱中的位置
 

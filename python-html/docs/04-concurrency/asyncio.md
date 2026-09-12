@@ -481,3 +481,9 @@ asyncio.run(main())
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->

@@ -264,13 +264,15 @@ fn main() -> Result<()> {
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+<CrossSiteNav :items="[
+    { site: 'go', label: 'Go 对比', url: 'https://java-px.bot.cd/go/' },
+    { site: 'linux', label: 'Linux 系统编程', url: 'https://java-px.bot.cd/linux/' },
+    { site: 'android', label: 'NDK 集成', url: 'https://java-px.bot.cd/android/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
 
-<!-- xlink-subpage-injected:do-not-edit -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
 
-本页相关主题的跨站入口:
-
-- [go](https://java-px.bot.cd/go/):Go 对比
-- [linux](https://java-px.bot.cd/linux/):Linux 系统编程
-- [android](https://java-px.bot.cd/android/):NDK 集成
+<!-- giscus-injected:do-not-edit -->

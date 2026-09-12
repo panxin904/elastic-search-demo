@@ -1,8 +1,8 @@
 # design-pattern 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 49 个文档页 · 282,640 字
-> 生成时间：2026-08-27T21:42:04
+> 53 个文档页 · 289,383 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [Abstract Factory 抽象工厂模式](https://java-px.bot.cd/design-pattern/01-gof-creational/abstract-factory)
 > 一族相关对象的创建 + 主题切换 + UI 组件库 / 数据库 driver 族 / Spring ApplicationContext
@@ -148,5 +148,17 @@
 ## [Premature Optimization 提前优化](https://java-px.bot.cd/design-pattern/06-anti-patterns/premature-optimization)
 > 症状 + 病因 + 药方 + 性能分析 + Knuth 法则
 
+## [速查表](https://java-px.bot.cd/design-pattern/cheatsheet)
+> > 高频 设计模式 命令/概念速查，支持分类过滤和关键词搜索（Cmd+F 即可）。 | 场景 | 命令/概念 | |------|----------| | 入门 | 从 [📖 学习路径](/path) 开始 | | 查找 | 用 [🧭 思维导图](/mindmap) 总览 | | 总览 | 看 [🌐 知识图谱](/graph) 分类 | | 搜索 | 浏览器 Cmd+F 全文检索 | - 各子目
+
+## [知识图谱](https://java-px.bot.cd/design-pattern/graph)
+> > 树形结构总览 设计模式 全栈知识，按主题分类组织。点击节点跳转到对应章节。 本站涵盖以下核心主题，建议按分类顺序学习： 1. **基础概念** - 从零开始的入门必备 2. **核心原理** - 深入理解底层机制 3. **实战应用** - 结合真实场景的最佳实践 4. **生态工具** - 提升效率的配套工具 - [📖 学习路径](/path) - 推荐阅读顺序 - [🧭 思维导图](/mi
+
 ## [设计模式 / GoF 23 式 / 反模式](https://java-px.bot.cd/design-pattern/index)
 > <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "GoF 23 式记不全，面试问到「装饰器 vs 代理」讲不清？", "创建型 / 结构型 / 行为型 分类背后的设计原则（开闭 / 里氏 / 依赖倒置）？"
+
+## [思维导图](https://java-px.bot.cd/design-pattern/mindmap)
+> > 树形结构总览 设计模式 全栈知识，点击叶子节点跳转。 请参考各分类目录的内容，或直接查看： - [📖 学习路径](/path) - 按角色推荐阅读顺序 - [📋 速查表](/cheatsheet) - 高频命令速查 - [🌐 知识图谱](/graph) - 主题分类总览
+
+## [学习路径](https://java-px.bot.cd/design-pattern/path)
+> > 根据你的角色选择对应路径，每条路径推荐了核心阅读顺序。 适合**刚接触 设计模式**的初学者。 1. 阅读首页（[/](/)）了解整体结构 2. 查看 [🧭 思维导图](/mindmap) 熟悉全站布局 3. 选择一个子目录从 overview.md 开始 4. 边学边查 [📋 速查表](/cheatsheet) 5. 完成 cheatsheet.md 的练习题 适合**已有基础**的开发者。

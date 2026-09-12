@@ -207,3 +207,9 @@ sudo systemctl enable --now myapp
 - [systemd](/04-process/systemd)
 - [systemctl 命令](/12-systemd/systemctl)
 - [信号 (kill)](/04-process/signals)
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->

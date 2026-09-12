@@ -58,7 +58,9 @@ PUT /_cluster/settings
 
 ### Step 5: 重复其他节点
 
-> ⚠️ **不要**同时重启所有节点（特别是 master 节点同时宕机会导致脑裂）
+<TipBox icon="⚠️" title="注意" variant="warn">
+  **不要**同时重启所有节点（特别是 master 节点同时宕机会导致脑裂）
+</TipBox>
 
 ![Es Rolling Restart](/es-rolling-restart.svg)
 

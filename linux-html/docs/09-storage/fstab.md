@@ -212,13 +212,9 @@ sudo apt install xfsprogs
 - [LVM 逻辑卷](/09-storage/lvm)
 - [ext4 / xfs / btrfs](/09-storage/fs-types)
 - [swap 交换分区](/09-storage/swap)
+<CrossSiteNav :items="[
+    { site: 'devops', label: 'DevOps 自动化', url: 'https://java-px.bot.cd/devops/' },
+    { site: 'cloud-native', label: '云原生', url: 'https://java-px.bot.cd/cloud-native/' },
+    { site: 'network', label: 'Linux 网络', url: 'https://java-px.bot.cd/network/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
-
-<!-- xlink-subpage-injected:do-not-edit -->
-
-本页相关主题的跨站入口:
-
-- [devops](https://java-px.bot.cd/devops/):DevOps 自动化
-- [cloud-native](https://java-px.bot.cd/cloud-native/):云原生
-- [network](https://java-px.bot.cd/network/):Linux 网络

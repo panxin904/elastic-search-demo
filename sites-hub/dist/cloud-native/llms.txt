@@ -1,8 +1,8 @@
 # cloud-native 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 55 个文档页 · 225,616 字
-> 生成时间：2026-08-27T21:42:04
+> 55 个文档页 · 228,933 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [Docker Compose](https://java-px.bot.cd/cloud-native/01-docker/compose)
 > > 多容器应用一键编排。最适合本地开发 / 单机测试 / 小规模部署。 | 字段 | 作用 | |------|------| | `image` | 用镜像 | | `build` | 构建（路径 / Dockerfile 名） | | `command` | 覆盖 CMD | | `entrypoint` | 覆盖 ENTRYPOINT | | `environment` | 环境变量 | |
@@ -23,7 +23,7 @@
 > > 容器是 ephemeral（短命）的，文件改动默认随容器删除消失。要保留数据：用卷。 | | named volume | bind mount | |--|------------|------------| | 位置 | /var/lib/docker/volumes/ | 主机任意路径 | | 性能 | 一般（默认） | 略好（直接 IO） | | 备份 | `docker volume
 
 ## [控制面 Control Plane](https://java-px.bot.cd/cloud-native/02-k8s-arch/control-plane)
-> > k8s 集群的"大脑" — 接收请求、调度、维护期望状态。 **所有交互的唯一入口**。 特点： - **无状态**（可水平扩） - **唯一与 etcd 通讯的组件** - **所有 list/watch 都走它** **决定 Pod 放哪个 Node**。 自定义调度器也可（Volcano / scheduler-plugins）。 **状态控制循环**。 每个 Controller 的核
+> > k8s 集群的"大脑" — 接收请求、调度、维护期望状态。 ![K8S Scheduler Framework](/k8s-scheduler-framework.svg) **所有交互的唯一入口**。 特点： - **无状态**（可水平扩） - **唯一与 etcd 通讯的组件** - **所有 list/watch 都走它** **决定 Pod 放哪个 Node**。 自定义调度器也可（V
 
 ## [etcd 存储](https://java-px.bot.cd/cloud-native/02-k8s-arch/etcd)
 > > k8s 所有状态存在 etcd — 分布式 KV、强一致、RAFT。 etcd = **etcd distributed**（不是 etc）+ **d**istributed。 - 强一致 KV 存储 - 基于 **RAFT** 共识算法 - 写半数以上节点才提交 - 默认 2379（客户端）/ 2380（peer） - 单一 etcd 集群存所有 k8s 状态 - 集群通常 **3 或 5
@@ -32,34 +32,34 @@
 > > 与 k8s API Server 交互的瑞士军刀。掌握 80% 的日常运维。 `config` 包含： - cluster（API server 地址 + ca） - user（证书 / token） - context（cluster + user + namespace） - [k8s 是什么](/02-k8s-arch/overview) - [Pod 最小单元](/03-k8s-wor
 
 ## [工作节点 Node](https://java-px.bot.cd/cloud-native/02-k8s-arch/node)
-> > Node = 跑 Pod 的机器。k8s 集群里除控制面外都是 Node。 **Node 代理**，k8s 在每个 Node 上的"客户端"。 职责： - 接收 API Server 的 Pod spec - 通过 CRI（Container Runtime Interface）启动容器 - 挂载卷 - 健康检查（liveness / readiness） - 报告 Pod / Node 状态
+> > Node = 跑 Pod 的机器。k8s 集群里除控制面外都是 Node。 ![Kubernetes CNI / CSI / CRI 插件体系](/k8s-cni-csi-cri.svg) **Node 代理**，k8s 在每个 Node 上的"客户端"。 职责： - 接收 API Server 的 Pod spec - 通过 CRI（Container Runtime Interface）启
 
 ## [k8s 是什么](https://java-px.bot.cd/cloud-native/02-k8s-arch/overview)
-> > **K8s** = 自动部署、扩缩、运维容器化应用的**容器编排平台**。Google 2014 年开源，源自内部 Borg。 | 组件 | 作用 | |------|------| | **API Server** | REST API 入口，所有组件通讯都走它 | | **Scheduler** | 决定 Pod 放哪个 Node | | **Controller Manager** |
+> ![Kubernetes 集群架构](/kubernetes-architecture.svg) > **K8s** = 自动部署、扩缩、运维容器化应用的**容器编排平台**。Google 2014 年开源，源自内部 Borg。 | 组件 | 作用 | |------|------| | **API Server** | REST API 入口，所有组件通讯都走它 | | **Scheduler*
 
 ## [DaemonSet](https://java-px.bot.cd/cloud-native/03-k8s-workload/daemonset)
 > > DaemonSet = 确保**所有 / 部分 Node 都跑一个 Pod**。典型：日志、监控、网络插件。 | 字段 | 用途 | |------|------| | `hostNetwork: true` | 共享宿主机网络命名空间 | | `hostPID: true` | 共享 PID 命名空间 | | `hostPort` | 宿主机端口直接暴露 | | `hostPath` | 挂
 
 ## [Deployment](https://java-px.bot.cd/cloud-native/03-k8s-workload/deployment)
-> > Deployment 是无状态 Pod 的"工厂"，管副本 + 滚动升级 + 回滚。 适合：单实例 / 不能双版本共存。 详见 `horizontalpodautoscaler`（CKA 常考）。 `kubectl get rs` 列出 ReplicaSet（每个 revision 一个）。 - [Pod 最小单元](/03-k8s-workload/pod) - [StatefulSet](
+> > Deployment 是无状态 Pod 的"工厂"，管副本 + 滚动升级 + 回滚。 适合：单实例 / 不能双版本共存。 ![K8S Hpa Vpa Ca](/k8s-hpa-vpa-ca.svg) 详见 `horizontalpodautoscaler`（CKA 常考）。 `kubectl get rs` 列出 ReplicaSet（每个 revision 一个）。 - [Pod 最小单元]
 
 ## [Job / CronJob](https://java-px.bot.cd/cloud-native/03-k8s-workload/job)
 > > Deployment 管"常驻服务"，Job 管"跑完就结束"的任务。 `completions: 1` 跑一次就完。 | 字段 | 作用 | |------|------| | `completions` | 完成次数 | | `parallelism` | 并行 Pod 数 | | `backoffLimit` | 重试次数 | | `activeDeadlineSeconds` | 超时
 
 ## [Pod 最小单元](https://java-px.bot.cd/cloud-native/03-k8s-workload/pod)
-> > Pod = 1+ 共享网络 / 存储的容器。**不是容器**。 不通过 startup → liveness / readiness 不跑（避免启动慢被误杀）。 | 资源 | 单位 | 超过后果 | |------|------|----------| | CPU | 1 = 1 核 | throttle（不杀） | | memory | 字节 | OOM kill | **始终设 reque
+> > Pod = 1+ 共享网络 / 存储的容器。**不是容器**。 ![Kubernetes Scheduler 调度流程](/k8s-scheduler-flow.svg) ![K8S Probe Lifecycle](/k8s-probe-lifecycle.svg) 不通过 startup → liveness / readiness 不跑（避免启动慢被误杀）。 | 资源 | 单位 | 超过
 
 ## [StatefulSet](https://java-px.bot.cd/cloud-native/03-k8s-workload/statefulset)
-> > StatefulSet = 有**稳定身份** + **持久存储**的 Pod。适合 DB、MQ、ZK 等。 1. **稳定的 hostname**：`web-0`, `web-1`, `web-2`（不变） 2. **稳定的网络身份**：headless Service（DNS 解析到具体 Pod IP） 3. **稳定的存储**：`pvcName-web-0` / `pvcName-web
+> > StatefulSet = 有**稳定身份** + **持久存储**的 Pod。适合 DB、MQ、ZK 等。 ![K8S Statefulset](/k8s-statefulset.svg) 1. **稳定的 hostname**：`web-0`, `web-1`, `web-2`（不变） 2. **稳定的网络身份**：headless Service（DNS 解析到具体 Pod IP） 3.
 
 ## [Ingress 入口](https://java-px.bot.cd/cloud-native/04-k8s-service/ingress)
-> > Ingress = 集群对外的 HTTP / HTTPS 网关。Service 是 4 层，Ingress 是 7 层（懂 HTTP 头 / 路径 / 主机名）。 **关键**：Ingress = 资源对象 + 控制器实现。要装一个 Ingress Controller（k8s 自带不包含）。 | Controller | 特点 | |------------|------| | **ngin
+> > Ingress = 集群对外的 HTTP / HTTPS 网关。Service 是 4 层，Ingress 是 7 层（懂 HTTP 头 / 路径 / 主机名）。 ![K8S Ingress Routing](/k8s-ingress-routing.svg) **关键**：Ingress = 资源对象 + 控制器实现。要装一个 Ingress Controller（k8s 自带不包含）。 |
 
 ## [NetworkPolicy](https://java-px.bot.cd/cloud-native/04-k8s-service/network-policy)
-> > 默认 k8s 集群内所有 Pod 互通。NetworkPolicy = 集群内的"防火墙"。 | 类型 | 含义 | |------|------| | `IngressPolicy` | 入口流量（谁可以访问我） | | `EgressPolicy` | 出口流量（我可以访问谁） | | 行为 | 含义 | |------|------| | 默认 allow | 没有匹配 NP 规则 →
+> > 默认 k8s 集群内所有 Pod 互通。NetworkPolicy = 集群内的"防火墙"。 ![K8S Network Policy](/k8s-network-policy.svg) | 类型 | 含义 | |------|------| | `IngressPolicy` | 入口流量（谁可以访问我） | | `EgressPolicy` | 出口流量（我可以访问谁） | | 行为 |
 
 ## [Service 三种类型](https://java-px.bot.cd/cloud-native/04-k8s-service/service)
-> > Pod 不稳定（会换 Node / 重建 IP 变）。Service = Pod 集合的"固定 IP"。 适合：集群内服务间调用（API → DB）。 - 主机 30080 端口 → 转发到 Pod 8080 - 适合：开发 / 演示 / 简单公网访问 - 自动创建云 LB（AWS ELB / GCP LB / 阿里 SLB） - 适合：生产公网访问 无 clusterIP — DNS 直接解
+> > Pod 不稳定（会换 Node / 重建 IP 变）。Service = Pod 集合的"固定 IP"。 ![K8S Service Types](/k8s-service-types.svg) 适合：集群内服务间调用（API → DB）。 - 主机 30080 端口 → 转发到 Pod 8080 - 适合：开发 / 演示 / 简单公网访问 - 自动创建云 LB（AWS ELB / GCP L
 
 ## [ConfigMap / Secret](https://java-px.bot.cd/cloud-native/05-k8s-storage/configmap-secret)
 > > 配置文件 / 密钥 不要硬编码到镜像。ConfigMap + Secret 让"代码"和"配置"分离。 更新 ConfigMap：文件**不会自动热加载**（需要 reload Pod 或用 Reloader）。 | type | 用途 | |------|------| | `Opaque` | 通用 | | `kubernetes.io/tls` | TLS 证书 | | `kuberne
@@ -92,10 +92,10 @@
 > > Prometheus = CNCF 毕业项目，**云原生事实标准**的指标采集与监控系统。 | 组件 | 作用 | |------|------| | **Prometheus server** | 抓取 / 存储 / 查询 | | **Pushgateway** | 短任务推数据 | | **Alertmanager** | 告警分发 | | **Exporters** | 各种数据源适配（
 
 ## [Istio 核心](https://java-px.bot.cd/cloud-native/08-service-mesh/istio)
-> > Istio = 主流 **Service Mesh** 实现。把服务间通讯（流量 / 安全 / 可观测）从应用层抽到基础设施层。 | 组件 | 作用 | |------|------| | **Envoy (Sidecar)** | 数据面：拦截所有进出流量 | | **istiod** | 控制面：配置分发 / 证书 / 服务发现 | 每个 Pod 注入 1 个 Envoy 容器（在原 Po
+> > Istio = 主流 **Service Mesh** 实现。把服务间通讯（流量 / 安全 / 可观测）从应用层抽到基础设施层。 ![Service Mesh Sidecar 注入](/k8s-service-mesh-sidecar.svg) | 组件 | 作用 | |------|------| | **Envoy (Sidecar)** | 数据面：拦截所有进出流量 | | **isti
 
 ## [Sidecar 模式](https://java-px.bot.cd/cloud-native/08-service-mesh/sidecar)
-> > Sidecar = 把"基础设施"放进业务 Pod 的"副驾"，让业务代码 0 改动获得各种能力。 优势： - ✅ 业务代码 0 改动 - ✅ 跨语言一致 - ✅ 基础设施升级不重启业务 每个 Pod 注入 1 个 Envoy sidecar（用 initContainer 把流量劫持到 Envoy）： **好处**：配置变化（路由 / 限流）实时下发，业务 Pod 不用重启。 控制 side
+> ![Service Mesh Sidecar 模式](/servicemesh-sidecar-pattern.svg) > Sidecar = 把"基础设施"放进业务 Pod 的"副驾"，让业务代码 0 改动获得各种能力。 优势： - ✅ 业务代码 0 改动 - ✅ 跨语言一致 - ✅ 基础设施升级不重启业务 每个 Pod 注入 1 个 Envoy sidecar（用 initContainer
 
 ## [流量管理](https://java-px.bot.cd/cloud-native/08-service-mesh/traffic)
 > > 蓝绿 / 金丝雀 / A/B 测试 / 熔断 — 不用改应用代码，纯声明式配置。 | CRD | 作用 | |-----|------| | **VirtualService** | 路由规则（按 header / path / 权重） | | **DestinationRule** | 目标规则（subset / 负载均衡 / 熔断） | | **Gateway** | 入口网关（与 Ing
@@ -104,7 +104,7 @@
 > > ArgoCD = k8s 原生 GitOps 工具。UI 强、与 Helm / Kustomize / Jsonnet 无缝集成。 | 组件 | 作用 | |------|------| | **argocd-server** | API + Web UI | | **argocd-application-controller** | 持续 reconcile | | **argocd-rep
 
 ## [GitOps 思想](https://java-px.bot.cd/cloud-native/09-cicd/gitops)
-> > **Git = 唯一事实源**。集群状态、配置、变更全部从 Git 仓库里读，集群 = Git 仓库的"反映"。 - **Git 仓库** = manifest + 配置文件 + helm values + kustomize - **CI** = 测试 + 构建镜像 - **GitOps Controller** = 持续同步 Git → 集群（ArgoCD / Flux） | | Push
+> ![GitOps CI/CD 流水线](/gitops-cicd-pipeline.svg) > **Git = 唯一事实源**。集群状态、配置、变更全部从 Git 仓库里读，集群 = Git 仓库的"反映"。 - **Git 仓库** = manifest + 配置文件 + helm values + kustomize - **CI** = 测试 + 构建镜像 - **GitOps Contr
 
 ## [Tekton / JenkinsX](https://java-px.bot.cd/cloud-native/09-cicd/tekton)
 > > Tekton = k8s 原生 CI/CD 框架（基础）。Jenkins X = Jenkins + Tekton + GitOps（包装）。 | CRD | 含义 | |-----|------| | **Task** | 步骤的模板（"git clone" / "mvn test" / "docker build"） | | **TaskRun** | 跑一次 Task → 一个 Pod
@@ -125,7 +125,7 @@
 > > 默认 k8s 集群内所有 Pod 互通 + 所有容器权限大。生产必须纵深防御。 详见 [NetworkPolicy](/04-k8s-service/network-policy)。要点： ⚠️ **必须装支持 NP 的 CNI**（Calico / Cilium / Weave）。k8s 自带只定义，不实现。 | Profile | 含义 | |---------|------| | `pr
 
 ## [RBAC 权限](https://java-px.bot.cd/cloud-native/11-security/rbac)
-> > 谁（用户 / ServiceAccount）能对什么资源做什么动作。k8s 的"权限系统"。 | 概念 | 作用 | |------|------| | **Subject** | User / Group / ServiceAccount | | **Role** | 命名空间内权限 | | **ClusterRole** | 集群范围权限 | | **RoleBinding** | 把 R
+> > 谁（用户 / ServiceAccount）能对什么资源做什么动作。k8s 的"权限系统"。 ![Kubernetes RBAC 鉴权流程](/k8s-rbac-flow.svg) ![K8S Rbac](/k8s-rbac.svg) | 概念 | 作用 | |------|------| | **Subject** | User / Group / ServiceAccount | | **
 
 ## [Secret 管理](https://java-px.bot.cd/cloud-native/11-security/secret)
 > > k8s Secret 默认**只 base64**，不加密。生产需要：加密、轮换、外部存储。 生产推荐：Secret 不进 etcd。 | 工具 | 特点 | |------|------| | **HashiCorp Vault** | 业界标准，动态密钥、租约 | | **AWS Secrets Manager** | AWS 集成 | | **GCP Secret Manager** |
@@ -155,13 +155,13 @@
 > > 真实面试 + 笔试常见题汇总。 | | Deployment | StatefulSet | |--|------------|--------------| | 身份 | 随机 | 固定 ordinal | | 存储 | 共享 | 每 Pod 独立 PVC | | 适合 | 无状态 | DB / MQ | - **ClusterIP**（默认）：集群内 - **NodePort**：每 No
 
 ## [命令速查](https://java-px.bot.cd/cloud-native/cheatsheet)
-> > 30+ 高频命令，分组速查。直接复制运行。 - [Docker 基础](/01-docker/intro) - [k8s 架构](/02-k8s-arch/overview) - [kubectl 命令行](/02-k8s-arch/kubectl) - [排错](/13-troubleshooting/debug)
+> > 30+ 高频命令，分组速查。直接复制运行。 - [Docker 基础](/01-docker/intro) - [k8s 架构](/02-k8s-arch/overview) - [kubectl 命令行](/02-k8s-arch/kubectl) - [排错](/13-troubleshooting/debug) <ClientOnly> <QrShare /> </ClientOnly>
 
 ## [知识图谱](https://java-px.bot.cd/cloud-native/graph)
 > > 80+ 节点，14 大主题分类，节点可点击跳转到对应章节。鼠标拖动可调整布局，悬停查看节点关联。 <ClientOnly> <KnowledgeGraph :height="820" /> </ClientOnly> | 颜色 | 分类 | 主题数 | |------|------|--------| | 🔵 蓝 | Docker 容器 | 6 | | 🟦 深蓝 | k8s 架构 | 5 |
 
 ## [cloud-native 知识图谱](https://java-px.bot.cd/cloud-native/index)
-> features: title: Docker 容器 details: Docker 基础 · 镜像 · 容器 · 网络 · 卷 · Compose link: /01-docker/intro linkText: 开始 Docker → title: k8s 架构 details: 控制面 / Node / kubectl / etcd · 集群全貌 link: /02-k8s-arch/ove
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "写了 Dockerfile 不知道 -it / -d / -p 的区别", "kubectl apply 后 Pod 一直 Pending / CrashL
 
 ## [思维导图](https://java-px.bot.cd/cloud-native/mindmap)
 > > 树形结构总览全部知识，可展开/收起节点，点击叶子节点跳转。 <ClientOnly> <MindMap :height="940" /> </ClientOnly> - **全部展开 / 收起**：顶部按钮控制 - **点击叶子节点**：跳转到对应章节 - **重置视图**：恢复初始展开状态

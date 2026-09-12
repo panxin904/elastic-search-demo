@@ -288,3 +288,9 @@ sudo apt install --reinstall grub
 - [initramfs](/14-kernel/initramfs)
 - [内核模块](/14-kernel/modules)
 - [sysctl 调参](/14-kernel/sysctl)
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->

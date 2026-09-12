@@ -1,8 +1,8 @@
 # ai 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 57 个文档页 · 213,852 字
-> 生成时间：2026-08-27T21:42:04
+> 69 个文档页 · 269,141 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [Claude 模型家族](https://java-px.bot.cd/ai/01-models/claude)
 > > Anthropic 公司出品的闭源大模型，以 **Constitutional AI**（宪法 AI）和 **长上下文**（200K）著称。 | 模型 | 上下文 | 定位 | 何时用 | |------|--------|------|--------| | **Claude Opus 4.5** | 200K | 最强推理 | 复杂代码 / 研究 / 多步分析 | | **Claude S
@@ -65,13 +65,13 @@
 > > 两个**图形化** AI Agent 平台。**不用写代码**也能搭 agent / RAG / 工作流。 > Dify = 字节系（虽然不是字节）开源的 LLMOps 平台。**生成式 AI 应用 + 可视化工作流**。 - **聊天 / Completion**：简单 LLM 应用 - **Agent**：ReAct / Function calling 拖拽搭建 - **Workflow
 
 ## [LangGraph](https://java-px.bot.cd/ai/04-agents/langgraph)
-> > LangChain 团队出的 **Agent 框架**。把 agent 表达成**有状态图**（StateGraph）。**生产首选**。 | | LangGraph | CrewAI | AutoGen | |--|-----------|--------|---------| | 强项 | 复杂状态 / 生产 | 简单多 agent | 研究 / 对话 | | 学习曲线 | 中 | 低 |
+> > LangChain 团队出的 **Agent 框架**。把 agent 表达成**有状态图**（StateGraph）。**生产首选**。 ![Agent Loop Architecture](/agent-loop-architecture.svg) | | LangGraph | CrewAI | AutoGen | |--|-----------|--------|---------|
 
 ## [嵌入模型 Embedding](https://java-px.bot.cd/ai/05-rag/embedding)
 > > 把文本 / 图 / 音 / 视频 → 数值向量（dense vector）。**语义检索的基础**。 | 模型 | 维度 | 上下文 | 价格 ($/MTok) | 特点 | |------|------|--------|---------------|------| | **OpenAI text-embedding-3-small** | 1536 | 8K | 0.02 | 性价比首选
 
 ## [RAG 模式详解](https://java-px.bot.cd/ai/05-rag/patterns)
-> > **R**etrieval-**A**ugmented **G**eneration。**让 LLM 回答自己不知道的（私有 / 实时）数据**。 | | RAG | Fine-tuning | |--|-----|-------------| | 适合 | 知识更新 / 私有 | 学模型"风格" / 任务 | | 数据量 | 文档 | 问答对 | | 成本 | 低（仅 embedding +
+> > **R**etrieval-**A**ugmented **G**eneration。**让 LLM 回答自己不知道的（私有 / 实时）数据**。 ![Rag Pipeline](/rag-pipeline.svg) | | RAG | Fine-tuning | |--|-----|-------------| | 适合 | 知识更新 / 私有 | 学模型"风格" / 任务 | | 数据量
 
 ## [向量数据库](https://java-px.bot.cd/ai/05-rag/vector-db)
 > > 存 **embedding 向量** + 快速 **相似度检索**（ANN）。RAG 的核心存储。 | 库 | 类型 | 性能 | 特点 | |----|------|------|------| | **Pinecone** | 托管 SaaS | 极强 | 不用运维 / 贵 | | **Chroma** | 嵌入式 | 中 | 轻量 / 适合 demo / 本地 | | **Weaviat
@@ -80,7 +80,7 @@
 > > OpenAI 的 Codex CLI（Codex CLI 是 `npm i -g @openai/codex`）支持 MCP，能用 Anthropic 同一套 server。 | | Codex CLI | Claude Code | |--|-----------|--------------| | 模型 | OpenAI (o3, gpt-4o) | Claude (4.5) | | MC
 
 ## [MCP 核心概念](https://java-px.bot.cd/ai/06-mcp/core)
-> > **M**odel **C**context **P**rotocol。Anthropic 2024 年提出的**开放标准**，让 LLM 标准化连接外部数据源 / 工具。 | 角色 | 是什么 | |------|--------| | **Host** | 跑 LLM 的应用（Claude Code / Cursor） | | **Client** | 嵌在 host 里的 MCP 客户端
+> > **M**odel **C**context **P**rotocol。Anthropic 2024 年提出的**开放标准**，让 LLM 标准化连接外部数据源 / 工具。 ![Mcp Protocol Stack](/mcp-protocol-stack.svg) | 角色 | 是什么 | |------|--------| | **Host** | 跑 LLM 的应用（Claude Cod
 
 ## [MCP Server / Client 开发](https://java-px.bot.cd/ai/06-mcp/dev)
 > > 自己写一个 MCP server，让任何 LLM agent 都能用。 | | 自己 Tool Use | MCP Server | |--|-------------|-----------| | 跨应用复用 | ❌ 每个应用接一次 | ✅ 一次实现 | | 鉴权 | 自己 | 标准 OAuth | | 工具市场 | ❌ | ✅ 几百个现成 | | 学习曲线 | 低 | 中 | **MCP
@@ -160,17 +160,53 @@
 ## [高频面试题](https://java-px.bot.cd/ai/14-interview/questions)
 > > 真实面试 + 笔试常见题汇总。 每步： 1. 把输入 X 投影成 Q、K、V 2. Q 和 K.T 算相似度 → softmax → 注意力分数 3. 用分数加权 V → 输出 **Self** = Q K V 都来自**同一个**输入。 把文本 / 图 / 音 → 固定维度向量（e.g. 1536 维）。**语义相似 = 向量接近**。 **不是单词的 hash，而是语义的几何**。 让 L
 
+## [API 协议与原理](https://java-px.bot.cd/ai/15-api-protocol/README)
+> > 深入理解大模型 API 的底层协议：HTTP REST 消息格式、SSE 流式原理、Tool Use 协议、多模态输入、Token 计算、限流与重试。本章聚焦"为什么这样设计"，而非"怎么调用"（用法见 03-sdks/）。 - [overview](./overview) - 大模型 API 协议全景图 - [chat-completions-api](./chat-completions-
+
+## [OpenAI Chat Completions API](https://java-px.bot.cd/ai/15-api-protocol/chat-completions-api)
+> > 行业事实标准，被 DeepSeek / 智谱 / Ollama(via shim) 等大量厂商兼容。 | 字段 | 类型 | 说明 | |------|------|------| | `model` | string | 模型 ID（如 `gpt-4o`、`gpt-4o-mini`、`o1-preview`） | | `messages` | array | 对话历史，按顺序排列 | | `
+
+## [上下文窗口与 Token](https://java-px.bot.cd/ai/15-api-protocol/context-tokens)
+> > 理解 Token 是控制 API 成本、优化 Prompt、避免超限的基础。 Token 是模型处理的最小文本单位，介于字符和词之间。 | 模型 | 分词器 | 1 token ≈ | |------|--------|-----------| | GPT-4 / GPT-4o | o200k_base | 0.75 英文单词 / 1.5 中文字 | | GPT-3.5 / GPT-4 旧 |
+
+## [Anthropic Messages API](https://java-px.bot.cd/ai/15-api-protocol/messages-api)
+> > Anthropic Claude 的协议设计，与 OpenAI 高度相似但有 5 个关键差异点。 | # | 差异点 | OpenAI | Anthropic | |---|--------|--------|-----------| | 1 | **system 位置** | 放 `messages` 第一条（role=system） | 独立顶级字段 `system` | | 2 | **
+
+## [多模态输入协议](https://java-px.bot.cd/ai/15-api-protocol/multimodal-input)
+> > 让模型"看图"、"听音频"、"读 PDF"的标准协议。 | 厂商 | 图片 | 音频 | 视频 | PDF | |------|:----:|:----:|:----:|:---:| | **OpenAI GPT-4o** | ✅ | ✅ (gpt-4o-audio) | ❌ | ❌ | | **Anthropic Claude** | ✅ | ❌ | ❌ | ✅ | | **Google G
+
+## [大模型 API 协议全景](https://java-px.bot.cd/ai/15-api-protocol/overview)
+> > 从一个 HTTP 请求出发，看大模型 API 是怎么把"提示词"变成"回答"的。 | 层 | 协议 | 说明 | |---|------|------| | **传输层** | HTTPS / HTTP/2 / gRPC | 主流 HTTPS，少量厂商支持 gRPC | | **消息格式** | JSON（REST） / Protobuf（gRPC） | OpenAI / Anthropic
+
+## [限流与重试](https://java-px.bot.cd/ai/15-api-protocol/rate-limit-retry)
+> > API 调用不可避免会遇到限流、超时、5xx 错误。掌握正确的重试策略是生产环境稳定性的关键。 | 维度 | 说明 | 典型值（GPT-4o） | |------|------|------------------| | **RPM** (Requests Per Minute) | 每分钟请求数 | 500 / 5000（按 tier） | | **TPM** (Tokens Per Min
+
+## [流式输出协议 (SSE)](https://java-px.bot.cd/ai/15-api-protocol/streaming-protocol)
+> > 大模型 API 流式输出的标准是 Server-Sent Events (SSE)。理解 SSE 原理，才能正确处理流中断、Token 累积、tool_calls 拼接等细节。 **Server-Sent Events (SSE)**：HTML5 标准，服务器单向推送文本流到浏览器。 | 维度 | SSE | WebSocket | |------|-----|-----------| | 方
+
+## [结构化输出协议](https://java-px.bot.cd/ai/15-api-protocol/structured-output)
+> > 强制模型输出合法 JSON 的两种方式：JSON Mode 与 Tool Use Mode。 | 维度 | JSON Mode | Tool Use Mode | |------|----------|---------------| | 实现 | `response_format: {type: json_object}` | `tools: [{function: {name: "x",
+
+## [Tool Use 协议](https://java-px.bot.cd/ai/15-api-protocol/tool-use-protocol)
+> > 让大模型"调用工具"的标准协议：JSON Schema 描述工具、模型返回结构化参数、应用执行后回填结果。 工具参数必须是合法的 JSON Schema（OpenAI 较严格，Anthropic 更宽松）： | 支持 | 不支持 | |------|--------| | `string` / `number` / `integer` / `boolean` | 任意复杂的 `$ref` |
+
 ## [命令速查](https://java-px.bot.cd/ai/cheatsheet)
 > > 30+ 高频命令，分组速查。 - [Claude Code / OpenCode](/02-coding-tools/claude-code) - [Claude SDK / Anthropic](/03-sdks/claude-sdk) - [OpenAI SDK](/03-sdks/openai-sdk) - [LangGraph](/04-agents/langgraph) - [Oll
+
+## [§8.82 公共组件演示](https://java-px.bot.cd/ai/components-demo)
+> > 跨 31 站可复用：CrossSiteNav / TipBox / InfoBox / WarnBox > > 全部通过 `@shared/vitepress-template/theme/components/*` 引入， > 每个站 `.vitepress/theme/index.ts` 已注册全局组件。 <div class="at-grid-cards at-mt-2"> <div c
 
 ## [知识图谱](https://java-px.bot.cd/ai/graph)
 > > 80+ 节点，14 大主题分类，节点可点击跳转到对应章节。 <ClientOnly> <KnowledgeGraph :height="820" /> </ClientOnly> | 颜色 | 分类 | 主题数 | |------|------|--------| | 🟣 紫 | 大模型与推理 | 6 | | 🩵 青 | AI 编程工具 | 6 | | 🟨 黄 | SDK 接入 | 5 | |
 
 ## [ai 知识图谱](https://java-px.bot.cd/ai/index)
-> features: title: 大模型与推理 details: Claude / GPT / Gemini / DeepSeek / Llama / Mistral / 选型 link: /01-models/claude linkText: 开始看模型 → title: AI 编程工具 details: Claude Code / Cursor / Copilot / Continue / A
+> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Claude / GPT / Gemini / DeepSeek 到底选哪个？", "Claude Code / Codex / Cursor / Copi
 
 ## [思维导图](https://java-px.bot.cd/ai/mindmap)
 > > 树形结构总览全部知识，可展开/收起节点，点击叶子节点跳转。 <ClientOnly> <MindMap :height="940" /> </ClientOnly> - 全部展开 / 收起：顶部按钮控制 - 点击叶子节点：跳转到对应章节 - 重置视图：恢复初始展开状态
 
 ## [学习路径](https://java-px.bot.cd/ai/path)
 > > 根据你的角色选择对应路径。 适合**没碰过大模型**的开发者。 1. [Claude 模型家族](/01-models/claude) — 当前最强闭源模型 2. [模型对比与选型](/01-models/compare) — 决定用哪个 3. [Claude Code / OpenCode](/02-coding-tools/claude-code) — AI 编程工具入门 4. [Open
+
+## [§8.81 全局响应式工具类演示](https://java-px.bot.cd/ai/style-demo)
+> > 全站只需 `import './style.css'` 或通过 `@shared` 引用，所有工具类自动生效。 > 拖动浏览器窗口宽度即可看到响应式效果。 <div class="at-grid-cards"> <div class="at-card"><strong>卡片 1</strong><p>移动端单列，平板 2 列，桌面 3 列，大屏 4 列。</p></div> <div clas

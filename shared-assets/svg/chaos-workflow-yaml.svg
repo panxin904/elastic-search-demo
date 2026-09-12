@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="at-svg-bg" width="600" height="480"/>
+  <text class="at-svg-title" x="300" y="32" text-anchor="middle" font-size="20" font-weight="600">Chaos Mesh Workflow 编排</text>
+  <text x="300" y="56" text-anchor="middle" font-size="13" fill="#64748b">DAG 编排 · 多实验串并行 · 状态机控制 · CRD 定义</text>
+
+  <!-- Workflow DAG 示意 -->
+  <g>
+    <text x="50" y="90" font-size="13" font-weight="700" fill="#1e293b">① Workflow DAG 编排（典型串并行）</text>
+
+    <rect class="at-hover-card" x="40" y="105" width="105" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="92" y="128" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">准备</text>
+    <text x="92" y="145" text-anchor="middle" font-size="9" fill="#475569">baseline 探测</text>
+
+    <path d="M145,130 L170,130" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="170" y="105" width="105" height="50" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="222" y="128" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">网络故障</text>
+    <text x="222" y="145" text-anchor="middle" font-size="9" fill="#10b981">NetworkChaos</text>
+
+    <path d="M275,130 L300,130" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="300" y="85" width="105" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="352" y="103" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Pod 故障 A</text>
+    <text x="352" y="120" text-anchor="middle" font-size="8" fill="#f59e0b">PodChaos</text>
+
+    <rect class="at-hover-card" x="300" y="135" width="105" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="352" y="153" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Pod 故障 B</text>
+    <text x="352" y="170" text-anchor="middle" font-size="8" fill="#f59e0b">PodChaos</text>
+
+    <path d="M405,105 L435,130" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+    <path d="M405,155 L435,130" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="435" y="105" width="105" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="487" y="128" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">稳态验证</text>
+    <text x="487" y="145" text-anchor="middle" font-size="9" fill="#3b82f6">SLO 检测</text>
+
+    <path d="M540,130 L565,130 L565,200 L120,200 L120,178" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+    <text x="300" y="195" text-anchor="middle" font-size="9" fill="#64748b">若失败 → 回滚</text>
+  </g>
+
+  <!-- 状态机 -->
+  <g>
+    <text x="50" y="225" font-size="13" font-weight="700" fill="#1e293b">② Workflow 任务状态机</text>
+
+    <rect class="at-hover-card" x="40" y="235" width="125" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="102" y="252" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">Pending</text>
+    <text x="102" y="268" text-anchor="middle" font-size="9" fill="#475569">等待调度</text>
+
+    <path d="M165,255 L190,255" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="190" y="235" width="125" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="252" y="252" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Running</text>
+    <text x="252" y="268" text-anchor="middle" font-size="9" fill="#f59e0b">注入中</text>
+
+    <path d="M315,255 L340,255" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+    <rect class="at-hover-card" x="340" y="225" width="125" height="60" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+    <text x="402" y="245" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">Succeeded</text>
+    <text x="402" y="262" text-anchor="middle" font-size="9" fill="#10b981">✅ 成功</text>
+    <text x="402" y="278" text-anchor="middle" font-size="9" fill="#10b981">进入下一个</text>
+
+    <rect class="at-hover-card" x="340" y="175" width="125" height="40" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="402" y="195" text-anchor="middle" font-size="11" font-weight="700" fill="#991b1b">Aborted</text>
+    <text x="402" y="208" text-anchor="middle" font-size="9" fill="#dc2626">中止</text>
+
+    <rect class="at-hover-card" x="475" y="235" width="85" height="40" rx="6" fill="#1e293b"/>
+    <text x="517" y="252" text-anchor="middle" font-size="11" font-weight="700" fill="#10b981">Failed</text>
+    <text x="517" y="268" text-anchor="middle" font-size="9" fill="#dc2626">需要处理</text>
+
+    <path d="M315,250 L475,250" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arr)" transform="translate(0, -12)"/>
+  </g>
+
+  <!-- Workflow YAML 示例 -->
+  <g>
+    <text x="50" y="310" font-size="13" font-weight="700" fill="#1e293b">③ Workflow YAML 核心字段</text>
+
+    <rect class="at-hover-card" x="40" y="320" width="520" height="145" rx="6" fill="#1e293b" stroke="#1e293b" stroke-width="1"/>
+    <text x="55" y="343" font-size="10" font-weight="700" fill="#10b981">apiVersion: chaos-mesh.org/v1alpha1</text>
+    <text x="55" y="358" font-size="10" fill="#e2e8f0" font-family="monospace">kind: Workflow</text>
+    <text x="55" y="373" font-size="10" fill="#e2e8f0" font-family="monospace">spec:</text>
+    <text x="75" y="388" font-size="10" fill="#10b981" font-family="monospace">entry: network-chaos       # 入口任务</text>
+    <text x="75" y="403" font-size="10" fill="#10b981" font-family="monospace">templates:</text>
+    <text x="95" y="418" font-size="10" fill="#10b981" font-family="monospace">- name: network-chaos</text>
+    <text x="115" y="433" font-size="10" fill="#e2e8f0" font-family="monospace">templateType: NetworkChaos</text>
+    <text x="115" y="448" font-size="10" fill="#e2e8f0" font-family="monospace">duration: "30s"</text>
+    <text x="115" y="463" font-size="10" fill="#e2e8f0" font-family="monospace">children: ["pod-chaos-a", "pod-chaos-b"]  # 并行</text>
+  </g>
+</svg>

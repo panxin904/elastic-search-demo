@@ -288,3 +288,9 @@ HDFS 仍在用，但对象存储（S3）正在取代它：
 | Hadoop 生态原生 | 不适合低延迟 |
 | 副本容错 | 与计算耦合 |
 | 简单（仅追加） | 难以替代对象存储 |
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->

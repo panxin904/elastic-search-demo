@@ -1,8 +1,8 @@
 # game 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 39 个文档页 · 56,698 字
-> 生成时间：2026-08-27T21:42:04
+> 48 个文档页 · 61,244 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [引擎层](https://java-px.bot.cd/game/01-engine/README)
 > 游戏引擎层：商业引擎选型 + 自研引擎架构 + 决策。 | 节点 | 一句话 | |------|--------| | [商业引擎选型](./commercial) | Unity / Unreal / Godot 三选一 | | [自研引擎架构](./custom) | ECS / RHI / 资源管理 | | [选型决策](./decision) | 平台 / 团队 / 预算 / 性能权衡
@@ -16,8 +16,14 @@
 ## [选型决策](https://java-px.bot.cd/game/01-engine/decision)
 > > 引擎选型四问：平台目标 / 团队规模 / 预算 / 性能需求。 - 平台目标：移动端 → Unity；PC/主机 3A → Unreal；2D 独立 → Godot - 团队规模：< 10 人用现成引擎；50+ 人可考虑自研 - 预算：Unreal 5% 营收分成，Unity 订阅费，Godot 免费 - 性能需求：移动端 Unity；高画质 Unreal；轻量 Godot - [商业引擎](
 
+## [游戏引擎](https://java-px.bot.cd/game/01-engine/index)
+> > Unity / Unreal / Godot / Cocos / 自研引擎 <!-- 本节目录待补充 --> - [🏠 游戏开发首页](/) - [📖 游戏开发学习路径](/path) - [🧭 游戏开发思维导图](/mindmap) - [📋 游戏开发速查表](/cheatsheet) 本章为新设立的占位页，详细内容正在按 §8.81 计划逐步补充。
+
 ## [渲染](https://java-px.bot.cd/game/02-render/README)
 > 游戏渲染：管线 / 光照 / 着色器 / 后处理。 | 节点 | 一句话 | |------|--------| | [渲染管线](./pipeline) | 前向 / 延迟 / Clustered / 光追 | | [光照与阴影](./lighting) | PBR / IBL / GI / 阴影 | | [着色器](./shader) | HLSL / Shader Graph / Compu
+
+## [渲染](https://java-px.bot.cd/game/02-render/index)
+> > OpenGL / Vulkan / DirectX / 光照 / 着色器 <!-- 本节目录待补充 --> - [🏠 游戏开发首页](/) - [📖 游戏开发学习路径](/path) - [🧭 游戏开发思维导图](/mindmap) - [📋 游戏开发速查表](/cheatsheet) 本章为新设立的占位页，详细内容正在按 §8.81 计划逐步补充。
 
 ## [光照与阴影](https://java-px.bot.cd/game/02-render/lighting)
 > > PBR 物理光照 + IBL 间接光 + 全局光照（GI）+ 阴影算法。 - PBR（Physically Based Rendering）：基于物理的 BRDF（金属 / 粗糙度） - IBL（Image Based Lighting）：环境贴图采样，模拟间接光 - GI（Global Ill）：实时光追（Lumen / RT）/ 烘焙（Lightmap） - 阴影：Shadow Map /
@@ -37,6 +43,9 @@
 ## [碰撞检测](https://java-px.bot.cd/game/03-physics/collision)
 > > 碰撞检测基础：AABB / OBB / GJK / SAT + 空间分割（四叉树 / BVH / NavMesh）。 - AABB：轴对齐包围盒，O(1) 检测，精度低 - OBB：旋转包围盒，更精确 - GJK：凸体碰撞，O(log n) - SAT：分离轴定理 - 空间分割：四叉树（2D）/ 八叉树（3D）/ BVH / NavMesh - [刚体动力学](./rigidbody) - [
 
+## [物理](https://java-px.bot.cd/game/03-physics/index)
+> > 碰撞检测 / 刚体 / 软体 / 物理引擎 <!-- 本节目录待补充 --> - [🏠 游戏开发首页](/) - [📖 游戏开发学习路径](/path) - [🧭 游戏开发思维导图](/mindmap) - [📋 游戏开发速查表](/cheatsheet) 本章为新设立的占位页，详细内容正在按 §8.81 计划逐步补充。
+
 ## [刚体动力学](https://java-px.bot.cd/game/03-physics/rigidbody)
 > > 刚体模拟：积分（Verlet / Euler）+ 约束求解 + 现成物理引擎（PhysX / Bullet / Havok）。 - Verlet 积分：稳定 + 速度隐式 - Euler 积分：简单但易爆 - 约束求解：PBD（Position Based Dynamics）/ Sequential Impulse - PhysX（NVIDIA）：Unity / Unreal 默认 - Bul
 
@@ -48,6 +57,9 @@
 
 ## [决策系统](https://java-px.bot.cd/game/04-ai/decision)
 > > NPC 决策：FSM（状态机）/ BT（行为树）/ Utility AI / GOAP（目标导向行动规划）。 - FSM：简单状态切换，适合小型 NPC - BT（行为树）：模块化 + 可视化，AAA 标准 - Utility AI：基于效用函数，适合复杂决策 - GOAP：规划式，模拟真实思考过程 - [寻路](./pathfinding) - [机器学习](./ml) - [← 返回 AI
+
+## [游戏 AI](https://java-px.bot.cd/game/04-ai/index)
+> > 寻路 / 行为树 / 状态机 / 机器学习 <!-- 本节目录待补充 --> - [🏠 游戏开发首页](/) - [📖 游戏开发学习路径](/path) - [🧭 游戏开发思维导图](/mindmap) - [📋 游戏开发速查表](/cheatsheet) 本章为新设立的占位页，详细内容正在按 §8.81 计划逐步补充。
 
 ## [机器学习 AI](https://java-px.bot.cd/game/04-ai/ml)
 > > 游戏 AI 与机器学习结合：强化学习（RL）/ 神经网络 NPC / 群体模拟 Boids。 - 强化学习（RL）：DQN / PPO 训练 NPC 策略 - 神经网络 NPC：模仿学习 / 决策网络 - Boids：群体行为（鸟群 / 鱼群） - 应用：赛车 AI / RTS 微操 / NPC 对话生成 - [决策系统](./decision) - [联机架构](../05-network/
@@ -67,6 +79,9 @@
 ## [一致性](https://java-px.bot.cd/game/05-network/consistency)
 > > 网络一致性三大难题：客户端预测 / 服务器仲裁 / 回放录像。 - 客户端预测：本地先响应 + 服务器确认后校正 - 服务器仲裁：服务器是唯一真相源 - 回放录像：记录输入流，任意时刻回放 - 锁步：所有客户端严格按帧同步（确定性） - [同步模型](./sync) - [反外挂](./anticheat) - [← 返回 网络 目录](./) - [← 返回 game 首页](../) [同
 
+## [网络](https://java-px.bot.cd/game/05-network/index)
+> > TCP/UDP / 同步 / 反外挂 / 长连接 <!-- 本节目录待补充 --> - [🏠 游戏开发首页](/) - [📖 游戏开发学习路径](/path) - [🧭 游戏开发思维导图](/mindmap) - [📋 游戏开发速查表](/cheatsheet) 本章为新设立的占位页，详细内容正在按 §8.81 计划逐步补充。
+
 ## [同步模型](https://java-px.bot.cd/game/05-network/sync)
 > > 联机游戏三种同步模型：状态同步 / 帧同步（Lockstep）/ 快照同步。 - 状态同步：服务器权威，发送状态，MOBA 主流 - 帧同步：所有客户端按帧执行相同输入，RTS 主流 - 快照同步：定期发完整快照，FPS 主流 - 选择：MOBA → 状态；RTS → 帧同步；FPS → 快照 - [一致性](./consistency) - [反外挂](./anticheat) - [← 返
 
@@ -75,6 +90,9 @@
 
 ## [音频引擎](https://java-px.bot.cd/game/06-audio/engine)
 > > 游戏音频中间件：Wwise / FMOD / 引擎内置音频（Unity Audio / Unreal Sound）。 - Wwise（Audiokinetic）：行业标准，AAA 主流，按授权收费 - FMOD：轻量 + 集成简单，独立 / 中型项目主流 - 内置：Unity Audio / Unreal Sound，简单场景够用 - 选型：3A → Wwise；中型 → FMOD；休闲 →
+
+## [音频](https://java-px.bot.cd/game/06-audio/index)
+> > Wwise / FMOD / 3D 音效 / 混音 <!-- 本节目录待补充 --> - [🏠 游戏开发首页](/) - [📖 游戏开发学习路径](/path) - [🧭 游戏开发思维导图](/mindmap) - [📋 游戏开发速查表](/cheatsheet) 本章为新设立的占位页，详细内容正在按 §8.81 计划逐步补充。
 
 ## [动态混音](https://java-px.bot.cd/game/06-audio/mix)
 > > 动态混音：Snapshot（场景切换）+ 实时参数（情绪/战斗）+ 音效总线（路由）。 - Snapshot：预设混音状态（探索 / 战斗 / Boss） - 实时参数：根据玩家状态动态调整（低血量增心跳） - 音效总线：Master / Music / SFX / Voice 分层 - 工具：Wwise / FMOD 状态机驱动 - [空间音频](./spatial) - [音频引擎](./
@@ -91,11 +109,17 @@
 ## [构建发布](https://java-px.bot.cd/game/07-toolchain/build)
 > > 构建发布：多平台构建脚本 + CI/CD（GitHub Actions / Jenkins） + 平台 SDK 接入。 - 平台构建：Unity BuildPipeline / Unreal UAT - CI/CD：GitHub Actions / Jenkins + 缓存 Library/ - Steam：Steamworks SDK + 上架审核 - 主机：Sony / Microsoft
 
+## [工具链](https://java-px.bot.cd/game/07-toolchain/index)
+> > 编辑器 / 资源管线 / 调试工具 <!-- 本节目录待补充 --> - [🏠 游戏开发首页](/) - [📖 游戏开发学习路径](/path) - [🧭 游戏开发思维导图](/mindmap) - [📋 游戏开发速查表](/cheatsheet) 本章为新设立的占位页，详细内容正在按 §8.81 计划逐步补充。
+
 ## [版本控制](https://java-px.bot.cd/game/07-toolchain/vcs)
 > > 游戏版本控制：Git LFS（小团队） / Perforce Helix（大团队） + 分支策略。 - Git LFS：大文件（美术资产）扩展，GitHub / GitLab 支持 - Perforce Helix：游戏行业标配，TB 级资产友好 - 分支策略：main / develop / feature/* - 锁定文件：二进制资产（场景 / Prefab）避免冲突 - [资产管线](.
 
 ## [性能与上线](https://java-px.bot.cd/game/08-ship/README)
 > 游戏性能与上线：性能 / 多平台 / 反作弊 / 数据。 | 节点 | 一句话 | |------|--------| | [性能优化](./perf) | Draw Call / GC / 内存池 / 帧率 | | [上线运营](./launch) | 多平台 / 认证 / 反作弊 / 埋点 | - **性能**：先 Profiler 后优化 - **上线**：数据驱动决策 - **合规**：隐
+
+## [发布](https://java-px.bot.cd/game/08-ship/index)
+> > 上架 / 打包 / 热更新 / 数据分析 <!-- 本节目录待补充 --> - [🏠 游戏开发首页](/) - [📖 游戏开发学习路径](/path) - [🧭 游戏开发思维导图](/mindmap) - [📋 游戏开发速查表](/cheatsheet) 本章为新设立的占位页，详细内容正在按 §8.81 计划逐步补充。
 
 ## [上线运营](https://java-px.bot.cd/game/08-ship/launch)
 > > 游戏上线：多平台适配 / 主机认证 / 反作弊 / 数据埋点 / 运营活动。 - 多平台：PC（Steam / Epic）/ 主机（PS/Xbox/Switch）/ 移动（iOS/Android） - 主机认证：Sony / Microsoft / Nintendo TRC 认证 - 反作弊：EAC / BattlEye + 自研检测 - 数据埋点：玩家行为 + 付费漏斗 + 关卡热度 - [
@@ -108,6 +132,9 @@
 
 ## [游戏开发速查表](https://java-px.bot.cd/game/cheatsheet)
 > > 引擎版本 / 数学公式 / 寻路算法 / 物理参数 / Shader 关键字 一页速查。 | 引擎 | 当前稳定版 | LTS | 语言 | 包大小 | |---|---|---|---|---| | Unity | 6000.x (Unity 6) | 2022 LTS | C# | ~250MB | | Unreal Engine | 5.4 / 5.5 | 5.3 | C++ / Blu
+
+## [知识图谱](https://java-px.bot.cd/game/graph)
+> > 树形结构总览 游戏开发 全栈知识，按主题分类组织。点击节点跳转到对应章节。 本站涵盖以下核心主题，建议按分类顺序学习： 1. **基础概念** - 从零开始的入门必备 2. **核心原理** - 深入理解底层机制 3. **实战应用** - 结合真实场景的最佳实践 4. **生态工具** - 提升效率的配套工具 - [📖 学习路径](/path) - 推荐阅读顺序 - [🧭 思维导图](/mi
 
 ## [game 知识图谱](https://java-px.bot.cd/game/index)
 > <script setup> const painPoints = [ "引擎选型纠结：Unity / Unreal / Godot 哪个更适合我的项目？", "渲染卡顿 / 帧率不稳：Draw Call 爆炸 / Shader 编译 / GPU 带宽瓶颈？", "物理穿透 / 抖动 / 速度异常：浮点精度 / 碰撞体配置 / 时间步长？", "敌人 AI 太死板：FSM 不够灵活 / 行为树不会

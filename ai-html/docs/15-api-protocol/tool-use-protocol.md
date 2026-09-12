@@ -266,3 +266,9 @@ print(response.choices[0].message.content)
 - [11-tools/function-calling](../11-tools/function-calling) - Function Calling 实战
 - [11-tools/tool-use](../11-tools/tool-use) - Anthropic Tool Use 实战
 - [06-mcp/core](../06-mcp/core) - MCP 协议（Tool Use 的标准化）
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->

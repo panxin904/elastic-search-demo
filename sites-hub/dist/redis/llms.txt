@@ -1,11 +1,11 @@
 # redis 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 59 个文档页 · 355,054 字
-> 生成时间：2026-08-27T21:42:04
+> 59 个文档页 · 495,983 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [5 大基础类型](https://java-px.bot.cd/redis/01-basics/datatypes)
-> ![Redis 五大数据类型 + 底层编码](/redis-data-structures.svg) > Redis 不是简单的 key-value 缓存，**value 可以是 5 种不同的数据结构**，每种都针对特定场景优化。 | 类型 | 描述 | 底层编码（Redis 7） | 适用场景 | |------|------|---------------------|---------| |
+> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <defs> <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" mar
 
 ## [过期策略](https://java-px.bot.cd/redis/01-basics/expiration)
 > > Redis 不是所有 key 都永久存在，**每个 key 都可以设置过期时间（TTL）**。理解 Redis 如何处理过期 key，是理解内存淘汰的前提。 如果不过期 → **内存无限增长** → Redis OOM（内存溢出）。 Redis 7+ 提供**精确过期**： - ✅ Redis 7.4+ 通过 hash table 多级索引实现精确过期 - ⚠️ Redis 7.4 之前是**
@@ -26,7 +26,7 @@
 > > Listpack 是 Redis 5.0 引入的紧凑列表结构，作为 ziplist 的继任者。它通过把"前一项长度"存放在当前项尾部（`backlen`），彻底解决了 ziplist 的**级联更新**性能陷阱，是 Hash/Set/ZSet 小数据量编码的共同底层容器。 <ClientOnly> <DataStructureViz /> </ClientOnly> ziplist 自 Red
 
 ## [RedisObject](https://java-px.bot.cd/redis/02-datastruct/object)
-> > Redis 数据库里每一个键值对，在内存中都由一个 `redisObject` 结构承载。它是所有数据类型的"基类"，决定了对象的类型、编码方式和底层容器。 <ClientOnly> <DataStructureViz /> </ClientOnly> Redis 的命令处理层是**类型无关**的。比如 `GET` 命令在执行时并不知道底层到底是 int、embstr 还是 raw，它只看 `
+> > Redis 数据库里每一个键值对，在内存中都由一个 `redisObject` 结构承载。它是所有数据类型的"基类"，决定了对象的类型、编码方式和底层容器。 <ClientOnly> <DataStructureViz /> </ClientOnly> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-fami
 
 ## [QuickList](https://java-px.bot.cd/redis/02-datastruct/quicklist)
 > > QuickList 是 Redis 3.2 引入的 List 底层结构，**双向链表 + listpack** 的混合体。它把"无限扩展的 List"拆成若干定容的 listpack 节点，既保留 listpack 的内存紧凑，又获得了链表式的 O(1) 头尾操作和按需扩容能力。Redis 7 之后所有 List 编码统一为 QuickList。 <ClientOnly> <DataStruc
@@ -41,13 +41,13 @@
 > > Stream 是 Redis 5.0 引入的**持久化消息流**，弥补了 Pub/Sub 一次性、不确认、不重放的缺陷。它用 Rax 树索引 + listpack 节点存储消息 ID，支持消费者组（Consumer Group）、消费确认（ACK）、Pending 重试和 PEL（Pending Entries List），是 Redis 唯一带"消息中间件"色彩的数据类型。 <ClientO
 
 ## [AOF 日志](https://java-px.bot.cd/redis/03-persistence/aof)
-> > **AOF（Append Only File）**通过记录**所有写命令**到文件，实现**增量持久化**。Redis 默认关闭，需手动开启。 **AOF 是命令日志**，记录每个写操作。重启时按顺序回放所有命令即可恢复数据。 | 策略 | 含义 | 数据丢失 | 性能 | |------|------|---------|------| | **always** | 每次写都刷盘 | **不
+> > **AOF（Append Only File）**通过记录**所有写命令**到文件，实现**增量持久化**。Redis 默认关闭，需手动开启。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans
 
 ## [混合持久化](https://java-px.bot.cd/redis/03-persistence/mixed)
 > Redis 4.0 开始支持混合持久化，用来同时解决 RDB 与 AOF 的典型痛点。RDB 文件紧凑、恢复速度快，但两次快照之间的数据可能丢失；纯 AOF 可以把数据丢失窗口缩小到秒级，却会产生更大的文件，并且在重启时逐条回放命令，数据量越大，恢复越慢。混合持久化保留两者的优点：用 RDB 快速恢复存量数据，再用 AOF 补齐最近的变化。 执行 AOF 重写时，Redis 不再把当前数据集全部转
 
 ## [持久化总览](https://java-px.bot.cd/redis/03-persistence/overview)
-> > Redis 是**内存数据库**，数据默认存在内存中。**一旦宕机，数据全部丢失**。持久化机制就是把内存数据保存到磁盘，让数据不丢。 | 维度 | RDB（快照） | AOF（日志） | |------|-------------|------------| | **原理** | 定时把内存全量快照到 RDB 文件 | 每次写命令追加到 AOF 文件 | | **持久化方式** | 全量（某
+> > Redis 是**内存数据库**，数据默认存在内存中。**一旦宕机，数据全部丢失**。持久化机制就是把内存数据保存到磁盘，让数据不丢。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-ser
 
 ## [RDB 快照](https://java-px.bot.cd/redis/03-persistence/rdb)
 > > **RDB（Redis Database）**是 Redis 默认的持久化方式：通过**内存快照**把某个时刻的全量数据保存到二进制文件。 **COW（Copy On Write）**：fork 时不复制实际内存数据，只复制页表。子进程写入新文件时，父进程修改的页才真正复制。 **查看 RDB 文件**： **优化方案**： - 避免巨型 Key 减少内存碎片 - 启用 `rdb-save-i
@@ -56,16 +56,16 @@
 > 持久化文件只有经过验证并能成功恢复，才算真正的备份。生产环境应先明确 Redis 的启动选择、文件修复边界和异地备份流程，再定期演练，而不是等故障发生后临时研究命令。 Redis 并不会把 RDB 和 AOF 各加载一遍。当 `appendonly yes` 且有效 AOF 存在时，启动过程 **优先加载 AOF**，因为它通常比 RDB 更新；只有 AOF 未启用或文件不存在时，才回退加载 RD
 
 ## [Cluster 集群](https://java-px.bot.cd/redis/04-cluster/cluster)
-> > **Redis Cluster**是 Redis 官方提供的**分布式解决方案**，用于解决单机内存瓶颈和主从复制无法水平扩展的问题。 | 维度 | 主从复制 | Sentinel | Cluster | |------|---------|----------|---------| | **数据分片** | ❌ | ❌ | ✅ | | **水平扩展** | ❌ | ❌ | ✅ | | **自
+> > **Redis Cluster**是 Redis 官方提供的**分布式解决方案**，用于解决单机内存瓶颈和主从复制无法水平扩展的问题。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-ser
 
 ## [Gossip 协议](https://java-px.bot.cd/redis/04-cluster/gossip)
-> > Redis Cluster 节点之间通过 **Gossip 协议**通信，用于**节点发现、故障检测、状态传播**。每个节点每秒向随机几个节点发送 ping 消息，最终全集群状态达成**最终一致**。 **ping 消息包含**： - 本节点 ID - 当前 epoch - 槽位映射关系 - 已知的其他节点状态 **pong 消息包含**： - 与 ping 相同内容 - 用于响应 ping
+> > Redis Cluster 节点之间通过 **Gossip 协议**通信，用于**节点发现、故障检测、状态传播**。每个节点每秒向随机几个节点发送 ping 消息，最终全集群状态达成**最终一致**。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMac
 
 ## [数据迁移](https://java-px.bot.cd/redis/04-cluster/migration)
 > > Redis Cluster 支持**在线迁移槽位（slot）**，不影响服务运行。理解迁移原理对扩容、缩容、负载均衡至关重要。 **数据迁移 = 槽位迁移 = 把指定 slot 的 key 从源节点搬到目标节点**。 **数据迁移核心要点**： - ✅ 在线迁移不中断服务 - ✅ MIGRATING + IMPORTING 两阶段 - ✅ redis-cli --cluster reshard
 
 ## [主从复制](https://java-px.bot.cd/redis/04-cluster/replication)
-> > 主从复制是 Redis 高可用的基石。一台 Master 负责处理写请求，多台 Replica 自动同步数据并提供只读服务，既分担读压力，又为故障转移提供数据副本。理解主从复制，是理解 Sentinel 与 Cluster 的前置条件。 <ClientOnly> <DataStructureViz /> </ClientOnly> 单机 Redis 存在三个致命问题：**单点故障**（进程挂了
+> > 主从复制是 Redis 高可用的基石。一台 Master 负责处理写请求，多台 Replica 自动同步数据并提供只读服务，既分担读压力，又为故障转移提供数据副本。理解主从复制，是理解 Sentinel 与 Cluster 的前置条件。 <ClientOnly> <DataStructureViz /> </ClientOnly> <svg xmlns="http://www.w3.org/2
 
 ## [集群扩容](https://java-px.bot.cd/redis/04-cluster/scale)
 > > 业务增长导致单机容量/性能不够时，需要**水平扩容**——增加 Master 节点，重新分片。 | 维度 | 扩容 | 缩容 | |------|------|------| | 操作 | 添加 Master/Replica | 删除 Master/Replica | | 风险 | 中（数据迁移） | 高（数据丢失风险） | | 影响 | 迁移期间客户端 ASK | 误删可能导致数据丢失 |
@@ -98,7 +98,7 @@
 > > 缓存与数据库是**两套独立**的数据存储。如何保证两者数据**一致**，是缓存设计的核心难题。 | 维度 | 缓存穿透 | 缓存击穿 | 缓存雪崩 | |------|---------|---------|---------| | **原因** | 不存在的 key | 热点 key 过期 | 大量 key 同时过期 | | **数据库压力** | 每次都打 | 瞬间集中 | 持续性集中 |
 
 ## [计数器](https://java-px.bot.cd/redis/06-practice/counter)
-> > **计数器**是 Redis 最经典的应用之一。Redis 的 **INCR** 命令是**原子操作**，性能极高，是实现计数器的最佳方案。 > Redis 是**单线程执行命令**，INCR 是**原子操作**，无需担心并发问题。 > UV 需要去重，普通 SET 占用内存大。**HyperLogLog** 是 Redis 提供的概率数据结构，**12KB 内存统计 2^64 数据**，标准
+> > **计数器**是 Redis 最经典的应用之一。Redis 的 **INCR** 命令是**原子操作**，性能极高，是实现计数器的最佳方案。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-
 
 ## [延迟队列](https://java-px.bot.cd/redis/06-practice/delay-queue)
 > > **延迟队列（Delay Queue）**用于在指定时间后执行任务。Redis 提供基于 **ZSet** 的轻量级延迟队列方案。 > **核心思路**：用 ZSet 的 score 存任务执行时间戳，到期则取出执行。 | 方案 | 精度 | 性能 | 复杂度 | 适用场景 | |------|------|------|--------|---------| | **Redis ZSet**
@@ -125,7 +125,7 @@
 > > **Redis Stream**是 Redis 5.0 引入的**消息队列数据结构**，支持**消费者组**、**消息确认**、**消息回溯**等高级特性，是 Redis 作为轻量级 MQ 的核心方案。 | 维度 | Pub/Sub | List | Stream | |------|---------|------|--------| | **消息持久化** | ❌ 不持久 | ✅ 部分 |
 
 ## [大 Key 热 Key](https://java-px.bot.cd/redis/07-ops/bigkey-hotkey)
-> 大 Key 和热 Key 是 Redis 运维的两大隐形炸弹。前者让运维动作"卡住"，后者让流量"打爆"。这一篇讲清楚怎么识别、怎么处理。 但实际生产中，"大"是相对的：1MB 的 string 在 32GB 内存机器上不算大，但 1MB 的 string 删一次可能卡 100ms。 **危害 1：DEL 阻塞主线程** Redis 是单线程处理命令的。删除一个 1GB 的 list 需要遍历 1
+> 大 Key 和热 Key 是 Redis 运维的两大隐形炸弹。前者让运维动作"卡住"，后者让流量"打爆"。这一篇讲清楚怎么识别、怎么处理。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-ser
 
 ## [内存淘汰策略](https://java-px.bot.cd/redis/07-ops/eviction)
 > 当 Redis 内存达到 `maxmemory` 上限时，必须有一套规则决定该删掉哪些 key，否则写入会被拒绝。理解这 8 大策略，是运维调优的第一课。 Redis 把所有数据放在内存里。一台 32GB 的机器，刨去操作系统和副本开销，能给 Redis 的也就 24GB。业务一旦放量，内存迟早会满。 `maxmemory` 触顶后再写入时，Redis 按当前配置的策略决定行为，要么拒绝、要么挑
@@ -140,7 +140,7 @@
 > Redis 7.0（2022 年发布）是 Redis 史上变化最大的版本之一。Functions 替代 Lua、Multi-part AOF、ACL v2、Sharded Pub/Sub，每一项都解决了生产中的真实痛点。 Redis 5/6 用 `EVAL` / `EVALSHA` 跑 Lua，但有几个硬伤： 问题： 1. 脚本管理分散，业务代码 + Redis 两边维护 2. `SCRIPT F
 
 ## [慢查询分析](https://java-px.bot.cd/redis/07-ops/slowlog)
-> Redis 命令的"快"是相对的。一个 O(1) 的 GET 在大 Key 面前可能变成"卡住整个 Redis 的慢操作"。SLOWLOG 是定位慢命令的标准武器。 每条记录的字段： | 字段 | 含义 | |---|---| | 1 | 唯一 ID（自增） | | 2 | 时间戳 | | 3 | 耗时（微秒） | | 4 | 命令参数 | | 5 | 客户端地址 | | 6 | 客户端名称（CL
+> Redis 命令的"快"是相对的。一个 O(1) 的 GET 在大 Key 面前可能变成"卡住整个 Redis 的慢操作"。SLOWLOG 是定位慢命令的标准武器。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang
 
 ## [高频面试题（下）](https://java-px.bot.cd/redis/08-interview/advanced)
 > > 20 道进阶面试题，覆盖 Redis 6/7 新特性、集群细节、一致性、性能调优、企业实战。每题深度 200~300 字，包含原理 + 代码示例 + 实战建议。 **参考答案** 两者都引入了 IO 多线程（`io-threads`），但差异显著： | 维度 | Redis 6 | Redis 7 | |------|---------|---------| | IO 线程默认值 | 必须手动

@@ -225,13 +225,15 @@ public class SeckillService {
 - [限流令牌桶算法](/04-rate-limit/token-bucket)
 - [分布式事务 Saga](/07-distributed-tx/saga)
 - [多级缓存架构](/09-cache/architecture)
+<CrossSiteNav :items="[
+    { site: 'system-design', label: '系统设计模式', url: 'https://java-px.bot.cd/system-design/' },
+    { site: 'cloud', label: '微服务架构', url: 'https://java-px.bot.cd/cloud/' },
+    { site: 'cloud-native', label: '云原生', url: 'https://java-px.bot.cd/cloud-native/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
 
-<!-- xlink-subpage-injected:do-not-edit -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
 
-本页相关主题的跨站入口:
-
-- [system-design](https://java-px.bot.cd/system-design/):系统设计模式
-- [cloud](https://java-px.bot.cd/cloud/):微服务架构
-- [cloud-native](https://java-px.bot.cd/cloud-native/):云原生
+<!-- giscus-injected:do-not-edit -->

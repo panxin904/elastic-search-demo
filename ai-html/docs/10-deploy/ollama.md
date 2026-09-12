@@ -263,13 +263,9 @@ llm = ChatOllama(model="qwen2.5")
 - [vLLM / TGI 服务](/10-deploy/vllm-tgi)
 - [API 托管](/10-deploy/hosted)
 - [Claude Code / OpenCode](/02-coding-tools/claude-code)
+<CrossSiteNav :items="[
+    { site: 'python', label: 'Python AI', url: 'https://java-px.bot.cd/python/' },
+    { site: 'bigdata', label: '大数据训练', url: 'https://java-px.bot.cd/bigdata/' },
+    { site: 'system-design', label: 'AI 系统架构', url: 'https://java-px.bot.cd/system-design/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
-
-<!-- xlink-subpage-injected:do-not-edit -->
-
-本页相关主题的跨站入口:
-
-- [python](https://java-px.bot.cd/python/):Python AI
-- [bigdata](https://java-px.bot.cd/bigdata/):大数据训练
-- [system-design](https://java-px.bot.cd/system-design/):AI 系统架构

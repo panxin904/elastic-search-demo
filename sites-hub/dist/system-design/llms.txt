@@ -1,8 +1,8 @@
 # system-design 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 52 个文档页 · 263,914 字
-> 生成时间：2026-08-27T21:42:04
+> 56 个文档页 · 270,644 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [CAP 定理](https://java-px.bot.cd/system-design/01-theory/cap)
 > ![CAP 定理 — 分布式系统三选二](/cap-theorem.svg) > Eric Brewer 2000 年提出，2002 年 Gilbert & Lynch 给出形式化证明。 > **在异步网络模型下，一个分布式系统不可能同时满足以下三项中的超过两项**： > - **C**onsistency（一致性）：所有节点看到同一份数据 > - **A**vailability（可用性）：每个
@@ -157,5 +157,17 @@
 ## [短链系统设计](https://java-px.bot.cd/system-design/10-cases/short-url)
 > > 短链是系统设计面试的"Hello World"。考察候选人对**高读 / 低写**场景下读写路径优化、缓存层级、短码生成等核心问题的把握。 **为什么需要短链**： - **短信字数限制**：短信有 70 字符限制，长链占用过多 - **美观**：微博 / Twitter 限制字符数 - **统计**：可以统计点击数据（替代长链直接发） - **防爬**：长链带参数可被恶意爬取 | 指标 |
 
+## [速查表](https://java-px.bot.cd/system-design/cheatsheet)
+> > 高频 系统设计 命令/概念速查，支持分类过滤和关键词搜索（Cmd+F 即可）。 | 场景 | 命令/概念 | |------|----------| | 入门 | 从 [📖 学习路径](/path) 开始 | | 查找 | 用 [🧭 思维导图](/mindmap) 总览 | | 总览 | 看 [🌐 知识图谱](/graph) 分类 | | 搜索 | 浏览器 Cmd+F 全文检索 | - 各子目
+
+## [知识图谱](https://java-px.bot.cd/system-design/graph)
+> > 树形结构总览 系统设计 全栈知识，按主题分类组织。点击节点跳转到对应章节。 本站涵盖以下核心主题，建议按分类顺序学习： 1. **基础概念** - 从零开始的入门必备 2. **核心原理** - 深入理解底层机制 3. **实战应用** - 结合真实场景的最佳实践 4. **生态工具** - 提升效率的配套工具 - [📖 学习路径](/path) - 推荐阅读顺序 - [🧭 思维导图](/mi
+
 ## [System Design 知识图谱](https://java-px.bot.cd/system-design/index)
 > <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "会写 CRUD 却讲不清 CAP", "调过 Redis 却说不出 cache-aside 的失效边界", "用过 Kafka 但说不清「不丢消息」需要哪几
+
+## [思维导图](https://java-px.bot.cd/system-design/mindmap)
+> > 树形结构总览 系统设计 全栈知识，点击叶子节点跳转。 请参考各分类目录的内容，或直接查看： - [📖 学习路径](/path) - 按角色推荐阅读顺序 - [📋 速查表](/cheatsheet) - 高频命令速查 - [🌐 知识图谱](/graph) - 主题分类总览
+
+## [学习路径](https://java-px.bot.cd/system-design/path)
+> > 根据你的角色选择对应路径，每条路径推荐了核心阅读顺序。 适合**刚接触 系统设计**的初学者。 1. 阅读首页（[/](/)）了解整体结构 2. 查看 [🧭 思维导图](/mindmap) 熟悉全站布局 3. 选择一个子目录从 overview.md 开始 4. 边学边查 [📋 速查表](/cheatsheet) 5. 完成 cheatsheet.md 的练习题 适合**已有基础**的开发者。

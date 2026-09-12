@@ -306,13 +306,9 @@ CI 集成：
 - [变量与参数](/11-shell/variables)
 - [数组与字符串](/11-shell/arrays)
 - [函数与脚本组织](/11-shell/functions)
+<CrossSiteNav :items="[
+    { site: 'devops', label: 'DevOps 自动化', url: 'https://java-px.bot.cd/devops/' },
+    { site: 'cloud-native', label: '云原生', url: 'https://java-px.bot.cd/cloud-native/' },
+    { site: 'network', label: 'Linux 网络', url: 'https://java-px.bot.cd/network/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
-
-<!-- xlink-subpage-injected:do-not-edit -->
-
-本页相关主题的跨站入口:
-
-- [devops](https://java-px.bot.cd/devops/):DevOps 自动化
-- [cloud-native](https://java-px.bot.cd/cloud-native/):云原生
-- [network](https://java-px.bot.cd/network/):Linux 网络

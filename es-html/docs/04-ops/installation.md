@@ -36,7 +36,9 @@ chown -R esuser:esuser /opt/elasticsearch-7.17.10
 su esuser -c "./bin/elasticsearch -d"
 ```
 
-> ⚠️ ES **不能用 root 启动**（出于安全考虑）
+<TipBox icon="⚠️" title="注意" variant="warn">
+  ES **不能用 root 启动**（出于安全考虑）
+</TipBox>
 
 ## 🔧 Docker 单机
 

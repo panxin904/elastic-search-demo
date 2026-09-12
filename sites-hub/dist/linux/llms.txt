@@ -1,8 +1,8 @@
 # linux 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 71 个文档页 · 248,713 字
-> 生成时间：2026-08-27T21:42:04
+> 71 个文档页 · 268,585 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [发行版选择](https://java-px.bot.cd/linux/01-foundation/distros)
 > > 同一个内核 + 不同软件 = 不同发行版（Distribution）。选哪个不是信仰问题，是工程问题。 | 发行版 | 包管理 | 适合 | 备注 | |--------|--------|------|------| | **Ubuntu Server LTS** | apt / deb | 服务器 / 云 / 新手 | 文档最多，社区最大 | | **Debian** | apt / de
@@ -50,10 +50,10 @@
 > > Linux 上历史悠久的定时任务系统。 | 字段 | 允许值 | |------|--------| | 分钟 | 0-59 | | 小时 | 0-23 | | 日 | 1-31 | | 月 | 1-12 (或 jan-dec) | | 周 | 0-6 (或 sun-sat) | | 符号 | 含义 | |------|------| | `*` | 每（任意） | | `*/5` | 每 5
 
 ## [前台后台 (jobs / nohup / disown)](https://java-px.bot.cd/linux/04-process/jobs)
-> > 让进程脱离终端稳定运行。 `nohup` 让进程**忽略 SIGHUP**（终端关闭信号）。 进程不会因为父 shell 退出而被收尸。 `nohup` 已经够用，但对**长时间会话**（开发、调试）用 screen / tmux 更好。 `nohup` 已经能解决 95% 的场景。 | | 后台 `&` | 守护进程 | |--|----------|----------| | 父进程 |
+> > 让进程脱离终端稳定运行。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <defs> <marker id="arr" viewBox="0 0 10 10" refX="
 
 ## [ps / top / htop](https://java-px.bot.cd/linux/04-process/ps-top)
-> > 看进程是 Linux 排查第一步。 | 状态 | 含义 | |------|------| | `R` | Running | | `S` | Sleeping（可中断） | | `D` | Uninterruptible sleep（不可中断，通常 IO） | | `Z` | Zombie（已死未收尸） | | `T` | Stopped | | `I` | Idle kernel thre
+> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <defs> <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" mar
 
 ## [信号 (kill)](https://java-px.bot.cd/linux/04-process/signals)
 > > Linux 进程间通讯靠**信号**。 | 信号 | 数字 | 行为 | 是否可捕获 | |------|------|------|-----------| | `SIGHUP` | 1 | 终端断开 / 重新加载配置 | ✅ | | `SIGINT` | 2 | Ctrl+C 中断 | ✅ | | `SIGQUIT` | 3 | Ctrl+\ 退出 + core | ✅ | | `SIGK
@@ -191,7 +191,7 @@
 > > SSH 是云时代服务器对外最常见的服务。配错 = 全网可登录 root。 | 项 | 推荐值 | 默认 | 备注 | |----|--------|------|------| | `PermitRootLogin` | `no` | `prohibit-password` | 禁 root 直登 | | `PasswordAuthentication` | `no` | `yes` | 强制
 
 ## [GRUB 引导](https://java-px.bot.cd/linux/14-kernel/grub)
-> > GRUB = **GR**and **U**nified **B**ootloader。Linux 开机第一阶段。 > 配置**不要直接编辑** `/boot/grub/grub.cfg`，改 `/etc/default/grub` + `/etc/grub.d/` 然后 `update-grub`。 启动时按 `e` 编辑菜单条目。在 `linux` 行末尾加参数。 | 参数 | 作用 |
+> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <defs> <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" mar
 
 ## [initramfs](https://java-px.bot.cd/linux/14-kernel/initramfs)
 > > 内核启动到挂载真实根目录之间的"小"Linux 运行环境。 **initramfs** = 把驱动 / 必要工具 / 启动脚本打包成 cpio 镜像，内核启动时**先解压到 tmpfs**运行，挂载真根后再 chroot 进去。 如果根分区在 LVM 上，initramfs **必须**包含 lvm 模块： 旧机器 initramfs 不带新驱动 → 启动不了： - 升级内核时 initram
@@ -203,7 +203,7 @@
 > > 修改 `/proc/sys/` 下的内核参数，**运行时生效**，无需重启。 - [GRUB 引导](/14-kernel/grub) - [initramfs](/14-kernel/initramfs) - [内核模块](/14-kernel/modules) <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | --- |
 
 ## [命令速查](https://java-px.bot.cd/linux/cheatsheet)
-> > 30+ 高频命令，分组速查。每条带常用示例，可以直接复制运行。 - [入门基础](/01-foundation/intro) — 理解 Linux 全貌 - [文件与目录](/02-filesystem/ls) — 高频命令详解 - [学习路径](/path) — 系统化学习路线
+> > 30+ 高频命令，分组速查。每条带常用示例，可以直接复制运行。 - [入门基础](/01-foundation/intro) — 理解 Linux 全貌 - [文件与目录](/02-filesystem/ls) — 高频命令详解 - [学习路径](/path) — 系统化学习路线 <ClientOnly> <QrShare /> </ClientOnly>
 
 ## [知识图谱](https://java-px.bot.cd/linux/graph)
 > > 70+ 节点，14 大主题分类，节点可点击跳转到对应章节。鼠标拖动可调整布局，悬停查看节点关联。 <ClientOnly> <KnowledgeGraph :height="820" /> </ClientOnly> | 颜色 | 分类 | 节点数 | |------|------|--------| | 🟠 橙 | 入门基础 | 4 | | 🔵 蓝 | 文件与目录 | 5 | | 🩵 青 |

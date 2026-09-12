@@ -336,13 +336,9 @@ public class StreamDelayQueue {
 - ⚠️ Redis Stream 提供更强大的方案
 
 **下一步：** [🏆 排行榜](/06-practice/leaderboard) — ZSet 实现排行榜
+<CrossSiteNav :items="[
+    { site: 'mysql', label: 'MySQL 主存', url: 'https://java-px.bot.cd/mysql/' },
+    { site: 'kafka', label: 'Kafka 异步队列', url: 'https://java-px.bot.cd/kafka/' },
+    { site: 'java-web-manual', label: 'Java 客户端（Redisson / Jedis）', url: 'https://java-px.bot.cd/java-web-manual/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
-
-<!-- xlink-subpage-injected:do-not-edit -->
-
-本页相关主题的跨站入口:
-
-- [mysql](https://java-px.bot.cd/mysql/):MySQL 主存
-- [kafka](https://java-px.bot.cd/kafka/):Kafka 异步队列
-- [java](https://java-px.bot.cd/java-web-manual/):Java 客户端（Redisson / Jedis）

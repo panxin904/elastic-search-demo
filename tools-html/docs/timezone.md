@@ -186,13 +186,15 @@ key: value
 | TODO_1 | 待补充 | - |
 | TODO_2 | 待补充 | - |
 <!-- auto-enrich:do-not-edit -->
+<CrossSiteNav :items="[
+    { site: 'frontend', label: '前端工具', url: 'https://java-px.bot.cd/frontend/' },
+    { site: 'devops', label: '运维工具', url: 'https://java-px.bot.cd/devops/' },
+    { site: 'python', label: 'Python 工具', url: 'https://java-px.bot.cd/python/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
 
-<!-- xlink-subpage-injected:do-not-edit -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
 
-本页相关主题的跨站入口:
-
-- [frontend](https://java-px.bot.cd/frontend/):前端工具
-- [devops](https://java-px.bot.cd/devops/):运维工具
-- [python](https://java-px.bot.cd/python/):Python 工具
+<!-- giscus-injected:do-not-edit -->

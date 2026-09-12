@@ -432,13 +432,15 @@ IO 多路复用（Multiplexing）让单个线程同时监听多个文件描述�
 到这里你已经掌握 20 道高频基础题。下一篇进入**进阶题**，覆盖集群脑裂、Redlock、Tracking、新特性等深度话题。
 
 **下一步：** [📝 高频面试题（下）](/08-interview/advanced)
+<CrossSiteNav :items="[
+    { site: 'mysql', label: 'MySQL 主存', url: 'https://java-px.bot.cd/mysql/' },
+    { site: 'kafka', label: 'Kafka 异步队列', url: 'https://java-px.bot.cd/kafka/' },
+    { site: 'java-web-manual', label: 'Java 客户端（Redisson / Jedis）', url: 'https://java-px.bot.cd/java-web-manual/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
 
-<!-- xlink-subpage-injected:do-not-edit -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
 
-本页相关主题的跨站入口:
-
-- [mysql](https://java-px.bot.cd/mysql/):MySQL 主存
-- [kafka](https://java-px.bot.cd/kafka/):Kafka 异步队列
-- [java](https://java-px.bot.cd/java-web-manual/):Java 客户端（Redisson / Jedis）
+<!-- giscus-injected:do-not-edit -->

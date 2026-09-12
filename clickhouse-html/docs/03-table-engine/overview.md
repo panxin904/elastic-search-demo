@@ -349,13 +349,15 @@ GROUP BY hour, event_type;
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+<CrossSiteNav :items="[
+    { site: 'es', label: 'ES 对比', url: 'https://java-px.bot.cd/es/' },
+    { site: 'bigdata', label: '大数据生态', url: 'https://java-px.bot.cd/bigdata/' },
+    { site: 'postgresql', label: 'PostgreSQL 对比', url: 'https://java-px.bot.cd/postgresql/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
 
-<!-- xlink-subpage-injected:do-not-edit -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
 
-本页相关主题的跨站入口:
-
-- [es](https://java-px.bot.cd/es/):ES 对比
-- [bigdata](https://java-px.bot.cd/bigdata/):大数据生态
-- [postgresql](https://java-px.bot.cd/postgresql/):PostgreSQL 对比
+<!-- giscus-injected:do-not-edit -->

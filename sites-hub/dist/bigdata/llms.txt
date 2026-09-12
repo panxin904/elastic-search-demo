@@ -1,8 +1,8 @@
 # bigdata 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 51 个文档页 · 185,637 字
-> 生成时间：2026-08-27T21:42:04
+> 51 个文档页 · 189,987 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [大数据 4V 特征](https://java-px.bot.cd/bigdata/01-basics/4v)
 > 大数据（Big Data）= 无法用传统数据库工具在合理时间内处理的数据集。 | | 传统 DB | 大数据 | |------|--------|--------| | 数据量 | GB-TB | PB-EB | | 速度 | 实时 | 实时 + 批 | | 多样性 | 结构化 | 半/非结构化 | | 价值 | 报表 | 洞察 + ML | | 工具 | Oracle / MySQL | Ha
@@ -143,7 +143,7 @@
 > - [面试案例](/14-interview-practice/cases) - [推荐系统](/13-cases/recommendation) - [用户画像](/13-cases/user-profile) <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | --- | --- | | TODO_1 | 待补充 | - | |
 
 ## [命令速查](https://java-px.bot.cd/bigdata/cheatsheet)
-> - [HDFS 架构](/02-hdfs/architecture) - [Spark Core / RDD](/04-spark/rdd) - [Flink 架构](/05-flink/architecture) - [Kafka Streams](/07-kafka-streaming/streams)
+> - [HDFS 架构](/02-hdfs/architecture) - [Spark Core / RDD](/04-spark/rdd) - [Flink 架构](/05-flink/architecture) - [Kafka Streams](/07-kafka-streaming/streams) <ClientOnly> <QrShare /> </ClientOnly>
 
 ## [知识图谱](https://java-px.bot.cd/bigdata/graph)
 > > 50+ 节点，14 大主题分类，节点可点击跳转。 <ClientOnly><KnowledgeGraph :height="820"></KnowledgeGraph></ClientOnly> | 颜色 | 分类 | 主题数 | |------|------|--------| | 🔵 蓝 | 大数据基础 | 4 | | 🩵 青 | HDFS | 4 | | 🟧 橙 | MapReduce

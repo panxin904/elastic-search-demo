@@ -367,3 +367,9 @@ TikTok 全球部署:
 - QCon 全球软件开发大会
 - VLDB / SIGMOD（数据库论文）
 - WWW / KDD（推荐系统论文）
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->

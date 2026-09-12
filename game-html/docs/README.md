@@ -112,13 +112,9 @@ graph LR
   questions["游戏开发面试与常见问题"]
   ROOT --> questions
 ```
+<CrossSiteNav :items="[
+    { site: 'frontend', label: '客户端基础', url: 'https://java-px.bot.cd/frontend/' },
+    { site: 'rust', label: '高性能原生', url: 'https://java-px.bot.cd/rust/' },
+    { site: 'ai', label: 'NPC AI', url: 'https://java-px.bot.cd/ai/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
-
-<!-- xlink-subpage-injected:do-not-edit -->
-
-本页相关主题的跨站入口:
-
-- [frontend](https://java-px.bot.cd/frontend/):客户端基础
-- [rust](https://java-px.bot.cd/rust/):高性能原生
-- [ai](https://java-px.bot.cd/ai/):NPC AI

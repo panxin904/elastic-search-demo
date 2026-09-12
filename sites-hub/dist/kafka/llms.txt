@@ -1,8 +1,8 @@
 # kafka 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 73 个文档页 · 590,163 字
-> 生成时间：2026-08-27T21:42:04
+> 73 个文档页 · 713,626 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [核心概念](https://java-px.bot.cd/kafka/01-basics/concepts)
 > > Kafka 的术语多但不难。理解 **Broker / Topic / Partition / Producer / Consumer / Consumer Group / Offset** 这 7 个核心概念就够了。 | 概念 | 数量 | 作用 | 比喻 | |------|------|------|------| | Cluster | 1 个 | 整体服务 | 公司 | | Brok
@@ -11,7 +11,7 @@
 > > 5 分钟搭建一个本地 Kafka 集群。本章涵盖 JDK 安装、Kafka 下载、单机/集群模式、KRaft 配置。 **安装部署核心要点**： - ✅ 单机：KRaft 模式 + 1 个节点 - ✅ 集群：3 节点 KRaft + 2 副本 - ✅ Docker：docker-compose 快速启动 - ✅ 生产：3 节点起步 + 多副本 + 监控 - ⚠️ Kafka 3.x 用 KRa
 
 ## [Kafka 是什么](https://java-px.bot.cd/kafka/01-basics/intro)
-> ![Kafka 集群拓扑 — Broker / Partition / Consumer Group](/kafka-topology.svg) > **Apache Kafka** 最初是由 LinkedIn 开发，后捐赠给 Apache 基金会的**分布式发布订阅消息系统**。现已成为大数据、实时计算、微服务领域的事实标准。 | 维度 | Kafka 的特点 | |------|-------
+> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 460" font-family="--apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <rect class="at-svg-bg" width="600" height="460"/> <text class="
 
 ## [消息模型](https://java-px.bot.cd/kafka/01-basics/message-model)
 > > Kafka 的消息模型结合了**点对点**和**发布订阅**两种模式。本章对比主流消息模型，帮助理解 Kafka 的设计哲学。 > Kafka 通过 **Consumer Group** 巧妙地同时支持两种模型。 | 维度 | Kafka | RabbitMQ | RocketMQ | ActiveMQ | |------|-------|----------|----------|-----
@@ -23,22 +23,22 @@
 > > Kafka 控制器经历了从 **ZooKeeper 选举**到 **KRaft 协议**的重大演进。本章对比两代控制器的设计与差异。 迁移步骤： | 维度 | ZooKeeper 模式 | KRaft 模式 | |------|---------------|-----------| | 选举时间 | 10-30 秒 | 1-5 秒 | | 集群规模 | ≤ 200K Partition |
 
 ## [Controller 控制器](https://java-px.bot.cd/kafka/02-architecture/controller)
-> > **Controller**是 Kafka 集群的**大脑**，负责集群元数据管理、Leader 选举、Broker 上下线通知。 **Controller 核心要点**： - ✅ Kafka 集群的大脑（元数据管理） - ✅ KRaft 模式：Active + Standby - ✅ 选举基于 Raft 协议（快 + 强一致） - ✅ 1 个 Active + N 个 Standby - ✅
+> > **Controller**是 Kafka 集群的**大脑**，负责集群元数据管理、Leader 选举、Broker 上下线通知。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif
 
 ## [Leader 选举](https://java-px.bot.cd/kafka/02-architecture/leader-election)
 > > 当某个 Partition 的 Leader 故障时，Kafka 自动从 ISR 中选举新 Leader，**秒级故障转移**。 **Leader 选举核心要点**： - ✅ Controller 主导选举，从 ISR 中选新 Leader - ✅ 选举耗时通常 5-15 秒 - ✅ Preferred Replica 平衡负载 - ✅ clean election 保证一致性，unclean
 
 ## [日志存储](https://java-px.bot.cd/kafka/02-architecture/log-storage)
-> > Kafka 的高性能很大一部分来自**磁盘顺序写** + **Page Cache**。理解日志存储结构对性能调优至关重要。 **日志存储核心要点**： - ✅ 分段（Segment）顺序写盘 - ✅ Page Cache 加速读写 - ✅ 稀疏索引快速定位 - ✅ 压缩减少 IO 和存储 - ✅ 顺序写 ≈ 内存性能 - ⚠️ 推荐 NVMe SSD + 大内存 - ⚠️ retention
+> > Kafka 的高性能很大一部分来自**磁盘顺序写** + **Page Cache**。理解日志存储结构对性能调优至关重要。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
 
 ## [整体架构](https://java-px.bot.cd/kafka/02-architecture/overview)
-> > 理解 Kafka 集群的**整体拓扑**是深入学习的前提。本章从集群视角讲解各组件的职责与协作。 **整体架构核心要点**： - ✅ Broker 同时承担 Controller + Broker 角色（KRaft） - ✅ Partition 分布在不同 Broker（负载均衡） - ✅ 多副本 + ISR（高可用） - ✅ Controller 集群（Raft 协议选主） - ✅ Kafk
+> > 理解 Kafka 集群的**整体拓扑**是深入学习的前提。本章从集群视角讲解各组件的职责与协作。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <defs> <marker
 
 ## [分区副本机制](https://java-px.bot.cd/kafka/02-architecture/replica)
-> > **副本（Replica）**是 Kafka 高可用的基石。每个 Partition 有多个副本，分布在不同 Broker，Leader 故障时自动选举新 Leader。 | acks 值 | 行为 | 可靠性 | 性能 | |---------|------|--------|------| | **0** | 不等响应 | ❌ 可能丢失 | ⭐⭐⭐⭐⭐ | | **1** | 等 Lead
+> > **副本（Replica）**是 Kafka 高可用的基石。每个 Partition 有多个副本，分布在不同 Broker，Leader 故障时自动选举新 Leader。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'Pin
 
 ## [零拷贝原理](https://java-px.bot.cd/kafka/02-architecture/zero-copy)
-> > **零拷贝（Zero-Copy）**是 Kafka 高吞吐的关键技术之一。本章深入理解 Kafka 如何通过 sendfile 系统调用减少 CPU 与内存开销。 | 方式 | 上下文切换 | DMA Copy | CPU Copy | 内存拷贝 | |------|----------|---------|----------|---------| | **传统 IO** | 4 次 | 2
+> > **零拷贝（Zero-Copy）**是 Kafka 高吞吐的关键技术之一。本章深入理解 Kafka 如何通过 sendfile 系统调用减少 CPU 与内存开销。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFan
 
 ## [消费者组](https://java-px.bot.cd/kafka/03-cli/consumer-group)
 > > kafka-consumer-groups.sh 是 Kafka 运维的瑞士军刀，可以查看 lag、重置 offset、管理 group 等。 字段说明： - `CURRENT-OFFSET`：消费者当前提交的 offset - `LOG-END-OFFSET`：分区最新消息的 offset - `LAG`：消息积压（CURRENT-OFFSET 与 LOG-END-OFFSET 之差） -
@@ -68,7 +68,7 @@
 > > Kafka 的**数据保留策略**决定消息何时被删除，是**磁盘管理**和**数据可重放性**的关键。 **数据保留策略核心要点**： - ✅ 基于时间（retention.ms）和大小（retention.bytes） - ✅ Delete 策略：删除过期消息 - ✅ Compact 策略：只保留最新消息（按 Key） - ✅ 混合策略：先 compact 后 delete - ✅ 容量规划
 
 ## [幂等性](https://java-px.bot.cd/kafka/04-producer/idempotent)
-> > 默认情况下，Producer 可能因为**重试**发送**重复消息**。Kafka 0.11+ 引入**幂等性（Idempotence）**机制，保证消息**精确一次（Exactly Once）**。 | 维度 | 幂等性 | 事务 | |------|--------|------| | **作用范围** | 单 Partition | 多 Partition | | **跨会话** | ❌
+> > 默认情况下，Producer 可能因为**重试**发送**重复消息**。Kafka 0.11+ 引入**幂等性（Idempotence）**机制，保证消息**精确一次（Exactly Once）**。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMac
 
 ## [顺序保证](https://java-px.bot.cd/kafka/04-producer/order)
 > > Kafka 保证**单 Partition 内消息有序**，但**跨 Partition 无序**。理解顺序保证是很多业务场景的前提。 | 方案 | 顺序保证 | 性能 | 复杂度 | |------|---------|------|--------| | **单 Partition** | 全局有序 | ❌ 低（单 Partition 上限） | 低 | | **按 Key 路由 + 多
@@ -83,7 +83,7 @@
 > > Kafka 0.11+ 引入**事务（Transaction）**机制，实现**跨 Partition、跨 Topic 的精确一次语义（Exactly Once Semantics, EOS）**。事务是幂等性的超集。 | 隔离级别 | 行为 | 性能 | |---------|------|------| | `read_uncommitted` | 读取所有消息（默认） | 高 | | `
 
 ## [性能调优](https://java-px.bot.cd/kafka/04-producer/tuning)
-> > Kafka Producer 默认配置已经很好，但**生产环境的高并发场景**仍需要精细调优。本章整理实战调优策略。 **原理**： **调优公式**： **对比**： | 算法 | 压缩比 | CPU 消耗 | 适用场景 | |------|-------|---------|---------| | none | 1.0 | 0 | 不推荐（生产浪费带宽） | | gzip | 3.5-4
+> > Kafka Producer 默认配置已经很好，但**生产环境的高并发场景**仍需要精细调优。本章整理实战调优策略。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <def
 
 ## [消费者组](https://java-px.bot.cd/kafka/05-consumer/group)
 > > **Consumer Group**是 Kafka 核心概念之一，理解其工作原理是掌握 Kafka 的关键。本章深入 Group 协作、Rebalance、Offset 提交等机制。 <ClientOnly> <ConsumerSimulator /> </ClientOnly> 试试用模拟器观察： - 3 个 Partition 分配给 1 个 Consumer - 新增 Consumer
@@ -98,10 +98,10 @@
 > > **Offset** 是 Consumer 的核心概念。理解 Offset 提交机制是**消息不丢、不重复**的关键。 **优点**： - 简单，不用管 Offset - 适合消息丢失不敏感场景 **缺点**： - 消息丢失风险（提交后崩溃 → 已提交但未处理的消息丢失） - 消息重复风险（未提交前崩溃 → 重新消费） **优点**： - 精确控制提交时机 - 消息不丢（处理完再提交） **缺
 
 ## [消费者原理](https://java-px.bot.cd/kafka/05-consumer/principle)
-> > Kafka Consumer 是主动拉取（Pull）模式的消费者，通过**消费者组**协作消费，理解其内部机制是使用 Kafka 的关键。 **消费者原理核心要点**： - ✅ 主动拉取模式（Poll-based） - ✅ Consumer Group 协作消费 - ✅ GroupCoordinator 管理 Group 状态 - ✅ Pull 模式控制消费速率 - ✅ Offset 持久化到
+> > Kafka Consumer 是主动拉取（Pull）模式的消费者，通过**消费者组**协作消费，理解其内部机制是使用 Kafka 的关键。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-s
 
 ## [再平衡](https://java-px.bot.cd/kafka/05-consumer/rebalance)
-> > **Rebalance（再平衡）**是 Consumer Group 中 Partition 重新分配的过程。理解 Rebalance 对高可用系统至关重要。 **问题：Stop-The-World（STW）** **优势**： - ✅ 减少 STW 时间（从 10 秒降到 1 秒） - ✅ 减少 Partition 重新分配 - ✅ 适合大规模 Consumer Group **优势**：
+> > **Rebalance（再平衡）**是 Consumer Group 中 Partition 重新分配的过程。理解 Rebalance 对高可用系统至关重要。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang
 
 ## [AdminClient](https://java-px.bot.cd/kafka/06-jdk/admin-client)
 > > **AdminClient** 是 Kafka 提供的集群管理 API，可以**程序化**地创建 Topic、修改配置、管理副本等。 **AdminClient 核心要点**： - ✅ Kafka 集群管理 API - ✅ Topic / Broker / Group / ACL 管理 - ✅ 程序化管理集群（替代命令行） - ✅ 异步操作（Future） - ⚠️ 大操作耗时长（如 reas
@@ -140,7 +140,7 @@
 > > **消息积压（Lag）**是 Kafka 生产环境最常见的问题之一。本章详解积压原因、监控和处理方案。 **优点**：快速见效 **缺点**：临时方案，业务逻辑慢则无解 **注意**：增加 Partition 是不可逆操作，需谨慎 **优点**：减少网络和提交开销 **缺点**：单条失败影响整批 **优点**：Consumer 不阻塞 **缺点**：处理失败时已 ack（需 Outbox 兜底
 
 ## [集群部署](https://java-px.bot.cd/kafka/08-enterprise/cluster)
-> > **生产环境 Kafka 集群**的部署是高可用、高性能的基础。本章详解集群规划、部署和验证。 **集群部署核心要点**： - ✅ 至少 3 Broker + 3 副本 - ✅ KRaft 模式（Kafka 3.x） - ✅ NVMe SSD + 万兆网卡 - ✅ JVM 调优（G1GC） - ✅ 多 AZ 部署（高可用） - ✅ 监控 + 告警 - ⚠️ 容量评估很重要 - ⚠️ 备份和灾难
+> > **生产环境 Kafka 集群**的部署是高可用、高性能的基础。本章详解集群规划、部署和验证。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <defs> <marker
 
 ## [Kafka Connect](https://java-px.bot.cd/kafka/08-enterprise/connect)
 > > **Kafka Connect** 是 Kafka 官方的**数据集成框架**，用于在 Kafka 与外部系统（如 MySQL、Elasticsearch）之间可靠地传输数据。 **生成 Topic**： - `mysql-server.inventory.orders` - `mysql-server.inventory.customers` - `schema-changes.invent
@@ -182,7 +182,7 @@
 > > **日志清理**是 Kafka 运维的重要工作。Kafka 的数据存在磁盘上，需要**定期清理过期消息**，避免磁盘占满。 **优点**： - ✅ 简单直观 - ✅ 自动清理 **缺点**： - ⚠️ 不考虑数据量 **适用场景**： - 数据量相对稳定的 Topic - 磁盘有限的场景 | 维度 | Delete | Compact | |------|--------|---------|
 
 ## [监控指标](https://java-px.bot.cd/kafka/09-ops/metrics)
-> > **Kafka 监控指标**是保障集群健康的基础。本章详解所有关键指标的采集、监控和告警。 **监控指标核心要点**： - ✅ 4 层监控（基础设施/JVM/Broker/应用） - ✅ 关键指标：Lag、副本、GC、磁盘 - ✅ Prometheus + Grafana + AlertManager - ✅ 告警分级（P0/P1/P2） - ✅ 告警要 actionable - ⚠️ 监控全
+> > **Kafka 监控指标**是保障集群健康的基础。本章详解所有关键指标的采集、监控和告警。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <defs> <marker id
 
 ## [高频面试题（下）](https://java-px.bot.cd/kafka/10-interview/advanced)
 > > 整理 Kafka **进阶**的 20 道高频面试题，涵盖**底层原理、性能调优、生产实战**。 **Kafka 高频面试题（下）核心要点**： - ✅ 理解存储结构（Segment + 稀疏索引） - ✅ 掌握副本同步机制（ISR + HW） - ✅ 知道 KRaft 协议（Raft 选举） - ✅ 理解 Rebalance 和 Consumer Group - ✅ JVM 和 Page C
@@ -194,7 +194,7 @@
 > > Leader 选举是 Kafka **高可用**的核心机制。理解选举过程对故障排查和性能优化至关重要。 **Leader 选举核心要点**： - ✅ Controller 从 ISR 中选新 Leader - ✅ KRaft 比 ZooKeeper 快 5-10 倍 - ✅ unclean.election=false 保证一致性 - ✅ CooperativeSticky 减少 Rebala
 
 ## [Exactly Once 实现](https://java-px.bot.cd/kafka/10-interview/exactly-once)
-> > **Exactly Once 语义（EOS）**是消息系统的最高可靠性保证。Kafka 通过**幂等性 + 事务**实现 EOS。 | 模式 | 行为 | 性能 | |------|------|------| | read_committed | 只读已提交 | 略低（需等 commit marker） | | read_uncommitted | 读所有消息（含未提交） | 高 | **E
+> > **Exactly Once 语义（EOS）**是消息系统的最高可靠性保证。Kafka 通过**幂等性 + 事务**实现 EOS。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif
 
 ## [Kafka vs RocketMQ](https://java-px.bot.cd/kafka/10-interview/kafka-vs-rocketmq)
 > > Kafka 和 RocketMQ 都是流行的消息中间件，但定位和适用场景不同。本章详细对比两者。 | 维度 | Kafka | RocketMQ | |------|-------|-----------| | **背景** | LinkedIn 开源，2011 | 阿里开源，2012 | | **语言** | Scala + Java | Java | | **顶级项目** | Apache
@@ -206,7 +206,7 @@
 > > Kafka 的副本同步机制是**数据可靠性和高可用**的核心。本章深入讲解 Leader-Follower 同步的完整流程。 **副本同步机制核心要点**： - ✅ LEO 表示日志末端，HW 表示已提交边界 - ✅ Follower 主动拉取（不是 Leader 推送） - ✅ ISR 机制保证数据一致性 - ✅ 多副本 + min.insync.replicas 防止数据丢失 - ✅ Le
 
 ## [Kafka 为什么快](https://java-px.bot.cd/kafka/10-interview/why-fast)
-> > Kafka 的高性能源于**多种技术的协同作用**。本章深入剖析 Kafka 性能优化的核心原理。 | 维度 | Kafka | RabbitMQ | RocketMQ | |------|-------|----------|----------| | 顺序写吞吐 | ~200 MB/s | ~50 MB/s | ~150 MB/s | | 顺序读吞吐 | ~300 MB/s | ~100
+> > Kafka 的高性能源于**多种技术的协同作用**。本章深入剖析 Kafka 性能优化的核心原理。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <defs> <marke
 
 ## [命令速查](https://java-px.bot.cd/kafka/cheatsheet)
 > > 30+ 高频 Kafka 命令，支持分类过滤和关键词搜索。 <ClientOnly> <CommandCheatsheet /> </ClientOnly> | 场景 | 命令 | |------|------| | 创建 Topic | `kafka-topics.sh --create --topic <name> --partitions 3 --replication-factor 2

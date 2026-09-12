@@ -321,13 +321,9 @@ fmt.Printf("NumGoroutine=%d\n", runtime.NumGoroutine())
 ## 一句话总结
 
 > **Go 标准库 = Production-Ready 工具集**。**`net/http` + `database/sql` + `encoding/json` 三件套能写出 90% 的服务**。
+<CrossSiteNav :items="[
+    { site: 'rust', label: 'Rust 对比', url: 'https://java-px.bot.cd/rust/' },
+    { site: 'cloud-native', label: 'K8s / Docker', url: 'https://java-px.bot.cd/cloud-native/' },
+    { site: 'devops', label: 'DevOps 工具', url: 'https://java-px.bot.cd/devops/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
-
-<!-- xlink-subpage-injected:do-not-edit -->
-
-本页相关主题的跨站入口:
-
-- [rust](https://java-px.bot.cd/rust/):Rust 对比
-- [cloud-native](https://java-px.bot.cd/cloud-native/):K8s / Docker
-- [devops](https://java-px.bot.cd/devops/):DevOps 工具

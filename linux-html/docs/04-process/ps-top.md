@@ -231,3 +231,9 @@ top 输出右上角: load average: 1.20, 0.85, 0.40
 - [信号 (kill)](/04-process/signals)
 - [systemd](/04-process/systemd)
 - [iostat / iotop](/10-perf/iostat)
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->

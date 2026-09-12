@@ -21,3 +21,9 @@ try {
   b.bind(8080).sync().channel().closeFuture().sync();
 } finally { boss.shutdownGracefully(); worker.shutdownGracefully(); }
 ```
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->

@@ -74,7 +74,9 @@ const relatedSites = [
 
 ## 🗺️ 完整知识图谱 {#complete-graph}
 
-> 💡 鼠标拖拽节点、滚轮缩放、**点击节点跳转到对应文档**。点击顶部图例可切换层级显隐。
+<TipBox icon="💡" title="提示" variant="tip">
+  鼠标拖拽节点、滚轮缩放、**点击节点跳转到对应文档**。点击顶部图例可切换层级显隐。
+</TipBox>
 
 <KnowledgeGraph mode="full" :height="700" />
 

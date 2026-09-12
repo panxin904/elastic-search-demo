@@ -6,7 +6,9 @@ date: 2026-08-15  # date-auto-injected
 # 🌐 Spring Cloud 知识图谱
 
 > 全局可视化展示 Spring Cloud Alibaba 的 **20+ 核心概念** 与它们之间的关系。
-> 💡 提示：拖动节点调整布局，点击节点跳转对应文档，悬停查看高亮关系。
+<TipBox icon="💡" title="提示" variant="tip">
+  提示：拖动节点调整布局，点击节点跳转对应文档，悬停查看高亮关系。
+</TipBox>
 
 <KnowledgeGraph :height="700" src="/graph.json" />
 

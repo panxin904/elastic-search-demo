@@ -160,3 +160,9 @@ worker.onmessage = (e) => setResult(e.data)
 ## 图示：浏览器渲染流水线
 
 ![浏览器渲染流水线](/browser-render.svg)
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->

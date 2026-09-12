@@ -274,13 +274,15 @@ async def call(name, args):
 ## 图示：MCP Host/Client/Server 三层
 
 ![MCP Host/Client/Server 三层](/mcp-architecture.svg)
+<CrossSiteNav :items="[
+    { site: 'python', label: 'Python AI', url: 'https://java-px.bot.cd/python/' },
+    { site: 'bigdata', label: '大数据训练', url: 'https://java-px.bot.cd/bigdata/' },
+    { site: 'system-design', label: 'AI 系统架构', url: 'https://java-px.bot.cd/system-design/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
 
-<!-- xlink-subpage-injected:do-not-edit -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
 
-本页相关主题的跨站入口:
-
-- [python](https://java-px.bot.cd/python/):Python AI
-- [bigdata](https://java-px.bot.cd/bigdata/):大数据训练
-- [system-design](https://java-px.bot.cd/system-design/):AI 系统架构
+<!-- giscus-injected:do-not-edit -->

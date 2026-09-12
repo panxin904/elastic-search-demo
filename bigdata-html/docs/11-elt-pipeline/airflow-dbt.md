@@ -335,13 +335,15 @@ with DAG('etl_daily', start_date=datetime(2024,1,1), schedule='@daily') as dag:
 ## 🔗 下一步
 - [CDC 同步](/11-elt-pipeline/cdc)
 - [数据血缘](/07-kafka-streaming/lineage)
+<CrossSiteNav :items="[
+    { site: 'kafka', label: 'Kafka 流处理', url: 'https://java-px.bot.cd/kafka/' },
+    { site: 'es', label: 'Elasticsearch', url: 'https://java-px.bot.cd/es/' },
+    { site: 'clickhouse', label: 'ClickHouse OLAP', url: 'https://java-px.bot.cd/clickhouse/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
 
-<!-- xlink-subpage-injected:do-not-edit -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
 
-本页相关主题的跨站入口:
-
-- [kafka](https://java-px.bot.cd/kafka/):Kafka 流处理
-- [es](https://java-px.bot.cd/es/):Elasticsearch
-- [clickhouse](https://java-px.bot.cd/clickhouse/):ClickHouse OLAP
+<!-- giscus-injected:do-not-edit -->

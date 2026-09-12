@@ -451,13 +451,9 @@ plt.show()
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+<CrossSiteNav :items="[
+    { site: 'java-web-manual', label: 'Java 对比', url: 'https://java-px.bot.cd/java-web-manual/' },
+    { site: 'ai', label: 'AI / 机器学习', url: 'https://java-px.bot.cd/ai/' },
+    { site: 'bigdata', label: '大数据 / 数据处理', url: 'https://java-px.bot.cd/bigdata/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
-
-<!-- xlink-subpage-injected:do-not-edit -->
-
-本页相关主题的跨站入口:
-
-- [java](https://java-px.bot.cd/java-web-manual/):Java 对比
-- [ai](https://java-px.bot.cd/ai/):AI / 机器学习
-- [bigdata](https://java-px.bot.cd/bigdata/):大数据 / 数据处理

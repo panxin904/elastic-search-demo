@@ -667,3 +667,9 @@ public class RedisClusterConfig {
     <text x="40" y="467" font-size="10" font-style="italic" fill="#94a3b8">⚡ 故障转移：master FAIL 后，其副本之一被晋升；其他 master 通过 gossip 感知新拓扑</text>
   </g>
 </svg>
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->

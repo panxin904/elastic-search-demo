@@ -457,13 +457,15 @@ ZADD scores 90 "alice" 80 "bob"
 **编码自动转换**：小数据用 listpack/intset 节省内存，大数据用 hashtable/skiplist 保证性能。
 
 **下一步：** [🔑 Key 通用操作](/01-basics/keys) — KEYS / SCAN / EXISTS / DEL / 命名规范
+<CrossSiteNav :items="[
+    { site: 'mysql', label: 'MySQL 主存', url: 'https://java-px.bot.cd/mysql/' },
+    { site: 'kafka', label: 'Kafka 异步队列', url: 'https://java-px.bot.cd/kafka/' },
+    { site: 'java-web-manual', label: 'Java 客户端（Redisson / Jedis）', url: 'https://java-px.bot.cd/java-web-manual/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
 
-<!-- xlink-subpage-injected:do-not-edit -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
 
-本页相关主题的跨站入口:
-
-- [mysql](https://java-px.bot.cd/mysql/):MySQL 主存
-- [kafka](https://java-px.bot.cd/kafka/):Kafka 异步队列
-- [java](https://java-px.bot.cd/java-web-manual/):Java 客户端（Redisson / Jedis）
+<!-- giscus-injected:do-not-edit -->

@@ -12,7 +12,9 @@ graphNodeId: index
 ## 📌 一句话定义
 索引是具有**相似特征文档**的集合，是 ES 中读写数据的**最顶层组织单位**。
 
-> 💡 类比关系数据库：**Index ≈ Database**，**Document ≈ Row**，**Mapping ≈ Schema**
+<TipBox icon="💡" title="提示" variant="tip">
+  类比关系数据库：**Index ≈ Database**，**Document ≈ Row**，**Mapping ≈ Schema**
+</TipBox>
 
 ## 🔧 创建索引
 

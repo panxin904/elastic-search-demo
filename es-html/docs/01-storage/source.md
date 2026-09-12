@@ -71,7 +71,9 @@ POST /products/_update/p001
 | Reindex | ❌ 不可用（除非 reindex API + stored fields） |
 | Search | ✅ 仍可用（仅返回 indexed fields） |
 
-> 💡 **建议**：除非磁盘极度紧张，否则保留 `_source`。
+<TipBox icon="💡" title="提示" variant="tip">
+  **建议**：除非磁盘极度紧张，否则保留 `_source`。
+</TipBox>
 
 ## 🗺️ 在图谱中的位置
 

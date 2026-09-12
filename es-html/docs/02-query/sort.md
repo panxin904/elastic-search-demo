@@ -24,7 +24,9 @@ POST /products/_search
 }
 ```
 
-> 💡 排序会**禁用评分计算**（除非显式保留 `_score`）。
+<TipBox icon="💡" title="提示" variant="tip">
+  排序会**禁用评分计算**（除非显式保留 `_score`）。
+</TipBox>
 
 ## 🎯 多字段 + tiebreaker
 

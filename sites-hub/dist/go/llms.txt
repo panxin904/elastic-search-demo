@@ -1,8 +1,8 @@
 # go 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 36 个文档页 · 240,479 字
-> 生成时间：2026-08-27T21:42:04
+> 40 个文档页 · 256,539 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [错误处理](https://java-px.bot.cd/go/01-basics/error-handling)
 > Go 错误处理哲学：**错误是值，不是异常**。通过显式 error 返回，强制调用者处理错误。 > **Go 错误处理 = error 接口 + 显式返回 + errors.Is/As**。**核心：error 是值 / panic 是真异常 / recover 兜底**。 --- --- --- --- --- --- 1. **显式**：错误处理在函数签名中可见 2. **类型安全**：错误
@@ -20,16 +20,16 @@
 > Go 语法极简：25 个关键字，5 分钟上手，1 小时精通。 > **Go 语法 = C 风格 + 类型后置 + 错误显式返回**。**核心：变量 := / 切片 slice / map / struct / interface**。 --- 每个类型都有零值，**变量声明后立即可用**： --- --- --- --- --- --- --- --- --- --- - **01-basics/
 
 ## [类型与函数](https://java-px.bot.cd/go/01-basics/types-and-functions)
-> 深入 Go 类型系统：基础类型 / 复合类型 / 自定义类型 / 函数签名 / 闭包 / 错误处理。 > **Go 类型 = 基础类型 + slice/map/chan + struct/interface**。**函数：一等公民，支持多返回值、闭包、defer**。 --- --- --- --- --- --- --- --- --- - **01-basics/overview**：Go 总
+> 深入 Go 类型系统：基础类型 / 复合类型 / 自定义类型 / 函数签名 / 闭包 / 错误处理。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <defs> <marker
 
 ## [channel](https://java-px.bot.cd/go/02-concurrency/channel)
-> channel 是 goroutine 之间的通信机制：类型安全的消息队列，遵循 CSP（Communicating Sequential Processes）模型。 > **channel = goroutine 间的消息队列**。**核心：make 创建 / ch <- 发送 / <-ch 接收 / close 关闭 / select 多路复用**。 --- --- | 操作 | nil ch
+> ![Go 内存分配模型](/go-memory-model.svg) <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <defs> <marker id="arr" viewBo
 
 ## [context 上下文](https://java-px.bot.cd/go/02-concurrency/context)
 > context 是 Go 并发编程的"瑞士军刀"：取消传播、超时控制、request-scoped 数据传递。 > **context = 请求级别的全局状态 + 取消信号传播**。**核心：WithCancel / WithTimeout / WithValue / Done() channel**。 --- --- --- **取消规则**：父 context 取消 → 所有子 context
 
 ## [goroutine](https://java-px.bot.cd/go/02-concurrency/goroutine)
-> goroutine 是 Go 最核心的并发原语：轻量协程，由 Go runtime 调度，单个程序可同时运行数十万个 goroutine。 > **goroutine = Go runtime 调度的协程（M:N 模型）**。**核心：go 关键字启动 / 2KB 栈 / GMP 调度 / 协作式+抢占式调度**。 --- --- --- | 模型 | 调度方 | 数量级 | |---|---|-
+> ![Go GMP 调度模型（work-stealing）](/go-gmp-scheduler.svg) goroutine 是 Go 最核心的并发原语：轻量协程，由 Go runtime 调度，单个程序可同时运行数十万个 goroutine。 > **goroutine = Go runtime 调度的协程（M:N 模型）**。**核心：go 关键字启动 / 2KB 栈 / GMP 调度 / 协
 
 ## [CSP 并发总览](https://java-px.bot.cd/go/02-concurrency/overview)
 > Go 的并发模型基于 **CSP（Communicating Sequential Processes）** 理论，由 Tony Hoare 在 1978 年提出。Go 通过 **goroutine + channel** 让并发编程变得直观。 > **CSP = "通过通信共享内存，而不是通过共享内存通信"**。**核心：goroutine（M:N 协程）+ channel（消息传递）+ con
@@ -109,5 +109,17 @@
 ## [runtime 调度器 GMP](https://java-px.bot.cd/go/06-advanced/runtime)
 > **Go runtime = GMP 调度器 + GC + goroutine + channel**——理解它 = 写出高性能 Go。 > **GMP = G (goroutine) + M (machine/OS thread) + P (processor/逻辑 CPU)**。**work-stealing + hand-off 调度算法**。 --- - **G（Goroutine）**：
 
+## [速查表](https://java-px.bot.cd/go/cheatsheet)
+> > 高频 Go 命令/概念速查，支持分类过滤和关键词搜索（Cmd+F 即可）。 | 场景 | 命令/概念 | |------|----------| | 入门 | 从 [📖 学习路径](/path) 开始 | | 查找 | 用 [🧭 思维导图](/mindmap) 总览 | | 总览 | 看 [🌐 知识图谱](/graph) 分类 | | 搜索 | 浏览器 Cmd+F 全文检索 | - 各子目录的
+
+## [知识图谱](https://java-px.bot.cd/go/graph)
+> > 树形结构总览 Go 全栈知识，按主题分类组织。点击节点跳转到对应章节。 本站涵盖以下核心主题，建议按分类顺序学习： 1. **基础概念** - 从零开始的入门必备 2. **核心原理** - 深入理解底层机制 3. **实战应用** - 结合真实场景的最佳实践 4. **生态工具** - 提升效率的配套工具 - [📖 学习路径](/path) - 推荐阅读顺序 - [🧭 思维导图](/mind
+
 ## [go 知识图谱](https://java-px.bot.cd/go/index)
 > <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "goroutine 调度原理、栈扩容讲不清？", "channel vs sync.Mutex 不知道选哪个？", "Go 错误处理（error / pan
+
+## [思维导图](https://java-px.bot.cd/go/mindmap)
+> > 树形结构总览 Go 全栈知识，点击叶子节点跳转。 请参考各分类目录的内容，或直接查看： - [📖 学习路径](/path) - 按角色推荐阅读顺序 - [📋 速查表](/cheatsheet) - 高频命令速查 - [🌐 知识图谱](/graph) - 主题分类总览
+
+## [学习路径](https://java-px.bot.cd/go/path)
+> > 根据你的角色选择对应路径，每条路径推荐了核心阅读顺序。 适合**刚接触 Go**的初学者。 1. 阅读首页（[/](/)）了解整体结构 2. 查看 [🧭 思维导图](/mindmap) 熟悉全站布局 3. 选择一个子目录从 overview.md 开始 4. 边学边查 [📋 速查表](/cheatsheet) 5. 完成 cheatsheet.md 的练习题 适合**已有基础**的开发者。 -

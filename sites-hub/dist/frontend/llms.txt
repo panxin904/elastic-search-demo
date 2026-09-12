@@ -1,8 +1,8 @@
 # frontend 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 65 个文档页 · 160,159 字
-> 生成时间：2026-08-27T21:42:04
+> 66 个文档页 · 165,182 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [浏览器渲染原理](https://java-px.bot.cd/frontend/01-foundation/browser)
 > | 进程 | 职责 | |------|------| | Browser | 界面、Tab 管理、子进程协调 | | Renderer | 单个 Tab 的渲染（HTML 解析、布局、绘制） | | GPU | 加速绘制、3D CSS | | Network | 网络请求 | | Plugin | 第三方插件（已废弃） | 每个 Tab 默认一个 Renderer 进程（Site Isolati
@@ -11,7 +11,7 @@
 > 每个元素都是一个盒子： 两种盒模型： | | content-box | border-box | |--|--|--| | 宽 = | content | content + padding + border | | 默认 | 旧浏览器 | 现代默认 | - **CSS Reset**：消除浏览器默认样式 - **PostCSS + Autoprefixer**：自动加厂商前缀 - **CSS
 
 ## [Event Loop](https://java-px.bot.cd/frontend/01-foundation/event-loop)
-> JS 是单线程语言，但有大量异步操作（I/O、setTimeout、Promise）。Event Loop 用任务调度让单线程也能并发。 | 术语 | 含义 | |------|------| | Call Stack | 函数调用栈（LIFO） | | Microtask Queue | 微任务队列（Promise、queueMicrotask） | | Macrotask Queue | 宏任
+> ![Browser Event Loop](/browser-event-loop.svg) JS 是单线程语言，但有大量异步操作（I/O、setTimeout、Promise）。Event Loop 用任务调度让单线程也能并发。 | 术语 | 含义 | |------|------| | Call Stack | 函数调用栈（LIFO） | | Microtask Queue | 微任务队列（P
 
 ## [HTML 语义化](https://java-px.bot.cd/frontend/01-foundation/html)
 > > 用对的标签表达对的含义，是前端工程师的基本功。 语义化 HTML = 用最合适的标签表达内容，让机器（搜索引擎、屏幕阅读器、爬虫）能"读懂"页面。 | 标签 | 用途 | |------|------| | `<header>` | 页面或区块的头部 | | `<nav>` | 导航 | | `<main>` | 页面主内容（一个页面只能有一个） | | `<article>` | 独立的内容
@@ -35,10 +35,10 @@
 > Google 维护的企业级前端框架：**DI + RxJS + Zone.js + 强类型**。 推荐：从 v14 起不再强制 NgModule。 类 Solid 的细粒度响应式： Angular 大量用 Observable / Subject / Operator。 响应式表单适合复杂校验（异步、跨字段）。 `providedIn: 'root'` 让 Service 成为单例，自动 tree
 
 ## [UI 框架总览与选型](https://java-px.bot.cd/frontend/03-framework/overview)
-> > 框架是手段，不是目的。先用对场景，再选技术栈。 | 框架 | 学习曲线 | 生态 | 体积 | 适用场景 | |------|---------|------|------|---------| | React | 中等 | 极大 | ~45KB | 通用首选、大型企业 / SaaS | | Vue | 平缓 | 大 | ~33KB | 中文社区、上手快、中后台 | | Angular | 陡
+> ![前端框架渲染流程](/frontend-render-flow.svg) > 框架是手段，不是目的。先用对场景，再选技术栈。 | 框架 | 学习曲线 | 生态 | 体积 | 适用场景 | |------|---------|------|------|---------| | React | 中等 | 极大 | ~45KB | 通用首选、大型企业 / SaaS | | Vue | 平缓 | 大
 
 ## [React 核心与 Hooks](https://java-px.bot.cd/frontend/03-framework/react)
-> React = **声明式 UI + 单向数据流 + 不可变状态** | Hook | 作用 | |------|------| | `useState` | 本地状态 | | `useReducer` | 复杂状态 / reducer 模式 | | `useEffect` | 副作用（数据请求、订阅） | | `useLayoutEffect` | 同步执行，在 DOM 变更后绘制前 | | `
+> ![React Fiber Tree](/react-fiber-tree.svg) React = **声明式 UI + 单向数据流 + 不可变状态** | Hook | 作用 | |------|------| | `useState` | 本地状态 | | `useReducer` | 复杂状态 / reducer 模式 | | `useEffect` | 副作用（数据请求、订阅） | |
 
 ## [Svelte / Solid](https://java-px.bot.cd/frontend/03-framework/svelte)
 > > 两个"非主流但很香"的现代前端方案。 **Slogan**: *"Write less code"* — 编译时框架，无运行时虚拟 DOM。 - **真小**：运行时 0（编译为原生 DOM 操作 + 响应式指令） - **CSS 作用域默认隔离**：不需要 CSS Modules - **SvelteKit**：类 Next.js 的元框架，支持 SSR/SSG/Edge - 关注性能（移动
@@ -71,10 +71,10 @@
 > | | npm | yarn (classic) | yarn (v4 berry) | pnpm | |--|----|----|----|----| | 安装速度 | 慢 | 中 | 快 | **最快** | | 磁盘占用 | 大 | 大 | 中 | **最小** | | 单仓多包 | workspaces | workspaces | workspaces | workspaces (最快)
 
 ## [Vite 原理](https://java-px.bot.cd/frontend/05-build/vite)
-> Vite 是基于**浏览器原生 ESM + esbuild + Rollup** 的下一代前端构建工具。由 Vue 作者尤雨溪团队开发。 - **预构建依赖**：用 esbuild 把 CommonJS 依赖（如 `react`、`lodash`）转换为 ESM，缓存到 `.vite/deps/` - **源码 on-demand**：每个文件就是个 ESM 模块，浏览器直接 import - *
+> ![前端构建工具演进](/frontend-build-tools.svg) Vite 是基于**浏览器原生 ESM + esbuild + Rollup** 的下一代前端构建工具。由 Vue 作者尤雨溪团队开发。 - **预构建依赖**：用 esbuild 把 CommonJS 依赖（如 `react`、`lodash`）转换为 ESM，缓存到 `.vite/deps/` - **源码 on-d
 
 ## [Webpack / Rspack](https://java-px.bot.cd/frontend/05-build/webpack)
-> 老牌模块打包器（2012）。所有项目在生产构建时（曾经）都会经过 Webpack： - 多文件合并 → bundle - 加载器链（loader）翻译非 JS - 插件链（plugin）优化产物体积 | 概念 | 作用 | |------|------| | **entry** | 起点文件（如 `./src/index.tsx`） | | **output** | 输出（如 `dist/main
+> ![Webpack Build Pipeline](/webpack-build-pipeline.svg) 老牌模块打包器（2012）。所有项目在生产构建时（曾经）都会经过 Webpack： - 多文件合并 → bundle - 加载器链（loader）翻译非 JS - 插件链（plugin）优化产物体积 | 概念 | 作用 | |------|------| | **entry** | 起点文
 
 ## [CSS-in-JS](https://java-px.bot.cd/frontend/06-style/css-in-js)
 > 把 CSS 写在 JS / TS 中，通过运行时或编译时生成类名。 虽然不算 CSS-in-JS，但语法上类似——已在 [Tailwind 章节](/06-style/tailwind) 详述。 | | 运行时（styled / Emotion） | 编译时（vanilla-extract / Linaria） | |--|----------------|------------------|
@@ -158,7 +158,7 @@
 > | 键 | 行为 | |----|------| | Tab | 下一个焦点 | | Shift+Tab | 上一个 | | Enter | 触发按钮 / 链接 | | Space | 切换复选框 / 按钮激活 | | Esc | 关闭弹窗 | | Arrow | 单选按钮 / tab / 菜单导航 | **焦点陷阱**：弹窗打开时把焦点限制在内部。 工具： - Chrome DevTools 颜
 
 ## [Core Web Vitals](https://java-px.bot.cd/frontend/12-perf/cwv)
-> Google 2020 年推出，作为搜索排名因子之一。 | 指标 | 含义 | 阈值（好） | |------|------|----------| | **LCP** (Largest Contentful Paint) | 最大内容渲染时间 | < 2.5s | | **INP** (Interaction to Next Paint) | 交互到下一次绘制 | < 200ms | | **C
+> ![浏览器关键渲染路径](/frontend-browser-pipeline.svg) Google 2020 年推出，作为搜索排名因子之一。 | 指标 | 含义 | 阈值（好） | |------|------|----------| | **LCP** (Largest Contentful Paint) | 最大内容渲染时间 | < 2.5s | | **INP** (Interactio
 
 ## [加载性能](https://java-px.bot.cd/frontend/12-perf/loading)
 > > 减少首屏到达时间（TTI / LCP）。 1. **代码分割（懒加载）** Next.js App Router / Nuxt 自动做基于路由的代码分割。 2. **Tree Shaking**：默认生产模式开启，但别忘了写 side-effect-free 3. **压缩**：开启 gzip / brotli 4. **移除未用依赖** - 用 `<picture>` 或 `<source>
@@ -186,6 +186,9 @@
 
 ## [前端监控 / Sentry](https://java-px.bot.cd/frontend/14-tools/monitor)
 > Sentry 才能把压缩后的行号还原为源码行号。 `sendBeacon` 在 unload 时仍能发出；用 `fetch` 在 unload 时会被丢弃。 | 信号 | 含义 | |------|------| | **JS error rate ↑** | 某次发布有问题（搜 release） | | **特定页面 error ↑** | 某功能退化 | | **API P95 ↑** | 后
+
+## [速查表](https://java-px.bot.cd/frontend/cheatsheet)
+> > 80+ 高频前端命令/工具速查，支持分类过滤和关键词搜索（Cmd+F 即可）。 | 场景 | 命令 | |------|------| | 初始化项目 | `npm init` / `pnpm init` / `yarn init` | | 安装依赖 | `npm install <pkg>` / `pnpm add <pkg>` | | 全局安装 | `npm install -g <pkg
 
 ## [知识图谱](https://java-px.bot.cd/frontend/graph)
 > > 80+ 节点，14 大主题分类，节点可点击跳转到对应章节。鼠标拖动可调整布局，悬停查看节点关联。 <ClientOnly> <KnowledgeGraph :height="820" /> </ClientOnly> | 颜色 | 分类 | 主题数 | |------|------|--------| | 🟠 橙 | 基础层 | 5 | | 🔵 蓝 | 语言层 | 4 | | 🩵 青 | UI

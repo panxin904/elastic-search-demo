@@ -1,8 +1,8 @@
 # java-language 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 55 个文档页 · 37,028 字
-> 生成时间：2026-08-27T21:42:04
+> 55 个文档页 · 53,751 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [数据类型 / 包装类](https://java-px.bot.cd/java-language/01-basics/datatypes)
 > | 类型 | 字节 | 范围 | 包装类 | |------|------|------|--------| | byte | 1 | -128~127 | Byte | | short | 2 | -32k~32k | Short | | int | 4 | -2B~2B | Integer | | long | 8 | -9e18~9e18 | Long | | float | 4 | 6-7
@@ -26,7 +26,7 @@
 > - Use ArrayList for random access, LinkedList for queue/deque
 
 ## [HashMap 原理](https://java-px.bot.cd/java-language/02-collections/map)
-> - Array + linked list + red-black tree (Java 8+) - Default capacity 16, load factor 0.75 (resize when size > capacity * loadFactor)
+> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <defs> <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" mar
 
 ## [Set / TreeSet](https://java-px.bot.cd/java-language/02-collections/set)
 > - HashSet backed by HashMap (value is a dummy PRESENT object)
@@ -41,7 +41,7 @@
 > (暂无摘要)
 
 ## [synchronized / AQS](https://java-px.bot.cd/java-language/03-concurrency/locks)
-> (暂无摘要)
+> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <defs> <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" mar
 
 ## [线程 / 线程池](https://java-px.bot.cd/java-language/03-concurrency/thread-pool)
 > (暂无摘要)
@@ -53,7 +53,7 @@
 > (暂无摘要)
 
 ## [类加载机制](https://java-px.bot.cd/java-language/04-jvm/classloading)
-> - Bootstrap ClassLoader (JVM built-in, loads rt.jar) - Extension/Platform ClassLoader (jre/lib/ext, Java 9+ Platform) - Application ClassLoader (classpath)
+> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <defs> <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" mar
 
 ## [对象创建 / OOM](https://java-px.bot.cd/java-language/04-jvm/oom)
 > (暂无摘要)
@@ -74,7 +74,7 @@
 > - @SpringBootApplication = @Configuration + @EnableAutoConfiguration + @ComponentScan - application.yml > application.properties > command line args > env vars
 
 ## [IoC / DI / AOP](https://java-px.bot.cd/java-language/06-spring/ioc-aop)
-> (暂无摘要)
+> <ClientOnly> <GiscusComment /> </ClientOnly> <!-- giscus-injected:do-not-edit -->
 
 ## [Spring MVC](https://java-px.bot.cd/java-language/06-spring/mvc)
 > - @RestController = @Controller + @ResponseBody - @ExceptionHandler, @ControllerAdvice for global error handling
@@ -101,7 +101,7 @@
 > (暂无摘要)
 
 ## [Netty 框架](https://java-px.bot.cd/java-language/09-io/netty)
-> (暂无摘要)
+> <ClientOnly> <GiscusComment /> </ClientOnly> <!-- giscus-injected:do-not-edit -->
 
 ## [BIO / NIO / AIO](https://java-px.bot.cd/java-language/09-io/nio)
 > (暂无摘要)
@@ -155,7 +155,7 @@
 > 1. HashMap 原理？数组+链表/红黑树，hash冲突，扩容，loadFactor 0.75 2. ConcurrentHashMap 怎么保证线程安全？Java 7 Segment锁，Java 8 CAS+synchronized 3. synchronized vs Lock？JVM内置 vs API，自动释放 vs finally unlock，condition等待通知 4. vol
 
 ## [命令速查](https://java-px.bot.cd/java-language/cheatsheet)
-> - [OOP 类与对象](/01-basics/oop) - [Arthas 诊断](/10-performance/arthas) - [JVM 调优参数](/10-performance/jvm-tuning)
+> - [OOP 类与对象](/01-basics/oop) - [Arthas 诊断](/10-performance/arthas) - [JVM 调优参数](/10-performance/jvm-tuning) <ClientOnly> <QrShare /> </ClientOnly>
 
 ## [知识图谱](https://java-px.bot.cd/java-language/graph)
 > > 50+ 节点，14 大主题分类，节点可点击跳转。 <ClientOnly><KnowledgeGraph :height="820" /></ClientOnly> | 颜色 | 分类 | 节点数 | |------|------|--------| | 🔴 红 | 基础语法 | 5 | | 🔵 蓝 | 集合框架 | 5 | | 🟣 紫 | 并发编程 | 5 | | 🟧 橙 | JVM 内存模

@@ -1,8 +1,8 @@
 # devops 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 30 个文档页 · 98,058 字
-> 生成时间：2026-08-27T21:42:04
+> 34 个文档页 · 102,105 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [CI/CD Pipeline 最佳实践](https://java-px.bot.cd/devops/01-pipeline/best-practices)
 > 跨工具通用的 Pipeline 设计原则，让团队从"能跑"到"跑得快、跑得稳"。 > **Pipeline 最佳实践 = 4 大原则：缓存 / 并行 / 分层 / 反馈**。**目标：提交到反馈 < 10 分钟、cache hit > 80%、success rate > 95%**。 --- - **01-pipeline/github-actions**：GitHub Actions 缓存 -
@@ -91,5 +91,17 @@
 ## [安全 Pipeline](https://java-px.bot.cd/devops/06-best-practices/secure-pipeline)
 > CI/CD Pipeline 本身是攻击面最大的目标之一（拥有生产部署权限）。本章梳理 Pipeline 全链路的 8 大安全措施。 > **Pipeline 安全 = SLSA + 最小权限 + 可审计**。**核心：Secret 管理 / OIDC 联邦 / SBOM / 镜像签名 / 制品完整性**。 --- - **06-best-practices/secrets-management*
 
+## [速查表](https://java-px.bot.cd/devops/cheatsheet)
+> > 高频 DevOps 命令/概念速查，支持分类过滤和关键词搜索（Cmd+F 即可）。 | 场景 | 命令/概念 | |------|----------| | 入门 | 从 [📖 学习路径](/path) 开始 | | 查找 | 用 [🧭 思维导图](/mindmap) 总览 | | 总览 | 看 [🌐 知识图谱](/graph) 分类 | | 搜索 | 浏览器 Cmd+F 全文检索 | - 各
+
+## [知识图谱](https://java-px.bot.cd/devops/graph)
+> > 树形结构总览 DevOps 全栈知识，按主题分类组织。点击节点跳转到对应章节。 本站涵盖以下核心主题，建议按分类顺序学习： 1. **基础概念** - 从零开始的入门必备 2. **核心原理** - 深入理解底层机制 3. **实战应用** - 结合真实场景的最佳实践 4. **生态工具** - 提升效率的配套工具 - [📖 学习路径](/path) - 推荐阅读顺序 - [🧭 思维导图](/
+
 ## [DevOps 知识图谱](https://java-px.bot.cd/devops/index)
 > <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "CI/CD 工具太多（Jenkins / GitLab CI / GitHub Actions / Argo），怎么选？", "Pipeline as Co
+
+## [思维导图](https://java-px.bot.cd/devops/mindmap)
+> > 树形结构总览 DevOps 全栈知识，点击叶子节点跳转。 请参考各分类目录的内容，或直接查看： - [📖 学习路径](/path) - 按角色推荐阅读顺序 - [📋 速查表](/cheatsheet) - 高频命令速查 - [🌐 知识图谱](/graph) - 主题分类总览
+
+## [学习路径](https://java-px.bot.cd/devops/path)
+> > 根据你的角色选择对应路径，每条路径推荐了核心阅读顺序。 适合**刚接触 DevOps**的初学者。 1. 阅读首页（[/](/)）了解整体结构 2. 查看 [🧭 思维导图](/mindmap) 熟悉全站布局 3. 选择一个子目录从 overview.md 开始 4. 边学边查 [📋 速查表](/cheatsheet) 5. 完成 cheatsheet.md 的练习题 适合**已有基础**的开发

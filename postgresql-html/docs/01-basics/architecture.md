@@ -257,3 +257,9 @@ WHERE backend_type = 'client backend';
 ## 图示：PostgreSQL 进程与内存
 
 ![PostgreSQL 进程与内存](/postgres-architecture.svg)
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->

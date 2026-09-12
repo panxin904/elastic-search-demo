@@ -1,8 +1,8 @@
 # postgresql 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 53 个文档页 · 273,563 字
-> 生成时间：2026-08-27T21:42:04
+> 57 个文档页 · 293,971 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [进程架构](https://java-px.bot.cd/postgresql/01-basics/architecture)
 > PostgreSQL 进程模型与内存结构
@@ -80,7 +80,7 @@
 > PostgreSQL 行级锁、表锁、咨询锁
 
 ## [MVCC 多版本并发控制](https://java-px.bot.cd/postgresql/05-transaction/mvcc)
-> > PostgreSQL 的灵魂：让读不阻塞写、写不阻塞读。**xmin / xmax 是 PG 的版本号系统**。 | 数据库 | 实现 | 优点 | 缺点 | |---|---|---|---| | PostgreSQL | 行级 MVCC | 读写不阻塞 | 表膨胀 | | MySQL InnoDB | 行级 MVCC（undo log） | 读写不阻塞 | undo 膨胀 | | Orac
+> > PostgreSQL 的灵魂：让读不阻塞写、写不阻塞读。**xmin / xmax 是 PG 的版本号系统**。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <defs>
 
 ## [函数与过程](https://java-px.bot.cd/postgresql/06-advanced/function)
 > PL/pgSQL 编程
@@ -160,5 +160,17 @@
 ## [Oracle vs PostgreSQL](https://java-px.bot.cd/postgresql/11-compare/oracle-vs-postgresql)
 > 企业级 RDBMS 迁移对比
 
+## [速查表](https://java-px.bot.cd/postgresql/cheatsheet)
+> > 高频 PostgreSQL 命令/概念速查，支持分类过滤和关键词搜索（Cmd+F 即可）。 | 场景 | 命令/概念 | |------|----------| | 入门 | 从 [📖 学习路径](/path) 开始 | | 查找 | 用 [🧭 思维导图](/mindmap) 总览 | | 总览 | 看 [🌐 知识图谱](/graph) 分类 | | 搜索 | 浏览器 Cmd+F 全文检索 |
+
+## [知识图谱](https://java-px.bot.cd/postgresql/graph)
+> > 树形结构总览 PostgreSQL 全栈知识，按主题分类组织。点击节点跳转到对应章节。 本站涵盖以下核心主题，建议按分类顺序学习： 1. **基础概念** - 从零开始的入门必备 2. **核心原理** - 深入理解底层机制 3. **实战应用** - 结合真实场景的最佳实践 4. **生态工具** - 提升效率的配套工具 - [📖 学习路径](/path) - 推荐阅读顺序 - [🧭 思维导
+
 ## [PostgreSQL 知识图谱](https://java-px.bot.cd/postgresql/index)
 > <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "MVCC 原理：为什么 PG 的读不阻塞写？", "事务隔离级别（RC / RR / Serializable）选哪个？", "索引类型（B-tree /
+
+## [思维导图](https://java-px.bot.cd/postgresql/mindmap)
+> > 树形结构总览 PostgreSQL 全栈知识，点击叶子节点跳转。 请参考各分类目录的内容，或直接查看： - [📖 学习路径](/path) - 按角色推荐阅读顺序 - [📋 速查表](/cheatsheet) - 高频命令速查 - [🌐 知识图谱](/graph) - 主题分类总览
+
+## [学习路径](https://java-px.bot.cd/postgresql/path)
+> > 根据你的角色选择对应路径，每条路径推荐了核心阅读顺序。 适合**刚接触 PostgreSQL**的初学者。 1. 阅读首页（[/](/)）了解整体结构 2. 查看 [🧭 思维导图](/mindmap) 熟悉全站布局 3. 选择一个子目录从 overview.md 开始 4. 边学边查 [📋 速查表](/cheatsheet) 5. 完成 cheatsheet.md 的练习题 适合**已有基础*

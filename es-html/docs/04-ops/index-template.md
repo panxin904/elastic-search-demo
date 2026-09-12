@@ -76,7 +76,9 @@ ES 7.x 仍支持两种旧模板：
 - `PUT /_template/<name>` （模板）
 - `PUT /_index_template/<name>` （索引模板）
 
-> 💡 **新项目推荐使用 Composable Index Template**（上面示例）
+<TipBox icon="💡" title="提示" variant="tip">
+  **新项目推荐使用 Composable Index Template**（上面示例）
+</TipBox>
 
 ## 📌 模板版本管理
 

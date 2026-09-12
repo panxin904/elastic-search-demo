@@ -73,7 +73,9 @@ Token Filter 是 Analyzer 三段式的**第三段**，对 tokenizer 输出的 to
 }
 ```
 
-> ⚠️ 同义词在**索引时和查询时**都要加，否则 query 时不会展开同义词匹配。
+<TipBox icon="⚠️" title="注意" variant="warn">
+  同义词在**索引时和查询时**都要加，否则 query 时不会展开同义词匹配。
+</TipBox>
 
 ## 🔧 stop 停用词
 

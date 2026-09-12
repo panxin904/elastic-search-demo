@@ -1,8 +1,11 @@
 # python 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 60 个文档页 · 447,703 字
-> 生成时间：2026-08-27T21:42:04
+> 69 个文档页 · 471,998 字
+> 生成时间：2026-09-08T21:48:47
+
+## [Python 入门](https://java-px.bot.cd/python/01-basics/README)
+> 从零开始掌握 Python 语法、数据结构与控制流
 
 ## [控制流](https://java-px.bot.cd/python/01-basics/control-flow)
 > > Python 控制流包括**条件分支（if/elif/else）、循环（for/while）、异常处理（try/except）**。Python 用**缩进**表示代码块，简洁优雅。 <ClientOnly> <PythonPlayground /> </ClientOnly> 试试在 Playground 里运行控制流代码： **Python 控制流核心要点**： - ✅ 缩进表示代码块（4
@@ -17,7 +20,10 @@
 > > **Python** 是一种**高级、解释型、动态类型、多范式**的通用编程语言。以**简洁优雅**的语法和**强大的生态**著称。 | 维度 | Python | Java | JavaScript | C++ | |------|--------|------|------------|-----| | 语法 | 简洁 | 啰嗦 | 中等 | 复杂 | | 类型 | 动态 | 静态 | 动
 
 ## [基础语法](https://java-px.bot.cd/python/01-basics/syntax)
-> > Python 的语法以**简洁优雅**著称。本章覆盖**变量、运算符、字符串、输入输出**等基础语法。 <ClientOnly> <PythonPlayground /> </ClientOnly> 试试在 Playground 里运行 Python 代码： **Python 基础语法核心要点**： - ✅ 动态类型，无需声明 - ✅ 简洁优雅（接近自然语言） - ✅ f-string 格式化
+> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <defs> <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" mar
+
+## [Python 底层原理](https://java-px.bot.cd/python/02-principles/README)
+> 解释器、字节码、对象模型、内存管理与 GIL
 
 ## [字节码与执行](https://java-px.bot.cd/python/02-principles/bytecode)
 > > Python 字节码是 **CPython 解释器执行的中间表示**。理解字节码有助于**性能优化、问题排查、深入 Python**。 输出： | 指令 | 含义 | 操作数 | |------|------|--------| | LOAD_FAST | 加载局部变量 | 变量索引 | | STORE_FAST | 存储局部变量 | 变量索引 | | LOAD_GLOBAL | 加载全局变量
@@ -26,19 +32,22 @@
 > > Python 的**垃圾回收（GC）**机制主要解决**循环引用**问题。理解 GC 是**避免内存泄漏**的关键。 **Python GC 核心要点**： - ✅ 引用计数不能处理循环引用 - ✅ 分代 GC 解决循环引用（0/1/2 代） - ✅ 三色标记算法扫描可达性 - ✅ 调整 GC 阈值（trade-off） - ✅ 弱引用避免循环引用 - ✅ tracemalloc 追踪内存分配
 
 ## [GIL 全局锁](https://java-px.bot.cd/python/02-principles/gil)
-> > **GIL（Global Interpreter Lock）**是 CPython 最具争议的设计。它**限制 Python 多线程**的并行能力，但对**IO 密集型**任务影响有限。 | 场景 | threading | multiprocessing | asyncio | |------|-----------|-----------------|---------| | CPU 密集
+> > **GIL（Global Interpreter Lock）**是 CPython 最具争议的设计。它**限制 Python 多线程**的并行能力，但对**IO 密集型**任务影响有限。 ![Python Gil](/python-gil.svg) | 场景 | threading | multiprocessing | asyncio | |------|-----------|------
 
 ## [Python 解释器](https://java-px.bot.cd/python/02-principles/interpreter)
 > > Python 解释器是**执行 Python 代码**的程序。理解解释器的工作原理对**性能调优、问题排查、深入 Python** 至关重要。 | 指令 | 含义 | |------|------| | LOAD_FAST | 加载局部变量 | | STORE_FAST | 存储局部变量 | | LOAD_GLOBAL | 加载全局变量 | | BINARY_ADD | 二元加法 | | BI
 
 ## [内存管理](https://java-px.bot.cd/python/02-principles/memory)
-> > Python 的**内存管理**由**引用计数**和**垃圾回收（GC）**共同完成。理解内存管理是**避免内存泄漏、优化内存占用**的关键。 **Python 内存管理核心要点**： - ✅ 引用计数：实时、精确、不能处理循环引用 - ✅ 垃圾回收：处理循环引用、分代收集 - ✅ 内存池：小对象预分配，提高效率 - ✅ `__slots__` 节省内存 - ✅ 生成器避免一次性加载 - ✅
+> > Python 的**内存管理**由**引用计数**和**垃圾回收（GC）**共同完成。理解内存管理是**避免内存泄漏、优化内存占用**的关键。 ![Python Memory Management](/python-memory-management.svg) **Python 内存管理核心要点**： - ✅ 引用计数：实时、精确、不能处理循环引用 - ✅ 垃圾回收：处理循环引用、分代收集 -
 
 ## [对象模型](https://java-px.bot.cd/python/02-principles/object-model)
 > > Python 中**一切皆对象**。理解 PyObject 底层结构是掌握 Python 内存管理和性能优化的基础。 **Python 对象模型核心要点**： - ✅ 一切皆对象（int、str、func、class 都是对象） - ✅ PyObject 包含 ob_refcnt 和 ob_type - ✅ 不可变对象：int、float、str、tuple - ✅ 可变对象：list、dic
 
 ## [性能剖析](https://java-px.bot.cd/python/02-principles/profiling)
 > > **性能剖析（Profiling）**是定位 Python 性能瓶颈的关键手段。本章介绍常用工具和最佳实践。 字段说明： - `ncalls`：调用次数 - `tottime`：函数自身耗时（不含子函数） - `percall`：平均每次调用耗时 - `cumtime`：累计耗时（含子函数） 输出： 输出： 输出（CPU + GPU + 内存）： **Python 性能剖析核心要点**： -
+
+## [常用库与生态](https://java-px.bot.cd/python/03-libraries/README)
+> 标准库、requests、BeautifulSoup、SQLAlchemy、pandas、pytest
 
 ## [BeautifulSoup](https://java-px.bot.cd/python/03-libraries/beautifulsoup)
 > > **BeautifulSoup** 是 Python **最流行的 HTML/XML 解析库**。配合 requests 是爬虫的经典组合。 | 解析器 | 速度 | 容错 | 依赖 | |--------|------|------|------| | html.parser | 中 | 中 | 标准库 | | **lxml** | **快** | 好 | 需安装 | | html5lib
@@ -58,8 +67,11 @@
 ## [标准库概览](https://java-px.bot.cd/python/03-libraries/stdlib)
 > > Python **自带丰富标准库**，无需安装任何第三方包就能完成**日常大部分任务**。本章精选 10 个最常用模块。 **Python 标准库核心要点**： - ✅ 10 个必学模块（os/sys/pathlib/json/re/collections/itertools/functools/datetime/logging） - ✅ pathlib 替代 os.path（推荐） - ✅
 
+## [并发与异步](https://java-px.bot.cd/python/04-concurrency/README)
+> threading、multiprocessing、asyncio 协程、同步原语
+
 ## [asyncio 协程](https://java-px.bot.cd/python/04-concurrency/asyncio)
-> > **asyncio** 是 Python 3.4+ 引入的**异步 I/O 框架**。用**协程（coroutine）**实现高并发，是 IO 密集型任务的**最佳选择**。 **asyncio 核心要点**： - ✅ async def 定义协程，await 调用 - ✅ asyncio.gather 并发执行 - ✅ asyncio.create_task 创建任务 - ✅ asyncio
+> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <defs> <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" mar
 
 ## [multiprocessing](https://java-px.bot.cd/python/04-concurrency/multiprocessing)
 > > Python **multiprocessing** 模块通过**多进程**绕过 GIL，适合 **CPU 密集型**任务并行化。 | 维度 | 多线程（threading） | 多进程（multiprocessing） | |------|---------------------|----------------------------| | 内存 | 共享 | 独立 | | 创建开销 |
@@ -74,7 +86,10 @@
 > > 多线程/多进程编程中，**同步原语**用于**协调并发任务**、保护共享资源。本章详解 Python 中的同步原语。 **同步原语核心要点**： - ✅ Lock：互斥（最常用） - ✅ RLock：可重入锁（避免死锁） - ✅ Condition：等待/通知（生产者-消费者） - ✅ Semaphore：限制并发数 - ✅ Event：线程间通知 - ✅ Barrier：所有线程到齐才继续
 
 ## [threading 多线程](https://java-px.bot.cd/python/04-concurrency/threading)
-> > Python **threading** 模块支持**多线程**编程。但因为 **GIL** 的存在，多线程只适合 **IO 密集型任务**。 **Python threading 核心要点**： - ✅ 适合 IO 密集型任务（HTTP、文件、数据库） - ✅ 不适合 CPU 密集型（GIL 限制） - ✅ Lock / RLock 保护共享资源 - ✅ Condition 实现等待/通知
+> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <defs> <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" mar
+
+## [Python 爬虫](https://java-px.bot.cd/python/05-scraping/README)
+> requests+BS4、Scrapy、动态渲染与反爬对抗
 
 ## [反爬对抗](https://java-px.bot.cd/python/05-scraping/anti-crawl)
 > > 现代网站部署了**各种反爬虫机制**（User-Agent 检测、IP 限制、验证码等）。爬虫工程师需要掌握**绕过反爬的策略**。 **反爬对抗核心要点**： - ✅ 设置 User-Agent（最基础） - ✅ 控制请求频率（限速） - ✅ 使用代理池（IP 轮换） - ✅ 处理 Cookie / Session - ✅ 验证码识别（打码平台 / ML） - ✅ 行为分析对抗（模拟真实用户
@@ -90,6 +105,9 @@
 
 ## [Scrapy 框架](https://java-px.bot.cd/python/05-scraping/scrapy)
 > > **Scrapy** 是 Python **最专业的爬虫框架**，专为**大规模网络爬取**设计。提供**Spider、Pipeline、Item、Middleware** 等完整组件。 **Scrapy 核心要点**： - ✅ 工业级爬虫框架 - ✅ 异步（基于 Twisted） - ✅ 完整组件：Spider + Item + Pipeline + Middleware - ✅ CSS /
+
+## [AI 与机器学习](https://java-px.bot.cd/python/06-ai-ml/README)
+> 机器学习基础、Hugging Face、LLM 应用、NLP
 
 ## [计算机视觉](https://java-px.bot.cd/python/06-ai-ml/cv)
 > > **计算机视觉（Computer Vision）**让计算机**理解和处理图像**。Python 有 OpenCV、Pillow、YOLO 等强大工具。 **计算机视觉核心要点**： - ✅ OpenCV：基础图像处理 - ✅ Pillow：简单图像 IO - ✅ YOLOv8：目标检测（最流行） - ✅ torchvision：PyTorch 视觉库 - ✅ 视频处理（摄像头、视频文件） -
@@ -109,6 +127,9 @@
 ## [AI 应用概览](https://java-px.bot.cd/python/06-ai-ml/overview)
 > > Python 是 **AI/ML 领域的首选语言**，拥有最丰富的生态（PyTorch、TensorFlow、Hugging Face、LangChain 等）。本章概览 Python AI 应用的**主要方向**。 | 场景 | 工具 | 难度 | |------|------|------| | 文本分类 | scikit-learn | 入门 | | 情感分析 | Hugging Fac
 
+## [数据处理](https://java-px.bot.cd/python/07-data/README)
+> pandas、NumPy、数据清洗与分析
+
 ## [数据分析实战](https://java-px.bot.cd/python/07-data/analysis)
 > > 本章用**真实案例**演示完整的数据分析流程：从数据加载、清洗、探索、可视化到建模。 **数据分析实战核心要点**： - ✅ 完整流程：加载 → 清洗 → EDA → 建模 → 可视化 - ✅ 案例 1：Titanic 生存预测（分类） - ✅ 案例 2：销售数据分析（业务分析） - ✅ 案例 3：金融时间序列 - ✅ 案例 4：用户行为漏斗 - ✅ 案例 5：A/B 测试 - ⚠️ 数据清洗
 
@@ -127,6 +148,9 @@
 ## [pandas 入门](https://java-px.bot.cd/python/07-data/pandas)
 > > **pandas** 是 Python **数据分析的基石**。本章从基础开始讲解 pandas 核心数据结构 DataFrame 的使用。 **pandas 核心要点**： - ✅ DataFrame 是核心（二维表格） - ✅ 数据选择（loc / iloc / query） - ✅ 数据清洗（缺失值、重复） - ✅ 数据聚合（groupby / 透视表） - ✅ 数据合并（concat
 
+## [算法与复杂度](https://java-px.bot.cd/python/08-algorithms/README)
+> 排序、搜索、动态规划、树与图、内建算法
+
 ## [内置数据结构](https://java-px.bot.cd/python/08-algorithms/builtin)
 > > Python 内置数据结构是**所有算法的基础**。理解它们的时间和空间复杂度是写出高效代码的前提。 **内置数据结构核心要点**： - ✅ list：动态数组，O(1) append，O(n) 中间插入 - ✅ tuple：不可变序列，可哈希 - ✅ dict：哈希表实现，O(1) 平均操作 - ✅ set：哈希表实现，O(1) 平均操作 - ✅ Counter：计数器 - ✅ defaul
 
@@ -144,6 +168,9 @@
 
 ## [树与图](https://java-px.bot.cd/python/08-algorithms/tree-graph)
 > > **树和图**是计算机科学中最重要的**非线性数据结构**。本章详解核心树和图算法。 > Python 的 `dict` 和 `set` 底层使用**红黑树**实现（Python 3.7+）。保证最坏 O(log n) 操作。 > B 树是**数据库索引**的核心数据结构。MySQL InnoDB 用 B+ 树。 **树与图核心要点**： - ✅ 树的 4 种遍历（前序 / 中序 / 后序 /
+
+## [企业级工程化](https://java-px.bot.cd/python/09-enterprise/README)
+> FastAPI、Docker、日志、安全、测试、性能
 
 ## [依赖管理](https://java-px.bot.cd/python/09-enterprise/dependencies)
 > > 良好的**依赖管理**是 Python 项目**可复现部署**的关键。本章介绍 pip、poetry、pdm 等主流工具。 | 工具 | 速度 | 依赖解析 | 锁文件 | 学习曲线 | 推荐 | |------|------|---------|--------|---------|------| | pip | 慢 | 简单 | requirements.txt | 低 | 标准 | |

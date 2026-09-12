@@ -1,8 +1,8 @@
 # java 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 53 个文档页 · 84,123 字
-> 生成时间：2026-08-27T21:42:04
+> 57 个文档页 · 90,728 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [接口设计](https://java-px.bot.cd/java/01-process/api-design)
 > 接口是前后端协作的契约，设计好坏直接影响开发效率和系统质量。 <div class="kg-note"> <strong>规范</strong>：URL 用名词复数、小写、短横线分隔；资源嵌套不超过两层。 </div> | 范围 | 含义 | 示例 | |---|---|---| | 0 | 成功 | | | 1xxx | 参数错误 | 1001-参数缺失, 1002-参数格式错误 | | 2xx
@@ -160,5 +160,17 @@
 ## [测试框架](https://java-px.bot.cd/java/04-tech/testing)
 > Java 测试的核心组合：JUnit 5 + Mockito + SpringBootTest。 <KnowledgeGraph mode="neighbor" focusNodeId="testing" :height="400" /> <!-- auto-enrich:do-not-edit --> | 参数 | 说明 | 默认值 | | --- | --- | --- | | TODO_1
 
+## [速查表](https://java-px.bot.cd/java/cheatsheet)
+> > 80+ 高频 Java Web 命令/代码速查，支持分类过滤和关键词搜索（Cmd+F 即可）。 | 场景 | 命令/代码 | |------|----------| | 启动应用 | `mvn spring-boot:run` 或 `java -jar app.jar` | | 指定 profile | `--spring.profiles.active=prod` | | 健康检查 | `c
+
+## [知识图谱](https://java-px.bot.cd/java/graph)
+> > 48 节点 · 4 大主题分类 · 节点可点击跳转到对应章节。鼠标拖动可调整布局，悬停查看节点关联。 <ClientOnly> <KnowledgeGraph mode="full" :height="820" /> </ClientOnly> | 颜色 | 分类 | 节点数 | |------|------|--------| | 🔵 蓝 | 开发流程 | 12 | | 🟢 绿 | 实现思路
+
 ## [Java Web Dev Manual](https://java-px.bot.cd/java/index)
 > <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Java 知识图谱太广（基础 / JVM / 并发 / 框架 / 中间件）怎么系统学？", "JVM 内存模型（堆 / 栈 / Metaspace / 直接
+
+## [思维导图](https://java-px.bot.cd/java/mindmap)
+> > 树形结构总览 Java Web 全栈知识，点击叶子节点跳转。 - [需求分析](/01-process/requirement-analysis) · [技术方案](/01-process/tech-solution) · [数据库设计](/01-process/database-design) - [API 设计](/01-process/api-design) · [编码规范](/01-p
+
+## [学习路径](https://java-px.bot.cd/java/path)
+> > 根据你的角色选择对应路径，每条路径推荐了核心阅读顺序。 适合**刚接触 Java Web**的初学者。 1. [❓ 开发流程概览](/01-process/overview) - 了解完整研发链路 2. [💡 架构分层](/02-design/layered-architecture) - MVC 与依赖注入基础 3. [🛠️ Spring Boot 入门](/04-tech/spring-b

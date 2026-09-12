@@ -70,3 +70,9 @@ http.cors.allow-credentials: true
 - [Query DSL](/02-query/query-dsl)
 - [聚合 Aggregation](/02-query/aggregation)
 - [Java Client 官方文档](https://www.elastic.co/guide/en/elasticsearch/client/java-api-client/current/introduction.html)
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->

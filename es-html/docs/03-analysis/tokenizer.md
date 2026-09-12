@@ -43,7 +43,9 @@ Tokenizer 是 Analyzer 三段式中的**第二段**，负责将文本**按特定
 | `ik_max_word`（细粒度） | `中华, 中华人民, 中华人民共和国, 华人, 人民, 共和国, 国歌` |
 | `ik_smart`（智能） | `中华人民共和国, 国歌` |
 
-> 💡 `ik_max_word` 索引时用（提高召回），`ik_smart` 查询时用（提高精度）
+<TipBox icon="💡" title="提示" variant="tip">
+  `ik_max_word` 索引时用（提高召回），`ik_smart` 查询时用（提高精度）
+</TipBox>
 
 ## 🔧 N-gram Tokenizer (前缀补全)
 

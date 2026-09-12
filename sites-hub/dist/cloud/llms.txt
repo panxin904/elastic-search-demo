@@ -1,8 +1,8 @@
 # cloud 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 35 个文档页 · 243,052 字
-> 生成时间：2026-08-27T21:42:04
+> 35 个文档页 · 248,384 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [自动配置原理](https://java-px.bot.cd/cloud/01-springboot/auto-config)
 > > 理解 `@SpringBootApplication` 背后的魔法，是掌握 Spring Boot 的关键。 Spring Boot 根据**类路径上的 jar 包**自动配置 Spring 应用： **核心思想：约定优于配置** **Spring Boot 内置 100+ 自动配置类** | 注解 | 作用 | |---|---| | `@AutoConfiguration` | 标记为自动
@@ -23,7 +23,7 @@
 > > Spring Cloud Alibaba 是阿里开源的**一站式微服务解决方案**，是对 Spring Cloud 标准实现的**国产化增强**。 | 组件 | 功能 | 替代 | |---|---|---| | **Nacos** | 服务发现 + 配置中心 | Eureka + Config + Bus | | **Sentinel** | 流量控制 + 熔断降级 | Hystrix +
 
 ## [Nacos 配置中心](https://java-px.bot.cd/cloud/02-overview/nacos-config)
-> > Nacos 不只是服务发现，还是**配置中心**。配置变更可**实时推送**给应用，无需重启。 > ⚠️ **重要**：Spring Boot 3.x / Spring Cloud Alibaba 2023.x **不再默认使用 bootstrap.yml**，改为 `spring.config.import`。如果仍在用 Spring Boot 2.x / 2021 版本，则需使用 boot
+> > Nacos 不只是服务发现，还是**配置中心**。配置变更可**实时推送**给应用，无需重启。 <TipBox icon="⚠️" title="注意" variant="warn"> **重要**：Spring Boot 3.x / Spring Cloud Alibaba 2023.x **不再默认使用 bootstrap.yml**，改为 `spring.config.import`。如
 
 ## [Nacos 服务发现](https://java-px.bot.cd/cloud/02-overview/nacos-discovery)
 > > Nacos = **Na**ming and **Co**nfiguration **S**ervice，阿里巴巴开源的**服务发现 + 配置中心**，生产环境的标配。 | 维度 | Eureka | Nacos | Consul | |---|---|---|---| | 一致性 | AP | **AP/CP 可切换** | CP | | 健康检查 | 心跳 | **心跳 + HTTP/TP
@@ -98,7 +98,7 @@
 > > 30+ 常用配置模板，**支持搜索 + 一键复制**。覆盖 Nacos / Gateway / 负载均衡 / 安全 / Sentinel / Seata / OpenFeign / 消息 8 大类。 <ComponentCheatsheet /> | 服务 | 默认端口 | |---|---| | Nacos Server | 8848 | | Nacos Console | 8080 | |
 
 ## [知识图谱](https://java-px.bot.cd/cloud/graph)
-> > 全局可视化展示 Spring Cloud Alibaba 的 **20+ 核心概念** 与它们之间的关系。 > 💡 提示：拖动节点调整布局，点击节点跳转对应文档，悬停查看高亮关系。 <KnowledgeGraph :height="700" src="/graph.json" /> | 分类 | 节点数 | 代表概念 | |---|---|---| | 🍃 Spring Boot | 5 |
+> > 全局可视化展示 Spring Cloud Alibaba 的 **20+ 核心概念** 与它们之间的关系。 <TipBox icon="💡" title="提示" variant="tip"> 提示：拖动节点调整布局，点击节点跳转对应文档，悬停查看高亮关系。 </TipBox> <KnowledgeGraph :height="700" src="/graph.json" /> | 分类 |
 
 ## [Spring Cloud Alibaba 知识图谱](https://java-px.bot.cd/cloud/index)
 > <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "微服务架构选型：Spring Cloud Alibaba vs Spring Cloud Netflix vs Istio？", "Gateway / Na

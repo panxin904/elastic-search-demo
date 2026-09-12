@@ -220,13 +220,9 @@ sidecar ┘
 
 - 上一章：[⚖️ CAP 与 BASE](/07-distributed/cap-base)
 - 下一章：[🔐 分布式锁](/07-distributed/distributed-lock)
+<CrossSiteNav :items="[
+    { site: 'architecture', label: '微服务架构', url: 'https://java-px.bot.cd/architecture/' },
+    { site: 'system-design', label: '系统设计', url: 'https://java-px.bot.cd/system-design/' },
+    { site: 'cloud-native', label: 'Docker / K8s 落地', url: 'https://java-px.bot.cd/cloud-native/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
-
-<!-- xlink-subpage-injected:do-not-edit -->
-
-本页相关主题的跨站入口:
-
-- [architecture](https://java-px.bot.cd/architecture/):微服务架构
-- [system-design](https://java-px.bot.cd/system-design/):系统设计
-- [cloud-native](https://java-px.bot.cd/cloud-native/):Docker / K8s 落地

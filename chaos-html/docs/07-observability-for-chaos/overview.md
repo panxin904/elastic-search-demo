@@ -493,13 +493,15 @@ def judge_experiment(result):
 - 实战案例
 - 参考资料
 <!-- auto-enrich:do-not-edit -->
+<CrossSiteNav :items="[
+    { site: 'cloud-native', label: 'K8s 混沌', url: 'https://java-px.bot.cd/cloud-native/' },
+    { site: 'observability', label: '故障注入监控', url: 'https://java-px.bot.cd/observability/' },
+    { site: 'system-design', label: '系统韧性', url: 'https://java-px.bot.cd/system-design/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
 
-<!-- xlink-subpage-injected:do-not-edit -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
 
-本页相关主题的跨站入口:
-
-- [cloud-native](https://java-px.bot.cd/cloud-native/):K8s 混沌
-- [observability](https://java-px.bot.cd/observability/):故障注入监控
-- [system-design](https://java-px.bot.cd/system-design/):系统韧性
+<!-- giscus-injected:do-not-edit -->

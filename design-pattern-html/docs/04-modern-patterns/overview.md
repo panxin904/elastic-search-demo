@@ -347,13 +347,15 @@ new Foo(new ConsoleLogger());  // 生产时输出
 - 阅读每篇单独的现代模式细节：[DI](./dependency-injection) / [Repository](./repository) / [Specification](./specification) / [Null Object](./null-object)
 - 进阶：[架构模式 · CQRS](../05-architectural-patterns/cqrs)（Repository + Event Sourcing 的架构升级）
 - 反向自查：[反模式 · 上帝对象](../06-anti-patterns/god-object)（DI 容器膨胀的常见病）
+<CrossSiteNav :items="[
+    { site: 'java-language', label: 'Java 设计模式', url: 'https://java-px.bot.cd/java-language/' },
+    { site: 'java-web-manual', label: 'Java 实现', url: 'https://java-px.bot.cd/java-web-manual/' },
+    { site: 'architecture', label: '架构模式', url: 'https://java-px.bot.cd/architecture/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
 
-<!-- xlink-subpage-injected:do-not-edit -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
 
-本页相关主题的跨站入口:
-
-- [java-language](https://java-px.bot.cd/java-language/):Java 设计模式
-- [java](https://java-px.bot.cd/java-web-manual/):Java 实现
-- [architecture](https://java-px.bot.cd/architecture/):架构模式
+<!-- giscus-injected:do-not-edit -->

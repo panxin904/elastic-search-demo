@@ -545,10 +545,10 @@ markers = [
 
 ## 🔗 相关阅读 · 03 库与生态
 
-<!-- xlink-subpage-injected:do-not-edit -->
 
-本页（03 库与生态）相关主题的跨站入口:
+<CrossSiteNav :items="[
+    { site: 'java-web-manual', label: 'Java 对比', url: 'https://java-px.bot.cd/java-web-manual/' },
+    { site: 'ai', label: 'AI / 机器学习', url: 'https://java-px.bot.cd/ai/' },
+    { site: 'bigdata', label: '大数据 / 数据处理', url: 'https://java-px.bot.cd/bigdata/' }
+  ]" />
 
-- [java](https://java-px.bot.cd/java-web-manual/):Java 对比
-- [ai](https://java-px.bot.cd/ai/):AI / 机器学习
-- [bigdata](https://java-px.bot.cd/bigdata/):大数据 / 数据处理

@@ -753,13 +753,15 @@ docker run -d -p 8080:8080 --name myapp myapp:1.0.0
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+<CrossSiteNav :items="[
+    { site: 'postgresql', label: 'PostgreSQL 对比', url: 'https://java-px.bot.cd/postgresql/' },
+    { site: 'redis', label: 'Redis 缓存层', url: 'https://java-px.bot.cd/redis/' },
+    { site: 'clickhouse', label: 'ClickHouse OLAP', url: 'https://java-px.bot.cd/clickhouse/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
 
-<!-- xlink-subpage-injected:do-not-edit -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
 
-本页相关主题的跨站入口:
-
-- [postgresql](https://java-px.bot.cd/postgresql/):PostgreSQL 对比
-- [redis](https://java-px.bot.cd/redis/):Redis 缓存层
-- [clickhouse](https://java-px.bot.cd/clickhouse/):ClickHouse OLAP
+<!-- giscus-injected:do-not-edit -->

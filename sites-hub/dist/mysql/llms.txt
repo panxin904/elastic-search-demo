@@ -1,11 +1,11 @@
 # mysql 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 67 个文档页 · 494,623 字
-> 生成时间：2026-08-27T21:42:04
+> 67 个文档页 · 498,299 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [体系结构](https://java-px.bot.cd/mysql/01-foundation/architecture)
-> > 理解 MySQL 是怎么运行的，是掌握所有高级特性的基础。 负责与客户端建立连接、权限验证、连接管理： **关键配置：** - `max_connections=151`：默认 151，生产建议 1000+ - `wait_timeout=28800`：默认 8 小时 - `thread_cache_size=9`：线程缓存，避免频繁创建销毁 > 💡 **为什么 8.0 删除？** 因为只要表
+> > 理解 MySQL 是怎么运行的，是掌握所有高级特性的基础。 ![Mysql Redo Log](/mysql-redo-log.svg) 负责与客户端建立连接、权限验证、连接管理： **关键配置：** - `max_connections=151`：默认 151，生产建议 1000+ - `wait_timeout=28800`：默认 8 小时 - `thread_cache_size=9`：
 
 ## [字符集与排序规则](https://java-px.bot.cd/mysql/01-foundation/charset)
 > > 一个 `utf8` 字符集的选择，藏着 **表情符号存不进**、**索引失效**、**性能差 3 倍** 的坑。 字符集定义了**字符到二进制字节的映射规则**。 排序规则定义了**字符如何比较和排序**。 **命名规则：** - `_ci`：case-insensitive（不区分大小写） - `_cs`：case-sensitive（区分大小写） - `_bin`：binary（二进制比较
@@ -17,7 +17,7 @@
 > > MySQL 的**插件式架构**让你可以为每张表选择不同的存储引擎。理解各引擎特性是选型的第一步。 | 引擎 | 事务 | 锁粒度 | MVCC | 索引 | 适用场景 | 默认 | |---|---|---|---|---|---|---| | **InnoDB** | ✅ | 行锁 | ✅ | B+Tree / 全文 / 空间 | **通用 OLTP**（推荐） | ✅ MySQL 5.6
 
 ## [B+Tree 原理](https://java-px.bot.cd/mysql/02-index/btree)
-> > **索引的本质：减少磁盘 IO 次数**。理解 B+Tree，你就理解了为什么索引这么快。 **提升 3 万倍以上！** 1. **平衡树**：所有叶子节点在同一层 2. **多路搜索**：每个节点有 N 个 key 和 N+1 个子节点指针 3. **数据只在叶子**：非叶子节点只存 key 和指针 4. **叶子链表**：叶子节点之间用指针相连，支持范围查询 | 特性 | B-Tree |
+> > **索引的本质：减少磁盘 IO 次数**。理解 B+Tree，你就理解了为什么索引这么快。 **提升 3 万倍以上！** ![Mysql Adaptive Hash Index](/mysql-adaptive-hash-index.svg) 1. **平衡树**：所有叶子节点在同一层 2. **多路搜索**：每个节点有 N 个 key 和 N+1 个子节点指针 3. **数据只在叶子**：非
 
 ## [聚簇索引 vs 二级索引](https://java-px.bot.cd/mysql/02-index/clustered)
 > > InnoDB 的特殊设计：**数据即索引，索引即数据**。理解这个区别，你就理解了为什么 InnoDB 主键如此重要。 聚簇索引的**叶子节点直接存储完整的数据行**，数据按主键顺序物理存储。 - ✅ **每张表只能有一个聚簇索引** - ✅ InnoDB 的数据文件（.ibd）本身就是按聚簇索引组织的 - ✅ 数据按主键顺序物理存储 → 范围查询极快 - ✅ 主键查询极快（直接定位到数据）
@@ -26,10 +26,10 @@
 > > 两个最重要的索引优化技巧。可以让查询性能提升 **10 倍甚至 100 倍**。 如果一个索引**包含了查询语句需要的所有字段**，MySQL 就不需要回表查询，直接在索引中拿到结果。 **这个索引可以用于以下查询：** **黄金法则：高选择性 + 高频过滤 字段放前面** **决策步骤：** 1. 列出所有查询模式 2. 按频率排序 3. 把高频查询的字段放复合索引前面 4. 范围查询字段放
 
 ## [索引下推 ICP](https://java-px.bot.cd/mysql/02-index/icp)
-> > **Index Condition Pushdown（ICP）** 是 MySQL 5.6 引入的优化，可以让查询**减少 50% 以上的回表次数**。 在 ICP 出现之前，MySQL 处理这样的查询： **ICP 之前的执行过程：** **问题：** 大量回表后发现不符合 age 条件，IO 浪费严重。 **MySQL 5.6+ 引入了 ICP：把 WHERE 条件下推到存储引擎层**，在
+> > **Index Condition Pushdown（ICP）** 是 MySQL 5.6 引入的优化，可以让查询**减少 50% 以上的回表次数**。 ![Mysql Icp Flow](/mysql-icp-flow.svg) 在 ICP 出现之前，MySQL 处理这样的查询： **ICP 之前的执行过程：** **问题：** 大量回表后发现不符合 age 条件，IO 浪费严重。 **My
 
 ## [CRUD 与 DDL](https://java-px.bot.cd/mysql/03-sql/crud)
-> > 日常开发 80% 的 SQL：增删改查、建表改表。看似基础，却藏着无数坑。 **正确做法：** - 大 DDL 单独执行，不要放在事务里 - 用 `pt-online-schema-change` 或 `gh-ost` 工具 1. **明确列名**（不用 SELECT *） 2. **UPDATE/DELETE 必须带 WHERE** 3. **批量操作分批次**（1000-5000 行/批）
+> > 日常开发 80% 的 SQL：增删改查、建表改表。看似基础，却藏着无数坑。 ![MySQL Online DDL 三种算法](/mysql-online-ddl.svg) **正确做法：** - 大 DDL 单独执行，不要放在事务里 - 用 `pt-online-schema-change` 或 `gh-ost` 工具 1. **明确列名**（不用 SELECT *） 2. **UPDATE/
 
 ## [常用函数与 CTE](https://java-px.bot.cd/mysql/03-sql/functions)
 > > SQL 函数速查 + CTE（Common Table Expressions，公共表表达式）让复杂查询更优雅。 **GROUP_CONCAT：行转列神器** **常用函数：** - 聚合：COUNT / SUM / AVG / GROUP_CONCAT - 日期：DATE_FORMAT / DATE_ADD / DATEDIFF / UNIX_TIMESTAMP - 字符串：CONCAT /
@@ -47,10 +47,10 @@
 > > 事务是数据库的核心概念。理解 ACID 和四种隔离级别，是处理并发问题的基础。 **事务（Transaction）** 是一组 SQL 操作的逻辑单元，要么全部成功，要么全部失败。 **事务是最小执行单元，不可分割。** **实现机制：** `undo log`（回滚日志） - 事务执行时，记录每条 SQL 的反向操作 - ROLLBACK 时执行反向操作恢复数据 **事务前后，数据库从一个一
 
 ## [InnoDB 锁机制](https://java-px.bot.cd/mysql/04-transaction/locks)
-> > 理解 InnoDB 的锁机制，是排查并发问题和性能调优的基础。 - **共享锁（S Lock）**：允许多个事务同时持有（读读兼容） - **排他锁（X Lock）**：只允许一个事务持有（其他事务阻塞） | | S Lock | X Lock | |---|---|---| | **S Lock** | ✅ 兼容 | ❌ 阻塞 | | **X Lock** | ❌ 阻塞 | ❌ 阻塞 | |
+> > 理解 InnoDB 的锁机制，是排查并发问题和性能调优的基础。 ![Mysql Innodb Locks](/mysql-innodb-locks.svg) - **共享锁（S Lock）**：允许多个事务同时持有（读读兼容） - **排他锁（X Lock）**：只允许一个事务持有（其他事务阻塞） | | S Lock | X Lock | |---|---|---| | **S Lock**
 
 ## [MVCC 多版本并发](https://java-px.bot.cd/mysql/04-transaction/mvcc)
-> > MVCC（Multi-Version Concurrency Control）是 InnoDB 实现**非阻塞读**的核心机制，让读不阻塞写、写不阻塞读。 **MVCC 的精髓：读快照（不加锁）+ 写新版本（不阻塞读）** 每行数据有两个隐藏列： - `DB_TRX_ID`：最后修改该行的事务 ID - `DB_ROLL_PTR`：指向 Undo Log 中该行的上一版本 每次 UPDATE/
+> > MVCC（Multi-Version Concurrency Control）是 InnoDB 实现**非阻塞读**的核心机制，让读不阻塞写、写不阻塞读。 ![Mysql Mvcc Readview](/mysql-mvcc-readview.svg) **MVCC 的精髓：读快照（不加锁）+ 写新版本（不阻塞读）** 每行数据有两个隐藏列： - `DB_TRX_ID`：最后修改该行的事务 I
 
 ## [EXPLAIN 解读](https://java-px.bot.cd/mysql/05-optimization/explain)
 > > **EXPLAIN 是 MySQL 性能调优的"听诊器"**。学会看 EXPLAIN 输出，就能诊断 90% 的慢查询问题。 | select_type | 含义 | |---|---| | SIMPLE | 简单查询（无 UNION / 子查询） | | PRIMARY | 最外层查询 | | SUBQUERY | 子查询 | | DERIVED | 派生表（FROM 子查询） | | UN
@@ -191,10 +191,10 @@
 > > Saga 是处理**跨服务长事务**的经典模式。在微服务架构下，没有分布式事务也能保证最终一致性。 **核心思想：** - 把长事务拆成多个**本地子事务** - 每个子事务都有对应的**补偿操作** - 如果某个子事务失败，按相反顺序执行补偿 **对比：** | 维度 | 协调式 | 编排式 | |---|---|---| | 业务代码 | 集中在协调器 | 分散在每个服务 | | 服务耦合
 
 ## [SQL 速查表](https://java-px.bot.cd/mysql/cheatsheet)
-> > 30+ 常用 SQL 模板，**支持搜索 + 一键复制**。覆盖 CRUD / DDL / 查询 / 聚合 / JOIN / 索引 / 事务 / 性能 / 运维 9 大类。 <SqlCheatsheet />
+> > 30+ 常用 SQL 模板，**支持搜索 + 一键复制**。覆盖 CRUD / DDL / 查询 / 聚合 / JOIN / 索引 / 事务 / 性能 / 运维 9 大类。 <SqlCheatsheet /> <ClientOnly> <QrShare /> </ClientOnly>
 
 ## [知识图谱](https://java-px.bot.cd/mysql/graph)
-> > 全局可视化展示 MySQL 的 **50 个核心概念** 与它们之间的 **80+ 条关联关系** > > 💡 提示：拖动节点调整布局，点击节点跳转对应文档，悬停查看高亮关系。 <KnowledgeGraph :height="700" src="/graph.json" /> | 分类 | 节点数 | 代表概念 | |---|---|---| | 🏛️ 基础层 | 6 | InnoDB /
+> > 全局可视化展示 MySQL 的 **50 个核心概念** 与它们之间的 **80+ 条关联关系** > <TipBox icon="💡" title="提示" variant="tip"> 提示：拖动节点调整布局，点击节点跳转对应文档，悬停查看高亮关系。 </TipBox> <KnowledgeGraph :height="700" src="/graph.json" /> | 分类 | 节点
 
 ## [MySQL 知识图谱](https://java-px.bot.cd/mysql/index)
 > <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "知识点碎片化，不知道先后顺序（11 大主题怎么学？）", "InnoDB 引擎原理（MVCC / Buffer Pool / Redo Log）讲不清？",

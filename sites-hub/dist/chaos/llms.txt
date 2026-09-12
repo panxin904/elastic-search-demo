@@ -1,8 +1,8 @@
 # chaos 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 32 个文档页 · 123,918 字
-> 生成时间：2026-08-27T21:42:04
+> 36 个文档页 · 136,739 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [爆炸半径](https://java-px.bot.cd/chaos/01-foundations/blast-radius)
 > 爆炸半径（Blast Radius）是「实验失败时的最大影响范围」。分级管理： | 级别 | 流量 | 实例 | 区域 | 时长 | 适用 | |---|---|---|---|---|---| | L1 · 单测 | 0% | 1 Pod | 单 AZ | 5s | 首次实验 | | L2 · 金丝雀 | 1% | 10% Pods | 单 AZ | 30s | 灰度验证 | | L3 · 灰度
@@ -65,7 +65,7 @@
 > **多活（Active-Active）**： - 多个 Region 同时服务流量 - 任意 Region 故障，其他 Region 接管 - 资源利用率高（无闲置） **灾备（Active-Passive / DR）**： - 主 Region 服务流量，备 Region 待机 - 主 Region 故障，备 Region 接管 - 资源利用率低（备 Region 闲置） | 级别 | RTO（
 
 ## [韧性模式总览](https://java-px.bot.cd/chaos/05-resilience-patterns/overview)
-> 韧性模式（Resilience Patterns）是**系统应对故障的设计模式**，与设计模式（Design Patterns）层级类似，但聚焦「**在故障下保持功能**」而非「解决常见设计问题」。 **与设计模式的关系**： - 设计模式（design-pattern 站）：OO / 架构 / 分布式模式（Circuit Breaker / Bulkhead 属于这一类） - 韧性模式（本节）：
+> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <defs> <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" mar
 
 ## [限流与降级](https://java-px.bot.cd/chaos/05-resilience-patterns/rate-limit-degrade)
 > **1. 令牌桶（Token Bucket）**： - 桶容量 N，每 R 秒加 1 个令牌 - 请求消耗 1 个令牌，无令牌则拒绝 - 允许突发（桶满时可瞬时 N 个） **2. 漏桶（Leaky Bucket）**： - 请求进入桶，桶以固定速率漏水 - 桶满则溢出（拒绝） - 强制平滑输出 **3. 滑动窗口（Sliding Window）**： - 滚动时间窗口（1 分钟内最多 N 个请求
@@ -92,10 +92,22 @@
 > **1. 业务指标（KBI）**： - 电商：订单成功率 / 支付成功率 - 视频：缓冲率 / 卡顿率 / 首帧时间 - 金融：交易成功率 / 清算时效 **2. 系统指标（SLI）**： - 可用性：成功率 = 成功请求 / 总请求 - 延迟：P50 / P95 / P99 - 吞吐：QPS / TPS - 错误：错误率 / 5xx 比例 **3. 资源指标**： - CPU / 内存 / 磁盘
 
 ## [混沌工程的可观测性](https://java-px.bot.cd/chaos/07-observability-for-chaos/overview)
-> 混沌工程的「**稳态假设**」和「**实验验证**」都依赖可观测性。没有可观测性，混沌实验就是「**盲目破坏**」。 **可观测性三支柱**： - **Metrics（指标）**：聚合数值（CPU / 错误率 / QPS），用于稳态判读 - **Logs（日志）**：离散事件（异常堆栈），用于根因定位 - **Traces（追踪）**：请求链路（跨服务），用于性能瓶颈 **混沌实验的三层观测**：
+> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <defs> <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" mar
 
 ## [SLO 反馈环](https://java-px.bot.cd/chaos/07-observability-for-chaos/slo-feedback-loop)
 > **SLI（Service Level Indicator）**：可度量的指标 - 例：订单成功率、P99 延迟 **SLO（Service Level Objective）**：目标值 - 例：99.5% 成功率、P99 < 1.5s **Error Budget**：可消耗的错误预算 - 例：每月 0.5% 错误预算 **每月 Error Budget 计算**： 例：SLO 99.5% ×
 
+## [速查表](https://java-px.bot.cd/chaos/cheatsheet)
+> > 高频 混沌工程 命令/概念速查，支持分类过滤和关键词搜索（Cmd+F 即可）。 | 场景 | 命令/概念 | |------|----------| | 入门 | 从 [📖 学习路径](/path) 开始 | | 查找 | 用 [🧭 思维导图](/mindmap) 总览 | | 总览 | 看 [🌐 知识图谱](/graph) 分类 | | 搜索 | 浏览器 Cmd+F 全文检索 | - 各子目
+
+## [知识图谱](https://java-px.bot.cd/chaos/graph)
+> > 树形结构总览 混沌工程 全栈知识，按主题分类组织。点击节点跳转到对应章节。 本站涵盖以下核心主题，建议按分类顺序学习： 1. **基础概念** - 从零开始的入门必备 2. **核心原理** - 深入理解底层机制 3. **实战应用** - 结合真实场景的最佳实践 4. **生态工具** - 提升效率的配套工具 - [📖 学习路径](/path) - 推荐阅读顺序 - [🧭 思维导图](/mi
+
 ## [chaos 知识图谱](https://java-px.bot.cd/chaos/index)
 > <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "Netflix Chaos Monkey 起源：混沌工程到底解决什么问题？", "稳态假设（steady state）怎么定义才不会被实验打破？", "爆炸
+
+## [思维导图](https://java-px.bot.cd/chaos/mindmap)
+> > 树形结构总览 混沌工程 全栈知识，点击叶子节点跳转。 请参考各分类目录的内容，或直接查看： - [📖 学习路径](/path) - 按角色推荐阅读顺序 - [📋 速查表](/cheatsheet) - 高频命令速查 - [🌐 知识图谱](/graph) - 主题分类总览
+
+## [学习路径](https://java-px.bot.cd/chaos/path)
+> > 根据你的角色选择对应路径，每条路径推荐了核心阅读顺序。 适合**刚接触 混沌工程**的初学者。 1. 阅读首页（[/](/)）了解整体结构 2. 查看 [🧭 思维导图](/mindmap) 熟悉全站布局 3. 选择一个子目录从 overview.md 开始 4. 边学边查 [📋 速查表](/cheatsheet) 5. 完成 cheatsheet.md 的练习题 适合**已有基础**的开发者。

@@ -238,13 +238,9 @@ kubectl get svc -n $NS
 - [kubectl debug](/13-troubleshooting/debug)
 - [网络 / DNS 排错](/13-troubleshooting/network)
 - [k8s 是什么](/02-k8s-arch/overview)
+<CrossSiteNav :items="[
+    { site: 'cloud', label: 'Spring Cloud 微服务', url: 'https://java-px.bot.cd/cloud/' },
+    { site: 'linux', label: 'Linux 内核基础', url: 'https://java-px.bot.cd/linux/' },
+    { site: 'devops', label: 'DevOps 流程', url: 'https://java-px.bot.cd/devops/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
-
-<!-- xlink-subpage-injected:do-not-edit -->
-
-本页相关主题的跨站入口:
-
-- [cloud](https://java-px.bot.cd/cloud/):Spring Cloud 微服务
-- [linux](https://java-px.bot.cd/linux/):Linux 内核基础
-- [devops](https://java-px.bot.cd/devops/):DevOps 流程

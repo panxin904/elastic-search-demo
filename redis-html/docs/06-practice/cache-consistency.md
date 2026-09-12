@@ -454,13 +454,9 @@ CAP 只能选两个：
 - ⚠️ 最终一致：Canal + MQ（推荐生产）
 
 **下一步：** [🗑️ 内存淘汰策略](/07-ops/eviction) — Redis 运维调优
+<CrossSiteNav :items="[
+    { site: 'mysql', label: 'MySQL 主存', url: 'https://java-px.bot.cd/mysql/' },
+    { site: 'kafka', label: 'Kafka 异步队列', url: 'https://java-px.bot.cd/kafka/' },
+    { site: 'java-web-manual', label: 'Java 客户端（Redisson / Jedis）', url: 'https://java-px.bot.cd/java-web-manual/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
-
-<!-- xlink-subpage-injected:do-not-edit -->
-
-本页相关主题的跨站入口:
-
-- [mysql](https://java-px.bot.cd/mysql/):MySQL 主存
-- [kafka](https://java-px.bot.cd/kafka/):Kafka 异步队列
-- [java](https://java-px.bot.cd/java-web-manual/):Java 客户端（Redisson / Jedis）

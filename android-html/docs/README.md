@@ -83,13 +83,9 @@ graph LR
   questions["Android 面试与常见问题"]
   ROOT --> questions
 ```
+<CrossSiteNav :items="[
+    { site: 'java-language', label: 'Java / Kotlin JVM', url: 'https://java-px.bot.cd/java-language/' },
+    { site: 'frontend', label: '前端基础', url: 'https://java-px.bot.cd/frontend/' },
+    { site: 'iot', label: 'IoT / 嵌入式', url: 'https://java-px.bot.cd/iot/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
-
-<!-- xlink-subpage-injected:do-not-edit -->
-
-本页相关主题的跨站入口:
-
-- [java-language](https://java-px.bot.cd/java-language/):Java / Kotlin JVM
-- [frontend](https://java-px.bot.cd/frontend/):前端基础
-- [iot](https://java-px.bot.cd/iot/):IoT / 嵌入式

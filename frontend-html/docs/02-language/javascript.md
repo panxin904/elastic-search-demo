@@ -170,13 +170,15 @@ const all = [...setA, ...setB]
 
 - [TypeScript 类型系统](/02-language/typescript)
 - [React 核心与 Hooks](/03-framework/react)
+<CrossSiteNav :items="[
+    { site: 'java-web-manual', label: 'Java 后端 API', url: 'https://java-px.bot.cd/java-web-manual/' },
+    { site: 'android', label: 'Android 移动', url: 'https://java-px.bot.cd/android/' },
+    { site: 'java-language', label: 'Java 基础', url: 'https://java-px.bot.cd/java-language/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
 
-<!-- xlink-subpage-injected:do-not-edit -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
 
-本页相关主题的跨站入口:
-
-- [java](https://java-px.bot.cd/java-web-manual/):Java 后端 API
-- [android](https://java-px.bot.cd/android/):Android 移动
-- [java-language](https://java-px.bot.cd/java-language/):Java 基础
+<!-- giscus-injected:do-not-edit -->

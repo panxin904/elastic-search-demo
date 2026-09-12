@@ -12,7 +12,9 @@ graphNodeId: curator
 ## 📌 一句话定义
 Curator 是 Elastic 官方的**索引管理 CLI 工具**，用于批量删除、合并、快照索引。
 
-> ⚠️ ES 5.x 之后，**ILM** 替代了部分 Curator 场景。但 Curator 在**跨索引管理**和**精细控制**上仍有优势。
+<TipBox icon="⚠️" title="注意" variant="warn">
+  ES 5.x 之后，**ILM** 替代了部分 Curator 场景。但 Curator 在**跨索引管理**和**精细控制**上仍有优势。
+</TipBox>
 
 ## 📦 安装
 

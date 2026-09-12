@@ -1,8 +1,8 @@
 # video 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 67 个文档页 · 295,890 字
-> 生成时间：2026-08-27T21:42:04
+> 67 个文档页 · 314,055 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [编解码概览](https://java-px.bot.cd/video/01-basics/codec-overview)
 > <span class="kg-badge kg-badge-basics">基础</span> <span class="kg-badge kg-badge-codec">原理</span> 视频编解码（CODEC = COder + DECoder）= 视频的"压缩与解压"。 **同一帧内**相邻像素相似 → **帧内预测** + DCT **相邻帧**之间高度相似 → **运动估计 + 运动
@@ -20,19 +20,19 @@
 > <span class="kg-badge kg-badge-basics">基础</span> <span class="kg-badge kg-badge-codecs">入门</span> 视频 = 一组**按时间顺序**连续播放的**静态图像**（帧），通过人眼的**视觉暂留**现象产生连续运动的感觉。 | 要素 | 含义 | 典型值 | | --- | --- | --- | | **像
 
 ## [DCT 变换与量化](https://java-px.bot.cd/video/02-codec/dct-quant)
-> <span class="kg-badge kg-badge-codec">原理</span> <span class="kg-badge kg-badge-codecs">频域</span> 视频编码中两个**最关键的步骤**，负责把空间域数据转换到频域并丢弃不重要的细节。 将**空间域**像素转换为**频域**系数，便于后续量化压缩。 | 编码 | DCT 块 | | --- | --- |
+> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <defs> <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" mar
 
 ## [熵编码 - CABAC / CAVLC](https://java-px.bot.cd/video/02-codec/entropy-codec)
-> <span class="kg-badge kg-badge-codec">原理</span> <span class="kg-badge kg-badge-codecs">无损</span> 将量化后的符号转换为**二进制比特流**，是视频编码的最后一步，**无损压缩**。 | 算法 | 编码 | 特点 | | --- | --- | --- | | **CAVLC** | H.264 Base
+> ![视频技术栈分层](/video-codec-stack.svg) <span class="kg-badge kg-badge-codec">原理</span> <span class="kg-badge kg-badge-codecs">无损</span> 将量化后的符号转换为**二进制比特流**，是视频编码的最后一步，**无损压缩**。 | 算法 | 编码 | 特点 | | --- | -
 
 ## [帧间预测](https://java-px.bot.cd/video/02-codec/inter-prediction)
 > <span class="kg-badge kg-badge-codec">原理</span> <span class="kg-badge kg-badge-codecs">P / B 帧</span> 利用**相邻帧**之间的高度相似性，通过**运动估计 + 运动补偿**去除时间冗余。 | 类型 | 参考帧 | 数量 | 压缩率 | | --- | --- | --- | --- | | **P
 
 ## [帧内预测](https://java-px.bot.cd/video/02-codec/intra-prediction)
-> <span class="kg-badge kg-badge-codec">原理</span> <span class="kg-badge kg-badge-codecs">I 帧</span> 利用**同一帧内**相邻像素的相关性进行预测，是 I 帧压缩的核心。 | 模式 | 名称 | 预测方向 | | --- | --- | --- | | **0** | Intra_4x4_Vertical
+> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <defs> <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" mar
 
 ## [环路滤波](https://java-px.bot.cd/video/02-codec/loop-filter)
-> <span class="kg-badge kg-badge-codec">原理</span> <span class="kg-badge kg-badge-codecs">后处理</span> 编码环路中的**重建滤波器**，消除块效应、提升主观画质。 | 滤波 | 编码 | 特点 | | --- | --- | --- | | **去块滤波 (DF)** | H.264/H.265 | 必备，
+> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <defs> <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" mar
 
 ## [运动估计与补偿](https://java-px.bot.cd/video/02-codec/me-mc)
 > <span class="kg-badge kg-badge-codec">原理</span> <span class="kg-badge kg-badge-codecs">P / B 帧</span> 帧间预测的**核心机制**，决定 P/B 帧的压缩效率。 | 缩写 | 全称 | 作用 | | --- | --- | --- | | **ME** | Motion Estimation 运动估
@@ -80,7 +80,7 @@
 > <span class="kg-badge kg-badge-protocol">协议</span> <span class="kg-badge kg-badge-app">播放</span> **DASH** = Dynamic Adaptive Streaming over HTTP，MPEG 主导的 HTTP 自适应流协议，对标 HLS。 | 项 | 值 | | --- | --- | |
 
 ## [HLS 协议](https://java-px.bot.cd/video/05-protocol/hls)
-> <span class="kg-badge kg-badge-protocol">协议</span> <span class="kg-badge kg-badge-app">播放</span> **HLS** = Apple 开发的**基于 HTTP 的流媒体协议**，将视频切分为**小 TS 文件 + m3u8 索引**，CDN 友好。 | 项 | 值 | | --- | --- | | 推出
+> ![流媒体协议对比](/video-streaming-protocols.svg) <span class="kg-badge kg-badge-protocol">协议</span> <span class="kg-badge kg-badge-app">播放</span> **HLS** = Apple 开发的**基于 HTTP 的流媒体协议**，将视频切分为**小 TS 文件 + m3u8
 
 ## [RTMP 协议](https://java-px.bot.cd/video/05-protocol/rtmp)
 > <span class="kg-badge kg-badge-protocol">协议</span> <span class="kg-badge kg-badge-app">直播</span> **RTMP** = 基于 TCP 的**实时消息传输协议**，由 Macromedia（Adobe）开发，广泛用于直播推流。 | 项 | 值 | | --- | --- | | 推出 | 2002（Mac
@@ -92,7 +92,7 @@
 > <span class="kg-badge kg-badge-protocol">协议</span> <span class="kg-badge kg-badge-app">实时</span> <span class="kg-badge kg-badge-ai">互动</span> **WebRTC** = 浏览器原生**实时音视频通信**协议栈，延迟 <500ms，支持 P2P。 | 项 | 值
 
 ## [FFmpeg 入门精通](https://java-px.bot.cd/video/06-tools/ffmpeg)
-> <span class="kg-badge kg-badge-tools">工具</span> <span class="kg-badge kg-badge-protocol">流媒体</span> <span class="kg-badge kg-badge-codecs">编解码</span> **FFmpeg** = 跨平台**多媒体处理工具集**，视频/音频/字幕/流媒体的**瑞士军刀**
+> ![FFmpeg 转码流水线](/ffmpeg-transcode-pipeline.svg) <span class="kg-badge kg-badge-tools">工具</span> <span class="kg-badge kg-badge-protocol">流媒体</span> <span class="kg-badge kg-badge-codecs">编解码</span> **
 
 ## [GStreamer 框架](https://java-px.bot.cd/video/06-tools/gstreamer)
 > <span class="kg-badge kg-badge-tools">工具</span> <span class="kg-badge kg-badge-protocol">流媒体</span> <span class="kg-badge kg-badge-protocol">Linux</span> **GStreamer** = Linux 平台强大的**多媒体框架**，基于**管道（pi

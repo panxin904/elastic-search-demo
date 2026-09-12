@@ -241,3 +241,9 @@ while (true) {
 - [context-tokens](./context-tokens) - 流式场景下的 Token 统计
 - [rate-limit-retry](./rate-limit-retry) - 流式断流的错误码
 - [tool-use-protocol](./tool-use-protocol) - 流式 Tool Use 块拼接
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->

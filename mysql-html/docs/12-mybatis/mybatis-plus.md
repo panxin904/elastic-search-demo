@@ -712,13 +712,15 @@ public void batchInsert(List<User> users) {
 - ✅ 复杂查询仍用 XML（动态 SQL）
 
 **下一步：** [⚙️ MyBatis 缓存机制](/12-mybatis/cache) — 一级缓存 / 二级缓存的正确打开方式
+<CrossSiteNav :items="[
+    { site: 'postgresql', label: 'PostgreSQL 对比', url: 'https://java-px.bot.cd/postgresql/' },
+    { site: 'redis', label: 'Redis 缓存层', url: 'https://java-px.bot.cd/redis/' },
+    { site: 'clickhouse', label: 'ClickHouse OLAP', url: 'https://java-px.bot.cd/clickhouse/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
 
-<!-- xlink-subpage-injected:do-not-edit -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
 
-本页相关主题的跨站入口:
-
-- [postgresql](https://java-px.bot.cd/postgresql/):PostgreSQL 对比
-- [redis](https://java-px.bot.cd/redis/):Redis 缓存层
-- [clickhouse](https://java-px.bot.cd/clickhouse/):ClickHouse OLAP
+<!-- giscus-injected:do-not-edit -->

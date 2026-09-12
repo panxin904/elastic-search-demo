@@ -373,3 +373,9 @@ player.danmaku.toggle();
 - B 站技术中心公开分享
 - 《Bilibili 技术演进》
 - GIAC / QCon 大厂案例分享
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->

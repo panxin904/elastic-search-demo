@@ -226,3 +226,9 @@ sum(rate(http_requests_total[30d]))
 ## 🔗 下一步
 - [OpenTelemetry](/13-observability/otel)
 - [熔断器三态](/05-circuit-breaker/states)
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->

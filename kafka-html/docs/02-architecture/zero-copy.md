@@ -496,13 +496,15 @@ strace -e sendfile,write java -jar kafka-broker.jar 2>&1 | grep sendfile
 - ⚠️ 不能修改数据
 
 **下一步：** [⚙️ 控制器演进](/02-architecture/controller-evolution) — KRaft 与 ZooKeeper
+<CrossSiteNav :items="[
+    { site: 'redis', label: 'Redis 缓存对比', url: 'https://java-px.bot.cd/redis/' },
+    { site: 'java-web-manual', label: 'Java 客户端集成', url: 'https://java-px.bot.cd/java-web-manual/' },
+    { site: 'system-design', label: '消息可靠性', url: 'https://java-px.bot.cd/system-design/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
 
-<!-- xlink-subpage-injected:do-not-edit -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
 
-本页相关主题的跨站入口:
-
-- [redis](https://java-px.bot.cd/redis/):Redis 缓存对比
-- [java](https://java-px.bot.cd/java-web-manual/):Java 客户端集成
-- [system-design](https://java-px.bot.cd/system-design/):消息可靠性
+<!-- giscus-injected:do-not-edit -->

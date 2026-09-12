@@ -27,7 +27,9 @@ POST /products/_search
 | 性能 | 随 from 增大而**线性下降** |
 | 适用 | from + size < 10000 |
 
-> ⚠️ `index.max_result_window` 默认 10000，超出会报错。
+<TipBox icon="⚠️" title="注意" variant="warn">
+  `index.max_result_window` 默认 10000，超出会报错。
+</TipBox>
 
 ## 2️⃣ search_after (无状态深度分页)
 

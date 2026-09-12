@@ -148,3 +148,9 @@ key: value
 - 实战案例
 - 参考资料
 <!-- auto-enrich:do-not-edit -->
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->

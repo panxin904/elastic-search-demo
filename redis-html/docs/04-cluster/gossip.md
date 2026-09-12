@@ -377,3 +377,9 @@ cluster-replica-validity-factor 10  # 失效 factor
 - ⚠️ 大集群有 Gossip 风暴风险
 
 **下一步：** [🚚 数据迁移](/04-cluster/migration) — 在线迁移不中断服务
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->

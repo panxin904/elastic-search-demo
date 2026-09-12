@@ -277,13 +277,15 @@ helm install myapp ./myapp --dry-run --debug
 - [Chart 结构](/06-helm/chart)
 - [Chart 仓库](/06-helm/repository)
 - [Helmfile / Kustomize](/10-iac/helmfile)
+<CrossSiteNav :items="[
+    { site: 'cloud', label: 'Spring Cloud 微服务', url: 'https://java-px.bot.cd/cloud/' },
+    { site: 'linux', label: 'Linux 内核基础', url: 'https://java-px.bot.cd/linux/' },
+    { site: 'devops', label: 'DevOps 流程', url: 'https://java-px.bot.cd/devops/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
 
-<!-- xlink-subpage-injected:do-not-edit -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
 
-本页相关主题的跨站入口:
-
-- [cloud](https://java-px.bot.cd/cloud/):Spring Cloud 微服务
-- [linux](https://java-px.bot.cd/linux/):Linux 内核基础
-- [devops](https://java-px.bot.cd/devops/):DevOps 流程
+<!-- giscus-injected:do-not-edit -->

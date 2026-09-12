@@ -1,8 +1,8 @@
 # iot 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 35 个文档页 · 46,775 字
-> 生成时间：2026-08-27T21:42:04
+> 42 个文档页 · 51,175 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [01 · 通信协议](https://java-px.bot.cd/iot/01-protocol/README)
 > IoT 设备互联的基础协议层。 | 节点 | 一句话 | |------|--------| | [MQTT 5.0](./mqtt) | IoT 事实标准，发布订阅 | | [CoAP](./coap) | 受限设备首选，UDP 上的 RESTful | | [Modbus / OPC-UA](./modbus) | 工业现场总线 | | [LoRaWAN / NB-IoT](./lpwan)
@@ -10,20 +10,26 @@
 ## [CoAP](https://java-px.bot.cd/iot/01-protocol/coap)
 > > 受限应用协议，基于 UDP 的 RESTful 架构。低功耗设备首选，比 HTTP 协议头更小。 - 协议基于 UDP，默认端口 5683 / DTLS 5684 - 方法同 HTTP（GET/POST/PUT/DELETE） - 资源发现（`.well-known/core`） - 观察模式（订阅资源变化，类似 WebSocket） - 适用场景：电池供电设备 / 网络不稳定 / 资源受限
 
+## [协议](https://java-px.bot.cd/iot/01-protocol/index)
+> > MQTT / CoAP / Modbus / OPC-UA / BLE / LoRa <!-- 本节目录待补充 --> - [🏠 物联网首页](/) - [📖 物联网学习路径](/path) - [🧭 物联网思维导图](/mindmap) - [📋 物联网速查表](/cheatsheet) 本章为新设立的占位页，详细内容正在按 §8.81 计划逐步补充。
+
 ## [LoRaWAN / NB-IoT](https://java-px.bot.cd/iot/01-protocol/lpwan)
 > > 低功耗广域网协议，远距离（数公里）+ 低功耗（电池用数年）+ 低数据量。 - LoRaWAN：免授权频段，1-3km 城市 / 10km+ 郊区，速率 0.3-50 kbps - NB-IoT：运营商授权频段（蜂窝），覆盖更广，模组成本低 - Sigfox：欧洲主导，极低数据量（每天 140 条消息） - 适用场景：智能水电气表 / 农业传感 / 资产追踪 - [MQTT](./mqtt) -
 
 ## [Modbus / OPC-UA](https://java-px.bot.cd/iot/01-protocol/modbus)
-> > 工业现场总线协议，Modbus 简单通用，OPC-UA 工业 4.0 标准。 - Modbus RTU（串口） / Modbus TCP（以太网，端口 502） - 寄存器分类：Coil / Discrete Input / Holding Register / Input Register - OPC-UA：二进制协议 + 信息建模 + 安全加密 - 适用场景：PLC / 工业仪表 / SC
+> > 工业现场总线协议，Modbus 简单通用，OPC-UA 工业 4.0 标准。 ![Modbus Register Model](/modbus-register-model.svg) - Modbus RTU（串口） / Modbus TCP（以太网，端口 502） - 寄存器分类：Coil / Discrete Input / Holding Register / Input Registe
 
 ## [MQTT 5.0](https://java-px.bot.cd/iot/01-protocol/mqtt)
-> > 消息队列遥测传输协议，IoT 事实标准。轻量、发布订阅、QoS 等级、遗嘱消息。 - 协议基于 TCP，默认端口 1883 / TLS 8883 - 三种 QoS 等级（at most once / at least once / exactly once） - 主题通配符：`+` 单层匹配 / `#` 多层匹配 - 5.0 新增：reason codes / shared subscript
+> > 消息队列遥测传输协议，IoT 事实标准。轻量、发布订阅、QoS 等级、遗嘱消息。 ![Mqtt Qos Levels](/mqtt-qos-levels.svg) - 协议基于 TCP，默认端口 1883 / TLS 8883 - 三种 QoS 等级（at most once / at least once / exactly once） - 主题通配符：`+` 单层匹配 / `#` 多层匹配
 
 ## [02 · 设备与硬件](https://java-px.bot.cd/iot/02-device/README)
 > IoT 终端的硬件选型与嵌入式开发。 | 节点 | 一句话 | |------|--------| | [MCU / SoC](./mcu) | 微控制器与片上系统 | | [FreeRTOS / Zephyr](./rtos) | 嵌入式实时操作系统 | | [传感器](./sensor) | 温湿度 / IMU / 图像 / 气体 | | [网关硬件](./gateway) | 树莓派 / 工
 
 ## [网关硬件](https://java-px.bot.cd/iot/02-device/gateway)
 > > 树莓派 / 工业网关 / 边缘网关。对接多种协议 + 本地缓存 + 离线自治。 - 入门：树莓派 4B（4GB / ¥300）/ Orange Pi 5 - 工业：研华 UNO 系列 / 西门子 IOT2050（IP65 防护） - 协议转换：Modbus → MQTT / Zigbee → Wi-Fi - 离线自治：本地缓存 + 网络恢复后批量上云 - [KubeEdge](../03-ed
+
+## [设备](https://java-px.bot.cd/iot/02-device/index)
+> > 嵌入式开发 / MCU / SoC / 传感器 <!-- 本节目录待补充 --> - [🏠 物联网首页](/) - [📖 物联网学习路径](/path) - [🧭 物联网思维导图](/mindmap) - [📋 物联网速查表](/cheatsheet) 本章为新设立的占位页，详细内容正在按 §8.81 计划逐步补充。
 
 ## [MCU / SoC](https://java-px.bot.cd/iot/02-device/mcu)
 > > 微控制器与片上系统选型。算力 / 内存 / 功耗 / 价格 / 外设的权衡。 - 入门级：ESP32（双核 240MHz / Wi-Fi+BLE / ¥10）/ Arduino - 中端：STM32（ARM Cortex-M，工业级）/ nRF52（BLE 强） - 高端：树莓派 Pico（RP2040 双核 M0）/ Allwinner / Rockchip（Linux） - 选型三问：电池
@@ -43,6 +49,9 @@
 ## [EdgeX / KubeEdge](https://java-px.bot.cd/iot/03-edge/framework)
 > > 边缘计算框架，统一设备接入 + 数据处理 + 云边协同。 - EdgeX Foundry：Linux 基金会项目，模块化（Core/Supporting/Application Service） - KubeEdge：Kubernetes 原生，边缘节点管理 + 离线自治 - Azure IoT Edge：微软云生态，容器化部署 - AWS Greengrass：AWS IoT 边缘运行时 -
 
+## [边缘计算](https://java-px.bot.cd/iot/03-edge/index)
+> > EdgeX / KubeEdge / OpenYurt <!-- 本节目录待补充 --> - [🏠 物联网首页](/) - [📖 物联网学习路径](/path) - [🧭 物联网思维导图](/mindmap) - [📋 物联网速查表](/cheatsheet) 本章为新设立的占位页，详细内容正在按 §8.81 计划逐步补充。
+
 ## [K8s 边缘](https://java-px.bot.cd/iot/03-edge/k8s-edge)
 > > K3s / KubeEdge / OpenYurt 三种 K8s 边缘方案对比与选型。 - K3s：轻量级 K8s（单 binary < 100MB），适合边缘网关 - KubeEdge：完整 K8s 边缘管理，云边协同 + 离线自治 - OpenYurt：阿里云开源，原生 K8s + 边缘单元化 - 选型：单边缘节点 → K3s；多节点协同 → KubeEdge / OpenYurt - [
 
@@ -51,6 +60,9 @@
 
 ## [04 · 设备管理](https://java-px.bot.cd/iot/04-management/README)
 > 设备全生命周期：注册 → 认证 → 配置 → 命令 → OTA。 | 节点 | 一句话 | |------|--------| | [设备影子 / 物模型](./shadow) | 设备状态云端抽象 | | [固件 OTA](./ota) | 空中升级与签名 | | [设备安全](./security) | X.509 / mTLS / 密钥管理 | 1. 证书（设备身份） 2. mTLS（双向认
+
+## [设备管理](https://java-px.bot.cd/iot/04-management/index)
+> > OTA / 远程配置 / 设备影子 <!-- 本节目录待补充 --> - [🏠 物联网首页](/) - [📖 物联网学习路径](/path) - [🧭 物联网思维导图](/mindmap) - [📋 物联网速查表](/cheatsheet) 本章为新设立的占位页，详细内容正在按 §8.81 计划逐步补充。
 
 ## [固件 OTA](https://java-px.bot.cd/iot/04-management/ota)
 > > 空中升级（Firmware Over-The-Air），分块传输 + 签名验证 + 回滚机制。 - 分块传输：A/B 分区或流式写入（避免大文件一次性写入失败） - 签名验证：ECDSA / RSA 签名 + 公钥校验（防止恶意固件） - 回滚机制：升级失败自动回退到上一版本 - 灰度发布：按设备 ID / 区域 / 版本分组升级 - [设备影子](./shadow) - [设备安全](./s
@@ -67,6 +79,9 @@
 ## [时序库选型](https://java-px.bot.cd/iot/05-timeseries/database)
 > > InfluxDB / TDengine / TimescaleDB / QuestDB 四大时序库对比与选型。 - InfluxDB：生态最全（Telegraf / Chronograf），2.x 起闭源 - TDengine：国产开源，专为 IoT 设计，性能强（10x InfluxDB） - TimescaleDB：PostgreSQL 扩展，SQL 兼容 - QuestDB：Influx
 
+## [时序数据](https://java-px.bot.cd/iot/05-timeseries/index)
+> > InfluxDB / TDengine / TimescaleDB <!-- 本节目录待补充 --> - [🏠 物联网首页](/) - [📖 物联网学习路径](/path) - [🧭 物联网思维导图](/mindmap) - [📋 物联网速查表](/cheatsheet) 本章为新设立的占位页，详细内容正在按 §8.81 计划逐步补充。
+
 ## [Grafana / Kafka](https://java-px.bot.cd/iot/05-timeseries/integration)
 > > Grafana 可视化 + Kafka 消息集成，时序数据生态对接。 - Grafana：可视化仪表盘，多数据源支持 - Kafka：时序数据通过 Kafka 流转到下游（实时分析 / 备份） - Prometheus remote_write：InfluxDB / TDengine 兼容此协议 - 典型架构：设备 → MQTT → Kafka → InfluxDB → Grafana - [
 
@@ -82,6 +97,9 @@
 ## [工业互联网 IIoT](https://java-px.bot.cd/iot/06-platform/iiot)
 > > 工业 4.0 + 边缘计算 + 设备联网，工业场景的 IoT 应用。 - 工业 4.0：智能工厂 + 数字孪生 + 网络物理系统 - 边缘计算：实时控制（毫秒级）不能在云端 - OPC-UA：工业标准协议，与 Modbus / PROFINET 集成 - 行业落地：预测性维护 / 质量检测 / 能源管理 / 安全监控 - [Modbus](../01-protocol/modbus) - [边
 
+## [IoT 平台](https://java-px.bot.cd/iot/06-platform/index)
+> > AWS IoT / Azure IoT / 阿里云 IoT / 华为云 IoT <!-- 本节目录待补充 --> - [🏠 物联网首页](/) - [📖 物联网学习路径](/path) - [🧭 物联网思维导图](/mindmap) - [📋 物联网速查表](/cheatsheet) 本章为新设立的占位页，详细内容正在按 §8.81 计划逐步补充。
+
 ## [公有云 IoT](https://java-px.bot.cd/iot/06-platform/public-cloud)
 > > AWS IoT Core / Azure IoT Hub / 阿里云 LinkKit / 华为云 IoTDA 四大公有云对比。 - AWS IoT Core：Device Gateway / Registry / Shadow / Rules Engine - Azure IoT Hub：与 Azure Functions / Digital Twins 集成 - 阿里云 LinkKit：物模
 
@@ -96,6 +114,9 @@
 
 ## [IoT 速查表](https://java-px.bot.cd/iot/cheatsheet)
 > > 协议 / 端口 / 频段 / 数据格式 一页速查。 | 协议 | 传输层 | 端口 | QoS | 适用场景 | |---|---|---|---|---| | MQTT 5.0 | TCP | 8883 (TLS) | 0/1/2 | 通用 IoT、双向消息、设备管理 | | MQTT 3.1.1 | TCP | 1883 / 8883 | 0/1/2 | 旧设备兼容 | | CoAP |
+
+## [知识图谱](https://java-px.bot.cd/iot/graph)
+> > 树形结构总览 物联网 全栈知识，按主题分类组织。点击节点跳转到对应章节。 本站涵盖以下核心主题，建议按分类顺序学习： 1. **基础概念** - 从零开始的入门必备 2. **核心原理** - 深入理解底层机制 3. **实战应用** - 结合真实场景的最佳实践 4. **生态工具** - 提升效率的配套工具 - [📖 学习路径](/path) - 推荐阅读顺序 - [🧭 思维导图](/min
 
 ## [iot 知识图谱](https://java-px.bot.cd/iot/index)
 > <script setup> const painPoints = [ "协议栈碎片：MQTT / CoAP / Modbus / OPC-UA / LoRaWAN 各自适合什么场景？", "边缘 vs 云端：哪些计算放边缘、哪些放云端？", "设备影子 vs 物模型：阿里 / 华为 / AWS 三家抽象不一致，迁移成本高？", "时序数据爆炸：百万设备 × 每秒 1 条数据，传统 MySQL 撑

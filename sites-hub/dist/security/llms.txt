@@ -1,8 +1,8 @@
 # security 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 36 个文档页 · 134,989 字
-> 生成时间：2026-08-27T21:42:04
+> 40 个文档页 · 139,078 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [A01 访问控制失效](https://java-px.bot.cd/security/01-web-top10/a01-broken-access)
 > > **访问控制失效 = 越权访问**。**典型：水平越权（看别人的订单）/ 垂直越权（普通用户拿管理员权限）**。**防御：服务端校验 + 最小权限 + 资源所有权检查**。 --- 访问控制是 Web 应用最基础的安全机制——**谁被允许做什么**。失效意味着： - 用户 A 能访问用户 B 的资源（**水平越权 / IDOR**） - 普通用户能调管理员 API（**垂直越权 / Privi
@@ -35,16 +35,16 @@
 > > **SSRF = 让服务器替你请求**。**典型：图片代理 fetches 任意 URL / Webhook 验证可控 / 云元数据 169.254.169.254**。**防御：URL 白名单 + DNS 解析校验 + 禁用内网 IP + 隔离网络**。 --- 服务端接受用户输入的 URL，然后**服务端**去请求这个 URL。攻击者利用它： - 访问内网（数据库 / Redis / Ad
 
 ## [OWASP Top 10 2025 概览](https://java-px.bot.cd/security/01-web-top10/overview)
-> > **OWASP Top 10 = 业界权威 Web 安全风险清单**。**2025 版涵盖访问控制失效、注入、不安全设计、SSRF 等 10 大类**。**每条都给出"原理 + 危害 + 防御 + 实战代码"**。 --- **OWASP**（Open Worldwide Application Security Project）是一个**非营利组织**，专注于改善软件安全。自 2003 年起
+> ![Owasp Top10 2025](/owasp-top10-2025.svg) > **OWASP Top 10 = 业界权威 Web 安全风险清单**。**2025 版涵盖访问控制失效、注入、不安全设计、SSRF 等 10 大类**。**每条都给出"原理 + 危害 + 防御 + 实战代码"**。 --- **OWASP**（Open Worldwide Application Securi
 
 ## [JWT 详解](https://java-px.bot.cd/security/02-auth/jwt)
-> > **JWT = 自包含的令牌**（Header + Payload + Signature）**。**3 类算法：HS256（对称）/ RS256（非对称）/ ES256（椭圆曲线）**。**优势：无状态 / 跨域 / 可携信息**。**陷阱：注销难 / 体积大 / 不能放敏感数据**。 --- | 算法 | 密钥 | 性能 | 场景 | |------|------|------|-----
+> ![Jwt Token Anatomy](/jwt-token-anatomy.svg) > **JWT = 自包含的令牌**（Header + Payload + Signature）**。**3 类算法：HS256（对称）/ RS256（非对称）/ ES256（椭圆曲线）**。**优势：无状态 / 跨域 / 可携信息**。**陷阱：注销难 / 体积大 / 不能放敏感数据**。 --- | 算法
 
 ## [MFA 多因素认证](https://java-px.bot.cd/security/02-auth/mfa)
 > > **MFA = 多因素认证**（密码 + 第二个因子）**。**3 因子：知识（密码）/ 持有（手机）/ 物理特征（指纹）**。**3 种实现：TOTP（短信/Authenticator）/ WebAuthn（FIDO2 硬件密钥）/ Push（Auth0 Guardian）**。**强 MFA = 99.9% 防账号接管**。 --- | 因子 | 例子 | |------|------|
 
 ## [OAuth 2.0 详解](https://java-px.bot.cd/security/02-auth/oauth2)
-> > **OAuth 2.0 = 授权框架**（不是认证）。**核心：让第三方应用代表用户访问资源**。**4 种 flow：authorization code（最常用）/ client credentials / implicit（废弃）/ password（遗留）**。**PKCE 强制要求**。 --- | 角色 | 例子 | |------|------| | **Resource Own
+> ![Oauth2 Flow Comparison](/oauth2-flow-comparison.svg) > **OAuth 2.0 = 授权框架**（不是认证）。**核心：让第三方应用代表用户访问资源**。**4 种 flow：authorization code（最常用）/ client credentials / implicit（废弃）/ password（遗留）**。**PKCE 强
 
 ## [OpenID Connect（OIDC）详解](https://java-px.bot.cd/security/02-auth/oidc)
 > > **OIDC = OAuth 2.0 + 身份层**。**核心：ID Token（JWT 格式身份断言）+ UserInfo Endpoint**。**3 个流派：Auth0 / Keycloak / Spring Authorization Server**。**现代 SSO / SaaS 标配**。 --- | 维度 | OAuth 2.0 | OIDC | |------|-------
@@ -109,5 +109,17 @@
 ## [SPIFFE / SPIRE](https://java-px.bot.cd/security/06-zero-trust/spiffe)
 > > **SPIFFE = 工作负载身份标准**。**SPIRE = SPIFFE Runtime Environment（实现）**。**核心：SVID（X.509 证书 / JWT）+ 自动签发 + 短期**。**服务网格 / 零信任 / mTLS 的身份基座**。 --- - **06-zero-trust/overview**：零信任总览 - **06-zero-trust/implemen
 
+## [速查表](https://java-px.bot.cd/security/cheatsheet)
+> > 高频 安全 命令/概念速查，支持分类过滤和关键词搜索（Cmd+F 即可）。 | 场景 | 命令/概念 | |------|----------| | 入门 | 从 [📖 学习路径](/path) 开始 | | 查找 | 用 [🧭 思维导图](/mindmap) 总览 | | 总览 | 看 [🌐 知识图谱](/graph) 分类 | | 搜索 | 浏览器 Cmd+F 全文检索 | - 各子目录的
+
+## [知识图谱](https://java-px.bot.cd/security/graph)
+> > 树形结构总览 安全 全栈知识，按主题分类组织。点击节点跳转到对应章节。 本站涵盖以下核心主题，建议按分类顺序学习： 1. **基础概念** - 从零开始的入门必备 2. **核心原理** - 深入理解底层机制 3. **实战应用** - 结合真实场景的最佳实践 4. **生态工具** - 提升效率的配套工具 - [📖 学习路径](/path) - 推荐阅读顺序 - [🧭 思维导图](/mind
+
 ## [Security 知识图谱](https://java-px.bot.cd/security/index)
 > <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "OWASP Top 10 风险记不全，audit 一个 Web 应用无从下手？", "认证 vs 授权、RBAC vs ABAC 模型区别？", "密码学（
+
+## [思维导图](https://java-px.bot.cd/security/mindmap)
+> > 树形结构总览 安全 全栈知识，点击叶子节点跳转。 请参考各分类目录的内容，或直接查看： - [📖 学习路径](/path) - 按角色推荐阅读顺序 - [📋 速查表](/cheatsheet) - 高频命令速查 - [🌐 知识图谱](/graph) - 主题分类总览
+
+## [学习路径](https://java-px.bot.cd/security/path)
+> > 根据你的角色选择对应路径，每条路径推荐了核心阅读顺序。 适合**刚接触 安全**的初学者。 1. 阅读首页（[/](/)）了解整体结构 2. 查看 [🧭 思维导图](/mindmap) 熟悉全站布局 3. 选择一个子目录从 overview.md 开始 4. 边学边查 [📋 速查表](/cheatsheet) 5. 完成 cheatsheet.md 的练习题 适合**已有基础**的开发者。 -

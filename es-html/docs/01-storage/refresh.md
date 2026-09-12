@@ -36,7 +36,9 @@ T+30m:  Flush → Segment 持久化 + Translog 清理
 POST /products/_refresh
 ```
 
-> 💡 **本项目测试代码中**就有显式 refresh，避免准实时延迟导致测试断言失败：
+<TipBox icon="💡" title="提示" variant="tip">
+  **本项目测试代码中**就有显式 refresh，避免准实时延迟导致测试断言失败：
+</TipBox>
 > ```java
 > client.indices().refresh(r -> r.index(INDEX_NAME));
 > ```

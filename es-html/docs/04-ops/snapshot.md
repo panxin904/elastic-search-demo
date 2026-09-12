@@ -127,3 +127,9 @@ PUT /_slm/policy/daily-snapshot
 ## 📚 延伸阅读
 - [ILM 生命周期](/04-ops/ilm)
 - [集群重启](/04-ops/restart)
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->

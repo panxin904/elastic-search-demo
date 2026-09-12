@@ -203,13 +203,15 @@ func clientInterceptor(ctx context.Context, method string, req, reply interface{
 4. **什么是流式 RPC？** 客户端或服务端可持续发送多个消息。
 5. **服务发现怎么做？** Consul / Nacos / Etcd / K8s DNS。
 6. **RPC 和 REST 怎么选？** 内部高性能用 RPC，对外通用接口用 REST。
+<CrossSiteNav :items="[
+    { site: 'linux', label: 'Linux 网络栈', url: 'https://java-px.bot.cd/linux/' },
+    { site: 'security', label: '网络安全', url: 'https://java-px.bot.cd/security/' },
+    { site: 'cloud-native', label: 'K8s 网络', url: 'https://java-px.bot.cd/cloud-native/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
 
-<!-- xlink-subpage-injected:do-not-edit -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
 
-本页相关主题的跨站入口:
-
-- [linux](https://java-px.bot.cd/linux/):Linux 网络栈
-- [security](https://java-px.bot.cd/security/):网络安全
-- [cloud-native](https://java-px.bot.cd/cloud-native/):K8s 网络
+<!-- giscus-injected:do-not-edit -->

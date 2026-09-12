@@ -276,13 +276,9 @@ envFrom:
 - [RBAC](/11-security/rbac)
 - [NetworkPolicy + PodSecurity](/11-security/policy)
 - [Falco 运行时检测](/11-security/falco)
+<CrossSiteNav :items="[
+    { site: 'cloud', label: 'Spring Cloud 微服务', url: 'https://java-px.bot.cd/cloud/' },
+    { site: 'linux', label: 'Linux 内核基础', url: 'https://java-px.bot.cd/linux/' },
+    { site: 'devops', label: 'DevOps 流程', url: 'https://java-px.bot.cd/devops/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
-
-<!-- xlink-subpage-injected:do-not-edit -->
-
-本页相关主题的跨站入口:
-
-- [cloud](https://java-px.bot.cd/cloud/):Spring Cloud 微服务
-- [linux](https://java-px.bot.cd/linux/):Linux 内核基础
-- [devops](https://java-px.bot.cd/devops/):DevOps 流程

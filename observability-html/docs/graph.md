@@ -22,4 +22,6 @@ date: 2026-08-29  # date-auto-injected
 - [🧭 思维导图](/mindmap) - 树形结构总览
 - [📋 速查表](/cheatsheet) - 高频命令速查
 
-> 💡 鼠标拖动 / 滚轮缩放 / 点击节点跳转 等高级交互请等待后续版本
+<TipBox icon="💡" title="提示" variant="tip">
+  鼠标拖动 / 滚轮缩放 / 点击节点跳转 等高级交互请等待后续版本
+</TipBox>

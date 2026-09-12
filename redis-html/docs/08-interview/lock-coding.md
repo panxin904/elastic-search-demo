@@ -337,13 +337,9 @@ public class Redlock {
 分布式锁的核心是"原子加锁 + 防误删 + 容错"。下一篇实现另一个经典算法：**LRU 缓存淘汰**，字节跳动常考原题。
 
 **下一步：** [📚 LRU 算法手撕](/08-interview/lru)
+<CrossSiteNav :items="[
+    { site: 'mysql', label: 'MySQL 主存', url: 'https://java-px.bot.cd/mysql/' },
+    { site: 'kafka', label: 'Kafka 异步队列', url: 'https://java-px.bot.cd/kafka/' },
+    { site: 'java-web-manual', label: 'Java 客户端（Redisson / Jedis）', url: 'https://java-px.bot.cd/java-web-manual/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
-
-<!-- xlink-subpage-injected:do-not-edit -->
-
-本页相关主题的跨站入口:
-
-- [mysql](https://java-px.bot.cd/mysql/):MySQL 主存
-- [kafka](https://java-px.bot.cd/kafka/):Kafka 异步队列
-- [java](https://java-px.bot.cd/java-web-manual/):Java 客户端（Redisson / Jedis）

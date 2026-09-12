@@ -156,4 +156,6 @@ http POST https://api.openai.com/v1/chat/completions \
 - **Ollama**：本地 `http://localhost:11434/v1`
 - **vLLM / TGI**：自托管时也兼容 OpenAI 协议
 
-> 💡 通过修改 `base_url` + `model` 字段即可切换厂商，这就是 OpenAI 协议成为事实标准的原因。
+<TipBox icon="💡" title="提示" variant="tip">
+  通过修改 `base_url` + `model` 字段即可切换厂商，这就是 OpenAI 协议成为事实标准的原因。
+</TipBox>

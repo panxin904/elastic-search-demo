@@ -453,13 +453,15 @@ Collector 自己的 metrics（处理的 span 数、丢弃数等）暴露在 :888
 ---
 
 🏠 <a href="https://java-px.bot.cd/" target="_blank">返回门户首页</a>
+<CrossSiteNav :items="[
+    { site: 'devops', label: 'DevOps 监控', url: 'https://java-px.bot.cd/devops/' },
+    { site: 'cloud-native', label: 'K8s 监控', url: 'https://java-px.bot.cd/cloud-native/' },
+    { site: 'kafka', label: '日志收集', url: 'https://java-px.bot.cd/kafka/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
 
-<!-- xlink-subpage-injected:do-not-edit -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
 
-本页相关主题的跨站入口:
-
-- [devops](https://java-px.bot.cd/devops/):DevOps 监控
-- [cloud-native](https://java-px.bot.cd/cloud-native/):K8s 监控
-- [kafka](https://java-px.bot.cd/kafka/):日志收集
+<!-- giscus-injected:do-not-edit -->

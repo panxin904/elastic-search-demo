@@ -32,7 +32,9 @@ PUT /products
 }
 ```
 
-> ⚠️ `number_of_shards` **创建后不可修改**。如需调整，使用 [`_shrink` API](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/indices-shrink-index.html) 或 reindex 到新索引。
+<TipBox icon="⚠️" title="注意" variant="warn">
+  `number_of_shards` **创建后不可修改**。如需调整，使用 [`_shrink` API](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/indices-shrink-index.html) 或 reindex 到新索引。
+</TipBox>
 
 ## 📊 分片内部结构
 

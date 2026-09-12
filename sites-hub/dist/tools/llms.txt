@@ -1,14 +1,20 @@
 # tools 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 13 个文档页 · 61,357 字
-> 生成时间：2026-08-27T21:42:04
+> 17 个文档页 · 65,342 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [Base64 编解码](https://java-px.bot.cd/tools/base64)
 > 字符串与 Base64 互转，支持 UTF-8（中文）。 <script setup> import { ref } from 'vue' const input = ref('你好，世界！Hello, World!') const direction = ref('encode') const status = ref({ kind: 'muted', text: '' }) const out
 
+## [速查表](https://java-px.bot.cd/tools/cheatsheet)
+> > 高频 工具 命令/概念速查，支持分类过滤和关键词搜索（Cmd+F 即可）。 | 场景 | 命令/概念 | |------|----------| | 入门 | 从 [📖 学习路径](/path) 开始 | | 查找 | 用 [🧭 思维导图](/mindmap) 总览 | | 总览 | 看 [🌐 知识图谱](/graph) 分类 | | 搜索 | 浏览器 Cmd+F 全文检索 | - 各子目录的
+
 ## [Cron 表达式](https://java-px.bot.cd/tools/cron)
 > 解析 5/6 字段 Cron 表达式，描述字段含义，并列出接下来 5 次运行时间。 <script setup> import { ref, computed } from 'vue' const expr = ref('0 */2 * * *') const status = ref({ kind: 'muted', text: '' }) // 解析为 6 字段（缺少年份则补 *） const
+
+## [知识图谱](https://java-px.bot.cd/tools/graph)
+> > 树形结构总览 工具 全栈知识，按主题分类组织。点击节点跳转到对应章节。 本站涵盖以下核心主题，建议按分类顺序学习： 1. **基础概念** - 从零开始的入门必备 2. **核心原理** - 深入理解底层机制 3. **实战应用** - 结合真实场景的最佳实践 4. **生态工具** - 提升效率的配套工具 - [📖 学习路径](/path) - 推荐阅读顺序 - [🧭 思维导图](/mind
 
 ## [tools 知识图谱](https://java-px.bot.cd/tools/index)
 > <div id="all-tools"></div> <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "日常 JSON 格式化 / 压缩 / 校验每次都开在线工具？", "时间戳 / 时区 / ISO 86
@@ -27,6 +33,12 @@
 
 ## [JSON 格式化 / 校验](https://java-px.bot.cd/tools/json)
 > 格式化、压缩、校验 JSON，错误位置高亮。 <script setup> import { ref, computed } from 'vue' const sample = `{"name":"alice","age":30,"skills":["js","ts"],"address":{"city":"Beijing","zip":"100000"},"active":true,"score
+
+## [思维导图](https://java-px.bot.cd/tools/mindmap)
+> > 树形结构总览 工具 全栈知识，点击叶子节点跳转。 请参考各分类目录的内容，或直接查看： - [📖 学习路径](/path) - 按角色推荐阅读顺序 - [📋 速查表](/cheatsheet) - 高频命令速查 - [🌐 知识图谱](/graph) - 主题分类总览
+
+## [学习路径](https://java-px.bot.cd/tools/path)
+> > 根据你的角色选择对应路径，每条路径推荐了核心阅读顺序。 适合**刚接触 工具**的初学者。 1. 阅读首页（[/](/)）了解整体结构 2. 查看 [🧭 思维导图](/mindmap) 熟悉全站布局 3. 选择一个子目录从 overview.md 开始 4. 边学边查 [📋 速查表](/cheatsheet) 5. 完成 cheatsheet.md 的练习题 适合**已有基础**的开发者。 -
 
 ## [相对时间](https://java-px.bot.cd/tools/relative)
 > 计算两个时间之间的相对时间，例如 "3 小时 25 分钟"。也支持"X 之前"/"X 之后"。 <script setup> import { ref, computed } from 'vue' // 默认现在 const now = ref(new Date().toISOString().slice(0, 19)) // 默认 1 小时前 const target = ref(new Dat

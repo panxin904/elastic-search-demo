@@ -402,13 +402,15 @@ similarity = dot(user_vec, video_vec)
 其他站参考：[kafka](https://java-px.bot.cd/kafka/) / [mysql](https://java-px.bot.cd/mysql/) / [video](https://java-px.bot.cd/video/)
 
 跨站关联由 `xlink-injector.py` + `crosslink-dedup.py` 自动生成（§8.68）。
+<CrossSiteNav :items="[
+    { site: 'frontend', label: 'Web 播放器', url: 'https://java-px.bot.cd/frontend/' },
+    { site: 'ai', label: '视频 AI', url: 'https://java-px.bot.cd/ai/' },
+    { site: 'python', label: 'Python 处理', url: 'https://java-px.bot.cd/python/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
 
-<!-- xlink-subpage-injected:do-not-edit -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
 
-本页相关主题的跨站入口:
-
-- [frontend](https://java-px.bot.cd/frontend/):Web 播放器
-- [ai](https://java-px.bot.cd/ai/):视频 AI
-- [python](https://java-px.bot.cd/python/):Python 处理
+<!-- giscus-injected:do-not-edit -->

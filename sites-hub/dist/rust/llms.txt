@@ -1,8 +1,8 @@
 # rust 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 35 个文档页 · 131,711 字
-> 生成时间：2026-08-27T21:42:04
+> 39 个文档页 · 147,853 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [借用 Borrowing](https://java-px.bot.cd/rust/01-basics/borrowing)
 > 借用允许"使用值而不获取所有权"。通过 `&` 和 `&mut` 两种引用实现，编译期防止数据竞争。 > **借用 = 不获取所有权的引用**。**两大规则：不可变借用可多个、可变借用独占、不可变与可变不可共存**。**编译期消灭数据竞争**。 --- - **01-basics/ownership**：所有权基础 - **01-basics/lifetimes**：生命周期标注 - **04-c
@@ -17,13 +17,13 @@
 > Rust 入门阶段的核心：所有权 / 借用 / 生命周期三大概念 + Rust 思维模型建立。 > **Rust 基础 = 所有权 + 借用 + 生命周期**。**核心理念：内存安全 + 零成本抽象 + 无 GC**。**学习曲线陡峭但回报丰厚**。 --- | 维度 | C/C++ | Java/Go | Rust | |------|-------|---------|------| | **
 
 ## [所有权 Ownership](https://java-px.bot.cd/rust/01-basics/ownership)
-> 所有权是 Rust 最核心的概念：每个值有且仅有一个所有者，所有者离开作用域时值被自动 drop。 > **所有权 = Rust 的"内存安全无 GC"密码**。**三大规则：唯一所有者 / move 转移 / drop 自动释放**。**目标：编译期消灭 use-after-free / double-free**。 --- - **01-basics/borrowing**：借用规则 - **
+> ![Rust 所有权与借用规则](/rust-ownership-borrow-check.svg) 所有权是 Rust 最核心的概念：每个值有且仅有一个所有者，所有者离开作用域时值被自动 drop。 > **所有权 = Rust 的"内存安全无 GC"密码**。**三大规则：唯一所有者 / move 转移 / drop 自动释放**。**目标：编译期消灭 use-after-free / dou
 
 ## [语法基础](https://java-px.bot.cd/rust/01-basics/syntax-fundamentals)
 > Rust 语法与其他语言相似但有差异：变量默认不可变、match 强制穷尽、错误处理无异常。 > **Rust 语法 = 类 C 系 + 强类型 + 默认不可变 + match 模式匹配**。**关键差异：let/let mut / match / 错误传播 ?**。 --- - **01-basics/overview**：基础总览 - **02-types-traits/overview**：
 
 ## [高级类型](https://java-px.bot.cd/rust/02-types-traits/advanced-types)
-> Newtype / 类型别名 / 永不返回类型 / DST / PhantomData — Rust 类型系统的"瑞士军刀"。 > **高级类型 = 表达领域语义 + 类型安全 + 零成本抽象**。**核心：Newtype 模式 / PhantomData / never 类型**。 --- - **02-types-traits/overview**：类型系统 - **02-types-trai
+> Newtype / 类型别名 / 永不返回类型 / DST / PhantomData — Rust 类型系统的"瑞士军刀"。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <
 
 ## [枚举与模式匹配](https://java-px.bot.cd/rust/02-types-traits/enum-and-pattern)
 > Rust 的 enum 是"和类型"（sum type），能表达"或"语义；模式匹配强制穷尽每个变体。 > **enum + match = Rust 消灭 null 与异常的核心**。**核心：Option\<T\> / Result`<T,E>` / 自定义 enum 表达业务状态**。 --- - **02-types-traits/overview**：类型系统 - **02-types-
@@ -35,10 +35,10 @@
 > Rust 的类型系统是其"零成本抽象"的基石。理解 enum / 泛型 / Trait 三件套，等于掌握了 Rust 抽象能力的 80%。 > **Rust 类型系统 = 枚举 + 模式匹配 + 泛型 + Trait**。**核心：类型即文档、编译期多态、零运行时开销**。 --- - **02-types-traits/enum-and-pattern**：枚举与模式匹配深度 - **02-ty
 
 ## [Trait 对象与动态分发](https://java-px.bot.cd/rust/02-types-traits/trait-objects)
-> dyn Trait 是运行时多态：通过虚函数表（vtable）在运行时决定调用的具体实现。 > **dyn Trait = 运行时多态**。**核心：堆分配的 Box\<dyn Trait\> / 引用形式 &dyn Trait**。**对比泛型：性能略低、灵活性高**。 --- - **02-types-traits/trait**：Trait 基础 - **02-types-traits/ge
+> dyn Trait 是运行时多态：通过虚函数表（vtable）在运行时决定调用的具体实现。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <defs> <marker id="
 
 ## [Trait](https://java-px.bot.cd/rust/02-types-traits/trait)
-> Trait 是 Rust 行为抽象的核心：定义共享行为，支持默认方法、关联类型、Trait bound。 > **Trait = 行为接口 + 默认实现 + 关联类型**。**类比 Java interface 但更强（默认方法 + 默认泛型 + 关联类型）**。 --- - **02-types-traits/overview**：类型系统 - **02-types-traits/generic
+> Trait 是 Rust 行为抽象的核心：定义共享行为，支持默认方法、关联类型、Trait bound。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif"> <defs> <mark
 
 ## [Cargo](https://java-px.bot.cd/rust/03-ecosystem/cargo)
 > Cargo 是 Rust 的官方构建系统与包管理器：一个工具搞定 build / test / bench / doc / publish。 > **Cargo = Rust 的 npm + maven + make + 文档生成器**。**核心：项目工作流 + 依赖管理 + 测试 + 发布**。 --- - **03-ecosystem/overview**：生态总览 - **03-ecosys
@@ -56,7 +56,7 @@
 > Rust 工具链一流：rustfmt / clippy / rust-analyzer / cargo test / cargo bench 全内置。 > **Rust 工具链 = 格式化 + lint + IDE + 测试 + 基准**。**核心：cargo test / clippy / rust-analyzer**。 --- - **03-ecosystem/overview**：生态总览
 
 ## [async / await](https://java-px.bot.cd/rust/04-concurrency/async-await)
-> Rust async-await 是零成本抽象：编译为状态机，运行时由 tokio / async-std 调度。 > **async-await = 零成本协程**。**核心：Future trait / 状态机 / 运行时调度**。**与线程对比：内存更省、并发更高**。 --- - **04-concurrency/overview**：并发总览 - **04-concurrency/tok
+> ![Rust Async 运行时](/rust-async-runtime.svg) Rust async-await 是零成本抽象：编译为状态机，运行时由 tokio / async-std 调度。 > **async-await = 零成本协程**。**核心：Future trait / 状态机 / 运行时调度**。**与线程对比：内存更省、并发更高**。 --- - **04-concurr
 
 ## [Channel 与共享状态](https://java-px.bot.cd/rust/04-concurrency/channels)
 > 并发原语两大阵营：消息传递（Channel）与共享状态（Arc + Mutex）。Rust 都提供类型安全版本。 > **Channel = 消息传递、Arc`<Mutex>` = 共享状态**。**Rust 哲学："恐惧共享，鼓励消息传递"**。 --- - **04-concurrency/overview**：并发总览 - **04-concurrency/threads**：线程 - **
@@ -106,5 +106,17 @@
 ## [智能指针](https://java-px.bot.cd/rust/06-advanced/smart-pointer)
 > 智能指针是实现了 Deref + Drop 的数据结构，管理堆内存的所有权与生命周期。 > **智能指针 = 实现 Deref + Drop 的指针**。**核心：Box / Rc / Arc / RefCell / Mutex**。 --- - **02-types-traits/advanced-types**：高级类型 - **04-concurrency/channels**：Channe
 
+## [速查表](https://java-px.bot.cd/rust/cheatsheet)
+> > 高频 Rust 命令/概念速查，支持分类过滤和关键词搜索（Cmd+F 即可）。 | 场景 | 命令/概念 | |------|----------| | 入门 | 从 [📖 学习路径](/path) 开始 | | 查找 | 用 [🧭 思维导图](/mindmap) 总览 | | 总览 | 看 [🌐 知识图谱](/graph) 分类 | | 搜索 | 浏览器 Cmd+F 全文检索 | - 各子目
+
+## [知识图谱](https://java-px.bot.cd/rust/graph)
+> > 树形结构总览 Rust 全栈知识，按主题分类组织。点击节点跳转到对应章节。 本站涵盖以下核心主题，建议按分类顺序学习： 1. **基础概念** - 从零开始的入门必备 2. **核心原理** - 深入理解底层机制 3. **实战应用** - 结合真实场景的最佳实践 4. **生态工具** - 提升效率的配套工具 - [📖 学习路径](/path) - 推荐阅读顺序 - [🧭 思维导图](/mi
+
 ## [Rust 知识图谱](https://java-px.bot.cd/rust/index)
 > <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "所有权 / 借用 / 生命周期推导卡壳？", "异步编程（async-await / Tokio）复杂？", "Trait / 泛型 / 高级类型（新类型
+
+## [思维导图](https://java-px.bot.cd/rust/mindmap)
+> > 树形结构总览 Rust 全栈知识，点击叶子节点跳转。 请参考各分类目录的内容，或直接查看： - [📖 学习路径](/path) - 按角色推荐阅读顺序 - [📋 速查表](/cheatsheet) - 高频命令速查 - [🌐 知识图谱](/graph) - 主题分类总览
+
+## [学习路径](https://java-px.bot.cd/rust/path)
+> > 根据你的角色选择对应路径，每条路径推荐了核心阅读顺序。 适合**刚接触 Rust**的初学者。 1. 阅读首页（[/](/)）了解整体结构 2. 查看 [🧭 思维导图](/mindmap) 熟悉全站布局 3. 选择一个子目录从 overview.md 开始 4. 边学边查 [📋 速查表](/cheatsheet) 5. 完成 cheatsheet.md 的练习题 适合**已有基础**的开发者。

@@ -8,7 +8,9 @@ date: 2026-08-15  # date-auto-injected
 # Java SDK 速查
 
 > **54 个** Java Client 代码片段，按 **12 大类** 整理。所有代码段均内建 RestHighLevelClient / New Client 切换按钮。
-> 💡 **想看企业级落地？** → [📚 使用场景与最佳实践](/05-tools/scenarios)（8 个场景：日志分析 / 全文搜索 / 时序监控 / 电商搜索 / 向量 RAG / 地理位置 / 安全审计 / 实时报表）
+<TipBox icon="💡" title="提示" variant="tip">
+  **想看企业级落地？** → [📚 使用场景与最佳实践](/05-tools/scenarios)（8 个场景：日志分析 / 全文搜索 / 时序监控 / 电商搜索 / 向量 RAG / 地理位置 / 安全审计 / 实时报表）
+</TipBox>
 
 ## ☕ 分类索引
 
@@ -40,7 +42,9 @@ date: 2026-08-15  # date-auto-injected
 | 7.17.x | 7.17.10 |
 | 8.x | 8.x.x |
 
-> ⚠️ 版本必须严格对应，否则编译失败。
+<TipBox icon="⚠️" title="注意" variant="warn">
+  版本必须严格对应，否则编译失败。
+</TipBox>
 
 ## 🆚 RestHighLevelClient 对比
 
@@ -87,13 +91,15 @@ SearchRequest.of(s -> s
 - [Java Client 官方文档](https://www.elastic.co/guide/en/elasticsearch/client/java-api-client/current/introduction.html)
 - [Match Query](/02-query/match)
 - [聚合 Aggregation](/02-query/aggregation)
+<CrossSiteNav :items="[
+    { site: 'mysql', label: 'MySQL 全文索引对比', url: 'https://java-px.bot.cd/mysql/' },
+    { site: 'clickhouse', label: 'ClickHouse OLAP 对比', url: 'https://java-px.bot.cd/clickhouse/' },
+    { site: 'bigdata', label: '大数据生态', url: 'https://java-px.bot.cd/bigdata/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
 
-<!-- xlink-subpage-injected:do-not-edit -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
 
-本页相关主题的跨站入口:
-
-- [mysql](https://java-px.bot.cd/mysql/):MySQL 全文索引对比
-- [clickhouse](https://java-px.bot.cd/clickhouse/):ClickHouse OLAP 对比
-- [bigdata](https://java-px.bot.cd/bigdata/):大数据生态
+<!-- giscus-injected:do-not-edit -->

@@ -18,7 +18,9 @@ IK 是**国内最常用的中文分词器**，由 Elasticsearch-Medcl 维护，�
 ./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.17.10/elasticsearch-analysis-ik-7.17.10.zip
 ```
 
-> ⚠️ 插件版本必须**与 ES 主版本严格一致**（如 7.17.x 对应 IK 7.17.x）
+<TipBox icon="⚠️" title="注意" variant="warn">
+  插件版本必须**与 ES 主版本严格一致**（如 7.17.x 对应 IK 7.17.x）
+</TipBox>
 
 ## 📚 两种分词模式
 
@@ -77,7 +79,9 @@ PUT /products
 罗永浩
 ```
 
-> ⚠️ 修改词典后需要**重启**节点（IK 不支持热加载）
+<TipBox icon="⚠️" title="注意" variant="warn">
+  修改词典后需要**重启**节点（IK 不支持热加载）
+</TipBox>
 
 ## 🗺️ 在图谱中的位置
 

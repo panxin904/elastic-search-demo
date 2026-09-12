@@ -7,7 +7,9 @@ date: 2026-08-15  # date-auto-injected
 
 本页聚焦从 7.x 升级到 8.x 时**最关键的差异点**，供升级决策参考。
 
-> 💡 本站主要讲 ES 7.17（搭配 [elastic-search-demo](https://github.com/your-repo) 项目使用 7.17.10）。如需了解 8.x 新特性请参考 [官方升级指南](https://www.elastic.co/guide/en/elasticsearch/reference/current/migrating-8.0.html)。
+<TipBox icon="💡" title="提示" variant="tip">
+  本站主要讲 ES 7.17（搭配 [elastic-search-demo](https://github.com/your-repo) 项目使用 7.17.10）。如需了解 8.x 新特性请参考 [官方升级指南](https://www.elastic.co/guide/en/elasticsearch/reference/current/migrating-8.0.html)。
+</TipBox>
 
 ## 📊 总览对比
 
@@ -43,7 +45,9 @@ ES 8.x：
 ./bin/elasticsearch-reset-password -u elastic
 ```
 
-> ⚠️ 从 7.x 升级到 8.x 时，安全配置将**自动开启**！需要提前准备证书。
+<TipBox icon="⚠️" title="注意" variant="warn">
+  从 7.x 升级到 8.x 时，安全配置将**自动开启**！需要提前准备证书。
+</TipBox>
 
 ## 📦 2. Java Client 迁移
 
@@ -170,13 +174,15 @@ PUT /metrics
 ## 🗺️ 在图谱中的位置
 
 <KnowledgeGraph mode="full" :height="500" />
+<CrossSiteNav :items="[
+    { site: 'mysql', label: 'MySQL 全文索引对比', url: 'https://java-px.bot.cd/mysql/' },
+    { site: 'clickhouse', label: 'ClickHouse OLAP 对比', url: 'https://java-px.bot.cd/clickhouse/' },
+    { site: 'bigdata', label: '大数据生态', url: 'https://java-px.bot.cd/bigdata/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
 
-<!-- xlink-subpage-injected:do-not-edit -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
 
-本页相关主题的跨站入口:
-
-- [mysql](https://java-px.bot.cd/mysql/):MySQL 全文索引对比
-- [clickhouse](https://java-px.bot.cd/clickhouse/):ClickHouse OLAP 对比
-- [bigdata](https://java-px.bot.cd/bigdata/):大数据生态
+<!-- giscus-injected:do-not-edit -->

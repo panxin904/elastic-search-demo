@@ -1,8 +1,8 @@
 # observability 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 50 个文档页 · 254,239 字
-> 生成时间：2026-08-27T21:42:04
+> 54 个文档页 · 277,825 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [可观测性四大支柱](https://java-px.bot.cd/observability/01-foundations/four-pillars)
 > Metrics / Logs / Traces / Events 信号体系
@@ -151,5 +151,17 @@
 ## [微服务全链路追踪](https://java-px.bot.cd/observability/11-scenarios/microservice-trace)
 > 跨服务 trace + 服务地图 + 依赖分析
 
+## [速查表](https://java-px.bot.cd/observability/cheatsheet)
+> > 高频 可观测性 命令/概念速查，支持分类过滤和关键词搜索（Cmd+F 即可）。 | 场景 | 命令/概念 | |------|----------| | 入门 | 从 [📖 学习路径](/path) 开始 | | 查找 | 用 [🧭 思维导图](/mindmap) 总览 | | 总览 | 看 [🌐 知识图谱](/graph) 分类 | | 搜索 | 浏览器 Cmd+F 全文检索 | - 各子目
+
+## [知识图谱](https://java-px.bot.cd/observability/graph)
+> > 树形结构总览 可观测性 全栈知识，按主题分类组织。点击节点跳转到对应章节。 本站涵盖以下核心主题，建议按分类顺序学习： 1. **基础概念** - 从零开始的入门必备 2. **核心原理** - 深入理解底层机制 3. **实战应用** - 结合真实场景的最佳实践 4. **生态工具** - 提升效率的配套工具 - [📖 学习路径](/path) - 推荐阅读顺序 - [🧭 思维导图](/mi
+
 ## [Observability 知识图谱](https://java-px.bot.cd/observability/index)
 > <script setup> // WhyThisGraph 数据：原写在 :prop="..." 里会触发 Vue 编译错误（多行 YAML 数组）， // 改为 script setup 形式。 const painPoints = [ "单体时代（CPU/内存/磁盘）vs 微服务时代（调用链/性能瓶颈）监控差异？", "Metrics / Logs / Traces 三件套怎么选型（Prom
+
+## [思维导图](https://java-px.bot.cd/observability/mindmap)
+> > 树形结构总览 可观测性 全栈知识，点击叶子节点跳转。 请参考各分类目录的内容，或直接查看： - [📖 学习路径](/path) - 按角色推荐阅读顺序 - [📋 速查表](/cheatsheet) - 高频命令速查 - [🌐 知识图谱](/graph) - 主题分类总览
+
+## [学习路径](https://java-px.bot.cd/observability/path)
+> > 根据你的角色选择对应路径，每条路径推荐了核心阅读顺序。 适合**刚接触 可观测性**的初学者。 1. 阅读首页（[/](/)）了解整体结构 2. 查看 [🧭 思维导图](/mindmap) 熟悉全站布局 3. 选择一个子目录从 overview.md 开始 4. 边学边查 [📋 速查表](/cheatsheet) 5. 完成 cheatsheet.md 的练习题 适合**已有基础**的开发者。

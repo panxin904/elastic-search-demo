@@ -24,3 +24,9 @@ class LogAspect {
   }
 }
 ```
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->

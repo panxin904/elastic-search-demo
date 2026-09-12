@@ -77,7 +77,9 @@ Char Filter 是 Analyzer 三段式的**第一段**，在分词**之前**对**原
 }
 ```
 
-> 💡 可用于**手机号脱敏**、统一日期格式等。
+<TipBox icon="💡" title="提示" variant="tip">
+  可用于**手机号脱敏**、统一日期格式等。
+</TipBox>
 
 ## 🔄 与 Token Filter 的区别
 

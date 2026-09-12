@@ -278,13 +278,15 @@ def check_access(user, device, request):
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+<CrossSiteNav :items="[
+    { site: 'linux', label: 'Linux 权限', url: 'https://java-px.bot.cd/linux/' },
+    { site: 'network', label: '网络安全', url: 'https://java-px.bot.cd/network/' },
+    { site: 'cloud-native', label: 'K8s 安全', url: 'https://java-px.bot.cd/cloud-native/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
 
-<!-- xlink-subpage-injected:do-not-edit -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
 
-本页相关主题的跨站入口:
-
-- [linux](https://java-px.bot.cd/linux/):Linux 权限
-- [network](https://java-px.bot.cd/network/):网络安全
-- [cloud-native](https://java-px.bot.cd/cloud-native/):K8s 安全
+<!-- giscus-injected:do-not-edit -->

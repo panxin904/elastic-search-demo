@@ -688,13 +688,15 @@ public class onInventoryFailed(String message) {
 - ✅ 适合数据双写 / 异构同步
 
 **下一步：** [🌀 Saga 模式详解](/14-microservice/saga-pattern) — 跨服务长事务的编排
+<CrossSiteNav :items="[
+    { site: 'postgresql', label: 'PostgreSQL 对比', url: 'https://java-px.bot.cd/postgresql/' },
+    { site: 'redis', label: 'Redis 缓存层', url: 'https://java-px.bot.cd/redis/' },
+    { site: 'clickhouse', label: 'ClickHouse OLAP', url: 'https://java-px.bot.cd/clickhouse/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
 
-<!-- xlink-subpage-injected:do-not-edit -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
 
-本页相关主题的跨站入口:
-
-- [postgresql](https://java-px.bot.cd/postgresql/):PostgreSQL 对比
-- [redis](https://java-px.bot.cd/redis/):Redis 缓存层
-- [clickhouse](https://java-px.bot.cd/clickhouse/):ClickHouse OLAP
+<!-- giscus-injected:do-not-edit -->

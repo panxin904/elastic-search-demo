@@ -161,13 +161,15 @@ Phase 3 (月 5-6)：纯 GitOps
 - 实战案例
 - 参考资料
 <!-- auto-enrich:do-not-edit -->
+<CrossSiteNav :items="[
+    { site: 'cloud-native', label: 'K8s 编排', url: 'https://java-px.bot.cd/cloud-native/' },
+    { site: 'linux', label: 'Linux 运维', url: 'https://java-px.bot.cd/linux/' },
+    { site: 'observability', label: '监控告警', url: 'https://java-px.bot.cd/observability/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
 
-<!-- xlink-subpage-injected:do-not-edit -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
 
-本页相关主题的跨站入口:
-
-- [cloud-native](https://java-px.bot.cd/cloud-native/):K8s 编排
-- [linux](https://java-px.bot.cd/linux/):Linux 运维
-- [observability](https://java-px.bot.cd/observability/):监控告警
+<!-- giscus-injected:do-not-edit -->

@@ -156,3 +156,9 @@ class UserCardComponent {
 
 - [前端框架总览](/03-framework/overview)
 - [React Router](/08-routing/react-router)
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->

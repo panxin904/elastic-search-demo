@@ -52,7 +52,9 @@ POST /products/_forcemerge?max_num_segments=1
 - **搜索性能下降**：查询要扫描更多段
 - **内存压力**：每个段都有独立的内存数据结构
 
-> 💡 建议：写入密集型索引，定期 force merge；查询密集型，保留多个段
+<TipBox icon="💡" title="提示" variant="tip">
+  建议：写入密集型索引，定期 force merge；查询密集型，保留多个段
+</TipBox>
 
 ## 🗺️ 在图谱中的位置
 

@@ -19,7 +19,9 @@ ES 7.x 字段类型分为**六大族系**：
 | `keyword` | 精确匹配、聚合、排序 | ❌ 否 |
 | `wildcard` | 通配符与正则（7.9+） | ❌ 否 |
 
-> ⚠️ ES 7 已**废弃** `string` 类型；现有 5.x 索引需迁移。
+<TipBox icon="⚠️" title="注意" variant="warn">
+  ES 7 已**废弃** `string` 类型；现有 5.x 索引需迁移。
+</TipBox>
 
 ## 🔢 数值族
 

@@ -264,13 +264,9 @@ result = chain.invoke({"input": "..."})
 - [API Key 管理](/13-security/api-keys)
 - [成本控制 / Token](/13-security/cost)
 - [Eval 框架](/09-eval/frameworks)
+<CrossSiteNav :items="[
+    { site: 'python', label: 'Python AI', url: 'https://java-px.bot.cd/python/' },
+    { site: 'bigdata', label: '大数据训练', url: 'https://java-px.bot.cd/bigdata/' },
+    { site: 'system-design', label: 'AI 系统架构', url: 'https://java-px.bot.cd/system-design/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
-
-<!-- xlink-subpage-injected:do-not-edit -->
-
-本页相关主题的跨站入口:
-
-- [python](https://java-px.bot.cd/python/):Python AI
-- [bigdata](https://java-px.bot.cd/bigdata/):大数据训练
-- [system-design](https://java-px.bot.cd/system-design/):AI 系统架构

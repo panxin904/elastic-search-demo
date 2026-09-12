@@ -274,3 +274,9 @@ mount 把 FS 的根 dentry 接到 VFS 树的某个目录，从此该 FS 的文�
 ## 图示：VFS 四大对象与具体文件系统
 
 ![VFS 四大对象与具体文件系统](/linux-vfs.svg)
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->

@@ -72,3 +72,9 @@ date: 2026-08-27  # date-auto-injected
 ## 图示：ECS 实体组件系统架构
 
 ![ECS 实体组件系统架构](/ecs-architecture.svg)
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->

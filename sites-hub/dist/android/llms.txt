@@ -1,14 +1,17 @@
 # android 子站
 
 > 自动生成 by sites-hub/scripts/build-sitemap-and-llms.py（C12）
-> 29 个文档页 · 43,494 字
-> 生成时间：2026-08-27T21:42:04
+> 36 个文档页 · 48,015 字
+> 生成时间：2026-09-08T21:48:47
 
 ## [应用层](https://java-px.bot.cd/android/01-app/README)
 > Android 应用层：语言 + Jetpack + 协程，业务开发核心栈。 | 节点 | 一句话 | |------|--------| | [Kotlin / Java / NDK](./language) | JVM 语言与现代 Android 开发 | | [Jetpack 套件](./jetpack) | ViewModel / LiveData / Room / Hilt / Work
 
 ## [Kotlin 协程](https://java-px.bot.cd/android/01-app/coroutine)
 > > Kotlin 协程：轻量级线程（百万级并发）+ 结构化并发 + 取消传播。 - Dispatchers：Main（UI）/ IO（网络磁盘）/ Default（CPU） - Scope 层级：GlobalScope / viewModelScope / lifecycleScope - 异常处理：CoroutineExceptionHandler / SupervisorJob - Chann
+
+## [应用层](https://java-px.bot.cd/android/01-app/index)
+> > Activity / Fragment / Service / BroadcastReceiver / ContentProvider <!-- 本节目录待补充 --> - [🏠 Android首页](/) - [📖 Android学习路径](/path) - [🧭 Android思维导图](/mindmap) - [📋 Android速查表](/cheatsheet) 本章为新设立的占位页，
 
 ## [Jetpack 套件](https://java-px.bot.cd/android/01-app/jetpack)
 > > Google Jetpack 一站式 Android 架构组件，覆盖 UI / 数据 / 生命周期 / 依赖注入。 - ViewModel：UI 数据持有者（屏幕旋转不丢） - LiveData / Flow：响应式数据流 - Room：SQLite ORM - Hilt：编译期 DI - WorkManager：后台任务调度 - DataStore：替代 SharedPreferences
@@ -22,6 +25,9 @@
 ## [Jetpack Compose](https://java-px.bot.cd/android/02-ui/compose)
 > > 声明式 UI 框架，Kotlin DSL + 状态驱动 + 自动重组（Recomposition）。 - 状态管理：State / MutableState / remember / rememberSaveable - Modifier 链：顺序决定行为（padding 后点击 vs 点击后 padding） - Material 3：动态颜色 / 主题切换 - 重组优化：稳定参数 + La
 
+## [UI 体系](https://java-px.bot.cd/android/02-ui/index)
+> > View / Compose / RecyclerView / 布局 / 主题 <!-- 本节目录待补充 --> - [🏠 Android首页](/) - [📖 Android学习路径](/path) - [🧭 Android思维导图](/mindmap) - [📋 Android速查表](/cheatsheet) 本章为新设立的占位页，详细内容正在按 §8.81 计划逐步补充。
+
 ## [资源与适配](https://java-px.bot.cd/android/02-ui/resource)
 > > Android 资源系统：颜色 / 主题 / 字符串 / Drawable / 多分辨率屏幕适配。 - 主题：Material 3 / DayNight / 自定义 Theme - 颜色：Color tokens（语义化命名） - 国际化：strings.xml 多语言（values-zh / values-en） - 屏幕适配：sw600dp / smallestWidth / 矢量图 /
 
@@ -30,6 +36,9 @@
 
 ## [系统层](https://java-px.bot.cd/android/03-system/README)
 > 系统层：从启动到 IPC 到运行时 + 框架服务。 | 节点 | 一句话 | |------|--------| | [启动流程](./startup) | Boot ROM → Zygote → SystemServer → 第一个 App | | [IPC 机制](./ipc) | Binder / AIDL / Messenger / ContentProvider | | [ART 运行时
+
+## [系统层](https://java-px.bot.cd/android/03-system/index)
+> > AMS / WMS / PMS / Binder / Handler / Looper <!-- 本节目录待补充 --> - [🏠 Android首页](/) - [📖 Android学习路径](/path) - [🧭 Android思维导图](/mindmap) - [📋 Android速查表](/cheatsheet) 本章为新设立的占位页，详细内容正在按 §8.81 计划逐步补充。
 
 ## [IPC 机制](https://java-px.bot.cd/android/03-system/ipc)
 > > Android 进程间通信核心机制：Binder（高频）/ AIDL（强类型）/ Messenger（队列）/ ContentProvider（数据共享）。 - Binder：基于 mmap 的 IPC，单次拷贝性能高 - AIDL：定义跨进程接口（编译期生成 Stub/Proxy） - Messenger：Handler + Parcelable 序列化消息 - ContentProvide
@@ -52,6 +61,9 @@
 ## [跨平台框架](https://java-px.bot.cd/android/04-cross/frameworks)
 > > Android 之外的跨平台方案：Flutter（自绘 UI）/ React Native（JS 桥）/ KMP（共享逻辑）/ Compose Multiplatform（共享 UI）。 - Flutter：Dart + Skia 自绘 UI，跨 Android/iOS/Web/Desktop - React Native：JS 业务 + 原生组件桥接 - KMP：共享 Kotlin 业务逻辑
 
+## [跨平台](https://java-px.bot.cd/android/04-cross/index)
+> > React Native / Flutter / Compose Multiplatform / WebView <!-- 本节目录待补充 --> - [🏠 Android首页](/) - [📖 Android学习路径](/path) - [🧭 Android思维导图](/mindmap) - [📋 Android速查表](/cheatsheet) 本章为新设立的占位页，详细内容正在按 §8.
+
 ## [工具链](https://java-px.bot.cd/android/05-toolchain/README)
 > 工具链：构建 + IDE + 发布。 | 节点 | 一句话 | |------|--------| | [构建系统](./gradle) | Gradle KTS / AGP / Build Variants / CI/CD | | [Android Studio](./ide) | Profiler / Layout Inspector / APK Analyzer | | [发布与上架](./
 
@@ -61,11 +73,17 @@
 ## [Android Studio](https://java-px.bot.cd/android/05-toolchain/ide)
 > > 官方 IDE：编码 / 调试 / 性能分析一体化工具集。 - Profiler：CPU / Memory / Network / Energy 实时分析 - Layout Inspector：运行时 View 树可视化 - APK Analyzer：APK 包结构 / 资源占用分析 - Database Inspector：SQLite / Room 数据库浏览 - [构建系统](./grad
 
+## [工具链](https://java-px.bot.cd/android/05-toolchain/index)
+> > Gradle / ADB / Android Studio / 调试工具 <!-- 本节目录待补充 --> - [🏠 Android首页](/) - [📖 Android学习路径](/path) - [🧭 Android思维导图](/mindmap) - [📋 Android速查表](/cheatsheet) 本章为新设立的占位页，详细内容正在按 §8.81 计划逐步补充。
+
 ## [发布与上架](https://java-px.bot.cd/android/05-toolchain/publish)
 > > 从 App Bundle 到 Play Console / 国内应用市场的发布流程。 - App Bundle（.aab）：按设备 ABI / Density 拆分，包体积减 30%+ - Play Console：上传 .aab + 商店信息 + 隐私政策 - 国内应用市场：腾讯 / 华为 / 小米 / OPPO / VIVO 多渠道 - Firebase：Crashlytics / Ana
 
 ## [性能与安全](https://java-px.bot.cd/android/06-perf/README)
 > 性能与安全：启动 / 内存 / ANR / 权限 / 加密。 | 节点 | 一句话 | |------|--------| | [性能优化](./performance) | 启动 / Baseline Profile / 内存 / ANR / 包大小 | | [安全机制](./security) | 权限 / Scoped Storage / Network Security / Keystor
+
+## [性能优化](https://java-px.bot.cd/android/06-perf/index)
+> > 启动优化 / 内存 / 卡顿 / 包体积 / 电量 <!-- 本节目录待补充 --> - [🏠 Android首页](/) - [📖 Android学习路径](/path) - [🧭 Android思维导图](/mindmap) - [📋 Android速查表](/cheatsheet) 本章为新设立的占位页，详细内容正在按 §8.81 计划逐步补充。
 
 ## [性能优化](https://java-px.bot.cd/android/06-perf/performance)
 > > Android 性能五大维度：启动 / 内存 / 流畅度 / 包大小 / 电量。 - 启动优化：冷启动 < 1.5s（推荐 < 1s）+ Baseline Profile - 内存：避免 OOM + 内存泄漏（LeakCanary 检测） - 流畅度：Jank < 5%，Choreographer 监控 - ANR：主线程 5s 无响应（Input 2s） - 包大小：APK Analyzer
@@ -78,6 +96,9 @@
 
 ## [Android 速查表](https://java-px.bot.cd/android/cheatsheet)
 > > Gradle / Manifest / 常用命令 / 关键 API 一页速查。 | 作用域 | 生命周期 | 典型用途 | |---|---|---| | GlobalScope | 整个应用进程 | 慎用 | | MainScope | 手动管理 | 替代 GlobalScope | | lifecycleScope | Activity/Fragment | UI 层业务 | | view
+
+## [知识图谱](https://java-px.bot.cd/android/graph)
+> > 树形结构总览 Android 全栈知识，按主题分类组织。点击节点跳转到对应章节。 本站涵盖以下核心主题，建议按分类顺序学习： 1. **基础概念** - 从零开始的入门必备 2. **核心原理** - 深入理解底层机制 3. **实战应用** - 结合真实场景的最佳实践 4. **生态工具** - 提升效率的配套工具 - [📖 学习路径](/path) - 推荐阅读顺序 - [🧭 思维导图](
 
 ## [android 知识图谱](https://java-px.bot.cd/android/index)
 > <script setup> const painPoints = [ "Activity / Fragment 生命周期混乱：屏幕旋转后 ViewModel 数据丢失？", "协程作用域错位：GlobalScope / viewModelScope / lifecycleScope 该用哪个？", "Compose 与 View 混用：状态同步、重组范围、跨进程通信怎么搞？", "应用卡顿 /

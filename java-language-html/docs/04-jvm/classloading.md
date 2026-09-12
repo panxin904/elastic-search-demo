@@ -84,13 +84,15 @@ date: 2026-08-15  # date-auto-injected
 ClassLoader cl = String.class.getClassLoader();  // null = Bootstrap
 ClassLoader app = MyClass.class.getClassLoader(); // AppClassLoader
 ```
+<CrossSiteNav :items="[
+    { site: 'java-web-manual', label: 'Java Web 开发', url: 'https://java-px.bot.cd/java-web-manual/' },
+    { site: 'system-design', label: 'JVM 调优实战', url: 'https://java-px.bot.cd/system-design/' },
+    { site: 'architecture', label: 'JVM 在架构中的角色', url: 'https://java-px.bot.cd/architecture/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
 
-<!-- xlink-subpage-injected:do-not-edit -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
 
-本页相关主题的跨站入口:
-
-- [java](https://java-px.bot.cd/java-web-manual/):Java Web 开发
-- [system-design](https://java-px.bot.cd/system-design/):JVM 调优实战
-- [architecture](https://java-px.bot.cd/architecture/):JVM 在架构中的角色
+<!-- giscus-injected:do-not-edit -->

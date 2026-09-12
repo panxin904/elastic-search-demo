@@ -76,7 +76,9 @@ POST /_analyze
 ["中", "华", "人", "民", "共", "和", "国"]
 ```
 
-> 💡 **中文生产环境推荐 IK / pinyin / 自研分词**
+<TipBox icon="💡" title="提示" variant="tip">
+  **中文生产环境推荐 IK / pinyin / 自研分词**
+</TipBox>
 
 ## 🗺️ 在图谱中的位置
 

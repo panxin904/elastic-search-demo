@@ -294,3 +294,9 @@ response = llm.invoke("hello")
 - [context-tokens](./context-tokens) - TPM 限流
 - [streaming-protocol](./streaming-protocol) - 流式断流处理
 - [13-security/cost](../13-security/cost) - 成本监控
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->

@@ -142,7 +142,9 @@ Docker / containerd 数据目录？
 - XFS:    35s
 - Btrfs:  90s（COW 慢）
 
-> ⚠️ 实际性能**强烈依赖**内核版本、硬件、配置。以上仅参考。
+<TipBox icon="⚠️" title="注意" variant="warn">
+  实际性能**强烈依赖**内核版本、硬件、配置。以上仅参考。
+</TipBox>
 
 ## 迁移路径
 

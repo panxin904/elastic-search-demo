@@ -216,3 +216,9 @@ public String createShortUrl(String longUrl, Long userId) {
 - [分布式 ID](/10-database-sharding/id)
 - [限流令牌桶算法](/04-rate-limit/token-bucket)
 - [异地多活](/14-enterprise-cases/multi-region)
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->

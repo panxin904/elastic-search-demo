@@ -170,13 +170,9 @@ mtr -r -c 10 baidu.com
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+<CrossSiteNav :items="[
+    { site: 'linux', label: 'Linux 网络栈', url: 'https://java-px.bot.cd/linux/' },
+    { site: 'security', label: '网络安全', url: 'https://java-px.bot.cd/security/' },
+    { site: 'cloud-native', label: 'K8s 网络', url: 'https://java-px.bot.cd/cloud-native/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
-
-<!-- xlink-subpage-injected:do-not-edit -->
-
-本页相关主题的跨站入口:
-
-- [linux](https://java-px.bot.cd/linux/):Linux 网络栈
-- [security](https://java-px.bot.cd/security/):网络安全
-- [cloud-native](https://java-px.bot.cd/cloud-native/):K8s 网络

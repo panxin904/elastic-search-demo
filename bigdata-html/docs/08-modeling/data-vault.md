@@ -221,13 +221,9 @@ WHERE ab.load_end_date IS NULL;
 - [Inmon vs Kimball](/08-modeling/inmon-kimball)
 - [星型 / 雪花](/08-modeling/star-snowflake)
 - [数据湖 三剑客](/10-data-lake/three-pillars)
+<CrossSiteNav :items="[
+    { site: 'kafka', label: 'Kafka 流处理', url: 'https://java-px.bot.cd/kafka/' },
+    { site: 'es', label: 'Elasticsearch', url: 'https://java-px.bot.cd/es/' },
+    { site: 'clickhouse', label: 'ClickHouse OLAP', url: 'https://java-px.bot.cd/clickhouse/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
-
-<!-- xlink-subpage-injected:do-not-edit -->
-
-本页相关主题的跨站入口:
-
-- [kafka](https://java-px.bot.cd/kafka/):Kafka 流处理
-- [es](https://java-px.bot.cd/es/):Elasticsearch
-- [clickhouse](https://java-px.bot.cd/clickhouse/):ClickHouse OLAP

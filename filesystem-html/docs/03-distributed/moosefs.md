@@ -215,13 +215,9 @@ mfscli -H mfsmaster rmdirs /unused/*
 - 官方文档：<https://moosefs.com/docs.html>
 - GitHub（社区版）：<https://github.com/moosefs/moosefs>
 - 《MooseFS 实战》
+<CrossSiteNav :items="[
+    { site: 'linux', label: 'Linux 文件系统', url: 'https://java-px.bot.cd/linux/' },
+    { site: 'observability', label: '存储监控', url: 'https://java-px.bot.cd/observability/' },
+    { site: 'postgresql', label: 'PG 存储引擎', url: 'https://java-px.bot.cd/postgresql/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
-
-<!-- xlink-subpage-injected:do-not-edit -->
-
-本页相关主题的跨站入口:
-
-- [linux](https://java-px.bot.cd/linux/):Linux 文件系统
-- [observability](https://java-px.bot.cd/observability/):存储监控
-- [postgresql](https://java-px.bot.cd/postgresql/):PG 存储引擎

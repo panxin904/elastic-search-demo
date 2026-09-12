@@ -260,13 +260,9 @@ OS 内核 (FS / Scheduler / Network)
 - Brendan Gregg《性能之巅》
 - USE 方法博客
 - RED 方法博客
+<CrossSiteNav :items="[
+    { site: 'linux', label: 'Linux 文件系统', url: 'https://java-px.bot.cd/linux/' },
+    { site: 'observability', label: '存储监控', url: 'https://java-px.bot.cd/observability/' },
+    { site: 'postgresql', label: 'PG 存储引擎', url: 'https://java-px.bot.cd/postgresql/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
-
-<!-- xlink-subpage-injected:do-not-edit -->
-
-本页相关主题的跨站入口:
-
-- [linux](https://java-px.bot.cd/linux/):Linux 文件系统
-- [observability](https://java-px.bot.cd/observability/):存储监控
-- [postgresql](https://java-px.bot.cd/postgresql/):PG 存储引擎

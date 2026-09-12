@@ -277,3 +277,9 @@ Error Budget = 1% = 每月可"烧" 432 分钟
 ---
 
 🏠 <a href="https://java-px.bot.cd/" target="_blank">返回门户首页</a>
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->

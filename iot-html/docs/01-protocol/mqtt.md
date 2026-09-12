@@ -67,13 +67,15 @@ client.loop_forever()
 - 常见 3-5 个错误及排查
 - 进阶阅读资料链接
 <!-- auto-enrich:do-not-edit -->
+<CrossSiteNav :items="[
+    { site: 'android', label: 'Android Things', url: 'https://java-px.bot.cd/android/' },
+    { site: 'linux', label: 'Linux 嵌入式', url: 'https://java-px.bot.cd/linux/' },
+    { site: 'rust', label: 'Rust 嵌入式', url: 'https://java-px.bot.cd/rust/' }
+  ]" />
 
-## 🔗 相关阅读（跨站导航）
 
-<!-- xlink-subpage-injected:do-not-edit -->
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
 
-本页相关主题的跨站入口:
-
-- [android](https://java-px.bot.cd/android/):Android Things
-- [linux](https://java-px.bot.cd/linux/):Linux 嵌入式
-- [rust](https://java-px.bot.cd/rust/):Rust 嵌入式
+<!-- giscus-injected:do-not-edit -->

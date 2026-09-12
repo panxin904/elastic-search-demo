@@ -546,3 +546,9 @@ public boolean createOrder(OrderDTO dto) {
 - ✅ 监控异常
 
 **下一步：** [☕ 微服务数据库模式](/14-microservice/db-pattern) — 每个服务一个数据库的实践
+
+<ClientOnly>
+  <GiscusComment />
+</ClientOnly>
+
+<!-- giscus-injected:do-not-edit -->
