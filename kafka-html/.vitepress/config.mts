@@ -224,7 +224,7 @@ export default defineConfig({
                                                                                                     { text: '💾 JVM 调优', link: '/09-ops/jvm' },
                                                                                                     { text: '🗑️ 日志清理', link: '/09-ops/log-cleanup' },
                                                                                                     { text: '📈 监控指标', link: '/09-ops/metrics' },
-                                                                                                    { text: '🚑 故障恢复', link: '/09-ops/disaster-recovery' }
+                                                                                                    { text: '🚑 故障恢复', link: '/09-ops/disaster-recovery' },
                                                                                                     { text: '🖥️ Kafka WebUI', link: '/09-ops/webui' },
                                                                                                   ]
                                                                                                 },
