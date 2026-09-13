@@ -225,6 +225,7 @@ export default defineConfig({
                                                                                                     { text: '🗑️ 日志清理', link: '/09-ops/log-cleanup' },
                                                                                                     { text: '📈 监控指标', link: '/09-ops/metrics' },
                                                                                                     { text: '🚑 故障恢复', link: '/09-ops/disaster-recovery' }
+                                                                                                    { text: '🖥️ Kafka WebUI', link: '/09-ops/webui' },
                                                                                                   ]
                                                                                                 },
                                                                                                 {
