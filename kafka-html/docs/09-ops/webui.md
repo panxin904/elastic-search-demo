@@ -157,6 +157,202 @@ helm install kafbat kafbat/kafka-ui     --set clusters[0].name=prod     --set cl
 - **资源敏感/容器小** → 选 AKHQ
 - **生产 Schema Registry 密集** → 选 Kafbat UI（Avro 反序列化体验更好）
 
+## 🧭 Kafbat UI 使用方法
+
+### 一、登录与集群切换
+
+```
+1. 浏览器打开 http://localhost:8080
+2. 输入 LOGIN_FORM 配置的用户名/密码（默认 admin / 你的密码）
+3. 顶部导航栏左侧下拉框选择集群（多集群模式下）
+   - 本地开发：local
+   - 生产环境：prod
+4. 进入首页 Dashboard：显示 brokers 数量、topics、consumer groups、吞吐量
+```
+
+### 二、Topic 浏览
+
+```
+1. 左侧菜单 → Topics
+2. 列表显示所有 topic（含分区数、副本数、size、lag）
+3. 排序技巧：
+   - 按分区数降序：识别热门 topic
+   - 按 lag 降序：识别消费堆积
+   - 按 messages/s：识别生产活跃
+4. 点 topic 名 → 进入详情页（5 个 tab）
+```
+
+### 三、消息浏览与搜索（核心）
+
+**步骤 1：进入 Messages Tab**
+```
+左侧菜单 → Topics → {topic 名} → 顶部 tab → Messages
+```
+
+**步骤 2：基础搜索（顶部搜索框）**
+
+搜索框支持以下几种匹配方式，按从简单到复杂：
+
+| 搜索写法 | 含义 | 示例 |
+|---|---|---|
+| `text` | 在 **value** 中 substring 匹配 | `order_id` |
+| `key:text` | 在 **key** 中 substring 匹配 | `key:user-001` |
+| `header:text` | 在 **headers** 中 substring 匹配 | `header:traceId` |
+
+> 多个条件可空格串联（如 `key:user-001 error`）
+
+**步骤 3：高级过滤（Filter 图标）**
+
+点搜索框右侧漏斗/筛选图标，展开高级面板：
+
+| 过滤项 | 作用 | 写法 |
+|---|---|---|
+| **Search by** | 切换 key/value/header 范围 | 单选 |
+| **Key contains** | key 子串（精确） | `user-001` |
+| **Header contains** | header 子串 | `traceId=abc` |
+| **Timestamp from** | 时间起点 | `2026-09-13T00:00:00Z` |
+| **Timestamp to** | 时间终点 | `2026-09-13T23:59:59Z` |
+| **Partition** | 限定分区 | `0,1,2`（逗号分隔）或 `all` |
+| **Offset from** | 偏移量起点 | `earliest` / `latest` / 数字 |
+| **Offset to** | 偏移量终点 | 同上 |
+| **Max results** | 最多返回条数 | `100`（默认） |
+
+**实战搜索案例**：
+
+```bash
+# 案例 1：找用户 user-001 的所有订单
+Key contains: user-001
+
+# 案例 2：找 traceId 是 abc-123 的消息
+Header contains: abc-123
+
+# 案例 3：找今天 10:00-11:00 的失败消息（含 "error" 子串）
+Search by: value
+Filter text: error
+Timestamp from: 2026-09-13T10:00:00Z
+Timestamp to:   2026-09-13T11:00:00Z
+
+# 案例 4：只看分区 0 和 1 的最新 50 条
+Partition: 0,1
+Offset from: latest
+Offset to: latest
+Max results: 50
+
+# 案例 5：定位上午 9 点附近的特定 offset
+Timestamp from: 2026-09-13T08:55:00Z
+Timestamp to:   2026-09-13T09:05:00Z
+Offset from: earliest
+```
+
+**步骤 4：消息详情操作**
+
+消息列表上方工具栏：
+```
+[Produce Message] [Delete Selected] [Clear All Filters] [↻ Re-fetch]
+```
+
+点单条消息右侧 `⋯` 菜单：
+- **View as JSON / Avro / Protobuf / String**（自动按 schema 反序列化）
+- **Copy value / Copy key / Copy offset**
+- **Resend**（重投到同 topic 或其他 topic）
+
+### 四、Consumer Groups 管理
+
+```
+1. 左侧菜单 → Consumers
+2. 列表显示所有消费组：
+   - State (Stable / PreparingRebalance / Empty)
+   - Lag（堆积量）
+   - Members（消费者实例数）
+3. 点消费组 → 进入详情
+   - Members tab：看实例 host / client.id / 分配分区
+   - Offsets tab：单分区已提交 offset
+   - Lag tab：可视化堆积趋势
+4. 操作按钮：
+   - [Reset offset] 重置位点（earliest / latest / 自定义时间）
+   - [Delete consumer group] 删除空组
+```
+
+⚠️ **重置 offset 前必看**：
+- 生产环境对账用**独立 consumer group**（带 `-audit` 后缀）
+- 重置会触发**消息重放**，下游要做好幂等
+
+### 五、Schema Registry 集成
+
+```
+1. 左侧菜单 → Schema Registry（需在 config.yml 配 schemaRegistry URL）
+2. Subjects 列表：所有 schema subject
+3. 点 subject → 看所有 Versions
+4. 切换 Versions tab 对比字段差异
+5. Compatibility 列：每版本的兼容级别（BACKWARD/FORWARD/FULL）
+```
+
+**Avro/Protobuf 消息自动解析**：
+- Topic 详情 → Messages tab → 单条消息 → View as Avro
+- 不需选 schema，Kafbat UI 自动根据 subject 推断
+
+### 六、Kafka Connect 管理
+
+```
+1. 左侧菜单 → Connect（需配 kafkaConnect.address）
+2. 列表：所有 connector + 状态
+3. 点 connector → Tasks / Config / Status 三个 tab
+4. 操作：
+   - Pause / Resume connector
+   - Restart connector / single task
+   - Update connector config（动态修改，无需重启）
+   - Delete connector
+5. 看任务失败堆栈：
+   - Status tab → Failed task → Error message / Stacktrace
+```
+
+### 七、ACL 权限管理
+
+```
+1. 左侧菜单 → ACLs
+2. 列表：所有 ACL 规则（Principal / Resource / Operation / Permission）
+3. 操作：
+   - Add ACL（grant/revoke）
+   - 按主题/用户过滤
+   - 导出 ACL 列表（JSON 格式）
+```
+
+### 八、KSQL/ksqlDB 流查询（实验性）
+
+```
+1. 左侧菜单 → KSQL（需配 ksqlDb.url）
+2. 直接在 Web UI 写 KSQL 语句
+3. 常用查询：
+   - SELECT * FROM orders EMIT CHANGES LIMIT 10;
+   - SHOW STREAMS; SHOW TABLES;
+4. 流式输出结果面板
+```
+
+### 九、常用快捷键
+
+| 快捷键 | 作用 |
+|---|---|
+| `/` | 聚焦搜索框 |
+| `Esc` | 关闭弹窗 |
+| `↑` `↓` | 消息列表上下选 |
+| `Enter` | 展开/折叠消息详情 |
+| `Ctrl/Cmd + K` | 全局搜索（topic/consumer group/schema） |
+
+### 十一、Kafbat UI 消息搜索技巧汇总
+
+| 场景 | 搜索写法 |
+|---|---|
+| 找特定订单 | `key: order_id=o100` 或 Value contains `o100` |
+| 找错误日志 | Value contains `error` 或 `Exception` |
+| 按 traceId 串请求 | Header contains `abc-123` |
+| 按时间窗口 | Timestamp from/to |
+| 看单分区 | Partition 0 |
+| 跳过重复消息 | Offset from 已知 offset 跳过前 N 条 |
+| 找最大消息 | Offset to = latest, sort by size desc |
+| 找特定 schema 字段 | 需先 View as Avro，结构化字段才可搜 |
+
+> 💡 **高级技巧**：Kafbat UI 不直接支持 JSON path 搜索（如 `$.user.id`），但**反序列化后的结构化 JSON** 可直接用浏览器自带的 `Ctrl+F` 在展开的消息体里搜字段名——比想象中更实用。
+
 ## 🚀 快速部署（AKHQ）
 
 ### Docker Compose（推荐）
