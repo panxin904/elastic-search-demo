@@ -14,12 +14,148 @@ date: 2026-09-13  # date-auto-injected
 | **AKHQ** (formerly Kafka HQ) | tchiotludo | HTTP API | Topic/Consumer/Schema 全功能，ACL 友好，Docker 一键 | 高级 SQL 弱 | **首选**，通用运维 |
 | **Confluent Control Center** | Confluent | JMX + REST | 企业级，告警/监控/流治理一站式 | 商业，集群规模敏感 | 大厂商业版 |
 | **Kafdrop** | HomeAdvisor | HTTP | 轻量、UI 漂亮、启动快 | 功能较薄 | 开发测试 / 小集群 |
+| **Kafbat UI** | kafbat | HTTP | Kafdrop 现代 fork，**多集群 + Connect + Schema + ACL** 全功能，GitHub 8k+ ⭐ 活跃维护 | 文档略薄，但 UI/性能优于 Kafdrop | **生产运维首选**，多集群统一视图 |
 | **Redpanda Console** | Redpanda | HTTP | 现代 UI + Schema Registry 集成 | Kafka 兼容性偶有问题 | 已用 Redpanda |
 | **Conduktor** | Conduktor | 桌面 | 多集群、流量录制 | 客户端软件 | 多集群开发 |
 | **UI for Apache Kafka** | Provectus | HTTP | 简单直观 | 功能最小 | Demo / 教学 |
 | **Lenses** | Landoop | HTTP | KSQL/Connect 全栈 + GitOps | 商业 | 复杂流处理 |
 
-**结论**：自建/开源场景，**AKHQ + Kafdrop 二选一**（推荐 AKHQ，功能更全）。商业场景选 Control Center 或 Lenses。
+**结论**：自建/开源场景 **AKHQ / Kafbat UI 二选一**（AKHQ 老牌稳，Kafbat UI 更现代且多集群视图更友好）。开发测试可选 Kafdrop。商业场景选 Control Center 或 Lenses。
+
+## 🚀 快速部署（Kafbat UI）
+
+> **Kafbat UI 是 Kafdrop 的官方 fork，由社区接手维护**，功能远超原 Kafdrop，是当前 2026 年最值得选的开源 Kafka WebUI。
+
+### Docker 一键启动
+
+```bash
+# 单集群模式（最快）
+docker run -d     --name kafbat-ui     -p 8080:8080     -e KAFKATOOL_CONFIGURATION='{
+        "kafkaClusters": [
+          {
+            "name": "local",
+            "bootstrapServers": "localhost:9092",
+            "properties": {
+              "security.protocol": "PLAINTEXT"
+            }
+          }
+        ]
+      }'     kafbat/kafka-ui:latest
+
+# 访问：http://localhost:8080
+```
+
+### Docker Compose（多集群 + Schema Registry + Connect）
+
+```yaml
+version: '3'
+services:
+  kafbat-ui:
+    image: kafbat/kafka-ui:latest
+    container_name: kafbat-ui
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      KAFKATOOL_CONFIGURATION: |
+        kafka:
+          clusters:
+            - name: dev
+              bootstrapServers: dev-kafka:9092
+              properties:
+                sasl.mechanism: SCRAM-SHA-512
+                security.protocol: SASL_PLAINTEXT
+                sasl.jaas.config: org.apache.kafka.common.security.scram.ScramLoginModule required username="dev-user" password="dev-pass"
+            - name: prod
+              bootstrapServers: prod-kafka-1:9092,prod-kafka-2:9092
+              properties:
+                security.protocol: SASL_SSL
+                ssl.truststore.location: /certs/kafka.truststore.jks
+                ssl.truststore.password: changeit
+              schemaRegistry: https://schema-registry.prod:8081
+              kafkaConnect:
+                - name: connect-1
+                  address: https://kafka-connect.prod:8083
+                  username: connect-user
+                  password: connect-pass
+    volumes:
+      - ./truststore.jks:/certs/kafka.truststore.jks:ro
+      - ./kafbat-config.yml:/app/config.yml:ro
+```
+
+### 配置文件版（推荐生产用）
+
+```yaml
+# kafbat-config.yml
+kafka:
+  clusters:
+    - name: dev
+      bootstrapServers: dev-kafka:9092
+      properties:
+        security.protocol: SASL_PLAINTEXT
+        sasl.mechanism: SCRAM-SHA-512
+        sasl.jaas.config: org.apache.kafka.common.security.scram.ScramLoginModule required username="dev" password="dev-pwd"
+    - name: prod
+      bootstrapServers: prod-kafka:9092
+      properties:
+        security.protocol: SASL_SSL
+        ssl.truststore.location: /app/certs/truststore.jks
+        ssl.truststore.password: changeit
+        ssl.key.password: changeit
+        ssl.key.location: /app/certs/keystore.p12
+      schemaRegistry: https://schema-registry.prod:8081
+      kafkaConnect:
+        - name: connect-prod
+          address: https://kafka-connect.prod:8083
+auth:
+  type: LOGIN_FORM  # 可选 LOGIN_FORM / OAUTH2 / DISABLED
+  simple:
+    users:
+      - username: admin
+        password: $2a$10$...  # bcrypt 哈希
+        roles:
+          - admin
+roles:
+  - name: admin
+    clusters:
+      - dev
+      - prod
+    permissions:
+      - topic:*:*
+      - consumer-group:*:*
+      - acls:full
+```
+
+```bash
+# 启动
+docker-compose up -d kafbat-ui
+# 访问 http://localhost:8080，admin / 你的密码
+```
+
+### Kubernetes（Helm）
+
+```bash
+helm repo add kafbat https://kafbat.github.io/helm-charts
+helm install kafbat kafbat/kafka-ui     --set clusters[0].name=prod     --set clusters[0].bootstrapServers=prod-kafka:9092
+```
+
+### Kafbat UI vs AKHQ：选哪个？
+
+| 维度 | Kafbat UI | AKHQ |
+|---|---|---|
+| UI 设计 | ✅ 更现代，React 18 + Material-UI | 一般，Vue 风格传统 |
+| 多集群切换 | ✅ 顶栏一键切，无缝 | 顶部下拉，每次重载 |
+| Connect/Schema 支持 | ✅ 内置，操作流畅 | ✅ 也有，UI 略弱 |
+| 消息浏览 | ✅ JSON/Avro/Protobuf 自动 schema 解析 | ✅ 需手动选 schema |
+| ACL 管理 | ✅ 细粒度（按 topic/cluster/role） | ✅ 基础 CRUD |
+| 社区活跃度 | ✅ GitHub 8k+ ⭐，周更 | ⚠️ 节奏放缓，月更 |
+| 资源占用 | ⚠️ Spring Boot 启动慢（~30s），内存 ~512MB | ✅ 更轻（~256MB） |
+| 部署复杂度 | ⚠️ 配置文件略复杂 | ✅ env 注入更简单 |
+
+**选型建议**：
+- **多集群统一运维** → 选 Kafbat UI
+- **资源敏感/容器小** → 选 AKHQ
+- **生产 Schema Registry 密集** → 选 Kafbat UI（Avro 反序列化体验更好）
 
 ## 🚀 快速部署（AKHQ）
 
@@ -473,6 +609,8 @@ kafka-acls.sh --bootstrap-server localhost:9092 --list
 ## 📚 延伸阅读
 
 - AKHQ 官方文档：https://akhq.io/docs/
+- Kafbat UI（Kafdrop fork）：https://github.com/kafbat/kafka-ui
+- Kafbat Helm Chart：https://github.com/kafbat/helm-charts
 - Confluent Schema Registry：https://docs.confluent.io/platform/current/schema-registry/
 - ksqlDB 语法速查：https://ksqldb.io/quickstart
 - Kafka REST Proxy：https://docs.confluent.io/platform/current/kafka-rest/
