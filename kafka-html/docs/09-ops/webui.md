@@ -338,6 +338,254 @@ Offset from: earliest
 | `Enter` | 展开/折叠消息详情 |
 | `Ctrl/Cmd + K` | 全局搜索（topic/consumer group/schema） |
 
+### 十、Value 内容查找进阶方法
+
+> 顶部搜索框默认只支持 substring（子串）匹配，但在生产排查中往往不够用。本节汇总多种"穿透到 Value 内容"的实战技巧，按 schema 类型分组。
+
+#### 1. String/纯文本消息
+
+**场景**：日志、文本消息、未结构化的 payload。
+
+```bash
+# 搜索框输入任意子串
+"2026-09-13 ERROR"          # 匹配 value 中包含该子串
+"OutOfMemory"               # 大小写敏感（按字面匹配）
+"支付失败"                  # 中文字符直接 OK（UTF-8 substring）
+
+# 多个条件（空格 = AND）
+"ERROR OutOfMemory"         # 同时包含两个子串
+
+# 高亮匹配
+Kafbat UI 会高亮所有匹配子串（黄色背景）
+```
+
+**坑**：
+- 大文本（>10KB）默认只展示前 10KB → 搜索结果可能漏掉后半段
+- 解决：用 `Offset from/to` 范围 + 时间窗缩小结果集，或用 `Max results=100` 翻页
+
+#### 2. JSON 消息（无 Schema Registry）
+
+**场景**：消息是 JSON 字符串但没注册到 Schema Registry。
+
+```bash
+# 场景 A：搜顶层字段值
+搜索框："user_id":"u001"
+# ↑ 必须包含字段名 + 值（带引号/转义），因为是 substring 匹配整个 JSON 字符串
+
+# 场景 B：搜嵌套字段（多级）
+搜索框："address.city":"Shanghai"
+# ↑ JSON 路径的字符串表示会被原样包含
+
+# 场景 C：搜数组中的元素
+搜索框："items":[{"sku":"sku-001"
+# ↑ 数组元素按 JSON 字面量匹配
+
+# 场景 D：搜索空值字段
+搜索框："deleted_at":null
+# ↑ JSON 序列化后是 "deleted_at":null，可直接搜
+```
+
+**进阶：浏览器 Ctrl+F 二次搜索**
+
+Kafbat UI 把 JSON pretty-print 后展示在 `<pre>` 标签里，可以：
+
+```
+1. 展开单条消息（点 ▶ 或 Enter）
+2. Ctrl+F / Cmd+F 调浏览器搜索
+3. 输入字段名（如 "user_id"）→ 只在已展开的消息里搜
+4. 配合 ↑↓ 切换消息 → 跨消息找所有出现位置
+```
+
+**坑**：
+- JSON 字段顺序可能不一致（特别是 Protobuf 转 JSON） → substring 匹配可能漏
+- 数字字段无引号（`"amount":99.5` vs `"amount":99.500`） → 大小写、数字格式敏感
+
+#### 3. JSON 消息（带 Schema Registry / Avro / Protobuf）
+
+**场景**：消息注册了 schema，Kafbat UI 自动反序列化。
+
+```
+1. 打开消息 → 顶部 View as 下拉选 Avro / Protobuf / JSON Schema
+2. 消息以结构化表格展示（key / type / value 三列）
+3. 搜索框直接搜字段名或字段值：
+```
+
+```bash
+# 搜字段名（顶层）
+搜索框："order_id"
+
+# 搜字段值
+搜索框："o100"
+
+# 搜嵌套字段
+搜索框："user.address.city"
+
+# 搜枚举值
+搜索框："FAILED"
+
+# 搜数字（精确）
+搜索框："99.5"
+# 或用科学计数法："1.0E8"
+```
+
+**优势**：
+- ✅ 不受 JSON 序列化格式影响（空格/字段顺序无关）
+- ✅ 自动按 schema 解析类型（数字 vs 字符串匹配行为差异）
+- ✅ 大消息体（>1MB）也能在反序列化后搜字段
+
+#### 4. 大消息体（>1MB）
+
+```bash
+# 顶部搜索框默认显示前 10KB → 后续内容看不到
+# 解决 1：用 filter 缩小范围
+Partition: 0
+Offset from: 10000
+Offset to: 10100
+
+# 解决 2：调 Max results 到 10（避免一次性加载太多大消息）
+# 解决 3：直接 curl Kafka REST Proxy（不通过 UI）
+```
+
+#### 5. 时间戳搜索（精确到毫秒）
+
+```bash
+# UI 上的 Timestamp from/to 是 ISO8601，秒级精度
+# 但 Kafka 消息的 timestamp 是毫秒，需要：
+
+# 方法 A：用 Offset 反推（已知消息频率）
+# 例如：1 msg/s，第 1000 条 offset=1000，对应时间 = topic创建时间 + 1000s
+
+# 方法 B：配合消息内的时间戳字段
+搜索框："timestamp":1715000000000
+# ↑ 搜消息体内的时间戳字段值（毫秒级）
+
+# 方法 C：curl Kafka REST Proxy 用时间戳消费
+curl -X POST http://kafka-rest:8082/consumers/ts-consumer/instances/i1/positions/start   -H "Content-Type: application/vnd.kafka.json.v2+json"   -d '{"offsets":[{"topic":"orders","partition":0,"offset":1000}]}'
+```
+
+#### 6. URL 深度链接（分享查询条件）
+
+Kafbat UI 的 URL 包含查询参数，可复制 URL 直接分享：
+
+```
+http://localhost:8080/ui/{cluster}/topic/{topic}/messages?filter={encoded_json}
+```
+
+**示例**：
+
+```bash
+# 原始 URL
+http://localhost:8080/ui/local/topic/orders/messages
+
+# 带搜索条件
+http://localhost:8080/ui/local/topic/orders/messages?search=ERROR
+
+# 多条件 JSON
+http://localhost:8080/ui/local/topic/orders/messages?filter={"search":"ERROR","partitions":[0,1],"timestampFrom":"2026-09-13T00:00:00Z","timestampTo":"2026-09-13T23:59:59Z","limit":100}
+```
+
+**应用场景**：
+- 同事协作："这个错的消息在哪个 topic，看我发你的 URL"
+- 故障复盘：把现场 URL 存到 Wiki
+- 自动化监控：定期把异常 topic URL 推送到 Slack
+
+#### 7. 反向搜索（NOT 排除）
+
+Kafbat UI **不直接支持 NOT 操作符**，但可以用以下两种办法：
+
+```bash
+# 方法 A：先搜出所有匹配 + 用浏览器 Ctrl+F 反向过滤
+1. 搜索框："DEBUG"
+2. 消息列表全展开
+3. Ctrl+F 输入 "ERROR"
+4. 只看标记了 ERROR 的 DEBUG 消息
+
+# 方法 B：用 Offset 范围跳过已知区域
+# 例如已知 offset 0-1000 是初始化数据
+Offset from: 1001
+# 跳过这批已知数据
+```
+
+#### 8. 跨消息关联查询
+
+**场景**：一个订单的多次操作分布在不同 topic 或不同分区。
+
+```bash
+# 步骤 1：用 Key 找主消息
+搜索框："order_id":"o100"
+# 找到一条 → 记下 traceId / requestId
+
+# 步骤 2：用 Header 反查
+搜索框："header:abc-123-trace"
+# 同一 traceId 下其他消息
+
+# 步骤 3：切到其他 topic
+http://localhost:8080/ui/local/topic/payments/messages?search=abc-123-trace
+```
+
+#### 9. 通过 REST API 直接查询（绕过 UI）
+
+```bash
+# 用 Kafka REST Proxy 的 consumer API 直接拉数据
+# 优势：可写脚本自动化、可导出 CSV、可不受 UI 限制
+
+curl -X POST -H "Content-Type: application/vnd.kafka.json.v2+json"   --data '{
+    "name": "audit-consumer",
+    "format": "json",
+    "auto.offset.reset": "earliest"
+  }'   http://kafka-rest:8082/consumers/audit-group
+
+curl -X POST -H "Content-Type: application/vnd.kafka.json.v2+json"   --data '{"topics":["orders"]}'   http://kafka-rest:8082/consumers/audit-group/instances/audit-consumer/subscription
+
+# 拉取并 grep
+curl -s -X GET -H "Accept: application/vnd.kafka.json.v2+json"   http://kafka-rest:8082/consumers/audit-group/instances/audit-consumer/records   | jq -c '.[] | .value'   | grep -i "ERROR"
+
+# 清理
+curl -X DELETE http://kafka-rest:8082/consumers/audit-group/instances/audit-consumer
+```
+
+**优势**：
+- ✅ 大批量搜索（>1000 条）
+- ✅ 可配合 grep / jq / awk 做正则、字段提取
+- ✅ 可写 Python 脚本：librdkafka / confluent-kafka-python
+
+#### 10. 字段值精确匹配速查表
+
+| 数据类型 | 搜索写法 | 说明 |
+|---|---|---|
+| 字符串 | `"value"` | 双引号包裹 |
+| 数字 | `99.5` | 无引号，精确匹配 |
+| 布尔 | `true` / `false` | 无引号 |
+| null | `null` | 无引号 |
+| 时间戳 | `1715000000000` | 毫秒整数，无引号 |
+| UUID | `abc-123-def-456` | 完整字符串 |
+| 枚举 | `"FAILED"` | 看具体 JSON 字面量 |
+| 数组 | `[{...},{...}]` | substring 整个数组的 JSON 序列化 |
+
+#### 11. 性能优化
+
+```bash
+# 大集群（>1000 topic）下的搜索技巧：
+1. 用 partition 限定 → 减少扫描量
+2. 用 timestamp 窗口 → 跳过历史数据
+3. 用 Offset 范围 → 跳过无关区间
+4. 关闭"自动刷新"（右上角 Auto-refresh toggle）
+5. Max results 设小一点（默认 100，可改 20）
+```
+
+#### 12. 与其他工具配合
+
+```bash
+# AKHQ 也支持类似语法，但写法略不同
+AKHQ: "JSON Path search"（$.user.id）— 比 Kafbat UI 强
+Kafbat UI: substring + Schema 自动反序列化 — 体感更好
+
+# 实战中两个工具配合用：
+1. Kafbat UI 找大体范围（partition + 时间窗）
+2. AKHQ 在缩小范围内做 JSON Path 精确搜索
+3. 或 curl Kafka REST Proxy 导出大数据集
+```
+
 ### 十一、Kafbat UI 消息搜索技巧汇总
 
 | 场景 | 搜索写法 |
