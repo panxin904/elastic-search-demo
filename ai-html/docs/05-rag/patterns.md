@@ -7,7 +7,7 @@ date: 2026-08-15  # date-auto-injected
 
 > **R**etrieval-**A**ugmented **G**eneration。**让 LLM 回答自己不知道的（私有 / 实时）数据**。
 
-![Rag Pipeline](/rag-pipeline.svg)
+> ⚠️ 原 svg 资产已下线（§8.83 清理）。RAG 流水线：Query → Embedding → Vector DB → Top-K → Context + LLM → Answer。
 
 ## 🤔 为什么需要 RAG
 
@@ -201,7 +201,7 @@ print(results)
 
 ## 图示：RAG 离线索引 + 在线查询
 
-![RAG 离线索引 + 在线查询](/rag-architecture.svg)
+> ⚠️ 原 svg 资产已下线（§8.83 清理）。详见下文 离线索引 + 在线查询 章节。
 <CrossSiteNav :items="[
     { site: 'python', label: 'Python AI', url: 'https://java-px.bot.cd/python/' },
     { site: 'bigdata', label: '大数据训练', url: 'https://java-px.bot.cd/bigdata/' },

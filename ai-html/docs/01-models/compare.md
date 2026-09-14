@@ -98,4 +98,12 @@ print(ask("你好", task="chinese"))
 
 ## 图示：LLM 训练 6 阶段流水线
 
-![LLM 训练 6 阶段流水线](/llm-training-pipeline.svg)
+> ⚠️ 原 svg 资产已下线（§8.83 清理）。本节文字内容如下：
+
+LLM 训练 6 阶段流水线：
+1. **预训练 (Pre-training)**：TB 级文本 → 基础语言模型
+2. **监督微调 SFT**：指令-回答对 → 对齐指令
+3. **奖励建模 RM**：人类偏好排序 → 奖励模型
+4. **RLHF/DPO**：策略优化 → 对齐人类价值观
+5. **安全对齐**：红队攻击 + 拒绝训练
+6. **能力评估**：MMLU / HumanEval / MT-Bench

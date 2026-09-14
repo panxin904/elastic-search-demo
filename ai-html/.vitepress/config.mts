@@ -197,7 +197,13 @@ export default defineConfig({
                                                                                                   text: '🏗️ 部署与推理', items: [
                                                                                                     { text: 'Ollama 本地推理', link: '/10-deploy/ollama' },
                                                                                                     { text: 'vLLM / TGI 服务', link: '/10-deploy/vllm-tgi' },
-                                                                                                    { text: 'API 托管', link: '/10-deploy/hosted' }
+                                                                                                    { text: 'API 托管', link: '/10-deploy/hosted' },
+                                                                                                    { text: '🧬 DeepSeek Harness', link: '/10-deploy/deepseek-harness/00-overview' },
+                                                                                                    { text: '  ├ 📘 使用文档', link: '/10-deploy/deepseek-harness/01-quickstart' },
+                                                                                                    { text: '  ├ 📙 使用教程', link: '/10-deploy/deepseek-harness/02-tutorial' },
+                                                                                                    { text: '  ├ 🎯 实战教程', link: '/10-deploy/deepseek-harness/03-recipes' },
+                                                                                                    { text: '  ├ 🧩 常用插件', link: '/10-deploy/deepseek-harness/04-plugins' },
+                                                                                                    { text: '  └ 🏛️ 经典架构', link: '/10-deploy/deepseek-harness/05-architecture' }
                                                                                                   ]
                                                                                                 },
                                                                                                 {

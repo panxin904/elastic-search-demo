@@ -7,7 +7,7 @@ date: 2026-08-15  # date-auto-injected
 
 > **M**odel **C**context **P**rotocol。Anthropic 2024 年提出的**开放标准**，让 LLM 标准化连接外部数据源 / 工具。
 
-![Mcp Protocol Stack](/mcp-protocol-stack.svg)
+> ⚠️ 原 svg 资产已下线（§8.83 清理）。MCP 协议栈结构：Host → Client → Server → 外部资源/工具。详见下文文字。
 
 ## 🤔 为什么需要 MCP
 
@@ -273,7 +273,7 @@ async def call(name, args):
 
 ## 图示：MCP Host/Client/Server 三层
 
-![MCP Host/Client/Server 三层](/mcp-architecture.svg)
+> ⚠️ 原 svg 资产已下线（§8.83 清理）。详见下文 MCP 三层职责讲解。
 <CrossSiteNav :items="[
     { site: 'python', label: 'Python AI', url: 'https://java-px.bot.cd/python/' },
     { site: 'bigdata', label: '大数据训练', url: 'https://java-px.bot.cd/bigdata/' },

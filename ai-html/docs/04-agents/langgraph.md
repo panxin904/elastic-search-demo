@@ -7,7 +7,7 @@ date: 2026-08-15  # date-auto-injected
 
 > LangChain 团队出的 **Agent 框架**。把 agent 表达成**有状态图**（StateGraph）。**生产首选**。
 
-![Agent Loop Architecture](/agent-loop-architecture.svg)
+> ⚠️ 原 svg 资产已下线（§8.83 清理）。Agent Loop：用户输入 → LLM 推理 → 工具调用 → 观察结果 → 循环直至结束。
 
 ## 🤔 为什么 LangGraph
 
@@ -224,4 +224,4 @@ langgraph dev
 
 ## 图示：Agent 推理循环（ReAct）
 
-![Agent 推理循环（ReAct）](/agent-loop.svg)
+> ⚠️ 原 svg 资产已下线（§8.83 清理）。ReAct：Reason + Act 交替进行。
