@@ -5,174 +5,225 @@ date: 2026-09-14  # date-auto-injected
 
 # 🎓 DeepSeek Harness 学习文档
 
-> **Harness（训练/推理驾驭框架）** 是指用于驾驭 DeepSeek 系列大模型的完整工程化框架体系——从模型加载、推理服务、工具调用、Agent 构建到评测对比的全链路工具集。本章系统梳理 DeepSeek 全家桶及配套的"驾驭框架"。
+> **DeepSeek Harness** 是 DeepSeek-AI 于 2026 年 8 月 13 日开源发布的 **AI Agent 运行时框架**，对标 Anthropic 的 Claude Code、Cursor Agent。本章系统学习它的设计理念、架构、4 种内置模式，以及和同类工具的对比。
 
-## 🌐 DeepSeek 模型家族总览
-
-| 模型 | 发布方 | 定位 | 开源情况 | 参数量 |
-|---|---|---|---|---|
-| **DeepSeek-V3** | DeepSeek-AI | 通用 MoE 大模型 | ✅ Apache 2.0 | 671B (37B 激活) |
-| **DeepSeek-V3.1** | DeepSeek-AI | V3 升级版 + 混合推理 | ✅ | 685B |
-| **DeepSeek-V3.2** | DeepSeek-AI | 稀疏注意力 DSA | ✅ | 685B |
-| **DeepSeek-R1** | DeepSeek-AI | 推理专用 (CoT 强) | ✅ MIT | 671B |
-| **DeepSeek-R1-Distill-Qwen/Llama** | DeepSeek-AI | R1 蒸馏小模型 | ✅ | 1.5B / 7B / 8B / 14B / 32B / 70B |
-| **DeepSeek-Coder-V2** | DeepSeek-AI | 代码 MoE | ✅ | 236B (21B 激活) |
-| **DeepSeek-Coder** | DeepSeek-AI | 代码补全 | ✅ | 1.3B / 6.7B / 33B |
-| **DeepSeek-Math** | DeepSeek-AI | 数学 | ✅ | 7B |
-| **DeepSeek-VL2** | DeepSeek-AI | 多模态 (Vision-Language) | ✅ | 3B / 16B / 27B (MoE) |
-| **DeepSeek-Prover-V2** | DeepSeek-AI | 形式化数学证明 | ✅ | 671B |
-| **DeepSeek-OCR** | DeepSeek-AI | OCR + 视觉编码 | ✅ | 3B |
-
-> 📌 **2026 年 9 月最新状态**：DeepSeek-V3.2-Exp 已发布，引入 **DSA（DeepSeek Sparse Attention）**，长上下文性能显著提升。
-
-## 🧰 "Harness" 三层含义
+## 🧭 它是什么
 
 ```
 ┌─────────────────────────────────────────────────┐
-│ 1️⃣ 模型原生 Harness（DeepSeek 官方仓库提供）   │
-│    - DeepSeek-V3/R1 inference repo              │
-│    - DualPipe / EPLB（训练调度）                 │
-│    - 推理模板（chat_template.json）              │
+│              DeepSeek Harness 是什么？           │
+├─────────────────────────────────────────────────┤
+│                                                  │
+│  ❌ 不是模型（V3 / R1 才是模型）                  │
+│  ❌ 不是推理框架（vLLM / SGLang 才是）            │
+│  ✅ 是 Agent 运行时（类似 Claude Code / Gemini CLI）│
+│                                                  │
+│  - 本地运行的 AI Agent                          │
+│  - 内置工具集（文件、Shell、搜索、Skills、子代理）│
+│  - 插件化架构（Everything is a Plugin）         │
+│  - 4 种内置模式 + 多 Profile 并行                │
+│  - 开源 MIT / TypeScript / Node.js 22+         │
+│  - 一行启动：npx @deepseek-ai/dsh web           │
+│                                                  │
 └─────────────────────────────────────────────────┘
+```
+
+## 📊 关键事实
+
+| 维度 | 数据 |
+|---|---|
+| GitHub | github.com/deepseek-ai/deepseek-harness |
+| Star 数 | 21 万+（发布首周） |
+| 当前版本 | v0.1.2-rc.1（Developer Preview） |
+| License | MIT |
+| 发布日期 | 2026-08-13 |
+| 主语言 | TypeScript (99.8%) |
+| 运行时 | Node.js ^22.19.0 |
+| 包管理 | pnpm (workspaces) |
+| 构建 | esbuild |
+| 文档站 | VitePress |
+| 测试 | Vitest + Playwright |
+| CLI 命令 | `dsh` |
+| npm 包 | `@deepseek-ai/dsh` |
+| 默认 Web UI 端口 | 3080 |
+
+## 🏛️ 核心理念：Everything is a Plugin
+
+Harness 基于 [Cordis](https://github.com/cordiverse/cordis) 框架（Cordis 团队与 Harness 团队深度合作）。所有能力（模型、工具、技能、UI、服务）都是**插件**：
+
+```
 ┌─────────────────────────────────────────────────┐
-│ 2️⃣ 推理框架 Harness（第三方适配）                │
-│    - vLLM / SGLang / TGI / LMDeploy / TensorRT  │
-│    - OpenAI 兼容 API 服务化                       │
+│  Harness Core（Cordis 容器）                     │
+│  - 插件加载 / 依赖注入 / 事件总线                │
+├─────────────────────────────────────────────────┤
+│  官方插件（内置）                                │
+│  ├ @harness/model-*    模型适配器（OpenAI/Anthropic）│
+│  ├ @harness/tool-*     工具（文件编辑/Shell/搜索）   │
+│  ├ @harness/skill-*    Skills（Git/Review/Refactor） │
+│  ├ @harness/server     Web UI 后端                │
+│  ├ @harness/web        Web UI 前端                │
+│  └ @harness/cli        命令行入口                 │
+├─────────────────────────────────────────────────┤
+│  社区插件（npm tag: dsh-plugin）                │
+│  - 用户 / 第三方贡献                              │
 └─────────────────────────────────────────────────┘
-┌─────────────────────────────────────────────────┐
-│ 3️⃣ 应用层 Harness（Agent / RAG 工具）           │
-│    - LangChain / LlamaIndex / Dify / Coze        │
-│    - Cursor / Cline / Continue / Roo Code        │
-│    - 评测 harness（lm-eval-harness / OpenCompass）│
-└─────────────────────────────────────────────────┘
 ```
 
-## 📚 学习路径推荐
+**好处**：
+- ✅ 任何能力都可插拔（不需要的功能直接禁用）
+- ✅ 第三方可发布 npm 包即装即用
+- ✅ 升级核心不影响业务插件
+- ✅ 测试友好（每个插件独立可测）
 
-### 🟢 入门级（1 周）
+## 🎯 4 种内置模式
 
-```
-Day 1-2: DeepSeek API 调用（OpenAI 兼容 SDK）
-Day 3-4: DeepSeek-R1 推理模型特性 + Prompt 工程
-Day 5-7: Ollama 本地跑 DeepSeek-R1-Distill-Qwen-7B
-```
-
-### 🟡 进阶级（2-3 周）
-
-```
-Week 1: vLLM / SGLang 部署 DeepSeek-V3 671B（多 GPU）
-Week 2: Function Calling + Tool Use
-Week 3: RAG + Agent 集成（LangChain / Dify）
-```
-
-### 🔴 专家级（1-2 月）
-
-```
-Month 1:
-  - DeepSeek-V3 推理优化（PD 分离、Chunked Prefill）
-  - DeepSeek-R1 蒸馏自己数据（LoRA / Full SFT）
-  - MoE 路由理解（Expert Parallel）
-  - 评测体系搭建（lm-eval-harness）
-
-Month 2:
-  - DualPipe 训练流水线（DeepSeek 自研）
-  - 自定义 Chat Template + Reasoning Parser
-  - 多模态（DeepSeek-VL2）实战
-```
-
-## 🔍 与其他模型的对比
-
-| 维度 | DeepSeek-V3.2 | GPT-5 | Claude 4.5 | Qwen3-235B |
-|---|---|---|---|---|
-| 价格 (per 1M token) | $0.27 in / $1.1 out | $5 / $20 | $3 / $15 | $0.3 / $1.2 |
-| 上下文长度 | 128K (稀疏扩 1M) | 256K | 200K | 128K |
-| 中文能力 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| 代码能力 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
-| 推理能力 (R1) | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
-| 开源可部署 | ✅ | ❌ | ❌ | ✅ |
-| 本地 GPU 需求 | V3:8x A100, R1:同 | N/A | N/A | 4x A100 |
-
-## 🏛️ DeepSeek 核心技术
-
-### 1. MLA（Multi-head Latent Attention）
-
-```
-传统 MHA：缓存每个 head 的 K/V
-MLA：压缩到低秩潜空间，KV 缓存减少 5-10x
-效果：长上下文推理显存大幅降低
-```
-
-### 2. MoE 架构（DeepSeek-V3）
-
-```
-671B 总参数，37B 激活
-256 个路由专家 + 1 个共享专家
-每次 token 激活 8 个专家
-```
-
-### 3. DualPipe（训练调度）
-
-```
-流水线并行 + 专家并行 + 张量并行
-DualPipe = 双向流水线调度
-解决 MoE 训练中的"气泡"问题
-吞吐量提升 30%+
-```
-
-### 4. FP8 混合精度训练
-
-```
-业界首个大规模 FP8 训练框架
-在 H800 上训练 V3
-显存占用降低 50%+
-```
-
-### 5. DeepSeek-R1 的 GRPO
-
-```
-Group Relative Policy Optimization
-无 Critic，纯策略优化
-奖励 = 准确率 + 格式
-```
-
-### 6. DSA（DeepSeek Sparse Attention）— V3.2 新增
-
-```
-动态稀疏注意力
-128K 上下文几乎零衰减
-推理速度提升 2-5x（长文本）
-```
-
-## 📦 配套生态仓库
-
-```
-deepseek-ai/DeepSeek-V3          训练/推理代码
-deepseek-ai/DeepSeek-R1          R1 模型权重 + 推理模板
-deepseek-ai/DeepSeek-VL2         多模态
-deepseek-ai/DeepSeek-Coder-V2    代码模型
-deepseek-ai/DeepSeek-Math        数学
-deepseek-ai/awesome-deepseek-coder  社区资源汇总
-deepseek-ai/DeepSeek-Prover-V2   形式化证明
-```
-
-## 🎯 学习资源清单
-
-| 资源 | 类型 | 说明 |
+| 模式 | 触发 | 适用 |
 |---|---|---|
-| DeepSeek 官方文档 | docs | platform.deepseek.com/docs |
-| DeepSeek-V3 论文 | paper | arxiv.org/abs/2412.19437 |
-| DeepSeek-R1 论文 | paper | arxiv.org/abs/2501.12948 |
-| DualPipe 论文 | paper | DeepSeek 技术博客 |
-| HuggingFace 模型卡 | model | 各模型权重 + chat_template |
-| 官方 Discord | community | 答疑 + 案例分享 |
-| DeepSeek Status 页 | service | status.deepseek.com |
+| **标准模式 (Standard)** | `dsh` 不带参数 或 `--mode standard` | 日常开发任务（默认） |
+| **PTC 模式 (Programmatic Tool Calling)** | `--mode ptc` | 用 TypeScript 代码编排多步工具调用 |
+| **极简模式 (Minimal)** | `--mode minimal` | 只需 bash + str_replace_editor，类似 Claude Code early version |
+| **创造模式 (Creative)** | `--mode creative` | 探索性编程、自动尝试多种方案 |
 
-## 💡 关键认知
+### 模式对比示例：实现一个 HTTP 客户端
 
 ```
-1. DeepSeek 的核心壁垒 = 极致工程效率 + 开源开放
-2. V3 / R1 671B 需要 8x H100/A100 才能跑（FP16）
-3. R1-Distill 系列是消费级 GPU（24GB）能跑的"平替"
-4. 所有模型都 OpenAI 兼容 API → 工具链零迁移
-5. R1 输出 `<thinking>` 块 → 需要 streaming + reasoning parser
+标准模式：
+  用户："写一个 HTTP 客户端处理 JSON"
+  Agent → 自动调用 read_file/write_file/edit 工具 → 完成
+
+PTC 模式：
+  用户："用 PTC 模式写 HTTP 客户端"
+  Agent → 生成 TypeScript 编排代码：
+    ```typescript
+    await writeFile('client.ts', generateClient())
+    await runCmd('npm install axios')
+    await runCmd('npm run build')
+    ```
+  一次性产出完整流程
+
+极简模式：
+  用户："写 HTTP 客户端"
+  Agent → 直接用 bash + edit 工具 → 完成
+  （无 Skills / Subagent）
+
+创造模式：
+  用户："写 HTTP 客户端，多试几种方案选最优"
+  Agent → 自动生成 axios/fetch/ky 三种实现 → 跑基准测试 → 推荐最快
 ```
+
+## 🔄 与同类工具对比
+
+| 维度 | DeepSeek Harness | Claude Code | Cursor Agent | Gemini CLI | Codex CLI |
+|---|---|---|---|---|---|
+| 厂商 | DeepSeek-AI | Anthropic | Anysphere | Google | OpenAI |
+| 开源 | ✅ MIT | ❌ 闭源 | ❌ 闭源 | ✅ Apache | ❌ 闭源 |
+| 本地运行 | ✅ | ✅ | ❌ | ✅ | ✅ |
+| 模型选择 | 任意 OpenAI 兼容 | 仅 Claude | 自家 + 接入 | Gemini | OpenAI |
+| 插件架构 | ✅ Cordis | ❌ | ❌ | ✅ | ❌ |
+| Skills 系统 | ✅ | ✅ | ❌ | ✅ | ✅ |
+| 子代理 | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Web UI | ✅ 内置 | ❌ | ✅ | ❌ | ❌ |
+| MCP 支持 | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 工作目录 | 当前项目 | 当前项目 | 项目根 | 当前项目 | 当前项目 |
+
+## 📦 仓库结构（重要）
+
+```
+deepseek-harness/
+├─ packages/
+│   ├─ core/             # @harness/core（Cordis 容器 + 插件加载）
+│   ├─ server/           # @harness/server（Web UI 后端，Fastify）
+│   ├─ web/              # @harness/web（Web UI 前端，Vite + Vue）
+│   ├─ cli/              # @harness/cli（dsh 命令）
+│   ├─ config/           # @harness/config（配置文件 schema）
+│   ├─ utils/            # @harness/utils
+│   ├─ tools/            # @harness/tool-*（文件/Shell/搜索工具）
+│   ├─ skills/           # @harness/skill-*（Git/Review/Refactor Skills）
+│   └─ models/           # @harness/model-*（OpenAI/Anthropic 适配）
+├─ docs/                 # VitePress 文档站
+├─ tests/                # Vitest 单元 + Playwright e2e
+├─ presets/              # 内置模式预设（standard/ptc/minimal/creative）
+├─ examples/             # 示例插件
+├─ package.json          # pnpm workspaces 根
+├─ pnpm-workspace.yaml
+└─ README.md
+```
+
+## 🧠 学习路径推荐
+
+```
+🟢 第 1 阶段：上手（1 小时）
+   1. npx @deepseek-ai/dsh web → 看 Web UI
+   2. 让 Harness 改一个 README.md
+   3. 试试不同模型（V3 / R1 / Qwen / Claude）
+
+🟡 第 2 阶段：配置（半天）
+   4. 读 ~/.config/dsh/config.yaml
+   5. 切 Profile（不同项目用不同模型）
+   6. 装一个官方 Skills 试试
+
+🟠 第 3 阶段：定制（1-2 天）
+   7. 写第一个自定义 Skill
+   8. 调权限/沙箱策略
+   9. 用 PTC 模式自动化工作流
+
+🔴 第 4 阶段：插件开发（3-5 天）
+   10. 看 packages/core 源码（理解 Cordis）
+   11. 写一个 @harness/plugin-* 发布到 npm
+   12. 提交 PR 到 deepseek-ai/deepseek-harness
+```
+
+## 🔍 设计哲学
+
+```
+┌────────────────────────────────────────────┐
+│  "Harness 不是一个 chatbot，               │
+│   而是 Agent 在本地开发环境的运行时"          │
+│   ── DeepSeek 官方 README                  │
+└────────────────────────────────────────────┘
+
+设计原则（来自 deepseek-harness CONTRIBUTING.md）：
+
+1. Everything is a Plugin
+   → 任何能力都可拔插，方便扩展和裁剪
+
+2. Local-first
+   → 所有状态本地保存，零云端依赖
+   → ~/.config/dsh/ + ~/.local/share/dsh/
+
+3. OpenAI-compatible by default
+   → 默认适配 OpenAI 协议（DeepSeek/Moonshot/Qwen/Grok 都用这个）
+   → Anthropic / Gemini 走独立适配器
+
+4. Sandbox-by-default, Permission-by-explicit
+   → 默认所有操作进沙箱
+   → 危险操作需用户显式确认
+
+5. Test-driven Plugins
+   → 每个插件必须带 Vitest 测试 + Playwright e2e
+```
+
+## 🚧 当前限制（v0.1.2-rc.1）
+
+```
+⚠️ Developer Preview 阶段，以下能力尚未完整：
+
+- [ ] Windows 原生支持（当前依赖 WSL2）
+- [ ] 多语言模型微调接入
+- [ ] 团队协作 / 共享会话
+- [ ] 移动端 UI（只有 Web + CLI）
+- [ ] 完整的离线模式（部分功能仍需联网）
+- [ ] 国际化（当前 UI 仅中英双语）
+```
+
+## 📚 关键资源
+
+| 资源 | 链接 |
+|---|---|
+| 官方仓库 | github.com/deepseek-ai/deepseek-harness |
+| 官方文档 | harness.directory（待上线） |
+| DeepSeek 主页 | deepseek.com/harness |
+| npm 包 | npmjs.com/package/@deepseek-ai/dsh |
+| 插件索引 | github.com/topics/dsh-plugin |
+| Discord | discord.gg/deepseek |
+| 路线图 | github.com/deepseek-ai/deepseek-harness/issues?q=roadmap |

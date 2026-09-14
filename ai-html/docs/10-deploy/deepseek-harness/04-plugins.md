@@ -1,328 +1,333 @@
 ---
-title: DeepSeek 常用插件
+title: DeepSeek Harness 常用插件
 date: 2026-09-14  # date-auto-injected
 ---
 
-# 🧩 DeepSeek 常用插件
+# 🧩 DeepSeek Harness 常用插件
 
-> IDE / IM / Agent 框架 / 评测工具的 DeepSeek 集成方案。
+> Harness 生态汇总：官方插件、社区插件、Skills、桌面壳、CI 集成。插件标记 `npm tag: dsh-plugin`。
 
-## 💻 IDE 编程助手
+## 📦 官方插件（deepseek-ai 组织）
 
-### Cursor
+| 插件名 | 说明 |
+|---|---|
+| `@harness/core` | Cordis 容器 + 插件加载 |
+| `@harness/cli` | `dsh` 命令行 |
+| `@harness/server` | Web UI 后端（Fastify） |
+| `@harness/web` | Web UI 前端（Vite + Vue） |
+| `@harness/config` | 配置文件 schema |
+| `@harness/utils` | 通用工具函数 |
+| `@harness/model-openai` | OpenAI 兼容适配（DeepSeek / Qwen / Moonshot） |
+| `@harness/model-anthropic` | Anthropic Claude 适配 |
+| `@harness/model-gemini` | Google Gemini 适配 |
+| `@harness/model-ollama` | Ollama 本地模型适配 |
+| `@harness/tool-file` | 文件读写（read/write/edit/multi_edit） |
+| `@harness/tool-shell` | Shell 命令（受权限控制） |
+| `@harness/tool-search` | 文件/代码搜索 |
+| `@harness/tool-web` | 联网检索（web_search + web_fetch） |
+| `@harness/tool-todo` | 任务清单 |
+| `@harness/skill-init` | /init 项目初始化 |
+| `@harness/skill-review` | /review Code Review |
+| `@harness/skill-refactor` | /refactor 智能重构 |
+| `@harness/skill-test` | /test 自动测试 |
+| `@harness/skill-docs` | /docs 文档生成 |
+| `@harness/skill-commit` | /commit Conventional Commits |
+| `@harness/skill-fix` | /fix 自动修复 |
+| `@harness/skill-clean` | /clean 死代码清理 |
+| `@harness/skill-changelog` | /changelog 更新日志 |
 
-```
-1. Cursor → Settings → Models
-2. Add Custom Provider:
-   - Provider Name: DeepSeek
-   - Base URL: https://api.deepseek.com/v1
-   - API Key: sk-xxx
-3. Available Models:
-   - deepseek-chat         (V3.2)
-   - deepseek-reasoner     (R1)
-4. 设置默认模型为 deepseek-chat
-5. 享受 Composer / Tab / Chat 全功能
-```
+## 🌟 社区精选插件（按 star 数）
 
-### Cline（VS Code 原生）
+### 效率类
 
-```bash
-# 1. 安装扩展：Cline (VS Code marketplace)
-# 2. Cline → Settings → API Provider → OpenAI Compatible
-# 3. 配置：
-#    Base URL: https://api.deepseek.com/v1
-#    API Key: sk-xxx
-#    Model ID: deepseek-chat
-# 4. 可选 deepseek-reasoner 用于"Plan"模式
-```
+| 插件 | 说明 | 用途 |
+|---|---|---|
+| `dsh-plugin-github` | GitHub CLI 集成 | 创建/管理 PR、issue、Actions |
+| `dsh-plugin-gitlab` | GitLab API 集成 | MR、CI/CD、Container Registry |
+| `dsh-plugin-jira` | Jira 双向同步 | 创建/查询/评论 ticket |
+| `dsh-plugin-linear` | Linear 集成 | 创建/查询 issue、project |
+| `dsh-plugin-notion` | Notion 集成 | 读写页面、数据库 |
+| `dsh-plugin-confluence` | Confluence 集成 | 搜索/更新文档 |
+| `dsh-plugin-slack` | Slack 消息 | 发消息、查 thread |
+| `dsh-plugin-discord` | Discord 集成 | 发消息、管理频道 |
+| `dsh-plugin-figma` | Figma 集成 | 读取设计稿、导出资源 |
+| `dsh-plugin-trello` | Trello 看板 | 移动卡片、查清单 |
 
-### Continue.dev
+### 数据库 / 后端类
 
-```yaml
-# ~/.continue/config.json
-{
-  "models": [
-    {
-      "title": "DeepSeek-V3",
-      "provider": "openai",
-      "model": "deepseek-chat",
-      "apiBase": "https://api.deepseek.com/v1",
-      "apiKey": "sk-xxx"
-    },
-    {
-      "title": "DeepSeek-R1",
-      "provider": "openai",
-      "model": "deepseek-reasoner",
-      "apiBase": "https://api.deepseek.com/v1",
-      "apiKey": "sk-xxx"
-    }
-  ],
-  "tabAutocompleteModel": {
-    "title": "DeepSeek-Coder",
-    "provider": "openai",
-    "model": "deepseek-coder",
-    "apiBase": "https://api.deepseek.com/v1",
-    "apiKey": "sk-xxx"
-  }
-}
-```
+| 插件 | 说明 |
+|---|---|
+| `dsh-plugin-postgres` | PostgreSQL 查询（带 RLS 安全过滤） |
+| `dsh-plugin-mysql` | MySQL 查询 |
+| `dsh-plugin-mongodb` | MongoDB 文档查询 |
+| `dsh-plugin-redis` | Redis 命令行操作 |
+| `dsh-plugin-elasticsearch` | ES 查询 |
+| `dsh-plugin-supabase` | Supabase 集成（含 Auth + RLS） |
+| `dsh-plugin-prisma` | Prisma schema 迁移辅助 |
+| `dsh-plugin-kafka` | Kafka topic 浏览 + 生产消费 |
+| `dsh-plugin-s3` | S3 / OSS 文件读写 |
+| `dsh-plugin-cloudflare` | Cloudflare Workers + KV + D1 |
 
-### Roo Code / Cline Fork
+### DevOps / 监控类
 
-```json
-// VS Code settings.json
-{
-  "roo-cline.apiProvider": "openai",
-  "roo-cline.openAiBaseUrl": "https://api.deepseek.com/v1",
-  "roo-cline.openAiApiKey": "sk-xxx",
-  "roo-cline.openAiModelId": "deepseek-chat"
-}
-```
+| 插件 | 说明 |
+|---|---|
+| `dsh-plugin-docker` | Docker 镜像 / 容器管理 |
+| `dsh-plugin-k8s` | kubectl 包装 + Helm 操作 |
+| `dsh-plugin-terraform` | Terraform plan/apply 辅助 |
+| `dsh-plugin-aws` | AWS CLI 集成（EC2/S3/Lambda） |
+| `dsh-plugin-gcp` | GCP CLI 集成 |
+| `dsh-plugin-azure` | Azure CLI 集成 |
+| `dsh-plugin-prometheus` | Prometheus PromQL 查询 |
+| `dsh-plugin-grafana` | Grafana Dashboard 操作 |
+| `dsh-plugin-datadog` | Datadog 指标 + 日志 |
+| `dsh-plugin-sentry` | Sentry 错误查询 |
 
-## 🗨️ IM / 客户端
+### 测试 / 质量类
 
-### ChatBox（桌面 + 移动端）
+| 插件 | 说明 |
+|---|---|
+| `dsh-plugin-jest` | Jest 跑测 + 生成用例 |
+| `dsh-plugin-vitest` | Vitest 集成 |
+| `dsh-plugin-playwright` | Playwright E2E 测试生成 |
+| `dsh-plugin-cypress` | Cypress 测试辅助 |
+| `dsh-plugin-sonarqube` | SonarQube 集成 |
+| `dsh-plugin-eslint` | ESLint 自动修复 |
+| `dsh-plugin-prettier` | Prettier 自动格式化 |
+| `dsh-plugin-perf` | Lighthouse 性能审计 |
 
-```
-设置 → 模型提供方 → 添加
-  名称：DeepSeek
-  API 密钥：sk-xxx
-  API 域名：https://api.deepseek.com/v1
-  模型：deepseek-chat / deepseek-reasoner
-```
+### AI / ML 类
 
-### Cherry Studio（国内最流行）
+| 插件 | 说明 |
+|---|---|
+| `dsh-plugin-rag` | 本地 RAG（基于向量库） |
+| `dsh-plugin-embedding` | 多模型 Embedding 适配 |
+| `dsh-plugin-image` | 多模态图像理解 |
+| `dsh-plugin-tts` | 文本转语音 |
+| `dsh-plugin-stt` | 语音转文本 |
+| `dsh-plugin-translate` | 多语种翻译 |
+| `dsh-plugin-ocr` | OCR 文本提取 |
 
-```
-设置 → 模型服务 → 添加
-  服务商类型：OpenAI 兼容
-  API Key: sk-xxx
-  API 端点：https://api.deepseek.com/v1
-  模型：deepseek-chat, deepseek-reasoner
+### 安全 / 凭据类
 
-对话 → 选 DeepSeek 模型
-```
+| 插件 | 说明 |
+|---|---|
+| `dsh-plugin-1password` | 1Password 密钥管理 |
+| `dsh-plugin-vault` | HashiCorp Vault 集成 |
+| `dsh-plugin-bitwarden` | Bitwarden 密码读取 |
+| `dsh-plugin-snyk` | Snyk 漏洞扫描 |
+| `dsh-plugin-trivy` | 容器镜像扫描 |
 
-### ChatGPT-Next-Web
+## 🎯 Skills 库（精选）
 
-```bash
-docker run -d \
-    --name chatgpt-next-web \
-    -p 3000:3000 \
-    -e BASE_URL=https://api.deepseek.com/v1 \
-    -e OPENAI_API_KEY=sk-xxx \
-    -e CUSTOM_MODELS=deepseek-chat,deepseek-reasoner \
-    yidadaa/chatgpt-next-web
-```
-
-### Lobe Chat
-
-```bash
-# 环境变量
-OPENAI_API_KEY=sk-xxx
-OPENAI_PROXY_URL=https://api.deepseek.com/v1
-DEFAULT_MODELS=deepseek-chat,deepseek-reasoner
-```
-
-### Open WebUI（Ollama 配套）
-
-```bash
-# 直接添加 DeepSeek 端点
-docker run -d \
-    --name open-webui \
-    -p 3000:8080 \
-    -e OPENAI_API_BASE_URL=https://api.deepseek.com/v1 \
-    -e OPENAI_API_KEYS=sk-xxx \
-    -e ENABLE_OPENAI_API=True \
-    ghcr.io/open-webui/open-webui:main
-```
-
-## 🧠 Agent 框架
-
-### LangChain
-
-```python
-# 已展示在实战 7
-from langchain_openai import ChatOpenAI
-llm = ChatOpenAI(
-    model="deepseek-chat",
-    openai_api_key="sk-xxx",
-    openai_api_base="https://api.deepseek.com/v1"
-)
-```
-
-### LlamaIndex
-
-```python
-from llama_index.llms.openai import OpenAI
-
-llm = OpenAI(
-    model="deepseek-chat",
-    api_key="sk-xxx",
-    api_base="https://api.deepseek.com/v1"
-)
-```
-
-### Dify（低代码 Agent 平台）
+### 官方 Skills
 
 ```
-1. https://dify.ai 创建工作流
-2. 添加模型 → OpenAI 兼容 API
-   - API Key: sk-xxx
-   - API Endpoint: https://api.deepseek.com/v1
-3. 在"模型供应商"添加：
-   - deepseek-chat (V3.2)
-   - deepseek-reasoner (R1)
-4. 工作流里调用
+/init          项目初始化（生成 .dsh/ + README）
+/review        Code Review（基于 git diff）
+/refactor      智能重构（保持行为）
+/test          自动补单元测试
+/docs          文档生成/同步
+/commit        Conventional Commits
+/fix           自动修复 lint/test
+/clean         死代码清理
+/changelog     CHANGELOG 更新
+/migration        数据库 schema 迁移辅助
+/plan          任务规划（多步骤）
+/explain       复杂代码解释
+/optimize      性能优化建议
+/security      安全审查
+/i18n          国际化文案生成
 ```
 
-### Coze（字节，海外版 coze.com）
+### 社区 Skills
 
 ```
-1. 工作流 → 添加节点 → 大模型
-2. 选择"自定义" → 填 DeepSeek endpoint
-3. 或用 OpenAI 兼容协议连接
+/pr-review     PR 自动审查（集成 GitHub）
+/pr-fix        PR 评论自动修复建议
+/issue-triage  Issue 自动分类
+/release-notes 发布说明生成
+/api-doc       OpenAPI 文档生成
+/db-diagram    ER 图生成
+/test-coverage 测试覆盖率补齐
+/load-test     k6 压测脚本生成
+/migration     跨语言代码迁移（如 JS → Go）
+/regex-explain 正则表达式解释
+/sql-explain   SQL 执行计划分析
+/git-blame-stats  blame 统计
+/deps-audit    依赖审计
+/license-check License 合规检查
 ```
 
-### AutoGen / CrewAI
+## 🖥️ 桌面壳 / 客户端
 
-```python
-# AutoGen
-from autogen import AssistantAgent, UserProxyAgent
+### 第三方 GUI 封装
 
-llm_config = {
-    "config_list": [{
-        "model": "deepseek-chat",
-        "api_key": "sk-xxx",
-        "base_url": "https://api.deepseek.com/v1",
-        "api_type": "openai"
-    }]
-}
+| 应用 | 平台 | 说明 |
+|---|---|---|
+| **Harness Desktop** | macOS / Win / Linux | Electron 封装版，含托盘 + 全局快捷键 |
+| **Harness Tray** | macOS | 菜单栏常驻，最快启动 |
+| **Harness Tray (Windows)** | Windows | 系统托盘 |
+| **Harness Web Tray** | Chrome | Chrome 扩展（侧边栏） |
+| **Harness Raycast** | macOS | Raycast 扩展 |
+| **Harness Alfred** | macOS | Alfred Workflow |
+| **Harness Spotlight** | macOS | Spotlight 替代 |
 
-assistant = AssistantAgent("coder", llm_config=llm_config)
-user = UserProxyAgent("user", code_execution_config={"work_dir": "coding"})
-user.initiate_chat(assistant, message="写个排序算法")
-```
+### TUI 替代
 
-## 📊 评测框架
+| 应用 | 说明 |
+|---|---|
+| **Harness TUI** | Rust 写的 Terminal UI（更流畅） |
+| **Harness Bubbletea** | Go 写的 Terminal UI |
+| **hsmux** | tmux 集成，多 pane 显示 Harness |
 
-### lm-evaluation-harness（EleutherAI）
+## 🔌 IDE 集成
 
-```bash
-git clone https://github.com/EleutherAI/lm-evaluation-harness
-cd lm-evaluation-harness
-pip install -e .
-
-# 跑 DeepSeek-V3 在 MMLU 上
-lm_eval --model openai-completions \
-    --model_args model=deepseek-chat,base_url=https://api.deepseek.com/v1,api_key=sk-xxx \
-    --tasks mmlu_high_school_computer_science \
-    --batch_size 8 \
-    --output_path ./results
-```
-
-### OpenCompass（上海AI Lab）
-
-```bash
-pip install opencompass
-
-# config 目录新建 deepseek_v3.py
-from opencompass.models import OpenAISDK
-
-models = [
-    OpenAISDK(
-        path="deepseek-chat",
-        key="sk-xxx",
-        api_base="https://api.deepseek.com/v1",
-        is_chat=True,
-        meta_template=...,
-    )
-]
-
-# 跑评测
-run.py configs/eval_deepseek.py --datasets mmlu_gen cmmlu_gen
-```
-
-### DeepEval（专注 RAG/Agent 评测）
-
-```python
-from deepeval.test_case import LLMTestCase
-from deepeval.metrics import AnswerRelevancyMetric
-from deepeval.models import DeepSeekModel
-
-# 自定义 evaluator
-model = DeepSeekModel(api_key="sk-xxx")
-
-metric = AnswerRelevancyMetric(model=model, threshold=0.7)
-test_case = LLMTestCase(
-    input="什么是 RAG?",
-    actual_output="RAG 是检索增强生成...",
-    expected_output="..."
-)
-metric.measure(test_case)
-print(metric.score, metric.reason)
-```
-
-## 🌐 浏览器扩展
-
-### Page Assist
-
-```
-Chrome 扩展商店搜索 "Page Assist"
-设置 → Ollama → 选 DeepSeek 端点
-支持侧边栏聊天、网页摘要、翻译
-```
-
-### Monica AI
-
-```
-1. 安装 Monica 扩展
-2. 设置 → 模型 → 自定义 OpenAI 兼容
-3. 配置 DeepSeek endpoint
-4. 网页摘要 / 翻译 / 写作 全功能
-```
+| IDE | 扩展名 | 功能 |
+|---|---|---|
+| VS Code | `harness-vscode` | 官方侧边栏 + 内联 diff |
+| JetBrains | `harness-jetbrains` | IntelliJ 插件（IDEA / WebStorm / PyCharm） |
+| Sublime | `Harness-Sublime` | 命令面板 + 内联 |
+| Vim | `harness.vim` | 命令 + 异步流 |
+| Neovim | `harness.nvim` | Telescope + inline diff |
+| Emacs | `harness.el` | magit 集成 |
 
 ## 📱 移动端
 
-### iOS / Android App
+| 应用 | 平台 |
+|---|---|
+| **Harness Mobile (iOS)** | iOS / iPadOS |
+| **Harness Mobile (Android)** | Android |
+| **Harness Web (PWA)** | 任意浏览器（响应式） |
+
+## 🤖 CI 集成
+
+| CI | 集成方式 |
+|---|---|
+| GitHub Actions | `deepseek-ai/harness-action` Marketplace Action |
+| GitLab CI | `dsh-gitlab-runner` 镜像 |
+| Jenkins | `harness-jenkins-plugin` |
+| CircleCI | `harness-orb` |
+| Buildkite | `harness-buildkite-plugin` |
+| Drone | `harness-drone-plugin` |
+
+### 示例：GitHub Actions 中用 Harness
+
+```yaml
+# .github/workflows/harness-review.yml
+name: AI Code Review
+on: [pull_request]
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: deepseek-ai/harness-action@v1
+        with:
+          profile: ci
+          skill: /review
+          args: ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }}
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: ${{ steps.review.outputs.comment }}
+```
+
+## 📚 模板库（Preset）
+
+Harness 内置 4 个 preset，可扩展：
 
 ```
-- ChatBox (iOS / Android)
-- Lobe Chat (PWA)
-- Cherry Studio (Android)
-- OpenCat (iOS)
-
-均支持配置自定义 OpenAI 兼容 endpoint
+presets/
+├─ standard/    # 默认
+├─ ptc/         # Programmatic Tool Calling
+├─ minimal/     # 极简
+├─ creative/    # 创造
+├─ security/    # 安全审查专家
+├─ data/        # 数据分析专家
+├─ devops/      # DevOps 专家
+└─ doc-writer/  # 文档写作专家
 ```
 
-## 🔌 第三方插件汇总表
+### 用 preset
 
-| 类别 | 工具 | 集成方式 | 难度 |
-|---|---|---|---|
-| IDE | Cursor | 内置配置 | ⭐ |
-| IDE | Cline / Roo Code | OpenAI 兼容 | ⭐ |
-| IDE | Continue | 配置文件 | ⭐⭐ |
-| IM | ChatBox | 图形界面 | ⭐ |
-| IM | Cherry Studio | 图形界面 | ⭐ |
-| IM | ChatGPT-Next-Web | 环境变量 | ⭐⭐ |
-| Agent | LangChain | Python SDK | ⭐⭐ |
-| Agent | LlamaIndex | Python SDK | ⭐⭐ |
-| 平台 | Dify | 图形界面 | ⭐ |
-| 平台 | Coze | 图形界面 | ⭐ |
-| Agent | AutoGen | Python SDK | ⭐⭐ |
-| 评测 | lm-eval-harness | CLI | ⭐⭐ |
-| 评测 | OpenCompass | Python SDK | ⭐⭐⭐ |
-| 评测 | DeepEval | Python SDK | ⭐⭐ |
-| 浏览器 | Page Assist | 扩展配置 | ⭐ |
-| 浏览器 | Monica AI | 扩展配置 | ⭐ |
+```bash
+dsh --preset security
+# 或写 config.yaml:
+preset: security
+```
+
+## 🔍 插件搜索与安装
+
+### 官方插件索引
+
+```bash
+# 列出所有官方插件
+dsh plugin list --official
+
+# 搜索关键字
+dsh plugin search "github"
+# 输出：
+# dsh-plugin-github        1.2k ⭐  GitHub CLI 集成
+# dsh-plugin-github-pr     234 ⭐    PR 评论自动审查
+# dsh-plugin-github-issue  156 ⭐    Issue 自动管理
+```
+
+### 安装
+
+```bash
+# 装最新
+dsh plugin install dsh-plugin-github
+
+# 装指定版本
+dsh plugin install dsh-plugin-github@2.1.0
+
+# 装多个
+dsh plugin install dsh-plugin-github dsh-plugin-jira dsh-plugin-figma
+
+# 列出已装
+dsh plugin list
+
+# 更新
+dsh plugin update
+
+# 卸载
+dsh plugin uninstall dsh-plugin-github
+```
+
+### 配置文件位置
+
+```
+~/.config/dsh/plugins/        # 全局插件
+.dsh/plugins/                 # 项目级插件
+```
 
 ## 💡 选型建议
 
 ```
-🌟 日常对话、写作：Cherry Studio / ChatBox
-🌟 IDE 编程：Cursor / Cline + R1-Distill-Coder
-🌟 企业级 RAG：Dify + deepseek-chat
-🌟 复杂 Agent：LangChain / AutoGen + R1
-🌟 学术评测：OpenCompass / lm-eval-harness
-🌟 隐私本地：Ollama + R1-Distill-Qwen-7B
+🎯 个人开发者：
+   必备：dsh-plugin-github / dsh-plugin-docker
+   推荐：dsh-plugin-1password
+
+🎯 前端工程师：
+   必备：dsh-plugin-figma / dsh-plugin-postgres
+   推荐：dsh-plugin-playwright / dsh-plugin-image
+
+🎯 后端工程师：
+   必备：dsh-plugin-postgres / dsh-plugin-redis / dsh-plugin-k8s
+   推荐：dsh-plugin-datadog / dsh-plugin-prometheus
+
+🎯 数据工程师：
+   必备：dsh-plugin-postgres / dsh-plugin-elasticsearch
+   推荐：dsh-plugin-embedding / dsh-plugin-rag
+
+🎯 DevOps / SRE：
+   必备：dsh-plugin-k8s / dsh-plugin-aws / dsh-plugin-prometheus
+   推荐：dsh-plugin-terraform / dsh-plugin-snyk
+
+🎯 团队协作：
+   必备：dsh-plugin-jira / dsh-plugin-slack / dsh-plugin-notion
+   推荐：dsh-plugin-github / dsh-plugin-figma
 ```

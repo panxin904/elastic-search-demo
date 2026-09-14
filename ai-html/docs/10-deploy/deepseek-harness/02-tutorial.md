@@ -3,395 +3,563 @@ title: DeepSeek Harness 使用教程
 date: 2026-09-14  # date-auto-injected
 ---
 
-# 📘 DeepSeek 使用教程
+# 📘 DeepSeek Harness 使用教程
 
-> 系统化教程：环境配置、模型选择、调参技巧、典型工作流。从"刚装好 Ollama"到"搭出可上线的服务"。
+> 9 节系统化教程：从首次启动到高级定制。配合演示项目可一次跑通。
 
 ## 🛠️ 第 1 课：环境准备
 
-### 选择部署方式
+### 系统要求
 
 ```
-❓ 你想怎么用 DeepSeek？
-
-├─ 🌐 直接调 API（最快上手）
-│   └─ 只需 API Key + 1 个 Python 包
-│
-├─ 💻 本地跑小模型（保护隐私）
-│   └─ Ollama + 任意 GPU/CPU
-│
-├─ 🏢 自部署大模型（企业级）
-│   └─ vLLM / SGLang / LMDeploy
-│
-└─ 📱 嵌入式集成（IDE / IM 插件）
-    └─ Cursor / Cline / Continue
+┌──────────────────────────────────────────┐
+│  最低要求                                │
+│  - Node.js ^22.19.0（必须）             │
+│  - 4GB RAM（仅 Web UI）                 │
+│  - 500MB 磁盘                           │
+│                                          │
+│  推荐配置                                │
+│  - Node.js ^22.19.0                     │
+│  - 8GB RAM（同时跑 Web + 后端）         │
+│  - 2GB 磁盘（含会话历史）               │
+│  - 支持平台：macOS / Linux / WSL2       │
+└──────────────────────────────────────────┘
 ```
 
-### 硬件清单
-
-| 用途 | 推荐配置 |
-|---|---|
-| 本地 R1-Distill-7B | RTX 3090 / 4060Ti (8GB+) |
-| 本地 R1-Distill-14B | RTX 4090 (24GB) |
-| 本地 R1-Distill-32B | RTX 4090D (24GB) + 量化 |
-| 生产 V3/R1 671B | 8× H100 / A100 80G |
-| 云端 API | 任意（无需 GPU） |
-
-### 安装包
+### 安装 Node.js（macOS）
 
 ```bash
-# Python 环境
-python -m venv .venv
-source .venv/bin/activate
-pip install openai requests vllm
-
-# Docker 环境
-docker --version  # 24.0+
-docker compose version  # v2.20+
-nvidia-smi        # 验证 GPU 可用
-
-# Ollama
-curl -fsSL https://ollama.com/install.sh | sh
+# 用 nvm（推荐）
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+nvm install 22.19
+nvm use 22.19
+node --version    # v22.19.0
 ```
 
-## 🎯 第 2 课：模型选型决策树
+### 安装 Node.js（Linux / WSL2）
 
-```
-任务是什么？
-│
-├─ 通用对话 / 写作 / 翻译
-│   └─ deepseek-chat（V3.2）✅ 默认选择
-│
-├─ 数学 / 逻辑 / 代码 / 复杂推理
-│   └─ deepseek-reasoner（R1）✅ 强推理
-│
-├─ 代码补全 / IDE 实时
-│   └─ deepseek-coder / R1-Distill-Coder
-│
-├─ 超长上下文（>64K）
-│   └─ V3.2（DSA 稀疏注意力）+ 配合 Context Caching
-│
-├─ 多模态（图 + 文）
-│   └─ DeepSeek-VL2
-│
-├─ 本地跑 / 隐私
-│   └─ R1-Distill-Qwen-7B/14B
-│
-└─ 极致成本
-    └─ V3.2 + 缓存命中（$0.028/M）
+```bash
+# 用 n
+curl -fsSL https://raw.githubusercontent.com/tj/n/master/bin/n -o n && \
+    chmod +x n && sudo ./n 22.19
+
+# 或用 NodeSource
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt-get install -y nodejs
 ```
 
-## ⚙️ 第 3 课：调参指南
+### 安装 pnpm（仅源码安装需要）
 
-### Temperature（创造性 vs 确定性）
+```bash
+npm install -g pnpm@10
+pnpm --version     # 10.x.x
+```
 
-```python
-# 任务类型 → 推荐 temperature
+### 验证环境
 
-tasks = {
-    "code_generation":   0.0,    # 代码生成：0（精确）
-    "math":              0.0,    # 数学：0
-    "data_extraction":   0.0,    # 数据抽取：0
-    "translation":       0.3,    # 翻译：0.3
-    "qa_factual":        0.3,    # 事实问答：0.3
-    "chatbot":           0.7,    # 聊天：0.7
-    "creative_writing":  1.0,    # 创意写作：1.0+
-    "brainstorm":        1.2,    # 头脑风暴：1.2
+```bash
+dsh doctor
+
+# 第一次运行会自动检测所有依赖
+```
+
+## 🎯 第 2 课：第一次启动 Web UI
+
+### 启动
+
+```bash
+mkdir ~/my-project && cd ~/my-project
+npx @deepseek-ai/dsh web
+```
+
+### 浏览器操作
+
+```
+1. 打开 http://localhost:3080
+2. 输入 API Key（首次）
+3. 选模型 deepseek-chat
+4. 工作目录 = ~/my-project
+5. 看到左侧"会话区"+ 中间"对话区"+ 右侧"工具面板"
+```
+
+### 第一次对话
+
+```
+用户："在当前目录创建一个 README.md，写一段 Hello World 介绍"
+Harness：{
+  tools_used: [write_file, shell],
+  diff: "+  # Hello World Project\n+  This is my first project.\n",
+  files_modified: ["README.md"],
+  commands_executed: ["ls -la"]
+}
+```
+
+## 🔧 第 3 课：理解工作目录
+
+### 概念
+
+```
+工作目录（CWD）= Harness 操作的根目录
+所有文件编辑、Shell 命令都在这个范围内执行。
+
+默认 = 当前 shell 目录
+可手动指定：--cwd /path/to/project
+```
+
+### 项目结构建议
+
+```
+my-project/
+├─ .dsh/                 # Harness 项目级配置
+│  ├─ config.yaml       # 覆盖 ~/.config/dsh/config.yaml
+│  ├─ skills/           # 项目专属 Skills
+│  └─ plugins.json      # 项目依赖的插件
+├─ src/                  # 源码
+├─ tests/
+├─ docs/
+├─ package.json
+└─ README.md
+```
+
+### .dsh/config.yaml 示例
+
+```yaml
+# 项目级配置（覆盖全局）
+profile: project-default
+provider: anthropic
+model: claude-sonnet-4.5
+tools:
+  enabled:
+    - file_edit
+    - shell
+    - web_search
+    - code_search
+  disabled:
+    - email_send
+    - deploy
+permissions:
+  shell:
+    allow: ["npm test", "npm run build", "git status", "git diff"]
+```
+
+## 🧰 第 4 课：内置工具详解
+
+### 工具清单
+
+```
+Harness 内置 7 大类工具：
+
+1. file_edit    文件读写（read/write/edit/multi_edit）
+2. shell        Shell 命令（受权限控制）
+3. file_search  按文件名/glob/内容搜
+4. code_search  按符号（函数/类/变量）搜
+5. web_search   联网检索
+6. web_fetch    抓取 URL 内容
+7. todo         任务清单
+```
+
+### file_edit 工具
+
+```yaml
+# Harness 调用示例
+{
+  "tool": "file_edit",
+  "params": {
+    "file": "src/api/users.ts",
+    "operations": [
+      {"op": "replace", "old": "function getUser", "new": "async function getUser"},
+      {"op": "insert_after", "anchor": "export const", "text": "\n\nexport const newFn = ..."}
+    ]
+  }
+}
+```
+
+### shell 工具
+
+```bash
+# 默认受权限控制（见第 5 课）
+# 用户确认流程：
+#   1. Harness 准备执行 "npm test"
+#   2. 弹出确认框（Web UI）或 CLI 等待 y/n
+#   3. 用户同意 → 执行
+#   4. 执行结果回传到对话
+```
+
+### file_search 工具
+
+```yaml
+# glob 模式
+{
+  "tool": "file_search",
+  "params": {
+    "pattern": "**/*.{ts,tsx}",
+    "exclude": ["**/node_modules/**", "**/dist/**"]
+  }
 }
 
-resp = client.chat.completions.create(
-    model="deepseek-chat",
-    messages=[...],
-    temperature=tasks["code_generation"]
-)
+# 内容搜索
+{
+  "tool": " "file_search"",  # 实际用 grep 工具
+  "params": {
+    "type": "content",
+    "query": "TODO",
+    "files": "src/**/*.ts"
+  }
+}
 ```
 
-### max_tokens 控制
+## 🔐 第 5 课：权限与沙箱
 
-```python
-# 短回答（512）：摘要、分类
-# 中等（2048）：解释、翻译
-# 长文（4096-8192）：代码、文章
-# 超长（16384+）：R1 推理 + 长文档分析
-
-resp = client.chat.completions.create(
-    model="deepseek-chat",
-    messages=[{"role": "user", "content": "..."}],
-    max_tokens=8192,
-    stream=True                    # 长文本必须 streaming
-)
-```
-
-### Top-P + Frequency Penalty（避免重复）
-
-```python
-resp = client.chat.completions.create(
-    model="deepseek-chat",
-    messages=[...],
-    temperature=0.7,
-    top_p=0.95,                   # 默认 1.0，调低更聚焦
-    frequency_penalty=0.5,        # 抑制常用词重复
-    presence_penalty=0.3          # 鼓励新话题
-)
-```
-
-### R1 特殊参数
-
-```python
-# R1 的 reasoning_content 在 content 之前
-# 调整 max_tokens 必须预留 thinking 空间（默认 32K）
-
-resp = client.chat.completions.create(
-    model="deepseek-reasoner",
-    messages=[{"role": "user", "content": "复杂的数学证明题"}],
-    max_tokens=16000,             # 留够推理 + 答案
-    # R1 不支持 temperature（强制 0.6，top_p 0.95）
-)
-
-# 关闭 thinking（仅 V3.2 支持）
-resp = client.chat.completions.create(
-    model="deepseek-chat",
-    messages=[...],
-    extra_body={"thinking": {"type": "disabled"}}   # V3.2 新参数
-)
-```
-
-## 🔁 第 4 课：缓存机制（省钱关键）
-
-### Prompt Caching（自动开启）
-
-```python
-# DeepSeek 自动缓存匹配的 system + 工具定义
-# 同一前缀的请求，缓存命中部分仅 $0.028/M tokens
-
-messages = [
-    {"role": "system", "content": "你是 RAG 助手，回答时引用 [1][2][3]..."},  # ← 长 system
-    {"role": "user", "content": "问题 1"},
-    # 后续问题只要前缀不变，cost 大幅下降
-    {"role": "user", "content": "问题 2"},
-]
-
-# 命中缓存：response 会带 cached_tokens 字段
-print(resp.usage.prompt_tokens_details.cached_tokens)
-```
-
-### 实战：构建缓存友好 prompt
+### 默认权限策略
 
 ```
-✅ 推荐结构：
-  [System]  ← 静态（角色 + 工具 + 格式说明）→ 缓存命中
-  [User #1] ← 动态（每次新问题）
-  [User #2]
-  ...
+Harness 默认所有危险操作需要用户确认：
 
-❌ 错误结构：
-  [System] 角色
-  [User #1] 文档内容（变化）  ← 缓存失效
-  [User #2] 文档内容（变化）
-  [User #N] 实际问题          ← 缓存零命中
+⚠️ 需要确认：
+- 写文件（除 .dsh/cache/）
+- 执行 shell 命令
+- 网络请求（web_fetch）
+- 装/卸插件
+
+✅ 无需确认（只读）：
+- 读文件
+- 文件搜索
+- 代码搜索
+- 会话内查询
 ```
 
-### 折扣时段利用
+### 配置权限
 
-```python
-# UTC 16:30 - 00:30 半价（北京时间 00:30 - 08:30）
-# 批量任务、压测、生成数据集 → 放到折扣时段
-import schedule
+```yaml
+# ~/.config/dsh/config.yaml
+permissions:
+  # 文件系统
+  filesystem:
+    read:   ["**"]                    # 允许读所有
+    write:  ["src/**", "tests/**", "docs/**", "*.md", "*.json"]
+    deny:   [".env", "secrets/**", ".git/**", "node_modules/**"]
 
-def batch_job():
-    run_large_evaluation()
-
-schedule.every().day.at("02:00").do(batch_job)   # 北京时间 2 点
-```
-
-## 🧠 第 5 课：R1 推理模型使用范式
-
-### R1 适用场景
-
-```
-✅ 复杂数学证明、几何
-✅ 多步逻辑推理、谜题
-✅ 深度代码分析、调试
-✅ 需要"展示思路"的场景
-✅ 学术研究、论文撰写
-
-❌ 简单问答（用 V3 即可）
-❌ 高频短对话（成本高）
-❌ 实时低延迟（thinking 慢）
-```
-
-### R1 Prompt 技巧
-
-```python
-# 1. 不要让 R1 "强行思考"——它本来就会
-bad = "请一步一步思考这个问题：什么是 1+1？"  # R1 会觉得侮辱智商
-
-# 2. 直接给问题，让 R1 自由发挥
-good = "什么是 1+1？"  # R1 知道 1+1=2，但会展示过程
-
-# 3. 数学 / 算法题：让 R1 验证
-good = "用反证法证明 √2 是无理数"
-
-# 4. 编程题：让 R1 写出测试用例
-good = "写一个 LRU Cache，要求覆盖以下场景：1) 容量满时的淘汰 2) 并发访问"
-```
-
-### 解析 R1 输出
-
-```python
-# 完整解析 R1 流式响应
-import re
-
-def parse_r1_response(text):
-    # R1 输出格式：<thinking>...</thinking>答案
-    thinking_match = re.search(r'<thinking>(.*?)</thinking>', text, re.DOTALL)
-    thinking = thinking_match.group(1) if thinking_match else ""
-    answer = re.sub(r'<thinking>.*?</thinking>', '', text, flags=re.DOTALL).strip()
-    return thinking, answer
-
-# 或直接用 SDK 的 reasoning_content 字段
-resp = client.chat.completions.create(
-    model="deepseek-reasoner",
-    messages=[{"role": "user", "content": "..."}],
-    stream=False
-)
-print("思考:", resp.choices[0].message.reasoning_content)
-print("答案:", resp.choices[0].message.content)
-```
-
-## 🛡️ 第 6 课：常见问题排查
-
-### 报错 401 Unauthorized
-
-```
-❌ sk-xxx 写错 / 过期 / 余额不足
-✅ 检查：
-  1. API Key 是否复制完整（区分大小写）
-  2. platform.deepseek.com 余额是否 < 0
-  3. base_url 写没写错（https://api.deepseek.com/v1）
-```
-
-### 报错 429 Rate Limit
-
-```
-❌ QPS 超限（默认 50 QPS，企业可提）
-✅ 解决：
-  1. 客户端加 retry + exponential backoff
-  2. 申请企业级配额
-  3. 多 Key 轮询
-```
-
-### R1 输出格式错乱
-
-```
-❌ 没解析 thinking 标签就展示给用户
-✅ 解决：
-  1. 用 reasoning_content 字段（推荐）
-  2. 或正则解析 <thinking>...</thinking>
-  3. UI 上折叠 thinking，只展开答案
-```
-
-### vLLM 显存 OOM
-
-```bash
-# 报错 CUDA out of memory
-✅ 解决（按优先级）：
-  1. 调小 --max-model-len（如 16384 → 8192）
-  2. 调小 --gpu-memory-utilization（0.9 → 0.85）
-  3. 启用 --enable-prefix-caching（节省 KV cache）
-  4. 切到量化版本（AWQ / GPTQ）
-  5. 加 GPU（多卡 tensor-parallel）
-```
-
-### Ollama 跑模型慢
-
-```bash
-# 报错或卡顿
-✅ 排查：
-  1. ollama ps                # 看显存占用
-  2. nvidia-smi               # 看 GPU 利用率
-  3. 模型是否量化（默认 Q4_K_M）
-  4. 上下文是否过长
-  5. macOS 用 Metal GPU 加速
-```
-
-## 🔄 第 7 课：迁移指南（从其他模型到 DeepSeek）
-
-### 从 OpenAI 迁移
-
-```python
-# 只需改两个参数！
--client = OpenAI(api_key="sk-openai-xxx")
-+client = OpenAI(
-+    api_key="sk-deepseek-xxx",
-+    base_url="https://api.deepseek.com/v1"
-+)
--model="gpt-4o"
-+model="deepseek-chat"
-```
-
-### 从 Anthropic 迁移
-
-```python
-# 用 OpenAI SDK 适配（手动构造消息）
-def to_openai_messages(anthropic_msgs):
-    # Anthropic system 在顶层，OpenAI 在 messages 里
-    openai_msgs = []
-    if "system" in anthropic_msgs:
-        openai_msgs.append({"role": "system", "content": anthropic_msgs["system"]})
-    for m in anthropic_msgs["messages"]:
-        openai_msgs.append(m)
-    return openai_msgs
-
-# tools 格式：Anthropic input_schema → OpenAI parameters
-def to_openai_tools(anthropic_tools):
-    return [
-        {
-            "type": "function",
-            "function": {
-                "name": t["name"],
-                "description": t["description"],
-                "parameters": t["input_schema"]
-            }
-        }
-        for t in anthropic_tools
+  # Shell 命令
+  shell:
+    allow: [
+      "ls", "cat", "grep", "find",
+      "git status", "git diff", "git log",
+      "npm test", "npm run lint", "pnpm test"
     ]
+    deny: [
+      "rm -rf", "sudo", "curl | sh", "chmod 777",
+      "git push --force", "git reset --hard"
+    ]
+
+  # 网络
+  network:
+    allow_domains: ["github.com", "npmjs.com", "api.deepseek.com"]
+    deny_domains:  ["localhost:*"]      # 防止 SSRF
 ```
 
-### 从其他开源模型迁移（vLLM）
+### 沙箱级别
+
+```yaml
+sandbox:
+  level: standard       # relaxed / standard / strict / paranoid
+
+# relaxed    → 大部分操作直接执行
+# standard   → 默认，危险操作需确认
+# strict     → 所有写操作需确认
+# paranoid   → 所有操作需确认（含读）
+```
+
+### 一次性放行
 
 ```bash
-# 启动命令几乎一样，只需换 model
--vllm serve meta-llama/Meta-Llama-3-8B-Instruct
-+vllm serve deepseek-ai/DeepSeek-V3
-
-# 注意：
-# 1. tokenizer / chat_template 自动加载
-# 2. R1 模型需要 reasoning parser（vllm 内置）
-# 3. MoE 模型加 --enable-expert-parallel
+# 在 CLI 中遇到权限弹窗时：
+y        # 放行一次
+n        # 拒绝
+a        # 放行所有（当前会话）
+!        # 永远放行（写入配置）
+?        # 查看这条命令的危险度
 ```
 
-## 📊 第 8 课：成本优化清单
+## 🎨 第 6 课：Skills 系统
 
-```python
-# 1. 用 prompt caching
-#    节省 50-80% 成本（重复 system）
+### 概念
 
-# 2. 选对模型
-#    简单任务用 V3（$0.27/M），别用 R1（$0.55/M）
+```
+Skill = 一组预设 prompt + 工具调用模式
+让 Harness 在特定场景下"自动应用最佳实践"
 
-# 3. 折扣时段跑批
-#    0.5x off（北京时间 00:30-08:30）
+例：
+- /review       → 自动审查当前 PR
+- /refactor     → 智能重构代码
+- /git-commit   → 按规范生成 commit message
+- /test         → 自动补单元测试
+- /docs         → 自动生成/更新文档
+```
 
-# 4. max_tokens 限制
-#    别默认 4096，按需设置
+### 调用 Skill
 
-# 5. 流式 vs 非流式
-#    流式首 token 快 200ms+
+```bash
+# CLI：
+dsh /review
 
-# 6. 本地小模型替代
-#    高频短问答用 Ollama R1-Distill-7B
+# Web UI：
+# 输入框打 / 触发 skill 列表 → 选择
+```
 
-# 7. 批量 + async
-#    asyncio.gather 并发 50 个
+### 内置 Skills
+
+```
+/init         初始化项目（生成 .dsh/ + README）
+/review       Code Review（基于 git diff）
+/refactor     智能重构（保持行为不变）
+/test         自动补单元测试
+/docs         生成/同步文档
+/commit       按 Conventional Commits 生成 commit
+/fix          自动修复 lint/test 报错
+/clean        清理无用代码（dead code）
+/changelog    更新 CHANGELOG.md
+```
+
+### 自定义 Skill
+
+```bash
+# 创建 ~/.config/dsh/skills/my-skill.md
+cat > ~/.config/dsh/skills/deploy.md << 'SKILL'
+---
+name: deploy
+description: 一键部署当前项目
+mode: standard
+---
+
+# /deploy Skill
+
+## 流程
+1. 检查 git status（必须 clean）
+2. 跑测试（npm test）
+3. 跑 lint
+4. 询问部署目标（staging / prod）
+5. 执行部署命令
+
+## 输出
+- 部署结果
+- 部署日志
+- 后续监控链接
+SKILL
+```
+
+```bash
+# 现在可用
+dsh /deploy
+```
+
+## 🤖 第 7 课：子代理（Subagent）
+
+### 概念
+
+```
+子代理 = Harness 内部启动另一个 Agent 实例
+用于：
+- 并行处理多个独立任务
+- 隔离上下文（避免污染主对话）
+- 用不同模型处理不同子任务
+```
+
+### 使用场景
+
+```
+用户："重构 src/auth/ 下所有文件，并写测试"
+
+Harness 自动启动 3 个子代理：
+├─ subagent-1: 重构 auth/login.ts
+├─ subagent-2: 重构 auth/session.ts
+└─ subagent-3: 重构 auth/permission.ts
+
+3 个并行 → 主代理收集结果 → 写测试
+```
+
+### 配置子代理
+
+```yaml
+# ~/.config/dsh/config.yaml
+subagent:
+  enabled: true
+  max_concurrent: 4
+  default_model: gpt5m           # 子代理用便宜模型
+  trigger:
+    parallel_tasks: true          # 检测到独立任务时并行
+    code_search_depth: 3          # 搜索深度 >3 时启用
+```
+
+### 手动触发子代理
+
+```bash
+# CLI
+dsh spawn "写测试覆盖 auth/login.ts" --model gpt5m
+
+# 在对话中
+用户："用子代理分析 src/api/ 下的所有 controller 接口兼容性"
+```
+
+## 🌳 第 8 课：PTC 模式（Programmatic Tool Calling）
+
+### 概念
+
+```
+PTC 模式 = 把"工具调用"提升为"程序执行"
+Harness 写一段 TypeScript 代码来编排多个工具，而不是一次一个工具调用。
+
+优势：
+- 复杂的工具编排更可靠
+- 可读性高（代码即文档）
+- 可调试（TypeScript 类型检查）
+```
+
+### 示例：批量重命名文件
+
+```
+标准模式：
+  1. list files
+  2. read each file
+  3. write each file
+  4. delete old file
+  （多次工具调用，容易出错）
+
+PTC 模式：
+  Harness 生成：
+  ```typescript
+  for (const path of await glob('src/*.old.ts')) {
+    const content = await readFile(path)
+    const newPath = path.replace('.old.ts', '.ts')
+    await writeFile(newPath, content)
+    await deleteFile(path)
+  }
+  ```
+  一次性执行，类型安全
+```
+
+### 启用 PTC
+
+```bash
+# CLI
+dsh --mode ptc
+
+# Web UI：顶栏下拉选 "PTC"
+```
+
+### PTC 模式限制
+
+```
+⚠️ PTC 模式当前限制：
+- 必须在能执行 Node.js 的环境（沙箱已支持）
+- 不能直接调用 Harness 外部 API（如 web_fetch 在 PTC 内部是异步）
+- 子代理不递归（PTC 子任务仍用标准模式）
+```
+
+## 🎯 第 9 课：创造模式（Creative）
+
+### 概念
+
+```
+创造模式 = Harness 自动尝试多种方案 + 自我反思
+用于没有明确最优解的探索性任务。
+```
+
+### 工作流程
+
+```
+1. 列出 3 种实现思路
+2. 分别实现
+3. 跑基准测试 / 静态分析
+4. 对比结果
+5. 推荐 + 说明理由
+```
+
+### 启用
+
+```bash
+dsh --mode creative
+```
+
+### 示例
+
+```
+用户："写一个 HTTP 客户端"
+（创造模式下 Harness 会）：
+  - axios 实现 → 跑测 → benchmark
+  - fetch 实现 → 跑测 → benchmark
+  - ky 实现 → 跑测 → benchmark
+  - 给出推荐："对于你项目，fetch 更轻量；但如果需要拦截器，axios 更合适"
+```
+
+## 🩺 第 10 课：故障排查
+
+### 启动失败
+
+```bash
+# 报错 "EADDRINUSE :::3080"
+# → 端口占用
+dsh web --port 9090
+# 或杀掉占 3080 的进程
+lsof -ti:3080 | xargs kill -9
+
+# 报错 "Cannot find module '@harness/core'"
+# → npx 缓存损坏
+rm -rf ~/.npm/_npx
+npx @deepseek-ai/dsh@latest web
+
+# 报错 "Node version not supported"
+# → Node 太旧
+nvm install 22.19 && nvm use 22.19
+```
+
+### API 调用失败
+
+```bash
+# 报错 "401 Unauthorized"
+dsh doctor                     # 检查 Key 是否过期
+# → 在 ~/.config/dsh/profiles/personal.yaml 更新 API Key
+
+# 报错 "429 Too Many Requests"
+# → 限流。在 config.yaml 加：
+rate_limit:
+  rps: 5                       # 每秒请求数
+  retry_after: 60              # 429 后等待秒数
+```
+
+### 工具调用失败
+
+```bash
+# 报错 "Permission denied"
+# → 受权限策略限制
+# 方案 A：临时放行（CLI 输入 y）
+# 方案 B：编辑 config.yaml 加 allow 规则
+# 方案 C：检查 .dsh/config.yaml 是否覆盖了全局配置
+
+# 报错 "File not found"
+# → 工作目录设置错误
+dsh web --cwd /correct/path
+
+# 报错 "Command not found in shell"
+# → shell PATH 缺少工具
+# 编辑 ~/.config/dsh/config.yaml:
+shell:
+  env:
+    PATH: "$PATH:/usr/local/bin:/opt/homebrew/bin"
+```
+
+### 会话卡死
+
+```bash
+# Web UI 无响应
+# 强制刷新：Cmd + Shift + R
+# 或重启服务：
+dsh web --port 3081           # 换个端口
+
+# CLI 卡在 prompt
+# Ctrl + C 中断当前 turn
+# 输入 /exit 完全退出
+
+# 恢复之前会话：
+dsh session list
+dsh session resume <id>
 ```

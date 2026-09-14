@@ -3,331 +3,409 @@ title: DeepSeek Harness 使用文档
 date: 2026-09-14  # date-auto-injected
 ---
 
-# 🚀 DeepSeek 使用文档
+# 🚀 DeepSeek Harness 使用文档
 
-> 5 分钟跑通 DeepSeek。从云端 API、本地 Ollama、到自部署 vLLM 服务，覆盖 95% 入门场景。
+> 5 分钟跑通 Harness。从一行启动 Web UI、源码安装、到 profile 配置，覆盖所有上手场景。
 
-## 1️⃣ 云端 API（最快，推荐先体验）
+## 1️⃣ 一行启动（最快，推荐先体验）
 
-### 注册与充值
-
-```
-1. 访问 https://platform.deepseek.com
-2. 注册 → 实名 → 充值（最低 1 元起）
-3. 创建 API Key：console.deepseek.com → API Keys
-4. 保存 Key（仅显示一次）
-```
-
-### OpenAI 兼容调用（任意语言）
-
-```python
-# pip install openai
-from openai import OpenAI
-
-client = OpenAI(
-    api_key="sk-xxx",                              # 你的 DeepSeek API Key
-    base_url="https://api.deepseek.com/v1"         # DeepSeek 兼容 endpoint
-)
-
-# 普通对话（V3.2）
-resp = client.chat.completions.create(
-    model="deepseek-chat",                          # 即 V3.2
-    messages=[
-        {"role": "system", "content": "你是 Python 专家"},
-        {"role": "user",   "content": "写个装饰器测函数耗时"}
-    ],
-    temperature=0.6,
-    max_tokens=4096
-)
-print(resp.choices[0].message.content)
-print(f"tokens: {resp.usage.total_tokens}")
-```
-
-```bash
-# curl
-curl -X POST "https://api.deepseek.com/v1/chat/completions" \
-    -H "Authorization: Bearer sk-xxx" \
-    -H "Content-Type: application/json" \
-    -d '{
-      "model": "deepseek-chat",
-      "messages": [
-        {"role": "user", "content": "你好"}
-      ],
-      "temperature": 0.6,
-      "max_tokens": 1024
-    }'
-```
-
-### R1 推理模型（特殊输出格式）
-
-```python
-# R1 会先输出 <think> 推理过程，再输出答案
-resp = client.chat.completions.create(
-    model="deepseek-reasoner",                       # 即 R1
-    messages=[
-        {"role": "user", "content": "9.11 和 9.9 哪个大？"}
-    ]
-)
-msg = resp.choices[0].message
-print("=== thinking ===")
-print(msg.reasoning_content)                         # 推理过程
-print("=== answer ===")
-print(msg.content)                                    # 最终答案
-```
-
-### 流式输出
-
-```python
-stream = client.chat.completions.create(
-    model="deepseek-chat",
-    messages=[{"role": "user", "content": "写首诗"}],
-    stream=True
-)
-for chunk in stream:
-    delta = chunk.choices[0].delta
-    if delta.content:
-        print(delta.content, end="", flush=True)
-```
-
-### Function Calling
-
-```python
-tools = [
-    {
-        "type": "function",
-        "function": {
-            "name": "get_weather",
-            "description": "查询指定城市的天气",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "city": {"type": "string", "description": "城市名"}
-                },
-                "required": ["city"]
-            }
-        }
-    }
-]
-
-resp = client.chat.completions.create(
-    model="deepseek-chat",
-    messages=[{"role": "user", "content": "北京今天天气怎么样？"}],
-    tools=tools,
-    tool_choice="auto"
-)
-
-# 模型决定调用工具 → 返回 tool_calls
-tool_call = resp.choices[0].message.tool_calls[0]
-print(tool_call.function.name)        # "get_weather"
-print(tool_call.function.arguments)  # '{"city":"北京"}'
-
-# 执行工具后再把结果回传
-messages = [
-    {"role": "user", "content": "北京今天天气怎么样？"},
-    resp.choices[0].message,           # assistant 消息（带 tool_calls）
-    {
-        "role": "tool",
-        "tool_call_id": tool_call.id,
-        "content": "{\"temp\": 22, \"weather\": \"晴\"}"
-    }
-]
-final = client.chat.completions.create(
-    model="deepseek-chat",
-    messages=messages,
-    tools=tools
-)
-print(final.choices[0].message.content)
-# "北京今天晴，气温 22°C"
-```
-
-### 定价参考（2026 年）
+### 前置条件
 
 ```
-DeepSeek-V3.2（deepseek-chat）：
-  缓存命中：$0.028 / 1M tokens
-  缓存未中：$0.27  / 1M tokens
-  输出：    $1.10  / 1M tokens
-
-DeepSeek-R1（deepseek-reasoner）：
-  缓存命中：$0.14  / 1M tokens
-  缓存未中：$0.55  / 1M tokens
-  输出：    $2.19  / 1M tokens
-
-折扣时段（UTC 16:30-00:30）半价
+- Node.js ^22.19.0（必须，旧版会报错）
+- pnpm 10+（仅源码安装需要）
+- 任意 DeepSeek API Key（或 OpenAI / Anthropic Key）
 ```
-
-## 2️⃣ 本地 Ollama（最简单）
-
-```bash
-# 安装 Ollama
-curl -fsSL https://ollama.com/install.sh | sh
-
-# 拉模型（选小一点的蒸馏版起步）
-ollama pull deepseek-r1:7b          # R1 蒸馏 7B，约 4.7GB
-ollama pull deepseek-r1:14b         # R1 蒸馏 14B，约 9GB
-ollama pull deepseek-v3:671b-cloud  # V3 云端版本（本地只跑小模型）
-
-# 运行
-ollama run deepseek-r1:7b "你好"
-
-# 启动 API 服务（默认端口 11434）
-ollama serve
-# OpenAI 兼容 endpoint：http://localhost:11434/v1
-```
-
-### Open WebUI（Ollama 配套前端）
-
-```bash
-docker run -d \
-    --name open-webui \
-    -p 3000:8080 \
-    -e OLLAMA_BASE_URL=http://host.docker.internal:11434 \
-    -v open-webui-data:/app/backend/data \
-    ghcr.io/open-webui/open-webui:main
-
-# 访问 http://localhost:3000
-```
-
-## 3️⃣ vLLM 自部署（中等门槛）
-
-### 硬件需求
-
-| 模型 | FP16 | INT8/AWQ | 4-bit/GPTQ |
-|---|---|---|---|
-| V3 671B | 8× H100 (80G) | 8× A100 (80G) | 不推荐 |
-| V3.1 685B | 8× H100 | 8× A100 | — |
-| R1 671B | 8× H100 | 8× A100 | — |
-| R1-Distill-70B | 2× A100 (80G) | 1× A100 | 1× 4090 (24G) |
-| R1-Distill-32B | 1× A100 (80G) | 1× A100 | 1× 4090 |
-| R1-Distill-14B | 1× 4090 | 1× 3090 | 1× 3060 (12G) |
-| R1-Distill-7B | 1× 3090 | 1× 2080Ti | 任意 8G |
-| R1-Distill-1.5B | CPU 都能跑 | — | — |
 
 ### 启动命令
 
 ```bash
-# 安装 vllm
-pip install vllm
+# 一行启动 Web UI（默认端口 3080）
+npx @deepseek-ai/dsh web
 
-# 单 GPU 跑 R1-Distill-7B
-vllm serve deepseek-ai/DeepSeek-R1-Distill-Qwen-7B \
-    --port 8000 \
-    --host 0.0.0.0 \
-    --max-model-len 32768 \
-    --gpu-memory-utilization 0.9
+# 首次运行会问 3 件事：
+#   1. 配置 API Key（或选已有 profile）
+#   2. 选模型（默认 deepseek-chat / deepseek-reasoner）
+#   3. 工作目录（默认当前路径）
 
-# 多 GPU 跑 V3 671B（4× H100）
-vllm serve deepseek-ai/DeepSeek-V3 \
-    --port 8000 \
-    --tensor-parallel-size 4 \
-    --max-model-len 32768 \
-    --enable-expert-parallel    # MoE 专家并行
+# 打开浏览器访问
+open http://localhost:3080
 ```
 
-### 调用 vLLM 服务
-
-```python
-from openai import OpenAI
-
-# 复用 OpenAI SDK，只是换 base_url
-client = OpenAI(
-    api_key="EMPTY",                                 # vLLM 不校验
-    base_url="http://localhost:8000/v1"
-)
-
-resp = client.chat.completions.create(
-    model="deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
-    messages=[{"role": "user", "content": "你好"}]
-)
-print(resp.choices[0].message.content)
-```
-
-## 4️⃣ SGLang 自部署（更优吞吐量）
+### 启动参数
 
 ```bash
-# 安装
-pip install sglang[all]
+# 指定端口
+npx @deepseek-ai/dsh web --port 9090
 
-# 启动 R1
-python -m sglang.launch_server \
-    --model-path deepseek-ai/DeepSeek-R1-Distill-Qwen-32B \
-    --port 8000 \
-    --mem-fraction-static 0.85
+# 指定工作目录
+npx @deepseek-ai/dsh web --cwd /Users/me/projects/my-app
+
+# 指定 profile（见 §3）
+npx @deepseek-ai/dsh web --profile work
+
+# 禁用 Web UI（纯 CLI）
+npx @deepseek-ai/dsh --no-web
+
+# 后台运行 + 日志
+npx @deepseek-ai/dsh web --daemon --log ~/.local/share/dsh/daemon.log
 ```
 
-### vLLM vs SGLang 对比
+### 首次配置向导
 
-| 维度 | vLLM | SGLang |
-|---|---|---|
-| 单 batch 吞吐 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
-| 长上下文 (R1) | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| RadixAttention | ❌ | ✅ |
-| 结构化输出 | ✅ | ✅ 更强（grammar） |
-| 学习曲线 | 平缓 | 略陡 |
-| DeepSeek 适配 | 良好 | 优秀（R1 推理模板） |
+```
+┌──────────────────────────────────────────┐
+│  Welcome to DeepSeek Harness v0.1.2-rc.1│
+│                                          │
+│  Step 1/3: Select API Provider           │
+│  > DeepSeek                              │
+│    OpenAI                                 │
+│    Anthropic                              │
+│    Custom (OpenAI-compatible)             │
+│                                          │
+│  Step 2/3: API Key                       │
+│  > sk-********************************** │
+│                                          │
+│  Step 3/3: Default Model                 │
+│  > deepseek-chat (V3.2)                  │
+│    deepseek-reasoner (R1)                │
+│    deepseek-coder                        │
+└──────────────────────────────────────────┘
 
-## 5️⃣ LMDeploy（清华出品，DeepSeek 适配优化）
+Config saved to ~/.config/dsh/config.yaml
+Starting Web UI on http://localhost:3080
+```
+
+## 2️⃣ 源码安装（开发者推荐）
+
+### 克隆仓库
 
 ```bash
-pip install lmdeploy
-
-lmdeploy serve api_server \
-    deepseek-ai/DeepSeek-V3 \
-    --server-port 8000 \
-    --tp 4 \
-    --model-format hf
+git clone https://github.com/deepseek-ai/deepseek-harness.git
+cd deepseek-harness
 ```
 
-LMDeploy 对 DeepSeek-V3 有专门优化，TurboMind 引擎在 MoE 上吞吐领先。
+### 安装依赖
 
-## 6️⃣ Docker Compose 一键部署
+```bash
+# 必须用 pnpm（项目用 pnpm workspaces）
+npm i -g pnpm@10
+
+pnpm install              # 安装所有 packages 的依赖
+```
+
+### 构建
+
+```bash
+pnpm run build            # esbuild 构建所有包
+```
+
+### 启动
+
+```bash
+# 方式 1：用 CLI 包启动
+pnpm dsh web
+
+# 方式 2：单独启动 server + web
+pnpm --filter @harness/server dev       # 后端（端口默认 3000）
+pnpm --filter @harness/web dev          # 前端（端口默认 5173）
+```
+
+### 开发模式（hot reload）
+
+```bash
+# 终端 1：core + server 监听
+pnpm run dev:server
+
+# 终端 2：前端 hot reload
+pnpm run dev:web
+
+# 浏览器自动打开 http://localhost:5173
+```
+
+### 运行测试
+
+```bash
+pnpm test                  # 所有单元测试（Vitest）
+pnpm test:e2e              # Playwright 端到端
+pnpm test --filter @harness/server   # 单包测试
+```
+
+## 3️⃣ Profile 管理（多环境必备）
+
+### 概念
+
+```
+Profile = 一套独立的 API Key + 模型 + 配置
+~/.config/dsh/
+├─ config.yaml         # 默认配置
+├─ profiles/
+│  ├─ personal.yaml    # 个人项目（用 DeepSeek 个人 Key）
+│  ├─ work.yaml        # 公司项目（用公司 Anthropic Key）
+│  └─ eval.yaml        # 评测任务（用 Qwen 长上下文模型）
+└─ sessions/           # 会话历史
+```
+
+### 创建 profile
+
+```bash
+# 交互式创建
+dsh profile new work
+
+# 或直接写 YAML
+mkdir -p ~/.config/dsh/profiles
+cat > ~/.config/dsh/profiles/work.yaml << 'YAML'
+name: work
+provider: anthropic
+api_key: sk-ant-xxx
+base_url: https://api.anthropic.com
+model: claude-sonnet-4.5
+fallback_model: claude-haiku-4
+max_context: 200000
+tools:
+  enabled:
+    - file_edit
+    - shell
+    - web_search
+    - code_search
+  disabled:
+    - email_send
+permissions:
+  shell:
+    allow: ["npm", "pnpm", "git", "ls", "cat"]
+    deny:  ["rm -rf", "sudo", "curl | sh"]
+YAML
+```
+
+### 切换 profile
+
+```bash
+# 命令行参数
+dsh web --profile work
+
+# 环境变量
+export DSH_PROFILE=work
+dsh web
+
+# 当前 shell 一次性
+DSH_PROFILE=work dsh web
+```
+
+### 查看所有 profile
+
+```bash
+dsh profile list
+
+# Output:
+# NAME       PROVIDER    MODEL              DEFAULT
+# personal   deepseek    deepseek-chat      ✓
+# work       anthropic   claude-sonnet-4.5
+# eval       openai      qwen-long-context
+```
+
+### 删除 / 重命名
+
+```bash
+dsh profile rm work
+dsh profile rename personal dev
+```
+
+## 4️⃣ 模型配置
+
+### 内置 Provider
 
 ```yaml
-# docker-compose.yml
-version: '3'
-services:
-  vllm:
-    image: vllm/vllm-openai:latest
-    runtime: nvidia
-    ports:
-      - "8000:8000"
-    environment:
-      - NVIDIA_VISIBLE_DEVICES=all
-    volumes:
-      - ~/.cache/huggingface:/root/.cache/huggingface
-    command: >
-      --model deepseek-ai/DeepSeek-R1-Distill-Qwen-14B
-      --max-model-len 32768
-      --tensor-parallel-size 1
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
+# ~/.config/dsh/config.yaml
+provider: deepseek          # 默认 provider
+providers:
+  deepseek:
+    api_key: sk-xxx
+    base_url: https://api.deepseek.com/v1
+    default_model: deepseek-chat
+    models:
+      v3:    { id: deepseek-chat,     max_tokens: 8192 }
+      r1:    { id: deepseek-reasoner, max_tokens: 16000 }
+      coder: { id: deepseek-coder,    max_tokens: 8192 }
+
+  openai:
+    api_key: sk-xxx
+    base_url: https://api.openai.com/v1
+    models:
+      gpt5:  { id: gpt-5,           max_tokens: 32000 }
+      gpt5m: { id: gpt-5-mini,      max_tokens: 16000 }
+
+  anthropic:
+    api_key: sk-ant-xxx
+    models:
+      opus:   { id: claude-opus-4,    max_tokens: 32000 }
+      sonnet: { id: claude-sonnet-4.5, max_tokens: 16000 }
+
+  custom:
+    api_key: sk-xxx
+    base_url: http://localhost:8000/v1       # 自部署 vLLM
+    default_model: deepseek-r1-distill-32b
 ```
 
+### 用模型映射
+
 ```bash
-docker-compose up -d
-curl http://localhost:8000/v1/models
+# Web UI：顶栏下拉切换
+# CLI 命令：
+dsh --model r1        # 使用 deepseek-reasoner
+dsh --model sonnet    # 使用 claude-sonnet-4.5
 ```
 
-## 7️⃣ 命令速查
+### 自动路由（按任务选模型）
+
+```yaml
+# 配置智能路由
+routing:
+  simple_qa:        gpt5m      # 短问答用 mini 模型
+  complex_reason:   r1         # 复杂推理用 R1
+  code_generation:  coder      # 代码生成用 coder
+  default:          v3         # 默认 V3
+```
+
+## 5️⃣ 工作目录与会话
+
+### 默认行为
+
+```
+Harness 启动时会在当前目录（或 --cwd 指定）寻找：
+1. .dsh/ 目录（项目级配置）→ 优先
+2. 当前 git 仓库根目录 → 作为工作区
+3. 否则用当前目录
+
+会话状态保存到：
+~/.local/share/dsh/sessions/<session-id>/
+├─ messages.json     # 完整对话
+├─ edits.jsonl       # 所有文件修改（可回滚）
+├─ commands.jsonl    # 所有 shell 命令
+└─ checkpoints/      # 关键节点快照
+```
+
+### 查看历史会话
 
 ```bash
-# Ollama
-ollama list                              # 列出本地模型
-ollama pull deepseek-r1:7b              # 拉取
-ollama rm deepseek-r1:7b                # 删除
-ollama cp deepseek-r1:7b my-deepseek    # 复制改名
+dsh session list
 
-# vLLM
-vllm serve <model> --port 8000
-vllm bench --model <model>              # 跑压测
-vllm chat <model>                       # 启动交互式 chat
+# ID                STARTED           TURNS  FILES  COST
+# abc123def456      2026-09-14 10:23   42    8     $0.12
+# xyz789ghi012      2026-09-13 18:45   18    3     $0.05
+```
 
-# SGLang
-python -m sglang.launch_server --model-path <model>
-python -m sglang.bench_serving --model <model>
+### 恢复会话
+
+```bash
+dsh session resume abc123def456
+```
+
+### 导出会话
+
+```bash
+dsh session export abc123def456 --format markdown > session.md
+dsh session export abc123def456 --format json > session.json
+```
+
+## 6️⃣ 配置文件位置
+
+```
+~/.config/dsh/
+├─ config.yaml          # 主配置（创建于首次启动）
+├─ profiles/            # 多 profile 目录
+├─ plugins/             # 已装插件清单
+├─ skills/              # 用户自定义 Skills
+└─ logs/                # 运行日志
+
+~/.local/share/dsh/
+├─ sessions/            # 会话历史
+├─ cache/               # 模型响应缓存
+└─ checkpoints/         # 文件快照（可回滚）
+```
+
+## 7️⃣ 常用命令速查
+
+```bash
+# 启动
+dsh                       # 等同 dsh web，但只在 TTY 下
+dsh web --port 9090       # Web UI
+dsh --no-web              # 仅 CLI
+
+# 模式
+dsh --mode standard       # 默认
+dsh --mode ptc            # PTC 模式
+dsh --mode minimal        # 极简
+dsh --mode creative       # 创造
+
+# Profile
+dsh profile new <name>
+dsh profile list
+dsh profile rm <name>
+dsh --profile <name>
+
+# 模型
+dsh --model <alias>
+dsh --model deepseek-chat
+dsh --model claude-sonnet-4.5
+
+# 会话
+dsh session list
+dsh session resume <id>
+dsh session export <id>
+
+# 插件
+dsh plugin list
+dsh plugin install <npm-name>
+dsh plugin uninstall <npm-name>
+
+# Skills
+dsh skill list
+dsh skill run <skill-name> [args...]
+
+# 系统
+dsh doctor                # 健康检查（Node 版本/依赖/Key 有效性）
+dsh update                # 升级到最新版
+dsh uninstall             # 卸载（保留配置）
+dsh --help                # 完整帮助
+dsh --version
+```
+
+## 8️⃣ 健康检查
+
+```bash
+dsh doctor
+
+# Checks:
+# ✓ Node.js v22.19.0 (要求 ^22.19.0)
+# ✓ pnpm 10.12.0 (可选，源码安装需要)
+# ✓ ~/.config/dsh/ 存在
+# ✓ Profile "personal" 配置完整
+# ✓ DeepSeek API Key 有效（余额 $5.42）
+# ✓ 模型 deepseek-chat 可访问
+# ✓ 模型 deepseek-reasoner 可访问
+# ✓ 插件加载：12 个官方 + 0 个第三方
+# ✓ 端口 3080 可用
+# ✓ 工作目录可写
+# 
+# All checks passed!
+```
+
+## 9️⃣ 升级与卸载
+
+```bash
+# 升级（npx 用户）
+npx @deepseek-ai/dsh@latest web
+
+# 升级（源码用户）
+cd deepseek-harness
+git pull
+pnpm install
+pnpm run build
+
+# 卸载
+npm uninstall -g @deepseek-ai/dsh    # 如果全局装过
+rm -rf ~/.config/dsh                 # 删除配置
+rm -rf ~/.local/share/dsh            # 删除会话/缓存
+
+# ⚠️ 注意：profiles/、skills/ 备份后再删
 ```
