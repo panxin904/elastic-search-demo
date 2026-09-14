@@ -203,7 +203,18 @@ export default defineConfig({
                                                                                                     { text: '  ├ 📙 使用教程', link: '/10-deploy/deepseek-harness/02-tutorial' },
                                                                                                     { text: '  ├ 🎯 实战教程', link: '/10-deploy/deepseek-harness/03-recipes' },
                                                                                                     { text: '  ├ 🧩 常用插件', link: '/10-deploy/deepseek-harness/04-plugins' },
-                                                                                                    { text: '  └ 🏛️ 经典架构', link: '/10-deploy/deepseek-harness/05-architecture' }
+                                                                                                    { text: '  └ 🏛️ 经典架构', link: '/10-deploy/deepseek-harness/05-architecture' },
+                                                                                                    { text: '🧠 Agent 高级实战', link: '/10-deploy/deepseek-harness/06-advanced' },
+                                                                                                    { text: '  ├ 🧩 自定义工具', link: '/10-deploy/deepseek-harness/06-advanced#第-1 章自定义工具定义' },
+                                                                                                    { text: '  ├ 🎯 意图识别', link: '/10-deploy/deepseek-harness/06-advanced#第-2 章意图识别' },
+                                                                                                    { text: '  ├ 🤖 单 Agent 构建', link: '/10-deploy/deepseek-harness/06-advanced#第-3 章单-agent-智能体构建' },
+                                                                                                    { text: '  ├ 👥 多 Agent 协作', link: '/10-deploy/deepseek-harness/06-advanced#第-4 章多-agent-协作' },
+                                                                                                    { text: '  ├ 🔌 MCP 接入', link: '/10-deploy/deepseek-harness/06-advanced#第-5-章mcp-接入' },
+                                                                                                    { text: '  ├ 🎓 Skill 系统', link: '/10-deploy/deepseek-harness/06-advanced#第-6-章skill-系统深度使用' },
+                                                                                                    { text: '  ├ 📚 RAG 接入', link: '/10-deploy/deepseek-harness/06-advanced#第-7-章rag-接入' },
+                                                                                                    { text: '  ├ 🛠️ 工具定义', link: '/10-deploy/deepseek-harness/06-advanced#第-8-章工具定义最佳实践' },
+                                                                                                    { text: '  ├ 🧪 测试', link: '/10-deploy/deepseek-harness/06-advanced#第-9-章测试-agent--skill--tool' },
+                                                                                                    { text: '  └ 🎁 完整实战', link: '/10-deploy/deepseek-harness/06-advanced#第-10-章完整实战项目' }
                                                                                                   ]
                                                                                                 },
                                                                                                 {
