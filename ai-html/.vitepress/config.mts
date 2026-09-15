@@ -214,7 +214,20 @@ export default defineConfig({
                                                                                                     { text: '  ├ 📚 RAG 接入', link: '/10-deploy/deepseek-harness/06-advanced#第-7-章rag-接入' },
                                                                                                     { text: '  ├ 🛠️ 工具定义', link: '/10-deploy/deepseek-harness/06-advanced#第-8-章工具定义最佳实践' },
                                                                                                     { text: '  ├ 🧪 测试', link: '/10-deploy/deepseek-harness/06-advanced#第-9-章测试-agent--skill--tool' },
-                                                                                                    { text: '  └ 🎁 完整实战', link: '/10-deploy/deepseek-harness/06-advanced#第-10-章完整实战项目' }
+                                                                                                    { text: '  └ 🎁 完整实战', link: '/10-deploy/deepseek-harness/06-advanced#第-10-章完整实战项目' },
+                                                                                                    { text: '⚙️ 运行时原理', link: '/10-deploy/deepseek-harness/07-runtime' },
+                                                                                                    { text: '  ├ 🏛️ 架构总览', link: '/10-deploy/deepseek-harness/07-runtime#🏛️-运行时架构总览' },
+                                                                                                    { text: '  ├ 🚀 启动流程', link: '/10-deploy/deepseek-harness/07-runtime#🚀-启动流程从-npx-dsh-web-到可用' },
+                                                                                                    { text: '  ├ 🔄 Agent Loop', link: '/10-deploy/deepseek-harness/07-runtime#🔄-agent-loop-执行模型核心中的核心' },
+                                                                                                    { text: '  ├ 🧰 工具调度', link: '/10-deploy/deepseek-harness/07-runtime#🧰-工具调度机制' },
+                                                                                                    { text: '  ├ 👥 子代理', link: '/10-deploy/deepseek-harness/07-runtime#👥-子代理subagent机制' },
+                                                                                                    { text: '  ├ 📡 消息流', link: '/10-deploy/deepseek-harness/07-runtime#📡-消息流web-ui-实时推送' },
+                                                                                                    { text: '  ├ 🔒 沙箱权限', link: '/10-deploy/deepseek-harness/07-runtime#🔒-沙箱与权限检查' },
+                                                                                                    { text: '  ├ 💾 状态管理', link: '/10-deploy/deepseek-harness/07-runtime#💾-状态管理' },
+                                                                                                    { text: '  ├ 🧬 进程模型', link: '/10-deploy/deepseek-harness/07-runtime#🧬-进程模型' },
+                                                                                                    { text: '  ├ 🛟 错误恢复', link: '/10-deploy/deepseek-harness/07-runtime#🛟-错误恢复' },
+                                                                                                    { text: '  ├ 🆚 对比', link: '/10-deploy/deepseek-harness/07-runtime#🆚-与-claude-code-的本质区别' },
+                                                                                                    { text: '  └ 🧪 调试技巧', link: '/10-deploy/deepseek-harness/07-runtime#🧪-调试与诊断技巧' }
                                                                                                   ]
                                                                                                 },
                                                                                                 {
