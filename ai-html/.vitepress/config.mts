@@ -227,7 +227,16 @@ export default defineConfig({
                                                                                                     { text: '  ├ 🧬 进程模型', link: '/10-deploy/deepseek-harness/07-runtime#🧬-进程模型' },
                                                                                                     { text: '  ├ 🛟 错误恢复', link: '/10-deploy/deepseek-harness/07-runtime#🛟-错误恢复' },
                                                                                                     { text: '  ├ 🆚 对比', link: '/10-deploy/deepseek-harness/07-runtime#🆚-与-claude-code-的本质区别' },
-                                                                                                    { text: '  └ 🧪 调试技巧', link: '/10-deploy/deepseek-harness/07-runtime#🧪-调试与诊断技巧' }
+                                                                                                    { text: '  └ 🧪 调试技巧', link: '/10-deploy/deepseek-harness/07-runtime#🧪-调试与诊断技巧' },
+                                                                                                    { text: '🔬 源码级深度', link: '/10-deploy/deepseek-harness/08-deep-dive' },
+                                                                                                    { text: '  ├ 🔄 Agent Loop', link: '/10-deploy/deepseek-harness/08-deep-dive#1-agent-loop-主循环源码逐行分析' },
+                                                                                                    { text: '  ├ 🏛️ Cordis', link: '/10-deploy/deepseek-harness/08-deep-dive#2-cordis-容器原理' },
+                                                                                                    { text: '  ├ 🧰 Dispatcher', link: '/10-deploy/deepseek-harness/08-deep-dive#3-tool-dispatcher-调度机制' },
+                                                                                                    { text: '  ├ 🔌 MCP', link: '/10-deploy/deepseek-harness/08-deep-dive#4-mcp-桥接实现' },
+                                                                                                    { text: '  ├ 📡 流式', link: '/10-deploy/deepseek-harness/08-deep-dive#5-流式响应实现-sse--websocket' },
+                                                                                                    { text: '  ├ 💾 持久化', link: '/10-deploy/deepseek-harness/08-deep-dive#6-会话持久化原理' },
+                                                                                                    { text: '  ├ 📊 性能', link: '/10-deploy/deepseek-harness/08-deep-dive#7-性能基准' },
+                                                                                                    { text: '  └ 🛟 排查', link: '/10-deploy/deepseek-harness/08-deep-dive#8-故障排查指南' }
                                                                                                   ]
                                                                                                 },
                                                                                                 {
