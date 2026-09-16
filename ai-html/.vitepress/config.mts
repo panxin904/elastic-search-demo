@@ -236,7 +236,23 @@ export default defineConfig({
                                                                                                     { text: '  ├ 📡 流式', link: '/10-deploy/deepseek-harness/08-deep-dive#5-流式响应实现-sse--websocket' },
                                                                                                     { text: '  ├ 💾 持久化', link: '/10-deploy/deepseek-harness/08-deep-dive#6-会话持久化原理' },
                                                                                                     { text: '  ├ 📊 性能', link: '/10-deploy/deepseek-harness/08-deep-dive#7-性能基准' },
-                                                                                                    { text: '  └ 🛟 排查', link: '/10-deploy/deepseek-harness/08-deep-dive#8-故障排查指南' }
+                                                                                                    { text: '  └ 🛟 排查', link: '/10-deploy/deepseek-harness/08-deep-dive#8-故障排查指南' },
+                                                                                                    { text: '🏢 企业级 Agent', link: '/10-deploy/deepseek-harness/09-enterprise-agent' },
+                                                                                                    { text: '  ├ 🎯 核心特征', link: '/10-deploy/deepseek-harness/09-enterprise-agent#🎯-企业级-agent-的核心特征' },
+                                                                                                    { text: '  ├ 🏛️ 架构', link: '/10-deploy/deepseek-harness/09-enterprise-agent#🏛️-完整架构五件套' },
+                                                                                                    { text: '  ├ 📁 目录', link: '/10-deploy/deepseek-harness/09-enterprise-agent#📁-完整目录结构' },
+                                                                                                    { text: '  ├ 📋 preset', link: '/10-deploy/deepseek-harness/09-enterprise-agent#📋-1-presetyaml主配置' },
+                                                                                                    { text: '  ├ 📚 Skills', link: '/10-deploy/deepseek-harness/09-enterprise-agent#📚-2-skills任务命令' },
+                                                                                                    { text: '  ├ 🔌 Plugins', link: '/10-deploy/deepseek-harness/09-enterprise-agent#🔌-3-自定义-plugins' },
+                                                                                                    { text: '  ├ 🤖 子代理', link: '/10-deploy/deepseek-harness/09-enterprise-agent#🤖-4-子代理多-agent-协作' },
+                                                                                                    { text: '  ├ 🌐 MCP', link: '/10-deploy/deepseek-harness/09-enterprise-agent#🌐-5-mcp-配置' },
+                                                                                                    { text: '  ├ 🚀 启动', link: '/10-deploy/deepseek-harness/09-enterprise-agent#🚀-6-启动' },
+                                                                                                    { text: '  ├ 🐳 Docker', link: '/10-deploy/deepseek-harness/09-enterprise-agent#🐳-7-docker-部署' },
+                                                                                                    { text: '  ├ 📦 分发', link: '/10-deploy/deepseek-harness/09-enterprise-agent#📦-8-分发给团队' },
+                                                                                                    { text: '  ├ 📊 监控', link: '/10-deploy/deepseek-harness/09-enterprise-agent#📊-9-监控与运维' },
+                                                                                                    { text: '  ├ 🧪 测试', link: '/10-deploy/deepseek-harness/09-enterprise-agent#🧪-10-测试' },
+                                                                                                    { text: '  ├ 📖 README', link: '/10-deploy/deepseek-harness/09-enterprise-agent#📖-11-团队-readme-模板' },
+                                                                                                    { text: '  └ 🎯 场景', link: '/10-deploy/deepseek-harness/09-enterprise-agent#🎯-12-其他场景模板速查' }
                                                                                                   ]
                                                                                                 },
                                                                                                 {
