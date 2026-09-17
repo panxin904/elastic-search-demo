@@ -252,7 +252,16 @@ export default defineConfig({
                                                                                                     { text: '  ├ 📊 监控', link: '/10-deploy/deepseek-harness/09-enterprise-agent#📊-9-监控与运维' },
                                                                                                     { text: '  ├ 🧪 测试', link: '/10-deploy/deepseek-harness/09-enterprise-agent#🧪-10-测试' },
                                                                                                     { text: '  ├ 📖 README', link: '/10-deploy/deepseek-harness/09-enterprise-agent#📖-11-团队-readme-模板' },
-                                                                                                    { text: '  └ 🎯 场景', link: '/10-deploy/deepseek-harness/09-enterprise-agent#🎯-12-其他场景模板速查' }
+                                                                                                    { text: '  └ 🎯 场景', link: '/10-deploy/deepseek-harness/09-enterprise-agent#🎯-12-其他场景模板速查' },
+                                                                                                    { text: '🚀 优化路线图', link: '/10-deploy/deepseek-harness/11-optimization-roadmap' },
+                                                                                                    { text: '  ├ ⏱️ 性能', link: '/10-deploy/deepseek-harness/11-optimization-roadmap#⏱️-1-性能优化' },
+                                                                                                    { text: '  ├ 💰 成本', link: '/10-deploy/deepseek-harness/11-optimization-roadmap#💰-2-成本优化' },
+                                                                                                    { text: '  ├ 🎯 质量', link: '/10-deploy/deepseek-harness/11-optimization-roadmap#🎯-3-质量优化' },
+                                                                                                    { text: '  ├ 🛡️ 可靠', link: '/10-deploy/deepseek-harness/11-optimization-roadmap#🛡️-4-可靠性优化' },
+                                                                                                    { text: '  ├ 🧠 智能', link: '/10-deploy/deepseek-harness/11-optimization-roadmap#🧠-5-智能化优化' },
+                                                                                                    { text: '  ├ 📊 KPI', link: '/10-deploy/deepseek-harness/11-optimization-roadmap#📊-6-可量化的-kpi-指标' },
+                                                                                                    { text: '  ├ 🔥 优先级', link: '/10-deploy/deepseek-harness/11-optimization-roadmap#🔥-7-优先级清单4-级' },
+                                                                                                    { text: '  └ 🎯 案例', link: '/10-deploy/deepseek-harness/11-optimization-roadmap#🎯-8-实战优化案例pr-reviewer-agent' }
                                                                                                   ]
                                                                                                 },
                                                                                                 {
