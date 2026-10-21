@@ -67,22 +67,22 @@ const relatedSites = [
 ## JSON 系列
 
 <div class="tool-grid">
-  <a class="card" href="/json">
+  <a class="card" href="/tools/json">
     <div class="icon">🧹</div>
     <h3>JSON 格式化</h3>
     <p>美化、压缩、校验 JSON，语法错误定位。</p>
   </a>
-  <a class="card" href="/json-yaml">
+  <a class="card" href="/tools/json-yaml">
     <div class="icon">🔁</div>
     <h3>JSON ↔ YAML</h3>
     <p>JSON 与 YAML 互转，常用于配置文件改写。</p>
   </a>
-  <a class="card" href="/json-csv">
+  <a class="card" href="/tools/json-csv">
     <div class="icon">📊</div>
     <h3>JSON ↔ CSV</h3>
     <p>把 JSON 数组转成 CSV，或把 CSV 转回 JSON 数组。</p>
   </a>
-  <a class="card" href="/json-diff">
+  <a class="card" href="/tools/json-diff">
     <div class="icon">🆚</div>
     <h3>JSON Diff</h3>
     <p>对比两份 JSON 的差异，高亮新增 / 删除 / 改动。</p>
@@ -92,22 +92,22 @@ const relatedSites = [
 ## 时间系列
 
 <div class="tool-grid">
-  <a class="card" href="/timestamp">
+  <a class="card" href="/tools/timestamp">
     <div class="icon">⏱️</div>
     <h3>时间戳 ↔ 日期</h3>
     <p>Unix 秒 / 毫秒 ↔ 人类可读时间，支持本地时区。</p>
   </a>
-  <a class="card" href="/iso">
+  <a class="card" href="/tools/iso">
     <div class="icon">📅</div>
     <h3>ISO / RFC 格式化</h3>
     <p>ISO 8601、RFC 2822、UTC 等多种格式字符串互转。</p>
   </a>
-  <a class="card" href="/timezone">
+  <a class="card" href="/tools/timezone">
     <div class="icon">🌐</div>
     <h3>时区转换</h3>
     <p>在不同时区之间互转同一时刻，支持自定义时区列表。</p>
   </a>
-  <a class="card" href="/relative">
+  <a class="card" href="/tools/relative">
     <div class="icon">🕐</div>
     <h3>相对时间</h3>
     <p>"3 小时前" / "5 天后" 等自然语言时间换算。</p>
@@ -117,22 +117,22 @@ const relatedSites = [
 ## 编码 / 生成
 
 <div class="tool-grid">
-  <a class="card" href="/url">
+  <a class="card" href="/tools/url">
     <div class="icon">🔗</div>
     <h3>URL 编解码</h3>
     <p>encodeURIComponent / decodeURIComponent + URL 参数解析。</p>
   </a>
-  <a class="card" href="/base64">
+  <a class="card" href="/tools/base64">
     <div class="icon">🅱️</div>
     <h3>Base64 编解码</h3>
     <p>纯文本与 Base64 字符串互转，支持中文。</p>
   </a>
-  <a class="card" href="/uuid">
+  <a class="card" href="/tools/uuid">
     <div class="icon">🆔</div>
     <h3>UUID 生成</h3>
     <p>生成 v1 / v4 / v7 UUID，支持批量与大小写。</p>
   </a>
-  <a class="card" href="/cron">
+  <a class="card" href="/tools/cron">
     <div class="icon">⏰</div>
     <h3>Cron 表达式</h3>
     <p>解析 Cron 并预览接下来 5 次运行时间。</p>
